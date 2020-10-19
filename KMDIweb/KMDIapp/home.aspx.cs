@@ -15,9 +15,12 @@ namespace KMDIweb.SCREENfab
         {
             if (Session["KMDI_userid"] != null)
             {
-                if (IsPostBack)
+                if (!IsPostBack)
                 {
-
+                    tboxEdate.Text= DateTime.Now.ToString("yyyy-MM-dd");
+                    loadtoday();
+                    loadschedule();
+                    balanceload();
                 }
             }
             else
@@ -32,9 +35,13 @@ namespace KMDIweb.SCREENfab
                 return ConnectionString.sqlconstr();
             }
         }
-        private void errormessages(string message)
+        private void errorrmessage(string message)
         {
-
+            CustomValidator err = new CustomValidator();
+            err.ValidationGroup = "errorval";
+            err.IsValid = false;
+            err.ErrorMessage = message;
+            Page.Validators.Add(err);
         }
         private void loadschedule()
         {
@@ -49,23 +56,85 @@ namespace KMDIweb.SCREENfab
                         sqlcon.Open();
                         sqlcmd.CommandText = "[screen_cuttinglist_stp]";
                         sqlcmd.CommandType =CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@sdate", tboxSdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@command", "load schedule");
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
                         GridView1.DataSource = tb;
                         GridView1.DataBind();
-
+                        LBLrowcount.Text = tb.Rows.Count.ToString();
                     }
                 }
             }
             catch(Exception ex)
             {
-                errormessages(ex.ToString());
+                errorrmessage(ex.Message.ToString());
             }
         }
+        private void loadtoday()
+        {
+            try
+            {
+                DataTable tb = new DataTable();
 
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "[screen_cuttinglist_stp]";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "load today");
+                        sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(tb);
+                        GridView2.DataSource = tb;
+                        GridView2.DataBind();
+     
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+        }
+        private void balanceload()
+        {
+            try
+            {
+             
+
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "[screen_cuttinglist_stp]";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "balance load");
+                        sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+                        using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                LBLloadpoints.Text = rd[0].ToString()+" hours";
+                                LBLloadkno.Text = rd[1].ToString()+" items";
+                                LBLtodaypoints.Text = rd[2].ToString() + " hours";
+                                LBLtodaykno.Text = rd[3].ToString() + " items";
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+        }
         protected void BTNsearch_Click(object sender, EventArgs e)
         {
             loadschedule();
@@ -75,6 +144,11 @@ namespace KMDIweb.SCREENfab
         {
             GridView1.PageIndex = e.NewPageIndex;
             loadschedule();
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIapp/sccutting.aspx");
         }
     }
 }

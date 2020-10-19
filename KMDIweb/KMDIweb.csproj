@@ -201,6 +201,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="KMDIapp\cutting.aspx.cs">
+      <DependentUpon>cutting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIapp\cutting.aspx.designer.cs">
+      <DependentUpon>cutting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIapp\sccutting.aspx.cs">
+      <DependentUpon>sccutting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIapp\sccutting.aspx.designer.cs">
+      <DependentUpon>sccutting.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -237,8 +251,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="KMDIapp\css\gridcss.css" />
+    <Content Include="KMDIapp\cutting.aspx" />
     <Content Include="KMDIapp\home.aspx" />
     <Content Include="KMDIapp\Login.aspx" />
+    <Content Include="KMDIapp\sccutting.aspx" />
     <Content Include="KMDIapp\scripts\sign.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
