@@ -53,7 +53,7 @@
         <br />
         <br />
 
-        <div class="container" style="background-color: white; padding-bottom: 25px; margin-bottom: 0px;">
+        <div class="" style="background-color: white; padding-bottom: 25px; margin-bottom: 0px;">
             <asp:ContentPlaceHolder ID="content" runat="server">
             </asp:ContentPlaceHolder>
         </div>

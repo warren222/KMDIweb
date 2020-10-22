@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,10 +18,14 @@ namespace KMDIweb.SCREENfab
             {
                 if (!IsPostBack)
                 {
-                    tboxEdate.Text= DateTime.Now.ToString("yyyy-MM-dd");
+
+                    tboxBdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-01");
+                    tboxEdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month).ToString());
+
                     loadtoday();
                     loadschedule();
                     balanceload();
+
                 }
             }
             else
@@ -55,8 +60,9 @@ namespace KMDIweb.SCREENfab
                     {
                         sqlcon.Open();
                         sqlcmd.CommandText = "[screen_cuttinglist_stp]";
-                        sqlcmd.CommandType =CommandType.StoredProcedure;
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@command", "load schedule");
+                        sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
@@ -67,7 +73,7 @@ namespace KMDIweb.SCREENfab
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 errorrmessage(ex.Message.ToString());
             }
@@ -86,13 +92,14 @@ namespace KMDIweb.SCREENfab
                         sqlcmd.CommandText = "[screen_cuttinglist_stp]";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@command", "load today");
+                        sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
                         GridView2.DataSource = tb;
                         GridView2.DataBind();
-     
+
                     }
                 }
             }
@@ -105,7 +112,7 @@ namespace KMDIweb.SCREENfab
         {
             try
             {
-             
+
 
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
@@ -115,13 +122,14 @@ namespace KMDIweb.SCREENfab
                         sqlcmd.CommandText = "[screen_cuttinglist_stp]";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@command", "balance load");
+                        sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
                         using (SqlDataReader rd = sqlcmd.ExecuteReader())
                         {
                             while (rd.Read())
                             {
-                                LBLloadpoints.Text = rd[0].ToString()+" hours";
-                                LBLloadkno.Text = rd[1].ToString()+" items";
+                                LBLloadpoints.Text = rd[0].ToString() + " hours";
+                                LBLloadkno.Text = rd[1].ToString() + " items";
                                 LBLtodaypoints.Text = rd[2].ToString() + " hours";
                                 LBLtodaykno.Text = rd[3].ToString() + " items";
                             }
@@ -149,6 +157,55 @@ namespace KMDIweb.SCREENfab
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/KMDIapp/sccutting.aspx");
+        }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= GridView1.Rows.Count - 1; i++)
+            {
+                Label lblparent = (Label)GridView1.Rows[i].FindControl("LBLday");
+                Label lblfinished = (Label)GridView1.Rows[i].FindControl("LBLfinished");
+                if (lblparent.Text == "Monday")
+                {
+                    GridView1.Rows[i].Cells[0].BackColor = Color.LightBlue;
+                    lblparent.ForeColor = Color.Black;
+                }
+              else  if (lblparent.Text == "Tuesday")
+                {
+                    GridView1.Rows[i].Cells[0].BackColor = Color.LightGreen;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Wednesday")
+                {
+                    GridView1.Rows[i].Cells[0].BackColor = Color.Yellow;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Thursday")
+                {
+                    GridView1.Rows[i].Cells[0].BackColor = Color.Orange;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Friday")
+                {
+                    GridView1.Rows[i].Cells[0].BackColor = Color.Pink;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Saturday")
+                {
+                    GridView1.Rows[i].Cells[0].BackColor = Color.Violet;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else
+                {
+                    GridView1.Rows[i].Cells[0].BackColor = Color.Teal;
+                    lblparent.ForeColor = Color.Black;
+                }
+                if (lblfinished.Text != "")
+                {
+                    GridView1.Rows[i].Cells[7].BackColor = Color.Violet;
+                    lblparent.ForeColor = Color.Black;
+                }
+            }
         }
     }
 }
