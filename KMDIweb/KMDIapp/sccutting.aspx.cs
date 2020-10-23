@@ -21,7 +21,7 @@ namespace KMDIweb.KMDIapp
                 {
                     var monday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
 
-                    var sunday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday+7);
+                    var sunday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7);
 
                     //tboxBdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-01");
                     //tboxEdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month).ToString());
@@ -67,6 +67,16 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@command", "for cutting schedule");
                         sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+
+                        sqlcmd.Parameters.AddWithValue("@parentjono", "");
+                        sqlcmd.Parameters.AddWithValue("@projectname", "");
+                        sqlcmd.Parameters.AddWithValue("@color", "");
+                        sqlcmd.Parameters.AddWithValue("@duedate", "");
+                        sqlcmd.Parameters.AddWithValue("@screentype", "");
+                        sqlcmd.Parameters.AddWithValue("@finished", "");
+                        sqlcmd.Parameters.AddWithValue("@remarks", "");
+                        sqlcmd.Parameters.AddWithValue("@status", "");
+                        sqlcmd.Parameters.AddWithValue("@clno", "");
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
@@ -87,6 +97,7 @@ namespace KMDIweb.KMDIapp
         {
             loadcuttingschedule();
         }
+
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
@@ -99,6 +110,7 @@ namespace KMDIweb.KMDIapp
             {
                 Label lblparent = (Label)GridView1.Rows[i].FindControl("LBLday");
                 Label lblcutting = (Label)GridView1.Rows[i].FindControl("LBLcutting");
+                Label lblfinished = (Label)GridView1.Rows[i].FindControl("LBLfinished");
                 if (lblparent.Text == "Monday")
                 {
                     GridView1.Rows[i].Cells[0].BackColor = Color.LightBlue;
@@ -136,10 +148,230 @@ namespace KMDIweb.KMDIapp
                 }
                 if (lblcutting.Text != "")
                 {
-                    GridView1.Rows[i].Cells[8].BackColor = Color.Violet;
+                    GridView1.Rows[i].Cells[8].BackColor = Color.Indigo;
+                    lblcutting.ForeColor = Color.White;
+                }
+
+                if (lblfinished.Text != "")
+                {
+                    GridView1.Rows[i].Cells[9].BackColor = Color.Brown;
+                    lblfinished.ForeColor = Color.White;
+                }
+            }
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "forcutting")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
+                forcutting(((Label)row.FindControl("LBLparentjono")).Text,
+                 ((Label)row.FindControl("LBLprojectname")).Text,
+                 ((Label)row.FindControl("LBLcolor")).Text,
+                        ((Label)row.FindControl("LBLddate")).Text,
+                        ((Label)row.FindControl("LBLscreentype")).Text,
+                        ((Label)row.FindControl("LBLfinished")).Text,
+                        ((Label)row.FindControl("LBLschedremarks")).Text,
+                     ((Label)row.FindControl("LBLstatus")).Text,
+                     ((Label)row.FindControl("LBLclno")).Text);
+                Panel1.Visible = true;
+                Panel2.Visible = false;
+                ViewState["parentjono"] = ((Label)row.FindControl("LBLparentjono")).Text;
+                ViewState["projectname"] = ((Label)row.FindControl("LBLprojectname")).Text;
+                ViewState["color"] = ((Label)row.FindControl("LBLcolor")).Text;
+                ViewState["duedate"] = ((Label)row.FindControl("LBLddate")).Text;
+                ViewState["screentype"] = ((Label)row.FindControl("LBLscreentype")).Text;
+                ViewState["finished"] = ((Label)row.FindControl("LBLfinished")).Text;
+                ViewState["remarks"] = ((Label)row.FindControl("LBLschedremarks")).Text;
+                ViewState["status"] = ((Label)row.FindControl("LBLstatus")).Text;
+                ViewState["clno"] = ((Label)row.FindControl("LBLclno")).Text;
+            }
+        }
+
+        private void forcutting(string parentjono, string projectname, string color, string duedate, string screentype, string finished, string remarks, string status, string clno)
+        {
+            try
+            {
+                DataTable tb = new DataTable();
+
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "[screen_cutting_stp]";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "for cutting");
+                        sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+
+                        sqlcmd.Parameters.AddWithValue("@parentjono", parentjono);
+                        sqlcmd.Parameters.AddWithValue("@projectname", projectname);
+                        sqlcmd.Parameters.AddWithValue("@color", color);
+                        sqlcmd.Parameters.AddWithValue("@duedate", duedate);
+                        sqlcmd.Parameters.AddWithValue("@screentype", screentype);
+                        sqlcmd.Parameters.AddWithValue("@finished", finished);
+                        sqlcmd.Parameters.AddWithValue("@remarks", remarks);
+                        sqlcmd.Parameters.AddWithValue("@status", status);
+                        sqlcmd.Parameters.AddWithValue("@clno", clno);
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(tb);
+                        GridView2.DataSource = tb;
+                        GridView2.DataBind();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+        }
+
+        protected void GridView2_DataBound(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= ((GridView)sender).Rows.Count - 1; i++)
+            {
+                Label lblparent = (Label)((GridView)sender).Rows[i].FindControl("g2LBLday");
+                Label lblcutting = (Label)((GridView)sender).Rows[i].FindControl("g2LBLcutting");
+
+                if (lblparent.Text == "Monday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.LightBlue;
                     lblparent.ForeColor = Color.Black;
                 }
-              
+                else if (lblparent.Text == "Tuesday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.LightGreen;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Wednesday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Yellow;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Thursday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Orange;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Friday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Pink;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Saturday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Violet;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Teal;
+                    lblparent.ForeColor = Color.Black;
+                }
+
+                if (lblcutting.Text != "")
+                {
+                    ((GridView)sender).Rows[i].Cells[7].BackColor = Color.Indigo;
+                    lblcutting.ForeColor = Color.White;
+                }
+
+            }
+        }
+
+        protected void LINKexit_Click(object sender, EventArgs e)
+        {
+            GridView1.PageIndex = GridView1.PageIndex;
+            loadcuttingschedule();
+            Panel1.Visible = false;
+            Panel2.Visible = true;
+        }
+     
+        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView2.PageIndex = e.NewPageIndex;
+            loadforcutting();
+        }
+        private void loadforcutting()
+        {
+        forcutting(ViewState["parentjono"].ToString(),
+        ViewState["projectname"].ToString(),
+        ViewState["color"].ToString(),
+        ViewState["duedate"].ToString(),
+        ViewState["screentype"].ToString(),
+        ViewState["finished"].ToString(),
+        ViewState["remarks"].ToString(),
+        ViewState["status"].ToString(),
+        ViewState["clno"].ToString());
+        }
+        protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "check")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView2.Rows[rowindex];
+                checkitem(((Label)row.FindControl("g2LBLjoborderno")).Text, ((Label)row.FindControl("g2LBLkno")).Text);
+            }
+            else if (e.CommandName == "uncheck")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView2.Rows[rowindex];
+                uncheckitem(((Label)row.FindControl("g2LBLjoborderno")).Text, ((Label)row.FindControl("g2LBLkno")).Text);
+            }
+        }
+
+        private void uncheckitem(string jo, string kno)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = new SqlCommand("update kmdi_screenfab_tb set cutting = '' where job_order_no = '" + jo + "' and kmdi_no  = '" + kno + "' and not cutting  = ''", sqlcon))
+                    {
+                        sqlcon.Open();
+                        sqlcmd.ExecuteNonQuery();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+            finally
+            {
+                GridView2.PageIndex = GridView2.PageIndex;
+                loadforcutting();
+            
+            }
+        }
+
+        private void checkitem(string jo, string kno)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = new SqlCommand("update kmdi_screenfab_tb set cutting = format(getdate(),'MMM dd, yyyy') where job_order_no = '" + jo + "' and kmdi_no  = '" + kno + "' and cutting = ''", sqlcon))
+                    {
+                        sqlcon.Open();
+                        sqlcmd.ExecuteNonQuery();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+            finally
+            {
+                GridView2.PageIndex = GridView2.PageIndex;
+                loadforcutting();
+            
             }
         }
     }

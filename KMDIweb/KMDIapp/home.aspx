@@ -40,6 +40,30 @@
             </blockquote>
         </div>
     </div>
+
+      <asp:Panel ID="Panel3" runat="server" BackColor="Black">
+    <h6><span><strong>Screen Stations</strong> </span></h6>
+    <div class="row">
+        <div class="col-sm-2">
+            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><h4><span class="text-info"><strong>Cutting</strong></span></h4></asp:LinkButton>
+        </div>
+        <div class="col-sm-2">
+            <asp:LinkButton ID="LinkButton5" runat="server"><h4><span class="text-info"><strong>Prepared Pleated Mesh</strong></span></h4></asp:LinkButton>
+        </div>
+        <div class="col-sm-2">
+            <asp:LinkButton ID="LinkButton2" runat="server"><h4><span class="text-info"><strong>Putting Aluminum Shoot bolt lock</strong></span></h4></asp:LinkButton>
+        </div>
+        <div class="col-sm-2">
+            <asp:LinkButton ID="LinkButton6" runat="server"><h4><span class="text-info"><strong>Assembling</strong></span></h4></asp:LinkButton>
+        </div>
+        <div class="col-sm-2">
+            <asp:LinkButton ID="LinkButton3" runat="server"><h4><span class="text-info"><strong>Putting Accessories</strong></span></h4></asp:LinkButton>
+        </div>
+        <div class="col-sm-2">
+            <asp:LinkButton ID="LinkButton7" runat="server"><h4><span class="text-info"><strong>Quality Control</strong></span></h4></asp:LinkButton>
+        </div>
+    </div>
+        </asp:Panel>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div class="panel panel-default">
@@ -216,27 +240,5 @@
             </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>
-    <asp:Panel ID="Panel3" runat="server" BackColor="Yellow">
-    <h6><span><strong>Screen Stations</strong> </span></h6>
-    <div class="row">
-        <div class="col-sm-2">
-            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><h4><span class="text-info"><strong>Cutting</strong></span></h4></asp:LinkButton>
-        </div>
-        <div class="col-sm-2">
-            <asp:LinkButton ID="LinkButton5" runat="server"><h4><span class="text-info"><strong>Prepared Pleated Mesh</strong></span></h4></asp:LinkButton>
-        </div>
-        <div class="col-sm-2">
-            <asp:LinkButton ID="LinkButton2" runat="server"><h4><span class="text-info"><strong>Putting Aluminum Shoot bolt lock</strong></span></h4></asp:LinkButton>
-        </div>
-        <div class="col-sm-2">
-            <asp:LinkButton ID="LinkButton6" runat="server"><h4><span class="text-info"><strong>Assembling</strong></span></h4></asp:LinkButton>
-        </div>
-        <div class="col-sm-2">
-            <asp:LinkButton ID="LinkButton3" runat="server"><h4><span class="text-info"><strong>Putting Accessories</strong></span></h4></asp:LinkButton>
-        </div>
-        <div class="col-sm-2">
-            <asp:LinkButton ID="LinkButton7" runat="server"><h4><span class="text-info"><strong>Quality Control</strong></span></h4></asp:LinkButton>
-        </div>
-    </div>
-        </asp:Panel>
+  
 </asp:Content>
