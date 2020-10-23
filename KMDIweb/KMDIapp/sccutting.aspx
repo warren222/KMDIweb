@@ -38,7 +38,7 @@
         <ContentTemplate>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4><span><strong>Screen Fabrication Schedule</strong> </span></h4>
+                    <h4><span><strong>Cutting Checklist</strong> </span></h4>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="input-group">
@@ -125,7 +125,6 @@
                                     <ItemTemplate>
                                         <asp:Label ID="LBLcutting" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("CUTTING") %>'></asp:Label>
                                     </ItemTemplate>
-                                    <HeaderStyle BackColor="Violet" ForeColor="Black" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="FABRICATED" HeaderStyle-BackColor="Brown" HeaderStyle-ForeColor="white">
                                     <ItemTemplate>
@@ -155,10 +154,12 @@
                     </asp:Panel>
 
                     <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto" Visible="false">
+                       <div class="alert alert-danger">
+                         <h5><span>Checking items...</span></h5>  
                         <div class="navbar-right">
                               <asp:LinkButton ID="LINKexit" CssClass="btn btn-danger" runat="server" OnClick="LINKexit_Click">Exit</asp:LinkButton>
                         </div>
-
+                         </div> 
                         <asp:GridView ID="GridView2" CssClass="table" runat="server" CellPadding="4" ForeColor="Black" AllowPaging="True" AutoGenerateColumns="False" OnDataBound="GridView2_DataBound" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowCommand="GridView2_RowCommand" PageSize="25">
                             <Columns>
                                 <asp:TemplateField HeaderText="DUE DATE">
@@ -204,7 +205,6 @@
                                     <ItemTemplate>
                                         <asp:Label ID="g2LBLcutting" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("CUTTING") %>'></asp:Label>
                                     </ItemTemplate>
-                                    <HeaderStyle BackColor="Violet" ForeColor="Black" />
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
