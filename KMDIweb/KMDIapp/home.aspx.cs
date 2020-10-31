@@ -18,9 +18,12 @@ namespace KMDIweb.SCREENfab
             {
                 if (!IsPostBack)
                 {
-
-                    tboxBdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-01");
-                    tboxEdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month).ToString());
+                    var monday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
+                    var sunday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7);
+                    tboxBdate.Text = Convert.ToDateTime(monday).ToString("yyyy-MM-dd");
+                    tboxEdate.Text = Convert.ToDateTime(sunday).ToString("yyyy-MM-dd");
+                    //tboxBdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-01");
+                    //tboxEdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month).ToString());
 
                     loadtoday();
                     loadschedule();
@@ -202,10 +205,35 @@ namespace KMDIweb.SCREENfab
                 }
                 if (lblfinished.Text != "")
                 {
-                    GridView1.Rows[i].Cells[7].BackColor = Color.Violet;
-                    lblparent.ForeColor = Color.Black;
+                    GridView1.Rows[i].Cells[7].BackColor = Color.Brown;
+                    lblfinished.ForeColor = Color.White;
                 }
             }
+        }
+
+        protected void LinkButton5_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIapp/scppm.aspx");
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIapp/scasbl.aspx");
+        }
+
+        protected void LinkButton6_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIapp/scassemble.aspx");
+        }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIapp/scaccessories.aspx");
+        }
+
+        protected void LinkButton7_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIapp/scqc.aspx");
         }
     }
 }

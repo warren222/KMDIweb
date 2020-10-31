@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace KMDIweb.KMDIapp
 {
-    public partial class sccutting : System.Web.UI.Page
+    public partial class scasbl : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,11 +21,10 @@ namespace KMDIweb.KMDIapp
                 {
                     var monday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
                     var sunday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7);
-                    //tboxBdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-01");
-                    //tboxEdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month).ToString());
                     tboxBdate.Text = Convert.ToDateTime(monday).ToString("yyyy-MM-dd");
                     tboxEdate.Text = Convert.ToDateTime(sunday).ToString("yyyy-MM-dd");
-                    loadcuttingschedule();
+                    loadasblschedule();
+
                 }
             }
             else
@@ -48,7 +47,12 @@ namespace KMDIweb.KMDIapp
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
-        private void loadcuttingschedule()
+
+        protected void BTNsearch_Click(object sender, EventArgs e)
+        {
+            loadasblschedule();
+        }
+        private void loadasblschedule()
         {
             try
             {
@@ -59,9 +63,9 @@ namespace KMDIweb.KMDIapp
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
-                        sqlcmd.CommandText = "[screen_cutting_stp]";
+                        sqlcmd.CommandText = "[screen_asbl_stp]";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@command", "for cutting schedule");
+                        sqlcmd.Parameters.AddWithValue("@command", "for asbl schedule");
                         sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
 
@@ -90,23 +94,12 @@ namespace KMDIweb.KMDIapp
 
         }
 
-        protected void BTNsearch_Click(object sender, EventArgs e)
-        {
-            loadcuttingschedule();
-        }
-
-        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            GridView1.PageIndex = e.NewPageIndex;
-            loadcuttingschedule();
-        }
-
         protected void GridView1_DataBound(object sender, EventArgs e)
         {
             for (int i = 0; i <= GridView1.Rows.Count - 1; i++)
             {
                 Label lblparent = (Label)GridView1.Rows[i].FindControl("LBLday");
-                Label lblcutting = (Label)GridView1.Rows[i].FindControl("LBLcutting");
+                Label lblasbl = (Label)GridView1.Rows[i].FindControl("LBLasbl");
                 Label lblfinished = (Label)GridView1.Rows[i].FindControl("LBLfinished");
                 if (lblparent.Text == "Monday")
                 {
@@ -143,10 +136,10 @@ namespace KMDIweb.KMDIapp
                     GridView1.Rows[i].Cells[0].BackColor = Color.Teal;
                     lblparent.ForeColor = Color.Black;
                 }
-                if (lblcutting.Text != "")
+                if (lblasbl.Text != "")
                 {
                     GridView1.Rows[i].Cells[8].BackColor = Color.Indigo;
-                    lblcutting.ForeColor = Color.White;
+                    lblasbl.ForeColor = Color.White;
                 }
 
                 if (lblfinished.Text != "")
@@ -157,13 +150,19 @@ namespace KMDIweb.KMDIapp
             }
         }
 
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            loadasblschedule();
+        }
+
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "forcutting")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = GridView1.Rows[rowindex];
-                forcutting(((Label)row.FindControl("LBLparentjono")).Text,
+                forasbl(((Label)row.FindControl("LBLparentjono")).Text,
                  ((Label)row.FindControl("LBLprojectname")).Text,
                  ((Label)row.FindControl("LBLcolor")).Text,
                         ((Label)row.FindControl("LBLddate")).Text,
@@ -172,8 +171,8 @@ namespace KMDIweb.KMDIapp
                         ((Label)row.FindControl("LBLschedremarks")).Text,
                      ((Label)row.FindControl("LBLstatus")).Text,
                      ((Label)row.FindControl("LBLclno")).Text);
-                Panel1.Visible = true;
-                Panel2.Visible = false;
+                Panel2.Visible = true;
+                Panel1.Visible = false;
                 ViewState["parentjono"] = ((Label)row.FindControl("LBLparentjono")).Text;
                 ViewState["projectname"] = ((Label)row.FindControl("LBLprojectname")).Text;
                 ViewState["color"] = ((Label)row.FindControl("LBLcolor")).Text;
@@ -185,8 +184,7 @@ namespace KMDIweb.KMDIapp
                 ViewState["clno"] = ((Label)row.FindControl("LBLclno")).Text;
             }
         }
-
-        private void forcutting(string parentjono, string projectname, string color, string duedate, string screentype, string finished, string remarks, string status, string clno)
+        private void forasbl(string parentjono, string projectname, string color, string duedate, string screentype, string finished, string remarks, string status, string clno)
         {
             try
             {
@@ -197,9 +195,9 @@ namespace KMDIweb.KMDIapp
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
-                        sqlcmd.CommandText = "[screen_cutting_stp]";
+                        sqlcmd.CommandText = "[screen_asbl_stp]";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@command", "for cutting");
+                        sqlcmd.Parameters.AddWithValue("@command", "for asbl");
                         sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
 
@@ -227,12 +225,19 @@ namespace KMDIweb.KMDIapp
             }
         }
 
+        protected void LINKexit_Click(object sender, EventArgs e)
+        {
+            GridView1.PageIndex = GridView1.PageIndex;
+            loadasblschedule();
+            Panel2.Visible = false;
+            Panel1.Visible = true;
+        }
         protected void GridView2_DataBound(object sender, EventArgs e)
         {
             for (int i = 0; i <= ((GridView)sender).Rows.Count - 1; i++)
             {
                 Label lblparent = (Label)((GridView)sender).Rows[i].FindControl("g2LBLday");
-                Label lblcutting = (Label)((GridView)sender).Rows[i].FindControl("g2LBLcutting");
+                Label lblasbl = (Label)((GridView)sender).Rows[i].FindControl("g2LBLasbl");
 
                 if (lblparent.Text == "Monday")
                 {
@@ -270,39 +275,30 @@ namespace KMDIweb.KMDIapp
                     lblparent.ForeColor = Color.Black;
                 }
 
-                if (lblcutting.Text != "")
+                if (lblasbl.Text != "")
                 {
                     ((GridView)sender).Rows[i].Cells[7].BackColor = Color.Indigo;
-                    lblcutting.ForeColor = Color.White;
+                    lblasbl.ForeColor = Color.White;
                 }
 
             }
         }
-
-        protected void LINKexit_Click(object sender, EventArgs e)
+        private void loadforppm()
         {
-            GridView1.PageIndex = GridView1.PageIndex;
-            loadcuttingschedule();
-            Panel1.Visible = false;
-            Panel2.Visible = true;
+            forasbl(ViewState["parentjono"].ToString(),
+            ViewState["projectname"].ToString(),
+            ViewState["color"].ToString(),
+            ViewState["duedate"].ToString(),
+            ViewState["screentype"].ToString(),
+            ViewState["finished"].ToString(),
+            ViewState["remarks"].ToString(),
+            ViewState["status"].ToString(),
+            ViewState["clno"].ToString());
         }
-     
         protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView2.PageIndex = e.NewPageIndex;
-            loadforcutting();
-        }
-        private void loadforcutting()
-        {
-        forcutting(ViewState["parentjono"].ToString(),
-        ViewState["projectname"].ToString(),
-        ViewState["color"].ToString(),
-        ViewState["duedate"].ToString(),
-        ViewState["screentype"].ToString(),
-        ViewState["finished"].ToString(),
-        ViewState["remarks"].ToString(),
-        ViewState["status"].ToString(),
-        ViewState["clno"].ToString());
+            loadforppm();
         }
         protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -319,14 +315,13 @@ namespace KMDIweb.KMDIapp
                 uncheckitem(((Label)row.FindControl("g2LBLjoborderno")).Text, ((Label)row.FindControl("g2LBLkno")).Text);
             }
         }
-
         private void uncheckitem(string jo, string kno)
         {
             try
             {
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
-                    using (SqlCommand sqlcmd = new SqlCommand("update kmdi_screenfab_tb set cutting = '' where job_order_no = '" + jo + "' and kmdi_no  = '" + kno + "' and not cutting  = ''", sqlcon))
+                    using (SqlCommand sqlcmd = new SqlCommand("update kmdi_screenfab_tb set asbl = '' where job_order_no = '" + jo + "' and kmdi_no  = '" + kno + "' and not asbl  = ''", sqlcon))
                     {
                         sqlcon.Open();
                         sqlcmd.ExecuteNonQuery();
@@ -341,8 +336,8 @@ namespace KMDIweb.KMDIapp
             finally
             {
                 GridView2.PageIndex = GridView2.PageIndex;
-                loadforcutting();
-            
+                loadforppm();
+
             }
         }
 
@@ -352,7 +347,7 @@ namespace KMDIweb.KMDIapp
             {
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
-                    using (SqlCommand sqlcmd = new SqlCommand("update kmdi_screenfab_tb set cutting = format(getdate(),'MMM dd, yyyy') where job_order_no = '" + jo + "' and kmdi_no  = '" + kno + "' and cutting = ''", sqlcon))
+                    using (SqlCommand sqlcmd = new SqlCommand("update kmdi_screenfab_tb set asbl = format(getdate(),'MMM dd, yyyy') where job_order_no = '" + jo + "' and kmdi_no  = '" + kno + "' and asbl = ''", sqlcon))
                     {
                         sqlcon.Open();
                         sqlcmd.ExecuteNonQuery();
@@ -367,8 +362,8 @@ namespace KMDIweb.KMDIapp
             finally
             {
                 GridView2.PageIndex = GridView2.PageIndex;
-                loadforcutting();
-            
+                loadforppm();
+
             }
         }
     }

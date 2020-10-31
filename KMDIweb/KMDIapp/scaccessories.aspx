@@ -1,17 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KMDIapp/KMDIwebMaster.Master" CodeBehind="sccutting.aspx.cs" Inherits="KMDIweb.KMDIapp.sccutting" %>
-
-
-<asp:Content ID="content1" runat="server" ContentPlaceHolderID="head">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="scaccessories.aspx.cs"  MasterPageFile="~/KMDIapp/KMDIwebMaster.Master" Inherits="KMDIweb.KMDIapp.scaccessories" %>
+<asp:Content runat="server" ID="Content1" ContentPlaceHolderID="head">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>For cutting</title>
+      <title>Accessories</title>
 </asp:Content>
-
-<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+<asp:Content runat="server" ID="Content2" ContentPlaceHolderID="content">
+      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class=" jumbotron">
         <div class="row">
             <div class="col-sm-6">
-                <h1><strong>For Cutting<br />
+                <h1><strong>Accessories<br />
                     <small>Station's expected output</small> </strong></h1>
                 <asp:LinkButton ID="BTNback" runat="server" PostBackUrl="~/KMDIapp/home.aspx" CssClass="btn btn-primary">back to home page</asp:LinkButton>
             </div>
@@ -26,26 +23,22 @@
                         <td style="background-color: Violet">Sat</td>
                         <td style="background-color: Teal">Sun</td>
                     </tr>
-
                 </table>
                 <table class="table">
                     <tr>
-                        <td style="background-color: indigo; color: white">Cutting</td>
+                        <td style="background-color: indigo; color: white">Accessories</td>
                         <td style="background-color: brown; color: white">Fabricated</td>
                     </tr>
                 </table>
             </div>
         </div>
-
     </div>
- 
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-               <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
-
+            <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4><span><strong>Cutting Checklist</strong> </span></h4>
+                    <h4><span><strong>Accessories Checklist</strong> </span></h4>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="input-group">
@@ -68,12 +61,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="panel-body">
-                    <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto">
-                        <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand">
+                    <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
+                       <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand">
                             <Columns>
                                 <asp:TemplateField HeaderText="DUE DATE" HeaderStyle-Width="500px">
                                     <ItemTemplate>
@@ -128,9 +119,9 @@
                                         <asp:Label ID="LBLremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="CUTTING DATE" HeaderStyle-BackColor="Indigo" HeaderStyle-ForeColor="White">
+                                <asp:TemplateField HeaderText="ACCESSORIES" HeaderStyle-BackColor="Indigo" HeaderStyle-ForeColor="White">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBLcutting" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("CUTTING") %>'></asp:Label>
+                                        <asp:Label ID="LBLaccessories" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("Accessories_date") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="FABRICATED" HeaderStyle-BackColor="Brown" HeaderStyle-ForeColor="white">
@@ -160,7 +151,7 @@
 
                     </asp:Panel>
 
-                    <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto" Visible="false">
+                      <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto" Visible="false">
                         <div class="alert alert-danger">
                             <h4><span>Item checking...</span></h4>
                             <div class="navbar-right">
@@ -208,14 +199,14 @@
                                         <asp:Label ID="g2LBLremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="CUTTING DATE" HeaderStyle-BackColor="Indigo" HeaderStyle-ForeColor="White">
+                                <asp:TemplateField HeaderText="ACCESSORIES" HeaderStyle-BackColor="Indigo" HeaderStyle-ForeColor="White">
                                     <ItemTemplate>
-                                        <asp:Label ID="g2LBLcutting" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("CUTTING") %>'></asp:Label>
-                                    </ItemTemplate>
+                                          <asp:Label ID="g2LBLaccessories" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("Accessories_date") %>'></asp:Label>
+                                    </ItemTemplate>                           
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="BTNcheck" CommandName="check" Visible='<%# Eval("CUTTING").ToString() == "" ? true : false %>' runat="server" CssClass="btn btn-success"><span class="glyphicon glyphicon-ok"></span>&nbsp; Check</asp:LinkButton>
+                                        <asp:LinkButton ID="BTNcheck" CommandName="check" Visible='<%# Eval("Accessories_date").ToString() == "" ? true : false %>' runat="server" CssClass="btn btn-success"><span class="glyphicon glyphicon-ok"></span>&nbsp; Check</asp:LinkButton>
                                         <asp:LinkButton ID="BTNuncheck" CommandName="uncheck" Visible='<%# Eval("uncheck").ToString() == "true" ? true : false %>' runat="server" CssClass="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp; Uncheck</asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -238,15 +229,10 @@
                             </EmptyDataTemplate>
                         </asp:GridView>
                     </asp:Panel>
-
                 </div>
-
-
-
                 <div class="panel-footer">
                 </div>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
-
 </asp:Content>

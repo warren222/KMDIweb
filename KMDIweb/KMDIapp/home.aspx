@@ -9,9 +9,60 @@
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class=" jumbotron">
-        <h1><strong>Screen Fabrication Monitoring<br />
-            <small>Web Site!</small> </strong></h1>
+        <div class="row">
+            <div class="col-sm-6">
+                <h1><strong>Screen Fabrication Monitoring<br />
+                    <small>Web Site!</small> </strong></h1>
+            </div>
+            <div class="col-sm-6">
+                <table class="table">
+                    <tr>
+                        <td style="background-color: LightBlue">Mon</td>
+                        <td style="background-color: LightGreen">Tue</td>
+                        <td style="background-color: Yellow">Wed</td>
+                        <td style="background-color: Orange">Thu</td>
+                        <td style="background-color: Pink">Fri</td>
+                        <td style="background-color: Violet">Sat</td>
+                        <td style="background-color: Teal">Sun</td>
+                    </tr>
+                </table>
+                <table class="table">
+                    <tr>
+                        <td style="background-color: brown; color: white">Fabricated</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
+
+    <div class="nav navbar-default">
+        <div class=" container-fluid">
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li>
+                    <asp:LinkButton ID="LinkButton1" Font-Size="Large" runat="server" OnClick="LinkButton1_Click">Cutting</asp:LinkButton>
+                </li>
+                <li>
+                    <asp:LinkButton ID="LinkButton5" Font-Size="Large" runat="server" OnClick="LinkButton5_Click">Pleated Mesh</asp:LinkButton>
+                </li>
+                <li>
+                    <asp:LinkButton ID="LinkButton2" Font-Size="Large" runat="server" OnClick="LinkButton2_Click">Aluminum Shoot Bolt Lock</asp:LinkButton>
+                </li>
+                <li>
+                    <asp:LinkButton ID="LinkButton6" Font-Size="Large" runat="server" OnClick="LinkButton6_Click">Assemble</asp:LinkButton>
+                </li>
+                <li>
+                    <asp:LinkButton ID="LinkButton3" Font-Size="Large" runat="server" OnClick="LinkButton3_Click">Accessories</asp:LinkButton>
+                </li>
+                <li>
+                    <asp:LinkButton ID="LinkButton7" Font-Size="Large" runat="server" OnClick="LinkButton7_Click">Quality Control</asp:LinkButton>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
     <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="errorval" CssClass="alert alert-danger" runat="server" />
     <div class="row">
         <div class="col-sm-4">
@@ -41,29 +92,7 @@
         </div>
     </div>
 
-      <asp:Panel ID="Panel3" runat="server" BackColor="Black">
-    <h6><span><strong>Screen Stations</strong> </span></h6>
-    <div class="row">
-        <div class="col-sm-2">
-            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><h4><span class="text-info"><strong>Cutting</strong></span></h4></asp:LinkButton>
-        </div>
-        <div class="col-sm-2">
-            <asp:LinkButton ID="LinkButton5" runat="server"><h4><span class="text-info"><strong>Prepared Pleated Mesh</strong></span></h4></asp:LinkButton>
-        </div>
-        <div class="col-sm-2">
-            <asp:LinkButton ID="LinkButton2" runat="server"><h4><span class="text-info"><strong>Putting Aluminum Shoot bolt lock</strong></span></h4></asp:LinkButton>
-        </div>
-        <div class="col-sm-2">
-            <asp:LinkButton ID="LinkButton6" runat="server"><h4><span class="text-info"><strong>Assembling</strong></span></h4></asp:LinkButton>
-        </div>
-        <div class="col-sm-2">
-            <asp:LinkButton ID="LinkButton3" runat="server"><h4><span class="text-info"><strong>Putting Accessories</strong></span></h4></asp:LinkButton>
-        </div>
-        <div class="col-sm-2">
-            <asp:LinkButton ID="LinkButton7" runat="server"><h4><span class="text-info"><strong>Quality Control</strong></span></h4></asp:LinkButton>
-        </div>
-    </div>
-        </asp:Panel>
+
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div class="panel panel-default">
@@ -114,7 +143,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="K#" HeaderStyle-Width="350px">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBLkno" runat="server" Font-Bold="true" CssClass="text-info" Text='<%# Bind("KNO") %>'></asp:Label>
+                                        <asp:Label ID="LBLkno" runat="server" Font-Bold="true" Text='<%# Bind("KNO") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
@@ -139,7 +168,7 @@
                                         <asp:Label ID="LBLremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="DATE FINISHED" HeaderStyle-BackColor="Violet" HeaderStyle-ForeColor="Black">
+                                <asp:TemplateField HeaderText="DATE FINISHED" HeaderStyle-BackColor="Brown" HeaderStyle-ForeColor="White">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLfinished" runat="server" Font-Size="Small" Font-Bold="true" Text='<%# Bind("FINISHED") %>'></asp:Label>
                                     </ItemTemplate>
@@ -240,5 +269,5 @@
             </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>
-  
+
 </asp:Content>
