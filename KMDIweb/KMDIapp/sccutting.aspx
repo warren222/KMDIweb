@@ -73,7 +73,8 @@
 
                 <div class="panel-body">
                     <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto">
-                        <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand">
+                        <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" CellPadding="4" ForeColor="#333333" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:TemplateField HeaderText="DUE DATE" HeaderStyle-Width="500px">
                                     <ItemTemplate>
@@ -132,24 +133,27 @@
                                     <ItemTemplate>
                                         <asp:Label ID="LBLcutting" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("CUTTING") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <HeaderStyle BackColor="Indigo" ForeColor="White" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="FABRICATED" HeaderStyle-BackColor="Brown" HeaderStyle-ForeColor="white">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLfinished" Font-Bold="true" runat="server" Text='<%# Bind("finished") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <HeaderStyle BackColor="Brown" ForeColor="White" />
                                 </asp:TemplateField>
                             </Columns>
-                            <PagerStyle CssClass="GridPager" HorizontalAlign="Left" BackColor="#CCCCCC" ForeColor="Black" />
-                            <FooterStyle BackColor="#CCCCCC" />
-                            <HeaderStyle Wrap="False" BackColor="Black" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle CssClass="GridPager" HorizontalAlign="Center" BackColor="#284775" ForeColor="White" />
+                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle Wrap="False" BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                             <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
 
-                            <RowStyle BackColor="White" />
-                            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                            <SortedAscendingHeaderStyle BackColor="#808080" />
-                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                            <SortedDescendingHeaderStyle BackColor="#383838" />
+                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            <EditRowStyle BackColor="#999999" />
                             <EmptyDataTemplate>
                                 <div class="alert alert-warning">
                                     <h3><strong>Sorry, the table is empty!</strong>
@@ -161,13 +165,10 @@
                     </asp:Panel>
 
                     <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto" Visible="false">
-                        <div class="alert alert-danger">
-                            <h4><span>Item checking...</span></h4>
-                            <div class="navbar-right">
-                                <asp:LinkButton ID="LINKexit" CssClass="btn btn-danger" runat="server" OnClick="LINKexit_Click">Exit</asp:LinkButton>
-                            </div>
-                        </div>
-                        <asp:GridView ID="GridView2" CssClass="table" runat="server" CellPadding="4" ForeColor="Black" AllowPaging="True" AutoGenerateColumns="False" OnDataBound="GridView2_DataBound" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowCommand="GridView2_RowCommand" PageSize="25">
+                            <h4 class="text-warning text-center"><span style="font-size:xx-large">Item checking</span></h4>
+                            <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to checklist</asp:LinkButton>
+                        <asp:GridView ID="GridView2" CssClass="table" runat="server" CellPadding="4" ForeColor="Black" AllowPaging="True" AutoGenerateColumns="False" OnDataBound="GridView2_DataBound" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowCommand="GridView2_RowCommand" PageSize="25" GridLines="Vertical">
+                            <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="DUE DATE">
                                     <ItemTemplate>
@@ -212,6 +213,7 @@
                                     <ItemTemplate>
                                         <asp:Label ID="g2LBLcutting" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("CUTTING") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <HeaderStyle BackColor="Indigo" ForeColor="White" />
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -220,16 +222,16 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
-                            <FooterStyle BackColor="#CCCCCC" />
-                            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                            <FooterStyle BackColor="#CCCC99" />
+                            <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
                             <PagerSettings Position="TopAndBottom" PageButtonCount="8" />
-                            <PagerStyle CssClass="GridPager" HorizontalAlign="Left" BackColor="#CCCCCC" ForeColor="Black" />
-                            <RowStyle BackColor="White" Wrap="False" />
-                            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                            <SortedAscendingHeaderStyle BackColor="#808080" />
-                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                            <SortedDescendingHeaderStyle BackColor="#383838" />
+                            <PagerStyle CssClass="GridPager" HorizontalAlign="Right" BackColor="#F7F7DE" ForeColor="Black" />
+                            <RowStyle BackColor="#F7F7DE" Wrap="False" />
+                            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#FBFBF2" />
+                            <SortedAscendingHeaderStyle BackColor="#848384" />
+                            <SortedDescendingCellStyle BackColor="#EAEAD3" />
+                            <SortedDescendingHeaderStyle BackColor="#575357" />
                             <EmptyDataTemplate>
                                 <div class="alert alert-warning">
                                     <h3><strong>Sorry, the table is empty!</strong>

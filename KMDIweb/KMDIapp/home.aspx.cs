@@ -12,6 +12,9 @@ namespace KMDIweb.SCREENfab
 {
     public partial class home : System.Web.UI.Page
     {
+        string mon = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday)).ToString("yyyy-MM-dd");
+        string sun = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7)).ToString("yyyy-MM-dd");
+        string projectname = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["KMDI_userid"] != null)
@@ -25,8 +28,8 @@ namespace KMDIweb.SCREENfab
                     //tboxBdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-01");
                     //tboxEdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month).ToString());
 
-                    loadtoday();
-                    loadschedule();
+                    projectname = TBOXprojectname.Text;
+                    loadschedule("load schedule");
                     balanceload();
 
                 }
@@ -51,7 +54,8 @@ namespace KMDIweb.SCREENfab
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
-        private void loadschedule()
+
+        private void loadschedule(string command)
         {
             try
             {
@@ -64,15 +68,36 @@ namespace KMDIweb.SCREENfab
                         sqlcon.Open();
                         sqlcmd.CommandText = "[screen_cuttinglist_stp]";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@command", "load schedule");
+                        sqlcmd.Parameters.AddWithValue("@command", command);
                         sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@mon", mon);
+                        sqlcmd.Parameters.AddWithValue("@sun", sun);
+                        sqlcmd.Parameters.AddWithValue("@projectname", projectname);
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
                         GridView1.DataSource = tb;
                         GridView1.DataBind();
                         LBLrowcount.Text = tb.Rows.Count.ToString();
+                        ViewState["prevcommand"] = command;
+
+                        if (command == "load schedule")
+                        {
+                            LBLschedule.Text = "Screen Fabrication Schedule";
+                        }
+                        else if (command == "current week")
+                        {
+                            LBLschedule.Text = "Current Week Unfinished";
+                        }
+                        else if (command == "today")
+                        {
+                            LBLschedule.Text = "Today Unfinished";
+                        }
+                        else if (command == "prev week")
+                        {
+                            LBLschedule.Text = "Previous weeks Unfinished";
+                        }
                     }
                 }
             }
@@ -81,41 +106,11 @@ namespace KMDIweb.SCREENfab
                 errorrmessage(ex.Message.ToString());
             }
         }
-        private void loadtoday()
-        {
-            try
-            {
-                DataTable tb = new DataTable();
 
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
-                {
-                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
-                    {
-                        sqlcon.Open();
-                        sqlcmd.CommandText = "[screen_cuttinglist_stp]";
-                        sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@command", "load today");
-                        sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
-                        sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
-                        SqlDataAdapter da = new SqlDataAdapter();
-                        da.SelectCommand = sqlcmd;
-                        da.Fill(tb);
-                        GridView2.DataSource = tb;
-                        GridView2.DataBind();
-
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                errorrmessage(ex.Message.ToString());
-            }
-        }
         private void balanceload()
         {
             try
             {
-
 
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
@@ -127,14 +122,19 @@ namespace KMDIweb.SCREENfab
                         sqlcmd.Parameters.AddWithValue("@command", "balance load");
                         sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@mon", mon);
+                        sqlcmd.Parameters.AddWithValue("@sun", sun);
+                        sqlcmd.Parameters.AddWithValue("@projectname", "");
                         using (SqlDataReader rd = sqlcmd.ExecuteReader())
                         {
                             while (rd.Read())
                             {
-                                LBLloadpoints.Text = rd[0].ToString() + " hours";
-                                LBLloadkno.Text = rd[1].ToString() + " items";
-                                LBLtodaypoints.Text = rd[2].ToString() + " hours";
-                                LBLtodaykno.Text = rd[3].ToString() + " items";
+                                BTNCurrentweektime.Text = rd[0].ToString();
+                                LBLcurrentweekitem.Text = rd[1].ToString() + " k#(s)";
+                                BTNtodaytime.Text = rd[2].ToString();
+                                LBLtodayitem.Text = rd[3].ToString() + " k#(s)";
+                                BTNprevweektime.Text = rd[4].ToString();
+                                LBLprevweekitem.Text = rd[5].ToString() + " k#(s)";
                             }
                         }
 
@@ -148,18 +148,19 @@ namespace KMDIweb.SCREENfab
         }
         protected void BTNsearch_Click(object sender, EventArgs e)
         {
-            loadschedule();
+            projectname = TBOXprojectname.Text;
+            loadschedule("load schedule");
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            loadschedule();
+            loadschedule(ViewState["prevcommand"].ToString());
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void BTNCurrentweektime_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIapp/sccutting.aspx");
+            loadschedule("current week");
         }
 
         protected void GridView1_DataBound(object sender, EventArgs e)
@@ -173,7 +174,7 @@ namespace KMDIweb.SCREENfab
                     GridView1.Rows[i].Cells[0].BackColor = Color.LightBlue;
                     lblparent.ForeColor = Color.Black;
                 }
-              else  if (lblparent.Text == "Tuesday")
+                else if (lblparent.Text == "Tuesday")
                 {
                     GridView1.Rows[i].Cells[0].BackColor = Color.LightGreen;
                     lblparent.ForeColor = Color.Black;
@@ -211,29 +212,14 @@ namespace KMDIweb.SCREENfab
             }
         }
 
-        protected void LinkButton5_Click(object sender, EventArgs e)
+        protected void BTNtodaytime_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIapp/scppm.aspx");
+            loadschedule("today");
         }
 
-        protected void LinkButton2_Click(object sender, EventArgs e)
+        protected void BTNprevweektime_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIapp/scasbl.aspx");
-        }
-
-        protected void LinkButton6_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/KMDIapp/scassemble.aspx");
-        }
-
-        protected void LinkButton3_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/KMDIapp/scaccessories.aspx");
-        }
-
-        protected void LinkButton7_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/KMDIapp/scqc.aspx");
+            loadschedule("prev week");
         }
     }
 }

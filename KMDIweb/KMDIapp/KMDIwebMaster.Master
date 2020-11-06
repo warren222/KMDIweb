@@ -30,17 +30,31 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/SCREENfab/home.aspx">
+                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/KMDIapp/home.aspx">
                                  <span class="glyphicon glyphicon-home"></span>&nbsp;Home</asp:HyperLink></li>
-                        <li class="dropdown">
-                           
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-th-large"></span>&nbsp;Screen Stations<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/KMDIapp/sccutting.aspx">Cutting</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/KMDIapp/scppm.aspx">Pleated Mesh</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/KMDIapp/scasbl.aspx">Aluminum shoot bolt lock</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/KMDIapp/scassemble.aspx">Assemble</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/KMDIapp/scaccessories.aspx">Accessories</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/KMDIapp/scqc.aspx">QC</asp:HyperLink></li>
+                            </ul>
+
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li></li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <asp:Label ID="username" runat="server" Text="acctlink"></asp:Label><span class="caret"></span></a>
-                            <ul class="dropdown-menu">            
+                            <ul class="dropdown-menu">
                                 <li>
                                     <asp:LinkButton ID="LinkButton1" OnClick="LinkButton1_Click" runat="server"><span class="glyphicon  glyphicon-log-out"></span>&nbsp;Logout</asp:LinkButton></li>
                             </ul>

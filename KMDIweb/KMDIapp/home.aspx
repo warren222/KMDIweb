@@ -4,6 +4,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
+    <style>
+        .forfont {
+            font-family: 'lato', sans-serif;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
@@ -35,71 +40,45 @@
         </div>
     </div>
 
-    <div class="nav navbar-default">
-        <div class=" container-fluid">
-
-            <ul class="nav navbar-nav navbar-right">
-
-                <li>
-                    <asp:LinkButton ID="LinkButton1" Font-Size="Large" runat="server" OnClick="LinkButton1_Click">Cutting</asp:LinkButton>
-                </li>
-                <li>
-                    <asp:LinkButton ID="LinkButton5" Font-Size="Large" runat="server" OnClick="LinkButton5_Click">Pleated Mesh</asp:LinkButton>
-                </li>
-                <li>
-                    <asp:LinkButton ID="LinkButton2" Font-Size="Large" runat="server" OnClick="LinkButton2_Click">Aluminum Shoot Bolt Lock</asp:LinkButton>
-                </li>
-                <li>
-                    <asp:LinkButton ID="LinkButton6" Font-Size="Large" runat="server" OnClick="LinkButton6_Click">Assemble</asp:LinkButton>
-                </li>
-                <li>
-                    <asp:LinkButton ID="LinkButton3" Font-Size="Large" runat="server" OnClick="LinkButton3_Click">Accessories</asp:LinkButton>
-                </li>
-                <li>
-                    <asp:LinkButton ID="LinkButton7" Font-Size="Large" runat="server" OnClick="LinkButton7_Click">Quality Control</asp:LinkButton>
-                </li>
-            </ul>
-
-        </div>
-    </div>
-
-    <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="errorval" CssClass="alert alert-danger" runat="server" />
-    <div class="row">
-        <div class="col-sm-4">
-            <blockquote>
-                <h5><strong class="text-muted">Load</strong></h5>
-                <asp:Label ID="LBLloadpoints" Font-Bold="true" CssClass="text-center" Font-Size="XX-Large" runat="server" Text="Time"></asp:Label>
-                <br />
-                <asp:Label ID="LBLloadkno" CssClass="text-center" runat="server" Text="k#(s)"></asp:Label>
-            </blockquote>
-        </div>
-        <div class="col-sm-4">
-
-            <blockquote>
-                <h5><strong class="text-muted">Today</strong></h5>
-                <asp:Label ID="LBLtodaypoints" Font-Bold="true" CssClass="text-center" Font-Size="XX-Large" runat="server" Text="Time"></asp:Label>
-                <br />
-                <asp:Label ID="LBLtodaykno" CssClass="text-center" runat="server" Text="k#(s)"></asp:Label>
-            </blockquote>
-        </div>
-        <div class="col-sm-4">
-            <blockquote>
-                <h5><strong class="text-muted">This week</strong></h5>
-                <asp:Label ID="Label5" Font-Bold="true" CssClass="text-center" Font-Size="XX-Large" runat="server" Text="Time"></asp:Label>
-                <br />
-                <asp:Label ID="Label6" CssClass="text-center" runat="server" Text="k#(s)"></asp:Label>
-            </blockquote>
-        </div>
-    </div>
 
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
+            <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="errorval" CssClass="alert alert-danger" runat="server" />
+            <div class="row">
+                <div class="col-sm-4">
+                    <blockquote>
+                        <h5><strong class="text-muted">Previous Week Unfinished</strong></h5>
+                        <asp:LinkButton ID="BTNprevweektime" runat="server" Font-Size="XX-Large" OnClick="BTNprevweektime_Click">Time</asp:LinkButton>
+                        <br />
+                        <asp:Label ID="LBLprevweekitem" CssClass="text-center" runat="server" Text="k#(s)"></asp:Label>
+                    </blockquote>
+                </div>
+                <div class="col-sm-4">
+
+                    <blockquote>
+                        <h5><strong class="text-muted">Today Unfinished</strong></h5>
+
+                        <asp:LinkButton ID="BTNtodaytime" runat="server" Font-Size="XX-Large" OnClick="BTNtodaytime_Click">Time</asp:LinkButton>
+                        <br />
+                        <asp:Label ID="LBLtodayitem" CssClass="text-center" runat="server" Text="k#(s)"></asp:Label>
+                    </blockquote>
+                </div>
+                <div class="col-sm-4">
+                    <blockquote>
+                        <h5><strong class="text-muted">Current week Unfinished</strong></h5>
+                        <asp:LinkButton ID="BTNCurrentweektime" runat="server" Font-Size="XX-Large" OnClick="BTNCurrentweektime_Click">Time</asp:LinkButton>
+                        <br />
+                        <asp:Label ID="LBLcurrentweekitem" CssClass="text-center" runat="server" Text="k#(s)"></asp:Label>
+                    </blockquote>
+                </div>
+            </div>
+
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4><span><strong>Screen Fabrication Schedule</strong> </span></h4>
+                    <h4><span>Filter Option</span></h4>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-3">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     DATE BEGIN
@@ -108,12 +87,20 @@
 
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-3">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     DATE END
                                 </div>
                                 <asp:TextBox ID="tboxEdate" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    PROJECT
+                                </div>
+                                <asp:TextBox ID="TBOXprojectname" placeholder="project name" CssClass="form-control" runat="server"></asp:TextBox>
                                 <div class="input-group-btn">
                                     <asp:LinkButton ID="BTNsearch" CssClass="btn btn-default" runat="server" OnClick="BTNsearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
                                 </div>
@@ -125,7 +112,10 @@
 
                 <div class="panel-body">
                     <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto">
-                        <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound">
+                        <h3 class="text-center text-success"><span><strong>
+                            <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Schedule"></asp:Label></strong> </span></h3>
+                        <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="25" OnDataBound="GridView1_DataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="DATE" HeaderStyle-Width="500px">
                                     <ItemTemplate>
@@ -135,68 +125,79 @@
                                     </ItemTemplate>
                                     <HeaderStyle Width="100px" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="PROJECT" HeaderStyle-Width="250px">
+                                <asp:TemplateField HeaderText="PROJECT" HeaderStyle-Width="150px">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLprojectname" runat="server" Font-Size="Small" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle Width="350px" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="K#" HeaderStyle-Width="350px">
+                                <asp:TemplateField HeaderText="K#" HeaderStyle-Width="350px" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLkno" runat="server" Font-Bold="true" Text='<%# Bind("KNO") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <HeaderStyle Width="350px" />
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="COLOR">
+                                <asp:TemplateField HeaderText="COLOR" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBLcolor" runat="server" Text='<%# Bind("COLOR") %>'></asp:Label>
+                                        <asp:Label ID="LBLcolor" runat="server"  Text='<%# Bind("COLOR") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="QTY">
+                                <asp:TemplateField HeaderText="QTY" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBLqty" runat="server" Text='<%# Bind("QTY") %>'></asp:Label>
+                                        <asp:Label ID="LBLqty" runat="server"  Text='<%# Bind("QTY") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="TYPE OF SCREEN">
+                                <asp:TemplateField HeaderText="TYPE OF SCREEN" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBLscreentype" runat="server" Text='<%# Bind("TYPE_OF_SCREEN") %>'></asp:Label>
+                                        <asp:Label ID="LBLscreentype" runat="server"  Text='<%# Bind("TYPE_OF_SCREEN") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="REMARKS">
+                                <asp:TemplateField HeaderText="REMARKS" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBLremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>
+                                        <asp:Label ID="LBLremarks" runat="server"  Text='<%# Bind("REMARKS") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="DATE FINISHED" HeaderStyle-BackColor="Brown" HeaderStyle-ForeColor="White">
+                                <asp:TemplateField HeaderText="DATE FINISHED" HeaderStyle-BackColor="Brown" HeaderStyle-ForeColor="White" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <asp:Label ID="LBLfinished" runat="server" Font-Size="Small" Font-Bold="true" Text='<%# Bind("FINISHED") %>'></asp:Label>
+                                        <asp:Label ID="LBLfinished" runat="server" Font-Size="Small"  Font-Bold="true" Text='<%# Bind("FINISHED") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <HeaderStyle BackColor="Brown" ForeColor="White" />
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
 
                                 <asp:TemplateField HeaderText="TIME" HeaderStyle-BackColor="Wheat" HeaderStyle-ForeColor="Black">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLtime" Font-Bold="true" Font-Size="Medium" runat="server" Text='<%# Bind("ACTUAL_TIME") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <HeaderStyle BackColor="Wheat" ForeColor="Black" />
                                 </asp:TemplateField>
                             </Columns>
-                            <PagerStyle CssClass="GridPager" HorizontalAlign="Left" BackColor="#CCCCCC" ForeColor="Black" />
-                            <FooterStyle BackColor="#CCCCCC" />
-                            <HeaderStyle Wrap="False" BackColor="Black" Font-Bold="True" ForeColor="White" />
-                            <PagerSettings PageButtonCount="8" />
+                            <PagerStyle CssClass="GridPager" BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle Wrap="False" BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                            <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
 
-                            <RowStyle BackColor="White" />
-                            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                            <SortedAscendingHeaderStyle BackColor="#808080" />
-                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                            <SortedDescendingHeaderStyle BackColor="#383838" />
+                            <EditRowStyle BackColor="#7C6F57" />
+
                             <EmptyDataTemplate>
                                 <div class="alert alert-warning">
                                     <h3><strong>Sorry, the table is empty!</strong>
                                     </h3>
                                 </div>
                             </EmptyDataTemplate>
+                            <RowStyle BackColor="#E3EAEB" />
+                            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                            <SortedAscendingHeaderStyle BackColor="#246B61" />
+                            <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                            <SortedDescendingHeaderStyle BackColor="#15524A" />
                         </asp:GridView>
 
                     </asp:Panel>
@@ -205,68 +206,6 @@
                     <asp:Label ID="LBLrowcount" runat="server" Text="Label"></asp:Label>
                 </div>
             </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
-
-    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-        <ContentTemplate>
-            <asp:Panel ID="Panel1" ScrollBars="Auto" Visible="false" runat="server">
-
-
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h4>Expected Daily Output Summary List</h4>
-                    </div>
-                    <div class="panel-body">
-
-                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" GridLines="Both" CssClass="table" CellPadding="3" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellSpacing="1">
-                            <Columns>
-                                <asp:TemplateField>
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label10" runat="server" Text='<%# Bind("project_name") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField>
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label10" runat="server" CssClass="text-info" Font-Bold="true" Text='<%# Bind("kno") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="DUE DATE" HeaderStyle-BackColor="YellowGreen">
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label10" runat="server" Font-Size="Large" Font-Bold="true" Text='<%# Bind("due_date") %>'></asp:Label>
-                                    </ItemTemplate>
-
-                                    <HeaderStyle BackColor="YellowGreen"></HeaderStyle>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="TIME" HeaderStyle-BackColor="Wheat" HeaderStyle-ForeColor="Black">
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label10" Font-Bold="true" runat="server" Text='<%# Bind("timevalue") %>'></asp:Label>
-                                    </ItemTemplate>
-                                    <HeaderStyle BackColor="Wheat"></HeaderStyle>
-                                </asp:TemplateField>
-                            </Columns>
-                            <EmptyDataTemplate>
-                                <div class="alert alert-warning">
-                                    <h3><strong>Sorry, the table is empty!</strong>
-                                    </h3>
-                                </div>
-                            </EmptyDataTemplate>
-                            <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
-                            <HeaderStyle Wrap="False" BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
-                            <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
-                            <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
-                            <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
-                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                            <SortedAscendingHeaderStyle BackColor="#594B9C" />
-                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                            <SortedDescendingHeaderStyle BackColor="#33276A" />
-                        </asp:GridView>
-                    </div>
-                    <div class="panel-footer">
-                        <asp:Label ID="Label7" runat="server" Text="row count"></asp:Label>
-                    </div>
-                </div>
-            </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>
 
