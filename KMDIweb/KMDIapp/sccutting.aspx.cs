@@ -13,6 +13,7 @@ namespace KMDIweb.KMDIapp
 {
     public partial class sccutting : System.Web.UI.Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["KMDI_userid"] != null)
@@ -74,6 +75,8 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@remarks", "");
                         sqlcmd.Parameters.AddWithValue("@status", "");
                         sqlcmd.Parameters.AddWithValue("@clno", "");
+                            sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);    
+                        sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
@@ -212,6 +215,9 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@remarks", remarks);
                         sqlcmd.Parameters.AddWithValue("@status", status);
                         sqlcmd.Parameters.AddWithValue("@clno", clno);
+
+                        sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
+                        sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);

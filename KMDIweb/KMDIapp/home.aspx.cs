@@ -14,7 +14,7 @@ namespace KMDIweb.SCREENfab
     {
         string mon = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday)).ToString("yyyy-MM-dd");
         string sun = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7)).ToString("yyyy-MM-dd");
-        string projectname = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["KMDI_userid"] != null)
@@ -28,7 +28,7 @@ namespace KMDIweb.SCREENfab
                     //tboxBdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-01");
                     //tboxEdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month).ToString());
 
-                    projectname = TBOXprojectname.Text;
+
                     loadschedule("load schedule");
                     balanceload();
 
@@ -73,7 +73,17 @@ namespace KMDIweb.SCREENfab
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
                         sqlcmd.Parameters.AddWithValue("@mon", mon);
                         sqlcmd.Parameters.AddWithValue("@sun", sun);
-                        sqlcmd.Parameters.AddWithValue("@projectname", projectname);
+                        sqlcmd.Parameters.AddWithValue("@projectname", TBOXprojectname.Text);
+                        sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
+
+                        sqlcmd.Parameters.AddWithValue("@pjono", "");
+                        sqlcmd.Parameters.AddWithValue("@pname","");
+                        sqlcmd.Parameters.AddWithValue("@color", "");
+                        sqlcmd.Parameters.AddWithValue("@rduedate", "");
+                        sqlcmd.Parameters.AddWithValue("@screentype", "");
+                        sqlcmd.Parameters.AddWithValue("@finished", "");
+                        sqlcmd.Parameters.AddWithValue("@schedremarks","");
+                        sqlcmd.Parameters.AddWithValue("@status", "");
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
@@ -98,6 +108,8 @@ namespace KMDIweb.SCREENfab
                         {
                             LBLschedule.Text = "Previous weeks Unfinished";
                         }
+                        Panel1.Visible = true;
+                        Panel2.Visible = false;
                     }
                 }
             }
@@ -125,6 +137,16 @@ namespace KMDIweb.SCREENfab
                         sqlcmd.Parameters.AddWithValue("@mon", mon);
                         sqlcmd.Parameters.AddWithValue("@sun", sun);
                         sqlcmd.Parameters.AddWithValue("@projectname", "");
+                        sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
+
+                        sqlcmd.Parameters.AddWithValue("@pjono", "");
+                        sqlcmd.Parameters.AddWithValue("@pname", "");
+                        sqlcmd.Parameters.AddWithValue("@color", "");
+                        sqlcmd.Parameters.AddWithValue("@rduedate", "");
+                        sqlcmd.Parameters.AddWithValue("@screentype", "");
+                        sqlcmd.Parameters.AddWithValue("@finished", "");
+                        sqlcmd.Parameters.AddWithValue("@schedremarks", "");
+                        sqlcmd.Parameters.AddWithValue("@status", "");
                         using (SqlDataReader rd = sqlcmd.ExecuteReader())
                         {
                             while (rd.Read())
@@ -148,7 +170,7 @@ namespace KMDIweb.SCREENfab
         }
         protected void BTNsearch_Click(object sender, EventArgs e)
         {
-            projectname = TBOXprojectname.Text;
+
             loadschedule("load schedule");
         }
 
@@ -220,6 +242,80 @@ namespace KMDIweb.SCREENfab
         protected void BTNprevweektime_Click(object sender, EventArgs e)
         {
             loadschedule("prev week");
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "loadkno")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
+                ViewState["parentjono"] = ((Label)row.FindControl("LBLparentjono")).Text;
+                ViewState["projectname"] = ((Label)row.FindControl("LBLprojectname")).Text;
+                ViewState["color"] = ((Label)row.FindControl("LBLcolor")).Text;
+                ViewState["realduedate"] = ((Label)row.FindControl("LBLrealduedate")).Text;
+                ViewState["screentype"] = ((Label)row.FindControl("LBLscreentype")).Text;
+                ViewState["finished"] = ((Label)row.FindControl("LBLfinished")).Text;
+                ViewState["schedremarks"] = ((Label)row.FindControl("LBLschedremarks")).Text;
+                ViewState["status"] = ((Label)row.FindControl("LBLstatus")).Text;
+                Panel2.Visible = true;
+                Panel1.Visible = false;
+                loadkno();
+            }
+        }
+        private void loadkno()
+        {
+            try
+            {
+                DataTable tb = new DataTable();
+
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "[screen_cuttinglist_stp]";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "load kno");
+                        sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@mon", mon);
+                        sqlcmd.Parameters.AddWithValue("@sun", sun);
+                        sqlcmd.Parameters.AddWithValue("@projectname", TBOXprojectname.Text);
+                        sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
+
+                        sqlcmd.Parameters.AddWithValue("@pjono", ViewState["parentjono"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@pname", ViewState["projectname"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@color", ViewState["color"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@rduedate", ViewState["realduedate"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@screentype", ViewState["screentype"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@finished", ViewState["finished"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@schedremarks", ViewState["schedremarks"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@status", ViewState["status"].ToString());
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(tb);
+                        GridView2.DataSource = tb;
+                        GridView2.DataBind();
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+        }
+        protected void LINKexit_Click(object sender, EventArgs e)
+        {
+            Panel2.Visible = false;
+            Panel1.Visible = true;
+        }
+
+        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            loadkno();
         }
     }
 }

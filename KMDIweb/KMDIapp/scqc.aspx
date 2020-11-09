@@ -39,9 +39,9 @@
             <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4><span><strong>Quality Control Checklist</strong> </span></h4>
+                    <h4><span>Filter Option</span></h4>
                     <div class="row">
-                        <div class="col-sm-6">
+                            <div class="col-sm-3">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     DATE BEGIN
@@ -50,12 +50,24 @@
 
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-3">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     DATE END
                                 </div>
                                 <asp:TextBox ID="tboxEdate" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    PROJECT
+                                </div>
+                                <asp:TextBox ID="TBOXproject" placeholder="project name" CssClass="form-control" runat="server"></asp:TextBox>
+                                <div class="input-group-addon">
+                                    <asp:CheckBox ID="CheckBox1" runat="server" Checked="true" />&nbsp;Finished
+                                </div>
                                 <div class="input-group-btn">
                                     <asp:LinkButton ID="BTNsearch" CssClass="btn btn-primary" runat="server" OnClick="BTNsearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
                                 </div>
@@ -65,7 +77,10 @@
                 </div>
                 <div class="panel-body">
                     <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-                       <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand">
+                            <h3 class="text-center text-success"><span><strong>
+                            <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Quality Control Checklist Table"></asp:Label></strong> </span></h3>
+                       <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand" GridLines="Vertical" ForeColor="Black">
+                            <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="DUE DATE" HeaderStyle-Width="500px">
                                     <ItemTemplate>
@@ -87,64 +102,74 @@
                                     </ItemTemplate>
                                     <HeaderStyle Width="350px" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="K#" HeaderStyle-Width="350px">
+                                <asp:TemplateField HeaderText="K#" HeaderStyle-Width="350px" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="LINKkno" runat="server" CommandName="forcutting" Font-Bold="true" Text='<%# Bind("KNO") %>'></asp:LinkButton>
                                     </ItemTemplate>
                                     <HeaderStyle Width="350px" />
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="CL ctrl no.">
+                                <asp:TemplateField HeaderText="CL ctrl no." ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLclno" runat="server" Text='<%# Bind("CLNO") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="COLOR">
+                                <asp:TemplateField HeaderText="COLOR" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLcolor" runat="server" Text='<%# Bind("COLOR") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="QTY">
+                                <asp:TemplateField HeaderText="QTY" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLqty" runat="server" Text='<%# Bind("QTY") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="TYPE OF SCREEN">
+                                <asp:TemplateField HeaderText="TYPE OF SCREEN" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLscreentype" runat="server" Text='<%# Bind("TYPE_OF_SCREEN") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="REMARKS">
+                                <asp:TemplateField HeaderText="REMARKS" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Quality Control" HeaderStyle-BackColor="Indigo" HeaderStyle-ForeColor="White">
+                                <asp:TemplateField HeaderText="Quality Control" HeaderStyle-BackColor="Indigo" HeaderStyle-ForeColor="White" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLqc" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("Q_C") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <HeaderStyle BackColor="Indigo" ForeColor="White" />
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="FABRICATED" HeaderStyle-BackColor="Brown" HeaderStyle-ForeColor="white">
+                                <asp:TemplateField HeaderText="FABRICATED" HeaderStyle-BackColor="Brown" HeaderStyle-ForeColor="white" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLfinished" Font-Bold="true" runat="server" Text='<%# Bind("finished") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <HeaderStyle BackColor="Brown" ForeColor="White" />
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                             </Columns>
-                            <PagerStyle CssClass="GridPager" HorizontalAlign="Left" BackColor="#CCCCCC" ForeColor="Black" />
-                            <FooterStyle BackColor="#CCCCCC" />
-                            <HeaderStyle Wrap="False" BackColor="Black" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle CssClass="GridPager" HorizontalAlign="Right" BackColor="#F7F7DE" ForeColor="Black" />
+                            <FooterStyle BackColor="#CCCC99" />
+                            <HeaderStyle Wrap="False" BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
                             <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
 
-                            <RowStyle BackColor="White" />
-                            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                            <SortedAscendingHeaderStyle BackColor="#808080" />
-                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                            <SortedDescendingHeaderStyle BackColor="#383838" />
+                            <RowStyle BackColor="#F7F7DE" />
+                            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#FBFBF2" />
+                            <SortedAscendingHeaderStyle BackColor="#848384" />
+                            <SortedDescendingCellStyle BackColor="#EAEAD3" />
+                            <SortedDescendingHeaderStyle BackColor="#575357" />
                             <EmptyDataTemplate>
-                                <div class="alert alert-warning">
-                                    <h3><strong>Sorry, the table is empty!</strong>
+                               <div>
+                                    <h3><strong>Sorry, No Result Found!</strong>
                                     </h3>
                                 </div>
                             </EmptyDataTemplate>
@@ -153,13 +178,10 @@
                     </asp:Panel>
 
                       <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto" Visible="false">
-                        <div class="alert alert-danger">
-                            <h4><span>Item checking...</span></h4>
-                            <div class="navbar-right">
-                                <asp:LinkButton ID="LINKexit" CssClass="btn btn-danger" runat="server" OnClick="LINKexit_Click">Exit</asp:LinkButton>
-                            </div>
-                        </div>
-                        <asp:GridView ID="GridView2" CssClass="table" runat="server" CellPadding="4" ForeColor="Black" AllowPaging="True" AutoGenerateColumns="False" OnDataBound="GridView2_DataBound" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowCommand="GridView2_RowCommand" PageSize="25">
+                       <h4 class="text-warning text-center"><span style="font-size: xx-large">Item checking</span></h4>
+                        <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to checklist</asp:LinkButton>
+                        <asp:GridView ID="GridView2" CssClass="table" runat="server" CellPadding="4" ForeColor="#333333" AllowPaging="True" AutoGenerateColumns="False" OnDataBound="GridView2_DataBound" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowCommand="GridView2_RowCommand" PageSize="25" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:TemplateField HeaderText="DUE DATE">
                                     <ItemTemplate>
@@ -204,6 +226,7 @@
                                     <ItemTemplate>
                                           <asp:Label ID="g2LBLqc" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("Q_C") %>'></asp:Label>
                                     </ItemTemplate>                           
+                                    <HeaderStyle BackColor="Indigo" ForeColor="White" />
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -212,19 +235,20 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
-                            <FooterStyle BackColor="#CCCCCC" />
-                            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                             <PagerSettings Position="TopAndBottom" PageButtonCount="8" />
-                            <PagerStyle CssClass="GridPager" HorizontalAlign="Left" BackColor="#CCCCCC" ForeColor="Black" />
-                            <RowStyle BackColor="White" Wrap="False" />
-                            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                            <SortedAscendingHeaderStyle BackColor="#808080" />
-                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                            <SortedDescendingHeaderStyle BackColor="#383838" />
+                            <PagerStyle CssClass="GridPager" HorizontalAlign="Center" BackColor="#284775"/>
+                            <RowStyle BackColor="#F7F6F3" Wrap="False" ForeColor="#333333" />
+                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            <EditRowStyle BackColor="#999999" />
                             <EmptyDataTemplate>
-                                <div class="alert alert-warning">
-                                    <h3><strong>Sorry, the table is empty!</strong>
+                                <div>
+                                    <h3><strong>Sorry, No Result Found!</strong>
                                     </h3>
                                 </div>
                             </EmptyDataTemplate>

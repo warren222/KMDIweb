@@ -67,6 +67,24 @@ namespace KMDIweb.KMDIapp {
         protected global::System.Web.UI.WebControls.TextBox tboxEdate;
         
         /// <summary>
+        /// TBOXproject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TBOXproject;
+        
+        /// <summary>
+        /// CheckBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        
+        /// <summary>
         /// BTNsearch control.
         /// </summary>
         /// <remarks>
@@ -83,6 +101,15 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
+        /// LBLschedule control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LBLschedule;
         
         /// <summary>
         /// GridView1 control.
