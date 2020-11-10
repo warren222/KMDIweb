@@ -79,7 +79,7 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@status", "");
                         sqlcmd.Parameters.AddWithValue("@clno", "");
 
-                   
+
                         sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
                         sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
@@ -162,30 +162,38 @@ namespace KMDIweb.KMDIapp
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+
             if (e.CommandName == "forcutting")
             {
-                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
-                GridViewRow row = GridView1.Rows[rowindex];
-                forppm(((Label)row.FindControl("LBLparentjono")).Text,
-                 ((Label)row.FindControl("LBLprojectname")).Text,
-                 ((Label)row.FindControl("LBLcolor")).Text,
-                        ((Label)row.FindControl("LBLddate")).Text,
-                        ((Label)row.FindControl("LBLscreentype")).Text,
-                        ((Label)row.FindControl("LBLfinished")).Text,
-                        ((Label)row.FindControl("LBLschedremarks")).Text,
-                     ((Label)row.FindControl("LBLstatus")).Text,
-                     ((Label)row.FindControl("LBLclno")).Text);
-                Panel2.Visible = true;
-                Panel1.Visible = false;
-                ViewState["parentjono"] = ((Label)row.FindControl("LBLparentjono")).Text;
-                ViewState["projectname"] = ((Label)row.FindControl("LBLprojectname")).Text;
-                ViewState["color"] = ((Label)row.FindControl("LBLcolor")).Text;
-                ViewState["duedate"] = ((Label)row.FindControl("LBLddate")).Text;
-                ViewState["screentype"] = ((Label)row.FindControl("LBLscreentype")).Text;
-                ViewState["finished"] = ((Label)row.FindControl("LBLfinished")).Text;
-                ViewState["remarks"] = ((Label)row.FindControl("LBLschedremarks")).Text;
-                ViewState["status"] = ((Label)row.FindControl("LBLstatus")).Text;
-                ViewState["clno"] = ((Label)row.FindControl("LBLclno")).Text;
+                if (Session["KMDI_acct"].ToString() == "Guest")
+                {
+                    ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('invalid access!');", true);
+                }
+                else
+                {
+                    int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                    GridViewRow row = GridView1.Rows[rowindex];
+                    forppm(((Label)row.FindControl("LBLparentjono")).Text,
+                     ((Label)row.FindControl("LBLprojectname")).Text,
+                     ((Label)row.FindControl("LBLcolor")).Text,
+                            ((Label)row.FindControl("LBLddate")).Text,
+                            ((Label)row.FindControl("LBLscreentype")).Text,
+                            ((Label)row.FindControl("LBLfinished")).Text,
+                            ((Label)row.FindControl("LBLschedremarks")).Text,
+                         ((Label)row.FindControl("LBLstatus")).Text,
+                         ((Label)row.FindControl("LBLclno")).Text);
+                    Panel2.Visible = true;
+                    Panel1.Visible = false;
+                    ViewState["parentjono"] = ((Label)row.FindControl("LBLparentjono")).Text;
+                    ViewState["projectname"] = ((Label)row.FindControl("LBLprojectname")).Text;
+                    ViewState["color"] = ((Label)row.FindControl("LBLcolor")).Text;
+                    ViewState["duedate"] = ((Label)row.FindControl("LBLddate")).Text;
+                    ViewState["screentype"] = ((Label)row.FindControl("LBLscreentype")).Text;
+                    ViewState["finished"] = ((Label)row.FindControl("LBLfinished")).Text;
+                    ViewState["remarks"] = ((Label)row.FindControl("LBLschedremarks")).Text;
+                    ViewState["status"] = ((Label)row.FindControl("LBLstatus")).Text;
+                    ViewState["clno"] = ((Label)row.FindControl("LBLclno")).Text;
+                }
             }
         }
         private void forppm(string parentjono, string projectname, string color, string duedate, string screentype, string finished, string remarks, string status, string clno)

@@ -20,13 +20,16 @@ namespace KMDIweb.SCREENfab
                 switch (port)
                 {
                     case 8083:
-                        server1.Checked = true;
+                        //server1.Checked = true;
+                        DropDownList1.SelectedIndex = 0;
                         break;
                     case 8082:
-                        server2.Checked = true;
+                        //server2.Checked = true;
+                        DropDownList1.SelectedIndex = 1;
                         break;
                     default:
-                        server1.Checked = true;
+                        //server1.Checked = true;
+                        DropDownList1.SelectedIndex = 0;
                         break;
                 }
          
@@ -50,7 +53,15 @@ namespace KMDIweb.SCREENfab
         {
             try
             {
-                if (server1.Checked)
+                //if (server1.Checked)
+                //{
+                //    ConnectionString.getConnectionString("server1");
+                //}
+                //else
+                //{
+                //    ConnectionString.getConnectionString("server2");
+                //}
+                if (DropDownList1.SelectedIndex==0)
                 {
                     ConnectionString.getConnectionString("server1");
                 }
@@ -58,6 +69,7 @@ namespace KMDIweb.SCREENfab
                 {
                     ConnectionString.getConnectionString("server2");
                 }
+
                 string cs = ConnectionString.sqlconstr();
                 using (SqlConnection sqlcon = new SqlConnection(cs))
                 {

@@ -28,6 +28,7 @@
             min-height: 100%;
             padding-top: 70px;
             height: 100%;
+
         }
 
         .underlineHover:after {
@@ -51,18 +52,24 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" style="height:100%">
         <div class="wrapper">
-            <div class="panel panel-primary" style="width: 400px">
+            <div class="panel panel-primary" style="width: 400px;height:100%">
                 <div class="panel-heading">
                     User Login
                 </div>
                 <div class="panel-body">
-                    <small>Choose data source</small>
+                    <small style="text-align:center">Choose data source</small>
                     <br />
-                    <asp:RadioButton ID="server1" GroupName="con" Text="Server 1" runat="server" Font-Names="Calibri Light" />&nbsp;&nbsp;
-                    <asp:RadioButton ID="server2" Text="Server 2" GroupName="con" runat="server" Font-Bold="False" Font-Names="Calibri Light" />
-                    <br />
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-cloud"></span>
+                        </div>
+                        <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server">
+                            <asp:ListItem Text="server 1" Value="server 1"></asp:ListItem>
+                            <asp:ListItem Text="server 2" Value="server 2"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
                     <br />
                     <div class="input-group">
                         <div class="input-group-addon">
@@ -80,8 +87,10 @@
                     <div class="checkbox">
                         <asp:CheckBox ID="CheckBox1" runat="server" Text="Remember me" />
                     </div>
-                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Text="Login" OnClick="Button1_Click" />
+                    <asp:Button ID="Button1" runat="server" CssClass="form-control btn btn-primary" Text="Login" OnClick="Button1_Click" />
                     <asp:ValidationSummary CssClass="alert alert-danger" ValidationGroup="val1" ID="ValidationSummary1" runat="server" />
+            
+               
                 </div>
                 <div class="panel-footer">
 

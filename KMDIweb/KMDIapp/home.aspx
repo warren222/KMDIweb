@@ -221,27 +221,33 @@
                     <asp:Panel ID="Panel2" runat="server" Visible="false">
                         <h4 class="text-warning text-center"><span style="font-size: xx-large">Item Progress</span></h4>
                         <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to schedule</asp:LinkButton>
-                        <asp:GridView ID="GridView2" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="GridView2_PageIndexChanging">
+                        <asp:GridView ID="GridView2" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="GridView2_PageIndexChanging" OnDataBound="GridView2_DataBound">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
+                                <asp:TemplateField HeaderText="DUE DATE">
+                                    <ItemTemplate>
+                                        <asp:Label ID="g2LBLduedate" Font-Size="Medium" Font-Bold="true" runat="server" Text='<%# Bind("DUE_DATE") %>'></asp:Label><br />
+                                        <asp:Label ID="g2LBLday" Font-Bold="true" Visible="false" runat="server" Text='<%# Bind("DAY") %>'></asp:Label><br />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="PROJECT">
                                     <ItemTemplate>
-                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label>
+                                        <asp:Label ID="LBLg2projectname" runat="server" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="K#">
                                     <ItemTemplate>
-                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("KMDI_NO") %>'></asp:Label>
+                                        <asp:Label ID="LBLg2kmdino" runat="server" Text='<%# Bind("KMDI_NO") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="TYPE OF SCREEN">
                                     <ItemTemplate>
-                                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("TYPE_OF_SCREEN") %>'></asp:Label>
+                                        <asp:Label ID="LBLg2screentype" runat="server" Text='<%# Bind("TYPE_OF_SCREEN") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="STATION">
                                     <ItemTemplate>
-                                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("CURRENTSTATION") %>'></asp:Label>
+                                        <asp:Label ID="LBLg2currentstation" runat="server" Text='<%# Bind("CURRENTSTATION") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderStyle-Width="35%">
@@ -308,6 +314,12 @@
                                     <HeaderStyle Width="500px" />
                                 </asp:TemplateField>
                             </Columns>
+                            <EmptyDataTemplate>
+                                <div>
+                                    <h3><strong>Sorry, No Result Found!</strong>
+                                    </h3>
+                                </div>
+                            </EmptyDataTemplate>
                             <FooterStyle BackColor="#CCCC99" />
                             <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
                             <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />

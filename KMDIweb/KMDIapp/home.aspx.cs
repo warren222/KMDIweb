@@ -317,5 +317,48 @@ namespace KMDIweb.SCREENfab
         {
             loadkno();
         }
+        protected void GridView2_DataBound(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= ((GridView)sender).Rows.Count - 1; i++)
+            {
+                Label lblparent = (Label)((GridView)sender).Rows[i].FindControl("g2LBLday");
+
+                if (lblparent.Text == "Monday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.LightBlue;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Tuesday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.LightGreen;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Wednesday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Yellow;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Thursday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Orange;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Friday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Pink;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Saturday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Violet;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Teal;
+                    lblparent.ForeColor = Color.Black;
+                }
+            }
+        }
     }
 }

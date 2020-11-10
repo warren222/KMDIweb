@@ -41,7 +41,7 @@
                                 <li>
                                     <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/KMDIapp/scasbl.aspx">Aluminum shoot bolt lock</asp:HyperLink></li>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/KMDIapp/scassemble.aspx">Assemble</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/KMDIapp/scassemble.aspx">Assembly</asp:HyperLink></li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/KMDIapp/scaccessories.aspx">Accessories</asp:HyperLink></li>
                                 <li>
@@ -51,7 +51,9 @@
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/KMDIapp/manageaccount.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp; Accounts</asp:HyperLink>
+                        </li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <asp:Label ID="username" runat="server" Text="acctlink"></asp:Label><span class="caret"></span></a>
                             <ul class="dropdown-menu">

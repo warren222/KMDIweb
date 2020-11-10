@@ -8,7 +8,7 @@
     <div class=" jumbotron">
         <div class="row">
             <div class="col-sm-6">
-                <h1><strong>Assemble<br />
+                <h1><strong>Assembly<br />
                     <small>Station's expected output</small> </strong></h1>
                 <asp:LinkButton ID="BTNback" runat="server" PostBackUrl="~/KMDIapp/home.aspx" CssClass="btn btn-primary">back to home page</asp:LinkButton>
             </div>
@@ -77,7 +77,7 @@
                 <div class="panel-body">
                     <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
                             <h3 class="text-center text-success"><span><strong>
-                            <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Assemble Checklist Table"></asp:Label></strong> </span></h3>
+                            <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Assembly Checklist Table"></asp:Label></strong> </span></h3>
                        <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand" GridLines="Vertical">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>

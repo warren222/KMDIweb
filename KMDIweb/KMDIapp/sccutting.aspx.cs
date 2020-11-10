@@ -13,7 +13,7 @@ namespace KMDIweb.KMDIapp
 {
     public partial class sccutting : System.Web.UI.Page
     {
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["KMDI_userid"] != null)
@@ -75,7 +75,7 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@remarks", "");
                         sqlcmd.Parameters.AddWithValue("@status", "");
                         sqlcmd.Parameters.AddWithValue("@clno", "");
-                            sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);    
+                        sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
                         sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
@@ -164,28 +164,35 @@ namespace KMDIweb.KMDIapp
         {
             if (e.CommandName == "forcutting")
             {
-                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
-                GridViewRow row = GridView1.Rows[rowindex];
-                forcutting(((Label)row.FindControl("LBLparentjono")).Text,
-                 ((Label)row.FindControl("LBLprojectname")).Text,
-                 ((Label)row.FindControl("LBLcolor")).Text,
-                        ((Label)row.FindControl("LBLddate")).Text,
-                        ((Label)row.FindControl("LBLscreentype")).Text,
-                        ((Label)row.FindControl("LBLfinished")).Text,
-                        ((Label)row.FindControl("LBLschedremarks")).Text,
-                     ((Label)row.FindControl("LBLstatus")).Text,
-                     ((Label)row.FindControl("LBLclno")).Text);
-                Panel1.Visible = true;
-                Panel2.Visible = false;
-                ViewState["parentjono"] = ((Label)row.FindControl("LBLparentjono")).Text;
-                ViewState["projectname"] = ((Label)row.FindControl("LBLprojectname")).Text;
-                ViewState["color"] = ((Label)row.FindControl("LBLcolor")).Text;
-                ViewState["duedate"] = ((Label)row.FindControl("LBLddate")).Text;
-                ViewState["screentype"] = ((Label)row.FindControl("LBLscreentype")).Text;
-                ViewState["finished"] = ((Label)row.FindControl("LBLfinished")).Text;
-                ViewState["remarks"] = ((Label)row.FindControl("LBLschedremarks")).Text;
-                ViewState["status"] = ((Label)row.FindControl("LBLstatus")).Text;
-                ViewState["clno"] = ((Label)row.FindControl("LBLclno")).Text;
+                if (Session["KMDI_acct"].ToString() == "Guest")
+                {
+                    ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('invalid access!');", true);
+                }
+                else
+                {
+                    int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                    GridViewRow row = GridView1.Rows[rowindex];
+                    forcutting(((Label)row.FindControl("LBLparentjono")).Text,
+                     ((Label)row.FindControl("LBLprojectname")).Text,
+                     ((Label)row.FindControl("LBLcolor")).Text,
+                            ((Label)row.FindControl("LBLddate")).Text,
+                            ((Label)row.FindControl("LBLscreentype")).Text,
+                            ((Label)row.FindControl("LBLfinished")).Text,
+                            ((Label)row.FindControl("LBLschedremarks")).Text,
+                         ((Label)row.FindControl("LBLstatus")).Text,
+                         ((Label)row.FindControl("LBLclno")).Text);
+                    Panel1.Visible = true;
+                    Panel2.Visible = false;
+                    ViewState["parentjono"] = ((Label)row.FindControl("LBLparentjono")).Text;
+                    ViewState["projectname"] = ((Label)row.FindControl("LBLprojectname")).Text;
+                    ViewState["color"] = ((Label)row.FindControl("LBLcolor")).Text;
+                    ViewState["duedate"] = ((Label)row.FindControl("LBLddate")).Text;
+                    ViewState["screentype"] = ((Label)row.FindControl("LBLscreentype")).Text;
+                    ViewState["finished"] = ((Label)row.FindControl("LBLfinished")).Text;
+                    ViewState["remarks"] = ((Label)row.FindControl("LBLschedremarks")).Text;
+                    ViewState["status"] = ((Label)row.FindControl("LBLstatus")).Text;
+                    ViewState["clno"] = ((Label)row.FindControl("LBLclno")).Text;
+                }
             }
         }
 
@@ -292,7 +299,7 @@ namespace KMDIweb.KMDIapp
             Panel1.Visible = false;
             Panel2.Visible = true;
         }
-     
+
         protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView2.PageIndex = e.NewPageIndex;
@@ -300,15 +307,15 @@ namespace KMDIweb.KMDIapp
         }
         private void loadforcutting()
         {
-        forcutting(ViewState["parentjono"].ToString(),
-        ViewState["projectname"].ToString(),
-        ViewState["color"].ToString(),
-        ViewState["duedate"].ToString(),
-        ViewState["screentype"].ToString(),
-        ViewState["finished"].ToString(),
-        ViewState["remarks"].ToString(),
-        ViewState["status"].ToString(),
-        ViewState["clno"].ToString());
+            forcutting(ViewState["parentjono"].ToString(),
+            ViewState["projectname"].ToString(),
+            ViewState["color"].ToString(),
+            ViewState["duedate"].ToString(),
+            ViewState["screentype"].ToString(),
+            ViewState["finished"].ToString(),
+            ViewState["remarks"].ToString(),
+            ViewState["status"].ToString(),
+            ViewState["clno"].ToString());
         }
         protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -348,7 +355,7 @@ namespace KMDIweb.KMDIapp
             {
                 GridView2.PageIndex = GridView2.PageIndex;
                 loadforcutting();
-            
+
             }
         }
 
@@ -374,7 +381,7 @@ namespace KMDIweb.KMDIapp
             {
                 GridView2.PageIndex = GridView2.PageIndex;
                 loadforcutting();
-            
+
             }
         }
     }

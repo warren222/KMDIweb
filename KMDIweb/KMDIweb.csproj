@@ -201,6 +201,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="KMDIapp\invalidaccess.aspx.cs">
+      <DependentUpon>invalidaccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIapp\invalidaccess.aspx.designer.cs">
+      <DependentUpon>invalidaccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIapp\manageaccount.aspx.cs">
+      <DependentUpon>manageaccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIapp\manageaccount.aspx.designer.cs">
+      <DependentUpon>manageaccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIapp\scaccessories.aspx.cs">
       <DependentUpon>scaccessories.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -280,7 +294,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="KMDIapp\css\gridcss.css" />
     <Content Include="KMDIapp\home.aspx" />
+    <Content Include="KMDIapp\invalidaccess.aspx" />
     <Content Include="KMDIapp\Login.aspx" />
+    <Content Include="KMDIapp\manageaccount.aspx" />
     <Content Include="KMDIapp\scaccessories.aspx" />
     <Content Include="KMDIapp\scasbl.aspx" />
     <Content Include="KMDIapp\scassemble.aspx" />
