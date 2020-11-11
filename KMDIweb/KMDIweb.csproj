@@ -201,6 +201,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="KMDIapp\changesecurity.aspx.cs">
+      <DependentUpon>changesecurity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIapp\changesecurity.aspx.designer.cs">
+      <DependentUpon>changesecurity.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIapp\invalidaccess.aspx.cs">
       <DependentUpon>invalidaccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -292,6 +299,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="KMDIapp\changesecurity.aspx" />
     <Content Include="KMDIapp\css\gridcss.css" />
     <Content Include="KMDIapp\home.aspx" />
     <Content Include="KMDIapp\invalidaccess.aspx" />

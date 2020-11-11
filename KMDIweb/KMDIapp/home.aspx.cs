@@ -74,7 +74,9 @@ namespace KMDIweb.SCREENfab
                         sqlcmd.Parameters.AddWithValue("@mon", mon);
                         sqlcmd.Parameters.AddWithValue("@sun", sun);
                         sqlcmd.Parameters.AddWithValue("@projectname", TBOXprojectname.Text);
-                        sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
+                        sqlcmd.Parameters.AddWithValue("@nfc", DDLnfc.Text.ToString());
+                        sqlcmd.Parameters.AddWithValue("@address", DDLaddress.Text.ToString());
+                        sqlcmd.Parameters.AddWithValue("@progress", DDLprogress.Text.ToString());
 
                         sqlcmd.Parameters.AddWithValue("@pjono", "");
                         sqlcmd.Parameters.AddWithValue("@pname","");
@@ -137,7 +139,9 @@ namespace KMDIweb.SCREENfab
                         sqlcmd.Parameters.AddWithValue("@mon", mon);
                         sqlcmd.Parameters.AddWithValue("@sun", sun);
                         sqlcmd.Parameters.AddWithValue("@projectname", "");
-                        sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
+                        sqlcmd.Parameters.AddWithValue("@nfc", DDLnfc.Text.ToString());
+                        sqlcmd.Parameters.AddWithValue("@address", DDLaddress.Text.ToString());
+                        sqlcmd.Parameters.AddWithValue("@progress", DDLprogress.Text.ToString());
 
                         sqlcmd.Parameters.AddWithValue("@pjono", "");
                         sqlcmd.Parameters.AddWithValue("@pname", "");
@@ -152,11 +156,11 @@ namespace KMDIweb.SCREENfab
                             while (rd.Read())
                             {
                                 BTNCurrentweektime.Text = rd[0].ToString();
-                                LBLcurrentweekitem.Text = rd[1].ToString() + " k#(s)";
+                                LBLcurrentweekitem.Text = rd[1].ToString() ;
                                 BTNtodaytime.Text = rd[2].ToString();
-                                LBLtodayitem.Text = rd[3].ToString() + " k#(s)";
+                                LBLtodayitem.Text = rd[3].ToString() ;
                                 BTNprevweektime.Text = rd[4].ToString();
-                                LBLprevweekitem.Text = rd[5].ToString() + " k#(s)";
+                                LBLprevweekitem.Text = rd[5].ToString();
                             }
                         }
 
@@ -282,7 +286,9 @@ namespace KMDIweb.SCREENfab
                         sqlcmd.Parameters.AddWithValue("@mon", mon);
                         sqlcmd.Parameters.AddWithValue("@sun", sun);
                         sqlcmd.Parameters.AddWithValue("@projectname", TBOXprojectname.Text);
-                        sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
+                        sqlcmd.Parameters.AddWithValue("@nfc", DDLnfc.Text.ToString());
+                        sqlcmd.Parameters.AddWithValue("@address", DDLaddress.Text.ToString());
+                        sqlcmd.Parameters.AddWithValue("@progress", DDLprogress.Text.ToString());
 
                         sqlcmd.Parameters.AddWithValue("@pjono", ViewState["parentjono"].ToString());
                         sqlcmd.Parameters.AddWithValue("@pname", ViewState["projectname"].ToString());

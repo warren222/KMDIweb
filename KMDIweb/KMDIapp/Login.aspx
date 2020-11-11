@@ -15,22 +15,23 @@
     <script src="../Scripts/bootstrap.min.js"></script>
     <link href="css/gridcss.css" rel="stylesheet" />
     <style>
-        html, form {
-            background-color: #56baed;
+        body, html, form {
+            height: 100%;
         }
-
         .wrapper {
+            background-color: #56baed;
             display: flex;
             align-items: center;
             flex-direction: column;
             justify-content: center;
             width: 100%;
             min-height: 100%;
-            padding-top: 70px;
             height: 100%;
-
         }
-
+        .myform{
+            background-color:white;
+            height:100%;
+        }
         .underlineHover:after {
             display: block;
             left: 0;
@@ -52,52 +53,58 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server" style="height:100%">
+    <form id="form1" runat="server" style="height: 100%">
         <div class="wrapper">
-            <div class="panel panel-primary" style="width: 400px;height:100%">
-                <div class="panel-heading">
-                    User Login
+            <div class="myform">
+                <div class="well" style="text-align: center">
+                   <h1>KMDI <br />
+                   <small>Screen Fab Monitoring</small></h1>   
                 </div>
-                <div class="panel-body">
-                    <small style="text-align:center">Choose data source</small>
-                    <br />
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-cloud"></span>
+                <div class="panel panel-warning" style="width: 400px;">
+                    <div class="panel-heading">
+                        User Login
+                    </div>
+                    <div class="panel-body">
+                        <small style="text-align: center">Choose data source</small>
+                        <br />
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-cloud"></span>
+                            </div>
+                            <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server">
+                                <asp:ListItem Text="server 1" Value="server 1"></asp:ListItem>
+                                <asp:ListItem Text="server 2" Value="server 2"></asp:ListItem>
+                            </asp:DropDownList>
                         </div>
-                        <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server">
-                            <asp:ListItem Text="server 1" Value="server 1"></asp:ListItem>
-                            <asp:ListItem Text="server 2" Value="server 2"></asp:ListItem>
-                        </asp:DropDownList>
-                    </div>
-                    <br />
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-user"></span>
+                        <br />
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </div>
+                            <asp:TextBox ID="tboxusername" Height="40" placeholder="username" CssClass="form-control" runat="server"></asp:TextBox><br />
                         </div>
-                        <asp:TextBox ID="tboxusername" Height="40" placeholder="username" CssClass="form-control" runat="server"></asp:TextBox><br />
-                    </div>
-                    <br />
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-lock"></span>
+                        <br />
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock"></span>
+                            </div>
+                            <asp:TextBox ID="tboxpassword" Height="40" placeholder="password" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
                         </div>
-                        <asp:TextBox ID="tboxpassword" Height="40" placeholder="password" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
-                    </div>
-                    <div class="checkbox">
-                        <asp:CheckBox ID="CheckBox1" runat="server" Text="Remember me" />
-                    </div>
-                    <asp:Button ID="Button1" runat="server" CssClass="form-control btn btn-primary" Text="Login" OnClick="Button1_Click" />
-                    <asp:ValidationSummary CssClass="alert alert-danger" ValidationGroup="val1" ID="ValidationSummary1" runat="server" />
-            
-               
-                </div>
-                <div class="panel-footer">
+                        <div class="checkbox">
+                            <asp:CheckBox ID="CheckBox1" runat="server" Text="Remember me" />
+                        </div>
+                        <asp:LinkButton ID="LinkButton1" CssClass="form-control btn btn-warning" OnClick="Button1_Click" runat="server"><span class="glyphicon glyphicon-log-in"></span>&nbsp; login</asp:LinkButton>
 
-                    <p><small>Copyright 2020. Kenneth and Mock windows and doors. All rights Reserved.</small></p>
+                        <asp:ValidationSummary CssClass="alert alert-danger" ValidationGroup="val1" ID="ValidationSummary1" runat="server" />
+
+
+                    </div>
+                    <div class="panel-footer">
+
+                        <p><small>Copyright 2020. Kenneth and Mock windows and doors. All rights Reserved.</small></p>
+                    </div>
                 </div>
             </div>
-
         </div>
 
     </form>

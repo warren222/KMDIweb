@@ -58,6 +58,9 @@
                             <asp:Label ID="username" runat="server" Text="acctlink"></asp:Label><span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>
+                                      <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/KMDIapp/changesecurity.aspx"><span class="glyphicon glyphicon-lock"></span>&nbsp; Change Security</asp:HyperLink></li>
+                                </li>
+                                <li>
                                     <asp:LinkButton ID="LinkButton1" OnClick="LinkButton1_Click" runat="server"><span class="glyphicon  glyphicon-log-out"></span>&nbsp;Logout</asp:LinkButton></li>
                             </ul>
                         </li>

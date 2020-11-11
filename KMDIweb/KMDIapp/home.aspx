@@ -61,7 +61,7 @@
                         <h5><strong class="text-muted">Previous Week Unfinished</strong></h5>
                         <asp:LinkButton ID="BTNprevweektime" runat="server" Font-Size="XX-Large" OnClick="BTNprevweektime_Click">Time</asp:LinkButton>
                         <br />
-                        <asp:Label ID="LBLprevweekitem" CssClass="text-center" runat="server" Text="k#(s)"></asp:Label>
+                        <asp:Label ID="LBLprevweekitem" Font-Size="Medium" CssClass="text-center badge" runat="server"></asp:Label>&nbsp;k#(s)
                     </blockquote>
                 </div>
                 <div class="col-sm-4">
@@ -71,7 +71,7 @@
 
                         <asp:LinkButton ID="BTNtodaytime" runat="server" Font-Size="XX-Large" OnClick="BTNtodaytime_Click">Time</asp:LinkButton>
                         <br />
-                        <asp:Label ID="LBLtodayitem" CssClass="text-center" runat="server" Text="k#(s)"></asp:Label>
+                        <asp:Label ID="LBLtodayitem" Font-Size="Medium" CssClass="badge" runat="server"></asp:Label>&nbsp;k#(s)
                     </blockquote>
                 </div>
                 <div class="col-sm-4">
@@ -79,7 +79,7 @@
                         <h5><strong class="text-muted">Current week Unfinished</strong></h5>
                         <asp:LinkButton ID="BTNCurrentweektime" runat="server" Font-Size="XX-Large" OnClick="BTNCurrentweektime_Click">Time</asp:LinkButton>
                         <br />
-                        <asp:Label ID="LBLcurrentweekitem" CssClass="text-center" runat="server" Text="k#(s)"></asp:Label>
+                        <asp:Label ID="LBLcurrentweekitem" Font-Size="Medium" CssClass="text-center badge" runat="server"></asp:Label>&nbsp;k#(s)
                     </blockquote>
                 </div>
             </div>
@@ -111,22 +111,61 @@
                                     PROJECT
                                 </div>
                                 <asp:TextBox ID="TBOXprojectname" placeholder="project name" CssClass="form-control" runat="server"></asp:TextBox>
-                                <div class="input-group-addon">
-                                    <asp:CheckBox ID="CheckBox1" runat="server" Checked="true" />&nbsp;Finished
-                                </div>
                                 <div class="input-group-btn">
-                                    <asp:LinkButton ID="BTNsearch" CssClass="btn btn-default" runat="server" OnClick="BTNsearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                                    <asp:LinkButton ID="BTNsearch" CssClass="btn btn-primary" runat="server" OnClick="BTNsearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                </div>
+                    <br />
 
-                <div class="panel-body">
-                    <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-                        <h3 class="text-center text-success"><span><strong>
-                            <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Schedule"></asp:Label></strong> </span></h3>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    NFC
+                                </div>
+                                <asp:DropDownList ID="DDLnfc" CssClass="form-control" runat="server">
+                                    <asp:ListItem Text="All" Value="All"></asp:ListItem>
+                                    <asp:ListItem Text="Approved" Value="Approved"></asp:ListItem>
+
+                                </asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    Address
+                                </div>
+                                <asp:DropDownList ID="DDLaddress" CssClass="form-control" runat="server">
+                                    <asp:ListItem Text="All" Value="All"></asp:ListItem>
+                                    <asp:ListItem Text="Out-of-town" Value="Out-of-town"></asp:ListItem>
+                                     <asp:ListItem Text="Intown" Value="Out-of-town"></asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    Progress
+                                </div>
+                                <asp:DropDownList ID="DDLprogress" CssClass="form-control" runat="server">
+                                    <asp:ListItem Text="All" Value="All"></asp:ListItem>
+                                    <asp:ListItem Text="Finished" Value="Finished"></asp:ListItem>
+                                    <asp:ListItem Text="Unfinished" Value="Unfinished"></asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
+                    <h3 class="text-center text-success"><span><strong>
+                        <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Schedule"></asp:Label></strong> </span></h3>
+                    <small>
                         <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="25" OnDataBound="GridView1_DataBound" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" OnRowCommand="GridView1_RowCommand">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
@@ -215,126 +254,126 @@
                             <SortedDescendingCellStyle BackColor="#EAEAD3" />
                             <SortedDescendingHeaderStyle BackColor="#575357" />
                         </asp:GridView>
+                    </small>
+                </asp:Panel>
 
-                    </asp:Panel>
+                <asp:Panel ID="Panel2" runat="server" Visible="false">
+                    <h4 class="text-warning text-center"><span style="font-size: xx-large">Item Progress</span></h4>
+                    <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to schedule</asp:LinkButton>
+                    <asp:GridView ID="GridView2" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="GridView2_PageIndexChanging" OnDataBound="GridView2_DataBound">
+                        <AlternatingRowStyle BackColor="White" />
+                        <Columns>
+                            <asp:TemplateField HeaderText="DUE DATE">
+                                <ItemTemplate>
+                                    <asp:Label ID="g2LBLduedate" Font-Size="Medium" Font-Bold="true" runat="server" Text='<%# Bind("DUE_DATE") %>'></asp:Label><br />
+                                    <asp:Label ID="g2LBLday" Font-Bold="true" Visible="false" runat="server" Text='<%# Bind("DAY") %>'></asp:Label><br />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="PROJECT">
+                                <ItemTemplate>
+                                    <asp:Label ID="LBLg2projectname" runat="server" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="K#">
+                                <ItemTemplate>
+                                    <asp:Label ID="LBLg2kmdino" runat="server" Text='<%# Bind("KMDI_NO") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="TYPE OF SCREEN">
+                                <ItemTemplate>
+                                    <asp:Label ID="LBLg2screentype" runat="server" Text='<%# Bind("TYPE_OF_SCREEN") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="STATION">
+                                <ItemTemplate>
+                                    <asp:Label ID="LBLg2currentstation" runat="server" Text='<%# Bind("CURRENTSTATION") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderStyle-Width="35%">
+                                <ItemTemplate>
 
-                    <asp:Panel ID="Panel2" runat="server" Visible="false">
-                        <h4 class="text-warning text-center"><span style="font-size: xx-large">Item Progress</span></h4>
-                        <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to schedule</asp:LinkButton>
-                        <asp:GridView ID="GridView2" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="GridView2_PageIndexChanging" OnDataBound="GridView2_DataBound">
-                            <AlternatingRowStyle BackColor="White" />
-                            <Columns>
-                                <asp:TemplateField HeaderText="DUE DATE">
-                                    <ItemTemplate>
-                                        <asp:Label ID="g2LBLduedate" Font-Size="Medium" Font-Bold="true" runat="server" Text='<%# Bind("DUE_DATE") %>'></asp:Label><br />
-                                        <asp:Label ID="g2LBLday" Font-Bold="true" Visible="false" runat="server" Text='<%# Bind("DAY") %>'></asp:Label><br />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="PROJECT">
-                                    <ItemTemplate>
-                                        <asp:Label ID="LBLg2projectname" runat="server" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="K#">
-                                    <ItemTemplate>
-                                        <asp:Label ID="LBLg2kmdino" runat="server" Text='<%# Bind("KMDI_NO") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="TYPE OF SCREEN">
-                                    <ItemTemplate>
-                                        <asp:Label ID="LBLg2screentype" runat="server" Text='<%# Bind("TYPE_OF_SCREEN") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="STATION">
-                                    <ItemTemplate>
-                                        <asp:Label ID="LBLg2currentstation" runat="server" Text='<%# Bind("CURRENTSTATION") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderStyle-Width="35%">
-                                    <ItemTemplate>
+                                    <asp:Panel ID="Panel3" Visible='<%# Eval("PROGRESSVALUE").ToString() == "35" ? true : false %>' runat="server">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar"
+                                                aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                <span style="font-size: small">35% Complete </span>
+                                            </div>
+                                        </div>
+                                    </asp:Panel>
+                                    <asp:Panel ID="Panel4" Visible='<%# Eval("PROGRESSVALUE").ToString() == "45" ? true : false %>' runat="server">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar"
+                                                aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                                <span style="font-size: small">45% Complete</span>
+                                            </div>
+                                        </div>
+                                    </asp:Panel>
+                                    <asp:Panel ID="Panel5" Visible='<%# Eval("PROGRESSVALUE").ToString() == "60" ? true : false %>' runat="server">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar"
+                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                <span style="font-size: small">60% Complete</span>
+                                            </div>
+                                        </div>
+                                    </asp:Panel>
+                                    <asp:Panel ID="Panel6" Visible='<%# Eval("PROGRESSVALUE").ToString() == "70" ? true : false %>' runat="server">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar"
+                                                aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                                <span style="font-size: small">70% Complete </span>
+                                            </div>
+                                        </div>
+                                    </asp:Panel>
+                                    <asp:Panel ID="Panel7" Visible='<%# Eval("PROGRESSVALUE").ToString() == "80" ? true : false %>' runat="server">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar"
+                                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                                <span style="font-size: small">80% Complete </span>
+                                            </div>
+                                        </div>
+                                    </asp:Panel>
+                                    <asp:Panel ID="Panel8" Visible='<%# Eval("PROGRESSVALUE").ToString() == "90" ? true : false %>' runat="server">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-info" role="progressbar"
+                                                aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                                <span style="font-size: small">90% Complete</span>
+                                            </div>
+                                        </div>
+                                    </asp:Panel>
+                                    <asp:Panel ID="Panel9" Visible='<%# Eval("PROGRESSVALUE").ToString() == "100" ? true : false %>' runat="server">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar"
+                                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                                <span style="font-size: small">100% Complete </span>
+                                            </div>
+                                        </div>
+                                    </asp:Panel>
 
-                                        <asp:Panel ID="Panel3" Visible='<%# Eval("PROGRESSVALUE").ToString() == "35" ? true : false %>' runat="server">
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-danger" role="progressbar"
-                                                    aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
-                                                    <span style="font-size: small">35% Complete </span>
-                                                </div>
-                                            </div>
-                                        </asp:Panel>
-                                        <asp:Panel ID="Panel4" Visible='<%# Eval("PROGRESSVALUE").ToString() == "45" ? true : false %>' runat="server">
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-danger" role="progressbar"
-                                                    aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                                    <span style="font-size: small">45% Complete</span>
-                                                </div>
-                                            </div>
-                                        </asp:Panel>
-                                        <asp:Panel ID="Panel5" Visible='<%# Eval("PROGRESSVALUE").ToString() == "60" ? true : false %>' runat="server">
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-warning" role="progressbar"
-                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                    <span style="font-size: small">60% Complete</span>
-                                                </div>
-                                            </div>
-                                        </asp:Panel>
-                                        <asp:Panel ID="Panel6" Visible='<%# Eval("PROGRESSVALUE").ToString() == "70" ? true : false %>' runat="server">
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-warning" role="progressbar"
-                                                    aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                                                    <span style="font-size: small">70% Complete </span>
-                                                </div>
-                                            </div>
-                                        </asp:Panel>
-                                        <asp:Panel ID="Panel7" Visible='<%# Eval("PROGRESSVALUE").ToString() == "80" ? true : false %>' runat="server">
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-warning" role="progressbar"
-                                                    aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                                    <span style="font-size: small">80% Complete </span>
-                                                </div>
-                                            </div>
-                                        </asp:Panel>
-                                        <asp:Panel ID="Panel8" Visible='<%# Eval("PROGRESSVALUE").ToString() == "90" ? true : false %>' runat="server">
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-info" role="progressbar"
-                                                    aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                                                    <span style="font-size: small">90% Complete</span>
-                                                </div>
-                                            </div>
-                                        </asp:Panel>
-                                        <asp:Panel ID="Panel9" Visible='<%# Eval("PROGRESSVALUE").ToString() == "100" ? true : false %>' runat="server">
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-success" role="progressbar"
-                                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                                                    <span style="font-size: small">100% Complete </span>
-                                                </div>
-                                            </div>
-                                        </asp:Panel>
-
-                                    </ItemTemplate>
-                                    <HeaderStyle Width="500px" />
-                                </asp:TemplateField>
-                            </Columns>
-                            <EmptyDataTemplate>
-                                <div>
-                                    <h3><strong>Sorry, No Result Found!</strong>
-                                    </h3>
-                                </div>
-                            </EmptyDataTemplate>
-                            <FooterStyle BackColor="#CCCC99" />
-                            <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-                            <RowStyle BackColor="#F7F7DE" />
-                            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-                            <SortedAscendingCellStyle BackColor="#FBFBF2" />
-                            <SortedAscendingHeaderStyle BackColor="#848384" />
-                            <SortedDescendingCellStyle BackColor="#EAEAD3" />
-                            <SortedDescendingHeaderStyle BackColor="#575357" />
-                        </asp:GridView>
-                    </asp:Panel>
-                </div>
-                <div class="panel-footer">
-                    <asp:Label ID="LBLrowcount" runat="server" Text="Label"></asp:Label>
-                </div>
+                                </ItemTemplate>
+                                <HeaderStyle Width="500px" />
+                            </asp:TemplateField>
+                        </Columns>
+                        <EmptyDataTemplate>
+                            <div>
+                                <h3><strong>Sorry, No Result Found!</strong>
+                                </h3>
+                            </div>
+                        </EmptyDataTemplate>
+                        <FooterStyle BackColor="#CCCC99" />
+                        <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+                        <RowStyle BackColor="#F7F7DE" />
+                        <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#FBFBF2" />
+                        <SortedAscendingHeaderStyle BackColor="#848384" />
+                        <SortedDescendingCellStyle BackColor="#EAEAD3" />
+                        <SortedDescendingHeaderStyle BackColor="#575357" />
+                    </asp:GridView>
+                </asp:Panel>
+            </div>
+            <div class="panel-footer">
+                <asp:Label ID="LBLrowcount" runat="server" Text="Label"></asp:Label>
+            </div>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
