@@ -232,7 +232,7 @@ namespace KMDIweb.SCREENfab
                 }
                 if (lblfinished.Text != "")
                 {
-                    GridView1.Rows[i].Cells[7].BackColor = Color.Brown;
+                    GridView1.Rows[i].Cells[7].BackColor = Color.LightSeaGreen;
                     lblfinished.ForeColor = Color.White;
                 }
             }
