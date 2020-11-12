@@ -43,7 +43,7 @@
                 </table>
                 <table class="table">
                     <tr>
-                        <td style="background-color:cornflowerblue; color: white">Fabricated</td>
+                        <td style="background-color:LightSeaGreen; color: white">Fabricated</td>
                     </tr>
                 </table>
             </div>

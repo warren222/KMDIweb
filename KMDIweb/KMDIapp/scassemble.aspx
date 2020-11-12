@@ -26,8 +26,8 @@
                 </table>
                 <table class="table">
                     <tr>
-                        <td style="background-color: indigo; color: white">Assembled</td>
-                        <td style="background-color: brown; color: white">Fabricated</td>
+                        <td style="background-color: CornflowerBlue; color: white">Assembled</td>
+                        <td style="background-color: LightSeaGreen; color: white">Fabricated</td>
                     </tr>
                 </table>
             </div>
@@ -65,7 +65,7 @@
                                 </div>
                                 <asp:TextBox ID="TBOXproject" placeholder="project name" CssClass="form-control" runat="server"></asp:TextBox>
                                 <div class="input-group-addon">
-                                    <asp:CheckBox ID="CheckBox1" runat="server" Checked="true" />&nbsp;Finished
+                                    <asp:CheckBox ID="CheckBox1" runat="server" Checked="true" />&nbsp;Done
                                 </div>
                                 <div class="input-group-btn">
                                     <asp:LinkButton ID="BTNsearch" CssClass="btn btn-primary" runat="server" OnClick="BTNsearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
@@ -141,18 +141,18 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="ASSEMBLED" HeaderStyle-BackColor="Indigo" HeaderStyle-ForeColor="White" ItemStyle-HorizontalAlign="Center">
+                                    <asp:TemplateField HeaderText="ASSEMBLED" HeaderStyle-BackColor="CornflowerBlue" HeaderStyle-ForeColor="White" ItemStyle-HorizontalAlign="Center">
                                         <ItemTemplate>
                                             <asp:Label ID="LBLassembled" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("ASSEMBLED") %>'></asp:Label>
                                         </ItemTemplate>
-                                        <HeaderStyle BackColor="Indigo" ForeColor="White" />
+                                        <HeaderStyle BackColor="CornflowerBlue" ForeColor="White" />
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="FABRICATED" HeaderStyle-BackColor="Brown" HeaderStyle-ForeColor="white" ItemStyle-HorizontalAlign="Center">
+                                    <asp:TemplateField HeaderText="FABRICATED" HeaderStyle-BackColor="LightSeaGreen" HeaderStyle-ForeColor="white" ItemStyle-HorizontalAlign="Center">
                                         <ItemTemplate>
                                             <asp:Label ID="LBLfinished" Font-Bold="true" runat="server" Text='<%# Bind("finished") %>'></asp:Label>
                                         </ItemTemplate>
-                                        <HeaderStyle BackColor="Brown" ForeColor="White" />
+                                        <HeaderStyle BackColor="LightSeaGreen" ForeColor="White" />
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                 </Columns>
@@ -227,11 +227,11 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="ASSEMBLED" HeaderStyle-BackColor="Indigo" HeaderStyle-ForeColor="White"  ItemStyle-HorizontalAlign="Center">
+                                    <asp:TemplateField HeaderText="ASSEMBLED" HeaderStyle-BackColor="CornflowerBlue" HeaderStyle-ForeColor="White"  ItemStyle-HorizontalAlign="Center">
                                         <ItemTemplate>
                                             <asp:Label ID="g2LBLassembled" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("ASSEMBLED") %>'></asp:Label>
                                         </ItemTemplate>
-                                        <HeaderStyle BackColor="Indigo" ForeColor="White" />
+                                        <HeaderStyle BackColor="CornflowerBlue" ForeColor="White" />
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                     <asp:TemplateField>

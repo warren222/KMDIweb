@@ -142,13 +142,13 @@ namespace KMDIweb.KMDIapp
                 }
                 if (lblppm.Text != "")
                 {
-                    GridView1.Rows[i].Cells[8].BackColor = Color.Indigo;
+                    GridView1.Rows[i].Cells[8].BackColor = Color.CornflowerBlue;
                     lblppm.ForeColor = Color.White;
                 }
 
                 if (lblfinished.Text != "")
                 {
-                    GridView1.Rows[i].Cells[9].BackColor = Color.Brown;
+                    GridView1.Rows[i].Cells[9].BackColor = Color.LightSeaGreen;
                     lblfinished.ForeColor = Color.White;
                 }
             }
@@ -292,7 +292,7 @@ namespace KMDIweb.KMDIapp
 
                 if (lblppm.Text != "")
                 {
-                    ((GridView)sender).Rows[i].Cells[7].BackColor = Color.Indigo;
+                    ((GridView)sender).Rows[i].Cells[7].BackColor = Color.CornflowerBlue;
                     lblppm.ForeColor = Color.White;
                 }
 
