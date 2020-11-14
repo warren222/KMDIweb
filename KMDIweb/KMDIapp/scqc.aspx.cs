@@ -13,6 +13,10 @@ namespace KMDIweb.KMDIapp
 {
     public partial class scqc : System.Web.UI.Page
     {
+
+        string mon = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday)).ToString("yyyy-MM-dd");
+        string sun = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7)).ToString("yyyy-MM-dd");
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["KMDI_userid"] != null)
@@ -23,7 +27,7 @@ namespace KMDIweb.KMDIapp
                     var sunday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7);
                     tboxBdate.Text = Convert.ToDateTime(monday).ToString("yyyy-MM-dd");
                     tboxEdate.Text = Convert.ToDateTime(sunday).ToString("yyyy-MM-dd");
-                    loadqcschedule();
+                    loadqcschedule("for qc schedule");
 
                 }
             }
@@ -50,9 +54,9 @@ namespace KMDIweb.KMDIapp
 
         protected void BTNsearch_Click(object sender, EventArgs e)
         {
-            loadqcschedule();
+            loadqcschedule("for qc schedule");
         }
-        private void loadqcschedule()
+        private void loadqcschedule(string command)
         {
             try
             {
@@ -65,9 +69,11 @@ namespace KMDIweb.KMDIapp
                         sqlcon.Open();
                         sqlcmd.CommandText = "[screen_qc_stp]";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@command", "for qc schedule");
+                        sqlcmd.Parameters.AddWithValue("@command", command);
                         sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@mon", mon);
+                        sqlcmd.Parameters.AddWithValue("@sun", sun);
 
                         sqlcmd.Parameters.AddWithValue("@parentjono", "");
                         sqlcmd.Parameters.AddWithValue("@projectname", "");
@@ -79,13 +85,100 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@status", "");
                         sqlcmd.Parameters.AddWithValue("@clno", "");
       
-                            sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
+                        sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
                         sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
                         GridView1.DataSource = tb;
                         GridView1.DataBind();
+                        ViewState["prevcommand"] = command;
+
+
+                        if (command == "for qc schedule")
+                        {
+                            LBLschedule.Text = "Quality Control Checklist Table";
+                            BTNtoday.BackColor = Color.Red;
+                            BTNthisweek.BackColor = Color.Red;
+                            BTNprevweek.BackColor = Color.Red;
+                        }
+                        else if (command == "this week")
+                        {
+                            LBLschedule.Text = "This week's unfinished";
+                            BTNtoday.BackColor = Color.Red;
+                            BTNthisweek.BackColor = Color.Green;
+                            BTNprevweek.BackColor = Color.Red;
+                        }
+                        else if (command == "today")
+                        {
+                            LBLschedule.Text = "Today's unfinished";
+                            BTNtoday.BackColor = Color.Green;
+                            BTNthisweek.BackColor = Color.Red;
+                            BTNprevweek.BackColor = Color.Red;
+
+                        }
+                        else if (command == "prev week")
+                        {
+                            LBLschedule.Text = "Previous weeks' unfinished";
+                            BTNtoday.BackColor = Color.Red;
+                            BTNthisweek.BackColor = Color.Red;
+                            BTNprevweek.BackColor = Color.Green;
+
+                        }
+
+                        Panel1.Visible = true;
+                        Panel2.Visible = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+            finally
+            {
+                loadbalance();
+            }
+
+        }
+        private void loadbalance()
+        {
+            try
+            {
+
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "[screen_qc_stp]";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "balance");
+                        sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@mon", mon);
+                        sqlcmd.Parameters.AddWithValue("@sun", sun);
+
+                        sqlcmd.Parameters.AddWithValue("@parentjono", "");
+                        sqlcmd.Parameters.AddWithValue("@projectname", "");
+                        sqlcmd.Parameters.AddWithValue("@color", "");
+                        sqlcmd.Parameters.AddWithValue("@duedate", "");
+                        sqlcmd.Parameters.AddWithValue("@screentype", "");
+                        sqlcmd.Parameters.AddWithValue("@finished", "");
+                        sqlcmd.Parameters.AddWithValue("@remarks", "");
+                        sqlcmd.Parameters.AddWithValue("@status", "");
+                        sqlcmd.Parameters.AddWithValue("@clno", "");
+                        sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
+                        sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
+                        using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                BTNthisweek.Text = rd[0].ToString();
+                                BTNtoday.Text = rd[1].ToString();
+                                BTNprevweek.Text = rd[2].ToString();
+                            }
+                        }
 
                     }
                 }
@@ -156,7 +249,7 @@ namespace KMDIweb.KMDIapp
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            loadqcschedule();
+            loadqcschedule(ViewState["prevcommand"].ToString());
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -210,6 +303,8 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@command", "for qc");
                         sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@mon", mon);
+                        sqlcmd.Parameters.AddWithValue("@sun", sun);
 
                         sqlcmd.Parameters.AddWithValue("@parentjono", parentjono);
                         sqlcmd.Parameters.AddWithValue("@projectname", projectname);
@@ -240,7 +335,7 @@ namespace KMDIweb.KMDIapp
         protected void LINKexit_Click(object sender, EventArgs e)
         {
             GridView1.PageIndex = GridView1.PageIndex;
-            loadqcschedule();
+            loadqcschedule(ViewState["prevcommand"].ToString());
             Panel2.Visible = false;
             Panel1.Visible = true;
         }
@@ -377,6 +472,20 @@ namespace KMDIweb.KMDIapp
                 loadforqc();
 
             }
+        }
+        protected void BTNprevweek_Click(object sender, EventArgs e)
+        {
+            loadqcschedule("prev week");
+        }
+
+        protected void BTNtoday_Click(object sender, EventArgs e)
+        {
+            loadqcschedule("today");
+        }
+
+        protected void BTNthisweek_Click(object sender, EventArgs e)
+        {
+            loadqcschedule("this week");
         }
     }
 }

@@ -10,7 +10,11 @@
     <script src="../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
     <link href="css/gridcss.css" rel="stylesheet" />
-
+    <style>
+        .vl {
+            border-left: 6px solid green;
+        }
+    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -58,12 +62,12 @@
                             <asp:Label ID="username" runat="server" Text="acctlink"></asp:Label><span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                      <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/KMDIapp/changesecurity.aspx"><span class="glyphicon glyphicon-lock"></span>&nbsp; Change Security</asp:HyperLink></li>
-                                </li>
-                                <li>
-                                    <asp:LinkButton ID="LinkButton1" OnClick="LinkButton1_Click" runat="server"><span class="glyphicon  glyphicon-log-out"></span>&nbsp;Logout</asp:LinkButton></li>
-                            </ul>
+                                    <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/KMDIapp/changesecurity.aspx"><span class="glyphicon glyphicon-lock"></span>&nbsp; Change Security</asp:HyperLink></li>
                         </li>
+                        <li>
+                            <asp:LinkButton ID="LinkButton1" OnClick="LinkButton1_Click" runat="server"><span class="glyphicon  glyphicon-log-out"></span>&nbsp;Logout</asp:LinkButton></li>
+                    </ul>
+                    </li>
                     </ul>
                 </div>
             </div>

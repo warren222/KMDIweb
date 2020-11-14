@@ -13,6 +13,8 @@ namespace KMDIweb.KMDIapp
 {
     public partial class sccutting : System.Web.UI.Page
     {
+        string mon = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday)).ToString("yyyy-MM-dd");
+        string sun = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7)).ToString("yyyy-MM-dd");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,7 +28,8 @@ namespace KMDIweb.KMDIapp
                     //tboxEdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month).ToString());
                     tboxBdate.Text = Convert.ToDateTime(monday).ToString("yyyy-MM-dd");
                     tboxEdate.Text = Convert.ToDateTime(sunday).ToString("yyyy-MM-dd");
-                    loadcuttingschedule();
+                    loadcuttingschedule("for cutting schedule");
+                 
                 }
             }
             else
@@ -49,7 +52,7 @@ namespace KMDIweb.KMDIapp
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
-        private void loadcuttingschedule()
+        private void loadcuttingschedule(string command)
         {
             try
             {
@@ -62,9 +65,11 @@ namespace KMDIweb.KMDIapp
                         sqlcon.Open();
                         sqlcmd.CommandText = "[screen_cutting_stp]";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@command", "for cutting schedule");
+                        sqlcmd.Parameters.AddWithValue("@command", command);
                         sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@mon", mon);
+                        sqlcmd.Parameters.AddWithValue("@sun", sun);
 
                         sqlcmd.Parameters.AddWithValue("@parentjono", "");
                         sqlcmd.Parameters.AddWithValue("@projectname", "");
@@ -82,7 +87,96 @@ namespace KMDIweb.KMDIapp
                         da.Fill(tb);
                         GridView1.DataSource = tb;
                         GridView1.DataBind();
+                        ViewState["prevcommand"] = command;
 
+
+                        if (command == "for cutting schedule")
+                        {
+                            LBLschedule.Text = "Cutting Checklist Table";
+                            BTNtoday.BackColor = Color.Red;
+                            BTNthisweek.BackColor = Color.Red;
+                            BTNprevweek.BackColor = Color.Red;
+                        }
+                        else if (command == "this week")
+                        {
+                            LBLschedule.Text = "This week's unfinished";
+                            BTNtoday.BackColor = Color.Red;
+                            BTNthisweek.BackColor = Color.Green;
+                            BTNprevweek.BackColor = Color.Red;
+                        }
+                        else if (command == "today")
+                        {
+                            LBLschedule.Text = "Today's unfinished";
+                            BTNtoday.BackColor = Color.Green;
+                            BTNthisweek.BackColor = Color.Red;
+                            BTNprevweek.BackColor = Color.Red;
+
+                        }
+                        else if (command == "prev week")
+                        {
+                            LBLschedule.Text = "Previous weeks' unfinished";
+                            BTNtoday.BackColor = Color.Red;
+                            BTNthisweek.BackColor = Color.Red;
+                            BTNprevweek.BackColor = Color.Green;
+                        
+                        }
+
+                        Panel2.Visible = true;
+                        Panel1.Visible = false;
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+            finally
+            {
+                loadbalance();
+            }
+
+        }
+        private void loadbalance()
+        {
+            try
+            {
+               
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "[screen_cutting_stp]";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "balance");
+                        sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@mon", mon);
+                        sqlcmd.Parameters.AddWithValue("@sun", sun);
+
+                        sqlcmd.Parameters.AddWithValue("@parentjono", "");
+                        sqlcmd.Parameters.AddWithValue("@projectname", "");
+                        sqlcmd.Parameters.AddWithValue("@color", "");
+                        sqlcmd.Parameters.AddWithValue("@duedate", "");
+                        sqlcmd.Parameters.AddWithValue("@screentype", "");
+                        sqlcmd.Parameters.AddWithValue("@finished", "");
+                        sqlcmd.Parameters.AddWithValue("@remarks", "");
+                        sqlcmd.Parameters.AddWithValue("@status", "");
+                        sqlcmd.Parameters.AddWithValue("@clno", "");
+                        sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
+                        sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
+                        using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                BTNthisweek.Text = rd[0].ToString();
+                                BTNtoday.Text = rd[1].ToString();
+                                BTNprevweek.Text = rd[2].ToString();
+                            }
+                        }
+                     
                     }
                 }
             }
@@ -92,16 +186,15 @@ namespace KMDIweb.KMDIapp
             }
 
         }
-
         protected void BTNsearch_Click(object sender, EventArgs e)
         {
-            loadcuttingschedule();
+            loadcuttingschedule("for cutting schedule");
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            loadcuttingschedule();
+            loadcuttingschedule(ViewState["prevcommand"].ToString());
         }
 
         protected void GridView1_DataBound(object sender, EventArgs e)
@@ -212,6 +305,8 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@command", "for cutting");
                         sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@mon", mon);
+                        sqlcmd.Parameters.AddWithValue("@sun", sun);
 
                         sqlcmd.Parameters.AddWithValue("@parentjono", parentjono);
                         sqlcmd.Parameters.AddWithValue("@projectname", projectname);
@@ -295,7 +390,7 @@ namespace KMDIweb.KMDIapp
         protected void LINKexit_Click(object sender, EventArgs e)
         {
             GridView1.PageIndex = GridView1.PageIndex;
-            loadcuttingschedule();
+            loadcuttingschedule(ViewState["prevcommand"].ToString());
             Panel1.Visible = false;
             Panel2.Visible = true;
         }
@@ -383,6 +478,21 @@ namespace KMDIweb.KMDIapp
                 loadforcutting();
 
             }
+        }
+
+        protected void BTNprevweek_Click(object sender, EventArgs e)
+        {
+            loadcuttingschedule("prev week");
+        }
+
+        protected void BTNtoday_Click(object sender, EventArgs e)
+        {
+            loadcuttingschedule("today");
+        }
+
+        protected void BTNthisweek_Click(object sender, EventArgs e)
+        {
+            loadcuttingschedule("this week");
         }
     }
 }

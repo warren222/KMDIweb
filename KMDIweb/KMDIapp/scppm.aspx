@@ -38,6 +38,22 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
+
+               <div class="row" style="margin-left: 20px; margin-bottom: 20px">
+                <div class="col-sm-4 vl">
+                    Previous weeks' unfinished<br />
+                    <asp:LinkButton ID="BTNprevweek" BackColor="Red" Font-Bold="true" CssClass="badge" Font-Size="X-Large" runat="server" OnClick="BTNprevweek_Click">LinkButton</asp:LinkButton>
+                </div>
+                <div class="col-sm-4 vl">
+                    Today's unfinished<br />
+                    <asp:LinkButton ID="BTNtoday" BackColor="Red" Font-Bold="true" CssClass="badge" Font-Size="X-Large" runat="server" OnClick="BTNtoday_Click">LinkButton</asp:LinkButton>
+                </div>
+                <div class="col-sm-4 vl">
+                    This week's unfinished<br />
+                    <asp:LinkButton ID="BTNthisweek" BackColor="Red" Font-Bold="true" CssClass="badge" Font-Size="X-Large" runat="server" OnClick="BTNthisweek_Click">LinkButton</asp:LinkButton>
+                </div>
+            </div>
+
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4><span>Filter Option </span></h4>
@@ -78,8 +94,9 @@
                 </div>
                 <div class="panel-body">
                     <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-                        <h3 class="text-center text-success"><span><strong>
-                            <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Pleated Mesh Checklist Table"></asp:Label></strong> </span></h3>
+                             <h1 class="text-center text-success"><span>
+                            <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Pleated Mesh Checklist Table"></asp:Label>
+                        </span></h1>
                         <small>
                             <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" CellPadding="4" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
                                 <AlternatingRowStyle BackColor="White" />

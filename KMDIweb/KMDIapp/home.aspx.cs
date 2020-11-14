@@ -91,24 +91,49 @@ namespace KMDIweb.SCREENfab
                         da.Fill(tb);
                         GridView1.DataSource = tb;
                         GridView1.DataBind();
-                        LBLrowcount.Text = tb.Rows.Count.ToString();
+                     
                         ViewState["prevcommand"] = command;
 
                         if (command == "load schedule")
                         {
-                            LBLschedule.Text = "Screen Fabrication Schedule";
+                            LBLschedule.Text = "Screen Fabrication Selected Schedule";
+                            BTNCurrentweektime.ForeColor = Color.CornflowerBlue;
+                            BTNtodaytime.ForeColor = Color.CornflowerBlue;
+                            BTNprevweektime.ForeColor = Color.CornflowerBlue;
+                            BTNCurrentweektime.Font.Bold = false;
+                            BTNtodaytime.Font.Bold = false;
+                            BTNprevweektime.Font.Bold = false;
                         }
                         else if (command == "current week")
                         {
-                            LBLschedule.Text = "Current Week Unfinished";
+                            LBLschedule.Text = "This week's unfinished";
+                            BTNCurrentweektime.ForeColor = Color.Green;
+                            BTNtodaytime.ForeColor = Color.CornflowerBlue;
+                            BTNprevweektime.ForeColor = Color.CornflowerBlue;
+                            BTNCurrentweektime.Font.Bold = true;
+                            BTNtodaytime.Font.Bold = false;
+                            BTNprevweektime.Font.Bold = false;
                         }
                         else if (command == "today")
                         {
-                            LBLschedule.Text = "Today Unfinished";
+                            LBLschedule.Text = "Today's unfinished";
+                            BTNCurrentweektime.ForeColor = Color.CornflowerBlue;
+                            BTNtodaytime.ForeColor = Color.Green;
+                            BTNprevweektime.ForeColor = Color.CornflowerBlue;
+                            BTNCurrentweektime.Font.Bold = false;
+                            BTNtodaytime.Font.Bold = true;
+                            BTNprevweektime.Font.Bold = false;
+
                         }
                         else if (command == "prev week")
                         {
-                            LBLschedule.Text = "Previous weeks Unfinished";
+                            LBLschedule.Text = "Previous weeks' unfinished";
+                            BTNCurrentweektime.ForeColor = Color.CornflowerBlue;
+                            BTNtodaytime.ForeColor = Color.CornflowerBlue;
+                            BTNprevweektime.ForeColor = Color.Green;
+                            BTNCurrentweektime.Font.Bold = false;
+                            BTNtodaytime.Font.Bold = false;
+                            BTNprevweektime.Font.Bold = true;
                         }
                         Panel1.Visible = true;
                         Panel2.Visible = false;

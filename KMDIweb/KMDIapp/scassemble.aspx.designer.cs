@@ -49,6 +49,33 @@ namespace KMDIweb.KMDIapp {
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
         
         /// <summary>
+        /// BTNprevweek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton BTNprevweek;
+        
+        /// <summary>
+        /// BTNtoday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton BTNtoday;
+        
+        /// <summary>
+        /// BTNthisweek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton BTNthisweek;
+        
+        /// <summary>
         /// tboxBdate control.
         /// </summary>
         /// <remarks>
