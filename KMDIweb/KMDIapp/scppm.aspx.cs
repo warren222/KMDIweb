@@ -95,7 +95,7 @@ namespace KMDIweb.KMDIapp
                         ViewState["prevcommand"] = command;
 
 
-                        if (command == "for cutting schedule")
+                        if (command == "for ppm schedule")
                         {
                             LBLschedule.Text = "Pleated Mesh Checklist Table";
                             BTNtoday.BackColor = Color.Red;
