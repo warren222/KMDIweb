@@ -57,7 +57,7 @@
             <div class="row" style="margin-bottom: 20px; margin-left: 20px;">
                 <div class="col-sm-4 vl">
 
-                    <h3 class="text-muted">Previous weeks' unfinished</h3>
+                    <h3 class="text-muted">Previous weeks <small>in progress</small> </h3>
                     <asp:LinkButton ID="BTNprevweektime" runat="server" Font-Size="XX-Large" OnClick="BTNprevweektime_Click">Time</asp:LinkButton>
                     <br />
                     <asp:Label ID="LBLprevweekitem" BackColor="Red" Font-Size="Medium" CssClass="text-center badge" runat="server"></asp:Label>&nbsp;k#(s)
@@ -66,7 +66,7 @@
                 <div class="col-sm-4 vl">
 
 
-                    <h3 class="text-muted">Today's unfinished</h3>
+                    <h3 class="text-muted">Due for Today <small>in progress</small> </h3>
 
                     <asp:LinkButton ID="BTNtodaytime" runat="server" Font-Size="XX-Large" OnClick="BTNtodaytime_Click">Time</asp:LinkButton>
                     <br />
@@ -75,7 +75,7 @@
                 </div>
                 <div class="col-sm-4 vl">
 
-                    <h3 class="text-muted">This week's unfinished</h3>
+                    <h3 class="text-muted">This week <small>in progress</small> </h3>
                     <asp:LinkButton ID="BTNCurrentweektime" runat="server" Font-Size="XX-Large" OnClick="BTNCurrentweektime_Click">Time</asp:LinkButton>
                     <br />
                     <asp:Label ID="LBLcurrentweekitem" BackColor="Red" Font-Size="Medium" CssClass="text-center badge" runat="server"></asp:Label>&nbsp;k#(s)
@@ -149,7 +149,7 @@
                             <asp:DropDownList ID="DDLprogress" CssClass="form-control" runat="server">
                                 <asp:ListItem Text="All" Value="All"></asp:ListItem>
                                 <asp:ListItem Text="Finished" Value="Finished"></asp:ListItem>
-                                <asp:ListItem Text="Unfinished" Value="Unfinished"></asp:ListItem>
+                                <asp:ListItem Text="In progress" Value="In progress"></asp:ListItem>
                             </asp:DropDownList>
 
                         </div>
@@ -237,7 +237,18 @@
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-
+                                   <asp:TemplateField HeaderText="CL CTRL#" ItemStyle-HorizontalAlign="Center">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBLclno" runat="server" Text='<%# Bind("CLNO") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                   <asp:TemplateField HeaderText="RELEASED DATE" ItemStyle-HorizontalAlign="Center">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBLcuttinglist" runat="server" Text='<%# Bind("CUTTING_LIST") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="QTY" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLqty" runat="server" Text='<%# Bind("QTY") %>'></asp:Label>
@@ -409,7 +420,7 @@
                 </asp:Panel>
             </div>
             <div class="panel-footer">
-                <asp:Label ID="LBLrowcount" runat="server" Text="Label"></asp:Label>
+       
             </div>
             </div>
         </ContentTemplate>

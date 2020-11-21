@@ -86,6 +86,8 @@ namespace KMDIweb.SCREENfab
                         sqlcmd.Parameters.AddWithValue("@finished", "");
                         sqlcmd.Parameters.AddWithValue("@schedremarks","");
                         sqlcmd.Parameters.AddWithValue("@status", "");
+                        sqlcmd.Parameters.AddWithValue("@cuttinglist", "");
+                        sqlcmd.Parameters.AddWithValue("@clno", "");
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
@@ -106,7 +108,7 @@ namespace KMDIweb.SCREENfab
                         }
                         else if (command == "current week")
                         {
-                            LBLschedule.Text = "This week's unfinished";
+                            LBLschedule.Text = "This week (in progress)";
                             BTNCurrentweektime.ForeColor = Color.Green;
                             BTNtodaytime.ForeColor = Color.CornflowerBlue;
                             BTNprevweektime.ForeColor = Color.CornflowerBlue;
@@ -116,7 +118,7 @@ namespace KMDIweb.SCREENfab
                         }
                         else if (command == "today")
                         {
-                            LBLschedule.Text = "Today's unfinished";
+                            LBLschedule.Text = "Due for today (in progress)";
                             BTNCurrentweektime.ForeColor = Color.CornflowerBlue;
                             BTNtodaytime.ForeColor = Color.Green;
                             BTNprevweektime.ForeColor = Color.CornflowerBlue;
@@ -127,7 +129,7 @@ namespace KMDIweb.SCREENfab
                         }
                         else if (command == "prev week")
                         {
-                            LBLschedule.Text = "Previous weeks' unfinished";
+                            LBLschedule.Text = "Previous weeks (in progress)";
                             BTNCurrentweektime.ForeColor = Color.CornflowerBlue;
                             BTNtodaytime.ForeColor = Color.CornflowerBlue;
                             BTNprevweektime.ForeColor = Color.Green;
@@ -176,6 +178,8 @@ namespace KMDIweb.SCREENfab
                         sqlcmd.Parameters.AddWithValue("@finished", "");
                         sqlcmd.Parameters.AddWithValue("@schedremarks", "");
                         sqlcmd.Parameters.AddWithValue("@status", "");
+                        sqlcmd.Parameters.AddWithValue("@cuttinglist", "");
+                        sqlcmd.Parameters.AddWithValue("@clno", "");
                         using (SqlDataReader rd = sqlcmd.ExecuteReader())
                         {
                             while (rd.Read())
@@ -257,7 +261,7 @@ namespace KMDIweb.SCREENfab
                 }
                 if (lblfinished.Text != "")
                 {
-                    GridView1.Rows[i].Cells[7].BackColor = Color.LightSeaGreen;
+                    GridView1.Rows[i].Cells[9].BackColor = Color.LightSeaGreen;
                     lblfinished.ForeColor = Color.White;
                 }
             }
@@ -287,6 +291,8 @@ namespace KMDIweb.SCREENfab
                 ViewState["finished"] = ((Label)row.FindControl("LBLfinished")).Text;
                 ViewState["schedremarks"] = ((Label)row.FindControl("LBLschedremarks")).Text;
                 ViewState["status"] = ((Label)row.FindControl("LBLstatus")).Text;
+                ViewState["cuttinglist"] = ((Label)row.FindControl("LBLcuttinglist")).Text;
+                ViewState["clno"] = ((Label)row.FindControl("LBLclno")).Text;
                 Panel2.Visible = true;
                 Panel1.Visible = false;
                 loadkno();
@@ -323,6 +329,8 @@ namespace KMDIweb.SCREENfab
                         sqlcmd.Parameters.AddWithValue("@finished", ViewState["finished"].ToString());
                         sqlcmd.Parameters.AddWithValue("@schedremarks", ViewState["schedremarks"].ToString());
                         sqlcmd.Parameters.AddWithValue("@status", ViewState["status"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@cuttinglist", ViewState["cuttinglist"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@clno", ViewState["clno"].ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);

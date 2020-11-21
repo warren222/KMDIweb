@@ -83,7 +83,8 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@remarks", "");
                         sqlcmd.Parameters.AddWithValue("@status", "");
                         sqlcmd.Parameters.AddWithValue("@clno", "");
-                            sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
+                        sqlcmd.Parameters.AddWithValue("@cuttinglist", "");
+                        sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
                         sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
@@ -102,14 +103,14 @@ namespace KMDIweb.KMDIapp
                         }
                         else if (command == "this week")
                         {
-                            LBLschedule.Text = "This week's unfinished";
+                            LBLschedule.Text = "This week (in progress)";
                             BTNtoday.BackColor = Color.Red;
                             BTNthisweek.BackColor = Color.Green;
                             BTNprevweek.BackColor = Color.Red;
                         }
                         else if (command == "today")
                         {
-                            LBLschedule.Text = "Today's unfinished";
+                            LBLschedule.Text = "Due for today (in progress)";
                             BTNtoday.BackColor = Color.Green;
                             BTNthisweek.BackColor = Color.Red;
                             BTNprevweek.BackColor = Color.Red;
@@ -117,7 +118,7 @@ namespace KMDIweb.KMDIapp
                         }
                         else if (command == "prev week")
                         {
-                            LBLschedule.Text = "Previous weeks' unfinished";
+                            LBLschedule.Text = "Previous weeks (in progress)";
                             BTNtoday.BackColor = Color.Red;
                             BTNthisweek.BackColor = Color.Red;
                             BTNprevweek.BackColor = Color.Green;
@@ -166,6 +167,7 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@remarks", "");
                         sqlcmd.Parameters.AddWithValue("@status", "");
                         sqlcmd.Parameters.AddWithValue("@clno", "");
+                        sqlcmd.Parameters.AddWithValue("@cuttinglist", "");
                         sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
                         sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
                         using (SqlDataReader rd = sqlcmd.ExecuteReader())
@@ -231,13 +233,13 @@ namespace KMDIweb.KMDIapp
                 }
                 if (lblaccessories.Text != "")
                 {
-                    GridView1.Rows[i].Cells[8].BackColor = Color.CornflowerBlue;
+                    GridView1.Rows[i].Cells[9].BackColor = Color.CornflowerBlue;
                     lblaccessories.ForeColor = Color.White;
                 }
 
                 if (lblfinished.Text != "")
                 {
-                    GridView1.Rows[i].Cells[9].BackColor = Color.LightSeaGreen;
+                    GridView1.Rows[i].Cells[10].BackColor = Color.LightSeaGreen;
                     lblfinished.ForeColor = Color.White;
                 }
             }
@@ -269,7 +271,8 @@ namespace KMDIweb.KMDIapp
                             ((Label)row.FindControl("LBLfinished")).Text,
                             ((Label)row.FindControl("LBLschedremarks")).Text,
                          ((Label)row.FindControl("LBLstatus")).Text,
-                         ((Label)row.FindControl("LBLclno")).Text);
+                         ((Label)row.FindControl("LBLclno")).Text,
+                             ((Label)row.FindControl("LBLcuttinglist")).Text);
                     Panel2.Visible = true;
                     Panel1.Visible = false;
                     ViewState["parentjono"] = ((Label)row.FindControl("LBLparentjono")).Text;
@@ -281,10 +284,11 @@ namespace KMDIweb.KMDIapp
                     ViewState["remarks"] = ((Label)row.FindControl("LBLschedremarks")).Text;
                     ViewState["status"] = ((Label)row.FindControl("LBLstatus")).Text;
                     ViewState["clno"] = ((Label)row.FindControl("LBLclno")).Text;
+                    ViewState["cuttinglist"] = ((Label)row.FindControl("LBLcuttinglist")).Text;
                 }
             }
         }
-        private void foraccessories(string parentjono, string projectname, string color, string duedate, string screentype, string finished, string remarks, string status, string clno)
+        private void foraccessories(string parentjono, string projectname, string color, string duedate, string screentype, string finished, string remarks, string status, string clno,string cuttinglist)
         {
             try
             {
@@ -312,6 +316,7 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@remarks", remarks);
                         sqlcmd.Parameters.AddWithValue("@status", status);
                         sqlcmd.Parameters.AddWithValue("@clno", clno);
+                        sqlcmd.Parameters.AddWithValue("@cuttinglist", cuttinglist);
                         sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
                         sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
@@ -397,7 +402,8 @@ namespace KMDIweb.KMDIapp
             ViewState["finished"].ToString(),
             ViewState["remarks"].ToString(),
             ViewState["status"].ToString(),
-            ViewState["clno"].ToString());
+            ViewState["clno"].ToString(),
+            ViewState["cuttinglist"].ToString());
         }
         protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

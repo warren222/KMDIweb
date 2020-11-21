@@ -37,18 +37,18 @@
      <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
-
-              <div class="row" style="margin-left: 20px; margin-bottom: 20px">
+ 
+             <div class="row" style="margin-left: 20px; margin-bottom: 20px">
                 <div class="col-sm-4 vl">
-                    Previous weeks' unfinished<br />
+                   <h4>Previous weeks <small class="text-muted">in progress</small></h4>
                     <asp:LinkButton ID="BTNprevweek" BackColor="Red" Font-Bold="true" CssClass="badge" Font-Size="X-Large" runat="server" OnClick="BTNprevweek_Click">LinkButton</asp:LinkButton>
                 </div>
                 <div class="col-sm-4 vl">
-                    Today's unfinished<br />
+                   <h4>Due for today <small class="text-muted">in progress</small></h4>
                     <asp:LinkButton ID="BTNtoday" BackColor="Red" Font-Bold="true" CssClass="badge" Font-Size="X-Large" runat="server" OnClick="BTNtoday_Click">LinkButton</asp:LinkButton>
                 </div>
                 <div class="col-sm-4 vl">
-                    This week's unfinished<br />
+                  <h4>This week <small class="text-muted">in progress</small></h4>
                     <asp:LinkButton ID="BTNthisweek" BackColor="Red" Font-Bold="true" CssClass="badge" Font-Size="X-Large" runat="server" OnClick="BTNthisweek_Click">LinkButton</asp:LinkButton>
                 </div>
             </div>
@@ -132,7 +132,12 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-
+                                         <asp:TemplateField HeaderText="DATE RELEASED" ItemStyle-HorizontalAlign="Center">
+                                        <ItemTemplate>
+                                            <asp:Label ID="LBLcuttinglist" runat="server" Text='<%# Bind("CUTTING_LIST") %>'></asp:Label>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Center" />
+                                    </asp:TemplateField>
                                     <asp:TemplateField HeaderText="COLOR" ItemStyle-HorizontalAlign="Center">
                                         <ItemTemplate>
                                             <asp:Label ID="LBLcolor" runat="server" Text='<%# Bind("COLOR") %>'></asp:Label>
