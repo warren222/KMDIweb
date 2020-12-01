@@ -198,96 +198,131 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="KMDIweb\Delivery\ScannedDR\DRscannedHome.aspx.cs">
+      <DependentUpon>DRscannedHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Delivery\ScannedDR\DRscannedHome.aspx.designer.cs">
+      <DependentUpon>DRscannedHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Delivery\ScannedDR\DRscannedReportMaster.Master.cs">
+      <DependentUpon>DRscannedReportMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Delivery\ScannedDR\DRscannedReportMaster.Master.designer.cs">
+      <DependentUpon>DRscannedReportMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="KMDIapp\changesecurity.aspx.cs">
+    <Compile Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx.cs">
+      <DependentUpon>Fileupload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx.designer.cs">
+      <DependentUpon>Fileupload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Global\changesecurity.aspx.cs">
       <DependentUpon>changesecurity.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KMDIapp\changesecurity.aspx.designer.cs">
+    <Compile Include="KMDIweb\Global\changesecurity.aspx.designer.cs">
       <DependentUpon>changesecurity.aspx</DependentUpon>
     </Compile>
-    <Compile Include="KMDIapp\invalidaccess.aspx.cs">
+    <Compile Include="KMDIweb\Global\invalidaccess.aspx.cs">
       <DependentUpon>invalidaccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KMDIapp\invalidaccess.aspx.designer.cs">
+    <Compile Include="KMDIweb\Global\invalidaccess.aspx.designer.cs">
       <DependentUpon>invalidaccess.aspx</DependentUpon>
     </Compile>
-    <Compile Include="KMDIapp\manageaccount.aspx.cs">
+    <Compile Include="KMDIweb\Global\mainmenu.aspx.cs">
+      <DependentUpon>mainmenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Global\mainmenu.aspx.designer.cs">
+      <DependentUpon>mainmenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Global\manageaccount.aspx.cs">
       <DependentUpon>manageaccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KMDIapp\manageaccount.aspx.designer.cs">
+    <Compile Include="KMDIweb\Global\manageaccount.aspx.designer.cs">
       <DependentUpon>manageaccount.aspx</DependentUpon>
     </Compile>
-    <Compile Include="KMDIapp\scaccessories.aspx.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\scaccessories.aspx.cs">
       <DependentUpon>scaccessories.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KMDIapp\scaccessories.aspx.designer.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\scaccessories.aspx.designer.cs">
       <DependentUpon>scaccessories.aspx</DependentUpon>
     </Compile>
-    <Compile Include="KMDIapp\scasbl.aspx.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\scasbl.aspx.cs">
       <DependentUpon>scasbl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KMDIapp\scasbl.aspx.designer.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\scasbl.aspx.designer.cs">
       <DependentUpon>scasbl.aspx</DependentUpon>
     </Compile>
-    <Compile Include="KMDIapp\scassemble.aspx.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\scassemble.aspx.cs">
       <DependentUpon>scassemble.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KMDIapp\scassemble.aspx.designer.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\scassemble.aspx.designer.cs">
       <DependentUpon>scassemble.aspx</DependentUpon>
     </Compile>
-    <Compile Include="KMDIapp\sccutting.aspx.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\sccutting.aspx.cs">
       <DependentUpon>sccutting.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KMDIapp\sccutting.aspx.designer.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\sccutting.aspx.designer.cs">
       <DependentUpon>sccutting.aspx</DependentUpon>
     </Compile>
-    <Compile Include="KMDIapp\scppm.aspx.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\scppm.aspx.cs">
       <DependentUpon>scppm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KMDIapp\scppm.aspx.designer.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\scppm.aspx.designer.cs">
       <DependentUpon>scppm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="KMDIapp\scqc.aspx.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\scqc.aspx.cs">
       <DependentUpon>scqc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KMDIapp\scqc.aspx.designer.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\scqc.aspx.designer.cs">
       <DependentUpon>scqc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\ScreenSchedule\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\ScreenSchedule\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="KMDIapp\ConnectionString.cs" />
-    <Compile Include="KMDIapp\home.aspx.cs">
+    <Compile Include="KMDIweb\Global\ConnectionString.cs" />
+    <Compile Include="KMDIweb\Production\ScreenSchedule\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KMDIapp\home.aspx.designer.cs">
+    <Compile Include="KMDIweb\Production\ScreenSchedule\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="KMDIapp\KMDIwebMaster.Master.cs">
-      <DependentUpon>KMDIwebMaster.Master</DependentUpon>
+    <Compile Include="KMDIweb\Production\ScreenSchedule\ScreenScheduleMaster.Master.cs">
+      <DependentUpon>ScreenScheduleMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KMDIapp\KMDIwebMaster.Master.designer.cs">
-      <DependentUpon>KMDIwebMaster.Master</DependentUpon>
+    <Compile Include="KMDIweb\Production\ScreenSchedule\ScreenScheduleMaster.Master.designer.cs">
+      <DependentUpon>ScreenScheduleMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="KMDIapp\Login.aspx.cs">
+    <Compile Include="KMDIweb\Global\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KMDIapp\Login.aspx.designer.cs">
+    <Compile Include="KMDIweb\Global\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
@@ -295,29 +330,43 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="KMDIweb\Delivery\ScannedDR\DRscannedHome.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="KMDIapp\changesecurity.aspx" />
-    <Content Include="KMDIapp\css\gridcss.css" />
-    <Content Include="KMDIapp\home.aspx" />
-    <Content Include="KMDIapp\invalidaccess.aspx" />
-    <Content Include="KMDIapp\Login.aspx" />
-    <Content Include="KMDIapp\manageaccount.aspx" />
-    <Content Include="KMDIapp\scaccessories.aspx" />
-    <Content Include="KMDIapp\scasbl.aspx" />
-    <Content Include="KMDIapp\scassemble.aspx" />
-    <Content Include="KMDIapp\sccutting.aspx" />
-    <Content Include="KMDIapp\scppm.aspx" />
-    <Content Include="KMDIapp\scqc.aspx" />
-    <Content Include="KMDIapp\scripts\sign.js" />
+    <Content Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx" />
+    <Content Include="KMDIweb\Global\changesecurity.aspx" />
+    <Content Include="KMDIweb\Global\css\gridcss.css" />
+    <Content Include="KMDIweb\Images\dr.jpg" />
+    <Content Include="KMDIweb\Images\kmdilogo.png" />
+    <Content Include="KMDIweb\Images\loginback.jpg" />
+    <Content Include="KMDIweb\Images\pdf-icon.png" />
+    <Content Include="KMDIweb\Images\Photos-icon.png" />
+    <Content Include="KMDIweb\Images\scheduling.jpg" />
+    <Content Include="KMDIweb\Images\SDR.png" />
+    <Content Include="KMDIweb\Images\SFM.png" />
+    <Content Include="KMDIweb\Images\Single-Hung-Window.png" />
+    <Content Include="KMDIweb\Production\ScreenSchedule\home.aspx" />
+    <Content Include="KMDIweb\Global\invalidaccess.aspx" />
+    <Content Include="KMDIweb\Global\Login.aspx" />
+    <Content Include="KMDIweb\Global\mainmenu.aspx" />
+    <Content Include="KMDIweb\Global\manageaccount.aspx" />
+    <Content Include="KMDIweb\Production\ScreenSchedule\scaccessories.aspx" />
+    <Content Include="KMDIweb\Production\ScreenSchedule\scasbl.aspx" />
+    <Content Include="KMDIweb\Production\ScreenSchedule\scassemble.aspx" />
+    <Content Include="KMDIweb\Production\ScreenSchedule\sccutting.aspx" />
+    <Content Include="KMDIweb\Production\ScreenSchedule\scppm.aspx" />
+    <Content Include="KMDIweb\Production\ScreenSchedule\scqc.aspx" />
+    <Content Include="KMDIweb\Production\ScreenSchedule\WebForm1.aspx" />
+    <Content Include="KMDIweb\Production\scripts\sign.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="KMDIapp\KMDIwebMaster.Master" />
+    <Content Include="KMDIweb\Production\ScreenSchedule\ScreenScheduleMaster.Master" />
+    <Content Include="KMDIweb\Delivery\ScannedDR\DRscannedReportMaster.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -367,6 +416,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="KMDIweb\Uploads\DRscannedFiles\2006-02-017\Frame\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
