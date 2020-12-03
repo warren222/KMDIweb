@@ -18,7 +18,7 @@
     <div class="well banner">
         <div class="container">
             <h1><strong style="color:#9baec8"><span  class="glyphicon glyphicon-home"></span>&nbsp;&nbsp; Scanned DR Reports</strong><br />
-                <small style="color:#edeef0">store and access delivery receipts scanned copies</small> </h1>
+                <small style="color:#edeef0">store and access DR scanned copies</small> </h1>
         </div>
     </div>
     <div class="container">

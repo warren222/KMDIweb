@@ -77,7 +77,7 @@
                         <div>
                             <strong style="font-size: x-large"><span class="glyphicon glyphicon-list-alt"></span>
                                 <span>DR Reports</span></strong><br />
-                            <small>Image and PDF Scanned DR file copies</small>
+                            <small>Uploaded DR Scanned fileS</small>
                             <asp:LinkButton ID="LinkButton1" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton1_Click">ENTER</asp:LinkButton>
 
                         </div>

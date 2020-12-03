@@ -11,7 +11,14 @@ namespace KMDIweb.SCREENfab
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            username.Text = Session["KMDI_nickname"].ToString() + " ";
+            if (Session["KMDI_userid"] != null)
+            {
+                username.Text = Session["KMDI_nickname"].ToString() + " ";
+            }
+            else
+            {
+                Response.Redirect("~/KMDIweb/Global/Login.aspx");
+            }
         }
         protected void LinkButton1_Click(object sender, EventArgs e)
         {

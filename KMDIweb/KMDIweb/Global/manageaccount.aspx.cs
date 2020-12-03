@@ -203,6 +203,7 @@ namespace KMDIweb.KMDIapp
             fullname = TBOXfullname.Text;
             nickname = TBOXnickname.Text;
             sfm = DDLsfm.Text;
+            sdr = DDLsdr.Text;
             executecommands("insert data");
         }
 

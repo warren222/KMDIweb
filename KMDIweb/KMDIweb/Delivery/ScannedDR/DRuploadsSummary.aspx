@@ -60,7 +60,7 @@
             <ContentTemplate>
                 <asp:Panel ID="Panel1" ScrollBars="Auto" runat="server">
                     <h3>Uploaded files</h3>
-                    <asp:GridView ID="GridView1" runat="server" CssClass="table" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
+                    <asp:GridView ID="GridView1" runat="server" CssClass="table" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="8">
                         <Columns>
                             <asp:TemplateField HeaderText="DATE">
                                 <ItemTemplate>
@@ -97,7 +97,8 @@
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle ForeColor="Black" HorizontalAlign="Left" BackColor="#CCCCCC" />
+                        <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
+                        <PagerStyle CssClass="GridPager" HorizontalAlign="Left"/>
                         <RowStyle Wrap="False" BackColor="White" />
                         <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
                         <SortedAscendingCellStyle BackColor="#F1F1F1" />

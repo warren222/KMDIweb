@@ -14,7 +14,27 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            loaddata();
+            if (!IsPostBack)
+            {
+                if (Session["DRscannedsummary_Key"] != null)
+                {
+                    TBOXsearchkey.Text = Session["DRscannedsummary_Key"].ToString();
+                }
+                if (Session["DRscannedsummary_Folder"] != null)
+                {
+                    DDLfolder.Text = Session["DRscannedsummary_Folder"].ToString();
+                }
+                if (Session["DRscannedsummary_Date"] != null)
+                {
+                    TBOXdate.Text = Session["DRscannedsummary_Date"].ToString();
+                }
+                if (Session["DRscannedsummary_Check"] != null)
+                {
+                    CheckBox1.Checked = Convert.ToBoolean(Session["DRscannedsummary_Check"]);
+                }
+                loaddata();
+            }
+         
         }
         private string sqlconstr
         {
@@ -54,6 +74,10 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
                         da.Fill(tb);
                         GridView1.DataSource = tb;
                         GridView1.DataBind();
+                        Session["DRscannedsummary_Key"] = TBOXsearchkey.Text;
+                        Session["DRscannedsummary_Check"] = CheckBox1.Checked;
+                        Session["DRscannedsummary_Folder"] = DDLfolder.Text;
+                        Session["DRscannedsummary_Date"] = TBOXdate.Text;
                     }
                 }
 
@@ -77,7 +101,11 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
                 Response.Redirect(((Label)row.FindControl("lblfilepath")).Text + ((LinkButton)row.FindControl("lbtnfilename")).Text);
             }
         }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            loaddata();
+        }
     }
-
-
 }
