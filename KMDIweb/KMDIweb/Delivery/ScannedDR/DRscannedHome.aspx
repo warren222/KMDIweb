@@ -49,9 +49,9 @@
                                         <asp:Label ID="LBLparentjono" Font-Size="Small" runat="server" Text='<%# Bind("parentjono") %>'></asp:Label>
                                         <br />
                                         <br />
-                                        <asp:LinkButton ID="BTNframe" CommandName="btnframe" CssClass="btn btn-danger" runat="server">Frame</asp:LinkButton>
-                                        <asp:LinkButton ID="BTNscreen" CommandName="btnscreen" CssClass="btn  btn-danger" runat="server">Screen</asp:LinkButton>
-                                        <asp:LinkButton ID="BTNglass" CommandName="btnglass" CssClass="btn  btn-danger" runat="server">Glass</asp:LinkButton>
+                                        <asp:LinkButton ID="BTNframe" CommandName="btnframe" CssClass="btn btn-primary" runat="server">Frame</asp:LinkButton>
+                                        <asp:LinkButton ID="BTNscreen" CommandName="btnscreen" CssClass="btn  btn-primary" runat="server">Screen</asp:LinkButton>
+                                        <asp:LinkButton ID="BTNglass" CommandName="btnglass" CssClass="btn  btn-primary" runat="server">Glass</asp:LinkButton>
                                         <br />
                                         <br />
                                     </div>

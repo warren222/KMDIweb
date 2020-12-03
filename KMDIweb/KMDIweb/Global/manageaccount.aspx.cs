@@ -27,7 +27,7 @@ namespace KMDIweb.KMDIapp
                 }
                 else
                 {
-                    Response.Redirect("~KMDIweb/Global/Invalidaccess.aspx");
+                    Response.Redirect("~/KMDIweb/Global/Invalidaccess.aspx");
                 }
             }
             else

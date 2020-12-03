@@ -215,6 +215,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Delivery\ScannedDR\DRuploadsSummary.aspx.cs">
+      <DependentUpon>DRuploadsSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Delivery\ScannedDR\DRuploadsSummary.aspx.designer.cs">
+      <DependentUpon>DRuploadsSummary.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx.cs">
       <DependentUpon>Fileupload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -335,6 +342,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="KMDIweb\Delivery\ScannedDR\DRuploadsSummary.aspx" />
     <Content Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx" />
     <Content Include="KMDIweb\Global\changesecurity.aspx" />
     <Content Include="KMDIweb\Global\css\gridcss.css" />

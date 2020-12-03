@@ -71,7 +71,9 @@
                         <li class="active">
                             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/KMDIweb/Delivery/ScannedDR/DRscannedHome.aspx">
                                  <span class="glyphicon glyphicon-home"></span>&nbsp;Home</asp:HyperLink></li>
-
+                        <li>
+                          <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/KMDIweb/Delivery/ScannedDR/DRuploadsSummary.aspx">
+                               Summary</asp:HyperLink></li>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
