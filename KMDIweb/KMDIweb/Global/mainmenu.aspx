@@ -14,13 +14,13 @@
     <style>
         .vl {
             border-left: 1px solid white;
-            color:white;
+            color: white;
+        }
 
-        }
-        .vl:hover{
-              color:white;
-              font-style:normal;
-        }
+            .vl:hover {
+                color: white;
+                font-style: normal;
+            }
 
         body, html {
             background-color: #e4e5e7;
@@ -31,8 +31,9 @@
             border-color: #336699;
             color: white;
         }
-        .myopacity{
-            opacity:0.5;
+
+        .myopacity {
+            opacity: 0.5;
         }
     </style>
 </head>
@@ -72,7 +73,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="thumbnail">
-                        <asp:Image ID="Image2" CssClass="img-thumbnail"  Height="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="DR Reports" />
+                        <asp:Image ID="Image2" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="DR Reports" />
                         <br />
                         <div>
                             <strong style="font-size: x-large"><span class="glyphicon glyphicon-list-alt"></span>
@@ -81,6 +82,17 @@
                             <asp:LinkButton ID="LinkButton1" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton1_Click">ENTER</asp:LinkButton>
 
                         </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="thumbnail">
+                        <asp:Image ID="Image3" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
+                        <br />
+                        <strong style="font-size: x-large"><span class="glyphicon glyphicon-calendar"></span>
+                            <span>Frame Schedule</span></strong>
+                        <br />
+                        <small>Frame fabrication monitoring</small>
+                        <asp:LinkButton ID="LinkButton4" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary">ENTER</asp:LinkButton>
                     </div>
                 </div>
             </div>
