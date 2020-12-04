@@ -375,6 +375,7 @@
     </Content>
     <Content Include="KMDIweb\Production\ScreenSchedule\ScreenScheduleMaster.Master" />
     <Content Include="KMDIweb\Delivery\ScannedDR\DRscannedReportMaster.Master" />
+    <None Include="Properties\PublishProfiles\IISpub.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
