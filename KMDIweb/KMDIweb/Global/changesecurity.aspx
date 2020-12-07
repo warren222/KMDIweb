@@ -43,7 +43,7 @@
         <div class="wrapper">
             <div style="width: 400px; background-color: whitesmoke; padding: 25px; height: 100%">
                 Username<br />
-                <asp:TextBox ID="usernametbox" CssClass="form-control" placeholder="new password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="usernametbox" CssClass="form-control" placeholder="new username" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="usernametbox"
                     ValidationGroup="val1" ErrorMessage="Username is required" ForeColor="Red">*</asp:RequiredFieldValidator>
                 <br />
