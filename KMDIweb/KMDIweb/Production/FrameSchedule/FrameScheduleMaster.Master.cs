@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KMDIweb.KMDIweb.Production.ScreenSchedule
+namespace KMDIweb.KMDIweb.Production.FrameSchedule
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class FrameScheduleMaster : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
