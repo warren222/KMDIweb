@@ -65,7 +65,7 @@ namespace KMDIweb.KMDIapp
                             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                             {
                                 sqlcon.Open();
-                                SqlCommand sqlcmd = new SqlCommand("update accttb set username='" + usernametbox.Text + "', password = '" + npassword.Text + "' where id = " + Convert.ToUInt32(Session["KMDI_userid"]) + "", sqlcon);
+                                SqlCommand sqlcmd = new SqlCommand("update kmdi_web_acct set username='" + usernametbox.Text + "', password = '" + npassword.Text + "' where id = " + Convert.ToUInt32(Session["KMDI_userid"]) + "", sqlcon);
                                 sqlcmd.ExecuteNonQuery();
                             }
                         }
