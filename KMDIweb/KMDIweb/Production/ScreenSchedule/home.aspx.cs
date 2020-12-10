@@ -79,12 +79,12 @@ namespace KMDIweb.SCREENfab
                         sqlcmd.Parameters.AddWithValue("@progress", DDLprogress.Text.ToString());
 
                         sqlcmd.Parameters.AddWithValue("@pjono", "");
-                        sqlcmd.Parameters.AddWithValue("@pname","");
+                        sqlcmd.Parameters.AddWithValue("@pname", "");
                         sqlcmd.Parameters.AddWithValue("@color", "");
                         sqlcmd.Parameters.AddWithValue("@rduedate", "");
                         sqlcmd.Parameters.AddWithValue("@screentype", "");
                         sqlcmd.Parameters.AddWithValue("@finished", "");
-                        sqlcmd.Parameters.AddWithValue("@schedremarks","");
+                        sqlcmd.Parameters.AddWithValue("@schedremarks", "");
                         sqlcmd.Parameters.AddWithValue("@status", "");
                         sqlcmd.Parameters.AddWithValue("@cuttinglist", "");
                         sqlcmd.Parameters.AddWithValue("@clno", "");
@@ -93,7 +93,7 @@ namespace KMDIweb.SCREENfab
                         da.Fill(tb);
                         GridView1.DataSource = tb;
                         GridView1.DataBind();
-                     
+
                         ViewState["prevcommand"] = command;
 
                         if (command == "load schedule")
@@ -185,9 +185,9 @@ namespace KMDIweb.SCREENfab
                             while (rd.Read())
                             {
                                 BTNCurrentweektime.Text = rd[0].ToString();
-                                LBLcurrentweekitem.Text = rd[1].ToString() ;
+                                LBLcurrentweekitem.Text = rd[1].ToString();
                                 BTNtodaytime.Text = rd[2].ToString();
-                                LBLtodayitem.Text = rd[3].ToString() ;
+                                LBLtodayitem.Text = rd[3].ToString();
                                 BTNprevweektime.Text = rd[4].ToString();
                                 LBLprevweekitem.Text = rd[5].ToString();
                             }
@@ -396,6 +396,27 @@ namespace KMDIweb.SCREENfab
                 {
                     ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Teal;
                     lblparent.ForeColor = Color.Black;
+                }
+            }
+        }
+
+        protected void outputBTN_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+                using (SqlConnection cnn = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand cmd = cnn.CreateCommand())
+                    {
+                        cnn.Open();
+                        cmd.CommandText = "screen_sectionOutputSummary_stp";
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@section", sectionDDL.Text.ToString());
+                        cmd.Parameters.AddWithValue("@column", sectionDDL.SelectedValue.ToString());
+                        cmd.Parameters.AddWithValue("@date", outputDateTbox.Text);
+                        GridView3.DataSource = cmd.ExecuteReader();
+                        GridView3.DataBind();
+                    }
                 }
             }
         }

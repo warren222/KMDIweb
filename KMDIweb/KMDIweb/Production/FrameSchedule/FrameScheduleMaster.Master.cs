@@ -11,7 +11,19 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["KMDI_userid"] != null)
+            {
+                username.Text = Session["KMDI_nickname"].ToString() + " ";
+            }
+            else
+            {
+                Response.Redirect("~/KMDIweb/Global/Login.aspx");
+            }
+        }
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("~/KMDIweb/Global/login.aspx");
         }
     }
 }

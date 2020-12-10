@@ -92,7 +92,7 @@
                             <span>Frame Schedule</span></strong>
                         <br />
                         <small>Frame fabrication monitoring</small>
-                        <asp:LinkButton ID="LinkButton4" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary">ENTER</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton4" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton4_Click">ENTER</asp:LinkButton>
                     </div>
                 </div>
             </div>
