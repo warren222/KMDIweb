@@ -54,7 +54,15 @@ namespace KMDIweb.KMDIapp
 
         protected void BTNsearch_Click(object sender, EventArgs e)
         {
-            loadqcschedule("for qc schedule");
+            if (searchbyDDL.Text == "Schedule")
+            {
+                loadqcschedule("for qc schedule");
+            }
+            else if (searchbyDDL.Text == "Output")
+            {
+                loadqcschedule("qc output");
+            }
+        
         }
         private void loadqcschedule(string command)
         {
@@ -93,11 +101,24 @@ namespace KMDIweb.KMDIapp
                         GridView1.DataSource = tb;
                         GridView1.DataBind();
                         ViewState["prevcommand"] = command;
+                        int x = 0;
 
+                        foreach (DataRow row in tb.Rows)
+                        {
+                            x += Convert.ToInt32(row["qty"].ToString());
+                        }
+                        totalQtyLBL.Text = x.ToString();
 
                         if (command == "for qc schedule")
                         {
                             LBLschedule.Text = "Quality Control Checklist Table";
+                            BTNtoday.BackColor = Color.Red;
+                            BTNthisweek.BackColor = Color.Red;
+                            BTNprevweek.BackColor = Color.Red;
+                        }
+                        else if (command == "qc output")
+                        {
+                            LBLschedule.Text = "Quality Control Output";
                             BTNtoday.BackColor = Color.Red;
                             BTNthisweek.BackColor = Color.Red;
                             BTNprevweek.BackColor = Color.Red;

@@ -96,6 +96,14 @@ namespace KMDIweb.SCREENfab
 
                         ViewState["prevcommand"] = command;
 
+                        int x = 0;
+
+                        foreach (DataRow row in tb.Rows)
+                        {
+                            x += Convert.ToInt32(row["qty"].ToString());
+                        }
+                        totalQtyLBL.Text = x.ToString();
+
                         if (command == "load schedule")
                         {
                             LBLschedule.Text = "Screen Fabrication Selected Schedule";
@@ -400,25 +408,6 @@ namespace KMDIweb.SCREENfab
             }
         }
 
-        protected void outputBTN_Click(object sender, EventArgs e)
-        {
-            if (IsValid)
-            {
-                using (SqlConnection cnn = new SqlConnection(sqlconstr))
-                {
-                    using (SqlCommand cmd = cnn.CreateCommand())
-                    {
-                        cnn.Open();
-                        cmd.CommandText = "screen_sectionOutputSummary_stp";
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@section", sectionDDL.Text.ToString());
-                        cmd.Parameters.AddWithValue("@column", sectionDDL.SelectedValue.ToString());
-                        cmd.Parameters.AddWithValue("@date", outputDateTbox.Text);
-                        GridView3.DataSource = cmd.ExecuteReader();
-                        GridView3.DataBind();
-                    }
-                }
-            }
-        }
+      
     }
 }

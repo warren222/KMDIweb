@@ -39,26 +39,37 @@
         <ContentTemplate>
             <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
 
-              <div class="row" style="margin-left: 20px; margin-bottom: 20px">
+            <div class="row" style="margin-left: 20px; margin-bottom: 20px">
                 <div class="col-sm-4 vl">
-                   <h4>Previous weeks <small class="text-muted">in progress</small></h4>
+                    <h4>Previous weeks <small class="text-muted">in progress</small></h4>
                     <asp:LinkButton ID="BTNprevweek" BackColor="Red" Font-Bold="true" CssClass="badge" Font-Size="X-Large" runat="server" OnClick="BTNprevweek_Click">LinkButton</asp:LinkButton>
                 </div>
                 <div class="col-sm-4 vl">
-                   <h4>Due for today <small class="text-muted">in progress</small></h4>
+                    <h4>Due for today <small class="text-muted">in progress</small></h4>
                     <asp:LinkButton ID="BTNtoday" BackColor="Red" Font-Bold="true" CssClass="badge" Font-Size="X-Large" runat="server" OnClick="BTNtoday_Click">LinkButton</asp:LinkButton>
                 </div>
                 <div class="col-sm-4 vl">
-                  <h4>This week <small class="text-muted">in progress</small></h4>
+                    <h4>This week <small class="text-muted">in progress</small></h4>
                     <asp:LinkButton ID="BTNthisweek" BackColor="Red" Font-Bold="true" CssClass="badge" Font-Size="X-Large" runat="server" OnClick="BTNthisweek_Click">LinkButton</asp:LinkButton>
                 </div>
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">
+                  <div class="panel-heading">
                     <h4><span>Filter Option </span></h4>
                     <div class="row">
-                        <div class="col-sm-3">
+                          <div class="col-sm-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    Search By
+                                </div>
+                                <asp:DropDownList ID="searchbyDDL" CssClass="form-control" runat="server">
+                                    <asp:ListItem Text="Schedule" Value="Schedule"></asp:ListItem>
+                                    <asp:ListItem Text="Output" Value="Output"></asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     DATE BEGIN
@@ -67,7 +78,7 @@
 
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     DATE END
@@ -76,7 +87,11 @@
 
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                    </div>
+                    <br />
+                    <div class="row">
+                      
+                        <div class="col-sm-12">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     PROJECT
@@ -94,7 +109,7 @@
                 </div>
                 <div class="panel-body">
                     <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-                             <h1 class="text-center text-success"><span>
+                        <h1 class="text-center text-success"><span>
                             <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Pleated Mesh Checklist Table"></asp:Label>
                         </span></h1>
                         <small>
@@ -134,7 +149,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                       <asp:TemplateField HeaderText="DATE RELEASED" ItemStyle-HorizontalAlign="Center">
+                                    <asp:TemplateField HeaderText="DATE RELEASED" ItemStyle-HorizontalAlign="Center">
                                         <ItemTemplate>
                                             <asp:Label ID="LBLcuttinglist" runat="server" Text='<%# Bind("CUTTING_LIST") %>'></asp:Label>
                                         </ItemTemplate>
@@ -199,6 +214,8 @@
                                 </EmptyDataTemplate>
                             </asp:GridView>
                         </small>
+                        <h3>Total Items:  
+                            <asp:Label ID="totalQtyLBL" runat="server" Text="TOTAL QTY"></asp:Label></h3>
                     </asp:Panel>
 
                     <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto" Visible="false">

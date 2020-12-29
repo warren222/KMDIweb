@@ -257,6 +257,69 @@
     <Compile Include="KMDIweb\Global\manageaccount.aspx.designer.cs">
       <DependentUpon>manageaccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fcornercleaning.aspx.cs">
+      <DependentUpon>fcornercleaning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fcornercleaning.aspx.designer.cs">
+      <DependentUpon>fcornercleaning.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fcutting.aspx.cs">
+      <DependentUpon>fcutting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fcutting.aspx.designer.cs">
+      <DependentUpon>fcutting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fdrainage.aspx.cs">
+      <DependentUpon>fdrainage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fdrainage.aspx.designer.cs">
+      <DependentUpon>fdrainage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\ffinishing.aspx.cs">
+      <DependentUpon>ffinishing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\ffinishing.aspx.designer.cs">
+      <DependentUpon>ffinishing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\ffixing.aspx.cs">
+      <DependentUpon>ffixing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\ffixing.aspx.designer.cs">
+      <DependentUpon>ffixing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fgbead.aspx.cs">
+      <DependentUpon>fgbead.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fgbead.aspx.designer.cs">
+      <DependentUpon>fgbead.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fhandle.aspx.cs">
+      <DependentUpon>fhandle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fhandle.aspx.designer.cs">
+      <DependentUpon>fhandle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fhardware.aspx.cs">
+      <DependentUpon>fhardware.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fhardware.aspx.designer.cs">
+      <DependentUpon>fhardware.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fmulliontransom.aspx.cs">
+      <DependentUpon>fmulliontransom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fmulliontransom.aspx.designer.cs">
+      <DependentUpon>fmulliontransom.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\FrameHome.aspx.cs">
       <DependentUpon>FrameHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -270,6 +333,13 @@
     </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\FrameScheduleMaster.Master.designer.cs">
       <DependentUpon>FrameScheduleMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fwelding.aspx.cs">
+      <DependentUpon>fwelding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fwelding.aspx.designer.cs">
+      <DependentUpon>fwelding.aspx</DependentUpon>
     </Compile>
     <Compile Include="KMDIweb\Production\ScreenSchedule\scaccessories.aspx.cs">
       <DependentUpon>scaccessories.aspx</DependentUpon>
@@ -362,7 +432,17 @@
     <Content Include="KMDIweb\Images\SDR.png" />
     <Content Include="KMDIweb\Images\SFM.png" />
     <Content Include="KMDIweb\Images\Single-Hung-Window.png" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fcornercleaning.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fcutting.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fdrainage.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\ffinishing.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\ffixing.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fgbead.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fhandle.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fhardware.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fmulliontransom.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FrameHome.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fwelding.aspx" />
     <Content Include="KMDIweb\Production\ScreenSchedule\home.aspx" />
     <Content Include="KMDIweb\Global\invalidaccess.aspx" />
     <Content Include="KMDIweb\Global\Login.aspx" />

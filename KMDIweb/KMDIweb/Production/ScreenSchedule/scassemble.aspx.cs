@@ -53,7 +53,15 @@ namespace KMDIweb.KMDIapp
 
         protected void BTNsearch_Click(object sender, EventArgs e)
         {
-            loadassembleschedule("for assemble schedule");
+            if (searchbyDDL.Text == "Schedule")
+            {
+                loadassembleschedule("for assemble schedule");
+            }
+            else if (searchbyDDL.Text == "Output")
+            {
+                loadassembleschedule("assemble output");
+            }
+
         }
         private void loadassembleschedule(string command)
         {
@@ -84,7 +92,7 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@status", "");
                         sqlcmd.Parameters.AddWithValue("@clno", "");
                         sqlcmd.Parameters.AddWithValue("@cuttinglist", "");
-                        sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text); 
+                        sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
                         sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
@@ -93,10 +101,24 @@ namespace KMDIweb.KMDIapp
                         GridView1.DataBind();
                         ViewState["prevcommand"] = command;
 
+                        int x = 0;
+
+                        foreach (DataRow row in tb.Rows)
+                        {
+                            x += Convert.ToInt32(row["qty"].ToString());
+                        }
+                        totalQtyLBL.Text = x.ToString();
 
                         if (command == "for assemble schedule")
                         {
                             LBLschedule.Text = "Assembly Checklist Table";
+                            BTNtoday.BackColor = Color.Red;
+                            BTNthisweek.BackColor = Color.Red;
+                            BTNprevweek.BackColor = Color.Red;
+                        }
+                        else if (command == "assemble output")
+                        {
+                            LBLschedule.Text = "Assembly Output";
                             BTNtoday.BackColor = Color.Red;
                             BTNthisweek.BackColor = Color.Red;
                             BTNprevweek.BackColor = Color.Red;
@@ -289,7 +311,7 @@ namespace KMDIweb.KMDIapp
                 }
             }
         }
-        private void forassemble(string parentjono, string projectname, string color, string duedate, string screentype, string finished, string remarks, string status, string clno,string cuttinglist)
+        private void forassemble(string parentjono, string projectname, string color, string duedate, string screentype, string finished, string remarks, string status, string clno, string cuttinglist)
         {
             try
             {

@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KMDIweb.KMDIapp {
+namespace KMDIweb.KMDIweb.Production.FrameSchedule {
     
     
-    public partial class scppm {
+    public partial class ffixing {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -130,13 +130,13 @@ namespace KMDIweb.KMDIapp {
         protected global::System.Web.UI.WebControls.LinkButton BTNsearch;
         
         /// <summary>
-        /// Panel1 control.
+        /// Panel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel Panel2;
         
         /// <summary>
         /// LBLschedule control.
@@ -166,13 +166,13 @@ namespace KMDIweb.KMDIapp {
         protected global::System.Web.UI.WebControls.Label totalQtyLBL;
         
         /// <summary>
-        /// Panel2 control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
         /// LINKexit control.

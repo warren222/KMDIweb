@@ -9,13 +9,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KMDIweb.KMDIapp
+namespace KMDIweb.KMDIweb.Production.FrameSchedule
 {
-    public partial class scppm : System.Web.UI.Page
+    public partial class fcornercleaning : System.Web.UI.Page
     {
         string mon = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday)).ToString("yyyy-MM-dd");
         string sun = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7)).ToString("yyyy-MM-dd");
-
+        DataTable gtb = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["KMDI_userid"] != null)
@@ -24,9 +24,11 @@ namespace KMDIweb.KMDIapp
                 {
                     var monday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
                     var sunday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7);
+                    //tboxBdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-01");
+                    //tboxEdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month).ToString());
                     tboxBdate.Text = Convert.ToDateTime(monday).ToString("yyyy-MM-dd");
                     tboxEdate.Text = Convert.ToDateTime(sunday).ToString("yyyy-MM-dd");
-                    loadppmschedule("for ppm schedule");
+                    loadcornercleaningschedule("for corner_cleaning schedule");
 
                 }
             }
@@ -50,19 +52,7 @@ namespace KMDIweb.KMDIapp
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
-
-        protected void BTNsearch_Click(object sender, EventArgs e)
-        {
-            if (searchbyDDL.Text == "Schedule")
-            {
-                loadppmschedule("for ppm schedule");
-            }
-            else if (searchbyDDL.Text == "Output")
-            {
-                loadppmschedule("ppm output");
-            }
-        }
-        private void loadppmschedule(string command)
+        private void loadcornercleaningschedule(string command)
         {
             try
             {
@@ -73,7 +63,7 @@ namespace KMDIweb.KMDIapp
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
-                        sqlcmd.CommandText = "[screen_ppm_stp]";
+                        sqlcmd.CommandText = "[frame_cornercleaning_stp]";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@command", command);
                         sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
@@ -85,13 +75,12 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@projectname", "");
                         sqlcmd.Parameters.AddWithValue("@color", "");
                         sqlcmd.Parameters.AddWithValue("@duedate", "");
-                        sqlcmd.Parameters.AddWithValue("@screentype", "");
+
                         sqlcmd.Parameters.AddWithValue("@finished", "");
                         sqlcmd.Parameters.AddWithValue("@remarks", "");
                         sqlcmd.Parameters.AddWithValue("@status", "");
                         sqlcmd.Parameters.AddWithValue("@clno", "");
                         sqlcmd.Parameters.AddWithValue("@cuttinglist", "");
-
                         sqlcmd.Parameters.AddWithValue("@searchkey", TBOXproject.Text);
                         sqlcmd.Parameters.AddWithValue("@fabricated", CheckBox1.Checked.ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
@@ -99,7 +88,9 @@ namespace KMDIweb.KMDIapp
                         da.Fill(tb);
                         GridView1.DataSource = tb;
                         GridView1.DataBind();
+
                         ViewState["prevcommand"] = command;
+
 
                         int x = 0;
 
@@ -109,16 +100,16 @@ namespace KMDIweb.KMDIapp
                         }
                         totalQtyLBL.Text = x.ToString();
 
-                        if (command == "for ppm schedule")
+                        if (command == "for corner_cleaning schedule")
                         {
-                            LBLschedule.Text = "Pleated Mesh Checklist Table";
+                            LBLschedule.Text = "Corner Cleaning Checklist Table";
                             BTNtoday.BackColor = Color.Red;
                             BTNthisweek.BackColor = Color.Red;
                             BTNprevweek.BackColor = Color.Red;
                         }
-                        if (command == "ppm output")
+                        if (command == "corner_cleaning output")
                         {
-                            LBLschedule.Text = "Pleated Mesh Output";
+                            LBLschedule.Text = "Corner Cleaning Output";
                             BTNtoday.BackColor = Color.Red;
                             BTNthisweek.BackColor = Color.Red;
                             BTNprevweek.BackColor = Color.Red;
@@ -147,8 +138,9 @@ namespace KMDIweb.KMDIapp
 
                         }
 
-                        Panel1.Visible = true;
-                        Panel2.Visible = false;
+                        Panel2.Visible = true;
+                        Panel1.Visible = false;
+
                     }
                 }
             }
@@ -172,7 +164,7 @@ namespace KMDIweb.KMDIapp
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
-                        sqlcmd.CommandText = "[screen_ppm_stp]";
+                        sqlcmd.CommandText = "[frame_cornercleaning_stp]";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@command", "balance");
                         sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
@@ -184,7 +176,7 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@projectname", "");
                         sqlcmd.Parameters.AddWithValue("@color", "");
                         sqlcmd.Parameters.AddWithValue("@duedate", "");
-                        sqlcmd.Parameters.AddWithValue("@screentype", "");
+
                         sqlcmd.Parameters.AddWithValue("@finished", "");
                         sqlcmd.Parameters.AddWithValue("@remarks", "");
                         sqlcmd.Parameters.AddWithValue("@status", "");
@@ -211,13 +203,33 @@ namespace KMDIweb.KMDIapp
             }
 
         }
+        protected void BTNsearch_Click(object sender, EventArgs e)
+        {
+            if (searchbyDDL.Text == "Schedule")
+            {
+                loadcornercleaningschedule("for corner_cleaning schedule");
+            }
+            else if (searchbyDDL.Text == "Output")
+            {
+                loadcornercleaningschedule("corner_cleaning output");
+            }
+
+        }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            loadcornercleaningschedule(ViewState["prevcommand"].ToString());
+        }
 
         protected void GridView1_DataBound(object sender, EventArgs e)
         {
+
             for (int i = 0; i <= GridView1.Rows.Count - 1; i++)
             {
+
                 Label lblparent = (Label)GridView1.Rows[i].FindControl("LBLday");
-                Label lblppm = (Label)GridView1.Rows[i].FindControl("LBLppm");
+                Label lblcornercleaning = (Label)GridView1.Rows[i].FindControl("LBLcornercleaning");
                 Label lblfinished = (Label)GridView1.Rows[i].FindControl("LBLfinished");
                 if (lblparent.Text == "Monday")
                 {
@@ -254,29 +266,24 @@ namespace KMDIweb.KMDIapp
                     GridView1.Rows[i].Cells[0].BackColor = Color.Teal;
                     lblparent.ForeColor = Color.Black;
                 }
-                if (lblppm.Text != "")
+                if (lblcornercleaning.Text != "")
                 {
-                    GridView1.Rows[i].Cells[9].BackColor = Color.CornflowerBlue;
-                    lblppm.ForeColor = Color.White;
+                    GridView1.Rows[i].Cells[8].BackColor = Color.CornflowerBlue;
+                    lblcornercleaning.ForeColor = Color.White;
                 }
 
                 if (lblfinished.Text != "")
                 {
-                    GridView1.Rows[i].Cells[10].BackColor = Color.LightSeaGreen;
+                    GridView1.Rows[i].Cells[9].BackColor = Color.LightSeaGreen;
                     lblfinished.ForeColor = Color.White;
                 }
             }
-        }
 
-        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            GridView1.PageIndex = e.NewPageIndex;
-            loadppmschedule(ViewState["prevcommand"].ToString());
+
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
             if (e.CommandName == "forcutting")
             {
                 if (Session["KMDI_sfm_acct"].ToString() == "Guest")
@@ -287,23 +294,21 @@ namespace KMDIweb.KMDIapp
                 {
                     int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                     GridViewRow row = GridView1.Rows[rowindex];
-                    forppm(((Label)row.FindControl("LBLparentjono")).Text,
+                    forcornercleaning(((Label)row.FindControl("LBLparentjono")).Text,
                      ((Label)row.FindControl("LBLprojectname")).Text,
                      ((Label)row.FindControl("LBLcolor")).Text,
                             ((Label)row.FindControl("LBLddate")).Text,
-                            ((Label)row.FindControl("LBLscreentype")).Text,
                             ((Label)row.FindControl("LBLfinished")).Text,
                             ((Label)row.FindControl("LBLschedremarks")).Text,
                          ((Label)row.FindControl("LBLstatus")).Text,
                          ((Label)row.FindControl("LBLclno")).Text,
                             ((Label)row.FindControl("LBLcuttinglist")).Text);
-                    Panel2.Visible = true;
-                    Panel1.Visible = false;
+                    Panel1.Visible = true;
+                    Panel2.Visible = false;
                     ViewState["parentjono"] = ((Label)row.FindControl("LBLparentjono")).Text;
                     ViewState["projectname"] = ((Label)row.FindControl("LBLprojectname")).Text;
                     ViewState["color"] = ((Label)row.FindControl("LBLcolor")).Text;
                     ViewState["duedate"] = ((Label)row.FindControl("LBLddate")).Text;
-                    ViewState["screentype"] = ((Label)row.FindControl("LBLscreentype")).Text;
                     ViewState["finished"] = ((Label)row.FindControl("LBLfinished")).Text;
                     ViewState["remarks"] = ((Label)row.FindControl("LBLschedremarks")).Text;
                     ViewState["status"] = ((Label)row.FindControl("LBLstatus")).Text;
@@ -312,7 +317,8 @@ namespace KMDIweb.KMDIapp
                 }
             }
         }
-        private void forppm(string parentjono, string projectname, string color, string duedate, string screentype, string finished, string remarks, string status, string clno,string cuttinglist)
+
+        private void forcornercleaning(string parentjono, string projectname, string color, string duedate, string finished, string remarks, string status, string clno, string cuttinglist)
         {
             try
             {
@@ -323,9 +329,9 @@ namespace KMDIweb.KMDIapp
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
-                        sqlcmd.CommandText = "[screen_ppm_stp]";
+                        sqlcmd.CommandText = "[frame_cornercleaning_stp]";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@command", "for ppm");
+                        sqlcmd.Parameters.AddWithValue("@command", "for corner_cleaning");
                         sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
                         sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
                         sqlcmd.Parameters.AddWithValue("@mon", mon);
@@ -335,7 +341,7 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@projectname", projectname);
                         sqlcmd.Parameters.AddWithValue("@color", color);
                         sqlcmd.Parameters.AddWithValue("@duedate", duedate);
-                        sqlcmd.Parameters.AddWithValue("@screentype", screentype);
+
                         sqlcmd.Parameters.AddWithValue("@finished", finished);
                         sqlcmd.Parameters.AddWithValue("@remarks", remarks);
                         sqlcmd.Parameters.AddWithValue("@status", status);
@@ -358,19 +364,12 @@ namespace KMDIweb.KMDIapp
             }
         }
 
-        protected void LINKexit_Click(object sender, EventArgs e)
-        {
-            GridView1.PageIndex = GridView1.PageIndex;
-            loadppmschedule(ViewState["prevcommand"].ToString());
-            Panel2.Visible = false;
-            Panel1.Visible = true;
-        }
         protected void GridView2_DataBound(object sender, EventArgs e)
         {
             for (int i = 0; i <= ((GridView)sender).Rows.Count - 1; i++)
             {
                 Label lblparent = (Label)((GridView)sender).Rows[i].FindControl("g2LBLday");
-                Label lblppm = (Label)((GridView)sender).Rows[i].FindControl("g2LBLppm");
+                Label lblcornercleaning = (Label)((GridView)sender).Rows[i].FindControl("g2LBLcornercleaning");
 
                 if (lblparent.Text == "Monday")
                 {
@@ -408,31 +407,39 @@ namespace KMDIweb.KMDIapp
                     lblparent.ForeColor = Color.Black;
                 }
 
-                if (lblppm.Text != "")
+                if (lblcornercleaning.Text != "")
                 {
-                    ((GridView)sender).Rows[i].Cells[7].BackColor = Color.CornflowerBlue;
-                    lblppm.ForeColor = Color.White;
+                    ((GridView)sender).Rows[i].Cells[6].BackColor = Color.CornflowerBlue;
+                    lblcornercleaning.ForeColor = Color.White;
                 }
 
             }
         }
-        private void loadforppm()
+
+        protected void LINKexit_Click(object sender, EventArgs e)
         {
-            forppm(ViewState["parentjono"].ToString(),
+            GridView1.PageIndex = GridView1.PageIndex;
+            loadcornercleaningschedule(ViewState["prevcommand"].ToString());
+            Panel1.Visible = false;
+            Panel2.Visible = true;
+        }
+
+        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView2.PageIndex = e.NewPageIndex;
+            loadforcornercleaning();
+        }
+        private void loadforcornercleaning()
+        {
+            forcornercleaning(ViewState["parentjono"].ToString(),
             ViewState["projectname"].ToString(),
             ViewState["color"].ToString(),
             ViewState["duedate"].ToString(),
-            ViewState["screentype"].ToString(),
             ViewState["finished"].ToString(),
             ViewState["remarks"].ToString(),
             ViewState["status"].ToString(),
             ViewState["clno"].ToString(),
-                 ViewState["cuttinglist"].ToString());
-        }
-        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            GridView2.PageIndex = e.NewPageIndex;
-            loadforppm();
+             ViewState["cuttinglist"].ToString());
         }
         protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -449,13 +456,14 @@ namespace KMDIweb.KMDIapp
                 uncheckitem(((Label)row.FindControl("g2LBLjoborderno")).Text, ((Label)row.FindControl("g2LBLkno")).Text);
             }
         }
+
         private void uncheckitem(string jo, string kno)
         {
             try
             {
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
-                    using (SqlCommand sqlcmd = new SqlCommand("update kmdi_screenfab_tb set ppm = '' where job_order_no = '" + jo + "' and kmdi_no  = '" + kno + "' and not ppm  = ''", sqlcon))
+                    using (SqlCommand sqlcmd = new SqlCommand("update kmdi_fabrication_tb set corner_cleaning = '' where job_order_no = '" + jo + "' and kmdi_no  = '" + kno + "' and not corner_cleaning  = ''", sqlcon))
                     {
                         sqlcon.Open();
                         sqlcmd.ExecuteNonQuery();
@@ -470,7 +478,7 @@ namespace KMDIweb.KMDIapp
             finally
             {
                 GridView2.PageIndex = GridView2.PageIndex;
-                loadforppm();
+                loadforcornercleaning();
 
             }
         }
@@ -481,7 +489,7 @@ namespace KMDIweb.KMDIapp
             {
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
-                    using (SqlCommand sqlcmd = new SqlCommand("update kmdi_screenfab_tb set ppm = format(getdate(),'MMM dd, yyyy') where job_order_no = '" + jo + "' and kmdi_no  = '" + kno + "' and ppm = ''", sqlcon))
+                    using (SqlCommand sqlcmd = new SqlCommand("update kmdi_fabrication_tb set corner_cleaning = format(getdate(),'MMM dd, yyyy') where job_order_no = '" + jo + "' and kmdi_no  = '" + kno + "' and corner_cleaning = ''", sqlcon))
                     {
                         sqlcon.Open();
                         sqlcmd.ExecuteNonQuery();
@@ -496,23 +504,24 @@ namespace KMDIweb.KMDIapp
             finally
             {
                 GridView2.PageIndex = GridView2.PageIndex;
-                loadforppm();
+                loadforcornercleaning();
 
             }
         }
+
         protected void BTNprevweek_Click(object sender, EventArgs e)
         {
-            loadppmschedule("prev week");
+            loadcornercleaningschedule("prev week");
         }
 
         protected void BTNtoday_Click(object sender, EventArgs e)
         {
-            loadppmschedule("today");
+            loadcornercleaningschedule("today");
         }
 
         protected void BTNthisweek_Click(object sender, EventArgs e)
         {
-            loadppmschedule("this week");
+            loadcornercleaningschedule("this week");
         }
     }
 }

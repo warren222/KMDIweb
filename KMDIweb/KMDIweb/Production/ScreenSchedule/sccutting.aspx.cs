@@ -15,7 +15,7 @@ namespace KMDIweb.KMDIapp
     {
         string mon = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday)).ToString("yyyy-MM-dd");
         string sun = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7)).ToString("yyyy-MM-dd");
-
+        DataTable gtb = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["KMDI_userid"] != null)
@@ -29,7 +29,7 @@ namespace KMDIweb.KMDIapp
                     tboxBdate.Text = Convert.ToDateTime(monday).ToString("yyyy-MM-dd");
                     tboxEdate.Text = Convert.ToDateTime(sunday).ToString("yyyy-MM-dd");
                     loadcuttingschedule("for cutting schedule");
-                 
+
                 }
             }
             else
@@ -88,12 +88,28 @@ namespace KMDIweb.KMDIapp
                         da.Fill(tb);
                         GridView1.DataSource = tb;
                         GridView1.DataBind();
+
                         ViewState["prevcommand"] = command;
 
+
+                        int x = 0;
+
+                        foreach (DataRow row in tb.Rows)
+                        {
+                            x += Convert.ToInt32(row["qty"].ToString());
+                        }
+                        totalQtyLBL.Text = x.ToString();
 
                         if (command == "for cutting schedule")
                         {
                             LBLschedule.Text = "Cutting Checklist Table";
+                            BTNtoday.BackColor = Color.Red;
+                            BTNthisweek.BackColor = Color.Red;
+                            BTNprevweek.BackColor = Color.Red;
+                        }
+                        if (command == "cutting output")
+                        {
+                            LBLschedule.Text = "Cutting Output";
                             BTNtoday.BackColor = Color.Red;
                             BTNthisweek.BackColor = Color.Red;
                             BTNprevweek.BackColor = Color.Red;
@@ -119,7 +135,7 @@ namespace KMDIweb.KMDIapp
                             BTNtoday.BackColor = Color.Red;
                             BTNthisweek.BackColor = Color.Red;
                             BTNprevweek.BackColor = Color.Green;
-                        
+
                         }
 
                         Panel2.Visible = true;
@@ -143,7 +159,7 @@ namespace KMDIweb.KMDIapp
         {
             try
             {
-               
+
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
@@ -178,7 +194,7 @@ namespace KMDIweb.KMDIapp
                                 BTNprevweek.Text = rd[2].ToString();
                             }
                         }
-                     
+
                     }
                 }
             }
@@ -190,7 +206,15 @@ namespace KMDIweb.KMDIapp
         }
         protected void BTNsearch_Click(object sender, EventArgs e)
         {
-            loadcuttingschedule("for cutting schedule");
+            if (searchbyDDL.Text == "Schedule")
+            {
+                loadcuttingschedule("for cutting schedule");
+            }
+            else if (searchbyDDL.Text == "Output")
+            {
+                loadcuttingschedule("cutting output");
+            }
+
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -201,8 +225,10 @@ namespace KMDIweb.KMDIapp
 
         protected void GridView1_DataBound(object sender, EventArgs e)
         {
+
             for (int i = 0; i <= GridView1.Rows.Count - 1; i++)
             {
+
                 Label lblparent = (Label)GridView1.Rows[i].FindControl("LBLday");
                 Label lblcutting = (Label)GridView1.Rows[i].FindControl("LBLcutting");
                 Label lblfinished = (Label)GridView1.Rows[i].FindControl("LBLfinished");
@@ -253,6 +279,8 @@ namespace KMDIweb.KMDIapp
                     lblfinished.ForeColor = Color.White;
                 }
             }
+
+
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -293,7 +321,7 @@ namespace KMDIweb.KMDIapp
             }
         }
 
-        private void forcutting(string parentjono, string projectname, string color, string duedate, string screentype, string finished, string remarks, string status, string clno,string cuttinglist)
+        private void forcutting(string parentjono, string projectname, string color, string duedate, string screentype, string finished, string remarks, string status, string clno, string cuttinglist)
         {
             try
             {

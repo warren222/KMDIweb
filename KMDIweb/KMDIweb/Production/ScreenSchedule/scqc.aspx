@@ -54,10 +54,21 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4><span>Filter Option</span></h4>
+                 <div class="panel-heading">
+                    <h4><span>Filter Option </span></h4>
                     <div class="row">
-                            <div class="col-sm-3">
+                          <div class="col-sm-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    Search By
+                                </div>
+                                <asp:DropDownList ID="searchbyDDL" CssClass="form-control" runat="server">
+                                    <asp:ListItem Text="Schedule" Value="Schedule"></asp:ListItem>
+                                    <asp:ListItem Text="Output" Value="Output"></asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     DATE BEGIN
@@ -66,7 +77,7 @@
 
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     DATE END
@@ -75,7 +86,11 @@
 
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                    </div>
+                    <br />
+                    <div class="row">
+                      
+                        <div class="col-sm-12">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     PROJECT
@@ -197,7 +212,7 @@
                                 </EmptyDataTemplate>
                             </asp:GridView>
                         </small>
-
+                          <h3>Total Items:   <asp:Label ID="totalQtyLBL" runat="server" Text="TOTAL QTY"></asp:Label></h3> 
                     </asp:Panel>
 
                       <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto" Visible="false">

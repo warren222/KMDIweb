@@ -53,7 +53,15 @@ namespace KMDIweb.KMDIapp
 
         protected void BTNsearch_Click(object sender, EventArgs e)
         {
-            loadaccessoriesschedule("for accessories schedule");
+            if (searchbyDDL.Text == "Schedule")
+            {
+                loadaccessoriesschedule("for accessories schedule");
+            }
+            else if (searchbyDDL.Text == "Output")
+            {
+                loadaccessoriesschedule("accessories output");
+            }
+         
         }
         private void loadaccessoriesschedule(string command)
         {
@@ -93,10 +101,23 @@ namespace KMDIweb.KMDIapp
                         GridView1.DataBind();
                         ViewState["prevcommand"] = command;
 
+                        int x = 0;
 
+                        foreach (DataRow row in tb.Rows)
+                        {
+                            x += Convert.ToInt32(row["qty"].ToString());
+                        }
+                        totalQtyLBL.Text = x.ToString();
                         if (command == "for accessories schedule")
                         {
                             LBLschedule.Text = "Accessories Checklist Table";
+                            BTNtoday.BackColor = Color.Red;
+                            BTNthisweek.BackColor = Color.Red;
+                            BTNprevweek.BackColor = Color.Red;
+                        }
+                        else if (command == "accessories output")
+                        {
+                            LBLschedule.Text = "Accessories Output";
                             BTNtoday.BackColor = Color.Red;
                             BTNthisweek.BackColor = Color.Red;
                             BTNprevweek.BackColor = Color.Red;

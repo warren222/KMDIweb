@@ -264,6 +264,8 @@
                             <SortedDescendingHeaderStyle BackColor="#575357" />
                         </asp:GridView>
                     </small>
+                    <h3>Total Items:  
+                        <asp:Label ID="totalQtyLBL" runat="server" Text="TOTAL QTY"></asp:Label></h3>
                 </asp:Panel>
 
                 <asp:Panel ID="Panel2" runat="server" Visible="false">
@@ -382,63 +384,9 @@
                     </small>
                 </asp:Panel>
             </div>
-            <div class="panel-footer" style="background-color:white">
-                <h2>Production Output</h2>
-                <hr />
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                STATION
-                            </div>
-                            <asp:DropDownList ID="sectionDDL" CssClass="form-control" runat="server">
-                                 <asp:ListItem Text="All" Value="All"></asp:ListItem>
-                                <asp:ListItem Text="Cutting" Value="cutting"></asp:ListItem>
-                                <asp:ListItem Text="Prepared Pleated Mesh" Value="ppm"></asp:ListItem>
-                                <asp:ListItem Text="Aluminum Shoot Bolt Lock" Value="asbl"></asp:ListItem>
-                                <asp:ListItem Text="Assemble" Value="assembled"></asp:ListItem>
-                                <asp:ListItem Text="Accessories" Value="accessories"></asp:ListItem>
-                                <asp:ListItem Text="Quality Control" Value="qc"></asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                Date
-                            </div>
-                            <asp:TextBox ID="outputDateTbox" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
-                          
-                            <div class="input-group-btn">
-                                <asp:LinkButton ID="outputBTN" CssClass="btn btn-primary" ValidationGroup="SectionOutputVAL" runat="server" OnClick="outputBTN_Click">submit</asp:LinkButton>
-                            </div>
-                        </div>
-                          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="SectionOutputVAL" runat="server" ErrorMessage="Date is required" CssClass="alert alert-danger" ControlToValidate="sectionDDL"></asp:RequiredFieldValidator>
-                          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="SectionOutputVAL" runat="server" ErrorMessage="Date is required" CssClass="alert alert-danger" ControlToValidate="outputDateTbox"></asp:RequiredFieldValidator>
-                    </div>
-                </div>
-                <div class="">
-                    <asp:GridView ID="GridView3" AutoGenerateColumns="false" BorderStyle="Solid" GridLines="Horizontal" runat="server" CssClass="table">
-                        <Columns>
-                            <asp:TemplateField HeaderText="Date" HeaderStyle-Font-Size="XX-Large">
-                                <ItemTemplate>
-                                    <asp:Label ID="dateLBL" Font-Size="Large" runat="server" Text='<%# Bind("OutputDate") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Section" HeaderStyle-Font-Size="XX-Large">
-                                <ItemTemplate>
-                                    <asp:Label ID="sectionLBL" Font-Size="Large" runat="server" Text='<%# Bind("Section") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Output" HeaderStyle-Font-Size="XX-Large">
-                                <ItemTemplate>
-                                    <asp:Label ID="outputLBL" Font-Size="Large" runat="server" Text='<%# Bind("SectionOutput") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                    </asp:GridView>
-                </div>
+            <div class="panel-footer" style="background-color: white">
             </div>
+
         </ContentTemplate>
     </asp:UpdatePanel>
 

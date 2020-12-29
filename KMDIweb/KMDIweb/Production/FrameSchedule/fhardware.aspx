@@ -1,19 +1,24 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KMDIweb/Production/ScreenSchedule/ScreenScheduleMaster.Master" CodeBehind="scassemble.aspx.cs" Inherits="KMDIweb.KMDIapp.scassemble" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="fhardware.aspx.cs" MasterPageFile="~/KMDIweb/Production/FrameSchedule/FrameScheduleMaster.Master" Inherits="KMDIweb.KMDIweb.Production.FrameSchedule.fhardware" %>
 
-<asp:Content runat="server" ID="Content1" ContentPlaceHolderID="head">
+
+
+<asp:Content ID="content1" runat="server" ContentPlaceHolderID="head">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Assembly</title>
+    <title>For Hardware</title>
+
 </asp:Content>
-<asp:Content runat="server" ID="Content2" ContentPlaceHolderID="content">
+
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class=" jumbotron">
         <div class="row">
             <div class="col-sm-6">
-                <h1><strong>Assembly<br />
+                <h1><strong>For Hardware<br />
                     <small>Station's expected output</small> </strong></h1>
-                <asp:LinkButton ID="BTNback" runat="server" PostBackUrl="~/KMDIweb/Production/ScreenSchedule/home.aspx" CssClass="btn btn-primary">back to home page</asp:LinkButton>
+                <asp:LinkButton ID="BTNback" runat="server" PostBackUrl="~/KMDIweb/Production/FrameSchedule/FrameHome.aspx" CssClass="btn btn-primary">back to home page</asp:LinkButton>
             </div>
             <div class="col-sm-6">
+
                 <table class="table">
                     <tr>
                         <td style="background-color: LightBlue">Mon</td>
@@ -24,41 +29,44 @@
                         <td style="background-color: Violet">Sat</td>
                         <td style="background-color: Teal">Sun</td>
                     </tr>
+
                 </table>
                 <table class="table">
                     <tr>
-                        <td style="background-color: CornflowerBlue; color: white">Assembled</td>
+                        <td style="background-color: CornflowerBlue; color: white">Hardware</td>
                         <td style="background-color: LightSeaGreen; color: white">Fabricated</td>
                     </tr>
                 </table>
+
+
             </div>
         </div>
+
     </div>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
-
-
-        <div class="row" style="margin-left: 20px; margin-bottom: 20px">
+            <div class="row" style="margin-left: 20px; margin-bottom: 20px">
                 <div class="col-sm-4 vl">
-                   <h4>Previous weeks <small class="text-muted">in progress</small></h4>
+                    <h4>Previous weeks <small class="text-muted">in progress</small></h4>
                     <asp:LinkButton ID="BTNprevweek" BackColor="Red" Font-Bold="true" CssClass="badge" Font-Size="X-Large" runat="server" OnClick="BTNprevweek_Click">LinkButton</asp:LinkButton>
                 </div>
                 <div class="col-sm-4 vl">
-                   <h4>Due for today <small class="text-muted">in progress</small></h4>
+                    <h4>Due for today <small class="text-muted">in progress</small></h4>
                     <asp:LinkButton ID="BTNtoday" BackColor="Red" Font-Bold="true" CssClass="badge" Font-Size="X-Large" runat="server" OnClick="BTNtoday_Click">LinkButton</asp:LinkButton>
                 </div>
                 <div class="col-sm-4 vl">
-                  <h4>This week <small class="text-muted">in progress</small></h4>
+                    <h4>This week <small class="text-muted">in progress</small></h4>
                     <asp:LinkButton ID="BTNthisweek" BackColor="Red" Font-Bold="true" CssClass="badge" Font-Size="X-Large" runat="server" OnClick="BTNthisweek_Click">LinkButton</asp:LinkButton>
                 </div>
             </div>
 
+
             <div class="panel panel-default">
-                  <div class="panel-heading">
+                <div class="panel-heading">
                     <h4><span>Filter Option </span></h4>
                     <div class="row">
-                          <div class="col-sm-4">
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     Search By
@@ -90,7 +98,7 @@
                     </div>
                     <br />
                     <div class="row">
-                      
+
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <div class="input-group-addon">
@@ -107,10 +115,11 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="panel-body">
-                    <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
+                    <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto">
                         <h1 class="text-center text-success"><span>
-                            <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Assembly Checklist Table"></asp:Label>
+                            <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Hardware Checklist Table"></asp:Label>
                         </span></h1>
                         <small>
                             <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" CellPadding="4" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
@@ -168,21 +177,16 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="TYPE OF SCREEN" ItemStyle-HorizontalAlign="Center">
-                                        <ItemTemplate>
-                                            <asp:Label ID="LBLscreentype" runat="server" Text='<%# Bind("TYPE_OF_SCREEN") %>'></asp:Label>
-                                        </ItemTemplate>
-                                        <ItemStyle HorizontalAlign="Center" />
-                                    </asp:TemplateField>
+
                                     <asp:TemplateField HeaderText="REMARKS" ItemStyle-HorizontalAlign="Center">
                                         <ItemTemplate>
                                             <asp:Label ID="LBLremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="ASSEMBLED" HeaderStyle-BackColor="CornflowerBlue" HeaderStyle-ForeColor="White" ItemStyle-HorizontalAlign="Center">
+                                    <asp:TemplateField HeaderText="HARDWARE DATE" HeaderStyle-BackColor="CornflowerBlue" HeaderStyle-ForeColor="White" ItemStyle-HorizontalAlign="Center">
                                         <ItemTemplate>
-                                            <asp:Label ID="LBLassembled" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("ASSEMBLED") %>'></asp:Label>
+                                            <asp:Label ID="LBLhardware" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("hardware") %>'></asp:Label>
                                         </ItemTemplate>
                                         <HeaderStyle BackColor="CornflowerBlue" ForeColor="White" />
                                         <ItemStyle HorizontalAlign="Center" />
@@ -214,12 +218,14 @@
                                 </EmptyDataTemplate>
                             </asp:GridView>
                         </small>
-                          <h3>Total Items:   <asp:Label ID="totalQtyLBL" runat="server" Text="TOTAL QTY"></asp:Label></h3> 
+                        <h3>Total Items:  
+                            <asp:Label ID="totalQtyLBL" runat="server" Text="TOTAL QTY"></asp:Label></h3>
                     </asp:Panel>
 
-                    <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto" Visible="false">
+                    <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto" Visible="false">
                         <h4 class="text-warning text-center"><span style="font-size: xx-large">Item checking</span></h4>
                         <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to checklist</asp:LinkButton>
+
                         <small>
                             <asp:GridView ID="GridView2" CssClass="table" runat="server" CellPadding="4" ForeColor="Black" AllowPaging="True" AutoGenerateColumns="False" OnDataBound="GridView2_DataBound" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowCommand="GridView2_RowCommand" PageSize="25" GridLines="Horizontal" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
                                 <Columns>
@@ -255,28 +261,23 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="TYPE OF SCREEN" ItemStyle-HorizontalAlign="Center">
-                                        <ItemTemplate>
-                                            <asp:Label ID="g2LBLscreentype" runat="server" Text='<%# Bind("TYPE_OF_SCREEN") %>'></asp:Label>
-                                        </ItemTemplate>
-                                        <ItemStyle HorizontalAlign="Center" />
-                                    </asp:TemplateField>
+
                                     <asp:TemplateField HeaderText="REMARKS" ItemStyle-HorizontalAlign="Center">
                                         <ItemTemplate>
                                             <asp:Label ID="g2LBLremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="ASSEMBLED" HeaderStyle-BackColor="CornflowerBlue" HeaderStyle-ForeColor="White" ItemStyle-HorizontalAlign="Center">
+                                    <asp:TemplateField HeaderText="HARDWARE DATE" HeaderStyle-BackColor="CornflowerBlue" HeaderStyle-ForeColor="White" ItemStyle-HorizontalAlign="Center">
                                         <ItemTemplate>
-                                            <asp:Label ID="g2LBLassembled" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("ASSEMBLED") %>'></asp:Label>
+                                            <asp:Label ID="g2LBLhardware" Font-Size="Small" runat="server" Font-Bold="true" Text='<%# Bind("hardware") %>'></asp:Label>
                                         </ItemTemplate>
                                         <HeaderStyle BackColor="CornflowerBlue" ForeColor="White" />
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="BTNcheck" CommandName="check" Visible='<%# Eval("ASSEMBLED").ToString() == "" ? true : false %>' runat="server" CssClass="btn btn-success"><span class="glyphicon glyphicon-ok"></span>&nbsp; Check</asp:LinkButton>
+                                            <asp:LinkButton ID="BTNcheck" CommandName="check" Visible='<%# Eval("hardware").ToString() == "" ? true : false %>' runat="server" CssClass="btn btn-success"><span class="glyphicon glyphicon-ok"></span>&nbsp; Check</asp:LinkButton>
                                             <asp:LinkButton ID="BTNuncheck" CommandName="uncheck" Visible='<%# Eval("uncheck").ToString() == "true" ? true : false %>' runat="server" CssClass="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp; Uncheck</asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
@@ -300,10 +301,16 @@
                             </asp:GridView>
                         </small>
                     </asp:Panel>
+
                 </div>
+
+
+
                 <div class="panel-footer">
                 </div>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
+
 </asp:Content>
+
