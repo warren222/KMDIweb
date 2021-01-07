@@ -54,8 +54,10 @@
                                     <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fmulliontransom.aspx">Mullion/Transom</asp:HyperLink></li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fgbead.aspx">Glazing Bead</asp:HyperLink></li>
-                                    <li>
+                                <li>
                                     <asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fhardware.aspx">Hardware</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Ffinishing.aspx">Finishing</asp:HyperLink></li>
                             </ul>
 
 
