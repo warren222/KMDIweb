@@ -271,6 +271,13 @@
     <Compile Include="KMDIweb\Production\FrameSchedule\fcutting.aspx.designer.cs">
       <DependentUpon>fcutting.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fdespatch.aspx.cs">
+      <DependentUpon>fdespatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fdespatch.aspx.designer.cs">
+      <DependentUpon>fdespatch.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\fdrainage.aspx.cs">
       <DependentUpon>fdrainage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -319,6 +326,27 @@
     </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\fmulliontransom.aspx.designer.cs">
       <DependentUpon>fmulliontransom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fpackaging.aspx.cs">
+      <DependentUpon>fpackaging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fpackaging.aspx.designer.cs">
+      <DependentUpon>fpackaging.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fqc.aspx.cs">
+      <DependentUpon>fqc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fqc.aspx.designer.cs">
+      <DependentUpon>fqc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fqcdel.aspx.cs">
+      <DependentUpon>fqcdel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fqcdel.aspx.designer.cs">
+      <DependentUpon>fqcdel.aspx</DependentUpon>
     </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\FrameHome.aspx.cs">
       <DependentUpon>FrameHome.aspx</DependentUpon>
@@ -434,6 +462,7 @@
     <Content Include="KMDIweb\Images\Single-Hung-Window.png" />
     <Content Include="KMDIweb\Production\FrameSchedule\fcornercleaning.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fcutting.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fdespatch.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fdrainage.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\ffinishing.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\ffixing.aspx" />
@@ -441,6 +470,9 @@
     <Content Include="KMDIweb\Production\FrameSchedule\fhandle.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fhardware.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fmulliontransom.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fpackaging.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fqc.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fqcdel.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FrameHome.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fwelding.aspx" />
     <Content Include="KMDIweb\Production\ScreenSchedule\home.aspx" />

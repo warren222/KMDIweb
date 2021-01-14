@@ -58,6 +58,15 @@
                                     <asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fhardware.aspx">Hardware</asp:HyperLink></li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Ffinishing.aspx">Finishing</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink14" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fqc.aspx">QC</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fdespatch.aspx">Despatch</asp:HyperLink></li>
+                                  <li>
+                                    <asp:HyperLink ID="HyperLink17" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fqcdel.aspx">Delivery QC</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fpackaging.aspx">Packaging</asp:HyperLink></li>
+
                             </ul>
 
 
