@@ -52,8 +52,11 @@
                                 <li>
                                     <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/KMDIweb/Production/ScreenSchedule/scqc.aspx">QC</asp:HyperLink></li>
                             </ul>
+                            <li>
+                                <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~/KMDIweb/Production/ScreenSchedule/scYearlyOutput.aspx">
+                           Chart</asp:HyperLink></li>
                     </ul>
-                   
+
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/KMDIweb/Global/manageaccount.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp; Accounts</asp:HyperLink>

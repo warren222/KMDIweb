@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=19.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\kmdim\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -80,6 +84,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -411,6 +416,20 @@
     <Compile Include="KMDIweb\Production\ScreenSchedule\scqc.aspx.designer.cs">
       <DependentUpon>scqc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\ScreenSchedule\scYearlyOutput.aspx.cs">
+      <DependentUpon>scYearlyOutput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\ScreenSchedule\scYearlyOutput.aspx.designer.cs">
+      <DependentUpon>scYearlyOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\ScreenSchedule\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\ScreenSchedule\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -486,6 +505,8 @@
     <Content Include="KMDIweb\Production\ScreenSchedule\sccutting.aspx" />
     <Content Include="KMDIweb\Production\ScreenSchedule\scppm.aspx" />
     <Content Include="KMDIweb\Production\ScreenSchedule\scqc.aspx" />
+    <Content Include="KMDIweb\Production\ScreenSchedule\scYearlyOutput.aspx" />
+    <Content Include="KMDIweb\Production\ScreenSchedule\WebForm1.aspx" />
     <Content Include="KMDIweb\Production\scripts\sign.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
