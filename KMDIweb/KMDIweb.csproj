@@ -374,6 +374,13 @@
     <Compile Include="KMDIweb\Production\FrameSchedule\fwelding.aspx.designer.cs">
       <DependentUpon>fwelding.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\FYearlyOutput.aspx.cs">
+      <DependentUpon>FYearlyOutput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\FYearlyOutput.aspx.designer.cs">
+      <DependentUpon>FYearlyOutput.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\ScreenSchedule\scaccessories.aspx.cs">
       <DependentUpon>scaccessories.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -494,6 +501,7 @@
     <Content Include="KMDIweb\Production\FrameSchedule\fqcdel.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FrameHome.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fwelding.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\FYearlyOutput.aspx" />
     <Content Include="KMDIweb\Production\ScreenSchedule\home.aspx" />
     <Content Include="KMDIweb\Global\invalidaccess.aspx" />
     <Content Include="KMDIweb\Global\Login.aspx" />

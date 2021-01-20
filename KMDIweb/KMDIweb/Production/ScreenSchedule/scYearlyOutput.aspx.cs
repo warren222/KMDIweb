@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -24,7 +25,7 @@ namespace KMDIweb.KMDIweb.Production.ScreenSchedule
                     GetChartType();
                     ddlChartType.SelectedIndex = 2;
                     getdata();
-                 
+               
                 }
             }
             else
@@ -54,18 +55,37 @@ namespace KMDIweb.KMDIweb.Production.ScreenSchedule
             {
                 using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                 {
+                    DataSet ds = new DataSet();
                     sqlcon.Open();
+
                     sqlcmd.CommandType = System.Data.CommandType.StoredProcedure;
                     sqlcmd.CommandText = "screen_yearly_output_stp";
                     sqlcmd.Parameters.AddWithValue("@year1", tboxy1.Text);
                     sqlcmd.Parameters.AddWithValue("@year2", tboxy2.Text);
                     sqlcmd.Parameters.AddWithValue("@searchby", ddlSearchby.Text);
-                    using (SqlDataReader rd = sqlcmd.ExecuteReader())
+
+                    using (SqlDataAdapter da = new SqlDataAdapter())
                     {
-                        Chart1.DataSource = rd;
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(ds);
+                        Chart1.DataSource = ds;
                         Chart1.DataBind();
+                        //DataView dv = ds.Tables[0].DefaultView;
+                        //Chart1.DataBindTable(dv, "MM");
                         Chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
+
+
                     }
+                    //if (ddlSortDirection.SelectedValue == "ASC")
+                    //{
+                    //    Chart1.DataManipulator.Sort(PointSortOrder.Ascending,ddlSortBy.SelectedValue,"Year1");
+                    //    Chart1.DataManipulator.Sort(PointSortOrder.Ascending, ddlSortBy.SelectedValue, "Year2");
+                    //}
+                    //else
+                    //{
+                    //    Chart1.DataManipulator.Sort(PointSortOrder.Descending, ddlSortBy.SelectedValue, "Year1");
+                    //    Chart1.DataManipulator.Sort(PointSortOrder.Descending, ddlSortBy.SelectedValue, "Year2");
+                    //}
                 }
             }
         }
@@ -80,16 +100,40 @@ namespace KMDIweb.KMDIweb.Production.ScreenSchedule
 
         protected void ddlChartType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Chart1.Series["Year1"].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), ddlChartType.SelectedValue);
-            Chart1.Series["Year2"].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), ddlChartType.SelectedValue);
-            getdata();
+            setChartType();
         }
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
-            Chart1.Series["Year1"].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), ddlChartType.SelectedValue);
-            Chart1.Series["Year2"].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), ddlChartType.SelectedValue);
+            setChartType();
+        }
+        private void setChartType()
+        {
+            Chart1.Series.FirstOrDefault().ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), ddlChartType.SelectedValue);
+            Chart1.Series.LastOrDefault().ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), ddlChartType.SelectedValue);
             getdata();
+        }
+
+        protected void ddlSortDirection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getdata();
+        }
+
+        protected void ddlSortBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getdata();
+        }
+
+        protected void Chart1_Customize(object sender, EventArgs e)
+        {
+            //foreach (var lbl in Chart1.ChartAreas[0].AxisX.CustomLabels)
+            //{
+            //    int monthNumber = int.Parse(lbl.Text);
+            //    if (monthNumber >= 1 && monthNumber <= 12)
+            //        lbl.Text = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(monthNumber);
+            //    else
+            //        lbl.Text = "";
+            //}
         }
     }
 }

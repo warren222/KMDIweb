@@ -10,63 +10,91 @@
     <div class="well">
         <h2>Screen Fabrication Load/Output Chart</h2>
     </div>
- 
-        <div class="container">
-            <div class="well">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                Year 1:
-                            </div>
-                            <asp:TextBox ID="tboxy1" CssClass="form-control" TextMode="Number" MaxLength="9999" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                Year 2:
-                            </div>
-                            <asp:TextBox ID="tboxy2" CssClass="form-control" TextMode="Number" MaxLength="9999" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                            </div>
-                            <asp:DropDownList ID="ddlSearchby" CssClass="form-control" runat="server">
-                                <asp:ListItem Value="Output" Text="Output"></asp:ListItem>
-                                <asp:ListItem Value="Load" Text="Load"></asp:ListItem>
-                            </asp:DropDownList>
-                            <div class="input-group-btn">
-                                 <asp:LinkButton ID="btnsubmit" CssClass="btn btn-primary" runat="server" OnClick="btnsubmit_Click">submit</asp:LinkButton>
-                            </div>
-                        </div>
-                        <asp:DropDownList ID="ddlChartType" Visible="false" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlChartType_SelectedIndexChanged"></asp:DropDownList>
+    <div class="container">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
 
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <div class="input-group-addon" style="background-color: cornflowerblue">
+                                    <span style="color: white"><b>year</b></span>
+                                </div>
+                                <asp:TextBox ID="tboxy1" CssClass="form-control" TextMode="Number" MaxLength="9999" runat="server"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <div class="input-group-addon" style="background-color: orange">
+                                    <span style="color: white"><b>year</b></span>
+                                </div>
+                                <asp:TextBox ID="tboxy2" CssClass="form-control" TextMode="Number" MaxLength="9999" runat="server"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                </div>
+                                <asp:DropDownList ID="ddlSearchby" CssClass="form-control" runat="server">
+                                    <asp:ListItem Value="Output" Text="Output"></asp:ListItem>
+                                    <asp:ListItem Value="Load" Text="Load"></asp:ListItem>
+                                </asp:DropDownList>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                </div>
+                                <asp:DropDownList ID="ddlChartType" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlChartType_SelectedIndexChanged"></asp:DropDownList>
+                                <div class="input-group-btn">
+                                    <asp:LinkButton ID="btnsubmit" CssClass="btn btn-default" runat="server" OnClick="btnsubmit_Click">submit</asp:LinkButton>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <br />
+                    <asp:Panel ID="Panel1" ScrollBars="Auto" runat="server">
+                        <asp:Chart ID="Chart1" runat="server" Width="1049px" Height="506px" OnCustomize="Chart1_Customize">
+
+                            <Titles>
+                                <asp:Title Text="Monthly Screen Fabrication Chart"></asp:Title>
+                            </Titles>
+                            <Series>
+                                <asp:Series Name="Year_1" IsValueShownAsLabel="true" IsVisibleInLegend="true" XValueMember="MM" YValueMembers="qty1" ChartArea="ChartArea1" ChartType="Bubble" Legend="Legend1">
+                                </asp:Series>
+                                <asp:Series Name="Year_2" IsValueShownAsLabel="true" IsVisibleInLegend="true" XValueMember="MM" YValueMembers="qty2" ChartArea="ChartArea1" ChartType="Bubble" Legend="Legend1">
+                                </asp:Series>
+                            </Series>
+                            <ChartAreas>
+                                <asp:ChartArea Name="ChartArea1">
+                                    <AxisX Title="Month"></AxisX>
+                                    <AxisY Title="Screen Quantity"></AxisY>
+                                    <%--    <Area3DStyle Enable3D="true" />--%>
+                                </asp:ChartArea>
+                            </ChartAreas>
+
+                        </asp:Chart>
+                    </asp:Panel>
+                    <%--   <div class="row">
+                <div class="col-sm-6">
+                    <asp:DropDownList ID="ddlSortDirection" AutoPostBack="true"  CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlSortDirection_SelectedIndexChanged">
+                        <asp:ListItem Text="Ascending" Value="ASC"></asp:ListItem>
+                        <asp:ListItem Text="Descending" Value="DESC"></asp:ListItem>
+                    </asp:DropDownList>
                 </div>
-                <br />
-                <asp:Panel ID="Panel1" ScrollBars="Auto" runat="server">
-                    <asp:Chart ID="Chart1" runat="server" Width="1049px" Height="506px">
-                        <Series>
-                            <asp:Series Name="Year1" IsValueShownAsLabel="true" IsVisibleInLegend="true" XValueMember="MM" YValueMembers="qty1" ChartArea="ChartArea1" ChartType="Bubble" Legend="Legend1">
-                            </asp:Series>
-                            <asp:Series Name="Year2" IsValueShownAsLabel="true" IsVisibleInLegend="true" XValueMember="MM" YValueMembers="qty2" ChartArea="ChartArea1" ChartType="Bubble" Legend="Legend1">
-                            </asp:Series>
-                        </Series>
-                        <ChartAreas>
-                            <asp:ChartArea Name="ChartArea1">
-                                <AxisX Title="Month"></AxisX>
-                                <AxisY Title="Fabricated K#"></AxisY>
-                            </asp:ChartArea>
-                        </ChartAreas>
-                        <Legends>
-                            <asp:Legend Name="Legend1">
-                            </asp:Legend>
-                        </Legends>
-                    </asp:Chart>
-                </asp:Panel>
-            </div>
-        </div>
+                <div class="col-sm-6">
+                        <asp:DropDownList ID="ddlSortBy"  AutoPostBack="true" CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlSortBy_SelectedIndexChanged">
+                        <asp:ListItem Text="Month" Value="AxisLabel"></asp:ListItem>
+                        <asp:ListItem Text="Quantity" Value="Y"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+            </div>--%>
+                </div>
+
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
 </asp:Content>
