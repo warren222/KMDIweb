@@ -279,7 +279,7 @@ namespace KMDIweb.KMDIapp
 
             if (e.CommandName == "forcutting")
             {
-                if (Session["KMDI_sfm_acct"].ToString() == "Guest")
+                if (Session["KMDI_sfm_acct"].ToString() == "Guest" || Session["KMDI_sfm_acct"].ToString() == "None")
                 {
                     ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('invalid access!');", true);
                 }

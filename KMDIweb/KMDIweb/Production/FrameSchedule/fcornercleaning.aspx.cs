@@ -286,7 +286,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         {
             if (e.CommandName == "forcutting")
             {
-                if (Session["KMDI_sfm_acct"].ToString() == "Guest")
+                if (Session["KMDI_ffm_acct"].ToString() == "Guest" || Session["KMDI_ffm_acct"].ToString() == "None")
                 {
                     ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('invalid access!');", true);
                 }

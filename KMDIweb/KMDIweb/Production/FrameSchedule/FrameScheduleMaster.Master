@@ -70,7 +70,7 @@
                             </ul>
                             <li>
                                 <asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/FYearlyOutput.aspx">
-                         <span class="glyphicon glyphicon-signal"></span>&nbsp;   Chart</asp:HyperLink></li>
+                         <span class="glyphicon glyphicon-signal"></span>&nbsp;   Summary</asp:HyperLink></li>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

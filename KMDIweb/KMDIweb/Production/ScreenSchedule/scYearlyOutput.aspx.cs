@@ -18,14 +18,28 @@ namespace KMDIweb.KMDIweb.Production.ScreenSchedule
         {
             if (Session["KMDI_userid"] != null)
             {
+                if (ViewState["tb"] != null)
+                {
+                    Chart1.DataSource = (DataSet)ViewState["tb"];
+                    Chart1.DataBind();
+
+                    Chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
+                    Chart1.ChartAreas[0].AxisY.LabelStyle.Format = "N0";
+                    Chart1.ChartAreas[0].AxisY2.LabelStyle.Format = "N0";
+                }
                 if (!IsPostBack)
                 {
                     tboxy1.Text = DateTime.Now.Year.ToString();
-                    tboxy2.Text = Convert.ToString(DateTime.Now.Year-1);
+                    tboxy2.Text = Convert.ToString(DateTime.Now.Year - 1);
                     GetChartType();
-                    ddlChartType.SelectedIndex = 2;
-                    getdata();
-               
+                    ddlChartType.SelectedIndex = 10;
+                    loadChartData();
+                    ddlSortBy.Items.Clear();
+                    ddlSortBy.Items.Add(tboxy1.Text);
+                    ddlSortBy.Items.Add(tboxy2.Text);
+                    ddlSortBy.Items.Add("Month");
+                    loadTableData();
+
                 }
             }
             else
@@ -48,7 +62,7 @@ namespace KMDIweb.KMDIweb.Production.ScreenSchedule
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
-        private void getdata()
+        private void loadChartData()
         {
             DataTable tb = new DataTable();
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
@@ -68,12 +82,14 @@ namespace KMDIweb.KMDIweb.Production.ScreenSchedule
                     {
                         da.SelectCommand = sqlcmd;
                         da.Fill(ds);
+                        ViewState["tb"] = ds;
                         Chart1.DataSource = ds;
                         Chart1.DataBind();
                         //DataView dv = ds.Tables[0].DefaultView;
                         //Chart1.DataBindTable(dv, "MM");
                         Chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
-
+                        Chart1.ChartAreas[0].AxisY.LabelStyle.Format = "N0";
+                        Chart1.ChartAreas[0].AxisY2.LabelStyle.Format = "N0";
 
                     }
                     //if (ddlSortDirection.SelectedValue == "ASC")
@@ -86,6 +102,51 @@ namespace KMDIweb.KMDIweb.Production.ScreenSchedule
                     //    Chart1.DataManipulator.Sort(PointSortOrder.Descending, ddlSortBy.SelectedValue, "Year1");
                     //    Chart1.DataManipulator.Sort(PointSortOrder.Descending, ddlSortBy.SelectedValue, "Year2");
                     //}
+                }
+            }
+        }
+        private void loadTableData()
+        {
+            DataTable tb = new DataTable();
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    DataSet ds = new DataSet();
+                    sqlcon.Open();
+
+                    sqlcmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    sqlcmd.CommandText = "screen_yearly_output_stp";
+                    sqlcmd.Parameters.AddWithValue("@year1", tboxy1.Text);
+                    sqlcmd.Parameters.AddWithValue("@year2", tboxy2.Text);
+                    sqlcmd.Parameters.AddWithValue("@searchby", ddlSearchby.Text);
+
+                    using (SqlDataAdapter da = new SqlDataAdapter())
+                    {
+                        DataTable dt = new DataTable();
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(dt);
+                        string sortBy = null;
+                        if (ddlSortBy.Text == tboxy1.Text)
+                        {
+                            sortBy = "qty1";
+                        }
+                        else if (ddlSortBy.Text == tboxy2.Text)
+                        {
+                            sortBy = "qty2";
+                        }
+                        else
+                        {
+                            sortBy = ddlSortBy.Text.Replace("Month", "M");
+                        }
+
+                        dt.DefaultView.Sort = string.IsNullOrEmpty(sortBy) ? " M ASC" : sortBy + " " + ddlOrderBy.Text;
+                        dt = dt.DefaultView.ToTable();
+                        GridView1.DataSource = dt;
+                        GridView1.DataBind();
+                        ((Label)GridView1.HeaderRow.FindControl("lblheadery1")).Text = tboxy1.Text;
+                        ((Label)GridView1.HeaderRow.FindControl("lblheadery2")).Text = tboxy2.Text;
+                    }
                 }
             }
         }
@@ -111,28 +172,34 @@ namespace KMDIweb.KMDIweb.Production.ScreenSchedule
         {
             Chart1.Series.FirstOrDefault().ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), ddlChartType.SelectedValue);
             Chart1.Series.LastOrDefault().ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), ddlChartType.SelectedValue);
-            getdata();
+            loadChartData();
+            ddlSortBy.Items.Clear();
+            ddlSortBy.Items.Add(tboxy1.Text);
+            ddlSortBy.Items.Add(tboxy2.Text);
+            ddlSortBy.Items.Add("Month");
+            loadTableData();
         }
 
         protected void ddlSortDirection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            getdata();
+            loadTableData();
         }
 
         protected void ddlSortBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            getdata();
+            loadTableData();
+        }
+        protected void btnSort_Click(object sender, EventArgs e)
+        {
+            loadTableData();
         }
 
-        protected void Chart1_Customize(object sender, EventArgs e)
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            //foreach (var lbl in Chart1.ChartAreas[0].AxisX.CustomLabels)
+            //if (e.Row.RowType == DataControlRowType.Header)
             //{
-            //    int monthNumber = int.Parse(lbl.Text);
-            //    if (monthNumber >= 1 && monthNumber <= 12)
-            //        lbl.Text = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(monthNumber);
-            //    else
-            //        lbl.Text = "";
+            //    //GridView1.Columns[3].HeaderText = tboxy2.Text;
+            //    //GridView1.Columns[2].HeaderText = tboxy1.Text;
             //}
         }
     }

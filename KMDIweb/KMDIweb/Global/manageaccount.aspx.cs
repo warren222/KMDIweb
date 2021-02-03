@@ -12,7 +12,7 @@ namespace KMDIweb.KMDIapp
 {
     public partial class manageaccount : System.Web.UI.Page
     {
-        string fullname, nickname, id, sfm = "", sdr = "";
+        string fullname, nickname, id, sfm = "",ffm="", sdr = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -69,6 +69,7 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@fullname", "");
                         sqlcmd.Parameters.AddWithValue("@nickname", "");
                         sqlcmd.Parameters.AddWithValue("@sfm", "");
+                        sqlcmd.Parameters.AddWithValue("@ffm", "");
                         sqlcmd.Parameters.AddWithValue("@sdr", "");
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
@@ -107,8 +108,10 @@ namespace KMDIweb.KMDIapp
                 ((TextBox)row.FindControl("TBOXeditfullname")).Visible = true;
                 ((TextBox)row.FindControl("TBOXeditnickname")).Visible = true;
                 ((DropDownList)row.FindControl("DDLeditsfm")).Visible = true;
+                ((DropDownList)row.FindControl("DDLeditffm")).Visible = true;
                 ((DropDownList)row.FindControl("DDLeditsdr")).Visible = true;
                 ((DropDownList)row.FindControl("DDLeditsfm")).Text = ((Label)row.FindControl("LBLsfm")).Text;
+                ((DropDownList)row.FindControl("DDLeditffm")).Text = ((Label)row.FindControl("LBLffm")).Text;
                 ((DropDownList)row.FindControl("DDLeditsdr")).Text = ((Label)row.FindControl("LBLsdr")).Text;
 
                 ((LinkButton)row.FindControl("BTNedit")).Visible = false;
@@ -116,6 +119,7 @@ namespace KMDIweb.KMDIapp
                 ((Label)row.FindControl("LBLfullname")).Visible = false;
                 ((Label)row.FindControl("LBLnickname")).Visible = false;
                 ((Label)row.FindControl("LBLsfm")).Visible = false;
+                ((Label)row.FindControl("LBLffm")).Visible = false;
                 ((Label)row.FindControl("LBLsdr")).Visible = false;
             }
             else if (e.CommandName == "mycancel")
@@ -128,6 +132,7 @@ namespace KMDIweb.KMDIapp
                 ((TextBox)row.FindControl("TBOXeditfullname")).Visible = false;
                 ((TextBox)row.FindControl("TBOXeditnickname")).Visible = false;
                 ((DropDownList)row.FindControl("DDLeditsfm")).Visible = false;
+                ((DropDownList)row.FindControl("DDLeditffm")).Visible = false;
                 ((DropDownList)row.FindControl("DDLeditsdr")).Visible = false;
 
                 ((LinkButton)row.FindControl("BTNedit")).Visible = true;
@@ -135,6 +140,7 @@ namespace KMDIweb.KMDIapp
                 ((Label)row.FindControl("LBLfullname")).Visible = true;
                 ((Label)row.FindControl("LBLnickname")).Visible = true;
                 ((Label)row.FindControl("LBLsfm")).Visible = true;
+                ((Label)row.FindControl("LBLffm")).Visible = true;
                 ((Label)row.FindControl("LBLsdr")).Visible = true;
             }
             else if (e.CommandName == "mysave")
@@ -145,6 +151,7 @@ namespace KMDIweb.KMDIapp
                 fullname = ((TextBox)row.FindControl("TBOXeditfullname")).Text;
                 nickname = ((TextBox)row.FindControl("TBOXeditnickname")).Text;
                 sfm = ((DropDownList)row.FindControl("DDLeditsfm")).Text;
+                ffm = ((DropDownList)row.FindControl("DDLeditffm")).Text;
                 sdr = ((DropDownList)row.FindControl("DDLeditsdr")).Text;
                 executecommands("update data");
 
@@ -158,6 +165,7 @@ namespace KMDIweb.KMDIapp
                 fullname = ((TextBox)row.FindControl("TBOXeditfullname")).Text;
                 nickname = ((TextBox)row.FindControl("TBOXeditnickname")).Text;
                 sfm = ((DropDownList)row.FindControl("DDLeditsfm")).Text;
+                ffm = ((DropDownList)row.FindControl("DDLeditffm")).Text;
                 sdr = ((DropDownList)row.FindControl("DDLeditsdr")).Text;
                 executecommands("delete data");
             }
@@ -182,6 +190,7 @@ namespace KMDIweb.KMDIapp
                         sqlcmd.Parameters.AddWithValue("@fullname", fullname);
                         sqlcmd.Parameters.AddWithValue("@nickname", nickname);
                         sqlcmd.Parameters.AddWithValue("@sfm", sfm);
+                        sqlcmd.Parameters.AddWithValue("@ffm", ffm);
                         sqlcmd.Parameters.AddWithValue("@sdr", sdr);
                         sqlcmd.ExecuteNonQuery();
                     }
@@ -203,6 +212,7 @@ namespace KMDIweb.KMDIapp
             fullname = TBOXfullname.Text;
             nickname = TBOXnickname.Text;
             sfm = DDLsfm.Text;
+            ffm = DDLffm.Text;
             sdr = DDLsdr.Text;
             executecommands("insert data");
         }

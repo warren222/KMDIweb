@@ -272,6 +272,127 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         protected void BTNprevweektime_Click(object sender, EventArgs e)
         {
             loadschedule("prev week");
-        }      
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "loadkno")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
+                ViewState["parentjono"] = ((Label)row.FindControl("LBLparentjono")).Text;
+                ViewState["projectname"] = ((Label)row.FindControl("LBLprojectname")).Text;
+                ViewState["color"] = ((Label)row.FindControl("LBLcolor")).Text;
+                ViewState["realduedate"] = ((Label)row.FindControl("LBLrealduedate")).Text;
+                ViewState["finished"] = ((Label)row.FindControl("LBLfinished")).Text;
+                ViewState["schedremarks"] = ((Label)row.FindControl("LBLschedremarks")).Text;
+                ViewState["status"] = ((Label)row.FindControl("LBLstatus")).Text;
+                ViewState["cuttinglist"] = ((Label)row.FindControl("LBLcuttinglist")).Text;
+                ViewState["clno"] = ((Label)row.FindControl("LBLclno")).Text;
+                Panel2.Visible = true;
+                Panel1.Visible = false;
+                loadkno();
+            }
+        }
+        private void loadkno()
+        {
+            try
+            {
+                DataTable tb = new DataTable();
+
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "frame_schedule_stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "load kno");
+                        sqlcmd.Parameters.AddWithValue("@bdate", tboxBdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@edate", tboxEdate.Text);
+                        sqlcmd.Parameters.AddWithValue("@mon", mon);
+                        sqlcmd.Parameters.AddWithValue("@sun", sun);
+                        sqlcmd.Parameters.AddWithValue("@projectname", "");
+                        sqlcmd.Parameters.AddWithValue("@address", DDLaddress.Text.ToString());
+                        sqlcmd.Parameters.AddWithValue("@progress", DDLprogress.Text.ToString());
+
+                        sqlcmd.Parameters.AddWithValue("@pjono", ViewState["parentjono"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@pname", ViewState["projectname"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@color", ViewState["color"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@rduedate", ViewState["realduedate"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@finished", ViewState["finished"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@schedremarks", ViewState["schedremarks"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@status", ViewState["status"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@cuttinglist", ViewState["cuttinglist"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@clno", ViewState["clno"].ToString());
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(tb);
+                        GridView2.DataSource = tb;
+                        GridView2.DataBind();
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+        }
+        protected void LINKexit_Click(object sender, EventArgs e)
+        {
+            Panel2.Visible = false;
+            Panel1.Visible = true;
+        }
+
+        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            loadkno();
+        }
+        protected void GridView2_DataBound(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= ((GridView)sender).Rows.Count - 1; i++)
+            {
+                Label lblparent = (Label)((GridView)sender).Rows[i].FindControl("g2LBLday");
+
+                if (lblparent.Text == "Monday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.LightBlue;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Tuesday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.LightGreen;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Wednesday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Yellow;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Thursday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Orange;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Friday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Pink;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else if (lblparent.Text == "Saturday")
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Violet;
+                    lblparent.ForeColor = Color.Black;
+                }
+                else
+                {
+                    ((GridView)sender).Rows[i].Cells[0].BackColor = Color.Teal;
+                    lblparent.ForeColor = Color.Black;
+                }
+            }
+        }
+
     }
 }

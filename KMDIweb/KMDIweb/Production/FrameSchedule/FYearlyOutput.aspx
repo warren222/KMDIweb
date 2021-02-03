@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content runat="server" ID="Content2" ContentPlaceHolderID="content">
     <div class="well">
-        <h2>Frame Fabrication Load/Output Chart</h2>
+        <h2>Frame Fabrication Load/Output Summary</h2>
     </div>
     <div class="container">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -17,6 +17,7 @@
         <div class="well">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
+                    <h2>Chart</h2>
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="input-group">
@@ -81,7 +82,7 @@
                     </asp:Panel>
           
             <br />
-         
+              <h2>Table</h2>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="input-group">
@@ -109,7 +110,8 @@
                         </div>
                     </div>
                     <br />
-                    <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" OnRowDataBound="GridView1_RowDataBound" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
+                    <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" OnRowDataBound="GridView1_RowDataBound" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" ForeColor="Black" GridLines="None">
+                        <AlternatingRowStyle BackColor="PaleGoldenrod" />
                       <Columns>
                           <asp:TemplateField>
                               <ItemTemplate>
@@ -117,31 +119,38 @@
                               </ItemTemplate>
                           </asp:TemplateField>
                           <asp:TemplateField HeaderText="Month">
+                           
                               <ItemTemplate>
                                   <asp:Label ID="lblMM" runat="server" Text='<%# Bind("MM") %>'></asp:Label>
                               </ItemTemplate>
                           </asp:TemplateField>
-                            <asp:TemplateField>
-                              <ItemTemplate>
+                            
+                          <asp:TemplateField>
+                                 <HeaderTemplate>
+                                     <asp:Label ID="lblheadery1" runat="server" Text="Label"></asp:Label>
+                              </HeaderTemplate>
+                                <ItemTemplate>
                                   <asp:Label ID="lbly1" runat="server" Text='<%# Bind("qty1Formated") %>'></asp:Label>
                               </ItemTemplate>
                           </asp:TemplateField>
                             <asp:TemplateField>
+                                  <HeaderTemplate>
+                                     <asp:Label ID="lblheadery2" runat="server" Text="Label"></asp:Label>
+                              </HeaderTemplate>
                               <ItemTemplate>
                                   <asp:Label ID="lbly2" runat="server" Text='<%# Bind("qty2Formated") %>'></asp:Label>
                               </ItemTemplate>
                           </asp:TemplateField>
                       </Columns>
                         
-                        <FooterStyle BackColor="#CCCCCC" />
-                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                        <RowStyle BackColor="White" />
-                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                        <SortedAscendingHeaderStyle BackColor="#808080" />
-                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                        <SortedDescendingHeaderStyle BackColor="#383838" />
+                        <FooterStyle BackColor="Tan" />
+                        <HeaderStyle BackColor="Tan" Font-Bold="True" />
+                        <PagerStyle BackColor="PaleGoldenrod" ForeColor="DarkSlateBlue" HorizontalAlign="Center" />
+                        <SelectedRowStyle BackColor="DarkSlateBlue" ForeColor="GhostWhite" />
+                        <SortedAscendingCellStyle BackColor="#FAFAE7" />
+                        <SortedAscendingHeaderStyle BackColor="#DAC09E" />
+                        <SortedDescendingCellStyle BackColor="#E1DB9C" />
+                        <SortedDescendingHeaderStyle BackColor="#C2A47B" />
                     </asp:GridView>
                 </ContentTemplate>
             </asp:UpdatePanel>

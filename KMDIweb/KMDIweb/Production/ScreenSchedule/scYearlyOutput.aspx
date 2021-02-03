@@ -8,14 +8,15 @@
 </asp:Content>
 <asp:Content runat="server" ID="Content2" ContentPlaceHolderID="content">
     <div class="well">
-        <h2>Screen Fabrication Load/Output Chart</h2>
+        <h2>Screen Fabrication Load/Output Summary</h2>
     </div>
     <div class="container">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <ContentTemplate>
+        <div class="well">
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <h2>Chart</h2>
 
-                <div class="well">
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="input-group">
@@ -57,15 +58,15 @@
                     </div>
                     <br />
                     <asp:Panel ID="Panel1" ScrollBars="Auto" runat="server">
-                        <asp:Chart ID="Chart1" runat="server" Width="1049px" Height="506px" OnCustomize="Chart1_Customize">
+                        <asp:Chart ID="Chart1" runat="server" Width="1049px" Height="506px">
 
                             <Titles>
                                 <asp:Title Text="Monthly Screen Fabrication Chart"></asp:Title>
                             </Titles>
                             <Series>
-                                <asp:Series Name="Year_1" IsValueShownAsLabel="true" IsVisibleInLegend="true" XValueMember="MM" YValueMembers="qty1" ChartArea="ChartArea1" ChartType="Bubble" Legend="Legend1">
+                                <asp:Series Name="Year_1" IsValueShownAsLabel="true" IsVisibleInLegend="true" XValueMember="MM" YValueMembers="qty1" ChartArea="ChartArea1" ChartType="Column" Legend="Legend1">
                                 </asp:Series>
-                                <asp:Series Name="Year_2" IsValueShownAsLabel="true" IsVisibleInLegend="true" XValueMember="MM" YValueMembers="qty2" ChartArea="ChartArea1" ChartType="Bubble" Legend="Legend1">
+                                <asp:Series Name="Year_2" IsValueShownAsLabel="true" IsVisibleInLegend="true" XValueMember="MM" YValueMembers="qty2" ChartArea="ChartArea1" ChartType="Column" Legend="Legend1">
                                 </asp:Series>
                             </Series>
                             <ChartAreas>
@@ -92,9 +93,80 @@
                     </asp:DropDownList>
                 </div>
             </div>--%>
-                </div>
 
-            </ContentTemplate>
-        </asp:UpdatePanel>
+                    <br />
+                    <h2>Table</h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    Sort Order
+                                </div>
+                                <asp:DropDownList ID="ddlOrderBy" CssClass="form-control" runat="server">
+                                    <asp:ListItem Text="Ascending" Value="ASC"></asp:ListItem>
+                                    <asp:ListItem Text="Descending" Value="DESC"></asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    Sort By<asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="mm" ControlToValidate="ddlSortBy" ForeColor="Red" runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                </div>
+                                <asp:DropDownList ID="ddlSortBy" CssClass="form-control" runat="server">
+                                </asp:DropDownList>
+                                <div class="input-group-btn">
+                                    <asp:LinkButton ID="btnSort" ValidationGroup="mm" CssClass="btn btn-default" runat="server" OnClick="btnSort_Click">SORT</asp:LinkButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" OnRowDataBound="GridView1_RowDataBound" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" ForeColor="Black" GridLines="None">
+                        <AlternatingRowStyle BackColor="PaleGoldenrod" />
+                        <Columns>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <%# Container.DataItemIndex+1 %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Month">
+
+                                <ItemTemplate>
+                                    <asp:Label ID="lblMM" runat="server" Text='<%# Bind("MM") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    <asp:Label ID="lblheadery1" runat="server" Text="Label"></asp:Label>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbly1" runat="server" Text='<%# Bind("qty1Formated") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    <asp:Label ID="lblheadery2" runat="server" Text="Label"></asp:Label>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbly2" runat="server" Text='<%# Bind("qty2Formated") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+
+                        <FooterStyle BackColor="Tan" />
+                        <HeaderStyle BackColor="Tan" Font-Bold="True" />
+                        <PagerStyle BackColor="PaleGoldenrod" ForeColor="DarkSlateBlue" HorizontalAlign="Center" />
+                        <SelectedRowStyle BackColor="DarkSlateBlue" ForeColor="GhostWhite" />
+                        <SortedAscendingCellStyle BackColor="#FAFAE7" />
+                        <SortedAscendingHeaderStyle BackColor="#DAC09E" />
+                        <SortedDescendingCellStyle BackColor="#E1DB9C" />
+                        <SortedDescendingHeaderStyle BackColor="#C2A47B" />
+                    </asp:GridView>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
     </div>
 </asp:Content>

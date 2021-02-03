@@ -27,15 +27,14 @@
                 <ContentTemplate>
 
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-6">
+                            <h2>User Info</h2>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     Full name
                                 </div>
                                 <asp:TextBox ID="TBOXfullname" placeholder="Full name" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
-                        </div>
-                        <div class="col-sm-3">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     Nickname
@@ -43,8 +42,8 @@
                                 <asp:TextBox ID="TBOXnickname" placeholder="Nickname" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-
+                        <div class="col-sm-6">
+                            <h2>Role</h2>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     SFM
@@ -56,9 +55,17 @@
                                     <asp:ListItem Text="None" Value="None"></asp:ListItem>
                                 </asp:DropDownList>
                             </div>
-                        </div>
-                        <div class="col-sm-3">
-
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    FFM
+                                </div>
+                                <asp:DropDownList ID="DDLffm" CssClass="form-control" runat="server">
+                                    <asp:ListItem Text="Admin" Value="Admin"></asp:ListItem>
+                                    <asp:ListItem Text="User" Value="User"></asp:ListItem>
+                                    <asp:ListItem Text="Guest" Value="Guest"></asp:ListItem>
+                                    <asp:ListItem Text="None" Value="None"></asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     SDR
@@ -73,6 +80,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
                     <br />
@@ -104,6 +112,17 @@
                                     <ItemTemplate>
                                         <asp:Label ID="LBLsfm" runat="server" Text='<%# Bind("SFM") %>'></asp:Label>
                                         <asp:DropDownList Visible="false" ID="DDLeditsfm" CssClass="form-control" runat="server">
+                                            <asp:ListItem Text="Admin" Value="Admin"></asp:ListItem>
+                                            <asp:ListItem Text="User" Value="User"></asp:ListItem>
+                                            <asp:ListItem Text="Guest" Value="Guest"></asp:ListItem>
+                                            <asp:ListItem Text="None" Value="None"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                  <asp:TemplateField HeaderText="FFM">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBLffm" runat="server" Text='<%# Bind("FFM") %>'></asp:Label>
+                                        <asp:DropDownList Visible="false" ID="DDLeditffm" CssClass="form-control" runat="server">
                                             <asp:ListItem Text="Admin" Value="Admin"></asp:ListItem>
                                             <asp:ListItem Text="User" Value="User"></asp:ListItem>
                                             <asp:ListItem Text="Guest" Value="Guest"></asp:ListItem>

@@ -32,14 +32,14 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     tboxy1.Text = DateTime.Now.Year.ToString();
                     tboxy2.Text = Convert.ToString(DateTime.Now.Year - 1);
                     GetChartType();
-                    ddlChartType.SelectedIndex = 8;
+                    ddlChartType.SelectedIndex = 10;
                     loadChartData();
                     ddlSortBy.Items.Clear();
                     ddlSortBy.Items.Add(tboxy1.Text);
                     ddlSortBy.Items.Add(tboxy2.Text);
+                    ddlSortBy.Items.Add("Month");
                     loadTableData();
-                    GridView1.Columns[3].HeaderText = tboxy2.Text;
-                    GridView1.Columns[2].HeaderText = tboxy1.Text;
+             
                 }
             }
             else
@@ -128,17 +128,23 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         {
                             sortBy = "qty2";
                         }
+                        else
+                        {
+                            sortBy = ddlSortBy.Text.Replace("Month", "M");
+                        }
+                     
                         dt.DefaultView.Sort = string.IsNullOrEmpty(sortBy) ? " M ASC" : sortBy + " " + ddlOrderBy.Text;
                         dt = dt.DefaultView.ToTable();
                         GridView1.DataSource = dt;
                         GridView1.DataBind();
-                    
+                        ((Label)GridView1.HeaderRow.FindControl("lblheadery1")).Text = tboxy1.Text;
+                        ((Label)GridView1.HeaderRow.FindControl("lblheadery2")).Text = tboxy2.Text;
                     }
                 }
             }
         }
         private void GetChartType()
-        {
+        { 
             foreach (int chartType in Enum.GetValues(typeof(SeriesChartType)))
             {
                 ListItem li = new ListItem(Enum.GetName(typeof(SeriesChartType), chartType), chartType.ToString());
@@ -163,19 +169,21 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             ddlSortBy.Items.Clear();
             ddlSortBy.Items.Add(tboxy1.Text);
             ddlSortBy.Items.Add(tboxy2.Text);
+            ddlSortBy.Items.Add("Month");
             loadTableData();
-            GridView1.Columns[3].HeaderText = tboxy2.Text;
-            GridView1.Columns[2].HeaderText = tboxy1.Text;
+            //GridView1.Columns[3].HeaderText = tboxy2.Text;
+            //GridView1.Columns[2].HeaderText = tboxy1.Text;
+
         }
 
         protected void ddlSortDirection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadChartData();
+            loadTableData();
         }
 
         protected void ddlSortBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadChartData();
+            loadTableData();
         }
 
         protected void btnSort_Click(object sender, EventArgs e)
@@ -185,11 +193,11 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.Header)
-            {
-                GridView1.Columns[3].HeaderText = tboxy2.Text;
-                GridView1.Columns[2].HeaderText = tboxy1.Text;
-            }
+            //if (e.Row.RowType == DataControlRowType.Header)
+            //{
+            //    //GridView1.Columns[3].HeaderText = tboxy2.Text;
+            //    //GridView1.Columns[2].HeaderText = tboxy1.Text;
+            //}
         }
     }
 }

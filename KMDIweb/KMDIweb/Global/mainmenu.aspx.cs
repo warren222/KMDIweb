@@ -76,19 +76,19 @@ namespace KMDIweb.KMDIapp
 
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
-            //if (Session["KMDI_sdr_acct"].ToString() == "None")
-            //{
-            //    errorrmessage("invalid access!");
+            if (Session["KMDI_ffm_acct"].ToString() == "None")
+            {
+                errorrmessage("invalid access!");
 
-            //}
-            //else
-            //{
+            }
+            else
+            {
                 if (IsValid)
                 {
                     Response.Redirect("~/KMDIweb/Production/FrameSchedule/FrameHome.aspx");
                 }
 
-            //}
+            }
         }
     }
 }
