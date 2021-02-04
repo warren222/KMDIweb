@@ -152,7 +152,8 @@
                         <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Schedule"></asp:Label>
                     </span></h1>
                     <small>
-                        <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="25" OnDataBound="GridView1_DataBound" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" OnRowCommand="GridView1_RowCommand">
+                        <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" 
+                            PageSize="25" OnDataBound="GridView1_DataBound" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" OnRowCommand="GridView1_RowCommand">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="DUE DATE" HeaderStyle-Width="500px">
@@ -240,7 +241,7 @@
                                     </h3>
                                 </div>
                             </EmptyDataTemplate>
-                            <RowStyle BackColor="#F7F7DE" />
+                            <RowStyle BackColor="#F7F7DE" Wrap="True" />
                             <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
                             <SortedAscendingCellStyle BackColor="#FBFBF2" />
                             <SortedAscendingHeaderStyle BackColor="#848384" />
