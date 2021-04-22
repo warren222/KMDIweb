@@ -18,28 +18,35 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
 
             if (Session["KMDI_userid"] != null)
             {
-                if (ViewState["tb"] != null)
+                if (Session["KMDI_ffm_acct"].ToString() == "Guest" || Session["KMDI_ffm_acct"].ToString() == "None")
                 {
-                    Chart1.DataSource = (DataSet)ViewState["tb"];
-                    Chart1.DataBind();
-
-                    Chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
-                    Chart1.ChartAreas[0].AxisY.LabelStyle.Format = "N0";
-                    Chart1.ChartAreas[0].AxisY2.LabelStyle.Format = "N0";
+                    ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('invalid access!');", true);
                 }
-                if (!IsPostBack)
+                else
                 {
-                    tboxy1.Text = DateTime.Now.Year.ToString();
-                    tboxy2.Text = Convert.ToString(DateTime.Now.Year - 1);
-                    GetChartType();
-                    ddlChartType.SelectedIndex = 10;
-                    loadChartData();
-                    ddlSortBy.Items.Clear();
-                    ddlSortBy.Items.Add(tboxy1.Text);
-                    ddlSortBy.Items.Add(tboxy2.Text);
-                    ddlSortBy.Items.Add("Month");
-                    loadTableData();
-             
+                    if (ViewState["tb"] != null)
+                    {
+                        Chart1.DataSource = (DataSet)ViewState["tb"];
+                        Chart1.DataBind();
+
+                        Chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
+                        Chart1.ChartAreas[0].AxisY.LabelStyle.Format = "N0";
+                        Chart1.ChartAreas[0].AxisY2.LabelStyle.Format = "N0";
+                    }
+                    if (!IsPostBack)
+                    {
+                        tboxy1.Text = DateTime.Now.Year.ToString();
+                        tboxy2.Text = Convert.ToString(DateTime.Now.Year - 1);
+                        GetChartType();
+                        ddlChartType.SelectedIndex = 10;
+                        loadChartData();
+                        ddlSortBy.Items.Clear();
+                        ddlSortBy.Items.Add(tboxy1.Text);
+                        ddlSortBy.Items.Add(tboxy2.Text);
+                        ddlSortBy.Items.Add("Month");
+                        loadTableData();
+
+                    }
                 }
             }
             else
@@ -132,7 +139,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         {
                             sortBy = ddlSortBy.Text.Replace("Month", "M");
                         }
-                     
+
                         dt.DefaultView.Sort = string.IsNullOrEmpty(sortBy) ? " M ASC" : sortBy + " " + ddlOrderBy.Text;
                         dt = dt.DefaultView.ToTable();
                         GridView1.DataSource = dt;
@@ -144,7 +151,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             }
         }
         private void GetChartType()
-        { 
+        {
             foreach (int chartType in Enum.GetValues(typeof(SeriesChartType)))
             {
                 ListItem li = new ListItem(Enum.GetName(typeof(SeriesChartType), chartType), chartType.ToString());

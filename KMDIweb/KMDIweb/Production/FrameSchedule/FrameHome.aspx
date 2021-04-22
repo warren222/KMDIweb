@@ -152,7 +152,7 @@
                         <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Schedule"></asp:Label>
                     </span></h1>
                     <small>
-                        <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" 
+                        <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging"
                             PageSize="25" OnDataBound="GridView1_DataBound" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" OnRowCommand="GridView1_RowCommand">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
@@ -168,6 +168,12 @@
                                         <asp:Label ID="LBLday" Font-Bold="true" runat="server" Text='<%# Bind("DAY") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle Width="100px" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="NEW DUE DATE">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBLnewduedate" Font-Size="Large" Font-Bold="true" runat="server" Text='<%# Bind("NEW_DUE_DATE") %>'></asp:Label><br />
+                                        <asp:Label ID="LBLnewyear" runat="server" Text='<%# Bind("NEW_YEAR") %>'></asp:Label>
+                                    </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="PROJECT" HeaderStyle-Width="150px">
                                     <ItemTemplate>
@@ -208,7 +214,7 @@
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                             
+
                                 <asp:TemplateField HeaderText="REMARKS" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>
@@ -250,7 +256,7 @@
                         </asp:GridView>
                     </small>
                 </asp:Panel>
-                   <asp:Panel ID="Panel2" runat="server" Visible="false">
+                <asp:Panel ID="Panel2" runat="server" Visible="false">
                     <h4 class="text-warning text-center"><span style="font-size: xx-large">Item Progress</span></h4>
                     <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to schedule</asp:LinkButton>
                     <small>
@@ -261,6 +267,12 @@
                                     <ItemTemplate>
                                         <asp:Label ID="g2LBLduedate" Font-Bold="true" runat="server" Text='<%# Bind("DUE_DATE") %>'></asp:Label>
                                         <asp:Label ID="g2LBLday" CssClass="text-muted" Visible="true" runat="server" Text='<%# Bind("DAY") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="NEW DUE DATE">
+                                    <ItemTemplate>
+                                        <asp:Label ID="g2LBLnewduedate" Font-Bold="true" runat="server" Text='<%# Bind("NEW_DUE_DATE") %>'></asp:Label><br />
+                                        <asp:Label ID="g2LBLnewday" CssClass="text-muted" Visible="true" runat="server" Text='<%# Bind("NEW_DAY") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="PROJECT">
@@ -283,7 +295,7 @@
                                         <asp:Label ID="LBLg2currentstation" runat="server" Text='<%# Bind("CURRENTSTATION") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                   <asp:TemplateField HeaderText="POINTS" ItemStyle-HorizontalAlign="Center">
+                                <asp:TemplateField HeaderText="POINTS" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLg2points" runat="server" Text='<%# Bind("POINTS") %>'></asp:Label>
                                     </ItemTemplate>
@@ -307,7 +319,7 @@
                         </asp:GridView>
                     </small>
                 </asp:Panel>
-            
+
             </div>
             <div class="panel-footer">
             </div>

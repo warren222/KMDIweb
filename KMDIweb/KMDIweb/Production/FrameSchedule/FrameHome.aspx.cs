@@ -258,7 +258,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 }
                 if (lblfinished.Text != "")
                 {
-                    GridView1.Rows[i].Cells[8].BackColor = Color.LightSeaGreen;
+                    GridView1.Rows[i].Cells[9].BackColor = Color.LightSeaGreen;
                     lblfinished.ForeColor = Color.White;
                 }
             }
