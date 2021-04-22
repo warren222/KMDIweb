@@ -295,6 +295,11 @@
                                         <asp:Label ID="LBLg2currentstation" runat="server" Text='<%# Bind("CURRENTSTATION") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                  <asp:TemplateField HeaderText="REMARKS" ItemStyle-HorizontalAlign="Center">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBLgremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="POINTS" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLg2points" runat="server" Text='<%# Bind("POINTS") %>'></asp:Label>
