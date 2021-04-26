@@ -163,7 +163,7 @@
                         <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Schedule"></asp:Label>
                     </span></h1>
                     <small>
-                        <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="25" OnDataBound="GridView1_DataBound" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" OnRowCommand="GridView1_RowCommand">
+                        <asp:GridView ID="GridView1" CssClass="table tbl" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="25" OnDataBound="GridView1_DataBound" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" OnRowCommand="GridView1_RowCommand">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="DUE DATE" HeaderStyle-Width="500px">
@@ -182,7 +182,11 @@
                                 <asp:TemplateField HeaderText="PROJECT" HeaderStyle-Width="150px">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLprojectname" runat="server" Font-Size="Small" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label><br />
-                                        <asp:Label ID="LBLaddress" runat="server" CssClass="text-muted" Font-Size="Small" Text='<%# Bind("FULLADD") %>'></asp:Label>
+                                        <asp:Label ID="LBLaddress" runat="server" CssClass="text-muted" Font-Size="Small" Text='<%# Bind("FULLADD") %>'></asp:Label><br />
+                                        <br />
+
+                                        AE :<asp:Label ID="LBLae" runat="server" CssClass="text-info" Font-Size="Small" Text='<%# Bind("AE") %>'></asp:Label><br />
+                                        Engineer :<asp:Label ID="LBLengr" runat="server" CssClass="text-info" Font-Size="Small" Text='<%# Bind("ENGR") %>'></asp:Label><br />
                                     </ItemTemplate>
                                     <HeaderStyle Width="350px" />
                                 </asp:TemplateField>
@@ -272,7 +276,7 @@
                     <h4 class="text-warning text-center"><span style="font-size: xx-large">Item Progress</span></h4>
                     <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to schedule</asp:LinkButton>
                     <small>
-                        <asp:GridView ID="GridView2" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="GridView2_PageIndexChanging" OnDataBound="GridView2_DataBound">
+                        <asp:GridView ID="GridView2" CssClass="table tbl" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="GridView2_PageIndexChanging" OnDataBound="GridView2_DataBound">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="DUE DATE">
@@ -296,9 +300,16 @@
                                         <asp:Label ID="LBLg2screentype" runat="server" Text='<%# Bind("TYPE_OF_SCREEN") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="STATION" ItemStyle-HorizontalAlign="Center">
+                                <asp:TemplateField HeaderText="SECTION" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLg2currentstation" runat="server" Text='<%# Bind("CURRENTSTATION") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="REMARKS" ItemStyle-HorizontalAlign="Center">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBLg2schedstatus" runat="server" Font-Bold="true" CssClass="text-danger" Text='<%# Bind("STATUS") %>'></asp:Label>&nbsp;
+                                           <asp:Label ID="LBLg2sched_remarks" runat="server" Text='<%# Bind("SCHED_REMARKS") %>'></asp:Label>
+                                        <%--    <asp:Label ID="LBLgremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>--%>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderStyle-Width="35%">

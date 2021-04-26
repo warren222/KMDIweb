@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="../../Scripts/bootstrap.js"></script>
     <link href="../../Content/bootstrap.css" rel="stylesheet" />
     <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
@@ -61,6 +63,17 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="thumbnail">
+                        <asp:Image ID="Image3" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
+                        <br />
+                        <strong style="font-size: x-large"><span class="glyphicon glyphicon-calendar"></span>
+                            <span>Frame Schedule</span></strong>
+                        <br />
+                        <small>Frame fabrication monitoring</small>
+                        <asp:LinkButton ID="LinkButton4" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton4_Click">ENTER</asp:LinkButton>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="thumbnail">
                         <asp:Image ID="Image1" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
                         <br />
                         <strong style="font-size: x-large"><span class="glyphicon glyphicon-calendar"></span>
@@ -82,17 +95,6 @@
                             <asp:LinkButton ID="LinkButton1" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton1_Click">ENTER</asp:LinkButton>
 
                         </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="thumbnail">
-                        <asp:Image ID="Image3" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
-                        <br />
-                        <strong style="font-size: x-large"><span class="glyphicon glyphicon-calendar"></span>
-                            <span>Frame Schedule</span></strong>
-                        <br />
-                        <small>Frame fabrication monitoring</small>
-                        <asp:LinkButton ID="LinkButton4" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton4_Click">ENTER</asp:LinkButton>
                     </div>
                 </div>
             </div>

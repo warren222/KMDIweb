@@ -113,7 +113,7 @@
                             <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Pleated Mesh Checklist Table"></asp:Label>
                         </span></h1>
                         <small>
-                            <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" CellPadding="4" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
+                            <asp:GridView ID="GridView1" CssClass="table tbl" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" CellPadding="4" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
                                 <AlternatingRowStyle BackColor="White" />
                                 <Columns>
                                     <asp:TemplateField HeaderText="DUE DATE" HeaderStyle-Width="500px">
@@ -222,7 +222,7 @@
                         <h4 class="text-warning text-center"><span style="font-size: xx-large">Item checking</span></h4>
                         <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to checklist</asp:LinkButton>
                         <small>
-                            <asp:GridView ID="GridView2" CssClass="table" runat="server" CellPadding="4" ForeColor="Black" AllowPaging="True" AutoGenerateColumns="False" OnDataBound="GridView2_DataBound" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowCommand="GridView2_RowCommand" PageSize="25" GridLines="Horizontal" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
+                            <asp:GridView ID="GridView2" CssClass="table tbl" runat="server" CellPadding="4" ForeColor="Black" AllowPaging="True" AutoGenerateColumns="False" OnDataBound="GridView2_DataBound" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowCommand="GridView2_RowCommand" PageSize="25" GridLines="Horizontal" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
                                 <Columns>
                                     <asp:TemplateField HeaderText="DUE DATE">
                                         <ItemTemplate>
