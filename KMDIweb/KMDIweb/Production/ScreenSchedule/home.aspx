@@ -295,8 +295,9 @@
                                         <asp:Label ID="LBLg2kmdino" runat="server" Text='<%# Bind("KMDI_NO") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="TYPE OF SCREEN" ItemStyle-HorizontalAlign="Center">
+                                <asp:TemplateField HeaderText="LOCATION / TYPE OF SCREEN" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
+                                        <asp:Label ID="LBLlocation" runat="server" CssClass="text-info" Text='<%# Bind("LOCATION") %>'></asp:Label>&nbsp;
                                         <asp:Label ID="LBLg2screentype" runat="server" Text='<%# Bind("TYPE_OF_SCREEN") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
