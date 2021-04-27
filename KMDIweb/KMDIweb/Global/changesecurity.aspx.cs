@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,6 +18,18 @@ namespace KMDIweb.KMDIapp
             {
                 if (!IsPostBack)
                 {
+                    string filepath = "~/KMDIweb/Uploads/UserSignature/" + Session["KMDI_userid"].ToString() + "/";
+                    Boolean IsExists = System.IO.Directory.Exists(Server.MapPath(filepath));
+                    if (!IsExists)
+                    {
+                        System.IO.Directory.CreateDirectory(Server.MapPath(filepath));
+                    }
+                    foreach (string strfilename in Directory.GetFiles(Server.MapPath(filepath)))
+                    {
+                        FileInfo fileinfo = new FileInfo(strfilename);
+                        Image1.ImageUrl = filepath + fileinfo.Name;
+                    }
+
                     usernametbox.Text = Session["KMDI_username"].ToString();
                     npassword.Text = "";
                     confirmpasswordtbox.Text = "";

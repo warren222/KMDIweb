@@ -262,6 +262,14 @@
     <Compile Include="KMDIweb\Global\manageaccount.aspx.designer.cs">
       <DependentUpon>manageaccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Global\objects\kmdino.cs" />
+    <Compile Include="KMDIweb\Global\registerSign.aspx.cs">
+      <DependentUpon>registerSign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Global\registerSign.aspx.designer.cs">
+      <DependentUpon>registerSign.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\fcornercleaning.aspx.cs">
       <DependentUpon>fcornercleaning.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -381,6 +389,20 @@
     <Compile Include="KMDIweb\Production\FrameSchedule\FYearlyOutput.aspx.designer.cs">
       <DependentUpon>FYearlyOutput.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItem.aspx.cs">
+      <DependentUpon>NoticeForIncompleteItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItem.aspx.designer.cs">
+      <DependentUpon>NoticeForIncompleteItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemApproval.aspx.cs">
+      <DependentUpon>NoticeForIncompleteItemApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemApproval.aspx.designer.cs">
+      <DependentUpon>NoticeForIncompleteItemApproval.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\ScreenSchedule\scaccessories.aspx.cs">
       <DependentUpon>scaccessories.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -477,6 +499,8 @@
     <Content Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx" />
     <Content Include="KMDIweb\Global\changesecurity.aspx" />
     <Content Include="KMDIweb\Global\css\gridcss.css" />
+    <Content Include="KMDIweb\Global\registerSign.aspx" />
+    <Content Include="KMDIweb\Global\scripts\sign.js" />
     <Content Include="KMDIweb\Images\dr.jpg" />
     <Content Include="KMDIweb\Images\kmdilogo.png" />
     <Content Include="KMDIweb\Images\loginback.jpg" />
@@ -502,6 +526,8 @@
     <Content Include="KMDIweb\Production\FrameSchedule\FrameHome.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fwelding.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FYearlyOutput.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItem.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemApproval.aspx" />
     <Content Include="KMDIweb\Production\ScreenSchedule\home.aspx" />
     <Content Include="KMDIweb\Global\invalidaccess.aspx" />
     <Content Include="KMDIweb\Global\Login.aspx" />

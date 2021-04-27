@@ -274,7 +274,7 @@
 
                 <asp:Panel ID="Panel2" runat="server" Visible="false">
                     <h4 class="text-warning text-center"><span style="font-size: xx-large">Item Progress</span></h4>
-                    <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to schedule</asp:LinkButton>
+                    <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center tbl" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to schedule</asp:LinkButton>
                     <small>
                         <asp:GridView ID="GridView2" CssClass="table tbl" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="GridView2_PageIndexChanging" OnDataBound="GridView2_DataBound">
                             <AlternatingRowStyle BackColor="White" />

@@ -264,13 +264,14 @@
                 </asp:Panel>
                 <asp:Panel ID="Panel2" runat="server" Visible="false">
                     <h4 class="text-warning text-center"><span style="font-size: xx-large">Item Progress</span></h4>
-                    <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to schedule</asp:LinkButton>
+                    <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center tbl" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to schedule</asp:LinkButton>
                     <small>
-                        <asp:GridView ID="GridView2" CssClass="table tbl" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="GridView2_PageIndexChanging" OnDataBound="GridView2_DataBound">
+                        <asp:GridView ID="GridView2" CssClass="table tbl" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="GridView2_PageIndexChanging" OnDataBound="GridView2_DataBound" DataKeyNames="ID">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="DUE DATE">
                                     <ItemTemplate>
+                                        <asp:Label ID="g2LBLID" runat="server" Visible="false" Text='<%# Bind("ID") %>'></asp:Label>
                                         <asp:Label ID="g2LBLduedate" Font-Bold="true" runat="server" Text='<%# Bind("DUE_DATE") %>'></asp:Label>
                                         <asp:Label ID="g2LBLday" CssClass="text-muted" Visible="true" runat="server" Text='<%# Bind("DAY") %>'></asp:Label>
                                     </ItemTemplate>
@@ -288,19 +289,23 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="K#" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
+                                        <asp:CheckBox ID="cboxselect" runat="server" />
                                         <asp:Label ID="LBLg2kmdino" runat="server" Text='<%# Bind("KMDI_NO") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="LOCATION / DESCRIPTION" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLlocation" runat="server" CssClass="text-info" Text='<%# Bind("LOCATION") %>'></asp:Label>&nbsp;
                                         <asp:Label ID="LBLg2description" runat="server" Text='<%# Bind("DESCRIPTION") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="SECTION" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLg2currentstation" runat="server" Text='<%# Bind("CURRENTSTATION") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="REMARKS" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
@@ -308,11 +313,13 @@
                                            <asp:Label ID="LBLg2sched_remarks" runat="server" Text='<%# Bind("SCHED_REMARKS") %>'></asp:Label>
                                         <%--    <asp:Label ID="LBLgremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>--%>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="POINTS" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLg2points" runat="server" Text='<%# Bind("POINTS") %>'></asp:Label>
                                     </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                             </Columns>
                             <EmptyDataTemplate>
@@ -332,6 +339,7 @@
                             <SortedDescendingHeaderStyle BackColor="#575357" />
                         </asp:GridView>
                     </small>
+                    <asp:LinkButton ID="AddNFIIbtn" CssClass="btn btn-primary" runat="server" OnClick="AddNFIIbtn_Click">Notice For Incomplete Items</asp:LinkButton>
                 </asp:Panel>
 
             </div>

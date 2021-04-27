@@ -1,4 +1,5 @@
-﻿using KMDIweb.SCREENfab;
+﻿using KMDIweb.KMDIweb.Global.objects;
+using KMDIweb.SCREENfab;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,34 +14,41 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
 {
     public partial class FrameHome : System.Web.UI.Page
     {
-     
+
         string mon = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday)).ToString("yyyy-MM-dd");
         string sun = Convert.ToDateTime(DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7)).ToString("yyyy-MM-dd");
 
         protected void Page_Load(object sender, EventArgs e)
-        {  
-                if (Session["KMDI_userid"] != null)
+        {
+            if (Session["KMDI_userid"] != null)
+            {
+                if (!IsPostBack)
                 {
-                    if (!IsPostBack)
-                    {
-                        var monday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
-                        var sunday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7);
-                        tboxBdate.Text = Convert.ToDateTime(monday).ToString("yyyy-MM-dd");
-                        tboxEdate.Text = Convert.ToDateTime(sunday).ToString("yyyy-MM-dd");
-                        //tboxBdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-01");
-                        //tboxEdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month).ToString());
+                    var monday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
+                    var sunday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Sunday + 7);
+                    tboxBdate.Text = Convert.ToDateTime(monday).ToString("yyyy-MM-dd");
+                    tboxEdate.Text = Convert.ToDateTime(sunday).ToString("yyyy-MM-dd");
+                    //tboxBdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-01");
+                    //tboxEdate.Text = Convert.ToString(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month).ToString());
 
 
-                        loadschedule("load schedule");
-                        balanceload();
+                    loadschedule("load schedule");
+                    balanceload();
 
-                    }
-                }
-                else
-                {
-                    Response.Redirect("~/KMDIweb/Global/Login.aspx");
                 }
             }
+            else
+            {
+                Response.Redirect("~/KMDIweb/Global/Login.aspx");
+            }
+        }
+        private DataTable mytb
+        {
+            get
+            {
+                return (DataTable)ViewState["tb"];
+            }
+        }
         private string sqlconstr
         {
             get
@@ -137,7 +145,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                             BTNtodaytime.Font.Bold = false;
                             BTNprevweektime.Font.Bold = true;
                         }
-                     
+
                     }
                 }
             }
@@ -289,6 +297,11 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 ViewState["status"] = ((Label)row.FindControl("LBLstatus")).Text;
                 ViewState["cuttinglist"] = ((Label)row.FindControl("LBLcuttinglist")).Text;
                 ViewState["clno"] = ((Label)row.FindControl("LBLclno")).Text;
+
+
+                Session["LBLparentjono"] = ((Label)row.FindControl("LBLparentjono")).Text;
+                Session["LBLprojectname"] = ((Label)row.FindControl("LBLprojectname")).Text;
+                Session["LBLaddress"] = ((Label)row.FindControl("LBLaddress")).Text;
                 Panel2.Visible = true;
                 Panel1.Visible = false;
                 loadkno();
@@ -330,7 +343,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         da.Fill(tb);
                         GridView2.DataSource = tb;
                         GridView2.DataBind();
-
+                        ViewState["tb"] = tb;
 
                     }
                 }
@@ -394,5 +407,63 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             }
         }
 
+        protected void AddNFIIbtn_Click(object sender, EventArgs e)
+        {
+            List<int> l = new List<int>();
+            if ((List<int>)ViewState["listid"] == null)
+            {
+                l.Add(0);
+            }
+            else
+            {
+                l = ViewState["listid"] as List<int>;
+            }
+            foreach (GridViewRow row in GridView2.Rows)
+            {
+                CheckBox cbk = (CheckBox)row.FindControl("cboxselect");
+                if (cbk.Checked == true)
+                {
+                    int x = int.Parse(((Label)row.FindControl("g2LBLID")).Text.ToString());
+                    if (!l.Contains(x))
+                    {
+                        l.Add(x);
+                    }
+                }
+                else
+                {
+                    int x = int.Parse(((Label)row.FindControl("g2LBLID")).Text.ToString());
+                    if (l.Contains(x))
+                    {
+                        l.Remove(x);
+                    }
+                }
+            }
+            Session["listKno"] = listKno(l);
+            Response.Redirect("~/KMDIweb/Production/FrameSchedule/NoticeForIncompleteItem.aspx");
+        }
+        private List<kmdino> listKno(List<int> l)
+        {
+            List<kmdino> knoList = new List<kmdino>();
+            try
+            {
+                for (int i = 0; i <= mytb.Rows.Count - 1; i++)
+                {
+                    int id = Convert.ToInt32(mytb.Rows[i]["id"].ToString());
+                    if (l.Contains(id))
+                    {
+                        string kno;
+                        kmdino k = new kmdino();
+                        kno = mytb.Rows[i]["kmdi_no"].ToString();
+                        k.kmdi_no = kno;
+                        knoList.Add(k);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+            return knoList;
+        }
     }
 }
