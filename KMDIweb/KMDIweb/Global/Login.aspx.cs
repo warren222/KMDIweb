@@ -74,7 +74,7 @@ namespace KMDIweb.SCREENfab
                 using (SqlConnection sqlcon = new SqlConnection(cs))
                 {
                     sqlcon.Open();
-                    SqlCommand sqlcmd = new SqlCommand("select ID,USERNAME,NICKNAME,FULLNAME,SFM,FFM,SDR from kmdi_web_acct where USERNAME = @username and PASSWORD = @password", sqlcon);
+                    SqlCommand sqlcmd = new SqlCommand("select ID,USERNAME,NICKNAME,FULLNAME,SFM,FFM,SDR,USER_CODE from kmdi_web_acct where USERNAME = @username and PASSWORD = @password", sqlcon);
                     sqlcmd.Parameters.AddWithValue("@username", tboxusername.Text);
                     sqlcmd.Parameters.AddWithValue("@Password", tboxpassword.Text);
                     SqlDataReader rd = sqlcmd.ExecuteReader();
@@ -90,6 +90,7 @@ namespace KMDIweb.SCREENfab
                             Session["KMDI_sfm_acct"] = rd[4].ToString();
                             Session["KMDI_ffm_acct"] = rd[5].ToString();
                             Session["KMDI_sdr_acct"] = rd[6].ToString();
+                            Session["KMDI_user_code"] = rd[7].ToString();
                             if (CheckBox1.Checked)
                             {
                                 Response.Cookies["SFMusername"].Expires = DateTime.Now.AddDays(30);

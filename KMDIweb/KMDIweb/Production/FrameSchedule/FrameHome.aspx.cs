@@ -64,7 +64,30 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
-
+        private string usercode
+        {
+            get
+            {
+                return Session["KMDI_user_code"].ToString();
+            }
+        }
+        private void validateUser()
+        {
+            if ((usercode == "Engineer") ||
+            (usercode == "AE") ||
+            (usercode == "Delivery") ||
+            (usercode == "Delivery Head") ||
+            (usercode == "Engineer Manager") ||
+            (usercode == "Production Manager") ||
+            (usercode == "Production Engineer"))
+            {
+                AddNFIIbtn.Visible = true;
+            }
+            else
+            {
+                AddNFIIbtn.Visible = false;
+            }
+        }
         private void loadschedule(string command)
         {
             try

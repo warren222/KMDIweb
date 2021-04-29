@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="reportDS" targetNamespace="http://tempuri.org/reportDS.xsd" xmlns:mstns="http://tempuri.org/reportDS.xsd" xmlns="http://tempuri.org/reportDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="reportDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="reportDS" msprop:Generator_UserDSName="reportDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Notice_For_Inc_Items" msprop:Generator_TableClassName="Notice_For_Inc_ItemsDataTable" msprop:Generator_TableVarName="tableNotice_For_Inc_Items" msprop:Generator_RowChangedName="Notice_For_Inc_ItemsRowChanged" msprop:Generator_TablePropName="Notice_For_Inc_Items" msprop:Generator_RowDeletingName="Notice_For_Inc_ItemsRowDeleting" msprop:Generator_RowChangingName="Notice_For_Inc_ItemsRowChanging" msprop:Generator_RowEvHandlerName="Notice_For_Inc_ItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="Notice_For_Inc_ItemsRowDeleted" msprop:Generator_RowClassName="Notice_For_Inc_ItemsRow" msprop:Generator_UserTableName="Notice_For_Inc_Items" msprop:Generator_RowEvArgName="Notice_For_Inc_ItemsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KMDI_NO" msprop:Generator_ColumnVarNameInTable="columnKMDI_NO" msprop:Generator_ColumnPropNameInRow="KMDI_NO" msprop:Generator_ColumnPropNameInTable="KMDI_NOColumn" msprop:Generator_UserColumnName="KMDI_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="Parentjono" msprop:Generator_ColumnVarNameInTable="columnParentjono" msprop:Generator_ColumnPropNameInRow="Parentjono" msprop:Generator_ColumnPropNameInTable="ParentjonoColumn" msprop:Generator_UserColumnName="Parentjono" type="xs:string" minOccurs="0" />
+              <xs:element name="Dated" msprop:Generator_ColumnVarNameInTable="columnDated" msprop:Generator_ColumnPropNameInRow="Dated" msprop:Generator_ColumnPropNameInTable="DatedColumn" msprop:Generator_UserColumnName="Dated" type="xs:string" minOccurs="0" />
+              <xs:element name="Reason" msprop:Generator_ColumnVarNameInTable="columnReason" msprop:Generator_ColumnPropNameInRow="Reason" msprop:Generator_ColumnPropNameInTable="ReasonColumn" msprop:Generator_UserColumnName="Reason" type="xs:string" minOccurs="0" />
+              <xs:element name="Recommendation" msprop:Generator_ColumnVarNameInTable="columnRecommendation" msprop:Generator_ColumnPropNameInRow="Recommendation" msprop:Generator_ColumnPropNameInTable="RecommendationColumn" msprop:Generator_UserColumnName="Recommendation" type="xs:string" minOccurs="0" />
+              <xs:element name="Completion_Date" msprop:Generator_ColumnVarNameInTable="columnCompletion_Date" msprop:Generator_ColumnPropNameInRow="Completion_Date" msprop:Generator_ColumnPropNameInTable="Completion_DateColumn" msprop:Generator_UserColumnName="Completion_Date" type="xs:string" minOccurs="0" />
+              <xs:element name="Prepared_By" msprop:Generator_ColumnVarNameInTable="columnPrepared_By" msprop:Generator_ColumnPropNameInRow="Prepared_By" msprop:Generator_ColumnPropNameInTable="Prepared_ByColumn" msprop:Generator_UserColumnName="Prepared_By" type="xs:string" minOccurs="0" />
+              <xs:element name="Approved_By" msprop:Generator_ColumnVarNameInTable="columnApproved_By" msprop:Generator_ColumnPropNameInRow="Approved_By" msprop:Generator_ColumnPropNameInTable="Approved_ByColumn" msprop:Generator_UserColumnName="Approved_By" type="xs:string" minOccurs="0" />
+              <xs:element name="Approved_By2" msprop:Generator_ColumnVarNameInTable="columnApproved_By2" msprop:Generator_ColumnPropNameInRow="Approved_By2" msprop:Generator_ColumnPropNameInTable="Approved_By2Column" msprop:Generator_UserColumnName="Approved_By2" type="xs:string" minOccurs="0" />
+              <xs:element name="Received_By" msprop:Generator_ColumnVarNameInTable="columnReceived_By" msprop:Generator_ColumnPropNameInRow="Received_By" msprop:Generator_ColumnPropNameInTable="Received_ByColumn" msprop:Generator_UserColumnName="Received_By" type="xs:string" minOccurs="0" />
+              <xs:element name="Noted_By" msprop:Generator_ColumnVarNameInTable="columnNoted_By" msprop:Generator_ColumnPropNameInRow="Noted_By" msprop:Generator_ColumnPropNameInTable="Noted_ByColumn" msprop:Generator_UserColumnName="Noted_By" type="xs:string" minOccurs="0" />
+              <xs:element name="Fulladd" msprop:Generator_ColumnVarNameInTable="columnFulladd" msprop:Generator_ColumnPropNameInRow="Fulladd" msprop:Generator_ColumnPropNameInTable="FulladdColumn" msprop:Generator_UserColumnName="Fulladd" type="xs:string" minOccurs="0" />
+              <xs:element name="PROJECT_LABEL" msprop:Generator_ColumnVarNameInTable="columnPROJECT_LABEL" msprop:Generator_ColumnPropNameInRow="PROJECT_LABEL" msprop:Generator_ColumnPropNameInTable="PROJECT_LABELColumn" msprop:Generator_UserColumnName="PROJECT_LABEL" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
