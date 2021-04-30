@@ -251,6 +251,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = GridView2.Rows[rowindex];
                 Session["NFII_ID"] = ((Label)row.FindControl("lblId")).Text;
+                Session["NFIIpreparedBy"] = ((Label)row.FindControl("lblg2PreparedBy")).Text;
+                Session["NFIInotedBy"] = ((Label)row.FindControl("lblg2NotedBy")).Text;
                 Response.Redirect("~/KMDIweb/Production/FrameSchedule/NoticeForIncompleteItemsReportPaage.aspx");
             }
             else if (e.CommandName == "EditRecord")
@@ -269,7 +271,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 }
                 else
                 {
-                    errorrmessage("");
+                    errorrmessage("You're not authorized to alter this record.");
                 }
              
             }

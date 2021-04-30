@@ -35,6 +35,7 @@
         </asp:Panel>
         <div>
             <asp:Button ID="preparedbyBTN" runat="server" Text="Sign" CssClass="btn btn-primary" OnClick="preparedbyBTN_Click" />
+            <asp:Button ID="acknowledgeBTN" runat="server" Text="Acknowledge" CssClass="btn btn-success" OnClick="acknowledgeBTN_Click" Visible="False"/>
         </div>
     </div>
 </asp:Content>

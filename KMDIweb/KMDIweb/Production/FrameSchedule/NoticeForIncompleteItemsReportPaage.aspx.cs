@@ -23,6 +23,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     getReport();
                     getparameters();
                     validateUser();
+                   
                 }
             }
             else
@@ -44,6 +45,27 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 return Session["KMDI_user_code"].ToString();
             }
         }
+        private string myName
+        {
+            get
+            {
+                return Session["KMDI_fullname"].ToString();
+            }
+        }
+        private string NFIIpreparedBy
+        {
+            get
+            {
+                return Session["NFIIpreparedBy"].ToString();
+            }
+        }
+        private string NFIInotedBy
+        {
+            get
+            {
+                return Session["NFIInotedBy"].ToString();
+            }
+        }
         private void errorrmessage(string message)
         {
             CustomValidator err = new CustomValidator();
@@ -62,7 +84,25 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             (usercode == "Production Manager") ||
             (usercode == "Production Engineer"))
             {
-                preparedbyBTN.Visible = true;
+                if ((usercode == "Engineer") || (usercode == "AE") || (usercode == "Delivery"))
+                {
+                    if (NFIIpreparedBy != myName)
+                    {
+                        preparedbyBTN.Visible = false;
+                    }
+                    else
+                    {
+                        if (NFIInotedBy != "")
+                        {
+                            acknowledgeBTN.Visible = true;
+                        }
+                            preparedbyBTN.Visible = true;
+                    }
+                }
+                else
+                {
+                    preparedbyBTN.Visible = true;
+                }          
             }
             else
             {
@@ -178,11 +218,20 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             }
             else if ((usercode == "Engineer") || (usercode == "AE") || (usercode == "Delivery"))
             {
+                if (NFIIpreparedBy != myName)
+                {
+                   
+                }
                 column = "Prepared_By";
             }
 
 
             autosign(column);
+        }
+
+        protected void acknowledgeBTN_Click(object sender, EventArgs e)
+        {
+            updateRecord("Acknowledge");
         }
     }
 }

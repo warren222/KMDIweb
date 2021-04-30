@@ -57,8 +57,6 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         }
         private void LoadByUser()
         {
-          
-
             if ((usercode == "Delivery Head") || (usercode == "Engineer Manager"))
             {
                 loadData("ForApproval");
@@ -70,6 +68,11 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             else if (usercode == "Production Manager")
             {
                 loadData("ForNoted");
+            }
+            else if (usercode == "Engineer" || usercode == "AE" || usercode == "Delivery")
+            {
+                CheckBox1.Text = "For acknowledgment";
+                loadData("ProjectManager");
             }
             else
             {
@@ -92,6 +95,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         sqlcmd.Parameters.AddWithValue("@Command", command);
                         sqlcmd.Parameters.AddWithValue("@SearchKey", tboxSearchkey.Text);
                         sqlcmd.Parameters.AddWithValue("@Done", done);
+                        sqlcmd.Parameters.AddWithValue("@Fullname", myName);
                         DataTable tb = new DataTable();
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
@@ -115,6 +119,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 GridViewRow row = GridView1.Rows[rowindex];
                 Session["NFII_ID"] = ((Label)row.FindControl("lblId")).Text;
                 Session["LBLparentjono"] = ((Label)row.FindControl("lblParentjono")).Text;
+                Session["NFIIpreparedBy"] = ((Label)row.FindControl("lblPreparedBy")).Text;
+                Session["NFIInotedBy"] = ((Label)row.FindControl("lblNotedBy")).Text;
                 Response.Redirect("~/KMDIweb/Production/FrameSchedule/NoticeForIncompleteItemsReportPaage.aspx");
             }
         }

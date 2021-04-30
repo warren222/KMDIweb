@@ -36,6 +36,13 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 return ConnectionString.sqlconstr();
             }
         }
+        private string myName
+        {
+            get
+            {
+                return Session["KMDI_fullname"].ToString();
+            }
+        }
         private string usercode
         {
             get
@@ -63,6 +70,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         sqlcmd.CommandText = "NOTICE_FOR_INCOMPLETE_ITEM_STP";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", command);
+                        sqlcmd.Parameters.AddWithValue("@Fullname", myName);
                         SqlDataReader rd = sqlcmd.ExecuteReader();
                         while (rd.Read())
                         {
@@ -89,6 +97,10 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             else if (usercode == "Production Manager")
             {
                 countNotice("CountForNoted");
+            }
+            else if ((usercode == "Engineer") || (usercode == "AE") || (usercode == "Delivery"))
+            {
+                countNotice("CountForAcknowledgment");
             }
         }
     }

@@ -34,7 +34,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
 
                     loadschedule("load schedule");
                     balanceload();
-
+                    validateUser();
                 }
             }
             else
