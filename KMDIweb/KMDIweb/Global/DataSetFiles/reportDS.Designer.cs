@@ -307,6 +307,16 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             private global::System.Data.DataColumn columnPROJECT_LABEL;
             
+            private global::System.Data.DataColumn columnPrepared_By_Date;
+            
+            private global::System.Data.DataColumn columnApproved_By_Date;
+            
+            private global::System.Data.DataColumn columnApproved_By2_Date;
+            
+            private global::System.Data.DataColumn columnReceived_By_Date;
+            
+            private global::System.Data.DataColumn columnNoted_By_Date;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Notice_For_Inc_ItemsDataTable() {
@@ -454,6 +464,46 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Prepared_By_DateColumn {
+                get {
+                    return this.columnPrepared_By_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Approved_By_DateColumn {
+                get {
+                    return this.columnApproved_By_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Approved_By2_DateColumn {
+                get {
+                    return this.columnApproved_By2_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Received_By_DateColumn {
+                get {
+                    return this.columnReceived_By_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Noted_By_DateColumn {
+                get {
+                    return this.columnNoted_By_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -489,7 +539,26 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Notice_For_Inc_ItemsRow AddNotice_For_Inc_ItemsRow(string KMDI_NO, string Description, string Parentjono, string Dated, string Reason, string Recommendation, string Completion_Date, string Prepared_By, string Approved_By, string Approved_By2, string Received_By, string Noted_By, string Fulladd, string PROJECT_LABEL) {
+            public Notice_For_Inc_ItemsRow AddNotice_For_Inc_ItemsRow(
+                        string KMDI_NO, 
+                        string Description, 
+                        string Parentjono, 
+                        string Dated, 
+                        string Reason, 
+                        string Recommendation, 
+                        string Completion_Date, 
+                        string Prepared_By, 
+                        string Approved_By, 
+                        string Approved_By2, 
+                        string Received_By, 
+                        string Noted_By, 
+                        string Fulladd, 
+                        string PROJECT_LABEL, 
+                        string Prepared_By_Date, 
+                        string Approved_By_Date, 
+                        string Approved_By2_Date, 
+                        string Received_By_Date, 
+                        string Noted_By_Date) {
                 Notice_For_Inc_ItemsRow rowNotice_For_Inc_ItemsRow = ((Notice_For_Inc_ItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         KMDI_NO,
@@ -505,7 +574,12 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                         Received_By,
                         Noted_By,
                         Fulladd,
-                        PROJECT_LABEL};
+                        PROJECT_LABEL,
+                        Prepared_By_Date,
+                        Approved_By_Date,
+                        Approved_By2_Date,
+                        Received_By_Date,
+                        Noted_By_Date};
                 rowNotice_For_Inc_ItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNotice_For_Inc_ItemsRow);
                 return rowNotice_For_Inc_ItemsRow;
@@ -542,6 +616,11 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 this.columnNoted_By = base.Columns["Noted_By"];
                 this.columnFulladd = base.Columns["Fulladd"];
                 this.columnPROJECT_LABEL = base.Columns["PROJECT_LABEL"];
+                this.columnPrepared_By_Date = base.Columns["Prepared_By_Date"];
+                this.columnApproved_By_Date = base.Columns["Approved_By_Date"];
+                this.columnApproved_By2_Date = base.Columns["Approved_By2_Date"];
+                this.columnReceived_By_Date = base.Columns["Received_By_Date"];
+                this.columnNoted_By_Date = base.Columns["Noted_By_Date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -575,6 +654,16 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 base.Columns.Add(this.columnFulladd);
                 this.columnPROJECT_LABEL = new global::System.Data.DataColumn("PROJECT_LABEL", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJECT_LABEL);
+                this.columnPrepared_By_Date = new global::System.Data.DataColumn("Prepared_By_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrepared_By_Date);
+                this.columnApproved_By_Date = new global::System.Data.DataColumn("Approved_By_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApproved_By_Date);
+                this.columnApproved_By2_Date = new global::System.Data.DataColumn("Approved_By2_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApproved_By2_Date);
+                this.columnReceived_By_Date = new global::System.Data.DataColumn("Received_By_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReceived_By_Date);
+                this.columnNoted_By_Date = new global::System.Data.DataColumn("Noted_By_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNoted_By_Date);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -942,6 +1031,90 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Prepared_By_Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableNotice_For_Inc_Items.Prepared_By_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Prepared_By_Date\' in table \'Notice_For_Inc_Items\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableNotice_For_Inc_Items.Prepared_By_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Approved_By_Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableNotice_For_Inc_Items.Approved_By_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Approved_By_Date\' in table \'Notice_For_Inc_Items\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableNotice_For_Inc_Items.Approved_By_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Approved_By2_Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableNotice_For_Inc_Items.Approved_By2_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Approved_By2_Date\' in table \'Notice_For_Inc_Items\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableNotice_For_Inc_Items.Approved_By2_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Received_By_Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableNotice_For_Inc_Items.Received_By_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Received_By_Date\' in table \'Notice_For_Inc_Items\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableNotice_For_Inc_Items.Received_By_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Noted_By_Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableNotice_For_Inc_Items.Noted_By_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Noted_By_Date\' in table \'Notice_For_Inc_Items\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNotice_For_Inc_Items.Noted_By_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsKMDI_NONull() {
                 return this.IsNull(this.tableNotice_For_Inc_Items.KMDI_NOColumn);
             }
@@ -1106,6 +1279,66 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPROJECT_LABELNull() {
                 this[this.tableNotice_For_Inc_Items.PROJECT_LABELColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrepared_By_DateNull() {
+                return this.IsNull(this.tableNotice_For_Inc_Items.Prepared_By_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrepared_By_DateNull() {
+                this[this.tableNotice_For_Inc_Items.Prepared_By_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsApproved_By_DateNull() {
+                return this.IsNull(this.tableNotice_For_Inc_Items.Approved_By_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetApproved_By_DateNull() {
+                this[this.tableNotice_For_Inc_Items.Approved_By_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsApproved_By2_DateNull() {
+                return this.IsNull(this.tableNotice_For_Inc_Items.Approved_By2_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetApproved_By2_DateNull() {
+                this[this.tableNotice_For_Inc_Items.Approved_By2_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReceived_By_DateNull() {
+                return this.IsNull(this.tableNotice_For_Inc_Items.Received_By_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReceived_By_DateNull() {
+                this[this.tableNotice_For_Inc_Items.Received_By_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNoted_By_DateNull() {
+                return this.IsNull(this.tableNotice_For_Inc_Items.Noted_By_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNoted_By_DateNull() {
+                this[this.tableNotice_For_Inc_Items.Noted_By_DateColumn] = global::System.Convert.DBNull;
             }
         }
         

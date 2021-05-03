@@ -77,9 +77,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             (usercode == "AE") ||
             (usercode == "Delivery") ||
             (usercode == "Delivery Head") ||
-            (usercode == "Engineer Manager") ||
-            (usercode == "Production Manager") ||
-            (usercode == "Production Engineer"))
+            (usercode == "Engineer Manager"))
             {
                 AddNFIIbtn.Visible = true;
             }

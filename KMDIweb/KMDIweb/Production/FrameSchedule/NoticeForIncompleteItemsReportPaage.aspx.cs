@@ -23,7 +23,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     getReport();
                     getparameters();
                     validateUser();
-                   
+
                 }
             }
             else
@@ -66,6 +66,13 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 return Session["NFIInotedBy"].ToString();
             }
         }
+        private string Acknowledged
+        {
+            get
+            {
+                return Session["AcknowledgedBy"].ToString();
+            }
+        }
         private void errorrmessage(string message)
         {
             CustomValidator err = new CustomValidator();
@@ -84,29 +91,45 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             (usercode == "Production Manager") ||
             (usercode == "Production Engineer"))
             {
-                if ((usercode == "Engineer") || (usercode == "AE") || (usercode == "Delivery"))
-                {
-                    if (NFIIpreparedBy != myName)
-                    {
-                        preparedbyBTN.Visible = false;
-                    }
-                    else
-                    {
-                        if (NFIInotedBy != "")
-                        {
-                            acknowledgeBTN.Visible = true;
-                        }
-                            preparedbyBTN.Visible = true;
-                    }
-                }
-                else
-                {
-                    preparedbyBTN.Visible = true;
-                }          
+                preparedbyBTNaccess();
+                recommendationBTNaccess();
             }
             else
             {
                 preparedbyBTN.Visible = false;
+            }
+        }
+        private void preparedbyBTNaccess()
+        {
+            if ((usercode == "Engineer") || (usercode == "AE") || (usercode == "Delivery"))
+            {
+                if (NFIIpreparedBy != myName)
+                {
+                    preparedbyBTN.Visible = false;
+                }
+                else
+                {
+                    if (NFIInotedBy != "")
+                    {
+                        acknowledgeBTN.Visible = true;
+                    }
+                    preparedbyBTN.Visible = true;
+                }
+            }
+            else
+            {
+                preparedbyBTN.Visible = true;
+            }
+        }
+        private void recommendationBTNaccess()
+        {
+            if (usercode == "Production Engineer" && NFIInotedBy == "")
+            {
+                recommendationBTN.Visible = true;
+            }
+            else
+            {
+                recommendationBTN.Visible = false;
             }
         }
         private void getReport()
@@ -220,7 +243,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             {
                 if (NFIIpreparedBy != myName)
                 {
-                   
+
                 }
                 column = "Prepared_By";
             }
@@ -232,6 +255,11 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         protected void acknowledgeBTN_Click(object sender, EventArgs e)
         {
             updateRecord("Acknowledge");
+        }
+
+        protected void recommendationBTN_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIweb/Production/FrameSchedule/recommendation.aspx");
         }
     }
 }

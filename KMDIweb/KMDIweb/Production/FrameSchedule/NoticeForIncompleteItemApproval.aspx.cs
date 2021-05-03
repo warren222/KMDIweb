@@ -121,6 +121,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 Session["LBLparentjono"] = ((Label)row.FindControl("lblParentjono")).Text;
                 Session["NFIIpreparedBy"] = ((Label)row.FindControl("lblPreparedBy")).Text;
                 Session["NFIInotedBy"] = ((Label)row.FindControl("lblNotedBy")).Text;
+                Session["AcknowledgedBy"] = ((Label)row.FindControl("lblAcknowledgedBy")).Text;
                 Response.Redirect("~/KMDIweb/Production/FrameSchedule/NoticeForIncompleteItemsReportPaage.aspx");
             }
         }

@@ -188,7 +188,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -518,7 +517,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
         <Top>0.57167in</Top>
-        <Left>0in</Left>
         <Height>0.25in</Height>
         <Width>3.67708in</Width>
         <ZIndex>1</ZIndex>
@@ -581,7 +579,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>1.155in</Top>
-        <Left>0in</Left>
         <Height>0.25in</Height>
         <Width>1.04166in</Width>
         <ZIndex>3</ZIndex>
@@ -613,7 +610,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
         <Top>1.47444in</Top>
-        <Left>0in</Left>
         <Height>0.25in</Height>
         <Width>1.04166in</Width>
         <ZIndex>4</ZIndex>
@@ -930,7 +926,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Approced by :</Value>
+                  <Value>Approved by :</Value>
                   <Style>
                     <FontSize>7pt</FontSize>
                   </Style>
@@ -1160,6 +1156,70 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Textbox Name="Textbox36">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!Prepared_By_Date.Value, "DataSet1")</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox26</rd:DefaultName>
+          <Top>0.3784in</Top>
+          <Left>0.19667in</Left>
+          <Height>0.19792in</Height>
+          <Width>0.71875in</Width>
+          <ZIndex>15</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox37">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!Received_By_Date.Value, "DataSet1")</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox26</rd:DefaultName>
+          <Top>1.34715in</Top>
+          <Left>0.19667in</Left>
+          <Height>0.19792in</Height>
+          <Width>0.71875in</Width>
+          <ZIndex>16</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -1245,6 +1305,26 @@
         </Field>
         <Field Name="PROJECT_LABEL">
           <DataField>PROJECT_LABEL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Prepared_By_Date">
+          <DataField>Prepared_By_Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Approved_By_Date">
+          <DataField>Approved_By_Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Approved_By2_Date">
+          <DataField>Approved_By2_Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Received_By_Date">
+          <DataField>Received_By_Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Noted_By_Date">
+          <DataField>Noted_By_Date</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

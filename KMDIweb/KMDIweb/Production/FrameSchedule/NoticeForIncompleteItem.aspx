@@ -65,10 +65,11 @@
                                 <asp:Label ID="lblg2Reason" runat="server" Visible="false" Font-Size="X-Large" CssClass="text-muted" Text='<%# Bind("Reason") %>'></asp:Label>
                                 <asp:Label ID="lblg2PreparedBy" runat="server" Visible="false" Font-Size="X-Large" CssClass="text-muted" Text='<%# Bind("Prepared_by") %>'></asp:Label>
                                 <asp:Label ID="lblg2NotedBy" runat="server" Visible="false" Font-Size="X-Large" CssClass="text-muted" Text='<%# Bind("Noted_by") %>'></asp:Label>
+                                <asp:Label ID="lblg2AcknowledgedBy" runat="server" Visible="false" Font-Size="X-Large" CssClass="text-muted" Text='<%# Bind("Acknowledged_by") %>'></asp:Label>
                             </div>
                             <div class="panel-footer">
                                 <asp:LinkButton ID="LinkButton1" CommandName="Report" runat="server" CssClass="btn btn-primary">View Report</asp:LinkButton>
-                                <asp:LinkButton ID="LinkButton2" CommandName="EditRecord" runat="server" CssClass="btn btn-success">Edit Record</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton2" CommandName="EditRecord" Visible='<%# Eval("Approved_By").ToString() != "" || Eval("Approved_By2").ToString() != "" ? false : true %>' runat="server" CssClass="btn btn-success">Edit Record</asp:LinkButton>
                             </div>
                         </div>
                     </ItemTemplate>

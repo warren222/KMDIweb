@@ -18,10 +18,22 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             {
                 username.Text = Session["KMDI_nickname"].ToString() + " ";
                 Notifcounter();
+                access();
             }
             else
             {
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
+            }
+        }
+        private void access()
+        {
+            if (Session["KMDI_ffm_acct"].ToString() == "Admin")
+            {
+                BTNaccount.Visible = true;
+            }
+            else
+            {
+                BTNaccount.Visible = false;
             }
         }
         protected void LinkButton1_Click(object sender, EventArgs e)
@@ -74,7 +86,15 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         SqlDataReader rd = sqlcmd.ExecuteReader();
                         while (rd.Read())
                         {
-                            HyperLink19.Text = "<span class='badge'  style='font-size:smaller;background-color:red;'>" + rd[0].ToString() + "</span>" + " Notice For Incomplete Items";
+                            if (rd[0].ToString() == "0")
+                            {
+                                HyperLink19.Text = " Notice For Incomplete Items";
+                            }
+                            else
+                            {
+                                HyperLink19.Text = "<span class='badge'  style='font-size:smaller;background-color:red;'>" + rd[0].ToString() + "</span>" + " Notice For Incomplete Items";
+                            }
+
                         }
                     }
                     catch (Exception e)

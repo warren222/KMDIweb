@@ -147,10 +147,11 @@
             </div>
 
             <div class="panel-body">
+                <h1 class="text-center text-success"><span>
+                    <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Schedule"></asp:Label>
+                </span></h1>
                 <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-                    <h1 class="text-center text-success"><span>
-                        <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Schedule"></asp:Label>
-                    </span></h1>
+
                     <small>
                         <asp:GridView ID="GridView1" CssClass="table tbl" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging"
                             PageSize="25" OnDataBound="GridView1_DataBound" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" OnRowCommand="GridView1_RowCommand">

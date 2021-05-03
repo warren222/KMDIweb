@@ -28,9 +28,12 @@
                     <ItemTemplate>
                         <div class='<%# Eval("input").ToString() == "Unsigned" ? "panel panel-success" : Eval("input").ToString() == "For acknowledgment" ? "panel panel-success" : "panel panel-info" %>'>
                             <div class="panel-heading">
-                                <span class='<%# Eval("input").ToString() == "Unsigned" ? "label label-danger" : Eval("input").ToString() == "For acknowledgment" ? "label label-danger" : "label label-success" %>'>
-                                    <asp:Label ID="Label6" runat="server" Font-Size="small" Text='<%# Bind("Input") %>'></asp:Label></span>
-                                <asp:Label ID="lblId" CssClass="text-left" Visible="false" runat="server" Text='<%# Bind("ID") %>'></asp:Label>
+                                <asp:Panel ID="headPanel" runat="server" Visible='<%# Eval("input").ToString() == "" ? false : true %>'>
+                                    <span class='<%# Eval("input").ToString() == "Unsigned" ? "label label-danger" : Eval("input").ToString() == "For acknowledgment" ? "label label-danger" : "label label-success" %>'>
+                                        <asp:Label ID="Label6" runat="server" Font-Size="small" Text='<%# Bind("Input") %>'></asp:Label></span>
+                                    <asp:Label ID="lblId" CssClass="text-left" Visible="false" runat="server" Text='<%# Bind("ID") %>'></asp:Label>
+                                       <asp:Label ID="lblAcknowledgedBy" CssClass="text-left" Visible="false" runat="server" Text='<%# Bind("Acknowledged_By") %>'></asp:Label>
+                                </asp:Panel>
                             </div>
                             <div class="panel-body">
                                 <asp:Label ID="lblg2Project" runat="server" Font-Size="Large" Text='<%# Bind("Project") %>'></asp:Label><br />

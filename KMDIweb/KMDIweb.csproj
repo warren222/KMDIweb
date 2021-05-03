@@ -416,6 +416,13 @@
     <Compile Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemsReportPaage.aspx.designer.cs">
       <DependentUpon>NoticeForIncompleteItemsReportPaage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\recommendation.aspx.cs">
+      <DependentUpon>recommendation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\recommendation.aspx.designer.cs">
+      <DependentUpon>recommendation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\ScreenSchedule\scaccessories.aspx.cs">
       <DependentUpon>scaccessories.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -542,6 +549,7 @@
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItem.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemApproval.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemsReportPaage.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\recommendation.aspx" />
     <Content Include="KMDIweb\Production\ScreenSchedule\home.aspx" />
     <Content Include="KMDIweb\Global\invalidaccess.aspx" />
     <Content Include="KMDIweb\Global\Login.aspx" />

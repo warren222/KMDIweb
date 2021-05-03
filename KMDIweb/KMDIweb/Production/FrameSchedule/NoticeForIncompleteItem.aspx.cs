@@ -90,25 +90,28 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         }
         protected void saveBTN_Click(object sender, EventArgs e)
         {
-            if (saveBTN.Text == "Submit")
+            if (IsValid)
             {
-                if (GridView1.Rows.Count <= 0)
+                if (saveBTN.Text == "Submit")
                 {
-                    errorrmessage("no k#(s) found! please select items from the progress page.");
+                    if (GridView1.Rows.Count <= 0)
+                    {
+                        errorrmessage("no k#(s) found! please select items from the progress page.");
+                    }
+                    else
+                    {
+                        ExecuteAdd();
+                        listData();
+                    }
                 }
-                else
+                else if (saveBTN.Text == "Update")
                 {
-                    ExecuteAdd();
+                    ExecuteUpdate();
+                    ClearList();
+                    SelectedData();
                     listData();
+                    cancelFunction();
                 }
-            }
-            else if (saveBTN.Text == "Update")
-            {
-                ExecuteUpdate();
-                ClearList();
-                SelectedData();
-                listData();
-                cancelFunction();
             }
         }
         private void ClearList()
@@ -253,6 +256,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 Session["NFII_ID"] = ((Label)row.FindControl("lblId")).Text;
                 Session["NFIIpreparedBy"] = ((Label)row.FindControl("lblg2PreparedBy")).Text;
                 Session["NFIInotedBy"] = ((Label)row.FindControl("lblg2NotedBy")).Text;
+                Session["AcknowledgedBy"] = ((Label)row.FindControl("lblg2AcknowledgedBy")).Text;
                 Response.Redirect("~/KMDIweb/Production/FrameSchedule/NoticeForIncompleteItemsReportPaage.aspx");
             }
             else if (e.CommandName == "EditRecord")
@@ -273,7 +277,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 {
                     errorrmessage("You're not authorized to alter this record.");
                 }
-             
+
             }
         }
         private void GetDataForEdit()

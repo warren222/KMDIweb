@@ -184,13 +184,13 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink18;
         
         /// <summary>
-        /// HyperLink8 control.
+        /// BTNaccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink8;
+        protected global::System.Web.UI.WebControls.HyperLink BTNaccount;
         
         /// <summary>
         /// username control.
