@@ -486,5 +486,29 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             }
             return knoList;
         }
+        //protected void OpenPopUp_Click(object sender, EventArgs e)
+        //{
+        //    LinkButton linkbutton = (LinkButton)sender;  // get the link button which trigger the event
+        //    GridViewRow row = (GridViewRow)linkbutton.NamingContainer; // get the GridViewRow that contains the linkbutton
+        //    tboxRemarks.Text = row.Cells[2].Text;  // get the first cell value of the row
+        //                                        // if you want to get controls in templatefield , just use row.FindControl
+        //    Label3.Text = "";
+        //    ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);//show the modal
+        //}
+
+        protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "OpenPopUp")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView2.Rows[rowindex];
+                lblModalReschedRemarks.Text = ((Label)row.FindControl("lblrescheduleremarks")).Text;
+                lblModalIncompleteMaterials.Text = ((Label)row.FindControl("lblincompletematerials")).Text;
+                lblModalRemarks.Text = ((Label)row.FindControl("LBLg2sched_remarks")).Text;
+                lblmodalKno.Text = ((Label)row.FindControl("LBLg2kmdino")).Text;
+                lblmodalLocation.Text= ((Label)row.FindControl("LBLlocation")).Text;
+                ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
+            }
+        }
     }
 }

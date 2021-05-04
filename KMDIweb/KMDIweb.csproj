@@ -276,6 +276,13 @@
     <Compile Include="KMDIweb\Global\registerSign.aspx.designer.cs">
       <DependentUpon>registerSign.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\DeliveredItemsHome.aspx.cs">
+      <DependentUpon>DeliveredItemsHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\DeliveredItemsHome.aspx.designer.cs">
+      <DependentUpon>DeliveredItemsHome.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\fcornercleaning.aspx.cs">
       <DependentUpon>fcornercleaning.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -510,6 +517,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Images\transpa.png" />
     <Content Include="KMDIweb\Delivery\ScannedDR\DRscannedHome.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -530,6 +538,7 @@
     <Content Include="KMDIweb\Images\SDR.png" />
     <Content Include="KMDIweb\Images\SFM.png" />
     <Content Include="KMDIweb\Images\Single-Hung-Window.png" />
+    <Content Include="KMDIweb\Production\FrameSchedule\DeliveredItemsHome.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fcornercleaning.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fcutting.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fdespatch.aspx" />

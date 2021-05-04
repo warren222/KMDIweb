@@ -72,6 +72,9 @@
                                 <asp:HyperLink ID="HyperLink19" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/NoticeForIncompleteItemApproval.aspx">Notice For Incomplete Items</asp:HyperLink>
                             </li>
                         <li>
+                            <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/DeliveredItemsHome.aspx">Delivered Items</asp:HyperLink>
+                        </li>
+                        <li>
                             <asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/FYearlyOutput.aspx">
                          <span class="glyphicon glyphicon-signal"></span>&nbsp;   Summary</asp:HyperLink></li>
 
