@@ -365,7 +365,7 @@
                                 </button>--%>
                             </div>
                             <div class="modal-body">
-                                <h5><strong>Rescheduling Reason/Remarks</strong></h5>
+                                <h5><strong>Reason</strong></h5>
                                 <blockquote>
                                     <p>
                                         <asp:Label ID="lblModalReschedRemarks" runat="server" Text=""></asp:Label>

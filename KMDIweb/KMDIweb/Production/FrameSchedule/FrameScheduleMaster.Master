@@ -22,7 +22,7 @@
 <body>
     <form id="form1" runat="server" style="width: 100%; height: 100%; background-color: whitesmoke">
         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
@@ -68,18 +68,29 @@
                                     <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fpackaging.aspx">Packaging</asp:HyperLink></li>
 
                             </ul>
-                            <li>
-                                <asp:HyperLink ID="HyperLink19" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/NoticeForIncompleteItemApproval.aspx">Notice For Incomplete Items</asp:HyperLink>
-                            </li>
-                        <li>
-                            <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/DeliveredItemsHome.aspx">Delivered Items</asp:HyperLink>
                         </li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-th-large"></span>&nbsp;More<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/DeliveredItemsHome.aspx">List of delivered items</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink20" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/NewScheduleSummary.aspx">List of rescheduled items</asp:HyperLink>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li>
                             <asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/FYearlyOutput.aspx">
                          <span class="glyphicon glyphicon-signal"></span>&nbsp;   Summary</asp:HyperLink></li>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <asp:HyperLink ID="HyperLink19" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/NoticeForIncompleteItemApproval.aspx">Notice For Incomplete Items</asp:HyperLink>
+                        </li>
                         <li>
                             <asp:HyperLink ID="BTNaccount" runat="server" NavigateUrl="~/KMDIweb/Global/manageaccount.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp; Accounts</asp:HyperLink>
                         </li>

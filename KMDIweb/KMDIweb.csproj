@@ -402,6 +402,20 @@
     <Compile Include="KMDIweb\Production\FrameSchedule\FYearlyOutput.aspx.designer.cs">
       <DependentUpon>FYearlyOutput.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\NewScheduleItems.aspx.cs">
+      <DependentUpon>NewScheduleItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\NewScheduleItems.aspx.designer.cs">
+      <DependentUpon>NewScheduleItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\NewScheduleSummary.aspx.cs">
+      <DependentUpon>NewScheduleSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\NewScheduleSummary.aspx.designer.cs">
+      <DependentUpon>NewScheduleSummary.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItem.aspx.cs">
       <DependentUpon>NoticeForIncompleteItem.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -555,6 +569,8 @@
     <Content Include="KMDIweb\Production\FrameSchedule\FrameHome.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fwelding.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FYearlyOutput.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\NewScheduleItems.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\NewScheduleSummary.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItem.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemApproval.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemsReportPaage.aspx" />
