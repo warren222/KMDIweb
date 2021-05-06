@@ -184,6 +184,15 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink20;
         
         /// <summary>
+        /// HyperLink21 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink21;
+        
+        /// <summary>
         /// HyperLink18 control.
         /// </summary>
         /// <remarks>

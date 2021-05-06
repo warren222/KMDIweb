@@ -49,7 +49,7 @@
                                 <li>
                                     <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fwelding.aspx">Welding</asp:HyperLink></li>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fcornercleaning.aspx">Conrner Cleaning</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fcornercleaning.aspx">Corner Cleaning</asp:HyperLink></li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fmulliontransom.aspx">Mullion/Transom</asp:HyperLink></li>
                                 <li>
@@ -78,6 +78,9 @@
                                 </li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink20" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/NewScheduleSummary.aspx">List of rescheduled items</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink21" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/SectionDailyOuPut.aspx">Section's Daily Output</asp:HyperLink>
                                 </li>
                             </ul>
                         </li>
