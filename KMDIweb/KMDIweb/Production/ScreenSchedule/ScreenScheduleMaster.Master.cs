@@ -15,6 +15,7 @@ namespace KMDIweb.SCREENfab
             {
                 username.Text = Session["KMDI_nickname"].ToString() + " ";
                 access();
+                summaryAccess();
             }
             else
             {
@@ -30,6 +31,29 @@ namespace KMDIweb.SCREENfab
             else
             {
                 BTNaccount.Visible = false;
+            }
+        }
+        private string usercode
+        {
+            get
+            {
+                return Session["KMDI_user_code"].ToString();
+            }
+        }
+        private void summaryAccess()
+        {
+            if ((usercode == "Production Manager") ||
+                      (usercode == "Production Engineer") ||
+                       (usercode == "Supervisor") ||
+                        (usercode == "Programmer") ||
+                      (usercode == "Management"))
+
+            {
+                HyperLink10.Visible = true;
+            }
+            else
+            {
+                HyperLink10.Visible = false;
             }
         }
         protected void LinkButton1_Click(object sender, EventArgs e)

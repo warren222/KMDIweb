@@ -57,7 +57,11 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         }
         private void LoadByUser()
         {
-            if ((usercode == "Delivery Head") || (usercode == "Engineer Manager"))
+            if (usercode == "Delivery Head")
+            {
+                loadData("ForApprovalDeliveryHead");
+            }
+            else if (usercode == "Engineer Manager")
             {
                 loadData("ForApproval");
             }
@@ -69,10 +73,10 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             {
                 loadData("ForNoted");
             }
-            else if (usercode == "Engineer" || usercode == "AE" || usercode == "Delivery")
+            else if (usercode == "Delivery")
             {
                 CheckBox1.Text = "For acknowledgment";
-                loadData("ProjectManager");
+                loadData("Acknowledgment");
             }
             else
             {
@@ -120,6 +124,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 Session["NFII_ID"] = ((Label)row.FindControl("lblId")).Text;
                 Session["LBLparentjono"] = ((Label)row.FindControl("lblParentjono")).Text;
                 Session["NFIIpreparedBy"] = ((Label)row.FindControl("lblPreparedBy")).Text;
+                Session["NFIIapprovedBy"] = ((Label)row.FindControl("lblApprovedBy")).Text;
+                Session["NFIIreceivedBy"] = ((Label)row.FindControl("lblReceivedBy")).Text;
                 Session["NFIInotedBy"] = ((Label)row.FindControl("lblNotedBy")).Text;
                 Session["AcknowledgedBy"] = ((Label)row.FindControl("lblAcknowledgedBy")).Text;
                 Response.Redirect("~/KMDIweb/Production/FrameSchedule/NoticeForIncompleteItemsReportPaage.aspx");

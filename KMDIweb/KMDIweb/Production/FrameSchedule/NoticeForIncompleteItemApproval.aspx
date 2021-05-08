@@ -52,37 +52,41 @@
                                         <asp:LinkButton ID="LinkButton1" CommandName="Report" runat="server" CssClass="btn btn-primary">View Report</asp:LinkButton>
                                     </div>
                                     <div class="row">
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-2 text-center">
 
                                             <asp:Image ID="Image1" Width="120" Height="80" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDIweb/Uploads/NFII/" + Eval("parentjono").ToString() + "/" + Eval("ID").ToString() + "/" + "/signature/Prepared_By.jpg" %>' />
                                             <br />
                                             <asp:Label ID="lblPreparedBy" runat="server" Text='<%# Bind("prepared_by") %>'></asp:Label><br />
-                                            <span class="text-muted">Prepared by:</span>
+                                            <span class="text-muted" style="font-size: smaller">(Delivery Coordinator)</span><br />
+                                            <span class="text-muted">Prepared by</span>
                                         </div>
-                                        <div class="col-xs-2">
-                                            <asp:Image ID="Image2" Width="120" Height="80" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDIweb/Uploads/NFII/" + Eval("parentjono").ToString() + "/" + Eval("ID").ToString() + "/" + "/signature/Approved_By.jpg" %>' />
-                                            <br />
-                                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("approved_by") %>'></asp:Label><br />
-                                            <span class="text-muted">Approved by:</span>
-
-                                        </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-2 text-center">
                                             <asp:Image ID="Image3" Width="120" Height="80" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDIweb/Uploads/NFII/" + Eval("parentjono").ToString() + "/" + Eval("ID").ToString() + "/" + "/signature/Approved_By2.jpg" %>' />
                                             <br />
                                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("approved_by2") %>'></asp:Label><br />
-                                            <span class="text-muted">Approved by:</span>
+                                            <span class="text-muted" style="font-size: smaller">(Delivery Head)</span><br />
+                                            <span class="text-muted">Approved by</span>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-2 text-center">
+                                            <asp:Image ID="Image2" Width="120" Height="80" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDIweb/Uploads/NFII/" + Eval("parentjono").ToString() + "/" + Eval("ID").ToString() + "/" + "/signature/Approved_By.jpg" %>' />
+                                            <br />
+                                            <asp:Label ID="lblApprovedBy" runat="server" Text='<%# Bind("approved_by") %>'></asp:Label><br />
+                                            <span class="text-muted" style="font-size: smaller">(Delivery & Installation Manager)</span><br />
+                                            <span class="text-muted">Approved by</span>
+                                        </div>
+                                        <div class="col-xs-2 text-center">
                                             <asp:Image ID="Image4" Width="120" Height="80" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDIweb/Uploads/NFII/" + Eval("parentjono").ToString() + "/" + Eval("ID").ToString() + "/" + "/signature/Received_By.jpg" %>' />
                                             <br />
-                                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Received_by") %>'></asp:Label><br />
-                                            <span class="text-muted">Received by:</span>
+                                            <asp:Label ID="lblReceivedBy" runat="server" Text='<%# Bind("Received_by") %>'></asp:Label><br />
+                                            <span class="text-muted" style="font-size: smaller">(Production Staff)</span><br />
+                                            <span class="text-muted">Received by</span>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-2 text-center">
                                             <asp:Image ID="Image5" Width="120" Height="80" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDIweb/Uploads/NFII/" + Eval("parentjono").ToString() + "/" + Eval("ID").ToString() + "/" + "/signature/Noted_By.jpg" %>' />
                                             <br />
                                             <asp:Label ID="lblNotedBy" runat="server" Text='<%# Bind("Noted_by") %>'></asp:Label><br />
-                                            <span class="text-muted">Noted by:</span>
+                                            <span class="text-muted" style="font-size: smaller">(Production Manager)</span><br />
+                                            <span class="text-muted">Noted by</span>
                                         </div>
                                     </div>
                                 </div>

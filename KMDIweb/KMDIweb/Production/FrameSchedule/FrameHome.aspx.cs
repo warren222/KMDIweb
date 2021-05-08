@@ -73,12 +73,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         }
         private void validateUser()
         {
-            if ((usercode == "Engineer") ||
-            (usercode == "AE") ||
-            (usercode == "Delivery") ||
-            (usercode == "Delivery Head") ||
-            (usercode == "Engineer Manager"))
-            {
+            if (usercode == "Delivery")
+            { 
                 AddNFIIbtn.Visible = true;
             }
             else

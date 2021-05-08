@@ -255,6 +255,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 GridViewRow row = GridView2.Rows[rowindex];
                 Session["NFII_ID"] = ((Label)row.FindControl("lblId")).Text;
                 Session["NFIIpreparedBy"] = ((Label)row.FindControl("lblg2PreparedBy")).Text;
+                Session["NFIIapprovedBy"] = ((Label)row.FindControl("lblg2ApprovedBy")).Text;
+                Session["NFIIreceivedBy"] = ((Label)row.FindControl("lblg2ReceivedBy")).Text;
                 Session["NFIInotedBy"] = ((Label)row.FindControl("lblg2NotedBy")).Text;
                 Session["AcknowledgedBy"] = ((Label)row.FindControl("lblg2AcknowledgedBy")).Text;
                 Response.Redirect("~/KMDIweb/Production/FrameSchedule/NoticeForIncompleteItemsReportPaage.aspx");

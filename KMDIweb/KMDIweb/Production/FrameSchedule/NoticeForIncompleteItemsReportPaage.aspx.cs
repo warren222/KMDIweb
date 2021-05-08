@@ -59,6 +59,20 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 return Session["NFIIpreparedBy"].ToString();
             }
         }
+        private string NFIIapprovedBy
+        {
+            get
+            {
+                return Session["NFIIapprovedBy"].ToString();
+            }
+        }
+        private string NFIIreceivedBy
+        {
+            get
+            {
+                return Session["NFIIreceivedBy"].ToString();
+            }
+        }
         private string NFIInotedBy
         {
             get
@@ -83,9 +97,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         }
         private void validateUser()
         {
-            if ((usercode == "Engineer") ||
-            (usercode == "AE") ||
-            (usercode == "Delivery") ||
+            if ((usercode == "Delivery") ||
             (usercode == "Delivery Head") ||
             (usercode == "Engineer Manager") ||
             (usercode == "Production Manager") ||
@@ -101,7 +113,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         }
         private void preparedbyBTNaccess()
         {
-            if ((usercode == "Engineer") || (usercode == "AE") || (usercode == "Delivery"))
+            if ((usercode == "Delivery"))
             {
                 if (NFIIpreparedBy != myName)
                 {
@@ -116,6 +128,28 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     preparedbyBTN.Visible = true;
                 }
             }
+            else if (usercode == "Production Engineer")
+            {
+                if(NFIIapprovedBy == "")
+                {
+                    preparedbyBTN.Visible = false;
+                }
+                else
+                {
+                    preparedbyBTN.Visible = true;
+                }
+            }
+            else if (usercode == "Production Manager")
+            {
+                if (NFIIreceivedBy == "")
+                {
+                    preparedbyBTN.Visible = false;
+                }
+                else
+                {
+                    preparedbyBTN.Visible = true;
+                }
+            }
             else
             {
                 preparedbyBTN.Visible = true;
@@ -123,7 +157,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         }
         private void recommendationBTNaccess()
         {
-            if (usercode == "Production Engineer" && NFIInotedBy == "")
+            if (usercode == "Production Engineer" && NFIInotedBy == "" && NFIIapprovedBy != "")
             {
                 recommendationBTN.Visible = true;
             }
@@ -239,7 +273,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             {
                 column = "Approved_By2";
             }
-            else if ((usercode == "Engineer") || (usercode == "AE") || (usercode == "Delivery"))
+            else if ((usercode == "Delivery"))
             {
                 if (NFIIpreparedBy != myName)
                 {

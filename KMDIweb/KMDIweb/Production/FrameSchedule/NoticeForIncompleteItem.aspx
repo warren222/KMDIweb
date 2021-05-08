@@ -64,6 +64,8 @@
                                 <asp:Label ID="lblg2NotFormattedDate" runat="server" Visible="false" Font-Size="X-Large" CssClass="text-muted" Text='<%# Bind("NotFormattedDate") %>'></asp:Label>
                                 <asp:Label ID="lblg2Reason" runat="server" Visible="false" Font-Size="X-Large" CssClass="text-muted" Text='<%# Bind("Reason") %>'></asp:Label>
                                 <asp:Label ID="lblg2PreparedBy" runat="server" Visible="false" Font-Size="X-Large" CssClass="text-muted" Text='<%# Bind("Prepared_by") %>'></asp:Label>
+                                <asp:Label ID="lblg2ApprovedBy" runat="server" Visible="false" Font-Size="X-Large" CssClass="text-muted" Text='<%# Bind("Approved_by") %>'></asp:Label>
+                                <asp:Label ID="lblg2ReceivedBy" runat="server" Visible="false" Font-Size="X-Large" CssClass="text-muted" Text='<%# Bind("Received_By") %>'></asp:Label>
                                 <asp:Label ID="lblg2NotedBy" runat="server" Visible="false" Font-Size="X-Large" CssClass="text-muted" Text='<%# Bind("Noted_by") %>'></asp:Label>
                                 <asp:Label ID="lblg2AcknowledgedBy" runat="server" Visible="false" Font-Size="X-Large" CssClass="text-muted" Text='<%# Bind("Acknowledged_by") %>'></asp:Label>
                             </div>

@@ -19,6 +19,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 username.Text = Session["KMDI_nickname"].ToString() + " ";
                 Notifcounter();
                 access();
+                summaryAccess();
             }
             else
             {
@@ -104,9 +105,31 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 }
             }
         }
+        private void summaryAccess()
+        {
+            if ((usercode == "Production Manager") ||
+                      (usercode == "Production Engineer") ||
+                       (usercode == "Supervisor") ||
+                        (usercode == "Programmer") ||
+                      (usercode == "Management"))
+
+            {
+                HyperLink21.Visible = true;
+                HyperLink18.Visible = true;
+            }
+            else
+            {
+                HyperLink21.Visible = false;
+                HyperLink18.Visible = false;
+            }
+        }
         private void Notifcounter()
         {
-            if ((usercode == "Delivery Head") || (usercode == "Engineer Manager"))
+            if (usercode == "Delivery Head")
+            {
+                countNotice("CountForApprovalDeliveryHead");
+            }
+            else if (usercode == "Engineer Manager")
             {
                 countNotice("CountForApproval");
             }
@@ -118,7 +141,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             {
                 countNotice("CountForNoted");
             }
-            else if ((usercode == "Engineer") || (usercode == "AE") || (usercode == "Delivery"))
+            else if (usercode == "Delivery")
             {
                 countNotice("CountForAcknowledgment");
             }
