@@ -14,7 +14,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
         <div class="well text-center">
-            <h2>Section's daily output</h2>
+            <h2>Sections' daily output</h2>
         </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
