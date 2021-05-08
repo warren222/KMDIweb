@@ -18,9 +18,9 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             {
                 if (!IsPostBack)
                 {
-                    tboxMonth.Text = DateTime.Now.Month.ToString();
+                    ddlMonth.SelectedValue = DateTime.Now.Month.ToString();
                     tboxYear.Text = DateTime.Now.Year.ToString();
-                    loaddata();
+                    loadsummary();
                 }
             }
             else
@@ -28,7 +28,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
             }
         }
-        private void loaddata()
+        private void loadsummary()
         {
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
@@ -40,9 +40,10 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         sqlcon.Open();
                         sqlcmd.CommandText = "section_daily_output_stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "summary");
                         sqlcmd.Parameters.AddWithValue("@section", ddlSection.Text);
                         sqlcmd.Parameters.AddWithValue("@year", tboxYear.Text);
-                        sqlcmd.Parameters.AddWithValue("@month", tboxMonth.Text);
+                        sqlcmd.Parameters.AddWithValue("@month", ddlMonth.SelectedValue);
                         DataTable tb = new DataTable();
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
@@ -50,6 +51,36 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         GridView1.DataSource = tb;
                         GridView1.DataBind();
                         Session["TaskTable"] = tb;
+                    }
+                    catch (Exception e)
+                    {
+                        errorrmessage(e.Message);
+                    }
+                }
+            }
+        }
+        private void loadlist(string dd, string section)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        lblSection.Text = ddlSection.Text;
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "section_daily_output_stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "list");
+                        sqlcmd.Parameters.AddWithValue("@section", section);
+                        sqlcmd.Parameters.AddWithValue("@dd", dd);
+                        DataTable tb = new DataTable();
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(tb);
+                        GridView2.DataSource = tb;
+                        GridView2.DataBind();
+                  
                     }
                     catch (Exception e)
                     {
@@ -78,7 +109,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         {
             if (IsValid)
             {
-                loaddata();
+                loadsummary();
             }
         }
 
@@ -123,6 +154,19 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             ViewState["SortExpression"] = column;
 
             return sortDirection;
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "viewlist")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
+                lblmodalSection.Text = lblSection.Text;
+                lblmodalDate.Text = ((Label)row.FindControl("lblDateFormatted")).Text;
+                loadlist(((Label)row.FindControl("lblDate")).Text,((Label)row.FindControl("lblSection")).Text);
+                ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
+            }
         }
     }
 }
