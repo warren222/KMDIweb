@@ -381,6 +381,13 @@
     <Compile Include="KMDIweb\Production\FrameSchedule\FrameHome.aspx.designer.cs">
       <DependentUpon>FrameHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\FrameLag.aspx.cs">
+      <DependentUpon>FrameLag.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\FrameLag.aspx.designer.cs">
+      <DependentUpon>FrameLag.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\FrameScheduleMaster.Master.cs">
       <DependentUpon>FrameScheduleMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -450,6 +457,13 @@
     </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\SectionDailyOuput.aspx.designer.cs">
       <DependentUpon>SectionDailyOuput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\SectionDailyOutputReport.aspx.cs">
+      <DependentUpon>SectionDailyOutputReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\SectionDailyOutputReport.aspx.designer.cs">
+      <DependentUpon>SectionDailyOutputReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="KMDIweb\Production\ScreenSchedule\scaccessories.aspx.cs">
       <DependentUpon>scaccessories.aspx</DependentUpon>
@@ -574,6 +588,7 @@
     <Content Include="KMDIweb\Production\FrameSchedule\fqc.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fqcdel.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FrameHome.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\FrameLag.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fwelding.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FYearlyOutput.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\NewScheduleItems.aspx" />
@@ -583,6 +598,7 @@
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemsReportPaage.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\recommendation.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\SectionDailyOuput.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\SectionDailyOutputReport.aspx" />
     <Content Include="KMDIweb\Production\ScreenSchedule\home.aspx" />
     <Content Include="KMDIweb\Global\invalidaccess.aspx" />
     <Content Include="KMDIweb\Global\Login.aspx" />
@@ -677,6 +693,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="KMDIweb\Global\Reports\NoticeForINCItemsReport.rdlc" />
+    <EmbeddedResource Include="KMDIweb\Global\Reports\SectionDailyOutputRPT.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

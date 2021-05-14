@@ -115,10 +115,12 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
 
             {
                 HyperLink21.Visible = true;
+                HyperLink22.Visible = true;
                 HyperLink18.Visible = true;
             }
             else
             {
+                HyperLink22.Visible = false;
                 HyperLink21.Visible = false;
                 HyperLink18.Visible = false;
             }

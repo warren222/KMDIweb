@@ -37,6 +37,16 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DailyOutput" msprop:Generator_TableClassName="DailyOutputDataTable" msprop:Generator_TableVarName="tableDailyOutput" msprop:Generator_RowChangedName="DailyOutputRowChanged" msprop:Generator_TablePropName="DailyOutput" msprop:Generator_RowDeletingName="DailyOutputRowDeleting" msprop:Generator_RowChangingName="DailyOutputRowChanging" msprop:Generator_RowEvHandlerName="DailyOutputRowChangeEventHandler" msprop:Generator_RowDeletedName="DailyOutputRowDeleted" msprop:Generator_RowClassName="DailyOutputRow" msprop:Generator_UserTableName="DailyOutput" msprop:Generator_RowEvArgName="DailyOutputRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ddFormatted" msprop:Generator_ColumnVarNameInTable="columnddFormatted" msprop:Generator_ColumnPropNameInRow="ddFormatted" msprop:Generator_ColumnPropNameInTable="ddFormattedColumn" msprop:Generator_UserColumnName="ddFormatted" type="xs:string" minOccurs="0" />
+              <xs:element name="pointsFormatted" msprop:Generator_ColumnVarNameInTable="columnpointsFormatted" msprop:Generator_ColumnPropNameInRow="pointsFormatted" msprop:Generator_ColumnPropNameInTable="pointsFormattedColumn" msprop:Generator_UserColumnName="pointsFormatted" type="xs:string" minOccurs="0" />
+              <xs:element name="per" msprop:Generator_ColumnVarNameInTable="columnper" msprop:Generator_ColumnPropNameInRow="per" msprop:Generator_ColumnPropNameInTable="perColumn" msprop:Generator_UserColumnName="per" type="xs:int" minOccurs="0" />
+              <xs:element name="points" msprop:Generator_ColumnVarNameInTable="columnpoints" msprop:Generator_ColumnPropNameInRow="points" msprop:Generator_ColumnPropNameInTable="pointsColumn" msprop:Generator_UserColumnName="points" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

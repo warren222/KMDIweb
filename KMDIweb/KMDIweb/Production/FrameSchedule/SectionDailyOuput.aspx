@@ -76,7 +76,7 @@
                 <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="errorval" CssClass="alert alert-danger" runat="server" />
                 <asp:RangeValidator ID="RangeValidator1" ValidationGroup="errorval" MaximumValue="9999" MinimumValue="1900" ControlToValidate="tboxYear" runat="server" CssClass="text-danger" ErrorMessage="year must be between 1900 and 9999">*</asp:RangeValidator>
                 <h2>
-                    <asp:Label ID="lblSection" runat="server" Text=""></asp:Label></h2>
+                    <asp:Label ID="lblSection" ForeColor="Red" runat="server" Text=""></asp:Label></h2>
                 <h4>Output</h4>
 
                 <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
@@ -144,5 +144,6 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
+        <asp:LinkButton ID="viewReportBtn" runat="server" CssClass="btn btn-primary" OnClick="viewReportBtn_Click"><span class="glyphicon glyphicon-print"></span></asp:LinkButton>
     </div>
 </asp:Content>

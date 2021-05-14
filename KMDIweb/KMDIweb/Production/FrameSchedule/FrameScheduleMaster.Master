@@ -82,6 +82,9 @@
                                 <li>
                                     <asp:HyperLink ID="HyperLink21" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/SectionDailyOuPut.aspx">Section's Daily Output</asp:HyperLink>
                                 </li>
+                                    <li>
+                                    <asp:HyperLink ID="HyperLink22" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/FrameLag.aspx">Section's Lag</asp:HyperLink>
+                                </li>
                             </ul>
                         </li>
 

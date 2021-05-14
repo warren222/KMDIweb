@@ -168,5 +168,13 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
         }
+
+        protected void viewReportBtn_Click(object sender, EventArgs e)
+        {
+            Session["SDOyear"] = tboxYear.Text;
+            Session["SDOmonth"] = ddlMonth.SelectedValue;
+            Session["SDOsection"] = ddlSection.Text;
+            Response.Redirect("~/KMDIweb/Production/FrameSchedule/SectionDailyOutputReport.aspx");
+        }
     }
 }
