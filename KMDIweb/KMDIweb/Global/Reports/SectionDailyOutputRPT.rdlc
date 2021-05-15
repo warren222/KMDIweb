@@ -225,7 +225,7 @@
         </ChartAreas>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>=Parameters!section.Value+" Section Daily Output"</Caption>
+            <Caption>=Parameters!section.Value+" Section's Daily Output"</Caption>
             <Style>
               <Border>
                 <Color>Orange</Color>
