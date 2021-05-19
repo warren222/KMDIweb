@@ -388,6 +388,13 @@
     <Compile Include="KMDIweb\Production\FrameSchedule\FrameLag.aspx.designer.cs">
       <DependentUpon>FrameLag.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\FrameOverDue.aspx.cs">
+      <DependentUpon>FrameOverDue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\FrameOverDue.aspx.designer.cs">
+      <DependentUpon>FrameOverDue.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\FrameScheduleMaster.Master.cs">
       <DependentUpon>FrameScheduleMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -589,6 +596,7 @@
     <Content Include="KMDIweb\Production\FrameSchedule\fqcdel.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FrameHome.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FrameLag.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\FrameOverDue.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fwelding.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FYearlyOutput.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\NewScheduleItems.aspx" />

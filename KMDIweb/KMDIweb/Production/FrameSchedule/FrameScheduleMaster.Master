@@ -82,16 +82,18 @@
                                 <li>
                                     <asp:HyperLink ID="HyperLink21" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/SectionDailyOuPut.aspx">Section's Daily Output</asp:HyperLink>
                                 </li>
-                                    <li>
+                                <li>
                                     <asp:HyperLink ID="HyperLink22" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/FrameLag.aspx">Section's Lag</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/FrameOverdue.aspx">Overdue items</asp:HyperLink>
                                 </li>
                             </ul>
                         </li>
 
-                        <li>
+                        <%--     <li>
                             <asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/FYearlyOutput.aspx">
-                         <span class="glyphicon glyphicon-signal"></span>&nbsp;   Summary</asp:HyperLink></li>
-
+                         <span class="glyphicon glyphicon-signal"></span>&nbsp;   Summary</asp:HyperLink></li>--%>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>

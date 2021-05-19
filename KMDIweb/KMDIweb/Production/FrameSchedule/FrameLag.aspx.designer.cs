@@ -58,6 +58,24 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         protected global::System.Web.UI.WebControls.Label lblSection;
         
         /// <summary>
+        /// lblNoItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoItems;
+        
+        /// <summary>
+        /// lblTotalpoints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalpoints;
+        
+        /// <summary>
         /// Panel1 control.
         /// </summary>
         /// <remarks>

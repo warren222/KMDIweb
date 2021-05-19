@@ -80,7 +80,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         da.Fill(tb);
                         GridView2.DataSource = tb;
                         GridView2.DataBind();
-                  
+                        lblTotalItems.Text = tb.Rows.Count.ToString();
                     }
                     catch (Exception e)
                     {

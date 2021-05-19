@@ -25,6 +25,8 @@
                                 Section
                             </div>
                             <asp:DropDownList ID="ddlSection" CssClass="form-control" runat="server">
+                                <asp:ListItem Text="Cutting Frame" Value="Cutting Frame"></asp:ListItem>
+                                <asp:ListItem Text="Cutting Sash" Value="Cutting Sash"></asp:ListItem>
                                 <asp:ListItem Text="Cutting" Value="Cutting"></asp:ListItem>
                                 <asp:ListItem Text="Drainage" Value="Drainage"></asp:ListItem>
                                 <asp:ListItem Text="Handle" Value="Handle"></asp:ListItem>
@@ -134,6 +136,8 @@
                                             </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
+
+                                    <h4><strong>Number of K numbers:</strong><asp:Label ID="lblTotalItems" CssClass="text-info" runat="server" Text="Qty"></asp:Label></h4>
                                 </small>
                             </div>
                             <div class="modal-footer">
