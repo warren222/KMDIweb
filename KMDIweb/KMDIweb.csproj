@@ -276,6 +276,13 @@
     <Compile Include="KMDIweb\Global\registerSign.aspx.designer.cs">
       <DependentUpon>registerSign.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx.cs">
+      <DependentUpon>CalendarFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx.designer.cs">
+      <DependentUpon>CalendarFrame.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\DeliveredItemsHome.aspx.cs">
       <DependentUpon>DeliveredItemsHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -580,6 +587,7 @@
     <Content Include="KMDIweb\Images\SDR.png" />
     <Content Include="KMDIweb\Images\SFM.png" />
     <Content Include="KMDIweb\Images\Single-Hung-Window.png" />
+    <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\DeliveredItemsHome.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fcornercleaning.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fcutting.aspx" />

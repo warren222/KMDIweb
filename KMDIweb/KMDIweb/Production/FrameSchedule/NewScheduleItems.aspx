@@ -16,7 +16,7 @@
             <ContentTemplate>
                 <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="errorval" CssClass="alert alert-danger" runat="server" />
                 <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-                    <asp:GridView ID="GridView1" GridLines="None" CssClass="table tbl" AllowPaging="true" AutoGenerateColumns="false" runat="server" OnRowCommand="GridView1_RowCommand" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="30">
+                    <asp:GridView ID="GridView1" CssClass="table tbl" AllowPaging="True" AutoGenerateColumns="False" runat="server" OnRowCommand="GridView1_RowCommand" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="30" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
                         <Columns>
                             <asp:TemplateField HeaderText="Project">
                                 <ItemTemplate>
@@ -54,14 +54,22 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
-                        <PagerStyle CssClass="GridPager" ForeColor="Black" HorizontalAlign="Left" />
-                        <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
+                        <PagerStyle CssClass="GridPager" ForeColor="Black" HorizontalAlign="Left" BackColor="#CCCCCC" />
+                        <FooterStyle BackColor="#CCCCCC" />
+                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                        <PagerSettings PageButtonCount="8" Position="Bottom" />
                         <EmptyDataTemplate>
                             <div>
                                 <h3><strong>Sorry, No Result Found!</strong>
                                 </h3>
                             </div>
                         </EmptyDataTemplate>
+                        <RowStyle BackColor="White" />
+                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#808080" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
                 </asp:Panel>
 

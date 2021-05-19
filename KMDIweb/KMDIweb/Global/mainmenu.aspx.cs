@@ -15,7 +15,7 @@ namespace KMDIweb.KMDIapp
             {
                 if (!IsPostBack)
                 {
-                 
+                    access();
                 }
             }
             else
@@ -43,7 +43,7 @@ namespace KMDIweb.KMDIapp
             if (Session["KMDI_sfm_acct"].ToString() == "None")
             {
                 errorrmessage("Invalid access!");
-           
+
             }
             else
             {
@@ -51,9 +51,9 @@ namespace KMDIweb.KMDIapp
                 {
                     Response.Redirect("~/KMDIweb/Production/ScreenSchedule/home.aspx");
                 }
-            
+
             }
-        
+
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace KMDIweb.KMDIapp
             if (Session["KMDI_sdr_acct"].ToString() == "None")
             {
                 errorrmessage("invalid access!");
-            
+
             }
             else
             {
@@ -69,9 +69,9 @@ namespace KMDIweb.KMDIapp
                 {
                     Response.Redirect("~/KMDIweb/Delivery/ScannedDR/DRscannedHome.aspx");
                 }
-              
+
             }
-           
+
         }
 
         protected void LinkButton4_Click(object sender, EventArgs e)
@@ -88,6 +88,28 @@ namespace KMDIweb.KMDIapp
                     Response.Redirect("~/KMDIweb/Production/FrameSchedule/FrameHome.aspx");
                 }
 
+            }
+        }
+        private string usercode
+        {
+            get
+            {
+                return Session["KMDI_user_code"].ToString();
+            }
+        }
+        private void access()
+        {
+            if ((usercode == "Delivery") ||
+                     (usercode == "Operations") ||
+                       (usercode == "Programmer") ||
+                     (usercode == "Management"))
+
+            {
+                Panel1.Visible = true;
+            }
+            else
+            {
+                Panel1.Visible = false;
             }
         }
     }

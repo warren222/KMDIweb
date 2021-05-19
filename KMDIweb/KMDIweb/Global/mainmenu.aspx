@@ -85,17 +85,19 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <div class="thumbnail">
-                        <asp:Image ID="Image2" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="DR Reports" />
-                        <br />
-                        <div>
-                            <strong style="font-size: x-large"><span class="glyphicon glyphicon-list-alt"></span>
-                                <span>DR Reports</span></strong><br />
-                            <small>Uploaded DR Scanned fileS</small>
-                            <asp:LinkButton ID="LinkButton1" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton1_Click">ENTER</asp:LinkButton>
+                    <asp:Panel ID="Panel1" runat="server">
+                        <div class="thumbnail">
+                            <asp:Image ID="Image2" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="DR Reports" />
+                            <br />
+                            <div>
+                                <strong style="font-size: x-large"><span class="glyphicon glyphicon-list-alt"></span>
+                                    <span>DR Reports</span></strong><br />
+                                <small>Uploaded DR Scanned fileS</small>
+                                <asp:LinkButton ID="LinkButton1" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton1_Click">ENTER</asp:LinkButton>
 
+                            </div>
                         </div>
-                    </div>
+                    </asp:Panel>
                 </div>
             </div>
         </div>
