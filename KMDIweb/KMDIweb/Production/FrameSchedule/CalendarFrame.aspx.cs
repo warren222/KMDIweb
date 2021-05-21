@@ -81,7 +81,9 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         sqlcon.Open();
                         sqlcmd.CommandText = "Framewebcalendar";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "calendar");
                         sqlcmd.Parameters.AddWithValue("@d", d);
+                        sqlcmd.Parameters.AddWithValue("@calfab", CheckBox1.Checked.ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
@@ -113,6 +115,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 GridView1.Rows[0].Cells[0].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[1].Cells[0].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[2].Cells[0].BackColor = Color.WhiteSmoke;
+                //(Label)GridView1.Rows[0].Cells[0].FindControl("lbl7date");
             }
             if (!lbl2date.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
@@ -257,6 +260,42 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
 
 
             //}
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "viewlistMonday")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
+                getlist(((Label)row.FindControl("lbl1date")).Text);
+                ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
+            }
+        }
+        private void getlist(string caldate)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Framewebcalendar";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "items");
+                        sqlcmd.Parameters.AddWithValue("@calfab", CheckBox1.Checked.ToString());
+                        sqlcmd.Parameters.AddWithValue("@date", caldate);
+                        GridView2.DataSource = sqlcmd.ExecuteReader();
+                        GridView2.DataBind();
+                    }
+                    catch (Exception e)
+                    {
+                        errorrmessage(e.Message);
+                    }
+                }
+            }
         }
     }
 }

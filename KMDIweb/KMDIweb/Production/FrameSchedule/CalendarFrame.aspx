@@ -11,14 +11,17 @@
         <div class="well">
             <h2>Frame Schedule Calendar
             <asp:Label ID="lblDate" runat="server" CssClass="text-primary" Text=""></asp:Label></h2>
-            <div class="col-sm-6">
-                <div class="input-group">
-                </div>
+            <div class="col-sm-2">
                 <div class="input-group">
                     <div class="input-group-addon">
                         Year
                     </div>
                     <asp:TextBox ID="tboxyear" runat="server" TextMode="Number" CssClass="form-control">2021</asp:TextBox>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="input-group">
+
                     <div class="input-group-addon">
                         Month
                     </div>
@@ -36,6 +39,9 @@
                         <asp:ListItem Text="Nov" Value="11"></asp:ListItem>
                         <asp:ListItem Text="Dec" Value="12"></asp:ListItem>
                     </asp:DropDownList>
+                    <div class="input-group-addon">
+                        <asp:CheckBox ID="CheckBox1" Text="Fabricated" runat="server" />
+                    </div>
                     <div class="input-group-btn">
                         <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click">Submit</asp:LinkButton>
                     </div>
@@ -47,12 +53,13 @@
 
 
 
-    <asp:GridView ID="GridView1" CssClass="tbl" AutoGenerateColumns="False" runat="server" CellPadding="3" GridLines="Both" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellSpacing="1" OnDataBound="GridView1_DataBound">
+    <asp:GridView ID="GridView1" CssClass="tbl" AutoGenerateColumns="False" runat="server" CellPadding="3" GridLines="Both" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellSpacing="1" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand">
         <Columns>
             <asp:TemplateField HeaderText="Monday" HeaderStyle-Width="200px" ItemStyle-Wrap="true">
                 <ItemTemplate>
                     <asp:Label ID="lbl1points" Visible='<%# Eval("Context").ToString() == "Points" ? true : false %>' runat="server" Text='<%# Bind("Monday") %>'></asp:Label>
-                    <asp:Label ID="lbl1date" Font-Bold="true" Font-Size="X-Large" Visible='<%# Eval("Context").ToString() == "Date" ? true : false %>' runat="server" Text='<%# Bind("Monday") %>'></asp:Label>
+                    <asp:LinkButton ID="LinkButton2" CommandName="viewlistMonday" ForeColor="Black" runat="server" Font-Bold="true" Font-Size="X-Large" Visible='<%# Eval("Context").ToString() == "Date" ? true : false %>' Text='<%# Bind("Monday") %>'></asp:LinkButton>
+                    <asp:Label ID="lbl1date" Font-Bold="true" Font-Size="X-Large" Visible="false" runat="server" Text='<%# Bind("Monday") %>'></asp:Label>
                     <asp:Label ID="lbl1content" Visible='<%# Eval("Context").ToString() == "Content" ? true : false %>' runat="server" Font-Size="X-Small" Text='<%# Bind("Monday") %>'></asp:Label>
                 </ItemTemplate>
 
@@ -118,7 +125,7 @@
             <asp:TemplateField HeaderText="Sunday" HeaderStyle-Width="200px" ItemStyle-Wrap="true">
                 <ItemTemplate>
                     <asp:Label ID="lbl7points" Visible='<%# Eval("Context").ToString() == "Points" ? true : false %>' runat="server" Text='<%# Bind("Sunday") %>'></asp:Label>
-                    <asp:Label ID="lbl7date"  ForeColor="Red" Font-Bold="true" Font-Size="X-Large" Visible='<%# Eval("Context").ToString() == "Date" ? true : false %>' runat="server" Text='<%# Bind("Sunday") %>'></asp:Label>
+                    <asp:Label ID="lbl7date" ForeColor="Red" Font-Bold="true" Font-Size="X-Large" Visible='<%# Eval("Context").ToString() == "Date" ? true : false %>' runat="server" Text='<%# Bind("Sunday") %>'></asp:Label>
                     <asp:Label ID="lbl7content" Visible='<%# Eval("Context").ToString() == "Content" ? true : false %>' runat="server" Font-Size="X-Small" Text='<%# Bind("Sunday") %>'></asp:Label>
                 </ItemTemplate>
 
@@ -154,4 +161,53 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#33276A" />
     </asp:GridView>
+
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Header
+                    </h5>
+                      
+                </div>
+                <div class="modal-body">
+                   <asp:GridView ID="GridView2" CssClass="table" AutoGenerateColumns="False" runat="server" CellPadding="4" ForeColor="Black" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2">
+                        <Columns>
+                            <asp:TemplateField HeaderText="Project">
+                                <ItemTemplate>
+                                       <asp:Label ID="lblmodalproject" runat="server" Text='<%# Bind("project_label") %>'></asp:Label><br />
+                                    <asp:Label ID="lblmodaladdress" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("fulladd") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="K#/Location">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblmodalKno" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label><br />
+                                    <asp:Label ID="lblmodalLocation" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("Location") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Points">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblmodalPoints" runat="server" Text='<%# Bind("points") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <FooterStyle BackColor="#CCCCCC" />
+                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                        <RowStyle BackColor="White" />
+                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#808080" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#383838" />
+                    </asp:GridView>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     
 </asp:Content>
