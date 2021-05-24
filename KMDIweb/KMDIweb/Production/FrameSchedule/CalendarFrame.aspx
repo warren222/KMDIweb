@@ -2,7 +2,7 @@
 
 <asp:Content ID="content1" runat="server" ContentPlaceHolderID="head">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>List of rescheduled items</title>
+    <title>Frame Calendar</title>
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">

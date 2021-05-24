@@ -24,7 +24,7 @@
             <ContentTemplate>
                 <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="errorval" CssClass="alert alert-danger" runat="server" />
                 <asp:Panel ID="Panel1" runat="server">
-                    <asp:GridView ID="GridView1" AllowPaging="true" GridLines="None" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridView1_RowCommand">
+                    <asp:GridView ID="GridView1" AllowPaging="true" GridLines="None" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridView1_RowCommand" PageSize="100">
                         <Columns>
                             <asp:TemplateField>
                                 <ItemTemplate>

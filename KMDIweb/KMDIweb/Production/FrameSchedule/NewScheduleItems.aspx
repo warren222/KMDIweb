@@ -16,7 +16,7 @@
             <ContentTemplate>
                 <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="errorval" CssClass="alert alert-danger" runat="server" />
                 <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-                    <asp:GridView ID="GridView1" CssClass="table tbl" AllowPaging="True" AutoGenerateColumns="False" runat="server" OnRowCommand="GridView1_RowCommand" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="30" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
+                    <asp:GridView ID="GridView1" CssClass="table tbl" AllowPaging="True" AutoGenerateColumns="False" runat="server" OnRowCommand="GridView1_RowCommand" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="100" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
                         <Columns>
                             <asp:TemplateField HeaderText="Project">
                                 <ItemTemplate>

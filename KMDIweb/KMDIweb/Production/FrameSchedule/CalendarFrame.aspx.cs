@@ -20,6 +20,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             {
                 if (!IsPostBack)
                 {
+                    ddlmonth.SelectedValue = DateTime.Now.ToString("MM");
                     loaddata();
                 }
             }

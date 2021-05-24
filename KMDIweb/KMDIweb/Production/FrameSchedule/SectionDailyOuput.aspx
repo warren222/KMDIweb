@@ -2,7 +2,7 @@
 
 <asp:Content ID="content1" runat="server" ContentPlaceHolderID="head">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>List of delivered items per project</title>
+    <title>Sections' daily output</title>
     <style type="text/css">
         span.gridLabel {
             display: block;
@@ -109,6 +109,7 @@
                                 <h5 class="modal-title">
                                     <asp:Label ID="lblmodalSection" Font-Bold="true" CssClass="text-info" runat="server" Text=""></asp:Label></h5>
                                 <asp:Label ID="lblmodalDate" runat="server" Text="Header"></asp:Label>
+                                   <asp:Label ID="lblmodalTotalPoints" CssClass="text-success" runat="server" Text="Label"></asp:Label>&nbsp;points/<asp:Label ID="lblTotalItems" CssClass="text-success" runat="server" Text="Label"></asp:Label>&nbsp;items
                                 <%--      <button type="button" class="close btn btn-default" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>--%>
@@ -136,8 +137,6 @@
                                             </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
-
-                                    <h4><strong>Number of K numbers:</strong><asp:Label ID="lblTotalItems" CssClass="text-info" runat="server" Text="Qty"></asp:Label></h4>
                                 </small>
                             </div>
                             <div class="modal-footer">

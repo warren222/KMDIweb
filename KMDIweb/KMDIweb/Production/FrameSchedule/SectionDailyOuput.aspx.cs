@@ -164,6 +164,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 GridViewRow row = GridView1.Rows[rowindex];
                 lblmodalSection.Text = lblSection.Text;
                 lblmodalDate.Text = ((Label)row.FindControl("lblDateFormatted")).Text;
+                lblmodalTotalPoints.Text = ((LinkButton)row.FindControl("LinkButton1")).Text;
                 loadlist(((Label)row.FindControl("lblDate")).Text,((Label)row.FindControl("lblSection")).Text);
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
