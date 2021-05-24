@@ -142,6 +142,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             SixthRowDynamicBackColor();
             formatLink();
             showHoliday();
+            pointsMaximum();
         }
         private void FirstRowDynamicBackColor()
         {
@@ -352,6 +353,40 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 }
             }
         }
+        private void pointsMaximum()
+        {
+            for (int x = 1; x <= 17; x += 3)
+            {
+                if (Convert.ToInt32(((Label)GridView1.Rows[1].Cells[0].FindControl("lbl1points")).Text.ToString().Replace(",", "")) > 8000)
+                {
+                    ((Label)GridView1.Rows[1].Cells[0].FindControl("lbl1points")).ForeColor = Color.Red;
+                }
+                if (Convert.ToInt32(((Label)GridView1.Rows[x].Cells[1].FindControl("lbl2points")).Text.Replace(",", "")) > 8000)
+                {
+                    ((Label)GridView1.Rows[x].Cells[1].FindControl("lbl2points")).ForeColor = Color.Red;
+                }
+                if (Convert.ToInt32(((Label)GridView1.Rows[x].Cells[2].FindControl("lbl3points")).Text.Replace(",", "")) > 8000)
+                {
+                    ((Label)GridView1.Rows[x].Cells[2].FindControl("lbl3points")).ForeColor = Color.Red;
+                }
+                if (Convert.ToInt32(((Label)GridView1.Rows[x].Cells[3].FindControl("lbl4points")).Text.Replace(",", "")) > 8000)
+                {
+                    ((Label)GridView1.Rows[x].Cells[3].FindControl("lbl4points")).ForeColor = Color.Red;
+                }
+                if (Convert.ToInt32(((Label)GridView1.Rows[x].Cells[4].FindControl("lbl5points")).Text.Replace(",", "")) > 8000)
+                {
+                    ((Label)GridView1.Rows[x].Cells[4].FindControl("lbl5points")).ForeColor = Color.Red;
+                }
+                if (Convert.ToInt32(((Label)GridView1.Rows[x].Cells[5].FindControl("lbl6points")).Text.Replace(",", "")) > 8000)
+                {
+                    ((Label)GridView1.Rows[x].Cells[5].FindControl("lbl6points")).ForeColor = Color.Red;
+                }
+                if (Convert.ToInt32(((Label)GridView1.Rows[x].Cells[6].FindControl("lbl7points")).Text.Replace(",", "")) > 8000)
+                {
+                    ((Label)GridView1.Rows[x].Cells[6].FindControl("lbl7points")).ForeColor = Color.Red;
+                }
+            }
+        }
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "viewlistMon")
@@ -387,7 +422,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         {
             int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
             GridViewRow row = GridView1.Rows[rowindex];
-            GridViewRow row2 = GridView1.Rows[rowindex+1];
+            GridViewRow row2 = GridView1.Rows[rowindex + 1];
             getlist(((Label)row.FindControl(lbl)).Text);
 
             lblmodalHeader.Text = ((Label)row.FindControl(lbl)).Text;
