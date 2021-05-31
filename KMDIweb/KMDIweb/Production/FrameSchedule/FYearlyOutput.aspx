@@ -4,20 +4,21 @@
 
 <asp:Content runat="server" ID="Content1" ContentPlaceHolderID="head">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Yearly output insight</title>
+    <title>POINTS INSIGHT</title>
 </asp:Content>
 <asp:Content runat="server" ID="Content2" ContentPlaceHolderID="content">
-    <div class="well">
-        <h2>Frame Fabrication Load/Output Summary</h2>
-    </div>
+   
     <div class="container">
+         <div class="well text-center">
+        <h3><strong>MONTHLY POINT'S SUMMARY</strong> </h3>
+    </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
 
         <div class="well">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <h2>Chart</h2>
+                    <h3 class="text-center text-muted">Chart</h3>
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="input-group">
@@ -40,8 +41,9 @@
                                 <div class="input-group-addon">
                                 </div>
                                 <asp:DropDownList ID="ddlSearchby" CssClass="form-control" runat="server">
-                                    <asp:ListItem Value="Output" Text="Output"></asp:ListItem>
-                                    <asp:ListItem Value="Load" Text="Load"></asp:ListItem>
+                                    <asp:ListItem Value="SD_Received" Text="SD Received"></asp:ListItem>
+                                    <asp:ListItem Value="Output" Text="Fabricated"></asp:ListItem>
+                                    <asp:ListItem Value="Load" Text="Not Fabricated"></asp:ListItem>
                                 </asp:DropDownList>
 
                             </div>
@@ -80,9 +82,9 @@
 
                         </asp:Chart>
                     </asp:Panel>
-          
-            <br />
-              <h2>Table</h2>
+
+                    <br />
+                 <%--   <h2>Table</h2>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="input-group">
@@ -104,7 +106,7 @@
                                 <asp:DropDownList ID="ddlSortBy" CssClass="form-control" runat="server">
                                 </asp:DropDownList>
                                 <div class="input-group-btn">
-                                    <asp:LinkButton ID="btnSort"  ValidationGroup="mm" CssClass="btn btn-default" runat="server" OnClick="btnSort_Click">SORT</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSort" ValidationGroup="mm" CssClass="btn btn-default" runat="server" OnClick="btnSort_Click">SORT</asp:LinkButton>
                                 </div>
                             </div>
                         </div>
@@ -112,37 +114,37 @@
                     <br />
                     <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="False" runat="server" OnRowDataBound="GridView1_RowDataBound" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" ForeColor="Black" GridLines="None">
                         <AlternatingRowStyle BackColor="PaleGoldenrod" />
-                      <Columns>
-                          <asp:TemplateField>
-                              <ItemTemplate>
-                                  <%# Container.DataItemIndex+1 %>
-                              </ItemTemplate>
-                          </asp:TemplateField>
-                          <asp:TemplateField HeaderText="Month">
-                           
-                              <ItemTemplate>
-                                  <asp:Label ID="lblMM" runat="server" Text='<%# Bind("MM") %>'></asp:Label>
-                              </ItemTemplate>
-                          </asp:TemplateField>
-                            
-                          <asp:TemplateField>
-                                 <HeaderTemplate>
-                                     <asp:Label ID="lblheadery1" runat="server" Text="Label"></asp:Label>
-                              </HeaderTemplate>
-                                <ItemTemplate>
-                                  <asp:Label ID="lbly1" runat="server" Text='<%# Bind("qty1Formated") %>'></asp:Label>
-                              </ItemTemplate>
-                          </asp:TemplateField>
+                        <Columns>
                             <asp:TemplateField>
-                                  <HeaderTemplate>
-                                     <asp:Label ID="lblheadery2" runat="server" Text="Label"></asp:Label>
-                              </HeaderTemplate>
-                              <ItemTemplate>
-                                  <asp:Label ID="lbly2" runat="server" Text='<%# Bind("qty2Formated") %>'></asp:Label>
-                              </ItemTemplate>
-                          </asp:TemplateField>
-                      </Columns>
-                        
+                                <ItemTemplate>
+                                    <%# Container.DataItemIndex+1 %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Month">
+
+                                <ItemTemplate>
+                                    <asp:Label ID="lblMM" runat="server" Text='<%# Bind("MM") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    <asp:Label ID="lblheadery1" runat="server" Text="Label"></asp:Label>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbly1" runat="server" Text='<%# Bind("qty1Formated") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    <asp:Label ID="lblheadery2" runat="server" Text="Label"></asp:Label>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbly2" runat="server" Text='<%# Bind("qty2Formated") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+
                         <FooterStyle BackColor="Tan" />
                         <HeaderStyle BackColor="Tan" Font-Bold="True" />
                         <PagerStyle BackColor="PaleGoldenrod" ForeColor="DarkSlateBlue" HorizontalAlign="Center" />
@@ -151,7 +153,7 @@
                         <SortedAscendingHeaderStyle BackColor="#DAC09E" />
                         <SortedDescendingCellStyle BackColor="#E1DB9C" />
                         <SortedDescendingHeaderStyle BackColor="#C2A47B" />
-                    </asp:GridView>
+                    </asp:GridView>--%>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>

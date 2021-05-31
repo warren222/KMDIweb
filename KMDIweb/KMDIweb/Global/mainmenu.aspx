@@ -61,7 +61,7 @@
             <h2><strong class="text-muted">WEB applications</strong>  </h2>
             <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="val1" CssClass="alert alert-danger" runat="server" />
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="thumbnail">
                         <asp:Image ID="Image3" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
                         <br />
@@ -72,7 +72,7 @@
                         <asp:LinkButton ID="LinkButton4" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton4_Click">ENTER</asp:LinkButton>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="thumbnail">
                         <asp:Image ID="Image1" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
                         <br />
@@ -84,7 +84,7 @@
 
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <asp:Panel ID="Panel1" runat="server">
                         <div class="thumbnail">
                             <asp:Image ID="Image2" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="DR Reports" />
