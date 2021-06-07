@@ -34,13 +34,14 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 {
                     try
                     {
-                        tboxSearch.Text = tboxSearch.Text.Replace("'", "`");
-                        tboxSearch.Text = tboxSearch.Text.Replace("\"", "``");
+                        tboxproject.Text = tboxproject.Text.Replace("'", "`");
+                        tboxproject.Text = tboxproject.Text.Replace("\"", "``");
                         sqlcon.Open();
                         sqlcmd.CommandText = "new_schedule_summary_stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@command", "new");
-                        sqlcmd.Parameters.AddWithValue("@searchkey", tboxSearch.Text);
+                        sqlcmd.Parameters.AddWithValue("@SearchKey", tboxproject.Text);
+                        sqlcmd.Parameters.AddWithValue("@date", tboxdate.Text);
                         DataTable tb = new DataTable();
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;

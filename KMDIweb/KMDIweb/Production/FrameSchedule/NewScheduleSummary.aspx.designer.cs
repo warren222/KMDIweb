@@ -22,22 +22,22 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// tboxproject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.TextBox tboxproject;
         
         /// <summary>
-        /// tboxSearch control.
+        /// tboxdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tboxSearch;
+        protected global::System.Web.UI.WebControls.TextBox tboxdate;
         
         /// <summary>
         /// LinkButton1 control.
@@ -47,6 +47,15 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
         /// ValidationSummary1 control.

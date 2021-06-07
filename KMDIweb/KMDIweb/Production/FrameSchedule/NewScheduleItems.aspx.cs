@@ -40,6 +40,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@command", "select");
                         sqlcmd.Parameters.AddWithValue("@new_due_date", Session["asof"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@searchkey", tboxproject.Text);
                         DataTable tb = new DataTable();
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
@@ -88,6 +89,11 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
+            loaddata();
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
             loaddata();
         }
     }
