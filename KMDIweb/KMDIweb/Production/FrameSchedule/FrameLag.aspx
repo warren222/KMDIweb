@@ -12,28 +12,40 @@
         <div class="well text-center">
             <h2>Frame Sections' Lag Monitoring</h2>
         </div>
-        <div class="col-sm-6">
-            <div class="input-group" style="width: 100%">
-                <div class="input-group-addon" style="width: 110px;">
-                    Section
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        AE/ENGR.
+                    </div>
+                    <asp:DropDownList ID="ddlae" runat="server" CssClass="form-control">
+                    </asp:DropDownList>
                 </div>
-                <asp:DropDownList ID="ddlSection" CssClass="form-control" runat="server">
-                    <asp:ListItem Text="Cutting" Value="Cutting"></asp:ListItem>
-                    <asp:ListItem Text="Drainage" Value="Drainage"></asp:ListItem>
-                    <asp:ListItem Text="Handle" Value="Handle"></asp:ListItem>
-                    <asp:ListItem Text="Fixing" Value="Fixing"></asp:ListItem>
-                    <asp:ListItem Text="Welding" Value="Welding"></asp:ListItem>
-                    <asp:ListItem Text="Corner Cleaning" Value="Corner Cleaning"></asp:ListItem>
-                    <asp:ListItem Text="Mullion / Transom" Value="Mullion / Transom"></asp:ListItem>
-                    <asp:ListItem Text="Glazing Bead" Value="Glazing Bead"></asp:ListItem>
-                    <asp:ListItem Text="Hardware" Value="Hardware"></asp:ListItem>
-                    <asp:ListItem Text="Finishing" Value="Finishing"></asp:ListItem>
-                </asp:DropDownList>
-                <div class="input-group-btn">
-                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-primary" OnClick="LinkButton1_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+            </div>
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <div class="input-group-addon" style="width: 110px;">
+                        Section
+                    </div>
+                    <asp:DropDownList ID="ddlSection" CssClass="form-control" runat="server">
+                        <asp:ListItem Text="Cutting" Value="Cutting"></asp:ListItem>
+                        <asp:ListItem Text="Drainage" Value="Drainage"></asp:ListItem>
+                        <asp:ListItem Text="Handle" Value="Handle"></asp:ListItem>
+                        <asp:ListItem Text="Fixing" Value="Fixing"></asp:ListItem>
+                        <asp:ListItem Text="Welding" Value="Welding"></asp:ListItem>
+                        <asp:ListItem Text="Corner Cleaning" Value="Corner Cleaning"></asp:ListItem>
+                        <asp:ListItem Text="Mullion / Transom" Value="Mullion / Transom"></asp:ListItem>
+                        <asp:ListItem Text="Glazing Bead" Value="Glazing Bead"></asp:ListItem>
+                        <asp:ListItem Text="Hardware" Value="Hardware"></asp:ListItem>
+                        <asp:ListItem Text="Finishing" Value="Finishing"></asp:ListItem>
+                    </asp:DropDownList>
+                    <div class="input-group-btn">
+                        <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-primary" OnClick="LinkButton1_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                    </div>
                 </div>
             </div>
         </div>
+
         <br />
         <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="errorval" CssClass="alert alert-danger" runat="server" />
         <h2>
@@ -56,7 +68,7 @@
         </table>
         <asp:Panel runat="server" ID="Panel1" ScrollBars="Auto">
 
-            <asp:GridView ID="GridView1" CssClass="table tbl" AllowPaging="True" AutoGenerateColumns="False" runat="server" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="100" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1">
+            <asp:GridView ID="GridView1" CssClass="table tbl" AllowPaging="True" AutoGenerateColumns="False" runat="server" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="100" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
                 <Columns>
                     <asp:TemplateField HeaderText="Project">
                         <ItemTemplate>
@@ -70,25 +82,30 @@
                             <asp:Label ID="lblKno" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label><br />
                             <asp:Label ID="lblLocation" CssClass="text-muted" runat="server" Text='<%# Bind("Location") %>'></asp:Label>
                         </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="Points">
                         <ItemTemplate>
                             <asp:Label ID="lblpoints" runat="server" Text='<%# Bind("points") %>'></asp:Label>
                         </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Right" />
                     </asp:TemplateField>
                     <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Date">
                         <ItemTemplate>
                             <asp:Label ID="lbldate" runat="server" Text='<%# Bind("d") %>'></asp:Label>
                         </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="Days">
                         <ItemTemplate>
                             <asp:Label ID="lbldays" Font-Size="XX-Large" CssClass="text-danger" Font-Bold="true" runat="server" Text='<%# Bind("days") %>'></asp:Label>
                         </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Right" />
                     </asp:TemplateField>
                 </Columns>
-                <PagerStyle CssClass="GridPager" HorizontalAlign="Left" />
-                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+                <PagerStyle CssClass="GridPager" HorizontalAlign="Right" BackColor="White" ForeColor="Black" />
+                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                 <PagerSettings PageButtonCount="8" Position="Bottom" />
                 <EmptyDataTemplate>
                     <div>
@@ -96,12 +113,11 @@
                         </h3>
                     </div>
                 </EmptyDataTemplate>
-                <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
-                <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                <SortedAscendingHeaderStyle BackColor="#594B9C" />
-                <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                <SortedDescendingHeaderStyle BackColor="#33276A" />
+                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#242121" />
             </asp:GridView>
 
         </asp:Panel>

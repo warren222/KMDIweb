@@ -11,17 +11,30 @@
         <div class="well text-center">
             <h2 class="text-muted">List of rescheduled items
             <asp:Label ID="lblDate" runat="server" CssClass="text-primary" Text=""></asp:Label></h2>
-           
-                <div class=" input-group">
-                    <div class="input-group-addon">
-                        Project
-                    </div>
-                    <asp:TextBox ID="tboxproject" CssClass="form-control" runat="server"></asp:TextBox>
-                    <div class="input-group-btn">
-                        <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            AE/ENGR.
+                        </div>
+                        <asp:DropDownList ID="ddlae" runat="server" CssClass="form-control">
+                        </asp:DropDownList>
                     </div>
                 </div>
-           
+                <div class="col-sm-6">
+                    <div class=" input-group">
+                        <div class="input-group-addon">
+                            Project
+                        </div>
+                        <asp:TextBox ID="tboxproject" CssClass="form-control" runat="server"></asp:TextBox>
+                        <div class="input-group-btn">
+                            <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>

@@ -1,54 +1,54 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KMDIweb/Production/FrameSchedule/FrameScheduleMaster.Master" CodeBehind="CalendarFrame.aspx.cs" Inherits="KMDIweb.KMDIweb.Production.FrameSchedule.CalendarFrame" %>
 
 <asp:Content ID="content1" runat="server" ContentPlaceHolderID="head">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%--  <meta name="viewport" content="width=device-width, initial-scale=1" />--%>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Frame Calendar</title>
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="container">
-        <div class="well">
-            <h2>Frame Schedule Calendar
+    <div class="well">
+        <h2>Frame Schedule Calendar
             <asp:Label ID="lblDate" runat="server" CssClass="text-primary" Text=""></asp:Label></h2>
-            <div class="col-sm-2">
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        Year
-                    </div>
-                    <asp:TextBox ID="tboxyear" runat="server" TextMode="Number" CssClass="form-control">2021</asp:TextBox>
+        <div class="col-sm-2">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    Year
                 </div>
+                <asp:TextBox ID="tboxyear" runat="server" TextMode="Number" CssClass="form-control">2021</asp:TextBox>
             </div>
-            <div class="col-sm-4">
-                <div class="input-group">
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group">
 
-                    <div class="input-group-addon">
-                        Month
-                    </div>
-                    <asp:DropDownList CssClass="form-control" ID="ddlmonth" runat="server">
-                        <asp:ListItem Text="Jan" Value="01"></asp:ListItem>
-                        <asp:ListItem Text="Feb" Value="02"></asp:ListItem>
-                        <asp:ListItem Text="Mar" Value="03"></asp:ListItem>
-                        <asp:ListItem Text="Apr" Value="04"></asp:ListItem>
-                        <asp:ListItem Text="May" Value="05"></asp:ListItem>
-                        <asp:ListItem Text="Jun" Value="06"></asp:ListItem>
-                        <asp:ListItem Text="Jul" Value="07"></asp:ListItem>
-                        <asp:ListItem Text="Aug" Value="08"></asp:ListItem>
-                        <asp:ListItem Text="Sep" Value="09"></asp:ListItem>
-                        <asp:ListItem Text="Oct" Value="10"></asp:ListItem>
-                        <asp:ListItem Text="Nov" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="Dec" Value="12"></asp:ListItem>
-                    </asp:DropDownList>
-                    <div class="input-group-addon">
-                        <asp:CheckBox ID="CheckBox1" Text="Fabricated" runat="server" Checked="True" />
-                    </div>
-                    <div class="input-group-btn">
-                        <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click">Submit</asp:LinkButton>
-                    </div>
+                <div class="input-group-addon">
+                    Month
+                </div>
+                <asp:DropDownList CssClass="form-control" ID="ddlmonth" runat="server">
+                    <asp:ListItem Text="Jan" Value="01"></asp:ListItem>
+                    <asp:ListItem Text="Feb" Value="02"></asp:ListItem>
+                    <asp:ListItem Text="Mar" Value="03"></asp:ListItem>
+                    <asp:ListItem Text="Apr" Value="04"></asp:ListItem>
+                    <asp:ListItem Text="May" Value="05"></asp:ListItem>
+                    <asp:ListItem Text="Jun" Value="06"></asp:ListItem>
+                    <asp:ListItem Text="Jul" Value="07"></asp:ListItem>
+                    <asp:ListItem Text="Aug" Value="08"></asp:ListItem>
+                    <asp:ListItem Text="Sep" Value="09"></asp:ListItem>
+                    <asp:ListItem Text="Oct" Value="10"></asp:ListItem>
+                    <asp:ListItem Text="Nov" Value="11"></asp:ListItem>
+                    <asp:ListItem Text="Dec" Value="12"></asp:ListItem>
+                </asp:DropDownList>
+                <div class="input-group-addon">
+                    <asp:CheckBox ID="CheckBox1" Text="Fabricated" runat="server" Checked="True" />
+                </div>
+                <div class="input-group-btn">
+                    <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click">Submit</asp:LinkButton>
                 </div>
             </div>
         </div>
     </div>
+
 
 
     <h1 class="text-center">

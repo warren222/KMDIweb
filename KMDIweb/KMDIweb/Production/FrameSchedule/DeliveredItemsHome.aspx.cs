@@ -18,6 +18,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             {
                 if (!IsPostBack)
                 {
+                    loadae();
                     loaddata();
                 }
             }
@@ -30,6 +31,31 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             loaddata();
+        }
+        private void loadae()
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "dr_project_list_stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "loadae");
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
+                        ddlae.DataSource = sqlcmd.ExecuteReader();
+                        ddlae.DataTextField = "fullname";
+                        ddlae.DataValueField = "fullname";
+                        ddlae.DataBind();
+                    }
+                    catch (Exception e)
+                    {
+                        errorrmessage(e.Message);
+                    }
+                }
+            }
         }
         private void loaddata()
         {
@@ -44,7 +70,9 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         sqlcon.Open();
                         sqlcmd.CommandText = "dr_project_list_stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "load");
                         sqlcmd.Parameters.AddWithValue("@searchkey", tboxSearch.Text);
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
                         DataTable tb = new DataTable();
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;

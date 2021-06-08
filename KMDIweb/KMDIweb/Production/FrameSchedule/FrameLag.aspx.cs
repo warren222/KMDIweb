@@ -18,6 +18,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             {
                 if (!IsPostBack)
                 {
+                    loadae();
                     loadsummary();
                 }
             }
@@ -41,7 +42,31 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
-
+        private void loadae()
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "FrameLagStp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@section", "loadae");
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
+                        ddlae.DataSource = sqlcmd.ExecuteReader();
+                        ddlae.DataTextField = "fullname";
+                        ddlae.DataValueField = "fullname";
+                        ddlae.DataBind();
+                    }
+                    catch (Exception e)
+                    {
+                        errorrmessage(e.Message);
+                    }
+                }
+            }
+        }
         private void loadsummary()
         {
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
@@ -55,6 +80,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         sqlcmd.CommandText = "FrameLagStp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@section", ddlSection.Text);
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
                         DataTable tb = new DataTable();
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
