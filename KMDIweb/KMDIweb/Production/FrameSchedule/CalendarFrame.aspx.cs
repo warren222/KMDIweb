@@ -21,6 +21,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 if (!IsPostBack)
                 {
                     ddlmonth.SelectedValue = DateTime.Now.ToString("MM");
+                    loadae();
                     loaddata();
                 }
             }
@@ -119,6 +120,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         sqlcmd.Parameters.AddWithValue("@command", "calendar");
                         sqlcmd.Parameters.AddWithValue("@d", d);
                         sqlcmd.Parameters.AddWithValue("@calfab", CheckBox1.Checked.ToString());
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
@@ -130,6 +132,31 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     finally
                     {
                         projectsummary();
+                    }
+                }
+            }
+        }
+        private void loadae()
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Framewebcalendar";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "loadae");
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
+                        ddlae.DataSource = sqlcmd.ExecuteReader();
+                        ddlae.DataTextField = "fullname";
+                        ddlae.DataValueField = "fullname";
+                        ddlae.DataBind();
+                    }
+                    catch (Exception e)
+                    {
+                        errorrmessage(e.Message);
                     }
                 }
             }
@@ -150,6 +177,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         sqlcmd.Parameters.AddWithValue("@calfab", CheckBox1.Checked.ToString());
                         sqlcmd.Parameters.AddWithValue("@yr", tboxyear.Text);
                         sqlcmd.Parameters.AddWithValue("@month", ddlmonth.SelectedValue.ToString());
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
                         GridView3.DataSource = sqlcmd.ExecuteReader();
                         GridView3.DataBind();
                     }
