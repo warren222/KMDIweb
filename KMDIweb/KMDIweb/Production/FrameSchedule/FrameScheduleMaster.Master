@@ -15,7 +15,9 @@
             border-left: 6px solid green;
         }
     </style>
+  
     <asp:ContentPlaceHolder ID="head" runat="server">
+           <meta name="viewport" content="width=device-width,initial-scale=1">
     </asp:ContentPlaceHolder>
 
 </head>

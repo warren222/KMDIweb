@@ -43,9 +43,8 @@
                     </tr>
                 </table>
                 <h2>
-                    <asp:LinkButton ID="LinkButton1" CssClass=" btn btn-success" PostBackUrl="~/KMDIweb/Production/FrameSchedule/CalendarFrame.aspx" runat="server">Go to Calendar&nbsp;<span class="glyphicon glyphicon-calendar"></span></asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton1" CssClass=" btn btn-success" PostBackUrl="~/KMDIweb/Production/FrameSchedule/CalendarFrame.aspx" runat="server">Go to Due Date Calendar&nbsp;<span class="glyphicon glyphicon-calendar"></span></asp:LinkButton>
                 </h2>
-
             </div>
         </div>
     </div>

@@ -23,6 +23,7 @@ namespace KMDIweb.DRscannedReports
                         TBOXsearchkey.Text = Session["SDRhomeSearchkey"].ToString();
                         GridView1.PageIndex =Convert.ToInt32(Session["SDRhomePageindex"]);
                     }
+                    loadae();
                     loaddata();
                 }
             }
@@ -51,6 +52,31 @@ namespace KMDIweb.DRscannedReports
         {
             loaddata();
         }
+        private void loadae()
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "dr_project_list_stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "loadae");
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
+                        ddlae.DataSource = sqlcmd.ExecuteReader();
+                        ddlae.DataTextField = "fullname";
+                        ddlae.DataValueField = "fullname";
+                        ddlae.DataBind();
+                    }
+                    catch (Exception e)
+                    {
+                        errorrmessage(e.Message);
+                    }
+                }
+            }
+        }
         private void loaddata()
         {
             try
@@ -64,7 +90,9 @@ namespace KMDIweb.DRscannedReports
                         sqlcon.Open();
                         sqlcmd.CommandText = "dr_project_list_stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "load");
                         sqlcmd.Parameters.AddWithValue("@searchkey", TBOXsearchkey.Text);
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
                             da.SelectCommand = sqlcmd;

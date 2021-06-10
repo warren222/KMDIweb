@@ -25,6 +25,13 @@
         <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="valerror" runat="server" />
         <div class="well">
             <div class="input-group">
+                        <div class="input-group-addon">
+                            AE/ENGR.
+                        </div>
+                        <asp:DropDownList ID="ddlae" runat="server" CssClass="form-control">
+                        </asp:DropDownList>
+                    </div>
+            <div class="input-group">
                 <div class="input-group-addon">
                     search key
                 </div>

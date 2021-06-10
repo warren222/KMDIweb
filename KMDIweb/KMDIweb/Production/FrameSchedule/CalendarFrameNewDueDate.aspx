@@ -1,18 +1,25 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KMDIweb/Production/FrameSchedule/FrameScheduleMaster.Master" CodeBehind="CalendarFrame.aspx.cs" Inherits="KMDIweb.KMDIweb.Production.FrameSchedule.CalendarFrame" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KMDIweb/Production/FrameSchedule/FrameScheduleMaster.Master" CodeBehind="CalendarFrameNewDueDate.aspx.cs" Inherits="KMDIweb.KMDIweb.Production.FrameSchedule.CalendarFrameNewDueDate" %>
 
 <asp:Content ID="content1" runat="server" ContentPlaceHolderID="head">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%--  <meta name="viewport" content="width=device-width, initial-scale=1" />--%>
-    <%--   <meta content="width=device-width, initial-scale=1" name="viewport" />--%>
+ <%--   <meta content="width=device-width, initial-scale=1" name="viewport" />--%>
     <title>Frame Calendar</title>
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="well">
-        <h2>Due Date Calendar
+        <h2>New Due Date Calendar
             <asp:Label ID="lblDate" runat="server" CssClass="text-primary" Text=""></asp:Label></h2>
-
+        <div class="col-sm-2">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    Year
+                </div>
+                <asp:TextBox ID="tboxyear" runat="server" TextMode="Number" CssClass="form-control">2021</asp:TextBox>
+            </div>
+        </div>
         <div class="col-sm-4">
             <div class="input-group">
 
@@ -36,15 +43,6 @@
                 <div class="input-group-addon">
                     <asp:CheckBox ID="CheckBox1" Text="Fabricated" runat="server" Checked="True" />
                 </div>
-
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="input-group">
-                <div class="input-group-addon">
-                    Year
-                </div>
-                <asp:TextBox ID="tboxyear" runat="server" TextMode="Number" CssClass="form-control">2021</asp:TextBox>
                 <div class="input-group-btn">
                     <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click">Submit</asp:LinkButton>
                 </div>
@@ -216,37 +214,7 @@
                     </div>
                 </div>
             </div>
-            <div class="well">
-                <h2>Project Schedule Summary for the month of&nbsp;<strong><asp:Label ID="lblMonth2" CssClass="text-success" runat="server"></asp:Label></strong> </h2>
-            </div>
-            <asp:GridView ID="GridView3" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="Both">
-                <Columns>
-                    <asp:TemplateField HeaderText="PROJECT">
-                        <ItemTemplate>
-                            <asp:Label ID="lblproject" runat="server" Text='<%# Bind("PROJECT_LABEL") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="POINTS">
-                        <ItemTemplate>
-                            <asp:Label ID="lblpoints" runat="server" Text='<%# Bind("POINTS") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="SCHEDULE">
-                        <ItemTemplate>
-                            <asp:Label ID="lblschedule" runat="server" Text='<%# Bind("SCHEDULE") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
-                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
-                <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
-                <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
-                <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                <SortedAscendingHeaderStyle BackColor="#594B9C" />
-                <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                <SortedDescendingHeaderStyle BackColor="#33276A" />
-            </asp:GridView>
+
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

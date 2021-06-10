@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace KMDIweb.KMDIweb.Production.FrameSchedule
 {
-    public partial class CalendarFrame : System.Web.UI.Page
+    public partial class CalendarFrameNewDueDate : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,7 +33,6 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             DateTime D = Convert.ToDateTime(ddlmonth.SelectedValue.ToString() + "-01-" + tboxyear.Text);
             DateTime sdate = GetMonday(D);
             lblMonth.Text = D.ToString("MMMM");
-            lblMonth2.Text = D.ToString("MMMM");
             loadCalendarData(sdate.ToString());
         }
         public static DateTime GetMonday(DateTime time)
@@ -55,7 +53,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     try
                     {
                         sqlcon.Open();
-                        sqlcmd.CommandText = "Framewebcalendar";
+                        sqlcmd.CommandText = "FramewebcalendarNewDueDate";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@command", "holidays");
                         sqlcmd.Parameters.AddWithValue("@yr", tboxyear.Text);
@@ -114,7 +112,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     {
 
                         sqlcon.Open();
-                        sqlcmd.CommandText = "Framewebcalendar";
+                        sqlcmd.CommandText = "FramewebcalendarNewDueDate";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@command", "calendar");
                         sqlcmd.Parameters.AddWithValue("@d", d);
@@ -127,39 +125,10 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     {
                         errorrmessage(e.Message);
                     }
-                    finally
-                    {
-                        projectsummary();
-                    }
                 }
             }
         }
-        private void projectsummary()
-        {
-            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
-            {
-                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
-                {
-                    try
-                    {
 
-                        sqlcon.Open();
-                        sqlcmd.CommandText = "Framewebcalendar";
-                        sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@command", "project");
-                        sqlcmd.Parameters.AddWithValue("@calfab", CheckBox1.Checked.ToString());
-                        sqlcmd.Parameters.AddWithValue("@yr", tboxyear.Text);
-                        sqlcmd.Parameters.AddWithValue("@month", ddlmonth.SelectedValue.ToString());
-                        GridView3.DataSource = sqlcmd.ExecuteReader();
-                        GridView3.DataBind();
-                    }
-                    catch (Exception e)
-                    {
-                        errorrmessage(e.Message);
-                    }
-                }
-            }
-        }
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             loaddata();
@@ -471,7 +440,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     {
 
                         sqlcon.Open();
-                        sqlcmd.CommandText = "Framewebcalendar";
+                        sqlcmd.CommandText = "FramewebcalendarNewDueDate";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@command", "items");
                         sqlcmd.Parameters.AddWithValue("@calfab", CheckBox1.Checked.ToString());

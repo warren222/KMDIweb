@@ -10,7 +10,7 @@
 namespace KMDIweb.KMDIweb.Production.FrameSchedule {
     
     
-    public partial class CalendarFrame {
+    public partial class CalendarFrameNewDueDate {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -31,6 +31,15 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         protected global::System.Web.UI.WebControls.Label lblDate;
         
         /// <summary>
+        /// tboxyear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxyear;
+        
+        /// <summary>
         /// ddlmonth control.
         /// </summary>
         /// <remarks>
@@ -47,15 +56,6 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
-        
-        /// <summary>
-        /// tboxyear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tboxyear;
         
         /// <summary>
         /// LinkButton1 control.
@@ -137,23 +137,5 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView2;
-        
-        /// <summary>
-        /// lblMonth2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMonth2;
-        
-        /// <summary>
-        /// GridView3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView3;
     }
 }

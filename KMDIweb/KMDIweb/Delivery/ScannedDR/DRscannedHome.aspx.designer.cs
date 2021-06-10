@@ -31,6 +31,15 @@ namespace KMDIweb.DRscannedReports {
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
         
         /// <summary>
+        /// ddlae control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlae;
+        
+        /// <summary>
         /// TBOXsearchkey control.
         /// </summary>
         /// <remarks>
