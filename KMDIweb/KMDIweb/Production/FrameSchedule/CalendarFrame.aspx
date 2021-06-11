@@ -225,7 +225,7 @@
                 </div>
             </div>
             <div class="well">
-                <h2>Project Schedule Summary for the month of&nbsp;<strong><asp:Label ID="lblMonth2" CssClass="text-success" runat="server"></asp:Label></strong> </h2>
+                <h2>Summary of scheduled projects for&nbsp;<strong><asp:Label ID="lblMonth2" CssClass="text-success" runat="server"></asp:Label></strong> </h2>
             </div>
             <asp:GridView ID="GridView3" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="Both">
                 <Columns>

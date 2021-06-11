@@ -504,6 +504,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         sqlcmd.Parameters.AddWithValue("@command", "items");
                         sqlcmd.Parameters.AddWithValue("@calfab", CheckBox1.Checked.ToString());
                         sqlcmd.Parameters.AddWithValue("@date", caldate);
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
                         GridView2.DataSource = sqlcmd.ExecuteReader();
                         GridView2.DataBind();
                     }
