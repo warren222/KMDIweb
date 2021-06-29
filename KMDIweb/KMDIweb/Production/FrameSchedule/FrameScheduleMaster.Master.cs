@@ -20,6 +20,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 Notifcounter();
                 access();
                 summaryAccess();
+                estdaccess();
             }
             else
             {
@@ -123,6 +124,21 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 HyperLink22.Visible = false;
                 HyperLink21.Visible = false;
                 HyperLink23.Visible = false;
+            }
+        }
+        private void estdaccess()
+        {
+            if ((usercode == "Production Manager") ||
+                      (usercode == "Engineer Manager") ||
+                        (usercode == "Programmer") ||
+                      (usercode == "Management"))
+
+            {
+                HyperLink24.Visible = true;
+            }
+            else
+            {
+                HyperLink24.Visible = false;
             }
         }
         private void Notifcounter()

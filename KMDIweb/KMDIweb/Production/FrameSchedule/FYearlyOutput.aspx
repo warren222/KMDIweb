@@ -7,11 +7,11 @@
     <title>POINTS INSIGHT</title>
 </asp:Content>
 <asp:Content runat="server" ID="Content2" ContentPlaceHolderID="content">
-   
+
     <div class="container">
-         <div class="well text-center">
-        <h3><strong>MONTHLY POINT'S SUMMARY</strong> </h3>
-    </div>
+        <div class="well text-center">
+            <h3><strong>MONTHLY POINT'S SUMMARY</strong> </h3>
+        </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
 
@@ -76,7 +76,7 @@
                                 <asp:ChartArea Name="ChartArea1">
                                     <AxisX Title="Month"></AxisX>
                                     <AxisY Title="Frame Points"></AxisY>
-                                    <%--      <Area3DStyle Enable3D="true" />--%>
+                                     <%--     <Area3DStyle Enable3D="true" />--%>
                                 </asp:ChartArea>
                             </ChartAreas>
 
@@ -84,7 +84,7 @@
                     </asp:Panel>
 
                     <br />
-                 <%--   <h2>Table</h2>
+                    <%--   <h2>Table</h2>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="input-group">

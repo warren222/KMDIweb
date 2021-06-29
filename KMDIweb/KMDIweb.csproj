@@ -339,6 +339,13 @@
     <Compile Include="KMDIweb\Production\FrameSchedule\ffixing.aspx.designer.cs">
       <DependentUpon>ffixing.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fframecutting.aspx.cs">
+      <DependentUpon>fframecutting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fframecutting.aspx.designer.cs">
+      <DependentUpon>fframecutting.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\fgbead.aspx.cs">
       <DependentUpon>fgbead.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -416,6 +423,13 @@
     <Compile Include="KMDIweb\Production\FrameSchedule\FrameScheduleMaster.Master.designer.cs">
       <DependentUpon>FrameScheduleMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fsashcutting.aspx.cs">
+      <DependentUpon>fsashcutting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fsashcutting.aspx.designer.cs">
+      <DependentUpon>fsashcutting.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\fwelding.aspx.cs">
       <DependentUpon>fwelding.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -464,6 +478,13 @@
     </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemsReportPaage.aspx.designer.cs">
       <DependentUpon>NoticeForIncompleteItemsReportPaage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\ProjectionChart.aspx.cs">
+      <DependentUpon>ProjectionChart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\ProjectionChart.aspx.designer.cs">
+      <DependentUpon>ProjectionChart.aspx</DependentUpon>
     </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\recommendation.aspx.cs">
       <DependentUpon>recommendation.aspx</DependentUpon>
@@ -603,6 +624,7 @@
     <Content Include="KMDIweb\Production\FrameSchedule\fdrainage.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\ffinishing.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\ffixing.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fframecutting.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fgbead.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fhandle.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fhardware.aspx" />
@@ -613,6 +635,7 @@
     <Content Include="KMDIweb\Production\FrameSchedule\FrameHome.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FrameLag.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FrameOverDue.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fsashcutting.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fwelding.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\FYearlyOutput.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\NewScheduleItems.aspx" />
@@ -620,6 +643,7 @@
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItem.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemApproval.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemsReportPaage.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\ProjectionChart.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\recommendation.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\SectionDailyOuput.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\SectionDailyOutputReport.aspx" />
