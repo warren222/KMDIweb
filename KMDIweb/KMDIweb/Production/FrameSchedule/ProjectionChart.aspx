@@ -45,7 +45,7 @@
                                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("b") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Fabricated Points" ItemStyle-BackColor="#FF8001">
+                            <asp:TemplateField HeaderText="Delivered Points" ItemStyle-BackColor="#FF8001">
                                 <ItemTemplate>
                                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("c") %>'></asp:Label>
                                 </ItemTemplate>
@@ -68,7 +68,7 @@
                             </asp:Series>
                             <asp:Series Name="AEs' Estimation" IsValueShownAsLabel="true" IsVisibleInLegend="true" XValueMember="MM" YValueMembers="ae_estimation" ChartArea="ChartArea1" ChartType="Bar" Legend="Legend1">
                             </asp:Series>
-                            <asp:Series Name="Fabricated Points" IsValueShownAsLabel="true" IsVisibleInLegend="true" XValueMember="MM" YValueMembers="fabricated_points" ChartArea="ChartArea1" ChartType="Bar" Legend="Legend1">
+                            <asp:Series Name="Fabricated Points" IsValueShownAsLabel="true" IsVisibleInLegend="true" XValueMember="MM" YValueMembers="delivered_points" ChartArea="ChartArea1" ChartType="Bar" Legend="Legend1">
                             </asp:Series>
                         </Series>
                         <ChartAreas>
