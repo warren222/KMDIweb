@@ -409,7 +409,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
 
                 if (lblfixing.Text != "")
                 {
-                    ((GridView)sender).Rows[i].Cells[6].BackColor = Color.CornflowerBlue;
+                    ((GridView)sender).Rows[i].Cells[7].BackColor = Color.CornflowerBlue;
                     lblfixing.ForeColor = Color.White;
                 }
 

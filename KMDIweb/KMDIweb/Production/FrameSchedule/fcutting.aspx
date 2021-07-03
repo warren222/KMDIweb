@@ -117,10 +117,11 @@
                 </div>
 
                 <div class="panel-body">
+                    <h1 class="text-center text-success"><span>
+                        <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Cutting Checklist Table"></asp:Label>
+                    </span></h1>
                     <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto">
-                        <h1 class="text-center text-success"><span>
-                            <asp:Label ID="LBLschedule" runat="server" CssClass="forfont" Text="Cutting Checklist Table"></asp:Label>
-                        </span></h1>
+
                         <small>
                             <asp:GridView ID="GridView1" CssClass="table tbl" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" CellPadding="4" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
                                 <AlternatingRowStyle BackColor="White" />
@@ -224,7 +225,7 @@
 
                     <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto" Visible="false">
                         <h4 class="text-warning text-center"><span style="font-size: xx-large">Item checking</span></h4>
-                        <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to checklist</asp:LinkButton>
+                        <asp:LinkButton ID="LINKexit" Wi0dth="100%" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to checklist</asp:LinkButton>
 
                         <small>
                             <asp:GridView ID="GridView2" CssClass="table tbl" runat="server" CellPadding="4" ForeColor="Black" AllowPaging="True" AutoGenerateColumns="False" OnDataBound="GridView2_DataBound" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowCommand="GridView2_RowCommand" PageSize="25" GridLines="Horizontal" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
@@ -246,6 +247,12 @@
                                     <asp:TemplateField HeaderText="K#" ItemStyle-HorizontalAlign="Center">
                                         <ItemTemplate>
                                             <asp:Label ID="g2LBLkno" runat="server" Font-Bold="true" Text='<%# Bind("kmdi_no") %>'></asp:Label>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Center" />
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="DESCRIPTION" ItemStyle-HorizontalAlign="Center">
+                                        <ItemTemplate>
+                                            <asp:Label ID="g2LBLdescription" runat="server" Font-Bold="true" Text='<%# Bind("description") %>'></asp:Label>
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>

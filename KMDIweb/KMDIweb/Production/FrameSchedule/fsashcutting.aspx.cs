@@ -409,7 +409,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
 
                 if (lblcutting_sash.Text != "")
                 {
-                    ((GridView)sender).Rows[i].Cells[6].BackColor = Color.CornflowerBlue;
+                    ((GridView)sender).Rows[i].Cells[7].BackColor = Color.CornflowerBlue;
                     lblcutting_sash.ForeColor = Color.White;
                 }
 
@@ -489,7 +489,15 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             {
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
-                    using (SqlCommand sqlcmd = new SqlCommand("update kmdi_fabrication_tb set cutting_sash = format(getdate(),'MMM dd, yyyy') where job_order_no = '" + jo + "' and kmdi_no  = '" + kno + "' and cutting_sash = ''", sqlcon))
+                    string str = "update kmdi_fabrication_tb set cutting_sash = format(getdate(), 'MMM dd, yyyy') where job_order_no = '" + jo + "' and kmdi_no = '" + kno + "' and cutting_sash = ''" +
+             " declare @MostRecentDate as varchar(100) = " +
+             " (SELECT " +
+             " CASE WHEN cast(cutting_sash as date) > cast(cutting_frame as date) THEN cutting_sash " +
+             " ELSE cutting_frame " +
+             " END AS MostRecentDate " +
+             " FROM kmdi_fabrication_tb where job_order_no = '" + jo + "' and kmdi_no = '" + kno + "') " +
+             " update kmdi_fabrication_tb set cutting = @MostRecentDate where job_order_no = '" + jo + "' and kmdi_no = '" + kno + "' and cutting_frame <> '' and cutting_sash <> ''";
+                    using (SqlCommand sqlcmd = new SqlCommand(str, sqlcon))
                     {
                         sqlcon.Open();
                         sqlcmd.ExecuteNonQuery();
