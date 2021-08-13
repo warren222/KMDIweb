@@ -1,4 +1,5 @@
-﻿using KMDIweb.SCREENfab;
+﻿using KMDIweb.KMDIweb.Global.objects;
+using KMDIweb.SCREENfab;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -201,9 +202,37 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             formatLink();
             showHoliday();
             pointsMaximum();
+            if (Session["KMDI_ffm_acct"].ToString() == "Guest")
+            {
+                for (int i = 0; i <= GridView1.Rows.Count - 1; i++)
+                {
+                    GridViewRow row = GridView1.Rows[i];
+                    ((Label)row.FindControl("lbl1points")).Visible = false;
+                    ((Label)row.FindControl("lbl2points")).Visible = false;
+                    ((Label)row.FindControl("lbl3points")).Visible = false;
+                    ((Label)row.FindControl("lbl4points")).Visible = false;
+                    ((Label)row.FindControl("lbl5points")).Visible = false;
+                    ((Label)row.FindControl("lbl6points")).Visible = false;
+                    ((Label)row.FindControl("lbl7points")).Visible = false;
+                    ((Label)row.FindControl("lbl8points")).Visible = false;
+
+                    ((Label)row.FindControl("lbl1specialpoints")).Visible = false;
+                    ((Label)row.FindControl("lbl2specialpoints")).Visible = false;
+                    ((Label)row.FindControl("lbl3specialpoints")).Visible = false;
+                    ((Label)row.FindControl("lbl4specialpoints")).Visible = false;
+                    ((Label)row.FindControl("lbl5specialpoints")).Visible = false;
+                    ((Label)row.FindControl("lbl6specialpoints")).Visible = false;
+                    ((Label)row.FindControl("lbl7specialpoints")).Visible = false;
+                    ((Label)row.FindControl("lbl8specialpoints")).Visible = false;
+                }
+            }
+
         }
         private void FirstRowDynamicBackColor()
         {
+
+
+
             Label lbl1date = (Label)GridView1.Rows[0].Cells[0].FindControl("lbl1date");
             Label lbl2date = (Label)GridView1.Rows[0].Cells[0].FindControl("lbl2date");
             Label lbl3date = (Label)GridView1.Rows[0].Cells[0].FindControl("lbl3date");
@@ -211,11 +240,13 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             Label lbl5date = (Label)GridView1.Rows[0].Cells[0].FindControl("lbl5date");
             Label lbl6date = (Label)GridView1.Rows[0].Cells[0].FindControl("lbl6date");
             Label lbl7date = (Label)GridView1.Rows[0].Cells[0].FindControl("lbl7date");
+
             if (!lbl1date.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
                 GridView1.Rows[0].Cells[0].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[1].Cells[0].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[2].Cells[0].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[3].Cells[0].BackColor = Color.WhiteSmoke;
                 //(Label)GridView1.Rows[0].Cells[0].FindControl("lbl7date");
             }
             if (!lbl2date.Text.Contains(ddlmonth.SelectedItem.ToString()))
@@ -223,145 +254,165 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 GridView1.Rows[0].Cells[1].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[1].Cells[1].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[2].Cells[1].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[3].Cells[1].BackColor = Color.WhiteSmoke;
             }
             if (!lbl3date.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
                 GridView1.Rows[0].Cells[2].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[1].Cells[2].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[2].Cells[2].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[3].Cells[2].BackColor = Color.WhiteSmoke;
             }
             if (!lbl4date.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
                 GridView1.Rows[0].Cells[3].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[1].Cells[3].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[2].Cells[3].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[3].Cells[3].BackColor = Color.WhiteSmoke;
             }
             if (!lbl5date.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
                 GridView1.Rows[0].Cells[4].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[1].Cells[4].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[2].Cells[4].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[4].Cells[4].BackColor = Color.WhiteSmoke;
             }
             if (!lbl6date.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
                 GridView1.Rows[0].Cells[5].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[1].Cells[5].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[2].Cells[5].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[3].Cells[5].BackColor = Color.WhiteSmoke;
             }
             if (!lbl7date.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
                 GridView1.Rows[0].Cells[6].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[1].Cells[6].BackColor = Color.WhiteSmoke;
                 GridView1.Rows[2].Cells[6].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[3].Cells[6].BackColor = Color.WhiteSmoke;
             }
         }
         private void FifthRowDynamicBackColor()
         {
-            Label lbl1date2LastRow = (Label)GridView1.Rows[12].Cells[0].FindControl("lbl1date");
-            Label lbl2date2LastRow = (Label)GridView1.Rows[12].Cells[0].FindControl("lbl2date");
-            Label lbl3date2LastRow = (Label)GridView1.Rows[12].Cells[0].FindControl("lbl3date");
-            Label lbl4date2LastRow = (Label)GridView1.Rows[12].Cells[0].FindControl("lbl4date");
-            Label lbl5date2LastRow = (Label)GridView1.Rows[12].Cells[0].FindControl("lbl5date");
-            Label lbl6date2LastRow = (Label)GridView1.Rows[12].Cells[0].FindControl("lbl6date");
-            Label lbl7date2LastRow = (Label)GridView1.Rows[12].Cells[0].FindControl("lbl7date");
+            Label lbl1date2LastRow = (Label)GridView1.Rows[16].Cells[0].FindControl("lbl1date");
+            Label lbl2date2LastRow = (Label)GridView1.Rows[16].Cells[0].FindControl("lbl2date");
+            Label lbl3date2LastRow = (Label)GridView1.Rows[16].Cells[0].FindControl("lbl3date");
+            Label lbl4date2LastRow = (Label)GridView1.Rows[16].Cells[0].FindControl("lbl4date");
+            Label lbl5date2LastRow = (Label)GridView1.Rows[16].Cells[0].FindControl("lbl5date");
+            Label lbl6date2LastRow = (Label)GridView1.Rows[16].Cells[0].FindControl("lbl6date");
+            Label lbl7date2LastRow = (Label)GridView1.Rows[16].Cells[0].FindControl("lbl7date");
             if (!lbl1date2LastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[12].Cells[0].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[13].Cells[0].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[14].Cells[0].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[16].Cells[0].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[17].Cells[0].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[18].Cells[0].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[19].Cells[0].BackColor = Color.WhiteSmoke;
             }
             if (!lbl2date2LastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[12].Cells[1].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[13].Cells[1].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[14].Cells[1].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[16].Cells[1].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[17].Cells[1].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[18].Cells[1].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[19].Cells[1].BackColor = Color.WhiteSmoke;
             }
             if (!lbl3date2LastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[12].Cells[2].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[13].Cells[2].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[14].Cells[2].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[16].Cells[2].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[17].Cells[2].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[18].Cells[2].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[19].Cells[2].BackColor = Color.WhiteSmoke;
             }
             if (!lbl4date2LastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[12].Cells[3].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[13].Cells[3].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[14].Cells[3].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[16].Cells[3].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[17].Cells[3].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[18].Cells[3].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[19].Cells[3].BackColor = Color.WhiteSmoke;
             }
             if (!lbl5date2LastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[12].Cells[4].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[13].Cells[4].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[14].Cells[4].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[16].Cells[4].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[17].Cells[4].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[18].Cells[4].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[19].Cells[4].BackColor = Color.WhiteSmoke;
             }
             if (!lbl6date2LastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[12].Cells[5].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[13].Cells[5].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[14].Cells[5].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[16].Cells[5].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[17].Cells[5].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[18].Cells[5].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[19].Cells[5].BackColor = Color.WhiteSmoke;
             }
             if (!lbl7date2LastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[12].Cells[6].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[13].Cells[6].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[14].Cells[6].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[16].Cells[6].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[17].Cells[6].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[18].Cells[6].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[19].Cells[6].BackColor = Color.WhiteSmoke;
             }
         }
         private void SixthRowDynamicBackColor()
         {
-            Label lbl1dateLastRow = (Label)GridView1.Rows[15].Cells[0].FindControl("lbl1date");
-            Label lbl2dateLastRow = (Label)GridView1.Rows[15].Cells[0].FindControl("lbl2date");
-            Label lbl3dateLastRow = (Label)GridView1.Rows[15].Cells[0].FindControl("lbl3date");
-            Label lbl4dateLastRow = (Label)GridView1.Rows[15].Cells[0].FindControl("lbl4date");
-            Label lbl5dateLastRow = (Label)GridView1.Rows[15].Cells[0].FindControl("lbl5date");
-            Label lbl6dateLastRow = (Label)GridView1.Rows[15].Cells[0].FindControl("lbl6date");
-            Label lbl7dateLastRow = (Label)GridView1.Rows[15].Cells[0].FindControl("lbl7date");
+            Label lbl1dateLastRow = (Label)GridView1.Rows[20].Cells[0].FindControl("lbl1date");
+            Label lbl2dateLastRow = (Label)GridView1.Rows[20].Cells[0].FindControl("lbl2date");
+            Label lbl3dateLastRow = (Label)GridView1.Rows[20].Cells[0].FindControl("lbl3date");
+            Label lbl4dateLastRow = (Label)GridView1.Rows[20].Cells[0].FindControl("lbl4date");
+            Label lbl5dateLastRow = (Label)GridView1.Rows[20].Cells[0].FindControl("lbl5date");
+            Label lbl6dateLastRow = (Label)GridView1.Rows[20].Cells[0].FindControl("lbl6date");
+            Label lbl7dateLastRow = (Label)GridView1.Rows[20].Cells[0].FindControl("lbl7date");
             if (!lbl1dateLastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[15].Cells[0].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[16].Cells[0].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[17].Cells[0].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[20].Cells[0].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[21].Cells[0].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[22].Cells[0].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[23].Cells[0].BackColor = Color.WhiteSmoke;
             }
             if (!lbl2dateLastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[15].Cells[1].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[16].Cells[1].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[17].Cells[1].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[20].Cells[1].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[21].Cells[1].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[22].Cells[1].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[23].Cells[1].BackColor = Color.WhiteSmoke;
             }
             if (!lbl3dateLastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[15].Cells[2].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[16].Cells[2].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[17].Cells[2].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[20].Cells[2].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[21].Cells[2].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[22].Cells[2].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[23].Cells[2].BackColor = Color.WhiteSmoke;
             }
             if (!lbl4dateLastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[15].Cells[3].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[16].Cells[3].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[17].Cells[3].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[20].Cells[3].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[21].Cells[3].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[22].Cells[3].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[23].Cells[3].BackColor = Color.WhiteSmoke;
             }
             if (!lbl5dateLastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[15].Cells[4].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[16].Cells[4].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[17].Cells[4].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[20].Cells[4].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[21].Cells[4].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[22].Cells[4].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[23].Cells[4].BackColor = Color.WhiteSmoke;
             }
             if (!lbl6dateLastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[15].Cells[5].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[16].Cells[5].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[17].Cells[5].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[20].Cells[5].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[21].Cells[5].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[22].Cells[5].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[23].Cells[5].BackColor = Color.WhiteSmoke;
             }
             if (!lbl7dateLastRow.Text.Contains(ddlmonth.SelectedItem.ToString()))
             {
-                GridView1.Rows[15].Cells[6].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[16].Cells[6].BackColor = Color.WhiteSmoke;
-                GridView1.Rows[17].Cells[6].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[20].Cells[6].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[21].Cells[6].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[22].Cells[6].BackColor = Color.WhiteSmoke;
+                GridView1.Rows[23].Cells[6].BackColor = Color.WhiteSmoke;
             }
         }
         private void formatLink()
         {
-            for (int i = 0; i <= 17; i += 3)
+            for (int i = 0; i <= 23; i += 4)
             {
                 ((LinkButton)GridView1.Rows[i].Cells[0].FindControl("linkbtnMon")).Text = Convert.ToDateTime(((LinkButton)GridView1.Rows[i].Cells[0].FindControl("linkbtnMon")).Text).ToString("MMM-dd");
                 ((LinkButton)GridView1.Rows[i].Cells[1].FindControl("linkbtnTue")).Text = Convert.ToDateTime(((LinkButton)GridView1.Rows[i].Cells[1].FindControl("linkbtnTue")).Text).ToString("MMM-dd");
@@ -378,7 +429,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             holidays = loadholidays();
             for (int i = 0; i <= holidays.Count - 1; i++)
             {
-                for (int x = 0; x <= 17; x += 3)
+                for (int x = 0; x <= 23; x += 4)
                 {
                     if (((LinkButton)GridView1.Rows[x].Cells[0].FindControl("linkbtnMon")).Text == holidays[i].ToString())
                     {
@@ -413,7 +464,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         }
         private void pointsMaximum()
         {
-            for (int x = 1; x <= 17; x += 3)
+            for (int x = 1; x <= 23; x += 4)
             {
                 if (Convert.ToInt32(((Label)GridView1.Rows[1].Cells[0].FindControl("lbl1points")).Text.ToString().Replace(",", "")) > 8000)
                 {
@@ -447,33 +498,164 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         }
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "viewlistMon")
+            string caldate;
+            int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+            GridViewRow row = GridView1.Rows[rowindex];
+
+            if (Session["KMDI_ffm_acct"].ToString() == "Admin")
             {
-                OpenModal("lbl1date", "lbl1points", e);
+                if (e.CommandName == "viewlistMon")
+                {
+                    //OpenModal("lbl1date", "lbl1points", e);
+                    caldate = ((Label)row.FindControl("lbl1date")).Text;
+                    loadItems(caldate);
+                }
+                else if (e.CommandName == "viewlistTue")
+                {
+                    //OpenModal("lbl2date", "lbl2points", e);
+                    caldate = ((Label)row.FindControl("lbl2date")).Text;
+                    loadItems(caldate);
+                }
+                else if (e.CommandName == "viewlistWed")
+                {
+                    //OpenModal("lbl3date", "lbl3points", e);
+                    caldate = ((Label)row.FindControl("lbl3date")).Text;
+                    loadItems(caldate);
+                }
+                else if (e.CommandName == "viewlistThu")
+                {
+                    //OpenModal("lbl4date", "lbl4points", e);
+                    caldate = ((Label)row.FindControl("lbl4date")).Text;
+                    loadItems(caldate);
+                }
+                else if (e.CommandName == "viewlistFri")
+                {
+                    //OpenModal("lbl5date", "lbl5points", e);
+                    caldate = ((Label)row.FindControl("lbl5date")).Text;
+                    loadItems(caldate);
+                }
+                else if (e.CommandName == "viewlistSat")
+                {
+                    //OpenModal("lbl6date", "lbl6points", e);
+                    caldate = ((Label)row.FindControl("lbl6date")).Text;
+                    loadItems(caldate);
+                }
+                else if (e.CommandName == "viewlistSun")
+                {
+                    //OpenModal("lbl7date", "lbl7points", e);
+                    caldate = ((Label)row.FindControl("lbl7date")).Text;
+                    loadItems(caldate);
+                }
             }
-            else if (e.CommandName == "viewlistTue")
+            else
             {
-                OpenModal("lbl2date", "lbl2points", e);
+                if (e.CommandName == "viewlistMon")
+                {
+                    OpenModal("lbl1date", "lbl1points", e);
+
+                }
+                else if (e.CommandName == "viewlistTue")
+                {
+                    OpenModal("lbl2date", "lbl2points", e);
+
+                }
+                else if (e.CommandName == "viewlistWed")
+                {
+                    OpenModal("lbl3date", "lbl3points", e);
+
+                }
+                else if (e.CommandName == "viewlistThu")
+                {
+                    OpenModal("lbl4date", "lbl4points", e);
+
+                }
+                else if (e.CommandName == "viewlistFri")
+                {
+                    OpenModal("lbl5date", "lbl5points", e);
+
+                }
+                else if (e.CommandName == "viewlistSat")
+                {
+                    OpenModal("lbl6date", "lbl6points", e);
+
+                }
+                else if (e.CommandName == "viewlistSun")
+                {
+                    OpenModal("lbl7date", "lbl7points", e);
+
+                }
             }
-            else if (e.CommandName == "viewlistWed")
+           
+        }
+        private void loadItems(string caldate)
+        {
+            Panel2.Visible = true;
+            Panel1.Visible = false;
+
+            ViewState["caldate"] = caldate;
+            lblselecteddate.Text = caldate;
+            loadCLlist(caldate);
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
-                OpenModal("lbl3date", "lbl3points", e);
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        DataTable tb = new DataTable();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Framewebcalendar";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "items");
+                        sqlcmd.Parameters.AddWithValue("@calfab", CheckBox1.Checked.ToString());
+                        sqlcmd.Parameters.AddWithValue("@date", caldate);
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(tb);
+                        GridView4.DataSource = tb;
+                        GridView4.DataBind();
+                        ViewState["tb"] = tb;
+                    }
+                    catch (Exception ex)
+                    {
+                        errorrmessage(ex.Message);
+                    }
+                }
+
             }
-            else if (e.CommandName == "viewlistThu")
+        }
+        private void loadCLlist(string caldate)
+        {
+
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
-                OpenModal("lbl4date", "lbl4points", e);
-            }
-            else if (e.CommandName == "viewlistFri")
-            {
-                OpenModal("lbl5date", "lbl5points", e);
-            }
-            else if (e.CommandName == "viewlistSat")
-            {
-                OpenModal("lbl6date", "lbl6points", e);
-            }
-            else if (e.CommandName == "viewlistSun")
-            {
-                OpenModal("lbl7date", "lbl7points", e);
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        DataTable tb = new DataTable();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Framewebcalendar";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "cllist");
+                        sqlcmd.Parameters.AddWithValue("@calfab", CheckBox1.Checked.ToString());
+                        sqlcmd.Parameters.AddWithValue("@date", caldate);
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(tb);
+                        ddlClList.DataSource = tb;
+                        ddlClList.DataValueField = "clno";
+                        ddlClList.DataTextField = "clno";
+                        ddlClList.DataBind();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        errorrmessage(ex.Message);
+                    }
+                }
+
             }
         }
         private void OpenModal(string lbl, string lblpoints, GridViewCommandEventArgs e)
@@ -514,6 +696,167 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     }
                 }
             }
+        }
+
+        protected void GridView3_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (Session["KMDI_ffm_acct"].ToString() == "Guest")
+            {
+                for (int i = 0; i <= GridView3.Rows.Count - 1; i++)
+                {
+                    GridView3.Columns[1].Visible = false;
+                }
+            }
+        }
+        protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (Session["KMDI_ffm_acct"].ToString() == "Guest")
+            {
+                for (int i = 0; i <= GridView2.Rows.Count - 1; i++)
+                {
+                    GridView2.Columns[2].Visible = false;
+                }
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+                List<int> l = new List<int>();
+                if ((List<int>)ViewState["listid"] == null)
+                {
+                    l.Add(0);
+                }
+                else
+                {
+                    l = ViewState["listid"] as List<int>;
+                }
+                foreach (GridViewRow row in GridView4.Rows)
+                {
+                    CheckBox cbk = (CheckBox)row.FindControl("cboxSelectitem");
+                    if (cbk.Checked == true)
+                    {
+                        int x = int.Parse(((Label)row.FindControl("g4Id")).Text.ToString());
+                        if (!l.Contains(x))
+                        {
+                            l.Add(x);
+                        }
+                    }
+                    else
+                    {
+                        int x = int.Parse(((Label)row.FindControl("g4Id")).Text.ToString());
+                        if (l.Contains(x))
+                        {
+                            l.Remove(x);
+                        }
+                    }
+                }
+                List<kmdino> knoList = new List<kmdino>();
+                knoList = listKno(l);
+
+
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+
+                        try
+                        {
+                            sqlcon.Open();
+                            foreach (var item in knoList)
+                            {
+                                sqlcmd.CommandText = "Framewebcalendar";
+                                sqlcmd.CommandType = CommandType.StoredProcedure;
+                                sqlcmd.Parameters.AddWithValue("@command", "update_by_check");
+                                sqlcmd.Parameters.AddWithValue("@jo", item.jo);
+                                sqlcmd.Parameters.AddWithValue("@kno", item.kmdi_no);
+                                sqlcmd.Parameters.AddWithValue("@NewDueDate", tboxitemNewDueDate.Text);
+                                sqlcmd.ExecuteNonQuery();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            errorrmessage(ex.Message);
+                        }
+                        finally
+                        {
+                            loadItems(ViewState["caldate"].ToString());
+                        }
+                    }
+                }
+            }
+
+        }
+        private DataTable mytb
+        {
+            get
+            {
+                return (DataTable)ViewState["tb"];
+            }
+        }
+        private List<kmdino> listKno(List<int> l)
+        {
+            List<kmdino> knoList = new List<kmdino>();
+            try
+            {
+                for (int i = 0; i <= mytb.Rows.Count - 1; i++)
+                {
+                    int id = Convert.ToInt32(mytb.Rows[i]["id"].ToString());
+                    if (l.Contains(id))
+                    {
+
+                        kmdino k = new kmdino();
+
+                        k.kmdi_no = mytb.Rows[i]["kmdi_no"].ToString();
+                        k.jo = mytb.Rows[i]["job_order_no"].ToString();
+                        knoList.Add(k);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+            return knoList;
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+
+                        try
+                        {
+                            sqlcon.Open();
+                            sqlcmd.CommandText = "Framewebcalendar";
+                            sqlcmd.CommandType = CommandType.StoredProcedure;
+                            sqlcmd.Parameters.AddWithValue("@command", "update_by_clno");
+                            sqlcmd.Parameters.AddWithValue("@clno", ddlClList.Text);
+                            sqlcmd.Parameters.AddWithValue("@NewDueDate", tboxitemNewDueDate2.Text);
+                            sqlcmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            errorrmessage(ex.Message);
+                        }
+                        finally
+                        {
+                            loadItems(ViewState["caldate"].ToString());
+                        }
+                    }
+                }
+            }
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Panel2.Visible = false;
+            Panel1.Visible = true;
         }
     }
 }

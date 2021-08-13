@@ -11,5 +11,6 @@ namespace KMDIweb.KMDIweb.Global.objects
         public string Id { get; set; }
         public string kmdi_no { get; set; }
         public string Description { get; set; }
+        public string jo { get; set; }
     }
 }
