@@ -620,6 +620,41 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     {
                         errorrmessage(ex.Message);
                     }
+                    finally
+                    {
+                        loadScreenItems(caldate);
+                    }
+                }
+
+            }
+        }
+        private void loadScreenItems(string caldate)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        DataTable tb = new DataTable();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Framewebcalendar";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "screen_items");
+                        sqlcmd.Parameters.AddWithValue("@calfab", CheckBox1.Checked.ToString());
+                        sqlcmd.Parameters.AddWithValue("@date", caldate);
+                        sqlcmd.Parameters.AddWithValue("@ae", ddlae.Text);
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(tb);
+                        GridView5.DataSource = tb;
+                        GridView5.DataBind();
+     
+                    }
+                    catch (Exception ex)
+                    {
+                        errorrmessage(ex.Message);
+                    }
                 }
 
             }

@@ -297,6 +297,13 @@
     <Compile Include="KMDIweb\Production\FrameSchedule\DeliveredItemsHome.aspx.designer.cs">
       <DependentUpon>DeliveredItemsHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fcalendarProjects.aspx.cs">
+      <DependentUpon>fcalendarProjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\fcalendarProjects.aspx.designer.cs">
+      <DependentUpon>fcalendarProjects.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\fcornercleaning.aspx.cs">
       <DependentUpon>fcornercleaning.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -618,6 +625,7 @@
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrameNewDueDate.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\DeliveredItemsHome.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\fcalendarProjects.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fcornercleaning.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fcutting.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fdespatch.aspx" />

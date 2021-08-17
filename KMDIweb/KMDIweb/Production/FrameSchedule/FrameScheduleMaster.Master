@@ -81,6 +81,9 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-th-large"></span>&nbsp;More<span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                 <li>
+                                    <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/fcalendarProjects.aspx">Project list</asp:HyperLink>
+                                </li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/DeliveredItemsHome.aspx">List of delivered items</asp:HyperLink>
                                 </li>

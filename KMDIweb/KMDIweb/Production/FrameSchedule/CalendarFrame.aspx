@@ -75,7 +75,7 @@
                         <asp:TemplateField HeaderText="Monday" HeaderStyle-Width="200px" ItemStyle-Wrap="true">
                             <ItemTemplate>
                                 <asp:Label ID="lbl1points" Visible='<%# Eval("Context").ToString() == "Points" ? true : false %>' runat="server" Text='<%# Bind("Monday") %>'></asp:Label>
-                                <asp:Label ID="lbl1specialpoints" Visible='<%# Eval("Context").ToString() == "Special_Points" ? Eval("Monday").ToString() == "0" ? false : true : false %>' CssClass="label label-primary"  runat="server" Text='<%# Bind("Monday") %>'></asp:Label>
+                                <asp:Label ID="lbl1specialpoints" Visible='<%# Eval("Context").ToString() == "Special_Points" ? Eval("Monday").ToString() == "0" ? false : true : false %>' CssClass="label label-primary" runat="server" Text='<%# Bind("Monday") %>'></asp:Label>
                                 <asp:LinkButton ID="linkbtnMon" CommandName="viewlistMon" ForeColor="Black" runat="server" Font-Bold="true" Font-Size="X-Large" Visible='<%# Eval("Context").ToString() == "Date" ? true : false %>' Text='<%# Bind("Monday") %>'></asp:LinkButton>
                                 <asp:Label ID="lbl1date" Font-Bold="true" Font-Size="X-Large" Visible="false" runat="server" Text='<%# Bind("Monday") %>'></asp:Label>
                                 <asp:Label ID="lbl1content" Visible='<%# Eval("Context").ToString() == "Content" ? true : false %>' runat="server" Font-Size="X-Small" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Monday").ToString(), "\r\n|\r|\n", "<br>")) %>'></asp:Label>
@@ -88,7 +88,7 @@
                         <asp:TemplateField HeaderText="Tuesday" HeaderStyle-Width="200px" ItemStyle-Wrap="true">
                             <ItemTemplate>
                                 <asp:Label ID="lbl2points" Visible='<%# Eval("Context").ToString() == "Points" ? true : false %>' runat="server" Text='<%# Bind("Tuesday") %>'></asp:Label>
-                                <asp:Label ID="lbl2specialpoints" Visible='<%# Eval("Context").ToString() == "Special_Points" ? Eval("Tuesday").ToString() == "0" ? false : true : false %>' CssClass="label label-primary"  runat="server" Text='<%# Bind("Tuesday") %>'></asp:Label>
+                                <asp:Label ID="lbl2specialpoints" Visible='<%# Eval("Context").ToString() == "Special_Points" ? Eval("Tuesday").ToString() == "0" ? false : true : false %>' CssClass="label label-primary" runat="server" Text='<%# Bind("Tuesday") %>'></asp:Label>
                                 <asp:LinkButton ID="linkbtnTue" CommandName="viewlistTue" ForeColor="Black" runat="server" Font-Bold="true" Font-Size="X-Large" Visible='<%# Eval("Context").ToString() == "Date" ? true : false %>' Text='<%# Bind("Tuesday") %>'></asp:LinkButton>
                                 <asp:Label ID="lbl2date" Font-Bold="true" Font-Size="X-Large" Visible="false" runat="server" Text='<%# Bind("Tuesday") %>'></asp:Label>
                                 <asp:Label ID="lbl2content" Visible='<%# Eval("Context").ToString() == "Content" ? true : false %>' runat="server" Font-Size="X-Small" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Tuesday").ToString(), "\r\n|\r|\n", "<br>")) %>'></asp:Label>
@@ -101,7 +101,7 @@
                         <asp:TemplateField HeaderText="Wednesday" HeaderStyle-Width="200px" ItemStyle-Wrap="true">
                             <ItemTemplate>
                                 <asp:Label ID="lbl3points" Visible='<%# Eval("Context").ToString() == "Points" ? true : false %>' runat="server" Text='<%# Bind("Wednesday") %>'></asp:Label>
-                                <asp:Label ID="lbl3specialpoints" Visible='<%# Eval("Context").ToString() == "Special_Points" ? Eval("Wednesday").ToString() == "0" ? false : true : false %>' CssClass="label label-primary"  runat="server" Text='<%# Bind("Wednesday") %>'></asp:Label>
+                                <asp:Label ID="lbl3specialpoints" Visible='<%# Eval("Context").ToString() == "Special_Points" ? Eval("Wednesday").ToString() == "0" ? false : true : false %>' CssClass="label label-primary" runat="server" Text='<%# Bind("Wednesday") %>'></asp:Label>
                                 <asp:LinkButton ID="linkbtnWed" CommandName="viewlistWed" ForeColor="Black" runat="server" Font-Bold="true" Font-Size="X-Large" Visible='<%# Eval("Context").ToString() == "Date" ? true : false %>' Text='<%# Bind("Wednesday") %>'></asp:LinkButton>
                                 <asp:Label ID="lbl3date" Font-Bold="true" Font-Size="X-Large" Visible="false" runat="server" Text='<%# Bind("Wednesday") %>'></asp:Label>
                                 <asp:Label ID="lbl3content" Visible='<%# Eval("Context").ToString() == "Content" ? true : false %>' runat="server" Font-Size="X-Small" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Wednesday").ToString(), "\r\n|\r|\n", "<br>")) %>'></asp:Label>
@@ -114,7 +114,7 @@
                         <asp:TemplateField HeaderText="Thursday" HeaderStyle-Width="200px" ItemStyle-Wrap="true">
                             <ItemTemplate>
                                 <asp:Label ID="lbl4points" Visible='<%# Eval("Context").ToString() == "Points" ? true : false %>' runat="server" Text='<%# Bind("Thursday") %>'></asp:Label>
-                                <asp:Label ID="lbl4specialpoints" Visible='<%# Eval("Context").ToString() == "Special_Points" ? Eval("Thursday").ToString() == "0" ? false : true : false %>' CssClass="label label-primary"  runat="server" Text='<%# Bind("Thursday") %>'></asp:Label>
+                                <asp:Label ID="lbl4specialpoints" Visible='<%# Eval("Context").ToString() == "Special_Points" ? Eval("Thursday").ToString() == "0" ? false : true : false %>' CssClass="label label-primary" runat="server" Text='<%# Bind("Thursday") %>'></asp:Label>
                                 <asp:LinkButton ID="linkbtnThu" CommandName="viewlistThu" ForeColor="Black" runat="server" Font-Bold="true" Font-Size="X-Large" Visible='<%# Eval("Context").ToString() == "Date" ? true : false %>' Text='<%# Bind("Thursday") %>'></asp:LinkButton>
                                 <asp:Label ID="lbl4date" Font-Bold="true" Font-Size="X-Large" Visible="false" runat="server" Text='<%# Bind("Thursday") %>'></asp:Label>
                                 <asp:Label ID="lbl4content" Visible='<%# Eval("Context").ToString() == "Content" ? true : false %>' runat="server" Font-Size="X-Small" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Thursday").ToString(), "\r\n|\r|\n", "<br>")) %>'></asp:Label>
@@ -127,7 +127,7 @@
                         <asp:TemplateField HeaderText="Friday" HeaderStyle-Width="200px" ItemStyle-Wrap="true">
                             <ItemTemplate>
                                 <asp:Label ID="lbl5points" Visible='<%# Eval("Context").ToString() == "Points" ? true : false %>' runat="server" Text='<%# Bind("Friday") %>'></asp:Label>
-                                <asp:Label ID="lbl5specialpoints" Visible='<%# Eval("Context").ToString() == "Special_Points" ? Eval("Friday").ToString() == "0" ? false : true : false %>' CssClass="label label-primary"  runat="server" Text='<%# Bind("Friday") %>'></asp:Label>
+                                <asp:Label ID="lbl5specialpoints" Visible='<%# Eval("Context").ToString() == "Special_Points" ? Eval("Friday").ToString() == "0" ? false : true : false %>' CssClass="label label-primary" runat="server" Text='<%# Bind("Friday") %>'></asp:Label>
                                 <asp:LinkButton ID="linkbtnFri" CommandName="viewlistFri" ForeColor="Black" runat="server" Font-Bold="true" Font-Size="X-Large" Visible='<%# Eval("Context").ToString() == "Date" ? true : false %>' Text='<%# Bind("Friday") %>'></asp:LinkButton>
                                 <asp:Label ID="lbl5date" Font-Bold="true" Font-Size="X-Large" Visible="false" runat="server" Text='<%# Bind("Friday") %>'></asp:Label>
                                 <asp:Label ID="lbl5content" Visible='<%# Eval("Context").ToString() == "Content" ? true : false %>' runat="server" Font-Size="X-Small" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Friday").ToString(), "\r\n|\r|\n", "<br>")) %>'></asp:Label>
@@ -140,7 +140,7 @@
                         <asp:TemplateField HeaderText="Saturday" HeaderStyle-Width="200px" ItemStyle-Wrap="true">
                             <ItemTemplate>
                                 <asp:Label ID="lbl6points" Visible='<%# Eval("Context").ToString() == "Points" ? true : false %>' runat="server" Text='<%# Bind("Saturday") %>'></asp:Label>
-                                <asp:Label ID="lbl6specialpoints" Visible='<%# Eval("Context").ToString() == "Special_Points" ? Eval("Saturday").ToString() == "0" ? false : true : false %>' CssClass="label label-primary"  runat="server" Text='<%# Bind("Saturday") %>'></asp:Label>
+                                <asp:Label ID="lbl6specialpoints" Visible='<%# Eval("Context").ToString() == "Special_Points" ? Eval("Saturday").ToString() == "0" ? false : true : false %>' CssClass="label label-primary" runat="server" Text='<%# Bind("Saturday") %>'></asp:Label>
                                 <asp:LinkButton ID="linkbtnSat" CommandName="viewlistSat" ForeColor="Black" runat="server" Font-Bold="true" Font-Size="X-Large" Visible='<%# Eval("Context").ToString() == "Date" ? true : false %>' Text='<%# Bind("Saturday") %>'></asp:LinkButton>
                                 <asp:Label ID="lbl6date" Font-Bold="true" Font-Size="X-Large" Visible="false" runat="server" Text='<%# Bind("Saturday") %>'></asp:Label>
                                 <asp:Label ID="lbl6content" Visible='<%# Eval("Context").ToString() == "Content" ? true : false %>' runat="server" Font-Size="X-Small" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Saturday").ToString(), "\r\n|\r|\n", "<br>")) %>'></asp:Label>
@@ -196,103 +196,157 @@
                 </asp:GridView>
             </asp:Panel>
             <asp:Panel ID="Panel2" runat="server" Visible="false" ScrollBars="Auto">
-                <div class="text-center">
-                    <h2>
-                        <asp:Label ID="lblselecteddate" runat="server" Text="date"></asp:Label></h2>
-                    <asp:Button ID="Button3" CssClass="btn btn-primary" runat="server" Text="back to calendar" OnClick="Button3_Click" />
-                </div>
+                <div class="container">
 
-                <asp:GridView ID="GridView4" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Vertical" ForeColor="Black">
-                    <AlternatingRowStyle BackColor="White" />
-                    <Columns>
 
-                        <asp:TemplateField HeaderText="Project">
-                            <ItemTemplate>
-                                <asp:Label ID="lblitemproject" runat="server" Text='<%# Bind("project_label") %>'></asp:Label><br />
-                                <asp:Label ID="lblitemaddress" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("fulladd") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="K#/Location">
-                            <ItemTemplate>
-                                <asp:Label ID="lblitemKno" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label><br />
-                                <asp:Label ID="lblitemLocation" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("Location") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Description">
-                            <ItemTemplate>
-                                <asp:Label ID="lblitemDescription" runat="server" Text='<%# Bind("Description") %>'></asp:Label><br />
-                                <span class="text-muted">(<asp:Label ID="lblitemWidth" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("Width") %>'></asp:Label>&nbsp; x &nbsp;
+                    <div class="text-center">
+                        <h2>
+                            <asp:Label ID="lblselecteddate" runat="server" Text="date"></asp:Label></h2>
+                        <asp:Button ID="Button3" CssClass="btn btn-primary" runat="server" Text="back to calendar" OnClick="Button3_Click" />
+                    </div>
+
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#Frame">Frame</a></li>
+                        <li><a data-toggle="tab" href="#Screen">Screen</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="Frame" class="tab-pane fade in active">
+                            <asp:GridView ID="GridView4" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Vertical" ForeColor="Black">
+                                <AlternatingRowStyle BackColor="White" />
+                                <Columns>
+
+                                    <asp:TemplateField HeaderText="Project">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblitemproject" runat="server" Text='<%# Bind("project_label") %>'></asp:Label><br />
+                                            <asp:Label ID="lblitemaddress" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("fulladd") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="K#/Location">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblitemKno" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label><br />
+                                            <asp:Label ID="lblitemLocation" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("Location") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Description">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblitemDescription" runat="server" Text='<%# Bind("Description") %>'></asp:Label><br />
+                                            <span class="text-muted">(<asp:Label ID="lblitemWidth" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("Width") %>'></asp:Label>&nbsp; x &nbsp;
                                    <asp:Label ID="lblitemHeight" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("Height") %>'></asp:Label>)</span>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="CL number">
-                            <ItemTemplate>
-                                <asp:Label ID="lblitemCLNO" runat="server" Text='<%# Bind("CLNO") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Due_Date">
-                            <ItemTemplate>
-                                <asp:Label ID="lblitemDuedate" runat="server" Text='<%# Bind("due_date") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="New_Due_Date">
-                            <ItemTemplate>
-                                <asp:Label ID="lblitemNewDuedate" runat="server" Text='<%# Bind("New_Due_Date") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="">
-                            <ItemTemplate>
-                                <asp:Label ID="g4Id" Visible="false" runat="server" Text='<%# Bind("Id") %>'></asp:Label>
-                                <asp:CheckBox ID="cboxSelectitem" CssClass="form-control" runat="server" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Points">
-                            <ItemTemplate>
-                                <asp:Label ID="lblitemPoints" runat="server" Text='<%# Bind("points") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                    <FooterStyle BackColor="#CCCC99" />
-                    <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-                    <RowStyle BackColor="#F7F7DE" />
-                    <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#FBFBF2" />
-                    <SortedAscendingHeaderStyle BackColor="#848384" />
-                    <SortedDescendingCellStyle BackColor="#EAEAD3" />
-                    <SortedDescendingHeaderStyle BackColor="#575357" />
-                </asp:GridView>
-                <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-3">
-                        <div class="well">
-                            <h3>Reschedule checked items</h3>
-                            <span>Schedule</span><br />
-                            <asp:TextBox ID="tboxitemNewDueDate" ValidationGroup="x1" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox><br />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="tboxitemNewDueDate" ForeColor="Red" ValidationGroup="x1" runat="server" ErrorMessage="Schedule is a required field"></asp:RequiredFieldValidator>
-                            <br />
-                            <asp:Button ID="Button1" CssClass="btn btn-primary" ValidationGroup="x1" runat="server" Text="save" OnClick="Button1_Click" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="CL number">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblitemCLNO" runat="server" Text='<%# Bind("CLNO") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Due_Date">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblitemDuedate" runat="server" Text='<%# Bind("due_date") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="New_Due_Date">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblitemNewDuedate" runat="server" Text='<%# Bind("New_Due_Date") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="">
+                                        <ItemTemplate>
+                                            <asp:Label ID="g4Id" Visible="false" runat="server" Text='<%# Bind("Id") %>'></asp:Label>
+                                            <asp:CheckBox ID="cboxSelectitem" CssClass="form-control" runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Points">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblitemPoints" CssClass='<%# Eval("Special_system").ToString() == "Yes" ? "label label-primary" : "" %>' runat="server" Text='<%# Bind("points") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                                <FooterStyle BackColor="#CCCC99" />
+                                <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+                                <RowStyle BackColor="#F7F7DE" />
+                                <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                                <SortedAscendingCellStyle BackColor="#FBFBF2" />
+                                <SortedAscendingHeaderStyle BackColor="#848384" />
+                                <SortedDescendingCellStyle BackColor="#EAEAD3" />
+                                <SortedDescendingHeaderStyle BackColor="#575357" />
+                            </asp:GridView>
+                            <div class="row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-3" style="height:100%;">
+                                    <div class="well">
+                                        <h3>Reschedule checked items</h3>
+                                        <span>Schedule</span><br />
+                                        <asp:TextBox ID="tboxitemNewDueDate" ValidationGroup="x1" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox><br />
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="tboxitemNewDueDate" ForeColor="Red" ValidationGroup="x1" runat="server" ErrorMessage="Schedule is a required field"></asp:RequiredFieldValidator>
+                                        <br />
+                                        <asp:Button ID="Button1" CssClass="btn btn-primary" ValidationGroup="x1" runat="server" Text="save" OnClick="Button1_Click" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="well">
+                                        <h3>Reschedule cutting list</h3>
+                                        <span>Cutting list</span><br />
+                                        <asp:DropDownList ID="ddlClList" runat="server" ValidationGroup="x2" CssClass="form-control"></asp:DropDownList><br />
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ForeColor="Red" ControlToValidate="ddlClList" ValidationGroup="x2" runat="server" ErrorMessage="cutting list no. is required"></asp:RequiredFieldValidator>
+                                        <br />
+                                        <span>Schedule</span><br />
+                                        <asp:TextBox ID="tboxitemNewDueDate2" CssClass="form-control" ValidationGroup="x2" TextMode="Date" runat="server"></asp:TextBox><br />
+                                        <br />
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ForeColor="Red" ControlToValidate="tboxitemNewDueDate2" ValidationGroup="x2" runat="server" ErrorMessage="Schedule is a required field"></asp:RequiredFieldValidator>
+                                        <br />
+                                        <asp:Button ID="Button2" CssClass="btn btn-warning" ValidationGroup="x2" runat="server" Text="save" OnClick="Button2_Click" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3"></div>
+                            </div>
+                        </div>
+                        <div id="Screen" class="tab-pane fade">
+                            <asp:GridView ID="GridView5" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Project">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblitemproject" runat="server" Text='<%# Bind("project_label") %>'></asp:Label><br />
+                                            <asp:Label ID="lblitemaddress" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("fulladd") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="K#/Location">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblitemKno" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label><br />
+                                            <asp:Label ID="lblitemLocation" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("Location") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Description">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblitemDescription" runat="server" Text='<%# Bind("Description") %>'></asp:Label><br />
+                                            <span class="text-muted">(<asp:Label ID="lblitemWidth" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("Width") %>'></asp:Label>&nbsp; x &nbsp;
+                                   <asp:Label ID="lblitemHeight" Font-Size="Smaller" CssClass="text-muted" runat="server" Text='<%# Bind("Height") %>'></asp:Label>)</span>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Due_Date">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblitemDuedate" runat="server" Text='<%# Bind("due_date") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Points">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblitemPoints" runat="server" Text='<%# Bind("points") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                                <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
+                                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
+                                <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
+                                <RowStyle BackColor="White" ForeColor="#330099" />
+                                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
+                                <SortedAscendingCellStyle BackColor="#FEFCEB" />
+                                <SortedAscendingHeaderStyle BackColor="#AF0101" />
+                                <SortedDescendingCellStyle BackColor="#F6F0C0" />
+                                <SortedDescendingHeaderStyle BackColor="#7E0000" />
+                            </asp:GridView>
                         </div>
                     </div>
-                    <div class="col-sm-3">
-                        <div class="well">
-                            <h3>Reschedule cutting list</h3>
-                            <span>Cutting list</span><br />
-                            <asp:DropDownList ID="ddlClList" runat="server" ValidationGroup="x2" CssClass="form-control"></asp:DropDownList><br />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ForeColor="Red" ControlToValidate="ddlClList" ValidationGroup="x2" runat="server" ErrorMessage="cutting list no. is required"></asp:RequiredFieldValidator>
-                            <br />
-                            <span>Schedule</span><br />
-                            <asp:TextBox ID="tboxitemNewDueDate2" CssClass="form-control" ValidationGroup="x2" TextMode="Date" runat="server"></asp:TextBox><br />
-                            <br />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ForeColor="Red" ControlToValidate="tboxitemNewDueDate2" ValidationGroup="x2" runat="server" ErrorMessage="Schedule is a required field"></asp:RequiredFieldValidator>
-                            <br />
-                            <asp:Button ID="Button2" CssClass="btn btn-warning" ValidationGroup="x2" runat="server" Text="save" OnClick="Button2_Click" />
-                        </div>
-                    </div>
-                    <div class="col-sm-3"></div>
                 </div>
-
-
             </asp:Panel>
             <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
@@ -336,7 +390,8 @@
             <div class="well">
                 <h2>Summary of scheduled projects for&nbsp;<strong><asp:Label ID="lblMonth2" CssClass="text-success" runat="server"></asp:Label></strong> </h2>
             </div>
-            <asp:GridView ID="GridView3" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="Both" OnRowDataBound="GridView3_RowDataBound">
+
+            <asp:GridView ID="GridView3" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="Both" OnRowDataBound="GridView3_RowDataBound" PageSize="20">
                 <Columns>
                     <asp:TemplateField HeaderText="PROJECT">
                         <ItemTemplate>
@@ -364,6 +419,7 @@
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#33276A" />
             </asp:GridView>
+
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

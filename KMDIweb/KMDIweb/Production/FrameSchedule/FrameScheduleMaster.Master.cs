@@ -118,12 +118,14 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 HyperLink21.Visible = true;
                 HyperLink22.Visible = true;
                 HyperLink23.Visible = true;
+                HyperLink15.Visible = true;
             }
             else
             {
                 HyperLink22.Visible = false;
                 HyperLink21.Visible = false;
                 HyperLink23.Visible = false;
+                HyperLink15.Visible = false;
             }
         }
         private void estdaccess()
