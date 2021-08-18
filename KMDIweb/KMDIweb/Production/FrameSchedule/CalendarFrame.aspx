@@ -61,7 +61,20 @@
     </div>
 
 
-
+    <div class="well">
+        <h3>LEGEND</h3>
+        <div class="row">
+            <div class="col-sm-2">
+                <div style="padding: 7px; background-color: black;"><span style="color: white; font-size: small">Frame w/ cutting list</span> </div>
+            </div>
+            <div class="col-sm-2">
+                <div style="padding: 7px; background-color: red;"><span style="color: white; font-size: small">Frame w/o cutting list</span> </div>
+            </div>
+            <div class="col-sm-2">
+                <div style="padding: 7px; background-color: green;"><span style="color: white; font-size: small">Screen</span> </div>
+            </div>
+        </div>
+    </div>
     <h1 class="text-center">
         <strong>
             <asp:Label ID="lblMonth" CssClass="text-success" runat="server"></asp:Label></strong>
@@ -273,7 +286,7 @@
                             </asp:GridView>
                             <div class="row">
                                 <div class="col-sm-3"></div>
-                                <div class="col-sm-3" style="height:100%;">
+                                <div class="col-sm-3" style="height: 100%;">
                                     <div class="well">
                                         <h3>Reschedule checked items</h3>
                                         <span>Schedule</span><br />
