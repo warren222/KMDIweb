@@ -442,7 +442,7 @@
                                                     </span>
                                                     <br />
                                                     <span>Balance Fab Points</span><br />
-                                                    <span>Available Points</span><br />
+                                                    <span>Free Points</span><br />
                                                 </div>
 
                                                 <hr />
