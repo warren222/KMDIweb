@@ -24,6 +24,14 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     ddlmonth.SelectedValue = DateTime.Now.ToString("MM");
                     loadae();
                     loaddata();
+                    if (Session["KMDI_ffm_acct"].ToString() == "Guest")
+                    {
+                        Panel3.Visible = false;
+                    }
+                    else
+                    {
+                        Panel3.Visible = true;
+                    }
                 }
             }
             else
@@ -105,6 +113,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             getdata(Convert.ToDateTime(d).AddDays(35).ToString(), tb);
             GridView1.DataSource = tb;
             GridView1.DataBind();
+            projectsummary();
+            getMonthCapacity(d);
         }
         private void getdata(string d, DataTable tb)
         {
@@ -132,7 +142,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     }
                     finally
                     {
-                        projectsummary();
+
                     }
                 }
             }
@@ -154,6 +164,29 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         ddlae.DataTextField = "fullname";
                         ddlae.DataValueField = "fullname";
                         ddlae.DataBind();
+                    }
+                    catch (Exception e)
+                    {
+                        errorrmessage(e.Message);
+                    }
+                }
+            }
+        }
+        private void getMonthCapacity(string d)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Framewebcalendar";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "getMonthCapacity");
+                        sqlcmd.Parameters.AddWithValue("@d", d);
+                        GridView6.DataSource = sqlcmd.ExecuteReader();
+                        GridView6.DataBind();
                     }
                     catch (Exception e)
                     {
@@ -585,7 +618,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
 
                 }
             }
-           
+
         }
         private void loadItems(string caldate)
         {
@@ -649,7 +682,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         da.Fill(tb);
                         GridView5.DataSource = tb;
                         GridView5.DataBind();
-     
+
                     }
                     catch (Exception ex)
                     {
