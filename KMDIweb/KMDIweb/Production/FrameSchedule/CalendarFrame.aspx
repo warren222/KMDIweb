@@ -411,63 +411,126 @@
             </div>
 
 
-
+          
             <div class="row">
                 <div class="col-sm-6">
+                    <div style="margin-left:10px;">
                     <asp:Panel ID="Panel3" runat="server">
                         <asp:GridView ID="GridView6" Width="100%" AutoGenerateColumns="False" runat="server" ShowHeader="False" GridLines="None">
                             <Columns>
                                 <asp:TemplateField HeaderText="Month Capacity">
                                     <ItemTemplate>
                                         <div class="panel panel-primary" style="font-size: large; width: 600px;">
-                                            <div class="panel panel-heading">
+                                            <div class="panel-heading">
                                                 <div class="text-center">
                                                     <h3>STATISTICS</h3>
                                                 </div>
                                             </div>
-                                            <div class="panel panel-body">
+                                            <div class="panel-body">
                                                 <div class="text-center">
                                                     <span>
                                                         <asp:Label ID="Label5" Font-Size="Large" runat="server" Text='<%# Bind("MyDate") %>'></asp:Label></span>
                                                 </div>
                                                 <div style="padding: 20px;">
-                                                    <span>Month's Points Capacity</span>
+                                                    <span>Estimated remaining points</span>
                                                     <span class="pull-right text-right">
                                                         <span>
                                                             <asp:Label ID="lblMonthCapacity" Font-Size="Large" runat="server" Text='<%# Bind("MonthCapacity") %>'></asp:Label></span><br />
+                                                        <br />
+                                                        <br />
+                                                        <span>(<asp:Label ID="Label1" Font-Size="Large" runat="server" Text='<%# Bind("BalanceFab") %>'></asp:Label></span>)<br />
+                                                        <br />
                                                         <span>
-                                                            <asp:Label ID="Label1" Font-Size="Large" runat="server" Text='<%# Bind("BalanceFab") %>'></asp:Label></span><br />
-                                                        <span>
-                                                            <asp:Label ID="Label2" Font-Size="Large" runat="server" Text='<%# Bind("AvailablePoints") %>'></asp:Label></span>
+                                                            <asp:Label ID="Label2" Font-Bold="true" Font-Size="Large" runat="server" Text='<%# Bind("AvailablePoints") %>'></asp:Label></span>
                                                     </span>
                                                     <br />
+                                                    <span class="text-muted" style="font-size: small">(Remaining days in points)
+                                                    </span>
+                                                    <br />
+                                                    <br />
                                                     <span>Balance Fab Points</span><br />
+                                                    <br />
                                                     <span>Free Points</span><br />
                                                 </div>
 
                                                 <hr />
+
+
+
                                                 <div class="text-center">
                                                     <span>
                                                         <h1><strong>
-                                                            <asp:Label ID="Label4" class='<%# Eval("Note").ToString()=="Delay" ? "text-danger" : "text-primary" %>' runat="server" Text='<%# Bind("AvailablePointsInDays") %>'></asp:Label>&nbsp; Day(s)</strong></h1>
-                                                        <asp:Label ID="Label6" class='<%# Eval("Note").ToString()=="Delay" ? "text-danger" : "text-primary" %>' runat="server" Text='<%# Bind("Note") %>'></asp:Label>
+                                                            <asp:Label ID="Label4" class='<%# Eval("Note").ToString()=="Delay" ? "text-danger" : "text-success" %>' runat="server" Text='<%# Bind("AvailablePointsInDays") %>'></asp:Label>&nbsp; <span style="color: yellow">&#9788;</span></strong></h1>
+                                                        <span class="text-muted">(points in days)</span><br />
+                                                        <asp:Label ID="Label6" class='<%# Eval("Note").ToString()=="Delay" ? "text-danger" : "text-success" %>' runat="server" Text='<%# Bind("Note") %>'></asp:Label>
                                                     </span>
                                                 </div>
-                                            </div>
-                                            <div class="panel panel-footer">
+
+                                                <hr />
+
+                                                <h2 class="text text-info text-center">Fabrication Performance</h2>
+                                                <div style="padding: 20px;">
+                                                    <span>Expected Output</span>
+                                                    <span class="pull-right text-right">
+                                                        <asp:Label ID="Label8" runat="server" Text='<%# Bind("estimatedOutput") %>'></asp:Label><br />
+                                                        <br />
+                                                        <br />
+                                                        (<asp:Label ID="Label9" runat="server" Text='<%# Bind("actualFabOutput") %>'></asp:Label>)
+                                                      <br />
+                                                        <br />
+                                                        <asp:Label ID="Label10" runat="server" Font-Bold="true" Text='<%# Bind("productionBalance") %>'></asp:Label>
+                                                    </span>
+                                                    <br />
+                                                    <span class="text-muted" style="font-size: small">(Days worked in points)
+                                                    </span>
+                                                    <br />
+                                                    <br />
+                                                    <span>Fabrication Output</span>
+                                                    <br />
+                                                    <br />
+                                                    <span>Performance</span><br />
+                                                    <span class="text-muted" style="font-size: small">(Balance from expected output)</span>
+                                                </div>
+                                                <hr />
                                                 <div class="text-center">
-                                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("TheoreticalPoints") %>'></asp:Label><br />
-                                                    <span class="text-muted">Theoretical Points</span>
+                                                    <h1><span class='<%# Eval("performance").ToString() == "positive" ? "text text-success" : "text text-danger" %>'>
+                                                        <span class='<%# Eval("performance").ToString() == "positive" ? "glyphicon glyphicon-chevron-up" : "glyphicon glyphicon-chevron-down" %>'></span>
+                                                        <asp:Label ID="Label7" runat="server" Font-Size="Larger" Text='<%# Bind("productionRate") %>'></asp:Label>%
+                                                    </h1>
+
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="panel-footer">
+                                                <div class="text-center">
+                                                    <table style="width:100%;">
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Label ID="Label12" runat="server" Text='<%# Bind("ExpectedOutut") %>'></asp:Label><br />
+                                                                <span class="text-muted" style="font-size: small">Total Expected Output</span>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="Label11" runat="server" Text='<%# Bind("productionLoad") %>'></asp:Label><br />
+                                                                <span class="text-muted" style="font-size: small">Total Allocated Points</span>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="Label3" runat="server" Text='<%# Bind("TheoreticalPoints") %>'></asp:Label><br />
+                                                                <span class="text-muted" style="font-size: small">Theoretical Points</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
                                                 </div>
                                             </div>
-
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
                             </Columns>
                         </asp:GridView>
-                    </asp:Panel>
+                    </asp:Panel></div>
                 </div>
                 <div class="col-sm-6">
                     <asp:GridView ID="GridView3" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="Both" OnRowDataBound="GridView3_RowDataBound" PageSize="20">
@@ -500,7 +563,6 @@
                     </asp:GridView>
                 </div>
             </div>
-
 
         </ContentTemplate>
     </asp:UpdatePanel>

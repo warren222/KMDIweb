@@ -181,9 +181,9 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     try
                     {
                         sqlcon.Open();
-                        sqlcmd.CommandText = "Framewebcalendar";
+                        sqlcmd.CommandText = "FramewebcalendarStatistics";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@command", "getMonthCapacity");
+                        sqlcmd.Parameters.AddWithValue("@command", "ProductionRate");
                         sqlcmd.Parameters.AddWithValue("@d", d);
                         GridView6.DataSource = sqlcmd.ExecuteReader();
                         GridView6.DataBind();
