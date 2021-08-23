@@ -497,7 +497,7 @@
                                                         <span class='<%# Eval("performance").ToString() == "positive" ? "glyphicon glyphicon-chevron-up" : "glyphicon glyphicon-chevron-down" %>'></span>
                                                         <asp:Label ID="Label7" runat="server" Font-Size="Larger" Text='<%# Bind("productionRate") %>'></asp:Label>%
                                                     </h1>
-
+                                                    <small class="text-muted">(production rate)</small>
                                                 </div>
 
 
