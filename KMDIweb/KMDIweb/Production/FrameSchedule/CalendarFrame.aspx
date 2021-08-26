@@ -470,6 +470,11 @@
 
                                                     <h2 class="text text-info text-center">Fabrication Performance</h2>
                                                     <div style="padding: 20px;">
+                                                        <div class="text-center">
+                                                             <asp:Label ID="Label15" runat="server" Font-Size="Larger" Text='<%# Bind("MyDate2") %>'></asp:Label>
+                                                        </div>
+                                                        <br />
+                                                        <br />
                                                         <span>Fabrication Output</span>
                                                         <span class="pull-right text-right">
                                                             <asp:Label ID="Label9" runat="server" Text='<%# Bind("actualFabOutput") %>'></asp:Label>
@@ -514,6 +519,12 @@
                                                     <div class="text-center">
                                                         <table style="width: 100%;">
                                                             <tr>
+                                                                <td style="background-color:cornflowerblue;color:white;">Theoretical</td>
+                                                                <td style="background-color:green;color:white;">Allocation</td>
+                                                                <td style="background-color:darkturquoise;color:white;">Actual Fabrication</td>
+                                                            </tr>
+                                                    
+                                                            <tr>
                                                                 <td>
                                                                     <asp:Label ID="Label12" runat="server" Text='<%# Bind("ExpectedOutut") %>'></asp:Label><br />
                                                                     <span class="text-muted" style="font-size: small">Total Expected Output</span>
@@ -523,8 +534,22 @@
                                                                     <span class="text-muted" style="font-size: small">Total Allocated Points</span>
                                                                 </td>
                                                                 <td>
-                                                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("TheoreticalPoints") %>'></asp:Label><br />
+                                                                       <asp:Label ID="Label17" runat="server" Text='<%# Bind("actualFabOutput") %>'></asp:Label><br />
+                                                                    <span class="text-muted" style="font-size: small">Fab Output</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                      <asp:Label ID="Label3" runat="server" Text='<%# Bind("TheoreticalPoints") %>'></asp:Label><br />
                                                                     <span class="text-muted" style="font-size: small">Theoretical Points</span>
+                                                                </td>
+                                                                <td>
+                                                                     <asp:Label ID="Label16" runat="server" Text='<%# Bind("RecommendedTpoints") %>'></asp:Label><br />
+                                                                    <span class="text-muted" style="font-size: small">Recommended Points/day</span>
+                                                                </td>
+                                                                <td>
+                                                                     <asp:Label ID="Label18" runat="server" Text='<%# Bind("CurrentProductionPoints") %>'></asp:Label><br />
+                                                                    <span class="text-muted" style="font-size: small">Fab Points/day</span>
                                                                 </td>
                                                             </tr>
                                                         </table>
