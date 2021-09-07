@@ -195,6 +195,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 }
             }
         }
+      
         private void projectsummary()
         {
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))

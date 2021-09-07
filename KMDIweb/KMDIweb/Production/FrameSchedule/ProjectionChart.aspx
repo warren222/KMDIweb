@@ -53,6 +53,88 @@
                         </Columns>
                     </asp:GridView>
 
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                        <ContentTemplate>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="text-center">
+                                ONGOING PROJECTS ONLY
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-4">
+                                    <asp:Panel ID="Panel2" Visible="false" runat="server">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                Year
+                                            </div>
+                                            <asp:TextBox ID="tboxYear2" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
+
+                                        </div>
+                                    </asp:Panel>
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            search by
+                                        </div>
+                                        <asp:DropDownList ID="ddlsearchby" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlsearchby_SelectedIndexChanged">
+                                            <asp:ListItem Text="All Year" Value="All"></asp:ListItem>
+                                            <asp:ListItem Text="Selected Year" Value="Selected"></asp:ListItem>
+                                        </asp:DropDownList>
+                                        <div class="input-group-btn">
+                                            <asp:LinkButton ID="LinkButton2" CssClass="btn btn-primary" runat="server" OnClick="LinkButton2_Click">search</asp:LinkButton>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br />
+                            <br />
+                            <asp:GridView ID="GridView7" Width="100%" AutoGenerateColumns="False" runat="server" ShowHeader="False" GridLines="None">
+                                <Columns>
+                                    <asp:TemplateField>
+                                        <ItemTemplate>
+                                            <div style="font-size: x-large">
+                                                <span>Total Current Contract Points</span>
+                                                <span class="text-right pull-right">
+                                                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("Total_Current_Contract_Points") %>'></asp:Label><br />
+                                                    <asp:Label ID="Label7" CssClass="text-muted" runat="server" Text='<%# Bind("TotalProjects") %>'></asp:Label><br />
+                                                    (<asp:Label ID="Label2" runat="server" Text='<%# Bind("Total_Points_Delivered_based_on_Current_Contracts") %>'></asp:Label>)<br />
+                                                    (<asp:Label ID="Label3" runat="server" Text='<%# Bind("Ongoing_Fab_scheduled") %>'></asp:Label>)<br />
+                                                    (<asp:Label ID="Label4" runat="server" Text='<%# Bind("SD_at_hand") %>'></asp:Label>)<br />
+                                                    <span>
+                                                        <asp:Label ID="Label5" Font-Bold="true" CssClass="text-primary" Font-Size="X-Large" runat="server" Text='<%# Bind("Points_to_receive") %>'></asp:Label></span><br />
+                                                    <br />
+                                                    <asp:Label ID="Label6" Font-Bold="true" CssClass="text-primary" Font-Size="X-Large" runat="server" Text='<%# Bind("Ongoing_Fab_scheduled") %>'></asp:Label>
+                                                </span>
+                                                <br />
+                                                <span>Total number of Projects</span><br />
+                                                <span>Total Points Delivered</span><br />
+                                                <span>Ongoing Fab</span><br />
+                                                <span>SD at Hand</span><br />
+                                                <span style="font-size: x-large;font-weight:bold">Points yet to receive</span>
+                                                <br />
+                                                <br />
+                                                <span style="font-size: x-large;font-weight:bold">Current Production Load</span>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+
+                        </div>
+                        <div class="panel-footer">
+                        </div>
+                    </div>
+                            </ContentTemplate>
+                    </asp:UpdatePanel>
+
+
+
                     <asp:Chart ID="Chart1" runat="server" Width="1049px" Height="1500px" Palette="None" PaletteCustomColors="Green; 0, 0, 192; 255, 128, 0">
 
                         <%--   <Legends>
@@ -84,6 +166,8 @@
                         </ChartAreas>
 
                     </asp:Chart>
+
+
                 </asp:Panel>
             </ContentTemplate>
         </asp:UpdatePanel>

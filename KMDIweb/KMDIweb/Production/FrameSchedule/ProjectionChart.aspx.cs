@@ -34,8 +34,10 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     if (!IsPostBack)
                     {
                         tboxYear.Text = DateTime.Now.Year.ToString();
+                        tboxYear2.Text = DateTime.Now.Year.ToString();
                         loadChartData();
                         loadAverage();
+                        loadPointsToReceived();
                     }
                 }
             }
@@ -58,6 +60,31 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             err.IsValid = false;
             err.ErrorMessage = message;
             Page.Validators.Add(err);
+        }
+        private void loadPointsToReceived()
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "projection_chart_stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "loadPointsToReceived");
+                        sqlcmd.Parameters.AddWithValue("@Searchby", ddlsearchby.SelectedValue);
+                        sqlcmd.Parameters.AddWithValue("@year2", tboxYear2.Text);
+                        GridView7.DataSource = sqlcmd.ExecuteReader();
+                        GridView7.DataBind();
+                        loadChartData();
+                    }
+                    catch (Exception e)
+                    {
+                        errorrmessage(e.Message);
+                    }
+                }
+            }
         }
         private void loadChartData()
         {
@@ -136,6 +163,23 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         {
             loadChartData();
             loadAverage();
+        }
+
+        protected void ddlsearchby_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlsearchby.SelectedIndex == 1)
+            {
+                Panel2.Visible = true;
+            }
+            else
+            {
+                Panel2.Visible = false;
+            }
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            loadPointsToReceived();
         }
     }
 }
