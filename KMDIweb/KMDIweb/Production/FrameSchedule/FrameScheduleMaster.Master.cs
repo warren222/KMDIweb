@@ -32,10 +32,12 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             if (Session["KMDI_ffm_acct"].ToString() == "Admin")
             {
                 BTNaccount.Visible = true;
+                HyperLink16.Visible = true;
             }
             else
             {
                 BTNaccount.Visible = false;
+                HyperLink16.Visible = false;
             }
         }
         protected void LinkButton1_Click(object sender, EventArgs e)

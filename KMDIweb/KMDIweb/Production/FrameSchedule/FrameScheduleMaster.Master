@@ -40,6 +40,9 @@
                                  <span class="glyphicon glyphicon-home"></span>&nbsp;Schedule</asp:HyperLink></li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-th-large"></span>&nbsp;Frame Sections<span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                  <li>
+                                    <asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/fclnoout.aspx">Cutting list Schedule</asp:HyperLink></li>
+                                <li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink25" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/fframecutting.aspx">Frame Cutting</asp:HyperLink></li>
                                 <li>

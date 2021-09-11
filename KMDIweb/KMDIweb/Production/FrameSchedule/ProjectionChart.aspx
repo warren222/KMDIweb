@@ -55,6 +55,7 @@
 
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
+                            <asp:Panel ID="Panel3" runat="server">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="text-center">
@@ -130,6 +131,7 @@
                         <div class="panel-footer">
                         </div>
                     </div>
+                                </asp:Panel>
                             </ContentTemplate>
                     </asp:UpdatePanel>
 
