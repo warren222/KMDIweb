@@ -12,7 +12,11 @@
 }
 
 
-
+@media screen and (max-width: 450px) {
+    .responsiveFont {
+        font-size: x-small;
+    }
+}
 
 
 .gridbtn {

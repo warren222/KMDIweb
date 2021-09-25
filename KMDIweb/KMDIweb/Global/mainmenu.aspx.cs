@@ -112,5 +112,22 @@ namespace KMDIweb.KMDIapp
                 Panel1.Visible = false;
             }
         }
+
+        protected void LinkButton5_Click(object sender, EventArgs e)
+        {
+            if (Session["KMDI_clg_acct"].ToString() == "None")
+            {
+                errorrmessage("invalid access!");
+
+            }
+            else
+            {
+                if (IsValid)
+                {
+                    Response.Redirect("~/KMDIweb/AE/CollectionLedger/CollectionLedgerFrm.aspx");
+                }
+
+            }
+        }
     }
 }
