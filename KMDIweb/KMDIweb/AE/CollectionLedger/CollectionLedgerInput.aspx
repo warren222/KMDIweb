@@ -11,31 +11,37 @@
         <div class="well">
             <div class="container">
                 <h2><strong class="text-center">Input</strong></h2>
+                <asp:LinkButton ID="LinkButton3" runat="server" CssClass="btn btn-primary" PostBackUrl="~/KMDIweb/AE/CollectionLedger/CollectionLedgerFrm.aspx">back</asp:LinkButton>
             </div>
         </div>
             <div style="padding: 10px; background-color: whitesmoke;">
             <div class="row">
                 <div class="col-sm-6">
-                    <span>AMOUNT</span><br />
+                    <span class="responsiveFont">AMOUNT</span><br />
                     <asp:TextBox ID="tboxAmount" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" ControlToValidate="tboxAmount" ValidationGroup="inputVal" runat="server"
                         ErrorMessage="Amount is a required field!">*</asp:RequiredFieldValidator>
                     <br />
-                    <span>CHECK DETAILS</span><br />
+                    <span class="responsiveFont">CHECK DETAILS:</span>
+                    (<span class="text-danger responsiveFont">Branch name</span>&nbsp;-
+                    <span class="text-warning responsiveFont">branch location</span>&nbsp;/
+                    <span class="text-info responsiveFont">account#</span>)
+                    
+                    <br />
                     <asp:TextBox ID="tboxCheckDetails" CssClass="form-control" runat="server"></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ForeColor="Red" ControlToValidate="tboxCheckDetails" ValidationGroup="inputVal" runat="server"
                         ErrorMessage="Check details is a required field!">*</asp:RequiredFieldValidator>
                     <br />
-                    <span>PROJECT</span><br />
+                    <span class="responsiveFont">PROJECT</span><br />
                     <asp:TextBox ID="tboxProject" CssClass="form-control" runat="server"></asp:TextBox><br />
                 </div>
                 <div class="col-sm-6">
-                    <span>PAYMENT OR CHECK DATE</span><br />
+                    <span class="responsiveFont">PAYMENT OR CHECK DATE</span><br />
                     <asp:TextBox ID="tboxPaymentDate" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ForeColor="Red" ControlToValidate="tboxPaymentDate" ValidationGroup="inputVal" runat="server"
                         ErrorMessage="Payment or check date is a required field!">*</asp:RequiredFieldValidator>
                     <br />
-                    <span>DATE COLLECTED</span><br />
+                    <span class="responsiveFont">DATE COLLECTED</span><br />
                     <asp:TextBox ID="tboxDateColledted" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ForeColor="Red" ControlToValidate="tboxDateColledted" ValidationGroup="inputVal" runat="server"
                         ErrorMessage="Date collected is a required field!">*</asp:RequiredFieldValidator>

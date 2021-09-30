@@ -7,10 +7,12 @@
 
 <asp:Content ID="content2" ContentPlaceHolderID="content" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <div style="background-color:aliceblue">
     <div class="container">
         <div class="well">
             <div class="container text-center">
                 <h2>Collection Ledger</h2>
+
             </div>
         </div>
         <a data-toggle="collapse" href="#cpnl" role="button" aria-expanded="false" class="btn btn-default" aria-controls="collapseExample">FILTER KEYS
@@ -18,30 +20,41 @@
 
         <div class="collapse" id="cpnl">
             <div style="padding: 10px; background-color: whitesmoke; border-radius: 10px;">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="text-center">DATE INPUTTED RANGE</div>
-                        <span>DATE BEGIN</span><br />
-                        <asp:TextBox ID="tboxBegin" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox><br />
-                        <span>DATE END</span><br />
-                        <asp:TextBox ID="tboxEnd" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox><br />
-                    </div>
-                    <div class="col-sm-6">
-                        <span>PROJECT</span><br />
-                        <asp:TextBox ID="tboxProject" CssClass="form-control" runat="server"></asp:TextBox><br />
-                        <br />
-                        <asp:LinkButton ID="LinkButton2" CssClass="btn btn-success" Width="100%" runat="server" OnClick="LinkButton2_Click">SEARCH</asp:LinkButton>
-                    </div>
-                </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="text-center">DATE INPUTTED RANGE</div>
+                                <span>DATE BEGIN</span><br />
+                                <asp:TextBox ID="tboxBegin" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+                                <span>DATE END</span><br />
+                                <asp:TextBox ID="tboxEnd" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox><br />
+                            </div>
+                            <div class="col-sm-4">
+                                <br />
+                                <br />
+                                <asp:CheckBox ID="cboxVerified" Text="VERIFIED" Checked="true" CssClass="form-control" runat="server" /><br />
+                                <asp:CheckBox ID="cboxInputted" Text="RECORDED" Checked="True" CssClass="form-control" runat="server" />
+                                <br />
+                            </div>
+                            <div class="col-sm-4">
+                                <br />
+                                <span>PROJECT</span><br />
+                                <asp:TextBox ID="tboxProject" CssClass="form-control" runat="server"></asp:TextBox><br />
+                                <asp:LinkButton ID="LinkButton2" CssClass="btn btn-success" Width="100%" runat="server" OnClick="LinkButton2_Click">SEARCH</asp:LinkButton>
+                            </div>
+                        </div>
+                <br /><br />
+                
             </div>
         </div>
         <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click">ADD NEW RECORD</asp:LinkButton><br />
         <br />
-        <asp:GridView ID="GridView1" Width="100%" GridLines="None" BackColor="WhiteSmoke" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridView1_RowCommand">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+        <asp:GridView ID="GridView1" Width="100%" GridLines="None" BackColor="aliceblue" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridView1_RowCommand" PageSize="5">
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <div style="padding: 5px; margin-bottom: 10px; border-left: solid #00ff21 4px; background-color: white;">
+                        <div style="padding: 12px 5px 7px 5px; margin-bottom: 10px; border-left: solid #38c24c 4px; background-color: white;">
                             <span style="font-size: large;">
                                 <asp:Label ID="CollectionId" Visible="false" runat="server" Text='<%# Bind("ID") %>'></asp:Label>
                                 <asp:Label ID="lblCheckDetails" Width="65%" runat="server" class="responsiveFont" Text='<%# Bind("CHECKDETAILS") %>'></asp:Label>
@@ -59,16 +72,21 @@
                             </div>
                             <div>
                                 <span class="responsiveFont text-info">DATE COLLECTED:</span>
-                                <span class="pull-right">
+                                <span class="pull-right text-right">
                                     <asp:Label ID="Label3" runat="server" class="responsiveFont" Text='<%# Bind("DATECOLLECTED") %>'></asp:Label>
+                                    <br />
+                                    <asp:Label ID="Label5" runat="server" Font-Size="Small"
+                                        class='<%# Eval("AR_OR").ToString() == "" && Eval("PARENTJONO").ToString() == "" ? "responsiveFont" : (Eval("AR_OR").ToString() != "" || Eval("PARENTJONO").ToString() != "") ? "label label-success responsiveFont" : "label label-success responsiveFont" %>'
+                                        Text='<%# Eval("AR_OR").ToString() == "" && Eval("PARENTJONO").ToString() == "" ? "" : (Eval("AR_OR").ToString() != "" && Eval("PARENTJONO").ToString() == "") ? "VERIFIED" : (Eval("AR_OR").ToString() == "" && Eval("PARENTJONO").ToString() != "") ? "RECORDED" : "RECORDED" %>'></asp:Label>
                                 </span>
                             </div>
                             <br />
                             <div>
-                                <asp:Label ID="Label4" Font-Bold="true" runat="server" class="responsiveFont text-muted" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label>
+                               <span class="responsiveFont text-muted">PROJECT:&nbsp;&nbsp;</span><asp:Label ID="Label4" Font-Bold="true" runat="server" class="responsiveFont" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label><br />
+                                <span class="responsiveFont text-muted">AEIC:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>(<asp:Label ID="Label6" Font-Bold="true" runat="server" class="responsiveFont" Text='<%# Bind("AE") %>'></asp:Label>)
                             </div>
                             <br />
-                            <asp:LinkButton ID="UploadBtn" CommandName="UploadFile" CssClass="btn btn-success" runat="server">UPLOAD FILE</asp:LinkButton>
+                            <asp:LinkButton ID="UploadBtn" CommandName="UploadFile" CssClass="btn btn-primary" runat="server">UPLOAD FILE</asp:LinkButton>
                         </div>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -85,5 +103,8 @@
             </EmptyDataTemplate>
             <RowStyle Wrap="True" />
         </asp:GridView>
+                   </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
+        </div>
 </asp:Content>

@@ -40,6 +40,24 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger {
         protected global::System.Web.UI.WebControls.TextBox tboxEnd;
         
         /// <summary>
+        /// cboxVerified control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cboxVerified;
+        
+        /// <summary>
+        /// cboxInputted control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cboxInputted;
+        
+        /// <summary>
         /// tboxProject control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,15 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
         /// GridView1 control.
