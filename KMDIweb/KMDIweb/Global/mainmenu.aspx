@@ -62,27 +62,30 @@
             <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="val1" CssClass="alert alert-danger" runat="server" />
             <div class="row">
                 <div class="col-sm-3">
-                    <div class="thumbnail">
-                        <asp:Image ID="Image3" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
-                        <br />
-                        <strong style="font-size: x-large"><span class="glyphicon glyphicon-calendar"></span>
-                            <span>Frame Schedule</span></strong>
-                        <br />
-                        <small>Frame fabrication monitoring</small>
-                        <asp:LinkButton ID="LinkButton4" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton4_Click">ENTER</asp:LinkButton>
-                    </div>
+                    <asp:Panel ID="Panel3" runat="server">
+                        <div class="thumbnail">
+                            <asp:Image ID="Image3" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
+                            <br />
+                            <strong style="font-size: x-large"><span class="glyphicon glyphicon-calendar"></span>
+                                <span>Frame Schedule</span></strong>
+                            <br />
+                            <small>Frame fabrication monitoring</small>
+                            <asp:LinkButton ID="LinkButton4" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton4_Click">ENTER</asp:LinkButton>
+                        </div>
+                    </asp:Panel>
                 </div>
                 <div class="col-sm-3">
-                    <div class="thumbnail">
-                        <asp:Image ID="Image1" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
-                        <br />
-                        <strong style="font-size: x-large"><span class="glyphicon glyphicon-calendar"></span>
-                            <span>Screen Schedule</span></strong>
-                        <br />
-                        <small>screen fabrication monitoring</small>
-                        <asp:LinkButton ID="LinkButton2" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton2_Click">ENTER</asp:LinkButton>
-
-                    </div>
+                    <asp:Panel ID="Panel4" runat="server">
+                        <div class="thumbnail">
+                            <asp:Image ID="Image1" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
+                            <br />
+                            <strong style="font-size: x-large"><span class="glyphicon glyphicon-calendar"></span>
+                                <span>Screen Schedule</span></strong>
+                            <br />
+                            <small>screen fabrication monitoring</small>
+                            <asp:LinkButton ID="LinkButton2" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton2_Click">ENTER</asp:LinkButton>
+                        </div>
+                    </asp:Panel>
                 </div>
                 <div class="col-sm-3">
                     <asp:Panel ID="Panel1" runat="server">
@@ -99,8 +102,8 @@
                         </div>
                     </asp:Panel>
                 </div>
-                  <div class="col-sm-3">
-                    <asp:Panel ID="Panel2" runat="server">
+                <div class="col-sm-3">
+                    <asp:Panel ID="Panel2" Visible="false" runat="server">
                         <div class="thumbnail">
                             <asp:Image ID="Image4" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="Collection Ledger" />
                             <br />

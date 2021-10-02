@@ -322,6 +322,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 Panel2.Visible = true;
                 Panel1.Visible = false;
                 loadkno();
+                loadgno();
             }
         }
         private void loadkno()
@@ -361,6 +362,36 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         GridView2.DataSource = tb;
                         GridView2.DataBind();
                         ViewState["tb"] = tb;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+        }
+        private void loadgno()
+        {
+            try
+            {
+                DataTable tb = new DataTable();
+
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "frame_schedule_stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "gno");
+                        sqlcmd.Parameters.AddWithValue("@pjono", ViewState["parentjono"]);
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(tb);
+                        GridView3.DataSource = tb;
+                        GridView3.DataBind();
+                    
 
                     }
                 }
@@ -505,6 +536,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 lblmodalLocation.Text= ((Label)row.FindControl("LBLlocation")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
+          
         }
     }
 }

@@ -75,9 +75,17 @@
                                 <span class="pull-right text-right">
                                     <asp:Label ID="Label3" runat="server" class="responsiveFont" Text='<%# Bind("DATECOLLECTED") %>'></asp:Label>
                                     <br />
-                                    <asp:Label ID="Label5" runat="server" Font-Size="Small"
+                               <%--     <asp:Label ID="Label5" runat="server" Font-Size="Small"
                                         class='<%# Eval("AR_OR").ToString() == "" && Eval("PARENTJONO").ToString() == "" ? "responsiveFont" : (Eval("AR_OR").ToString() != "" || Eval("PARENTJONO").ToString() != "") ? "label label-success responsiveFont" : "label label-success responsiveFont" %>'
-                                        Text='<%# Eval("AR_OR").ToString() == "" && Eval("PARENTJONO").ToString() == "" ? "" : (Eval("AR_OR").ToString() != "" && Eval("PARENTJONO").ToString() == "") ? "VERIFIED" : (Eval("AR_OR").ToString() == "" && Eval("PARENTJONO").ToString() != "") ? "RECORDED" : "RECORDED" %>'></asp:Label>
+                                        Text='<%# Eval("AR_OR").ToString() == "" && Eval("PARENTJONO").ToString() == "" ? "" : (Eval("AR_OR").ToString() != "" && Eval("PARENTJONO").ToString() == "") ? "VERIFIED" : (Eval("AR_OR").ToString() == "" && Eval("PARENTJONO").ToString() != "") ? "RECORDED" : "RECORDED" %>'></asp:Label>--%>
+
+                                        <asp:Label ID="Label8" runat="server" Font-Size="Small" class="label label-success responsiveFont"
+                                        Text='<%# Eval("AR_OR").ToString() == "" ? "" : "VERIFIED" %>'></asp:Label>
+
+                                         <asp:Label ID="Label7" runat="server" Font-Size="Small" class="label label-warning responsiveFont"
+                                        Text='<%# Eval("PARENTJONO").ToString() == "" ? "" : "RECORDER" %>'></asp:Label>
+
+
                                 </span>
                             </div>
                             <br />

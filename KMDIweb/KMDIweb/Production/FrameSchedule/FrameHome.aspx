@@ -267,90 +267,140 @@
                 <asp:Panel ID="Panel2" runat="server" Visible="false">
                     <h4 class="text-warning text-center"><span style="font-size: xx-large">Item Progress</span></h4>
                     <asp:LinkButton ID="LINKexit" CssClass=" form-control btn-warning text-center" runat="server" Font-Size="Larger" OnClick="LINKexit_Click">Go back to schedule</asp:LinkButton>
-                    <small>
-                        <asp:Panel ID="Panel3" runat="server" ScrollBars="Auto">
-                            <asp:GridView ID="GridView2" CssClass="table tbl" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="GridView2_PageIndexChanging" OnDataBound="GridView2_DataBound" DataKeyNames="ID" OnRowCommand="GridView2_RowCommand">
-                                <AlternatingRowStyle BackColor="White" />
+
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home">Frame</a></li>
+                        <li><a data-toggle="tab" href="#menu1">Glass</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade in active">
+                            <h3>Frame</h3>
+                            <small>
+                                <asp:Panel ID="Panel3" runat="server" ScrollBars="Auto">
+                                    <asp:GridView ID="GridView2" CssClass="table tbl" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="GridView2_PageIndexChanging" OnDataBound="GridView2_DataBound" DataKeyNames="ID" OnRowCommand="GridView2_RowCommand">
+                                        <AlternatingRowStyle BackColor="White" />
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="DUE DATE">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="g2LBLID" runat="server" Visible="false" Text='<%# Bind("ID") %>'></asp:Label>
+                                                    <asp:Label ID="g2LBLduedate" Font-Bold="true" runat="server" Text='<%# Bind("DUE_DATE") %>'></asp:Label>
+                                                    <asp:Label ID="g2LBLday" CssClass="text-muted" Visible="true" runat="server" Text='<%# Bind("DAY") %>'></asp:Label>
+                                                    <asp:Label ID="g2LBLjoborderno" CssClass="text-muted" Visible="false" runat="server" Text='<%# Bind("job_order_no") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="NEW DUE DATE">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="g2LBLnewduedate" Font-Bold="true" runat="server" Text='<%# Bind("NEW_DUE_DATE") %>'></asp:Label><br />
+                                                    <asp:Label ID="g2LBLnewday" CssClass="text-muted" Visible="true" runat="server" Text='<%# Bind("NEW_DAY") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="PROJECT">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="LBLg2projectname" runat="server" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="K#" ItemStyle-HorizontalAlign="Center">
+                                                <ItemTemplate>
+                                                    <asp:CheckBox ID="cboxselect" runat="server" />
+                                                    <asp:Label ID="LBLg2kmdino" runat="server" Text='<%# Bind("KMDI_NO") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="LOCATION / DESCRIPTION" ItemStyle-HorizontalAlign="Center">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="LBLlocation" runat="server" CssClass="text-info" Text='<%# Bind("LOCATION") %>'></asp:Label>&nbsp;
+                                        <asp:Label ID="LBLg2description" runat="server" Text='<%# Bind("DESCRIPTION") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="SECTION" ItemStyle-HorizontalAlign="Center">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="LBLg2currentstation" runat="server" Text='<%# Bind("CURRENTSTATION") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="REMARKS" ItemStyle-HorizontalAlign="Center">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="LBLg2schedstatus" runat="server" Font-Bold="true" CssClass="text-danger" Text='<%# Bind("STATUS") %>'></asp:Label>&nbsp;
+                                           <asp:Label ID="LBLg2sched_remarks" runat="server" Text='<%# Bind("SCHED_REMARKS") %>'></asp:Label>
+                                                    <asp:Label ID="lblrescheduleremarks" Visible="false" runat="server" Text='<%# Bind("reschedule_remarks") %>'></asp:Label>
+                                                    <asp:Label ID="lblincompletematerials" Visible="false" runat="server" Text='<%# Bind("inc_materials_remarks") %>'></asp:Label>
+                                                    <%--    <asp:Label ID="LBLgremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>--%>
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="OpenPopUpBTN" runat="server" CommandName="OpenPopUp">more details</asp:LinkButton>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="POINTS" ItemStyle-HorizontalAlign="Center">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="LBLg2points" runat="server" Text='<%# Bind("POINTS") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:TemplateField>
+                                        </Columns>
+                                        <EmptyDataTemplate>
+                                            <div>
+                                                <h3><strong>Sorry, No Result Found!</strong>
+                                                </h3>
+                                            </div>
+                                        </EmptyDataTemplate>
+                                        <FooterStyle BackColor="#CCCC99" />
+                                        <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+                                        <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+                                        <RowStyle BackColor="#F7F7DE" />
+                                        <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                                        <SortedAscendingCellStyle BackColor="#FBFBF2" />
+                                        <SortedAscendingHeaderStyle BackColor="#848384" />
+                                        <SortedDescendingCellStyle BackColor="#EAEAD3" />
+                                        <SortedDescendingHeaderStyle BackColor="#575357" />
+                                    </asp:GridView>
+
+
+
+
+                                </asp:Panel>
+                            </small>
+                            <asp:LinkButton ID="AddNFIIbtn" CssClass="btn btn-primary" runat="server" OnClick="AddNFIIbtn_Click">Notice For Incomplete Items</asp:LinkButton>
+
+                        </div>
+                        <div id="menu1" class="tab-pane fade">
+                            <h3>Glass</h3>
+                            <asp:GridView ID="GridView3" AutoGenerateColumns="false" runat="server">
                                 <Columns>
                                     <asp:TemplateField HeaderText="DUE DATE">
                                         <ItemTemplate>
-                                            <asp:Label ID="g2LBLID" runat="server" Visible="false" Text='<%# Bind("ID") %>'></asp:Label>
-                                            <asp:Label ID="g2LBLduedate" Font-Bold="true" runat="server" Text='<%# Bind("DUE_DATE") %>'></asp:Label>
-                                            <asp:Label ID="g2LBLday" CssClass="text-muted" Visible="true" runat="server" Text='<%# Bind("DAY") %>'></asp:Label>
+                                            <asp:Label ID="lblGlassDueDate" runat="server" Text='<%# Bind("DUE_DATE") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="NEW DUE DATE">
+                                    <asp:TemplateField HeaderText="ITEM">
                                         <ItemTemplate>
-                                            <asp:Label ID="g2LBLnewduedate" Font-Bold="true" runat="server" Text='<%# Bind("NEW_DUE_DATE") %>'></asp:Label><br />
-                                            <asp:Label ID="g2LBLnewday" CssClass="text-muted" Visible="true" runat="server" Text='<%# Bind("NEW_DAY") %>'></asp:Label>
+                                            <asp:Label ID="lblGlassDueDate" runat="server" CssClass="text-primary" Text='<%# Bind("KMDI_NO") %>'></asp:Label>
+                                            <asp:Label ID="lblGlassG_No" runat="server" CssClass="text-warning" Text='<%# Bind("G_NO") %>'></asp:Label>
+                                            <asp:Label ID="lblGlassItem_No" runat="server" CssClass="text-muted" Text='<%# Bind("ITEM_NO") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="PROJECT">
+                                    <asp:TemplateField HeaderText="SPECS">
                                         <ItemTemplate>
-                                            <asp:Label ID="LBLg2projectname" runat="server" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label>
+                                            <asp:Label ID="lblGlassSpecs" runat="server" CssClass="text-primary" Text='<%# Bind("GLASS_SPECS") %>'></asp:Label>
+                                            (<asp:Label ID="lblGlassWidth" runat="server" Text='<%# Bind("WIDTH") %>'></asp:Label>&nbsp;x&nbsp;
+                                                  <asp:Label ID="lblGlassHeight" runat="server" Text='<%# Bind("HEIGHT") %>'></asp:Label>)
+                                                 <asp:Label ID="lblGlassLocation" runat="server" CssClass="text-muted" Text='<%# Bind("LOCATION") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="K#" ItemStyle-HorizontalAlign="Center">
+                                     <asp:TemplateField HeaderText="REQUEST">
                                         <ItemTemplate>
-                                            <asp:CheckBox ID="cboxselect" runat="server" />
-                                            <asp:Label ID="LBLg2kmdino" runat="server" Text='<%# Bind("KMDI_NO") %>'></asp:Label>
+                                            <asp:Label ID="lbGlasslRequest" runat="server" CssClass="text-primary" Text='<%# Bind("REQUEST_FOR") %>'></asp:Label>
+                                            <asp:Label ID="lbGlasslDateRequested" runat="server" Text='<%# Bind("DATE_REQUESTED") %>'></asp:Label>
                                         </ItemTemplate>
-                                        <ItemStyle HorizontalAlign="Center" />
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="LOCATION / DESCRIPTION" ItemStyle-HorizontalAlign="Center">
-                                        <ItemTemplate>
-                                            <asp:Label ID="LBLlocation" runat="server" CssClass="text-info" Text='<%# Bind("LOCATION") %>'></asp:Label>&nbsp;
-                                        <asp:Label ID="LBLg2description" runat="server" Text='<%# Bind("DESCRIPTION") %>'></asp:Label>
-                                        </ItemTemplate>
-                                        <ItemStyle HorizontalAlign="Center" />
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="SECTION" ItemStyle-HorizontalAlign="Center">
-                                        <ItemTemplate>
-                                            <asp:Label ID="LBLg2currentstation" runat="server" Text='<%# Bind("CURRENTSTATION") %>'></asp:Label>
-                                        </ItemTemplate>
-                                        <ItemStyle HorizontalAlign="Center" />
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="REMARKS" ItemStyle-HorizontalAlign="Center">
-                                        <ItemTemplate>
-                                            <asp:Label ID="LBLg2schedstatus" runat="server" Font-Bold="true" CssClass="text-danger" Text='<%# Bind("STATUS") %>'></asp:Label>&nbsp;
-                                           <asp:Label ID="LBLg2sched_remarks" runat="server" Text='<%# Bind("SCHED_REMARKS") %>'></asp:Label>
-                                            <asp:Label ID="lblrescheduleremarks" Visible="false" runat="server" Text='<%# Bind("reschedule_remarks") %>'></asp:Label>
-                                            <asp:Label ID="lblincompletematerials" Visible="false" runat="server" Text='<%# Bind("inc_materials_remarks") %>'></asp:Label>
-                                            <%--    <asp:Label ID="LBLgremarks" runat="server" Text='<%# Bind("REMARKS") %>'></asp:Label>--%>
-                                        </ItemTemplate>
-                                        <ItemStyle HorizontalAlign="Center" />
-                                    </asp:TemplateField>
-                                    <asp:TemplateField>
-                                        <ItemTemplate>
-                                            <asp:LinkButton ID="OpenPopUpBTN" runat="server" CommandName="OpenPopUp">more details</asp:LinkButton>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="POINTS" ItemStyle-HorizontalAlign="Center">
-                                        <ItemTemplate>
-                                            <asp:Label ID="LBLg2points" runat="server" Text='<%# Bind("POINTS") %>'></asp:Label>
-                                        </ItemTemplate>
-                                        <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                 </Columns>
-                                <EmptyDataTemplate>
-                                    <div>
-                                        <h3><strong>Sorry, No Result Found!</strong>
-                                        </h3>
-                                    </div>
-                                </EmptyDataTemplate>
-                                <FooterStyle BackColor="#CCCC99" />
-                                <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-                                <RowStyle BackColor="#F7F7DE" />
-                                <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-                                <SortedAscendingCellStyle BackColor="#FBFBF2" />
-                                <SortedAscendingHeaderStyle BackColor="#848384" />
-                                <SortedDescendingCellStyle BackColor="#EAEAD3" />
-                                <SortedDescendingHeaderStyle BackColor="#575357" />
                             </asp:GridView>
-                        </asp:Panel>
-                    </small>
-                    <asp:LinkButton ID="AddNFIIbtn" CssClass="btn btn-primary" runat="server" OnClick="AddNFIIbtn_Click">Notice For Incomplete Items</asp:LinkButton>
+                        </div>
+                    </div>
                 </asp:Panel>
 
 
@@ -391,7 +441,6 @@
                         </div>
                     </div>
                 </div>
-
 
             </div>
             <div class="panel-footer">

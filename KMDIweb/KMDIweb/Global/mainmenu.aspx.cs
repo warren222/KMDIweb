@@ -111,6 +111,20 @@ namespace KMDIweb.KMDIapp
             {
                 Panel1.Visible = false;
             }
+
+            if ((usercode == "Accounting"))
+            {
+                Panel3.Visible = false;
+                Panel4.Visible = false;
+
+                Panel2.Visible = true;
+                Panel1.Visible = true;
+            }
+
+            if ((usercode == "Accounting") || (usercode == "Operations") || (usercode == "Programmer") || (usercode == "Management"))
+            {
+                Panel2.Visible = true;
+            }
         }
 
         protected void LinkButton5_Click(object sender, EventArgs e)

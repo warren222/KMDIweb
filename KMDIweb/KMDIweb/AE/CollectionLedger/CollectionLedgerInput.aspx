@@ -23,9 +23,9 @@
                         ErrorMessage="Amount is a required field!">*</asp:RequiredFieldValidator>
                     <br />
                     <span class="responsiveFont">CHECK DETAILS:</span>
-                    (<span class="text-danger responsiveFont">Branch name</span>&nbsp;-
-                    <span class="text-warning responsiveFont">branch location</span>&nbsp;/
-                    <span class="text-info responsiveFont">account#</span>)
+                    (<span class="text-danger responsiveFont">Bank</span>&nbsp;-
+                    <span class="text-warning responsiveFont">Branch</span>&nbsp;/
+                    <span class="text-info responsiveFont">Check#</span>)
                     
                     <br />
                     <asp:TextBox ID="tboxCheckDetails" CssClass="form-control" runat="server"></asp:TextBox><br />
