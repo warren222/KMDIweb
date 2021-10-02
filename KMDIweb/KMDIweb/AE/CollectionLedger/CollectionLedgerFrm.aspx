@@ -50,7 +50,7 @@
         <br />
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-        <asp:GridView ID="GridView1" Width="100%" GridLines="None" BackColor="aliceblue" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridView1_RowCommand" PageSize="5">
+        <asp:GridView ID="GridView1" Width="100%" GridLines="None" BackColor="aliceblue" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridView1_RowCommand" PageSize="25">
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
@@ -83,7 +83,7 @@
                                         Text='<%# Eval("AR_OR").ToString() == "" ? "" : "VERIFIED" %>'></asp:Label>
 
                                          <asp:Label ID="Label7" runat="server" Font-Size="Small" class="label label-warning responsiveFont"
-                                        Text='<%# Eval("PARENTJONO").ToString() == "" ? "" : "RECORDER" %>'></asp:Label>
+                                        Text='<%# Eval("PARENTJONO").ToString() == "" ? "" : "RECORDED" %>'></asp:Label>
 
 
                                 </span>
