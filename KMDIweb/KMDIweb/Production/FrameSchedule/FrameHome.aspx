@@ -369,7 +369,12 @@
                         </div>
                         <div id="menu1" class="tab-pane fade">
                             <h3>Glass</h3>
-                            <asp:GridView ID="GridView3" AutoGenerateColumns="false" runat="server">
+                        
+                        </div>
+                    </div>
+                </asp:Panel>
+                    <asp:GridView ID="GridView3" AutoGenerateColumns="False" runat="server" CellPadding="4" ForeColor="#333333" GridLines="Both">
+                                <AlternatingRowStyle BackColor="White" />
                                 <Columns>
                                     <asp:TemplateField HeaderText="DUE DATE">
                                         <ItemTemplate>
@@ -398,11 +403,16 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
+                                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                                <SortedDescendingHeaderStyle BackColor="#820000" />
                             </asp:GridView>
-                        </div>
-                    </div>
-                </asp:Panel>
-
 
                 <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document">
