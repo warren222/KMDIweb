@@ -9,7 +9,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
      <div class="container">
     <div class="well">
-        <div class="container">
+        <div class="container text-center">
             <h3><strong>PDF and Image Files</strong> </h3>
             <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" PostBackUrl="~/KMDIweb/AE/CollectionLedger/CollectionLedgerFrm.aspx" runat="server">back to home</asp:LinkButton>
         </div>

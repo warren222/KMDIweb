@@ -10,7 +10,7 @@
     <div style="background-color: aliceblue">
         <div class="container">
             <div class="well">
-                <div class="container text-center">
+                <div class="container text-left">
                     <h2>Collection Ledger</h2>
 
                 </div>
