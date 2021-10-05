@@ -90,11 +90,10 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
                         double filesize = thefile.ContentLength;
                         if (filesize < 29360128)
                         {
-                            thefile.SaveAs(Server.MapPath(filepath + collectionId + "/" + thefile.FileName));
+                            thefile.SaveAs(Server.MapPath(filepath + collectionId + "/" + thefile.FileName.Replace("#","")));
                             Session["ErrorMessage"] = null;
                             string path = filepath + collectionId + "/";
-                            insertnew(thefile.FileName.ToString(), fileExtension, path);
-
+                            insertnew(thefile.FileName.Replace("#", "").ToString(), fileExtension, path);
                         }
                         else
                         {

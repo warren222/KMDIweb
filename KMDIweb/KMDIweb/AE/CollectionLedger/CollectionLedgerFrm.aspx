@@ -56,6 +56,10 @@
                             <asp:TemplateField>
                                 <ItemTemplate>
                                     <div style="padding: 12px 5px 7px 5px; margin-bottom: 10px; border-left: solid #38c24c 4px; background-color: white;">
+                                        <div style="font-size: large;"">
+                                             <asp:Label ID="Label4" Font-Bold="true" runat="server" class="responsiveFont" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label>
+                                        </div>
+                                        <div>
                                         <span style="font-size: large;">
                                             <asp:Label ID="CollectionId" Visible="false" runat="server" Text='<%# Bind("ID") %>'></asp:Label>
                                             <asp:Label ID="lblCheckDetails" Width="65%" runat="server" class="responsiveFont" Text='<%# Bind("CHECKDETAILS") %>'></asp:Label>
@@ -64,6 +68,7 @@
                                             <span class="responsiveFont">PHP </span>
                                             <asp:Label ID="Label1" runat="server" class="responsiveFont" Text='<%# Bind("AMOUNT") %>'></asp:Label>
                                         </span>
+                                            </div>
                                         <br />
                                         <div>
                                             <span class="responsiveFont text-info">CHECK/PAYMENT DATE:</span>
@@ -89,17 +94,19 @@
                                                 <asp:Label ID="Label5" runat="server" Font-Size="Small" Text='<%# Bind("CHECK_STATUS") %>'
                                                     class='<%# Eval("CHECK_STATUS").ToString() == "BOUNCED" ? "label label-danger responsiveFont" : Eval("CHECK_STATUS").ToString() == "CLEARED" ? "label label-primary responsiveFont" : "label label-default responsiveFont" %>'></asp:Label>
                                             </span>
-                                        </div><br />
-                                        <div style="background-color: yellow" class="text-center responsiveFont">
-                                            <asp:Label ID="LBLREMARKS" runat="server" Font-Size="Small" Text='<%# Bind("REMARKS")%>'></asp:Label>
                                         </div>
+                                     
                                        
                                         <div>
-                                            <span class="responsiveFont text-muted">PROJECT:&nbsp;&nbsp;</span><asp:Label ID="Label4" Font-Bold="true" runat="server" class="responsiveFont" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label><br />
-                                            <span class="responsiveFont text-muted">AEIC:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>(<asp:Label ID="Label6" Font-Bold="true" runat="server" class="responsiveFont" Text='<%# Bind("AE") %>'></asp:Label>)
+                                            <br />
+                                            <span class="responsiveFont text-muted">AEIC:&nbsp;&nbsp;</span>(<asp:Label ID="Label6" Font-Bold="true" runat="server" class="responsiveFont" Text='<%# Bind("AE") %>'></asp:Label>)
                                         </div>
                                         <br />
-                                        <asp:LinkButton ID="UploadBtn" CommandName="UploadFile" CssClass="btn btn-primary" runat="server">UPLOAD FILE</asp:LinkButton>
+                                        <asp:LinkButton ID="UploadBtn" CommandName="UploadFile" CssClass="btn btn-default" runat="server">UPLOAD FILE</asp:LinkButton>
+                                        <br />
+                                           <div style="background-color: #f8e88b;margin-bottom:-5px;margin-top:5px;margin-left:-5px;" class="text-center responsiveFont">
+                                            <asp:Label ID="LBLREMARKS" runat="server" Font-Size="Small" Text='<%# Bind("REMARKS")%>'></asp:Label>
+                                        </div>
                                     </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
