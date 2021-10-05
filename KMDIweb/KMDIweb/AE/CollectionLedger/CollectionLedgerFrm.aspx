@@ -69,7 +69,7 @@
                                             <asp:Label ID="Label1" runat="server" class="responsiveFont" Text='<%# Bind("AMOUNT") %>'></asp:Label>
                                         </span>
                                             </div>
-                                        <br />
+                                     
                                         <div>
                                             <span class="responsiveFont text-info">CHECK/PAYMENT DATE:</span>
                                             <span class="pull-right">
@@ -80,12 +80,14 @@
                                             <span class="responsiveFont text-info">DATE COLLECTED:</span>
                                             <span class="pull-right text-right">
                                                 <asp:Label ID="Label3" runat="server" class="responsiveFont" Text='<%# Bind("DATECOLLECTED") %>'></asp:Label>
-                                                <br />
-                                                <%--     <asp:Label ID="Label5" runat="server" Font-Size="Small"
-                                        class='<%# Eval("AR_OR").ToString() == "" && Eval("PARENTJONO").ToString() == "" ? "responsiveFont" : (Eval("AR_OR").ToString() != "" || Eval("PARENTJONO").ToString() != "") ? "label label-success responsiveFont" : "label label-success responsiveFont" %>'
-                                        Text='<%# Eval("AR_OR").ToString() == "" && Eval("PARENTJONO").ToString() == "" ? "" : (Eval("AR_OR").ToString() != "" && Eval("PARENTJONO").ToString() == "") ? "VERIFIED" : (Eval("AR_OR").ToString() == "" && Eval("PARENTJONO").ToString() != "") ? "RECORDED" : "RECORDED" %>'></asp:Label>--%>
 
-                                                <asp:Label ID="Label8" runat="server" Font-Size="Small" class="label label-success responsiveFont"
+                                             
+                                            </span>
+                                            <br />
+                                               <span class="responsiveFont text-muted">AEIC:&nbsp;&nbsp;</span><asp:Label ID="Label6" Font-Bold="true" runat="server" class="responsiveFont" Text='<%# Bind("AE") %>'></asp:Label>
+                                        </div>
+                                     <div>
+                                            <asp:Label ID="Label8" runat="server" Font-Size="Small" class="label label-success responsiveFont"
                                                     Text='<%# Eval("AR_OR").ToString() == "" ? "" : "VERIFIED" %>'></asp:Label>
 
                                                 <asp:Label ID="Label7" runat="server" Font-Size="Small" class="label label-warning responsiveFont"
@@ -93,14 +95,7 @@
 
                                                 <asp:Label ID="Label5" runat="server" Font-Size="Small" Text='<%# Bind("CHECK_STATUS") %>'
                                                     class='<%# Eval("CHECK_STATUS").ToString() == "BOUNCED" ? "label label-danger responsiveFont" : Eval("CHECK_STATUS").ToString() == "CLEARED" ? "label label-primary responsiveFont" : "label label-default responsiveFont" %>'></asp:Label>
-                                            </span>
-                                        </div>
-                                     
-                                       
-                                        <div>
-                                            <br />
-                                            <span class="responsiveFont text-muted">AEIC:&nbsp;&nbsp;</span>(<asp:Label ID="Label6" Font-Bold="true" runat="server" class="responsiveFont" Text='<%# Bind("AE") %>'></asp:Label>)
-                                        </div>
+                                     </div>
                                         <br />
                                         <asp:LinkButton ID="UploadBtn" CommandName="UploadFile" CssClass="btn btn-default" runat="server">UPLOAD FILE</asp:LinkButton>
                                         <br />
