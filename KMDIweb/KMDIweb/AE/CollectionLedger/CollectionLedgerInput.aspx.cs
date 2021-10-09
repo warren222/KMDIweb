@@ -16,7 +16,21 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
         {
             if (!IsPostBack)
             {
-               
+                if (usercode == "Aftersales" || usercode == "Management" || usercode=="Programmer")
+                {
+                    pnlASE.Visible = true;
+                }
+                else
+                {
+                    pnlASE.Visible = false;
+                }
+            }
+        }
+        private string usercode
+        {
+            get
+            {
+                return Session["KMDI_user_code"].ToString();
             }
         }
         private string fullname
@@ -67,6 +81,7 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
                         sqlcmd.Parameters.AddWithValue("@PAYMENT_OR_CHECKDATE", tboxPaymentDate.Text);
                         sqlcmd.Parameters.AddWithValue("@AE", fullname);
                         sqlcmd.Parameters.AddWithValue("@PROJECT_NAME", tboxProject.Text);
+                        sqlcmd.Parameters.AddWithValue("@ASE", tboxASE.Text);
                         sqlcmd.ExecuteNonQuery();
                     }
                 }

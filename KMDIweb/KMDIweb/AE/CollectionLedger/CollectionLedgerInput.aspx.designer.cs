@@ -76,6 +76,24 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger {
         protected global::System.Web.UI.WebControls.TextBox tboxProject;
         
         /// <summary>
+        /// pnlASE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlASE;
+        
+        /// <summary>
+        /// tboxASE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxASE;
+        
+        /// <summary>
         /// tboxPaymentDate control.
         /// </summary>
         /// <remarks>

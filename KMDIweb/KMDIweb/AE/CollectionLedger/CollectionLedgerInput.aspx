@@ -14,7 +14,7 @@
                 <asp:LinkButton ID="LinkButton3" runat="server" CssClass="btn btn-primary" PostBackUrl="~/KMDIweb/AE/CollectionLedger/CollectionLedgerFrm.aspx">back</asp:LinkButton>
             </div>
         </div>
-            <div style="padding: 10px; background-color: whitesmoke;">
+        <div style="padding: 10px; background-color: whitesmoke;">
             <div class="row">
                 <div class="col-sm-6">
                     <span class="responsiveFont">AMOUNT</span><br />
@@ -34,6 +34,12 @@
                     <br />
                     <span class="responsiveFont">PROJECT</span><br />
                     <asp:TextBox ID="tboxProject" CssClass="form-control" runat="server"></asp:TextBox><br />
+                    <br />
+                    <asp:Panel ID="pnlASE" runat="server">
+                        <span class="responsiveFont">ASE#</span><br />
+                        <asp:TextBox ID="tboxASE" CssClass="form-control" runat="server"></asp:TextBox><br />
+                    </asp:Panel>
+
                 </div>
                 <div class="col-sm-6">
                     <span class="responsiveFont">PAYMENT OR CHECK DATE</span><br />
@@ -48,7 +54,7 @@
                 </div>
             </div>
             <asp:LinkButton ID="LinkButton1" ValidationGroup="inputVal" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click">ADD</asp:LinkButton>
-                    <asp:LinkButton ID="LinkButton2" CssClass="btn btn-default" runat="server" OnClick="LinkButton2_Click">CANCEL</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton2" CssClass="btn btn-default" runat="server" OnClick="LinkButton2_Click">CANCEL</asp:LinkButton>
             <asp:ValidationSummary CssClass="alert alert-danger" ID="ValidationSummary1" ValidationGroup="inputVal" ForeColor="Red" runat="server" />
             <asp:ValidationSummary CssClass="alert alert-danger" ID="ValidationSummary2" ValidationGroup="errorVal" ForeColor="Red" runat="server" />
         </div>
