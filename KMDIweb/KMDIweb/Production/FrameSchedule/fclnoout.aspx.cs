@@ -167,9 +167,44 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 clno = ((Label)row.FindControl("LBLclno")).Text;
                 updatelist();
             }
+            else if (e.CommandName == "getStatus")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
+                clno = ((Label)row.FindControl("LBLclno")).Text;
+                getStatus(clno);
+                ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
+            }
         }
 
+        private void getStatus(string cl)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "frame_clno_out_stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@command", "GetStatus");
+                        sqlcmd.Parameters.AddWithValue("@clno", cl);
+                        DataTable tb = new DataTable();
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(tb);
+                        GridView2.DataSource = tb;
+                        GridView2.DataBind();
+                    }
+                    catch (Exception e)
+                    {
+                        errorrmessage(e.Message);
+                    }
+                }
+            }
 
+        }
 
         protected void LinkButton1_Click1(object sender, EventArgs e)
         {

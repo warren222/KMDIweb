@@ -55,7 +55,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="K#" HeaderStyle-Width="350px" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="LINKkno" runat="server" CommandName="forcutting" Font-Bold="true" Text='<%# Bind("KNO") %>'></asp:LinkButton>
+                                        <asp:LinkButton ID="LINKkno" runat="server" CommandName="getStatus" Font-Bold="true" Text='<%# Bind("KNO") %>'></asp:LinkButton>
                                     </ItemTemplate>
                                     <HeaderStyle Width="350px" />
                                     <ItemStyle HorizontalAlign="Center" />
@@ -91,6 +91,42 @@
                         </asp:GridView>
                     </small>
                 </asp:Panel>
+
+
+                   <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                <asp:Label ID="lblmodalProjectname" Font-Bold="true" CssClass="text-info" runat="server" Text=""></asp:Label></h5>
+                            <asp:Label ID="lblHeader" runat="server" Text="Header"></asp:Label>
+                            <%--      <button type="button" class="close btn btn-default" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>--%>
+                        </div>
+                        <div class="modal-body">
+                            <asp:GridView ID="GridView2" CssClass="table" GridLines="None" AutoGenerateColumns="false" runat="server">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="K#/Location">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblmodalKno" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label>
+                                            <asp:Label ID="lblmodalLocation" CssClass="text-muted" runat="server" Text='<%# Bind("Location") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Date Delivered">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblDateDelivered" runat="server" Text='<%# Bind("Status_Item") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
