@@ -125,6 +125,20 @@ namespace KMDIweb.KMDIapp
             {
                 Panel2.Visible = true;
             }
+            if((usercode == "Installer") || (usercode == "Management") || (usercode == "Programmer"))
+            {
+
+                Panel5.Visible = true;
+            }
+            else
+            {
+                Panel5.Visible = false;
+            }
+            if (usercode == "Installer")
+            {
+                Panel3.Visible = false;
+                Panel4.Visible = false;
+            }
         }
 
         protected void LinkButton5_Click(object sender, EventArgs e)
@@ -142,6 +156,13 @@ namespace KMDIweb.KMDIapp
                 }
 
             }
+        }
+
+        protected void LinkButton6_Click(object sender, EventArgs e)
+        {
+         
+                Response.Redirect("~/KMDIweb/Installation/InstallationSchedule.aspx");
+   
         }
     }
 }

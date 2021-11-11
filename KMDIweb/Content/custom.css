@@ -1,0 +1,14 @@
+﻿
+.fixedHeader
+{
+  font-weight:bold;
+  position:absolute;
+  background-color: #006699;
+
+  color: #ffffff;
+
+  height: 25px;
+
+  top: expression(Sys.UI.DomElement.getBounds(document.getElementById("panelContainer")).y-25);
+
+}

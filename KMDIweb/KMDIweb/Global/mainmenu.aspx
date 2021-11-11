@@ -14,6 +14,9 @@
     <link href="css/gridcss.css" rel="stylesheet" />
     <title>Main Menu</title>
     <style>
+        .ff{
+            object-fit: cover;
+        }
         .vl {
             border-left: 1px solid white;
             color: white;
@@ -64,9 +67,9 @@
                 <div class="col-sm-3">
                     <asp:Panel ID="Panel3" runat="server">
                         <div class="thumbnail">
-                            <asp:Image ID="Image3" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
+                            <asp:Image ID="Image3" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
                             <br />
-                            <strong style="font-size: x-large"><span class="glyphicon glyphicon-calendar"></span>
+                            <strong style="font-size: large"><span class="glyphicon glyphicon-calendar"></span>
                                 <span>Frame Schedule</span></strong>
                             <br />
                             <small>Frame fabrication monitoring</small>
@@ -77,9 +80,9 @@
                 <div class="col-sm-3">
                     <asp:Panel ID="Panel4" runat="server">
                         <div class="thumbnail">
-                            <asp:Image ID="Image1" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
+                            <asp:Image ID="Image1" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="Screen Schedule" />
                             <br />
-                            <strong style="font-size: x-large"><span class="glyphicon glyphicon-calendar"></span>
+                            <strong style="font-size: large"><span class="glyphicon glyphicon-calendar"></span>
                                 <span>Screen Schedule</span></strong>
                             <br />
                             <small>screen fabrication monitoring</small>
@@ -90,10 +93,10 @@
                 <div class="col-sm-3">
                     <asp:Panel ID="Panel1" runat="server">
                         <div class="thumbnail">
-                            <asp:Image ID="Image2" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="DR Reports" />
+                            <asp:Image ID="Image2" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="DR Reports" />
                             <br />
                             <div>
-                                <strong style="font-size: x-large"><span class="glyphicon glyphicon-list-alt"></span>
+                                <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                     <span>DR Reports</span></strong><br />
                                 <small>Uploaded DR Scanned fileS</small>
                                 <asp:LinkButton ID="LinkButton1" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton1_Click">ENTER</asp:LinkButton>
@@ -105,13 +108,46 @@
                 <div class="col-sm-3">
                     <asp:Panel ID="Panel2" Visible="false" runat="server">
                         <div class="thumbnail">
-                            <asp:Image ID="Image4" CssClass="img-thumbnail" Height="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="Collection Ledger" />
+                            <asp:Image ID="Image4" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/collection.jpg" runat="server" AlternateText="Collection Ledger" />
                             <br />
                             <div>
-                                <strong style="font-size: x-large"><span class="glyphicon glyphicon-list-alt"></span>
+                                <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                     <span>Collection Ledger</span></strong><br />
                                 <small>collection ledger</small>
                                 <asp:LinkButton ID="LinkButton5" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton5_Click">ENTER</asp:LinkButton>
+
+                            </div>
+                        </div>
+                    </asp:Panel>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm-3">
+                       <asp:Panel ID="Panel5" Visible="false" runat="server">
+                        <div class="thumbnail">
+                            <asp:Image ID="Image5" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/installation.jpg" runat="server" AlternateText="installation schedule" />
+                            <br />
+                            <div>
+                                <strong style="font-size: x-large"><span class="glyphicon glyphicon-list-alt"></span>
+                                    <span>Installation</span></strong><br />
+                                <small>installation schedule</small>
+                                <asp:LinkButton ID="LinkButton6" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton6_Click">ENTER</asp:LinkButton>
+
+                            </div>
+                        </div>
+                    </asp:Panel>
+                </div>
+                  <div class="col-sm-3">
+                       <asp:Panel ID="Panel6" runat="server">
+                        <div class="thumbnail">
+                            <asp:Image ID="Image6" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/termo.jpg" runat="server" AlternateText="installation schedule" />
+                            <br />
+                            <div>
+                                <strong style="font-size: x-large"><span class="glyphicon glyphicon-list-alt"></span>
+                                    <span>DHP</span></strong><br />
+                                <small>Daily Health Profile</small>
+                                <asp:LinkButton ID="LinkButton7" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" PostBackUrl="http://dhp.kennethandmock.com">ENTER</asp:LinkButton>
 
                             </div>
                         </div>

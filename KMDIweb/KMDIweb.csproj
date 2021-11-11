@@ -304,6 +304,20 @@
     <Compile Include="KMDIweb\Global\registerSign.aspx.designer.cs">
       <DependentUpon>registerSign.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Installation\InstallationMaster.Master.cs">
+      <DependentUpon>InstallationMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Installation\InstallationMaster.Master.designer.cs">
+      <DependentUpon>InstallationMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Installation\InstallationSchedule.aspx.cs">
+      <DependentUpon>InstallationSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Installation\InstallationSchedule.aspx.designer.cs">
+      <DependentUpon>InstallationSchedule.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx.cs">
       <DependentUpon>CalendarFrame.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -636,6 +650,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
     <Content Include="Images\transpa.png" />
     <Content Include="KMDIweb\AE\CollectionLedger\CollectionLedgerFrm.aspx" />
     <Content Include="KMDIweb\AE\CollectionLedger\CollectionLedgerInput.aspx" />
@@ -652,7 +667,9 @@
     <Content Include="KMDIweb\Global\css\gridcss.css" />
     <Content Include="KMDIweb\Global\registerSign.aspx" />
     <Content Include="KMDIweb\Global\scripts\sign.js" />
+    <Content Include="KMDIweb\Images\collection.jpg" />
     <Content Include="KMDIweb\Images\dr.jpg" />
+    <Content Include="KMDIweb\Images\installation.jpg" />
     <Content Include="KMDIweb\Images\kmdilogo.png" />
     <Content Include="KMDIweb\Images\loginback.jpg" />
     <Content Include="KMDIweb\Images\pdf-icon.png" />
@@ -661,6 +678,8 @@
     <Content Include="KMDIweb\Images\SDR.png" />
     <Content Include="KMDIweb\Images\SFM.png" />
     <Content Include="KMDIweb\Images\Single-Hung-Window.png" />
+    <Content Include="KMDIweb\Images\termo.jpg" />
+    <Content Include="KMDIweb\Installation\InstallationSchedule.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrameNewDueDate.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\DeliveredItemsHome.aspx" />
@@ -728,6 +747,7 @@
     <Content Include="KMDIweb\Global\DataSetFiles\reportDS.xss">
       <DependentUpon>reportDS.xsd</DependentUpon>
     </Content>
+    <Content Include="KMDIweb\Installation\InstallationMaster.Master" />
     <None Include="Properties\PublishProfiles\IISpub.pubxml" />
     <Content Include="KMDIweb\Production\FrameSchedule\FrameScheduleMaster.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
