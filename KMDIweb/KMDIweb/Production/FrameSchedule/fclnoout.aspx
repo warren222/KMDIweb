@@ -113,7 +113,7 @@
                                             <asp:Label ID="lblmodalLocation" CssClass="text-muted" runat="server" Text='<%# Bind("Location") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Date Delivered">
+                                    <asp:TemplateField HeaderText="Section">
                                         <ItemTemplate>
                                             <asp:Label ID="lblDateDelivered" runat="server" Text='<%# Bind("Status_Item") %>'></asp:Label>
                                         </ItemTemplate>
