@@ -117,7 +117,34 @@ namespace KMDIweb.KMDIweb.Installation
                 errorrmessage(ex.Message.ToString());
             }
         }
+        private void loadNonproductiveActivity(string parentjono)
+        {
+            try
+            {
 
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        DataTable tb = new DataTable();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Nonproductive_Activity_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Load");
+                        sqlcmd.Parameters.AddWithValue("@parentjono", parentjono);
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = sqlcmd;
+                        da.Fill(tb);
+                        GridView3.DataSource = tb;
+                        GridView3.DataBind();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+        }
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
             loaddata();
@@ -143,6 +170,7 @@ namespace KMDIweb.KMDIweb.Installation
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = GridView1.Rows[rowindex];
                 loadkno(((Label)row.FindControl("lblparentjono")).Text);
+                loadNonproductiveActivity(((Label)row.FindControl("lblparentjono")).Text);
                 ViewState["parentjono"] = ((Label)row.FindControl("lblparentjono")).Text;
                 ViewState["installers"] = ((Label)row.FindControl("lblinstallershidden")).Text.Replace("\n", ", ");
                 lblProjectS2.Text = ((LinkButton)row.FindControl("BTNkno")).Text;
@@ -425,6 +453,79 @@ namespace KMDIweb.KMDIweb.Installation
             else if (e.CommandName == "ClearScreens")
             {
                 clearUpdate("Screens='',Screens_Installer=''", jo, kno);
+            }
+        }
+
+        protected void LinkButton4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        DataTable tb = new DataTable();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Nonproductive_Activity_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Create");
+                        sqlcmd.Parameters.AddWithValue("@Activity", ddlActivity.Text);
+                        sqlcmd.Parameters.AddWithValue("@ParentJono", ViewState["parentjono"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Installers", ViewState["installers"].ToString());
+                        sqlcmd.ExecuteNonQuery();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+            finally
+            {
+                loadNonproductiveActivity(ViewState["parentjono"].ToString());
+            }
+        }
+
+        protected void GridView3_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+            GridViewRow row = GridView3.Rows[rowindex];
+            string id = ((Label)row.FindControl("lblId")).Text;
+
+            if (e.CommandName == "myDelete")
+            {
+                deleteActivity(id);
+            }
+        }
+        private void deleteActivity(string id)
+        {
+            try
+            {
+
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                      
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Nonproductive_Activity_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Delete");
+                        sqlcmd.Parameters.AddWithValue("@Id",id);
+                        sqlcmd.ExecuteNonQuery();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+            finally
+            {
+                loadNonproductiveActivity(ViewState["parentjono"].ToString());
             }
         }
     }

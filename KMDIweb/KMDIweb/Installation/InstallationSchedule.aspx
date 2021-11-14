@@ -64,6 +64,19 @@
                             </ItemTemplate>
                             <HeaderStyle Width="200px" />
                         </asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="200px" HeaderText="Driver" ItemStyle-Wrap="false">
+                            <ItemTemplate>
+                                <div class="text-center">
+                                    <asp:Label ID="lblPlatenumber" Font-Size="Larger" CssClass="text-muted" runat="server" Text='<%# Bind("Plate_No") %>'></asp:Label><br />
+                                    <br />
+                                    <asp:Label ID="lblDriver" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Driver").ToString(), "\r\n|\r|\n", "<br>"))  %>'></asp:Label>
+                                </div>
+
+                                <br />
+                                <br />
+
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
 
                     <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
@@ -187,7 +200,7 @@
                                     <asp:TemplateField HeaderText="GLASS" ItemStyle-Wrap="false">
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lbtnGlass" CommandName="Glass" runat="server" Text='<%# Bind("GLASS") %>'></asp:LinkButton><br />
-                                            <asp:LinkButton ID="btnClearGlass" OnClientClick="return confirm('clear this record?')"  CssClass="text-danger" CommandName="ClearGlass" Visible='<%# Eval("Clear_Glass").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Glass") %>'></asp:LinkButton>
+                                            <asp:LinkButton ID="btnClearGlass" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearGlass" Visible='<%# Eval("Clear_Glass").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Glass") %>'></asp:LinkButton>
                                             <asp:Label ID="lblglassInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("glass_installer").ToString(), ",", "<br>")) %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
@@ -260,12 +273,80 @@
                                 </div>
                             </div>
                             <br />
+                            <asp:LinkButton ID="LinkButton3" OnClientClick="return confirm('save changes?')" CssClass="btn btn-primary" runat="server" OnClick="LinkButton3_Click">save changes</asp:LinkButton>
+
                             <br />
-                            <asp:LinkButton ID="LinkButton3" OnClientClick="return confirm('save changes?')"  CssClass="btn btn-primary" runat="server" OnClick="LinkButton3_Click">save changes</asp:LinkButton>
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </asp:Panel>
+                <br />
+                <br />
+                <div class="well">
+                    <div class="text-center">
+                        <h3>Non-productive activities</h3>
+                    </div>
+                    <br />
+                    <div>
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
+                                <span>Select your activity</span><br />
+                                <div class="input-group">
+                                    <asp:DropDownList ID="ddlActivity" CssClass="form-control" runat="server">
+                                        <asp:ListItem Text="Activity 1" Value="Activity 1"></asp:ListItem>
+                                        <asp:ListItem Text="Activity 2" Value="Activity 2"></asp:ListItem>
+                                        <asp:ListItem Text="Activity 3" Value="Activity 3"></asp:ListItem>
+                                        <asp:ListItem Text="Activity 4" Value="Activity 4"></asp:ListItem>
+                                        <asp:ListItem Text="Activity 5" Value="Activity 5"></asp:ListItem>
+                                    </asp:DropDownList>
+                                    <div class="input-group-btn">
+                                        <asp:LinkButton ID="LinkButton4" CssClass="btn btn-primary" runat="server" OnClick="LinkButton4_Click">add</asp:LinkButton>
+                                    </div>
+                                </div>
+                                <br />
+                                <asp:Panel ID="panel20" ScrollBars="Auto" runat="server">
+                                    <asp:GridView ID="GridView3" CssClass="table" AutoGenerateColumns="False" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" EmptyDataText="No record" OnRowCommand="GridView3_RowCommand">
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="ACTIVITY" ItemStyle-Wrap="false">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
+                                                    <asp:Label ID="lblactivity" runat="server" Text='<%# Bind("activity") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Wrap="False" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="DATE" ItemStyle-Wrap="false">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lbldated" runat="server" Text='<%# Bind("DATED") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Wrap="False" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="INSTALLERS" ItemStyle-Wrap="false">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblinstl" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("installers").ToString(), ",", "<br>"))  %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Wrap="False" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="btnDelete" OnClientClick="return confirm('delete this record?')" CssClass="text-danger" CommandName="myDelete" Visible='<%# Eval("Clear_Data").ToString() == "" ? false : true %>' runat="server">Delete</asp:LinkButton>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                        <FooterStyle BackColor="#CCCCCC" />
+                                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                                        <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                                        <RowStyle BackColor="White" />
+                                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                        <SortedAscendingHeaderStyle BackColor="#808080" />
+                                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                        <SortedDescendingHeaderStyle BackColor="#383838" />
+                                    </asp:GridView>
+                                </asp:Panel>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
 
+                    </div>
+                </div>
             </asp:Panel>
         </asp:Panel>
 
