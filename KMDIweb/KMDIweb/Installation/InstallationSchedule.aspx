@@ -292,11 +292,14 @@
                                 <span>Select your activity</span><br />
                                 <div class="input-group">
                                     <asp:DropDownList ID="ddlActivity" CssClass="form-control" runat="server">
-                                        <asp:ListItem Text="Activity 1" Value="Activity 1"></asp:ListItem>
-                                        <asp:ListItem Text="Activity 2" Value="Activity 2"></asp:ListItem>
-                                        <asp:ListItem Text="Activity 3" Value="Activity 3"></asp:ListItem>
-                                        <asp:ListItem Text="Activity 4" Value="Activity 4"></asp:ListItem>
-                                        <asp:ListItem Text="Activity 5" Value="Activity 5"></asp:ListItem>
+                                        <asp:ListItem Text="Layout opening" Value="Layout opening"></asp:ListItem>
+                                        <asp:ListItem Text="Travel/Hanap boarding house" Value="Travel/Hanap boarding house"></asp:ListItem>
+                                        <asp:ListItem Text="Aftersales" Value="Aftersales"></asp:ListItem>
+                                        <asp:ListItem Text="Hauling Frame/Sash/Glass" Value="Hauling Frame/Sash/Glass"></asp:ListItem>
+                                        <asp:ListItem Text="Shipment" Value="Shipment"></asp:ListItem>
+                                        <asp:ListItem Text="Adjustment" Value="Adjustment"></asp:ListItem>
+                                        <asp:ListItem Text="Process ID" Value="Process ID"></asp:ListItem>
+                                        <asp:ListItem Text="Change Schedule" Value="Change Schedule"></asp:ListItem>
                                     </asp:DropDownList>
                                     <div class="input-group-btn">
                                         <asp:LinkButton ID="LinkButton4" CssClass="btn btn-primary" runat="server" OnClick="LinkButton4_Click">add</asp:LinkButton>
