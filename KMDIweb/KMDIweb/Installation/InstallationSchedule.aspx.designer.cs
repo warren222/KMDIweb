@@ -121,6 +121,15 @@ namespace KMDIweb.KMDIweb.Installation {
         protected global::System.Web.UI.WebControls.Label lblAddressS2;
         
         /// <summary>
+        /// lblInstructions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInstructions;
+        
+        /// <summary>
         /// cboxFrame control.
         /// </summary>
         /// <remarks>
@@ -290,6 +299,24 @@ namespace KMDIweb.KMDIweb.Installation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
+        
+        /// <summary>
+        /// tboxActivity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxActivity;
+        
+        /// <summary>
+        /// LinkButton5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton5;
         
         /// <summary>
         /// panel20 control.

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using KMDIweb.SCREENfab;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,6 +18,8 @@ namespace KMDIweb.KMDIapp
                 if (!IsPostBack)
                 {
                     access();
+                    log();
+                    lblToday.Text = DateTime.Now.ToString("MMMM dd, yyyy");
                 }
             }
             else
@@ -125,7 +129,7 @@ namespace KMDIweb.KMDIapp
             {
                 Panel2.Visible = true;
             }
-            if((usercode == "Installer") || (usercode == "Management") || (usercode == "Programmer"))
+            if ((usercode == "Installer") || (usercode == "Management") || (usercode == "Programmer"))
             {
 
                 Panel5.Visible = true;
@@ -160,9 +164,59 @@ namespace KMDIweb.KMDIapp
 
         protected void LinkButton6_Click(object sender, EventArgs e)
         {
-         
-                Response.Redirect("~/KMDIweb/Installation/InstallationSchedule.aspx");
-   
+
+            Response.Redirect("~/KMDIweb/Installation/InstallationSchedule.aspx");
+
+        }
+
+        protected void LinkButton8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(ConnectionString.sqlconstr()))
+                {
+                    sqlcon.Open();
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcmd.CommandText = "Date_Time_Record_Stp";
+                        sqlcmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Create");
+                        sqlcmd.Parameters.AddWithValue("@Biometric_Id", Session["KMDI_biometric_id"].ToString());
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message);
+            }
+            finally
+            {
+                log();
+            }
+        }
+        private void log()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(ConnectionString.sqlconstr()))
+                {
+                    sqlcon.Open();
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcmd.CommandText = "Date_Time_Record_Stp";
+                        sqlcmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Load");
+                        sqlcmd.Parameters.AddWithValue("@Biometric_Id", Session["KMDI_biometric_id"].ToString());
+                        GridView1.DataSource = sqlcmd.ExecuteReader();
+                        GridView1.DataBind();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message);
+            }
         }
     }
 }

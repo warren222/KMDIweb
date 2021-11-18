@@ -40,6 +40,7 @@
                         <asp:TemplateField HeaderText="PROJECT" ItemStyle-BackColor="White" ItemStyle-BorderColor="Silver" ItemStyle-Wrap="false">
                             <ItemTemplate>
                                 <asp:LinkButton ID="BTNkno" runat="server" CommandName="loadkno" Font-Bold="true" Text='<%# Bind("PIR2_PROJECTNAME") %>'></asp:LinkButton><br />
+                                <asp:Label ID="lblInstruction" Font-Size="Small" Visible="false" CssClass="text-muted" runat="server" Text='<%# Bind("PIR2_SPECIALINSTRUCTIONS") %>'></asp:Label>
                                 <asp:Label ID="lblAddress" Font-Size="Small" CssClass="text-muted" runat="server" Text='<%# Bind("Fulladd") %>'></asp:Label><br />
                                 <asp:Label ID="lblparentjono" Font-Size="Smaller" runat="server" Text='<%# Bind("PIR2_PARENTJONO") %>'></asp:Label>
                             </ItemTemplate>
@@ -77,6 +78,13 @@
 
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Driver Instructions"  ItemStyle-Wrap="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblDriverInstructor" runat="server" Text='<%# Bind("PIR2_DRIVERINSTRUCTIONS") %>'></asp:Label><br />
+                                <br />
+                                <asp:Label ID="lblDriverNote" runat="server" Text='<%# Bind("Driver_Note") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
 
                     <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
@@ -101,6 +109,11 @@
                 <div class="well">
                     <asp:Label ID="lblProjectS2" Font-Bold="true" runat="server" Font-Size="Large" Text="Label"></asp:Label><br />
                     <asp:Label ID="lblAddressS2" CssClass="text-muted" Font-Size="Small" runat="server" Text="Label"></asp:Label>
+                </div>
+                <div class="alert alert-success">
+                    <h4>
+                   <strong>Attention!</strong> <asp:Label ID="lblInstructions" runat="server" Text="Label"></asp:Label>
+                        </h4>
                 </div>
 
                 <div class="well">
@@ -303,6 +316,15 @@
                                     </asp:DropDownList>
                                     <div class="input-group-btn">
                                         <asp:LinkButton ID="LinkButton4" CssClass="btn btn-primary" runat="server" OnClick="LinkButton4_Click">add</asp:LinkButton>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="well">
+                                    <span>Other</span>
+                                    <div>
+                                        <asp:TextBox ID="tboxActivity" TextMode="MultiLine" CssClass="form-control" runat="server" Rows="5"></asp:TextBox>
+                                        <br />
+                                        <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary" runat="server" OnClick="LinkButton5_Click">submit</asp:LinkButton>
                                     </div>
                                 </div>
                                 <br />

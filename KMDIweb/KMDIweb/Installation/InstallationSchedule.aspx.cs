@@ -175,6 +175,7 @@ namespace KMDIweb.KMDIweb.Installation
                 ViewState["installers"] = ((Label)row.FindControl("lblinstallershidden")).Text.Replace("\n", ", ");
                 lblProjectS2.Text = ((LinkButton)row.FindControl("BTNkno")).Text;
                 lblAddressS2.Text = ((Label)row.FindControl("lblAddress")).Text;
+                lblInstructions.Text = ((Label)row.FindControl("lblinstruction")).Text;
                 PNLschedule.Visible = false;
                 PNLkno.Visible = true;
             }
@@ -458,6 +459,10 @@ namespace KMDIweb.KMDIweb.Installation
 
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
+            addActivity(ddlActivity.Text);
+        }
+        private void addActivity(string activity)
+        {
             try
             {
 
@@ -470,7 +475,7 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.CommandText = "Nonproductive_Activity_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Create");
-                        sqlcmd.Parameters.AddWithValue("@Activity", ddlActivity.Text);
+                        sqlcmd.Parameters.AddWithValue("@Activity", activity);
                         sqlcmd.Parameters.AddWithValue("@ParentJono", ViewState["parentjono"].ToString());
                         sqlcmd.Parameters.AddWithValue("@Installers", ViewState["installers"].ToString());
                         sqlcmd.ExecuteNonQuery();
@@ -487,7 +492,6 @@ namespace KMDIweb.KMDIweb.Installation
                 loadNonproductiveActivity(ViewState["parentjono"].ToString());
             }
         }
-
         protected void GridView3_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
@@ -527,6 +531,11 @@ namespace KMDIweb.KMDIweb.Installation
             {
                 loadNonproductiveActivity(ViewState["parentjono"].ToString());
             }
+        }
+
+        protected void LinkButton5_Click(object sender, EventArgs e)
+        {
+            addActivity(tboxActivity.Text);
         }
     }
 }
