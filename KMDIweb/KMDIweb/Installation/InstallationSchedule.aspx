@@ -8,6 +8,7 @@
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
+
         <div class="well">
             <h2>Installation Schedule
             </h2>
@@ -31,6 +32,8 @@
                 </div>
             </div>
         </div>
+
+
 
 
         <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
@@ -78,7 +81,7 @@
 
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Driver Instructions"  ItemStyle-Wrap="false">
+                        <asp:TemplateField HeaderText="Driver Instructions" ItemStyle-Wrap="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblDriverInstructor" runat="server" Text='<%# Bind("PIR2_DRIVERINSTRUCTIONS") %>'></asp:Label><br />
                                 <br />
@@ -112,8 +115,9 @@
                 </div>
                 <div class="alert alert-success">
                     <h4>
-                   <strong>Attention!</strong> <asp:Label ID="lblInstructions" runat="server" Text="Label"></asp:Label>
-                        </h4>
+                        <strong><asp:Label ID="lblWarning" runat="server" Text="Label"></asp:Label></strong>
+                        <asp:Label ID="lblInstructions" runat="server" Text="Label"></asp:Label>
+                    </h4>
                 </div>
 
                 <div class="well">
@@ -201,6 +205,10 @@
                                             <asp:LinkButton ID="lbtnFrame" CommandName="Frame" runat="server" Text='<%# Bind("frame") %>'></asp:LinkButton><br />
                                             <asp:LinkButton ID="btnClearFrame" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearFrame" Visible='<%# Eval("Clear_Frame").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Frame") %>'></asp:LinkButton>
                                             <asp:Label ID="lblframeInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("frame_installer").ToString(), ",", "<br>")) %>'></asp:Label>
+                                            <br />
+                                            <asp:LinkButton ID="btnFrameUpdate" CommandName="UpdateFrame" CssClass="btn btn-default" Visible='<%# Eval("Frame").ToString() == "" ? true : false %>' runat="server">check</asp:LinkButton>
+                                            <br />
+                                            <span class="text-muted" style="font-size: small">Frame</span>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="SASH" ItemStyle-Wrap="false">
@@ -208,6 +216,10 @@
                                             <asp:LinkButton ID="lbtnSash" CommandName="Sash" runat="server" Text='<%# Bind("sash") %>'></asp:LinkButton><br />
                                             <asp:LinkButton ID="btnClearSash" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearSash" Visible='<%# Eval("Clear_Sash").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Sash") %>'></asp:LinkButton>
                                             <asp:Label ID="lblSashInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("sash_installer").ToString(), ",", "<br>")) %>'></asp:Label>
+                                            <br />
+                                            <asp:LinkButton ID="btnSashUpdate" CssClass="btn btn-default" CommandName="UpdateSash" Visible='<%# Eval("Sash").ToString() == "" ? true : false %>' runat="server">check</asp:LinkButton>
+                                            <br />
+                                            <span class="text-muted" style="font-size: small">Sash</span>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="GLASS" ItemStyle-Wrap="false">
@@ -215,6 +227,10 @@
                                             <asp:LinkButton ID="lbtnGlass" CommandName="Glass" runat="server" Text='<%# Bind("GLASS") %>'></asp:LinkButton><br />
                                             <asp:LinkButton ID="btnClearGlass" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearGlass" Visible='<%# Eval("Clear_Glass").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Glass") %>'></asp:LinkButton>
                                             <asp:Label ID="lblglassInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("glass_installer").ToString(), ",", "<br>")) %>'></asp:Label>
+                                            <br />
+                                            <asp:LinkButton ID="btnGlassUpdate" CssClass="btn btn-default" CommandName="UpdateGlass" Visible='<%# Eval("Glass").ToString() == "" ? true : false %>' runat="server">check</asp:LinkButton>
+                                            <br />
+                                            <span class="text-muted" style="font-size: small">Glass</span>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="FOAM" ItemStyle-Wrap="false">
@@ -222,6 +238,10 @@
                                             <asp:LinkButton ID="lbtnFoam" CommandName="Foam" runat="server" Text='<%# Bind("FOAM") %>'></asp:LinkButton><br />
                                             <asp:LinkButton ID="btnClearFoam" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearFoam" Visible='<%# Eval("Clear_Foam").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Foam") %>'></asp:LinkButton>
                                             <asp:Label ID="lblfoamInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("foam_installer").ToString(), ",", "<br>")) %>'></asp:Label>
+                                            <br />
+                                            <asp:LinkButton ID="btnFoamUpdate" CssClass="btn btn-default" CommandName="UpdateFoam" Visible='<%# Eval("Foam").ToString() == "" ? true : false %>' runat="server">check</asp:LinkButton>
+                                            <br />
+                                            <span class="text-muted" style="font-size: small">Foam</span>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="SEALANT" ItemStyle-Wrap="false">
@@ -229,6 +249,10 @@
                                             <asp:LinkButton ID="lbtnSealant" CommandName="Sealant" runat="server" Text='<%# Bind("SEALANT") %>'></asp:LinkButton><br />
                                             <asp:LinkButton ID="btnClearSealant" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearSealant" Visible='<%# Eval("Clear_Sealant").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Sealant") %>'></asp:LinkButton>
                                             <asp:Label ID="lblsealantInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("sealant_installer").ToString(), ",", "<br>")) %>'></asp:Label>
+                                            <br />
+                                            <asp:LinkButton ID="btnSealantUpdate" CssClass="btn btn-default" CommandName="UpdateSealant" Visible='<%# Eval("Sealant").ToString() == "" ? true : false %>' runat="server">check</asp:LinkButton>
+                                            <br />
+                                            <span class="text-muted" style="font-size: small">Sealant</span>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="PLASTIC" ItemStyle-Wrap="false">
@@ -236,6 +260,10 @@
                                             <asp:LinkButton ID="lbtnPlastic" CommandName="Plastic" runat="server" Text='<%# Bind("PLASTIC") %>'></asp:LinkButton><br />
                                             <asp:LinkButton ID="btnClearPlastic" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearPlastic" Visible='<%# Eval("Clear_Plastic").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Plastic") %>'></asp:LinkButton>
                                             <asp:Label ID="lblplasticInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("plastic_installer").ToString(), ",", "<br>")) %>'></asp:Label>
+                                            <br />
+                                            <asp:LinkButton ID="btnPlasticUpdate" CssClass="btn btn-default" CommandName="UpdatePlastic" Visible='<%# Eval("Plastic").ToString() == "" ? true : false %>' runat="server">check</asp:LinkButton>
+                                            <br />
+                                            <span class="text-muted" style="font-size: small">Plastic</span>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="HANDLE" ItemStyle-Wrap="false">
@@ -243,6 +271,10 @@
                                             <asp:LinkButton ID="lbtnHandle" CommandName="Handle" runat="server" Text='<%# Bind("I_HANDLE") %>'></asp:LinkButton><br />
                                             <asp:LinkButton ID="btnClearHandle" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearHandle" Visible='<%# Eval("Clear_Handle").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Handle") %>'></asp:LinkButton>
                                             <asp:Label ID="lblihandleInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("i_handle_installer").ToString(), ",", "<br>")) %>'></asp:Label>
+                                            <br />
+                                            <asp:LinkButton ID="btnHandleUpdate" CssClass="btn btn-default" CommandName="UpdateHandle" Visible='<%# Eval("I_Handle").ToString() == "" ? true : false %>' runat="server">check</asp:LinkButton>
+                                            <br />
+                                            <span class="text-muted" style="font-size: small">Handle</span>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="SCREENS" ItemStyle-Wrap="false">
@@ -250,6 +282,10 @@
                                             <asp:LinkButton ID="lbtnScreen" CommandName="Screen" runat="server" Text='<%# Bind("SCREENS") %>'></asp:LinkButton><br />
                                             <asp:LinkButton ID="btnClearScreen" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearScreens" Visible='<%# Eval("Clear_Screens").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Screens") %>'></asp:LinkButton>
                                             <asp:Label ID="lblscreenInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("screens_installer").ToString(), ",", "<br>")) %>'></asp:Label>
+                                            <br />
+                                            <asp:LinkButton ID="btnScreenUpdate" CssClass="btn btn-default" CommandName="UpdateScreen" Visible='<%# Eval("Screens").ToString() == "" ? true : false %>' runat="server">check</asp:LinkButton>
+                                            <br />
+                                            <span class="text-muted" style="font-size: small">Screen</span>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>

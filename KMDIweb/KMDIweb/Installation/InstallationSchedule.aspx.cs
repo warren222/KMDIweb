@@ -176,6 +176,14 @@ namespace KMDIweb.KMDIweb.Installation
                 lblProjectS2.Text = ((LinkButton)row.FindControl("BTNkno")).Text;
                 lblAddressS2.Text = ((Label)row.FindControl("lblAddress")).Text;
                 lblInstructions.Text = ((Label)row.FindControl("lblinstruction")).Text;
+                if (((Label)row.FindControl("lblinstruction")).Text != "")
+                {
+                    lblWarning.Text = "Attention!";
+                }
+                else
+                {
+                    lblWarning.Text = "";
+                }
                 PNLschedule.Visible = false;
                 PNLkno.Visible = true;
             }
@@ -303,6 +311,29 @@ namespace KMDIweb.KMDIweb.Installation
                 errorrmessage(ex.Message.ToString());
             }
         }
+        private void updateSingle(string column, string installerStr, string jo, string kno)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    string str = " update KMDI_INSTALLATION_TB set " + column + "=format(getdate(),'MMMM dd, yyyy'), " + installerStr + " = '" + installers + "', UPDATED_BY = '" + myName + " '+format(getdate(),'MMMM dd, yyyy hh:mm:ss tt') where job_order_no = '" + jo + "' and kmdi_no = '" + kno + "' ";
+                    using (SqlCommand sqlcmd = new SqlCommand(str, sqlcon))
+                    {
+                        sqlcon.Open();
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+            finally
+            {
+                loadkno(ViewState["parentjono"].ToString());
+            }
+        }
         private void clearUpdate(string column, string jo, string kno)
         {
             try
@@ -381,6 +412,7 @@ namespace KMDIweb.KMDIweb.Installation
                 lblmodalInstallers.Text = ((Label)row.FindControl("lblframeInstaller")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
+
             else if (e.CommandName == "ClearFrame")
             {
                 clearUpdate("Frame='',Frame_Installer=''", jo, kno);
@@ -455,6 +487,40 @@ namespace KMDIweb.KMDIweb.Installation
             {
                 clearUpdate("Screens='',Screens_Installer=''", jo, kno);
             }
+
+
+            else if (e.CommandName == "UpdateFrame")
+            {
+                updateSingle("Frame", "Frame_Installer", jo, kno);
+            }
+            else if (e.CommandName == "UpdateSash")
+            {
+                updateSingle("Sash", "Sash_Installer", jo, kno);
+            }
+            else if (e.CommandName == "UpdateGlass")
+            {
+                updateSingle("Glass", "Glass_Installer", jo, kno);
+            }
+            else if (e.CommandName == "UpdateFoam")
+            {
+                updateSingle("Foam", "Foam_Installer", jo, kno);
+            }
+            else if (e.CommandName == "UpdateSealant")
+            {
+                updateSingle("Sealant", "Sealant_Installer", jo, kno);
+            }
+            else if (e.CommandName == "UpdatePlastic")
+            {
+                updateSingle("Plastic", "Plastic_Installer", jo, kno);
+            }
+            else if (e.CommandName == "UpdateHandle")
+            {
+                updateSingle("I_Handle", "I_Handle_Installer", jo, kno);
+            }
+            else if (e.CommandName == "UpdateScreen")
+            {
+                updateSingle("Screens", "Screens_Installer", jo, kno);
+            }
         }
 
         protected void LinkButton4_Click(object sender, EventArgs e)
@@ -512,12 +578,12 @@ namespace KMDIweb.KMDIweb.Installation
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
-                      
+
                         sqlcon.Open();
                         sqlcmd.CommandText = "Nonproductive_Activity_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Delete");
-                        sqlcmd.Parameters.AddWithValue("@Id",id);
+                        sqlcmd.Parameters.AddWithValue("@Id", id);
                         sqlcmd.ExecuteNonQuery();
 
                     }
