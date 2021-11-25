@@ -127,7 +127,7 @@ namespace KMDIweb.KMDIapp
             {
                 Panel2.Visible = true;
             }
-            if ((usercode == "Installer") || (usercode == "Installation Staff") || (usercode == "Management") || (usercode == "Programmer") || (usercode == "Engineer"))
+            if ((usercode == "Installer") || (usercode == "Installation Staff") || (usercode == "Management") || (usercode == "Programmer") || (usercode == "Engineer") || (usercode == "Engineer Manager"))
             {
 
                 Panel5.Visible = true;
