@@ -68,8 +68,6 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.Parameters.AddWithValue("@Sdate", tboxSdate.Text);
                         sqlcmd.Parameters.AddWithValue("@Edate", tboxEdate.Text);
                         sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
-                        sqlcmd.Parameters.AddWithValue("@fullname", Session["KMDI_fullname"].ToString());
-                        sqlcmd.Parameters.AddWithValue("@user_code", Session["KMDI_user_code"].ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);

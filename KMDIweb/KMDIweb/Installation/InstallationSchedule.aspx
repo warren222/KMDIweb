@@ -22,7 +22,7 @@
                     <asp:TextBox ID="tboxEdate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-sm-4">
-                    PROJECT<br />
+                    SEARCH<br />
                     <div class="input-group">
                         <asp:TextBox ID="tboxSearch" CssClass="form-control" runat="server"></asp:TextBox>
                         <div class="input-group-btn">
