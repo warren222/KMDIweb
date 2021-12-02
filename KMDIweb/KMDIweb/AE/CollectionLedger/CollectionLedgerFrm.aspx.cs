@@ -39,15 +39,19 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
                     {
                         cboxInputted.Checked = false;
                     }
+                    GridView1.PageIndex = Convert.ToInt32(Session["CollectionLedgerPageindex"] == null ? 1 : Session["CollectionLedgerPageindex"]);
                     loaddata();
-                    GridView1.PageIndex = Convert.ToInt32(Session["CollectionLedgerPageindex"]);
+                  
                 }
                 else
                 {
                     tboxBegin.Text = DateTime.Now.ToString("yyyy-MM-dd");
                     tboxEnd.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                    GridView1.PageIndex = Convert.ToInt32(Session["CollectionLedgerPageindex"] == null ? 1 : Session["CollectionLedgerPageindex"]);
                     loaddata();
+                  
                 }
+              
                
             }
         }
@@ -175,7 +179,9 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
+            Session["CollectionLedgerPageindex"] = e.NewPageIndex;
             loaddata();
+        
         }
     }
 }
