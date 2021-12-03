@@ -12,38 +12,49 @@
         <div class="well">
             <h1>Cutting list schedule</h1>
             <div class="row">
-            <div class="col-sm-6"></div>
-            <div class="col-sm-6">
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        PROJECT NAME
-                    </div>
-                    <asp:TextBox ID="tboxSearch" CssClass="form-control" runat="server"></asp:TextBox>
-                    <div class="input-group-btn">
-                        <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click1">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            PROJECT NAME
+                        </div>
+                        <asp:TextBox ID="tboxSearch" CssClass="form-control" runat="server"></asp:TextBox>
+                        <div class="input-group-btn">
+                            <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click1">
                             <span class="glyphicon glyphicon-search"></span>
-                        </asp:LinkButton>
+                            </asp:LinkButton>
+                        </div>
                     </div>
                 </div>
             </div>
-                </div>
         </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto">
 
                     <small>
-                        <asp:GridView ID="GridView1" CssClass="table tbl" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" CellPadding="2" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand" GridLines="None" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px">
+                        <asp:GridView ID="GridView1" CssClass="table tbl" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" CellPadding="2" ForeColor="Black" PageSize="25" OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand" GridLines="Both" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px">
                             <AlternatingRowStyle BackColor="PaleGoldenrod" />
                             <Columns>
                                 <asp:TemplateField HeaderText="DUE DATE" HeaderStyle-Width="500px">
                                     <ItemTemplate>
+                                        <asp:Label ID="lblddate" Font-Size="Large" Visible="false" Font-Bold="true" runat="server" Text='<%# Bind("ddate") %>'></asp:Label>
+                                        <asp:Label ID="lblnddate" Font-Size="Large" Visible="false" Font-Bold="true" runat="server" Text='<%# Bind("nddate") %>'></asp:Label>
+
                                         <asp:Label ID="LBLduedate" Font-Size="Large" Font-Bold="true" runat="server" Text='<%# Bind("DUE_DATE") %>'></asp:Label><br />
                                         <asp:Label ID="LBLyear" runat="server" Text='<%# Bind("YEAR") %>'></asp:Label><br />
                                         <asp:Label ID="LBLday" Font-Bold="true" runat="server" Text='<%# Bind("DAY") %>'></asp:Label>
 
                                         <asp:Label ID="LBLparentjono" Visible="false" Font-Bold="true" runat="server" Text='<%# Bind("parentjono") %>'></asp:Label>
 
+                                    </ItemTemplate>
+                                    <HeaderStyle Width="100px" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="DUE DATE" HeaderStyle-Width="500px">
+                                    <ItemTemplate>
+                                        <asp:Label ID="LBLnduedate" Font-Size="Large" Font-Bold="true" runat="server" Text='<%# Bind("N_DUE_DATE") %>'></asp:Label><br />
+                                        <asp:Label ID="LBLnyear" runat="server" Text='<%# Bind("N_YEAR") %>'></asp:Label><br />
+                                        <asp:Label ID="LBLnday" Font-Bold="true" runat="server" Text='<%# Bind("N_DAY") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle Width="100px" />
                                 </asp:TemplateField>
@@ -93,40 +104,40 @@
                 </asp:Panel>
 
 
-                   <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">
-                                <asp:Label ID="lblmodalProjectname" Font-Bold="true" CssClass="text-info" runat="server" Text=""></asp:Label></h5>
-                            <asp:Label ID="lblHeader" runat="server" Text="Header"></asp:Label>
-                            <%--      <button type="button" class="close btn btn-default" data-dismiss="modal" aria-label="Close">
+                <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">
+                                    <asp:Label ID="lblmodalProjectname" Font-Bold="true" CssClass="text-info" runat="server" Text=""></asp:Label></h5>
+                                <asp:Label ID="lblHeader" runat="server" Text="Header"></asp:Label>
+                                <%--      <button type="button" class="close btn btn-default" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>--%>
-                        </div>
-                        <div class="modal-body">
-                            <asp:GridView ID="GridView2" CssClass="table" GridLines="None" AutoGenerateColumns="false" runat="server">
-                                <Columns>
-                                    <asp:TemplateField HeaderText="K#/Location">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblmodalKno" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label>
-                                            <asp:Label ID="lblmodalLocation" CssClass="text-muted" runat="server" Text='<%# Bind("Location") %>'></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Section">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblDateDelivered" runat="server" Text='<%# Bind("Status_Item") %>'></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                </Columns>
-                            </asp:GridView>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-body">
+                                <asp:GridView ID="GridView2" CssClass="table" GridLines="None" AutoGenerateColumns="false" runat="server">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="K#/Location">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblmodalKno" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label>
+                                                <asp:Label ID="lblmodalLocation" CssClass="text-muted" runat="server" Text='<%# Bind("Location") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Section">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblDateDelivered" runat="server" Text='<%# Bind("Status_Item") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>

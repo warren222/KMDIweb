@@ -47,6 +47,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             Page.Validators.Add(err);
         }
         string clno = "";
+        string duedate = "";
+        string nduedate = "";
         private void loadcuttingschedule()
         {
             try
@@ -93,6 +95,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         sqlcmd.Parameters.AddWithValue("@command", "Update");
                         sqlcmd.Parameters.AddWithValue("@searchkey", tboxSearch.Text);
                         sqlcmd.Parameters.AddWithValue("@clno", clno);
+                        sqlcmd.Parameters.AddWithValue("@due_date", duedate);
+                        sqlcmd.Parameters.AddWithValue("@n_due_date", nduedate);
                         sqlcmd.ExecuteNonQuery();
                     }
                 }
@@ -165,6 +169,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = GridView1.Rows[rowindex];
                 clno = ((Label)row.FindControl("LBLclno")).Text;
+                duedate = ((Label)row.FindControl("lblddate")).Text;
+                nduedate = ((Label)row.FindControl("lblnddate")).Text;
                 updatelist();
             }
             else if (e.CommandName == "getStatus")
@@ -172,12 +178,14 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = GridView1.Rows[rowindex];
                 clno = ((Label)row.FindControl("LBLclno")).Text;
-                getStatus(clno);
+                duedate = ((Label)row.FindControl("lblddate")).Text;
+                nduedate = ((Label)row.FindControl("lblnddate")).Text;
+                getStatus(clno, duedate, nduedate);
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
         }
 
-        private void getStatus(string cl)
+        private void getStatus(string cl,string ddate, string nddate)
         {
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
@@ -190,6 +198,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@command", "GetStatus");
                         sqlcmd.Parameters.AddWithValue("@clno", cl);
+                        sqlcmd.Parameters.AddWithValue("@due_date", ddate);
+                        sqlcmd.Parameters.AddWithValue("@n_due_date", nddate);
                         DataTable tb = new DataTable();
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
