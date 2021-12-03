@@ -50,7 +50,7 @@
                                     </ItemTemplate>
                                     <HeaderStyle Width="100px" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="DUE DATE" HeaderStyle-Width="500px">
+                                <asp:TemplateField HeaderText="NEW DUE DATE" HeaderStyle-Width="500px">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLnduedate" Font-Size="Large" Font-Bold="true" runat="server" Text='<%# Bind("N_DUE_DATE") %>'></asp:Label><br />
                                         <asp:Label ID="LBLnyear" runat="server" Text='<%# Bind("N_YEAR") %>'></asp:Label><br />
