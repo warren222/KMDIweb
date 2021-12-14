@@ -139,6 +139,15 @@ namespace KMDIweb.KMDIweb.Installation {
         protected global::System.Web.UI.WebControls.Label lblInstructions;
         
         /// <summary>
+        /// panel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel2;
+        
+        /// <summary>
         /// cboxFrame control.
         /// </summary>
         /// <remarks>
@@ -211,13 +220,13 @@ namespace KMDIweb.KMDIweb.Installation {
         protected global::System.Web.UI.WebControls.CheckBox cboxScreen;
         
         /// <summary>
-        /// panelContainer control.
+        /// tboxDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelContainer;
+        protected global::System.Web.UI.WebControls.TextBox tboxDate;
         
         /// <summary>
         /// UpdatePanel1 control.
@@ -227,6 +236,42 @@ namespace KMDIweb.KMDIweb.Installation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
+        /// ddlkno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlkno;
+        
+        /// <summary>
+        /// ddllocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddllocation;
+        
+        /// <summary>
+        /// LinkButton6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton6;
+        
+        /// <summary>
+        /// panelContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelContainer;
         
         /// <summary>
         /// GridView2 control.
@@ -290,6 +335,15 @@ namespace KMDIweb.KMDIweb.Installation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        
+        /// <summary>
+        /// Panel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel3;
         
         /// <summary>
         /// ddlActivity control.
