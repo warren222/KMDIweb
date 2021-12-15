@@ -319,11 +319,11 @@
                                             </div>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="GLASS U SEAL" ItemStyle-Wrap="false" ItemStyle-BackColor="#ffffcc" HeaderStyle-ForeColor="Black" HeaderStyle-BackColor="#ffff99" HeaderStyle-BorderColor="Silver" ItemStyle-BorderColor="Silver">
+                                    <asp:TemplateField HeaderText="GLASS U-SEAL" ItemStyle-Wrap="false" ItemStyle-BackColor="#ffffcc" HeaderStyle-ForeColor="Black" HeaderStyle-BackColor="#ffff99" HeaderStyle-BorderColor="Silver" ItemStyle-BorderColor="Silver">
                                         <ItemTemplate>
                                             <div style="min-width: 140px;">
                                                 <asp:LinkButton ID="lbtnGlassUSeal" CommandName="GlassUSeal" runat="server" Text='<%# Bind("GLASS_U_SEAL") %>'></asp:LinkButton><br />
-                                                <span class="text-muted" style="font-size: small">Glass U Seal</span><br />
+                                                <span class="text-muted" style="font-size: small">Glass U-Seal</span><br />
                                                 <asp:Label ID="lblkmdi68" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label><br />
                                                 <asp:LinkButton ID="btnClearGlassUSeal" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearGlassUSeal" Visible='<%# Eval("Clear_Glass_U_Seal").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Glass_U_Seal") %>'></asp:LinkButton>
                                                 <asp:Label ID="lblglassUSealInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("GLASS_U_Seal_installer").ToString(), ",", "<br>")) %>'></asp:Label>
@@ -331,11 +331,11 @@
                                             </div>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="ADDL REINF" ItemStyle-Wrap="false" ItemStyle-BackColor="#ffffcc" HeaderStyle-ForeColor="Black" HeaderStyle-BackColor="#ffff99" HeaderStyle-BorderColor="Silver" ItemStyle-BorderColor="Silver">
+                                    <asp:TemplateField HeaderText="ADD'L REINF" ItemStyle-Wrap="false" ItemStyle-BackColor="#ffffcc" HeaderStyle-ForeColor="Black" HeaderStyle-BackColor="#ffff99" HeaderStyle-BorderColor="Silver" ItemStyle-BorderColor="Silver">
                                         <ItemTemplate>
                                             <div style="min-width: 140px;">
                                                 <asp:LinkButton ID="lbtnAddlReinf" CommandName="AddlReinf" runat="server" Text='<%# Bind("ADDL_REINF") %>'></asp:LinkButton><br />
-                                                <span class="text-muted" style="font-size: small">Addl Reinf</span><br />
+                                                <span class="text-muted" style="font-size: small">Add'l Reinf</span><br />
                                                 <asp:Label ID="lblkmdi69" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label><br />
                                                 <asp:LinkButton ID="btnClearAddlReinf" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearAddlReinf" Visible='<%# Eval("Clear_Addl_Reinf").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Addl_Reinf") %>'></asp:LinkButton>
                                                 <asp:Label ID="lbladdlReinfInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Addl_Reinf_installer").ToString(), ",", "<br>")) %>'></asp:Label>
