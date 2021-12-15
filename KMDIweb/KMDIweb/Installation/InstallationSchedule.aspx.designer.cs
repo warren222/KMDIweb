@@ -22,6 +22,15 @@ namespace KMDIweb.KMDIweb.Installation {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// Panel4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel4;
+        
+        /// <summary>
         /// tboxSdate control.
         /// </summary>
         /// <remarks>
@@ -229,15 +238,6 @@ namespace KMDIweb.KMDIweb.Installation {
         protected global::System.Web.UI.WebControls.TextBox tboxDate;
         
         /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
         /// ddlkno control.
         /// </summary>
         /// <remarks>
@@ -272,6 +272,15 @@ namespace KMDIweb.KMDIweb.Installation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel panelContainer;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
         /// GridView2 control.

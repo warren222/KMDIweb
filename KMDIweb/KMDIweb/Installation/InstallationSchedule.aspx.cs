@@ -225,6 +225,7 @@ namespace KMDIweb.KMDIweb.Installation
         {
             PNLschedule.Visible = true;
             PNLkno.Visible = false;
+            Panel4.Visible = true;
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -251,6 +252,7 @@ namespace KMDIweb.KMDIweb.Installation
                 }
                 PNLschedule.Visible = false;
                 PNLkno.Visible = true;
+                Panel4.Visible = false;
                 distinctknolocation(((Label)row.FindControl("lblparentjono")).Text);
             }
         }

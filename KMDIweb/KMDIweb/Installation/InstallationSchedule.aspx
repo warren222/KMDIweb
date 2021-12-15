@@ -12,25 +12,28 @@
         <div class="well">
             <h2>Installation Schedule
             </h2>
-            <div class="row">
-                <div class="col-sm-4">
-                    START<br />
-                    <asp:TextBox ID="tboxSdate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
-                </div>
-                <div class="col-sm-4">
-                    END<br />
-                    <asp:TextBox ID="tboxEdate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
-                </div>
-                <div class="col-sm-4">
-                    PROJECT<br />
-                    <div class="input-group">
-                        <asp:TextBox ID="tboxSearch" CssClass="form-control" runat="server"></asp:TextBox>
-                        <div class="input-group-btn">
-                            <asp:LinkButton ID="LinkButton2" CssClass="btn btn-primary" runat="server" OnClick="LinkButton2_Click">search</asp:LinkButton>
+            <asp:Panel ID="Panel4" runat="server">
+                <div class="row">
+                    <div class="col-sm-4">
+                        START<br />
+                        <asp:TextBox ID="tboxSdate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-sm-4">
+                        END<br />
+                        <asp:TextBox ID="tboxEdate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-sm-4">
+                        PROJECT<br />
+                        <div class="input-group">
+                            <asp:TextBox ID="tboxSearch" CssClass="form-control" runat="server"></asp:TextBox>
+                            <div class="input-group-btn">
+                                <asp:LinkButton ID="LinkButton2" CssClass="btn btn-primary" runat="server" OnClick="LinkButton2_Click">search</asp:LinkButton>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </asp:Panel>
+
         </div>
 
 
@@ -178,7 +181,7 @@
                         <div class="col-sm-6">
                         </div>
                         <div class="col-sm-6">
-                            <div style="background-color:bisque; padding: 10px;">
+                            <div style="background-color: bisque; padding: 10px;">
                                 Pumili ng date para sa check function
                              <br />
                                 <asp:TextBox ID="tboxDate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
@@ -189,36 +192,38 @@
                 <br />
 
 
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-                        <div style="background-color: aliceblue; padding: 10px;">
-                            <div class="row">
-                                <div class="col-sm-4">
-        
-                                  <span style="font-size:large">Mag search base sa k# at location:</span>
+                <div style="background-color: aliceblue; padding: 10px;">
+                    <div class="row">
+                        <div class="col-sm-4">
+
+                            <span style="font-size: large">Mag search base sa k# at location:</span>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    K no.
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            K no.
-                                        </div>
-                                        <asp:DropDownList ID="ddlkno" CssClass="form-control" runat="server"></asp:DropDownList>
-                                    </div>
+                                <asp:DropDownList ID="ddlkno" CssClass="form-control" runat="server"></asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    Location
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            Location
-                                        </div>
-                                        <asp:DropDownList ID="ddllocation" CssClass="form-control" runat="server"></asp:DropDownList>
-                                        <div class="input-group-btn">
-                                            <asp:LinkButton ID="LinkButton6" runat="server" CssClass="btn btn-primary" OnClick="LinkButton6_Click">SEARCH</asp:LinkButton>
-                                        </div>
-                                    </div>
+                                <asp:DropDownList ID="ddllocation" CssClass="form-control" runat="server"></asp:DropDownList>
+                                <div class="input-group-btn">
+                                    <asp:LinkButton ID="LinkButton6" runat="server" CssClass="btn btn-primary" OnClick="LinkButton6_Click">SEARCH</asp:LinkButton>
                                 </div>
                             </div>
                         </div>
-                        <asp:Panel ID="panelContainer" ScrollBars="Auto" runat="server">
+                    </div>
+                </div>
+
+
+                <asp:Panel ID="panelContainer" ScrollBars="Auto" runat="server">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
                             <asp:GridView ID="GridView2" CssClass="table" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="Both" OnRowCommand="GridView2_RowCommand">
                                 <Columns>
                                     <asp:TemplateField>
@@ -531,9 +536,10 @@
                             <asp:LinkButton ID="LinkButton3" Visible="false" OnClientClick="return confirm('save changes?')" CssClass="btn btn-primary" runat="server" OnClick="LinkButton3_Click">save changes</asp:LinkButton>
 
                             <br />
-                        </asp:Panel>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </asp:Panel>
+
 
                 <br />
                 <br />
