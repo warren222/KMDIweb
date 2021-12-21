@@ -595,7 +595,14 @@ namespace KMDIweb.KMDIweb.Installation
                 lblmodalInstallers.Text = ((Label)row.FindControl("lblplasticInstaller")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
-          
+
+            else if (e.CommandName == "Cleaning")
+            {
+                lblmodalHeader.Text = "Cleaning Installers";
+                lblmodalInstallers.Text = ((Label)row.FindControl("lblcleaningInstaller")).Text;
+                ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
+            }
+
             else if (e.CommandName == "Handle")
             {
                 lblmodalHeader.Text = "Handle Installers";
@@ -692,6 +699,10 @@ namespace KMDIweb.KMDIweb.Installation
             {
                 clearUpdate("Plastic='',Plastic_Installer=''", jo, kno);
             }
+            else if (e.CommandName == "ClearCleaning")
+            {
+                clearUpdate("Cleaning='',Cleaning_Installer=''", jo, kno);
+            }
             else if (e.CommandName == "ClearHandle")
             {
                 clearUpdate("I_Handle='',I_Handle_Installer=''", jo, kno);
@@ -778,6 +789,10 @@ namespace KMDIweb.KMDIweb.Installation
             else if (e.CommandName == "UpdatePlastic")
             {
                 updateSingle("Plastic", "Plastic_Installer", jo, kno);
+            }
+            else if (e.CommandName == "UpdateCleaning")
+            {
+                updateSingle("Cleaning", "Cleaning_Installer", jo, kno);
             }
             else if (e.CommandName == "UpdateHandle")
             {

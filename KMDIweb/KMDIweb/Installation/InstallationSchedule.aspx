@@ -451,6 +451,18 @@
                                             </div>
                                         </ItemTemplate>
                                     </asp:TemplateField>
+                                       <asp:TemplateField HeaderText="CLEANING" ItemStyle-Wrap="false">
+                                        <ItemTemplate>
+                                            <div style="min-width: 140px;">
+                                                <asp:LinkButton ID="lbtnCleaning" CommandName="Cleaning" runat="server" Text='<%# Bind("CLEANING") %>'></asp:LinkButton><br />
+                                                <span class="text-muted" style="font-size: small">Cleaning</span><br />
+                                                <asp:Label ID="lblkmdi98" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label><br />
+                                                <asp:LinkButton ID="btnClearCleaning" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearCleaning" Visible='<%# Eval("Clear_Cleaning").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Cleaning") %>'></asp:LinkButton>
+                                                <asp:Label ID="lblcleaningInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("cleaning_installer").ToString(), ",", "<br>")) %>'></asp:Label>
+                                                <asp:LinkButton ID="btnCleaningUpdate" CssClass="btn btn-default" CommandName="UpdateCleaning" Visible='<%# Eval("Cleaning").ToString() == "" ? true : false %>' runat="server">check</asp:LinkButton>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                     <asp:TemplateField HeaderText="HANDLE" ItemStyle-Wrap="false">
                                         <ItemTemplate>
                                             <div style="min-width: 140px;">
