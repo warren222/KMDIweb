@@ -125,6 +125,7 @@ namespace KMDIweb.KMDIweb.Installation
         }
         private void distinctknolocation(string parentjono)
         {
+            tboxDate.Text = Convert.ToDateTime(ViewState["lblStart"].ToString()).ToString("yyyy-MM-dd");
             distinctkno(parentjono);
             distinctlocation(parentjono);
         }
@@ -239,6 +240,7 @@ namespace KMDIweb.KMDIweb.Installation
                 loadNonproductiveActivity(((Label)row.FindControl("lblparentjono")).Text);
                 ViewState["parentjono"] = ((Label)row.FindControl("lblparentjono")).Text;
                 ViewState["installers"] = ((Label)row.FindControl("lblinstallershidden")).Text.Replace("\n", ", ");
+                ViewState["lblStart"] = ((Label)row.FindControl("lblStart")).Text;
                 lblProjectS2.Text = ((LinkButton)row.FindControl("BTNkno")).Text;
                 lblAddressS2.Text = ((Label)row.FindControl("lblAddress")).Text;
                 lblInstructions.Text = ((Label)row.FindControl("lblinstruction")).Text;
@@ -833,6 +835,7 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.Parameters.AddWithValue("@Activity", activity);
                         sqlcmd.Parameters.AddWithValue("@ParentJono", ViewState["parentjono"].ToString());
                         sqlcmd.Parameters.AddWithValue("@Installers", ViewState["installers"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Date", tboxDate.Text);
                         sqlcmd.ExecuteNonQuery();
 
                     }

@@ -607,12 +607,6 @@
                                                 </ItemTemplate>
                                                 <ItemStyle Wrap="False" />
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="INSTALLERS" ItemStyle-Wrap="false">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="lblinstl" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("installers").ToString(), ",", "<br>"))  %>'></asp:Label>
-                                                </ItemTemplate>
-                                                <ItemStyle Wrap="False" />
-                                            </asp:TemplateField>
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:LinkButton ID="btnDelete" OnClientClick="return confirm('delete this record?')" CssClass="text-danger" CommandName="myDelete" Visible='<%# Eval("Clear_Data").ToString() == "" ? false : true %>' runat="server">Delete</asp:LinkButton>
