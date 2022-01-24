@@ -28,6 +28,8 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         
         private DailyOutputDataTable tableDailyOutput;
         
+        private ProjectSummaryDataTable tableProjectSummary;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -61,6 +63,9 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 }
                 if ((ds.Tables["DailyOutput"] != null)) {
                     base.Tables.Add(new DailyOutputDataTable(ds.Tables["DailyOutput"]));
+                }
+                if ((ds.Tables["ProjectSummary"] != null)) {
+                    base.Tables.Add(new ProjectSummaryDataTable(ds.Tables["ProjectSummary"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -97,6 +102,16 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         public DailyOutputDataTable DailyOutput {
             get {
                 return this.tableDailyOutput;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ProjectSummaryDataTable ProjectSummary {
+            get {
+                return this.tableProjectSummary;
             }
         }
         
@@ -173,6 +188,9 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 if ((ds.Tables["DailyOutput"] != null)) {
                     base.Tables.Add(new DailyOutputDataTable(ds.Tables["DailyOutput"]));
                 }
+                if ((ds.Tables["ProjectSummary"] != null)) {
+                    base.Tables.Add(new ProjectSummaryDataTable(ds.Tables["ProjectSummary"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -218,6 +236,12 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                     this.tableDailyOutput.InitVars();
                 }
             }
+            this.tableProjectSummary = ((ProjectSummaryDataTable)(base.Tables["ProjectSummary"]));
+            if ((initTable == true)) {
+                if ((this.tableProjectSummary != null)) {
+                    this.tableProjectSummary.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -232,6 +256,8 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             base.Tables.Add(this.tableNotice_For_Inc_Items);
             this.tableDailyOutput = new DailyOutputDataTable();
             base.Tables.Add(this.tableDailyOutput);
+            this.tableProjectSummary = new ProjectSummaryDataTable();
+            base.Tables.Add(this.tableProjectSummary);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -243,6 +269,12 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeDailyOutput() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeProjectSummary() {
             return false;
         }
         
@@ -306,6 +338,9 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void DailyOutputRowChangeEventHandler(object sender, DailyOutputRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void ProjectSummaryRowChangeEventHandler(object sender, ProjectSummaryRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1115,6 +1150,351 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ProjectSummaryDataTable : global::System.Data.TypedTableBase<ProjectSummaryRow> {
+            
+            private global::System.Data.DataColumn columnPIR2_PARENTJONO;
+            
+            private global::System.Data.DataColumn columnPIR2_PROJECTNAME;
+            
+            private global::System.Data.DataColumn columnfulladd;
+            
+            private global::System.Data.DataColumn columnengr;
+            
+            private global::System.Data.DataColumn columnPIR2_START_DATE;
+            
+            private global::System.Data.DataColumn columnPIR2_END_DATE;
+            
+            private global::System.Data.DataColumn columnInstallers;
+            
+            private global::System.Data.DataColumn columnWith_Update;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectSummaryDataTable() {
+                this.TableName = "ProjectSummary";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ProjectSummaryDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected ProjectSummaryDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PIR2_PARENTJONOColumn {
+                get {
+                    return this.columnPIR2_PARENTJONO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PIR2_PROJECTNAMEColumn {
+                get {
+                    return this.columnPIR2_PROJECTNAME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fulladdColumn {
+                get {
+                    return this.columnfulladd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn engrColumn {
+                get {
+                    return this.columnengr;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PIR2_START_DATEColumn {
+                get {
+                    return this.columnPIR2_START_DATE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PIR2_END_DATEColumn {
+                get {
+                    return this.columnPIR2_END_DATE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn InstallersColumn {
+                get {
+                    return this.columnInstallers;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn With_UpdateColumn {
+                get {
+                    return this.columnWith_Update;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectSummaryRow this[int index] {
+                get {
+                    return ((ProjectSummaryRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ProjectSummaryRowChangeEventHandler ProjectSummaryRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ProjectSummaryRowChangeEventHandler ProjectSummaryRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ProjectSummaryRowChangeEventHandler ProjectSummaryRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ProjectSummaryRowChangeEventHandler ProjectSummaryRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddProjectSummaryRow(ProjectSummaryRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectSummaryRow AddProjectSummaryRow(string PIR2_PARENTJONO, string PIR2_PROJECTNAME, string fulladd, string engr, string PIR2_START_DATE, string PIR2_END_DATE, string Installers, string With_Update) {
+                ProjectSummaryRow rowProjectSummaryRow = ((ProjectSummaryRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        PIR2_PARENTJONO,
+                        PIR2_PROJECTNAME,
+                        fulladd,
+                        engr,
+                        PIR2_START_DATE,
+                        PIR2_END_DATE,
+                        Installers,
+                        With_Update};
+                rowProjectSummaryRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowProjectSummaryRow);
+                return rowProjectSummaryRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ProjectSummaryDataTable cln = ((ProjectSummaryDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ProjectSummaryDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnPIR2_PARENTJONO = base.Columns["PIR2_PARENTJONO"];
+                this.columnPIR2_PROJECTNAME = base.Columns["PIR2_PROJECTNAME"];
+                this.columnfulladd = base.Columns["fulladd"];
+                this.columnengr = base.Columns["engr"];
+                this.columnPIR2_START_DATE = base.Columns["PIR2_START_DATE"];
+                this.columnPIR2_END_DATE = base.Columns["PIR2_END_DATE"];
+                this.columnInstallers = base.Columns["Installers"];
+                this.columnWith_Update = base.Columns["With_Update"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnPIR2_PARENTJONO = new global::System.Data.DataColumn("PIR2_PARENTJONO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPIR2_PARENTJONO);
+                this.columnPIR2_PROJECTNAME = new global::System.Data.DataColumn("PIR2_PROJECTNAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPIR2_PROJECTNAME);
+                this.columnfulladd = new global::System.Data.DataColumn("fulladd", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfulladd);
+                this.columnengr = new global::System.Data.DataColumn("engr", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnengr);
+                this.columnPIR2_START_DATE = new global::System.Data.DataColumn("PIR2_START_DATE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPIR2_START_DATE);
+                this.columnPIR2_END_DATE = new global::System.Data.DataColumn("PIR2_END_DATE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPIR2_END_DATE);
+                this.columnInstallers = new global::System.Data.DataColumn("Installers", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstallers);
+                this.columnWith_Update = new global::System.Data.DataColumn("With_Update", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWith_Update);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectSummaryRow NewProjectSummaryRow() {
+                return ((ProjectSummaryRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ProjectSummaryRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ProjectSummaryRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ProjectSummaryRowChanged != null)) {
+                    this.ProjectSummaryRowChanged(this, new ProjectSummaryRowChangeEvent(((ProjectSummaryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ProjectSummaryRowChanging != null)) {
+                    this.ProjectSummaryRowChanging(this, new ProjectSummaryRowChangeEvent(((ProjectSummaryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ProjectSummaryRowDeleted != null)) {
+                    this.ProjectSummaryRowDeleted(this, new ProjectSummaryRowChangeEvent(((ProjectSummaryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ProjectSummaryRowDeleting != null)) {
+                    this.ProjectSummaryRowDeleting(this, new ProjectSummaryRowChangeEvent(((ProjectSummaryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveProjectSummaryRow(ProjectSummaryRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                reportDS ds = new reportDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ProjectSummaryDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class Notice_For_Inc_ItemsRow : global::System.Data.DataRow {
@@ -1794,6 +2174,245 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ProjectSummaryRow : global::System.Data.DataRow {
+            
+            private ProjectSummaryDataTable tableProjectSummary;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ProjectSummaryRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableProjectSummary = ((ProjectSummaryDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PIR2_PARENTJONO {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectSummary.PIR2_PARENTJONOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PIR2_PARENTJONO\' in table \'ProjectSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectSummary.PIR2_PARENTJONOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PIR2_PROJECTNAME {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectSummary.PIR2_PROJECTNAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PIR2_PROJECTNAME\' in table \'ProjectSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectSummary.PIR2_PROJECTNAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string fulladd {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectSummary.fulladdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fulladd\' in table \'ProjectSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectSummary.fulladdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string engr {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectSummary.engrColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'engr\' in table \'ProjectSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectSummary.engrColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PIR2_START_DATE {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectSummary.PIR2_START_DATEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PIR2_START_DATE\' in table \'ProjectSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectSummary.PIR2_START_DATEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PIR2_END_DATE {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectSummary.PIR2_END_DATEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PIR2_END_DATE\' in table \'ProjectSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectSummary.PIR2_END_DATEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Installers {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectSummary.InstallersColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Installers\' in table \'ProjectSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectSummary.InstallersColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string With_Update {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectSummary.With_UpdateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'With_Update\' in table \'ProjectSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectSummary.With_UpdateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPIR2_PARENTJONONull() {
+                return this.IsNull(this.tableProjectSummary.PIR2_PARENTJONOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPIR2_PARENTJONONull() {
+                this[this.tableProjectSummary.PIR2_PARENTJONOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPIR2_PROJECTNAMENull() {
+                return this.IsNull(this.tableProjectSummary.PIR2_PROJECTNAMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPIR2_PROJECTNAMENull() {
+                this[this.tableProjectSummary.PIR2_PROJECTNAMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsfulladdNull() {
+                return this.IsNull(this.tableProjectSummary.fulladdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetfulladdNull() {
+                this[this.tableProjectSummary.fulladdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsengrNull() {
+                return this.IsNull(this.tableProjectSummary.engrColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetengrNull() {
+                this[this.tableProjectSummary.engrColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPIR2_START_DATENull() {
+                return this.IsNull(this.tableProjectSummary.PIR2_START_DATEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPIR2_START_DATENull() {
+                this[this.tableProjectSummary.PIR2_START_DATEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPIR2_END_DATENull() {
+                return this.IsNull(this.tableProjectSummary.PIR2_END_DATEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPIR2_END_DATENull() {
+                this[this.tableProjectSummary.PIR2_END_DATEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsInstallersNull() {
+                return this.IsNull(this.tableProjectSummary.InstallersColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetInstallersNull() {
+                this[this.tableProjectSummary.InstallersColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWith_UpdateNull() {
+                return this.IsNull(this.tableProjectSummary.With_UpdateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWith_UpdateNull() {
+                this[this.tableProjectSummary.With_UpdateColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1847,6 +2466,40 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DailyOutputRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class ProjectSummaryRowChangeEvent : global::System.EventArgs {
+            
+            private ProjectSummaryRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectSummaryRowChangeEvent(ProjectSummaryRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectSummaryRow Row {
                 get {
                     return this.eventRow;
                 }

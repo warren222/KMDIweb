@@ -19,6 +19,7 @@ namespace KMDIweb.KMDIweb.Installation
             {
                 if (!IsPostBack)
                 {
+                 
                     tboxSdate.Text = DateTime.Today.ToString("yyyy-MM-dd");
                     tboxEdate.Text = DateTime.Today.ToString("yyyy-MM-dd");
                     tboxDate.Text = DateTime.Today.ToString("yyyy-MM-dd");

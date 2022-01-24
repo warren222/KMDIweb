@@ -21,6 +21,13 @@ namespace KMDIweb.KMDIweb.Installation
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
             }
         }
+        private string usercode
+        {
+            get
+            {
+                return Session["KMDI_user_code"].ToString();
+            }
+        }
         private void access()
         {
             if (Session["KMDI_clg_acct"].ToString() == "Admin")
@@ -30,6 +37,14 @@ namespace KMDIweb.KMDIweb.Installation
             else
             {
                 BTNaccount.Visible = false;
+            }
+            if((usercode == "Installation Staff") || (usercode == "Management") || (usercode == "Programmer"))
+            {
+                HyperLink1.Visible = true;
+            }
+            else
+            {
+                HyperLink1.Visible = false;
             }
         }
         protected void LinkButton1_Click(object sender, EventArgs e)
