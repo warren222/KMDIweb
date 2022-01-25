@@ -6,21 +6,21 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>10.09417cm</Width>
+              <Width>7.58063cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.41854cm</Width>
+              <Width>3.38666cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.23333cm</Width>
+              <Width>3.175cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.57396cm</Width>
+              <Width>6.20417cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.10271cm</Height>
+              <Height>1.65834cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -151,7 +151,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>(Count)</Value>
+                              <Value>/Non Productive Activity</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -295,7 +295,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>With_Update</rd:DefaultName>
@@ -335,8 +337,8 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>1.6637cm</Top>
-        <Height>1.70271cm</Height>
-        <Width>20.32cm</Width>
+        <Height>2.25834cm</Height>
+        <Width>20.34646cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -412,7 +414,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=iif(First(Fields!With_Update.Value, "DataSet1")&gt;0,"With report","No report")</Value>
+                <Value>=iif(First(Fields!With_Update.Value, "DataSet1")="","No report","With report")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -435,10 +437,10 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>1.32536in</Height>
+    <Height>1.54411in</Height>
     <Style />
   </Body>
-  <Width>8in</Width>
+  <Width>8.01042in</Width>
   <Page>
     <LeftMargin>0.25in</LeftMargin>
     <RightMargin>0.25in</RightMargin>
@@ -494,6 +496,10 @@
         </Field>
         <Field Name="With_Update">
           <DataField>With_Update</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Non_Productive_Activity">
+          <DataField>Non_Productive_Activity</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

@@ -1172,6 +1172,8 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             private global::System.Data.DataColumn columnWith_Update;
             
+            private global::System.Data.DataColumn columnNon_Productive_Activity;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ProjectSummaryDataTable() {
@@ -1271,6 +1273,14 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Non_Productive_ActivityColumn {
+                get {
+                    return this.columnNon_Productive_Activity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1306,7 +1316,7 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectSummaryRow AddProjectSummaryRow(string PIR2_PARENTJONO, string PIR2_PROJECTNAME, string fulladd, string engr, string PIR2_START_DATE, string PIR2_END_DATE, string Installers, string With_Update) {
+            public ProjectSummaryRow AddProjectSummaryRow(string PIR2_PARENTJONO, string PIR2_PROJECTNAME, string fulladd, string engr, string PIR2_START_DATE, string PIR2_END_DATE, string Installers, string With_Update, string Non_Productive_Activity) {
                 ProjectSummaryRow rowProjectSummaryRow = ((ProjectSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PIR2_PARENTJONO,
@@ -1316,7 +1326,8 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                         PIR2_START_DATE,
                         PIR2_END_DATE,
                         Installers,
-                        With_Update};
+                        With_Update,
+                        Non_Productive_Activity};
                 rowProjectSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProjectSummaryRow);
                 return rowProjectSummaryRow;
@@ -1347,6 +1358,7 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 this.columnPIR2_END_DATE = base.Columns["PIR2_END_DATE"];
                 this.columnInstallers = base.Columns["Installers"];
                 this.columnWith_Update = base.Columns["With_Update"];
+                this.columnNon_Productive_Activity = base.Columns["Non_Productive_Activity"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1368,6 +1380,8 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 base.Columns.Add(this.columnInstallers);
                 this.columnWith_Update = new global::System.Data.DataColumn("With_Update", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWith_Update);
+                this.columnNon_Productive_Activity = new global::System.Data.DataColumn("Non_Productive_Activity", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNon_Productive_Activity);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2317,6 +2331,23 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Non_Productive_Activity {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectSummary.Non_Productive_ActivityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Non_Productive_Activity\' in table \'ProjectSummary\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectSummary.Non_Productive_ActivityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPIR2_PARENTJONONull() {
                 return this.IsNull(this.tableProjectSummary.PIR2_PARENTJONOColumn);
             }
@@ -2409,6 +2440,18 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetWith_UpdateNull() {
                 this[this.tableProjectSummary.With_UpdateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNon_Productive_ActivityNull() {
+                return this.IsNull(this.tableProjectSummary.Non_Productive_ActivityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNon_Productive_ActivityNull() {
+                this[this.tableProjectSummary.Non_Productive_ActivityColumn] = global::System.Convert.DBNull;
             }
         }
         
