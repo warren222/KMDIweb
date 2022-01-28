@@ -41,10 +41,12 @@ namespace KMDIweb.KMDIweb.Installation
             if((usercode == "Installation Staff") || (usercode == "Management") || (usercode == "Programmer"))
             {
                 HyperLink1.Visible = true;
+                HyperLink3.Visible = true;
             }
             else
             {
                 HyperLink1.Visible = false;
+                HyperLink3.Visible = false;
             }
         }
         protected void LinkButton1_Click(object sender, EventArgs e)

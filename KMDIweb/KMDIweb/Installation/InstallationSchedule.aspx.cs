@@ -19,7 +19,7 @@ namespace KMDIweb.KMDIweb.Installation
             {
                 if (!IsPostBack)
                 {
-                 
+
                     tboxSdate.Text = DateTime.Today.ToString("yyyy-MM-dd");
                     tboxEdate.Text = DateTime.Today.ToString("yyyy-MM-dd");
                     tboxDate.Text = DateTime.Today.ToString("yyyy-MM-dd");
@@ -384,13 +384,14 @@ namespace KMDIweb.KMDIweb.Installation
         }
         private void updateSingle(string column, string installerStr, string jo, string kno)
         {
+            DateTime d;
+            d = Convert.ToDateTime(tboxDate.Text);
             try
             {
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
-                    DateTime d;
-                    d = Convert.ToDateTime(tboxDate.Text);
-                    string str = " update KMDI_INSTALLATION_TB set " + column + "='"+ d.ToString("MMMM dd, yyyy")+ "', " + installerStr + " = '" + installers + "', UPDATED_BY = '" + myName + " '+format(getdate(),'MMMM dd, yyyy hh:mm:ss tt') where job_order_no = '" + jo + "' and kmdi_no = '" + kno + "' ";
+
+                    string str = " update KMDI_INSTALLATION_TB set " + column + "='" + d.ToString("MMMM dd, yyyy") + "', " + installerStr + " = '" + installers + "', UPDATED_BY = '" + myName + " '+format(getdate(),'MMMM dd, yyyy hh:mm:ss tt') where job_order_no = '" + jo + "' and kmdi_no = '" + kno + "' ";
                     using (SqlCommand sqlcmd = new SqlCommand(str, sqlcon))
                     {
                         sqlcon.Open();
@@ -404,10 +405,11 @@ namespace KMDIweb.KMDIweb.Installation
             }
             finally
             {
+                InsertLog(column, jo, kno, "Check", d.ToString("MMMM dd, yyyy"));
                 loadkno(ViewState["parentjono"].ToString());
             }
         }
-        private void clearUpdate(string column, string jo, string kno)
+        private void clearUpdate(string column, string jo, string kno, string section)
         {
             try
             {
@@ -427,8 +429,37 @@ namespace KMDIweb.KMDIweb.Installation
             }
             finally
             {
+                InsertLog(section, jo, kno, "Uncheck", "");
                 loadkno(ViewState["parentjono"].ToString());
             }
+        }
+        private void InsertLog(string column, string jo, string kno, string action_made, string value)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Installation_Update_Log_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Insert");
+                        sqlcmd.Parameters.AddWithValue("@JO_No", jo);
+                        sqlcmd.Parameters.AddWithValue("@K_No", kno);
+                        sqlcmd.Parameters.AddWithValue("@Station", column);
+                        sqlcmd.Parameters.AddWithValue("@Updated_By", myName);
+                        sqlcmd.Parameters.AddWithValue("@Action_Made", action_made);
+                        sqlcmd.Parameters.AddWithValue("@Value", value);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+
         }
         private string installers
         {
@@ -486,42 +517,42 @@ namespace KMDIweb.KMDIweb.Installation
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
 
-         
+
             else if (e.CommandName == "Sash")
             {
                 lblmodalHeader.Text = "Sash Installers";
                 lblmodalInstallers.Text = ((Label)row.FindControl("lblsashInstaller")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
-          
+
             else if (e.CommandName == "Glass")
             {
                 lblmodalHeader.Text = "Glass Installers";
                 lblmodalInstallers.Text = ((Label)row.FindControl("lblglassInstaller")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
-         
+
             else if (e.CommandName == "Foam")
             {
                 lblmodalHeader.Text = "Foam Installers";
                 lblmodalInstallers.Text = ((Label)row.FindControl("lblfoamInstaller")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
-          
+
             else if (e.CommandName == "GlassUSeal")
             {
                 lblmodalHeader.Text = "Glass U Seal Installers";
                 lblmodalInstallers.Text = ((Label)row.FindControl("lblglassUSealInstaller")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
-          
+
             else if (e.CommandName == "AddlReinf")
             {
                 lblmodalHeader.Text = "Addl Reinf Installers";
                 lblmodalInstallers.Text = ((Label)row.FindControl("lbladdlReinfInstaller")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
-          
+
             else if (e.CommandName == "Striker")
             {
                 lblmodalHeader.Text = "Striker Installers";
@@ -584,14 +615,14 @@ namespace KMDIweb.KMDIweb.Installation
                 lblmodalInstallers.Text = ((Label)row.FindControl("lblsealantInstaller")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
-           
+
             else if (e.CommandName == "SealantOut")
             {
                 lblmodalHeader.Text = "Sealant Out Installers";
                 lblmodalInstallers.Text = ((Label)row.FindControl("lblsealantOutInstaller")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
-         
+
             else if (e.CommandName == "Plastic")
             {
                 lblmodalHeader.Text = "Plastic Installers";
@@ -612,7 +643,7 @@ namespace KMDIweb.KMDIweb.Installation
                 lblmodalInstallers.Text = ((Label)row.FindControl("lblihandleInstaller")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
-          
+
             else if (e.CommandName == "Screen")
             {
                 lblmodalHeader.Text = "Screen Installers";
@@ -636,91 +667,91 @@ namespace KMDIweb.KMDIweb.Installation
 
             else if (e.CommandName == "ClearFrame")
             {
-                clearUpdate("Frame='',Frame_Installer=''", jo, kno);
+                clearUpdate("Frame='',Frame_Installer=''", jo, kno, "Frame");
             }
             else if (e.CommandName == "ClearSash")
             {
-                clearUpdate("Sash='',Sash_Installer=''", jo, kno);
+                clearUpdate("Sash='',Sash_Installer=''", jo, kno, "Sash");
             }
             else if (e.CommandName == "ClearGlass")
             {
-                clearUpdate("Glass='',Glass_Installer=''", jo, kno);
+                clearUpdate("Glass='',Glass_Installer=''", jo, kno, "Glass");
             }
             else if (e.CommandName == "ClearGlassUSeal")
             {
-                clearUpdate("Glass_U_Seal='',Glass_U_Seal_Installer=''", jo, kno);
+                clearUpdate("Glass_U_Seal='',Glass_U_Seal_Installer=''", jo, kno, "Glass_U_Seal");
             }
             else if (e.CommandName == "ClearAddlReinf")
             {
-                clearUpdate("Addl_Reinf='',Addl_Reinf_Installer=''", jo, kno);
+                clearUpdate("Addl_Reinf='',Addl_Reinf_Installer=''", jo, kno, "Addl_Reinf");
             }
             else if (e.CommandName == "ClearStriker")
             {
-                clearUpdate("Striker='',Striker_Installer=''", jo, kno);
+                clearUpdate("Striker='',Striker_Installer=''", jo, kno, "Striker");
             }
             else if (e.CommandName == "ClearSealingBlock")
             {
-                clearUpdate("Sealing_Block='',Sealing_Block_Installer=''", jo, kno);
+                clearUpdate("Sealing_Block='',Sealing_Block_Installer=''", jo, kno, "Sealing_Block");
             }
             else if (e.CommandName == "ClearAcc1646")
             {
-                clearUpdate("Acc_1646='',Acc_1646_Installer=''", jo, kno);
+                clearUpdate("Acc_1646='',Acc_1646_Installer=''", jo, kno, "Acc_1646");
             }
             else if (e.CommandName == "ClearAntiLiftDevice")
             {
-                clearUpdate("Anti_Lift_Device='',Anti_Lift_Device_Installer=''", jo, kno);
+                clearUpdate("Anti_Lift_Device='',Anti_Lift_Device_Installer=''", jo, kno, "Anti_Lift_Device");
             }
             else if (e.CommandName == "ClearAcc6058")
             {
-                clearUpdate("Acc_6058='',Acc_6058_Installer=''", jo, kno);
+                clearUpdate("Acc_6058='',Acc_6058_Installer=''", jo, kno, "Acc_6058");
             }
             else if (e.CommandName == "ClearBufferStopper")
             {
-                clearUpdate("Buffer_Stopper='',Buffer_Stopper_Installer=''", jo, kno);
+                clearUpdate("Buffer_Stopper='',Buffer_Stopper_Installer=''", jo, kno, "Buffer_Stopper");
             }
             else if (e.CommandName == "ClearPVCMilledWReinf")
             {
-                clearUpdate("PVC_Milled_W_Reinf='',PVC_Milled_W_Reinf_Installer=''", jo, kno);
+                clearUpdate("PVC_Milled_W_Reinf='',PVC_Milled_W_Reinf_Installer=''", jo, kno, "PVC_Milled_W_Reinf");
             }
             else if (e.CommandName == "ClearMilledSnapper")
             {
-                clearUpdate("Milled_Snapper='',Milled_Snapper_Installer=''", jo, kno);
+                clearUpdate("Milled_Snapper='',Milled_Snapper_Installer=''", jo, kno, "Milled_Snapper");
             }
             else if (e.CommandName == "ClearFoam")
             {
-                clearUpdate("Foam='',Foam_Installer=''", jo, kno);
+                clearUpdate("Foam='',Foam_Installer=''", jo, kno, "Foam");
             }
             else if (e.CommandName == "ClearSealant")
             {
-                clearUpdate("Sealant='',Sealant_Installer=''", jo, kno);
+                clearUpdate("Sealant='',Sealant_Installer=''", jo, kno, "Sealant");
             }
             else if (e.CommandName == "ClearSealantOut")
             {
-                clearUpdate("Sealant_Out='',Sealant_Out_Installer=''", jo, kno);
+                clearUpdate("Sealant_Out='',Sealant_Out_Installer=''", jo, kno, "Sealant_Out");
             }
             else if (e.CommandName == "ClearPlastic")
             {
-                clearUpdate("Plastic='',Plastic_Installer=''", jo, kno);
+                clearUpdate("Plastic='',Plastic_Installer=''", jo, kno, "Plastic");
             }
             else if (e.CommandName == "ClearCleaning")
             {
-                clearUpdate("Cleaning='',Cleaning_Installer=''", jo, kno);
+                clearUpdate("Cleaning='',Cleaning_Installer=''", jo, kno, "Cleaning");
             }
             else if (e.CommandName == "ClearHandle")
             {
-                clearUpdate("I_Handle='',I_Handle_Installer=''", jo, kno);
+                clearUpdate("I_Handle='',I_Handle_Installer=''", jo, kno, "I_Handle");
             }
             else if (e.CommandName == "ClearScreens")
             {
-                clearUpdate("Screens='',Screens_Installer=''", jo, kno);
+                clearUpdate("Screens='',Screens_Installer=''", jo, kno, "Screens");
             }
             else if (e.CommandName == "ClearXBars")
             {
-                clearUpdate("X_Bars='',X_Bars_Installer=''", jo, kno);
+                clearUpdate("X_Bars='',X_Bars_Installer=''", jo, kno, "X_Bars");
             }
             else if (e.CommandName == "ClearFinalQC")
             {
-                clearUpdate("Final_QC='',Final_QC_Installer=''", jo, kno);
+                clearUpdate("Final_QC='',Final_QC_Installer=''", jo, kno, "Final_QC");
             }
 
 

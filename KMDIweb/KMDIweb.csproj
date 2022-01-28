@@ -332,6 +332,13 @@
     <Compile Include="KMDIweb\Installation\InstallationSummaryReportViewer.aspx.designer.cs">
       <DependentUpon>InstallationSummaryReportViewer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Installation\InstallationUpdateLog.aspx.cs">
+      <DependentUpon>InstallationUpdateLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Installation\InstallationUpdateLog.aspx.designer.cs">
+      <DependentUpon>InstallationUpdateLog.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx.cs">
       <DependentUpon>CalendarFrame.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -696,6 +703,7 @@
     <Content Include="KMDIweb\Installation\InstallationSchedule.aspx" />
     <Content Include="KMDIweb\Installation\InstallationSummaryReport.aspx" />
     <Content Include="KMDIweb\Installation\InstallationSummaryReportViewer.aspx" />
+    <Content Include="KMDIweb\Installation\InstallationUpdateLog.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrameNewDueDate.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\DeliveredItemsHome.aspx" />
