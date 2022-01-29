@@ -17,7 +17,7 @@
                 <asp:TextBox ID="tboxDate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
             </div>
             <div class="col-sm-6">
-                <span>Project</span>
+                <span>Project name / Updated by</span>
                 <div class="input-group">
                     <asp:TextBox ID="tboxProject_Name" CssClass="form-control" runat="server"></asp:TextBox>
                     <div class="input-group-btn">
