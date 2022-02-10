@@ -581,10 +581,10 @@ namespace KMDIweb.KMDIweb.Installation
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
 
-            else if (e.CommandName == "Acc6058")
+            else if (e.CommandName == "Acc6059")
             {
-                lblmodalHeader.Text = "6058 Installers";
-                lblmodalInstallers.Text = ((Label)row.FindControl("lblacc16058Installer")).Text;
+                lblmodalHeader.Text = "6059 Installers";
+                lblmodalInstallers.Text = ((Label)row.FindControl("lblacc16059Installer")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
 
@@ -701,9 +701,9 @@ namespace KMDIweb.KMDIweb.Installation
             {
                 clearUpdate("Anti_Lift_Device='',Anti_Lift_Device_Installer=''", jo, kno, "Anti_Lift_Device");
             }
-            else if (e.CommandName == "ClearAcc6058")
+            else if (e.CommandName == "ClearAcc6059")
             {
-                clearUpdate("Acc_6058='',Acc_6058_Installer=''", jo, kno, "Acc_6058");
+                clearUpdate("Acc_6059='',Acc_6059_Installer=''", jo, kno, "Acc_6059");
             }
             else if (e.CommandName == "ClearBufferStopper")
             {
@@ -792,9 +792,9 @@ namespace KMDIweb.KMDIweb.Installation
             {
                 updateSingle("Anti_Lift_Device", "Anti_Lift_Device_Installer", jo, kno);
             }
-            else if (e.CommandName == "UpdateAcc6058")
+            else if (e.CommandName == "UpdateAcc6059")
             {
-                updateSingle("Acc_6058", "Acc_6058_Installer", jo, kno);
+                updateSingle("Acc_6059", "Acc_6059_Installer", jo, kno);
             }
             else if (e.CommandName == "UpdateBufferStopper")
             {

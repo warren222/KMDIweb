@@ -392,15 +392,15 @@
                                             </div>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="6058" ItemStyle-Wrap="false" ItemStyle-BackColor="#ffffcc" HeaderStyle-ForeColor="Black" HeaderStyle-BackColor="#ffff99" HeaderStyle-BorderColor="Silver" ItemStyle-BorderColor="Silver">
+                                    <asp:TemplateField HeaderText="6059" ItemStyle-Wrap="false" ItemStyle-BackColor="#ffffcc" HeaderStyle-ForeColor="Black" HeaderStyle-BackColor="#ffff99" HeaderStyle-BorderColor="Silver" ItemStyle-BorderColor="Silver">
                                         <ItemTemplate>
                                             <div style="min-width: 140px;">
-                                                <asp:LinkButton ID="lbtnAcc6058" CommandName="Acc6058" runat="server" Text='<%# Bind("ACC_6058") %>'></asp:LinkButton><br />
-                                                <span class="text-muted" style="font-size: small">6058</span><br />
+                                                <asp:LinkButton ID="lbtnAcc6059" CommandName="Acc6059" runat="server" Text='<%# Bind("ACC_6059") %>'></asp:LinkButton><br />
+                                                <span class="text-muted" style="font-size: small">6059</span><br />
                                                 <asp:Label ID="lblkmdi74" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label><br />
-                                                <asp:LinkButton ID="btnClearAcc6058" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearAcc6058" Visible='<%# Eval("Clear_Acc_6058").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Acc_6058") %>'></asp:LinkButton>
-                                                <asp:Label ID="lblacc6058Installer" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Acc_6058_installer").ToString(), ",", "<br>")) %>'></asp:Label>
-                                                <asp:LinkButton ID="btnAcc6058Update" CssClass="btn btn-default" CommandName="UpdateAcc6058" Visible='<%# Eval("Acc_6058").ToString() == "" ? true : false %>' runat="server">check</asp:LinkButton>
+                                                <asp:LinkButton ID="btnClearAcc6059" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearAcc6059" Visible='<%# Eval("Clear_Acc_6059").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Acc_6059") %>'></asp:LinkButton>
+                                                <asp:Label ID="lblacc6059Installer" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Acc_6059_installer").ToString(), ",", "<br>")) %>'></asp:Label>
+                                                <asp:LinkButton ID="btnAcc6059Update" CssClass="btn btn-default" CommandName="UpdateAcc6059" Visible='<%# Eval("Acc_6059").ToString() == "" ? true : false %>' runat="server">check</asp:LinkButton>
                                             </div>
                                         </ItemTemplate>
                                     </asp:TemplateField>
