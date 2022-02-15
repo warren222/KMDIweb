@@ -657,7 +657,12 @@ namespace KMDIweb.KMDIweb.Installation
                 lblmodalInstallers.Text = ((Label)row.FindControl("lblxBarsInstaller")).Text;
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
             }
-
+            else if (e.CommandName == "FinalCleaning")
+            {
+                lblmodalHeader.Text = "Final Cleaning Installers";
+                lblmodalInstallers.Text = ((Label)row.FindControl("lblfinalCleaningInstaller")).Text;
+                ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
+            }
             else if (e.CommandName == "FinalQC")
             {
                 lblmodalHeader.Text = "Final QC Installers";
@@ -749,6 +754,10 @@ namespace KMDIweb.KMDIweb.Installation
             {
                 clearUpdate("X_Bars='',X_Bars_Installer=''", jo, kno, "X_Bars");
             }
+            else if (e.CommandName == "ClearFinalCleaning")
+            {
+                clearUpdate("Final_Cleaning='',Final_Cleaning_Installer=''", jo, kno, "Final_Cleaning");
+            }
             else if (e.CommandName == "ClearFinalQC")
             {
                 clearUpdate("Final_QC='',Final_QC_Installer=''", jo, kno, "Final_QC");
@@ -839,6 +848,10 @@ namespace KMDIweb.KMDIweb.Installation
             else if (e.CommandName == "UpdateXBars")
             {
                 updateSingle("X_Bars", "X_Bars_Installer", jo, kno);
+            }
+            else if (e.CommandName == "UpdateFinalCleaning")
+            {
+                updateSingle("Final_Cleaning", "Final_Cleaning_Installer", jo, kno);
             }
             else if (e.CommandName == "UpdateFinalQC")
             {

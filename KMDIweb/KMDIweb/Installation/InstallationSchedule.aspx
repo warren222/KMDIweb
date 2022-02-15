@@ -500,10 +500,22 @@
                                             </div>
                                         </ItemTemplate>
                                     </asp:TemplateField>
+                                       <asp:TemplateField HeaderText="FINAL CLEANING" ItemStyle-Wrap="false">
+                                        <ItemTemplate>
+                                            <div style="min-width: 140px;">
+                                                <asp:LinkButton ID="lbtnFinalCleaning" CommandName="FinalCleaning" runat="server" Text='<%# Bind("FINAL_CLEANING") %>'></asp:LinkButton><br />
+                                                <span class="text-muted" style="font-size: small">Final Cleaning</span><br />
+                                                <asp:Label ID="lblkmdi80" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label><br />
+                                                <asp:LinkButton ID="btnClearFinalCleaning" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearFinalCleaning" Visible='<%# Eval("Clear_Final_Cleaning").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Final_Cleaning") %>'></asp:LinkButton>
+                                                <asp:Label ID="lblfinalCleaningInstaller" Visible="false" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("final_cleaning_installer").ToString(), ",", "<br>")) %>'></asp:Label>
+                                                <asp:LinkButton ID="btnfinalCleaningUpdate" CssClass="btn btn-default" CommandName="UpdateFinalCleaning" Visible='<%# Eval("FINAL_CLEANING").ToString() == "" ? true : false %>' runat="server">check</asp:LinkButton>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                     <asp:TemplateField HeaderText="FINAL QC" ItemStyle-Wrap="false">
                                         <ItemTemplate>
                                             <div style="min-width: 140px;">
-                                                <asp:LinkButton ID="lbtnFinalQC" CommandName="XBars" runat="server" Text='<%# Bind("FINAL_QC") %>'></asp:LinkButton><br />
+                                                <asp:LinkButton ID="lbtnFinalQC" CommandName="FinalQC" runat="server" Text='<%# Bind("FINAL_QC") %>'></asp:LinkButton><br />
                                                 <span class="text-muted" style="font-size: small">Final QC</span><br />
                                                 <asp:Label ID="lblkmdi79" runat="server" Text='<%# Bind("kmdi_no") %>'></asp:Label><br />
                                                 <asp:LinkButton ID="btnClearFinalQC" OnClientClick="return confirm('clear this record?')" CssClass="text-danger" CommandName="ClearFinalQC" Visible='<%# Eval("Clear_Final_QC").ToString() == "" ? false : true %>' runat="server" Text='<%# Bind("Clear_Final_QC") %>'></asp:LinkButton>
