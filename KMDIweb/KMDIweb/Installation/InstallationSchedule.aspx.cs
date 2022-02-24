@@ -407,6 +407,33 @@ namespace KMDIweb.KMDIweb.Installation
             {
                 InsertLog(column, jo, kno, "Check", d.ToString("MMMM dd, yyyy"));
                 loadkno(ViewState["parentjono"].ToString());
+                if (column == "Screens" || column == "Cleaning" || column == "Final_Cleaning")
+                {
+                    UpdateCollectionBilling();
+                }
+            }
+        }
+        private void UpdateCollectionBilling()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.CommandText = "Notification_Stp";
+                        sqlcmd.Parameters.AddWithValue("@Command", "Add");
+                        sqlcmd.Parameters.AddWithValue("@JO_Parent", ViewState["parentjono"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Concern", "Final billing");
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
             }
         }
         private void clearUpdate(string column, string jo, string kno, string section)
@@ -431,6 +458,10 @@ namespace KMDIweb.KMDIweb.Installation
             {
                 InsertLog(section, jo, kno, "Uncheck", "");
                 loadkno(ViewState["parentjono"].ToString());
+                if (column == "Screens='',Screens_Installer=''" || column == "Cleaning='',Cleaning_Installer=''" || column == "Final_Cleaning='',Final_Cleaning_Installer=''")
+                {
+                    UpdateCollectionBilling();
+                }
             }
         }
         private void InsertLog(string column, string jo, string kno, string action_made, string value)
