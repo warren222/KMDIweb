@@ -105,6 +105,9 @@
                                 <li>
                                     <asp:HyperLink ID="HyperLink23" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/FYearlyOutput.aspx">Monthly Point's Summary</asp:HyperLink>
                                 </li>
+                                     <li>
+                                    <asp:HyperLink ID="HyperLink17" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/ChartComparison.aspx">SD/Schedule Chart</asp:HyperLink>
+                                </li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink24" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/ProjectionChart.aspx">Estimated Delivery Date Chart</asp:HyperLink>
                                 </li>

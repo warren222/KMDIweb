@@ -353,6 +353,13 @@
     <Compile Include="KMDIweb\Production\FrameSchedule\CalendarFrameNewDueDate.aspx.designer.cs">
       <DependentUpon>CalendarFrameNewDueDate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\ChartComparison.aspx.cs">
+      <DependentUpon>ChartComparison.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\ChartComparison.aspx.designer.cs">
+      <DependentUpon>ChartComparison.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\DeliveredItemsHome.aspx.cs">
       <DependentUpon>DeliveredItemsHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -706,6 +713,7 @@
     <Content Include="KMDIweb\Installation\InstallationUpdateLog.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrameNewDueDate.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\ChartComparison.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\DeliveredItemsHome.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fcalendarProjects.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\fclnoout.aspx" />
