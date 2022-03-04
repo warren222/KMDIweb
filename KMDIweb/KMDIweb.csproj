@@ -563,6 +563,13 @@
     <Compile Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemsReportPaage.aspx.designer.cs">
       <DependentUpon>NoticeForIncompleteItemsReportPaage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\PointsExpectedInWeeks.aspx.cs">
+      <DependentUpon>PointsExpectedInWeeks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\PointsExpectedInWeeks.aspx.designer.cs">
+      <DependentUpon>PointsExpectedInWeeks.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\ProjectionChart.aspx.cs">
       <DependentUpon>ProjectionChart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -742,6 +749,7 @@
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItem.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemApproval.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\NoticeForIncompleteItemsReportPaage.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\PointsExpectedInWeeks.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\ProjectionChart.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\recommendation.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\SectionDailyOuput.aspx" />

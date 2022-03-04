@@ -113,7 +113,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             if ((usercode == "Production Manager") ||
                       (usercode == "Production Engineer") ||
                        (usercode == "Supervisor") ||
-                        (usercode == "Programmer") ||
+                        (usercode == "Programmer") || 
                       (usercode == "Management"))
 
             {
@@ -121,6 +121,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 HyperLink22.Visible = true;
                 HyperLink23.Visible = true;
                 HyperLink15.Visible = true;
+                HyperLink17.Visible = true;
+                HyperLink27.Visible = true;
             }
             else
             {
@@ -128,6 +130,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 HyperLink21.Visible = false;
                 HyperLink23.Visible = false;
                 HyperLink15.Visible = false;
+                HyperLink17.Visible = false;
+                HyperLink27.Visible = false;
             }
         }
         private void estdaccess()
@@ -135,7 +139,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             if ((usercode == "Production Manager") ||
                       (usercode == "Engineer Manager") ||
                         (usercode == "Programmer") ||
-                      (usercode == "Management"))
+                      (usercode == "Management") ||
+                    (myName == "Renante Azores")) 
 
             {
                 HyperLink24.Visible = true;
