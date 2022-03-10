@@ -55,7 +55,7 @@
 
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
-                            <asp:Panel ID="Panel3" runat="server">
+                            <asp:Panel ID="Panel3" Visible="false" runat="server">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="text-center">

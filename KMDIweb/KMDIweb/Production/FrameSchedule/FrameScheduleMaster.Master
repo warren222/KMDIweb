@@ -109,7 +109,7 @@
                                     <asp:HyperLink ID="HyperLink17" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/ChartComparison.aspx">SD received and Schedule Chart</asp:HyperLink>
                                 </li>
                                     <li>
-                                    <asp:HyperLink ID="HyperLink27" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/PointsExpectedInWeeks.aspx">Expected points in 3-4 weeks</asp:HyperLink>
+                                    <asp:HyperLink ID="HyperLink27" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/PointsExpectedInWeeks.aspx">Production Lead Time Insight</asp:HyperLink>
                                 </li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink24" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/ProjectionChart.aspx">Estimated Delivery Date Chart</asp:HyperLink>

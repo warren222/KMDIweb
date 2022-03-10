@@ -7,80 +7,164 @@
 <asp:Content runat="server" ID="Content2" ContentPlaceHolderID="content">
     <div class="container">
         <div class="well text-center">
-            <h3><strong>Expected points in 3-4 weeks</strong> </h3>
+            <h3><strong>Production Lead Time Insight</strong> </h3>
         </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <div style="overflow-x: auto">
-            <table class="text-center" border="1" style="width: 100%">
-                <tr>
-                    <td>
-                        <span style="font-size: xx-large">New projects</span>
-                        <span class="text-muted">(Not yet requested)</span>
-                    </td>
-                    <td>
-                        <span style="font-size: xx-large">Expected points</span>
-                        <span class="text-muted">(With shop drawing request)</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
 
-                        <asp:LinkButton ID="linkNotrequested" Font-Size="XX-Large" runat="server" OnClick="linkNotrequested_Click">LinkButton</asp:LinkButton>
-                        <asp:Panel ID="Panel1" Visible="false" BackColor="Yellow" runat="server" Height="15px"></asp:Panel>
-                    </td>
-                    <td>
-                        <asp:LinkButton ID="linkRequested" Font-Size="XX-Large" runat="server" OnClick="linkRequested_Click">LinkButton</asp:LinkButton>
-                        <asp:Panel ID="Panel2" Visible="false" BackColor="Yellow" runat="server" Height="15px"></asp:Panel>
-                    </td>
-                </tr>
-            </table>
-        </div>
 
-        <div style="overflow-x: auto">
-            <asp:GridView ID="GridView1" CssClass="table" AutoGenerateColumns="false" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
-                <Columns>
-                    <asp:TemplateField HeaderText="JO" ItemStyle-Wrap="false" HeaderStyle-Wrap="false">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl1" runat="server" Text='<%#Bind("SUB_JO") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="JO DATE" ItemStyle-Wrap="false" HeaderStyle-Wrap="false">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl2" runat="server" Text='<%#Bind("JO_DATE") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="PROJECT" ItemStyle-Wrap="false" HeaderStyle-Wrap="false">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl3" runat="server" Text='<%#Bind("PROJECT") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="TURN OVER" ItemStyle-Wrap="false" HeaderStyle-Wrap="false">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl4" runat="server" Text='<%#Bind("TURN_OVER") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="CHECKLISTED" ItemStyle-Wrap="false" HeaderStyle-Wrap="false">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl5" runat="server" Text='<%#Bind("CHECKLISTED") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="PROJECT DONE" ItemStyle-Wrap="false" HeaderStyle-Wrap="false">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl6" runat="server" Text='<%#Bind("PROJECT_DONE") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <AlternatingRowStyle BackColor="#DCDCDC" />
-                <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
-                <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                <SortedAscendingHeaderStyle BackColor="#0000A9" />
-                <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                <SortedDescendingHeaderStyle BackColor="#000065" />
-            </asp:GridView>
-        </div>
+                <div style="overflow-x: auto">
+                    <table border="1" style="width: 100%; font-family: Calibri;">
+                        <tr>
+                            <td style="white-space: nowrap">
+                                <span style="font-size: x-large">Total project points</span>
+                                <span class="text-success">(Active)</span>
+                            </td>
+                            <td class="text-right">
+                                <asp:LinkButton ID="linkTotalproject" Font-Size="XX-Large" runat="server" OnClick="linkTotalproject_Click">LinkButton</asp:LinkButton>
+                                <asp:Panel ID="pnlTotalproject" Visible="false" BackColor="Yellow" runat="server" Height="15px"></asp:Panel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-center">
+                                <h2>POINTS BREAKDOWN</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="white-space: nowrap">
+                                <span style="font-size: x-large">New projects</span>
+                                <span class="text-info">(No request for shop drawing)</span>
+                            </td>
+                            <td class="text-right">
+                                <asp:LinkButton ID="linkNotrequested" Font-Size="XX-Large" runat="server" OnClick="linkNotrequested_Click">LinkButton</asp:LinkButton>
+                                <asp:Panel ID="pnlNotrequested" Visible="false" BackColor="Yellow" runat="server" Height="15px"></asp:Panel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="white-space: nowrap">
+                                <span style="font-size: x-large">Expected points to receive</span>
+                                <span class="text-info">(SD in progress)</span>
+                            </td>
+                            <td class="text-right">
+                                <asp:LinkButton ID="linkRequested" Font-Size="XX-Large" runat="server" OnClick="linkRequested_Click">LinkButton</asp:LinkButton>
+                                <asp:Panel ID="pnlRequested" Visible="false" BackColor="Yellow" runat="server" Height="15px"></asp:Panel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="white-space: nowrap">
+                                <span style="font-size: x-large">SD at hand</span>
+                                <span class="text-info">(SD received only)</span>
+                            </td>
+                            <td class="text-right">
+                                <asp:LinkButton ID="linkSDathand" Font-Size="XX-Large" runat="server" OnClick="linkSDathand_Click">LinkButton</asp:LinkButton>
+                                <asp:Panel ID="pnlSDathand" Visible="false" BackColor="Yellow" runat="server" Height="15px"></asp:Panel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="white-space: nowrap">
+                                <span style="font-size: x-large">Ongoing fabrication</span>
+                                <span class="text-info">(Current production load)</span>
+                            </td>
+                            <td class="text-right">
+                                <asp:LinkButton ID="linkOngoing" Font-Size="XX-Large" runat="server" OnClick="linkOngoing_Click">LinkButton</asp:LinkButton>
+                                <asp:Panel ID="pnlOngoing" Visible="false" BackColor="Yellow" runat="server" Height="15px"></asp:Panel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="white-space: nowrap">
+                                <span style="font-size: x-large">Fabricated</span>
+                                <span class="text-info">(Fabricated points and not delivered)</span>
+                            </td>
+                            <td class="text-right">
+                                <asp:LinkButton ID="linkFabricated" Font-Size="XX-Large" runat="server" OnClick="linkFabricated_Click">LinkButton</asp:LinkButton>
+                                <asp:Panel ID="pnlFabricated" Visible="false" BackColor="Yellow" runat="server" Height="15px"></asp:Panel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="white-space: nowrap">
+                                <span style="font-size: x-large">Delivered</span>
+                                <span class="text-info">(Delivered points)</span>
+                            </td>
+                            <td class="text-right">
+                                <asp:LinkButton ID="linkDelivered" Font-Size="XX-Large" runat="server" OnClick="linkDelivered_Click">LinkButton</asp:LinkButton>
+                                <asp:Panel ID="pnlDelivered" Visible="false" BackColor="Yellow" runat="server" Height="15px"></asp:Panel>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="overflow-x: auto">
+                    <asp:GridView ID="GridView1" CssClass="table" RowStyle-Font-Names="Calibri" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="50">
+                        <Columns>
+                            <asp:TemplateField HeaderText="JO" ItemStyle-Wrap="false" HeaderStyle-Wrap="false">
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl1" runat="server" Text='<%#Bind("SUB_JO") %>'></asp:Label>
+                                </ItemTemplate>
+
+                                <HeaderStyle Wrap="False"></HeaderStyle>
+
+                                <ItemStyle Wrap="False"></ItemStyle>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="JO DATE" ItemStyle-Wrap="false" HeaderStyle-Wrap="false">
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl2" runat="server" Text='<%#Bind("JO_DATE") %>'></asp:Label>
+                                </ItemTemplate>
+
+                                <HeaderStyle Wrap="False"></HeaderStyle>
+
+                                <ItemStyle Wrap="False"></ItemStyle>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="PROJECT" ItemStyle-Wrap="false" HeaderStyle-Wrap="false">
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl3" runat="server" Text='<%#Bind("PROJECT") %>'></asp:Label>
+                                </ItemTemplate>
+
+                                <HeaderStyle Wrap="False"></HeaderStyle>
+
+                                <ItemStyle Wrap="False"></ItemStyle>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="TURN OVER" ItemStyle-Wrap="false" HeaderStyle-Wrap="false">
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl4" runat="server" Text='<%#Bind("TURN_OVER") %>'></asp:Label>
+                                </ItemTemplate>
+
+                                <HeaderStyle Wrap="False"></HeaderStyle>
+
+                                <ItemStyle Wrap="False"></ItemStyle>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="CHECKLISTED" ItemStyle-Wrap="false" HeaderStyle-Wrap="false">
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl5" runat="server" Text='<%#Bind("CHECKLISTED") %>'></asp:Label>
+                                </ItemTemplate>
+
+                                <HeaderStyle Wrap="False"></HeaderStyle>
+
+                                <ItemStyle Wrap="False"></ItemStyle>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="PROJECT DONE" ItemStyle-Wrap="false" HeaderStyle-Wrap="false">
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl6" runat="server" Text='<%#Bind("PROJECT_DONE") %>'></asp:Label>
+                                </ItemTemplate>
+
+                                <HeaderStyle Wrap="False"></HeaderStyle>
+
+                                <ItemStyle Wrap="False"></ItemStyle>
+                            </asp:TemplateField>
+                        </Columns>
+                        <FooterStyle BackColor="White" ForeColor="#000066" />
+                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                        <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
+                        <PagerStyle CssClass="GridPager" BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="lEFT" />
+                        <RowStyle ForeColor="#000066" />
+                        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#00547E" />
+                    </asp:GridView>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
 </asp:Content>

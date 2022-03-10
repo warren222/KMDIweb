@@ -32,7 +32,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             {
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
             }
-         
+
         }
         private void errorrmessage(string message)
         {
@@ -53,15 +53,24 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         protected void linkNotrequested_Click(object sender, EventArgs e)
         {
             gridData("NotRequested");
-            Panel1.Visible = true;
-            Panel2.Visible = false;
+            highlight(pnlNotrequested);
         }
 
         protected void linkRequested_Click(object sender, EventArgs e)
         {
             gridData("Requested");
-            Panel1.Visible = false;
-            Panel2.Visible = true;
+            highlight(pnlRequested);
+        }
+        private void highlight(Panel p)
+        {
+            pnlFabricated.Visible = false;
+            pnlNotrequested.Visible = false;
+            pnlOngoing.Visible = false;
+            pnlRequested.Visible = false;
+            pnlSDathand.Visible = false;
+            pnlTotalproject.Visible = false;
+            pnlDelivered.Visible = false;
+            p.Visible = true;
         }
         private void gridData(string command)
         {
@@ -87,13 +96,14 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         GridView1.DataSource = ds;
                         GridView1.DataBind();
                     }
+                    ViewState["command"] = command;
                 }
             }
         }
         private void tableData()
         {
 
-           
+
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
                 using (SqlCommand sqlcmd = sqlcon.CreateCommand())
@@ -109,14 +119,56 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     using (SqlDataReader rd = sqlcmd.ExecuteReader())
                     {
                         while (rd.Read())
-                        { 
+                        {
                             linkNotrequested.Text = rd[0].ToString();
                             linkRequested.Text = rd[1].ToString();
+                            linkSDathand.Text = rd[2].ToString();
+                            linkOngoing.Text = rd[3].ToString();
+                            linkTotalproject.Text = rd[4].ToString();
+                            linkDelivered.Text = rd[5].ToString();
+                            linkFabricated.Text = rd[6].ToString();
                         }
                     }
                 }
             }
 
+        }
+
+        protected void linkSDathand_Click(object sender, EventArgs e)
+        {
+            gridData("SD_at_hand");
+            highlight(pnlSDathand);
+        }
+
+        protected void linkOngoing_Click(object sender, EventArgs e)
+        {
+            gridData("Ongoing_Fab_scheduled");
+            highlight(pnlOngoing);
+        }
+
+        protected void linkFabricated_Click(object sender, EventArgs e)
+        {
+            gridData("Total_Points_Fabricated");
+            highlight(pnlFabricated);
+        }
+
+        protected void linkDelivered_Click(object sender, EventArgs e)
+        {
+            gridData("Total_Points_Delivered");
+            highlight(pnlDelivered);
+
+        }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            gridData(ViewState["command"].ToString());
+        }
+
+        protected void linkTotalproject_Click(object sender, EventArgs e)
+        {
+            gridData("Total_Contract_Points");
+            highlight(pnlTotalproject);
         }
     }
 }

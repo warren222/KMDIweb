@@ -22,6 +22,33 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
+        /// linkTotalproject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkTotalproject;
+        
+        /// <summary>
+        /// pnlTotalproject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlTotalproject;
+        
+        /// <summary>
         /// linkNotrequested control.
         /// </summary>
         /// <remarks>
@@ -31,13 +58,13 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         protected global::System.Web.UI.WebControls.LinkButton linkNotrequested;
         
         /// <summary>
-        /// Panel1 control.
+        /// pnlNotrequested control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel pnlNotrequested;
         
         /// <summary>
         /// linkRequested control.
@@ -49,13 +76,85 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         protected global::System.Web.UI.WebControls.LinkButton linkRequested;
         
         /// <summary>
-        /// Panel2 control.
+        /// pnlRequested control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
+        protected global::System.Web.UI.WebControls.Panel pnlRequested;
+        
+        /// <summary>
+        /// linkSDathand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkSDathand;
+        
+        /// <summary>
+        /// pnlSDathand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSDathand;
+        
+        /// <summary>
+        /// linkOngoing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkOngoing;
+        
+        /// <summary>
+        /// pnlOngoing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlOngoing;
+        
+        /// <summary>
+        /// linkFabricated control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkFabricated;
+        
+        /// <summary>
+        /// pnlFabricated control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlFabricated;
+        
+        /// <summary>
+        /// linkDelivered control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkDelivered;
+        
+        /// <summary>
+        /// pnlDelivered control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlDelivered;
         
         /// <summary>
         /// GridView1 control.
