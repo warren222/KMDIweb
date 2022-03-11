@@ -7,7 +7,7 @@
 <asp:Content runat="server" ID="Content2" ContentPlaceHolderID="content">
     <div class="container">
         <div class="well text-center">
-            <h3><strong>Production Lead Time Insight</strong> </h3>
+            <h3><strong>Production Load Insight</strong> </h3>
         </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">

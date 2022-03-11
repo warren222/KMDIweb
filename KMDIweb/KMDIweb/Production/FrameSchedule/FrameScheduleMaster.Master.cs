@@ -139,8 +139,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             if ((usercode == "Production Manager") ||
                       (usercode == "Engineer Manager") ||
                         (usercode == "Programmer") ||
-                      (usercode == "Management") ||
-                    (myName == "Renante Azores")) 
+                      (usercode == "Management")) 
 
             {
                 HyperLink24.Visible = true;
