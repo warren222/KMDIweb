@@ -100,6 +100,18 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         Chart1.ChartAreas[0].AxisY.LabelStyle.Format = "N0";
                         Chart1.ChartAreas[0].AxisY2.LabelStyle.Format = "N0";
                     }
+                    lblYear1Th.Text = tboxy1.Text;
+                    lblYear2Th.Text = tboxy2.Text;
+                    using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                    {
+                        while (rd.Read())
+                        {
+                            lblYear1Total.Text = rd[6].ToString();
+                            lblYear1Ave.Text = rd[7].ToString();
+                            lblYear2Total.Text = rd[8].ToString();
+                            lblYear2Ave.Text = rd[9].ToString();
+                        }
+                    }
                 }
             }
 

@@ -60,6 +60,37 @@
                         </div>
                     </div>
                     <br />
+                    <div style="overflow-x: auto;">
+                        <table border="1" style="width: 100%; font-family: Calibri;font-size:x-large" >
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <asp:Label ID="lblYear1Th" Font-Size="Larger" runat="server" ForeColor="Highlight" Text="Label"></asp:Label>
+                                </th>
+                                <th>
+                                    <asp:Label ID="lblYear2Th" Font-Size="Larger" runat="server" ForeColor="Orange" Text="Label"></asp:Label>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td class="text-right">
+                                    <asp:Label ID="lblYear1Total" runat="server" Text="Label"></asp:Label>
+                                </td>
+                                <td class="text-right">
+                                    <asp:Label ID="lblYear2Total" runat="server" Text="Label"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Average</td>
+                                <td class="text-right">
+                                    <asp:Label ID="lblYear1Ave" runat="server" Text="Label"></asp:Label>
+                                </td>
+                                <td class="text-right">
+                                    <asp:Label ID="lblYear2Ave" runat="server" Text="Label"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     <asp:Panel ID="Panel1" ScrollBars="Auto" runat="server">
                         <asp:Chart ID="Chart1" runat="server" Width="1049px" Height="506px">
 
@@ -76,7 +107,7 @@
                                 <asp:ChartArea Name="ChartArea1">
                                     <AxisX Title="Month"></AxisX>
                                     <AxisY Title="Frame Points"></AxisY>
-                                     <%--     <Area3DStyle Enable3D="true" />--%>
+                                    <%--     <Area3DStyle Enable3D="true" />--%>
                                 </asp:ChartArea>
                             </ChartAreas>
 
