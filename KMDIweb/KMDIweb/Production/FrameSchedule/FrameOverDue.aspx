@@ -88,6 +88,12 @@
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
+                        <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Remarks">
+                        <ItemTemplate>
+                            <asp:Label ID="lblremaks" runat="server" Text='<%# Bind("Sched_Remarks") %>'></asp:Label>
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" />
+                    </asp:TemplateField>
                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="Days">
                         <ItemTemplate>
                             <asp:Label ID="lbldays" Font-Size="XX-Large" CssClass="text-danger" Font-Bold="true" runat="server" Text='<%# Bind("days") %>'></asp:Label>
