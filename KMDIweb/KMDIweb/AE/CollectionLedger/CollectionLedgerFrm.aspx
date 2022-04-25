@@ -106,7 +106,7 @@
                                         <asp:LinkButton ID="UploadBtn" CommandName="UploadFile" CssClass="btn btn-default" runat="server">UPLOAD FILE</asp:LinkButton>
                                   
                                         <span class="pull-right">
-                                                  <asp:LinkButton ID="DeleteBtn" OnClientClick="return confirm('clear this record?')" CommandName="DeleteItem" CssClass="btn btn-danger" runat="server">DELETE</asp:LinkButton>
+                                                  <asp:LinkButton ID="DeleteBtn" Visible='<%# Eval("DeleteBtn").ToString() == "Show" ? true : false%>' OnClientClick="return confirm('clear this record?')" CommandName="DeleteItem" CssClass="btn btn-danger" runat="server">DELETE</asp:LinkButton>
                                         </span>
                                         <br />
                                         <div style="background-color: #f8e88b; margin-bottom: -5px; margin-top: 5px; margin-left: -5px;" class="text-center responsiveFont">

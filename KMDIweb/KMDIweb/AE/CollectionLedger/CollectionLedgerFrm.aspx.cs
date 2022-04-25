@@ -101,6 +101,7 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
                         sqlcmd.Parameters.AddWithValue("@Command", "AE");
                         sqlcmd.Parameters.AddWithValue("@AE", fullname);
                         sqlcmd.Parameters.AddWithValue("@UserRole", userRole);
+                        sqlcmd.Parameters.AddWithValue("@User_Code", Session["KMDI_user_code"].ToString());
                         sqlcmd.Parameters.AddWithValue("@Search", tboxProject.Text);
                         sqlcmd.Parameters.AddWithValue("@Sdate", bdate);
                         sqlcmd.Parameters.AddWithValue("@Edate", edate);
