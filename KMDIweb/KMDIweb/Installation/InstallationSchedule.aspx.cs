@@ -717,7 +717,7 @@ namespace KMDIweb.KMDIweb.Installation
             {
                 clearUpdate("Glass_U_Seal='',Glass_U_Seal_Installer=''", jo, kno, "Glass_U_Seal");
             }
-            else if (e.CommandName == "ClearAddlReinf")
+            else if (e.CommandName == "ClearAddlReinf") 
             {
                 clearUpdate("Addl_Reinf='',Addl_Reinf_Installer=''", jo, kno, "Addl_Reinf");
             }

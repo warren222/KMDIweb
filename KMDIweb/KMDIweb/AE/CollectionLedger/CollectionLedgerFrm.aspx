@@ -2,7 +2,6 @@
 
 <asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Collection Ledger</title>
 </asp:Content>
 
 <asp:Content ID="content2" ContentPlaceHolderID="content" runat="server">
@@ -105,6 +104,10 @@
                                         </div>
                                         <br />
                                         <asp:LinkButton ID="UploadBtn" CommandName="UploadFile" CssClass="btn btn-default" runat="server">UPLOAD FILE</asp:LinkButton>
+                                  
+                                        <span class="pull-right">
+                                                  <asp:LinkButton ID="DeleteBtn" OnClientClick="return confirm('clear this record?')" CommandName="DeleteItem" CssClass="btn btn-danger" runat="server">DELETE</asp:LinkButton>
+                                        </span>
                                         <br />
                                         <div style="background-color: #f8e88b; margin-bottom: -5px; margin-top: 5px; margin-left: -5px;" class="text-center responsiveFont">
                                             <asp:Label ID="LBLREMARKS" runat="server" Font-Size="Small" Text='<%# Bind("REMARKS")%>'></asp:Label>

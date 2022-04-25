@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,7 +17,7 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
         {
             if (!IsPostBack)
             {
-               
+
                 if (Session["CollectionLedgerSearch"] != null)
                 {
                     tboxProject.Text = Session["CollectionLedgerSearch"].ToString();
@@ -41,7 +42,7 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
                     }
                     GridView1.PageIndex = Convert.ToInt32(Session["CollectionLedgerPageindex"] == null ? 1 : Session["CollectionLedgerPageindex"]);
                     loaddata();
-                  
+
                 }
                 else
                 {
@@ -49,10 +50,10 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
                     tboxEnd.Text = DateTime.Now.ToString("yyyy-MM-dd");
                     GridView1.PageIndex = Convert.ToInt32(Session["CollectionLedgerPageindex"] == null ? 1 : Session["CollectionLedgerPageindex"]);
                     loaddata();
-                  
+
                 }
-              
-               
+
+
             }
         }
         private string fullname
@@ -173,15 +174,63 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
                 Session["CollectionProject"] = ((Label)row.FindControl("Label4")).Text;
                 Response.Redirect("~/KMDIweb/AE/CollectionLedger/Fileupload.aspx");
             }
+            else if (e.CommandName == "DeleteItem")
+            {
+                if (Session["KMDI_clg_acct"].ToString() == "Admin" && (Session["KMDI_user_code"].ToString() == "Accounting" || Session["KMDI_user_code"].ToString() == "Operations" || Session["KMDI_user_code"].ToString() == "Programmer"))
+                {
+                    int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                    GridViewRow row = GridView1.Rows[rowindex];
+                    deleteitem(((Label)row.FindControl("CollectionId")).Text);
+                    string path = "~/KMDIweb/Uploads/CollectionLedger/" + ((Label)row.FindControl("CollectionId")).Text + "/";
+                    DeleteFiles(path);
+                    loaddata();
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('invalid access!');", true);
+                }
+            }
         }
+        private void deleteitem(string id)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
 
+                        validateConrolValues();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Collection_Ledger_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "DeleteItem");
+                        sqlcmd.Parameters.AddWithValue("@Id", id);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
 
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+        }
+        private void DeleteFiles(string path)
+        {
+            string[] Files = Directory.GetFiles(Server.MapPath(path));
+            foreach (string file in Files)
+            {
+                FileInfo fileinfo = new FileInfo(file);
+                File.Delete(file);
+            }
+        }
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
             Session["CollectionLedgerPageindex"] = e.NewPageIndex;
             loaddata();
-        
+
         }
     }
 }

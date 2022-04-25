@@ -219,7 +219,6 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
                 GridViewRow row = GridView1.Rows[rowindex];
                 try
                 {
-
                     string str = "delete from collection_ledger_IMG where collectionId = @collectionId and filename = @filename";
                     using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                     {
