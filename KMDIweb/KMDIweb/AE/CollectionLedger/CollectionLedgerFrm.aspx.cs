@@ -161,7 +161,6 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
             {
                 cboxVerified.Checked = true;
             }
-
             loaddata();
         }
 

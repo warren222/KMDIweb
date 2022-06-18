@@ -85,6 +85,15 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger {
         protected global::System.Web.UI.WebControls.Panel pnlASE;
         
         /// <summary>
+        /// lblASE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblASE;
+        
+        /// <summary>
         /// tboxASE control.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,24 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tboxASE;
+        
+        /// <summary>
+        /// lblAE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAE;
+        
+        /// <summary>
+        /// ddlAE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAE;
         
         /// <summary>
         /// tboxPaymentDate control.

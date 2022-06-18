@@ -36,8 +36,13 @@
                     <asp:TextBox ID="tboxProject" CssClass="form-control" runat="server"></asp:TextBox><br />
                     <br />
                     <asp:Panel ID="pnlASE" runat="server">
-                        <span class="responsiveFont">ASE#</span><br />
+                        <span class="responsiveFont">
+                            <asp:Label ID="lblASE" runat="server" Text="Label">ASE#</asp:Label></span><br />
                         <asp:TextBox ID="tboxASE" CssClass="form-control" runat="server"></asp:TextBox><br />
+                        <br />
+                        <span class="responsiveFont">
+                            <asp:Label ID="lblAE" runat="server" Text="Label">AE</asp:Label></span><br />
+                        <asp:DropDownList ID="ddlAE" CssClass="form-control" runat="server"></asp:DropDownList>
                     </asp:Panel>
 
                 </div>
