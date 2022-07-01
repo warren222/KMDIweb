@@ -16,7 +16,7 @@
         </div>
         <div>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sqlcon %>" SelectCommand="installation_schedule_report_summary_stp" SelectCommandType="StoredProcedure">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sqlcon %>" SelectCommand="installation_schedule_report_summary_stp" SelectCommandType="StoredProcedure" OnSelecting="SqlDataSource1_Selecting">
                 <SelectParameters>
                     <asp:SessionParameter Name="Command" SessionField="PSCommand" Type="String" />
                     <asp:SessionParameter Name="Search" SessionField="PSSearch" Type="String" DefaultValue="" />

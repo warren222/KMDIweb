@@ -13,5 +13,10 @@ namespace KMDIweb.KMDIweb.Installation
         {
             ReportViewer1.LocalReport.Refresh();
         }
+
+        protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+            e.Command.CommandTimeout = 32000;
+        }
     }
 }

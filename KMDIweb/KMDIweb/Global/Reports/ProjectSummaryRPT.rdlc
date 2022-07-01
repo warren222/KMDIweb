@@ -6,16 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>7.58063cm</Width>
+              <Width>5.9279cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.38666cm</Width>
+              <Width>2.77812cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.175cm</Width>
+              <Width>2.80397cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.20417cm</Width>
+              <Width>5.25167cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.54542cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -177,6 +180,41 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox5">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Date</Value>
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -313,12 +351,47 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox6">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=iif(Fields!PIR2_START_DATE.Value=Fields!PIR2_END_DATE.Value,Fields!PIR2_START_DATE.Value,Fields!PIR2_START_DATE.Value+" - "+Fields!PIR2_END_DATE.Value)</Value>
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -338,7 +411,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>1.6637cm</Top>
         <Height>2.25834cm</Height>
-        <Width>20.34646cm</Width>
+        <Width>20.30708cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -440,7 +513,7 @@
     <Height>1.54411in</Height>
     <Style />
   </Body>
-  <Width>8.01042in</Width>
+  <Width>7.99491in</Width>
   <Page>
     <LeftMargin>0.25in</LeftMargin>
     <RightMargin>0.25in</RightMargin>
