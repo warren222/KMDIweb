@@ -23,6 +23,8 @@
                     <asp:SessionParameter Name="Sdate" SessionField="PSSdate" Type="String" />
                     <asp:SessionParameter Name="Edate" SessionField="PSEdate" Type="String" />
                     <asp:SessionParameter Name="DataStatus" SessionField="PSDataStatus" Type="String" />
+                    <asp:SessionParameter Name="user_code" SessionField="PSuser_code" Type="String" />
+                    <asp:SessionParameter Name="fullname" SessionField="PSfullname" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
             <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">

@@ -45,9 +45,17 @@ namespace KMDIweb.KMDIweb.Installation
             }
             else
             {
-                HyperLink1.Visible = false;
+                if (usercode == "Installer")
+                {
+                    HyperLink1.Visible = true;
+                }
+                else
+                {
+                    HyperLink1.Visible = false;
+                }
                 HyperLink3.Visible = false;
             }
+           
         }
         protected void LinkButton1_Click(object sender, EventArgs e)
         {

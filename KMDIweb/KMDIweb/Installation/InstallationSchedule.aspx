@@ -609,12 +609,23 @@
                                 <asp:Panel ID="panel20" ScrollBars="Auto" runat="server">
                                     <asp:GridView ID="GridView3" CssClass="table" AutoGenerateColumns="False" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" EmptyDataText="No record" OnRowCommand="GridView3_RowCommand">
                                         <Columns>
-                                            <asp:TemplateField HeaderText="ACTIVITY" ItemStyle-Wrap="false">
+                                            <asp:TemplateField HeaderText="ACTIVITY" ItemStyle-Wrap="true" HeaderStyle-Width="500">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
-                                                    <asp:Label ID="lblactivity" runat="server" Text='<%# Bind("activity") %>'></asp:Label>
+                                                    <div style="min-width: 500px;">
+                                                        <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
+                                                        <asp:Label ID="lblactivity" runat="server" Text='<%# Bind("activity") %>'></asp:Label>
+                                                    </div>
+
                                                 </ItemTemplate>
-                                                <ItemStyle Wrap="False" />
+                                                <ItemStyle Wrap="True" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="INSTALLER" ItemStyle-Wrap="true">
+                                                <ItemTemplate>
+                                                    <div style="min-width: 250px;">
+                                                        <asp:Label ID="lblinstaller" runat="server" Text='<%# Bind("Installers") %>'></asp:Label>
+                                                    </div>
+                                                </ItemTemplate>
+                                                <ItemStyle Wrap="True" />
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="DATE" ItemStyle-Wrap="false">
                                                 <ItemTemplate>

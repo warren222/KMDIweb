@@ -61,6 +61,8 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.Parameters.AddWithValue("@Edate", tboxEdate.Text);
                         sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
                         sqlcmd.Parameters.AddWithValue("@DataStatus", ddlDataStatus.Text);
+                        sqlcmd.Parameters.AddWithValue("@fullname", Session["KMDI_fullname"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@user_code", Session["KMDI_user_code"].ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
@@ -91,6 +93,8 @@ namespace KMDIweb.KMDIweb.Installation
             Session["PSSdate"] = tboxSdate.Text;
             Session["PSEdate"] = tboxEdate.Text;
             Session["PSDataStatus"] = ddlDataStatus.SelectedValue.ToString();
+            Session["PSfullname"] = Session["KMDI_fullname"].ToString();
+            Session["PSuser_code"] = Session["KMDI_user_code"].ToString();
             Response.Redirect("~/KMDIweb/Installation/InstallationSummaryReportViewer.aspx");
         }
     }
