@@ -103,6 +103,7 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.Parameters.AddWithValue("@parentjono", parentjono);
                         sqlcmd.Parameters.AddWithValue("@kmdi_no", ddlkno.Text);
                         sqlcmd.Parameters.AddWithValue("@location", ddllocation.Text);
+                        sqlcmd.Parameters.AddWithValue("@Sdate", Convert.ToDateTime(ViewState["lblStart"]).ToString("yyyy-MM-dd"));
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
@@ -234,11 +235,9 @@ namespace KMDIweb.KMDIweb.Installation
         {
             if (e.CommandName == "loadkno")
             {
-
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = GridView1.Rows[rowindex];
-                loadkno(((Label)row.FindControl("lblparentjono")).Text);
-                loadNonproductiveActivity(((Label)row.FindControl("lblparentjono")).Text);
+            
                 ViewState["parentjono"] = ((Label)row.FindControl("lblparentjono")).Text;
                 ViewState["installers"] = ((Label)row.FindControl("lblinstallershidden")).Text.Replace("\n", ", ");
                 ViewState["lblStart"] = ((Label)row.FindControl("lblStart")).Text;
@@ -253,9 +252,13 @@ namespace KMDIweb.KMDIweb.Installation
                 {
                     lblWarning.Text = "";
                 }
+                tboxDate.Text = Convert.ToDateTime(ViewState["lblStart"]).ToString("yyyy-MM-dd");
+                loadkno(((Label)row.FindControl("lblparentjono")).Text);
+                loadNonproductiveActivity(((Label)row.FindControl("lblparentjono")).Text);
                 PNLschedule.Visible = false;
                 PNLkno.Visible = true;
                 Panel4.Visible = false;
+                Panel5.Visible = false;
                 distinctknolocation(((Label)row.FindControl("lblparentjono")).Text);
             }
         }

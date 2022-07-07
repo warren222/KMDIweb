@@ -12,7 +12,7 @@
         <div class="well">
             <h2>Installation Schedule
             </h2>
-         
+
             <asp:Panel ID="Panel4" runat="server">
                 <div class="row">
                     <div class="col-sm-4">
@@ -183,9 +183,11 @@
                         </div>
                         <div class="col-sm-6">
                             <div style="background-color: bisque; padding: 10px;">
-                                Pumili ng date para sa check function
+                                <asp:Panel ID="Panel5" runat="server">
+                                    Pumili ng date para sa check function
                              <br />
-                                <asp:TextBox ID="tboxDate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="tboxDate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
+                                </asp:Panel>
                             </div>
                         </div>
                     </div>
@@ -452,7 +454,7 @@
                                             </div>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                       <asp:TemplateField HeaderText="CLEANING" ItemStyle-Wrap="false">
+                                    <asp:TemplateField HeaderText="CLEANING" ItemStyle-Wrap="false">
                                         <ItemTemplate>
                                             <div style="min-width: 140px;">
                                                 <asp:LinkButton ID="lbtnCleaning" CommandName="Cleaning" runat="server" Text='<%# Bind("CLEANING") %>'></asp:LinkButton><br />
@@ -500,7 +502,7 @@
                                             </div>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                       <asp:TemplateField HeaderText="FINAL CLEANING" ItemStyle-Wrap="false">
+                                    <asp:TemplateField HeaderText="FINAL CLEANING" ItemStyle-Wrap="false">
                                         <ItemTemplate>
                                             <div style="min-width: 140px;">
                                                 <asp:LinkButton ID="lbtnFinalCleaning" CommandName="FinalCleaning" runat="server" Text='<%# Bind("FINAL_CLEANING") %>'></asp:LinkButton><br />
