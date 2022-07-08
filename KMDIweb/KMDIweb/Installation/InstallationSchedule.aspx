@@ -124,7 +124,7 @@
                             <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
 
                             <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
-                            <PagerStyle CssClass="GridPager" ForeColor="Black" HorizontalAlign="Right" />
+                            <PagerStyle CssClass="GridPager" ForeColor="Black" HorizontalAlign="Left" />
                             <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
                             <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
                             <SortedAscendingCellStyle BackColor="#F1F1F1" />

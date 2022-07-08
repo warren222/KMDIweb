@@ -241,11 +241,11 @@ namespace KMDIweb.KMDIweb.Installation
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
-            GridViewRow row = GridView1.Rows[rowindex];
+         
             if (e.CommandName == "loadkno")
             {
-
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
 
                 ViewState["parentjono"] = ((Label)row.FindControl("lblparentjono")).Text;
                 ViewState["installers"] = ((Label)row.FindControl("lblinstallershidden")).Text.Replace("\n", ", ");
@@ -272,22 +272,30 @@ namespace KMDIweb.KMDIweb.Installation
             }
             else if (e.CommandName == "requestChangeSched")
             {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
                 ((LinkButton)row.FindControl("btnrequest")).Visible = false;
                 ((Panel)row.FindControl("pnlchangesched")).Visible = true;
             }
             else if (e.CommandName == "cancelRequesting")
             {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
                 ((LinkButton)row.FindControl("btnrequest")).Visible = true;
                 ((Panel)row.FindControl("pnlchangesched")).Visible = false;
             }
             else if(e.CommandName == "sendRequest")
             {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
                 RequestQueries("Add","",((Label)row.FindControl("lblpir2id")).Text
                                ,myName
                                ,((TextBox)row.FindControl("tboxproject")).Text);
             }
             else if (e.CommandName == "deleteRequest")
             {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
                 RequestQueries("Delete",((Label)row.FindControl("lblreqid")).Text,""
                                ,""
                                ,"");
