@@ -38,6 +38,13 @@ namespace KMDIweb.KMDIweb.Installation
                 return Session["KMDI_fullname"].ToString();
             }
         }
+        private string myschedule
+        {
+            get
+            {
+                return ViewState["lblStart"].ToString();
+            }
+        }
         private string sqlconstr
         {
             get
@@ -103,7 +110,7 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.Parameters.AddWithValue("@parentjono", parentjono);
                         sqlcmd.Parameters.AddWithValue("@kmdi_no", ddlkno.Text);
                         sqlcmd.Parameters.AddWithValue("@location", ddllocation.Text);
-                        sqlcmd.Parameters.AddWithValue("@Sdate", Convert.ToDateTime(ViewState["lblStart"]).ToString("yyyy-MM-dd"));
+                        sqlcmd.Parameters.AddWithValue("@Sdate", Convert.ToDateTime(myschedule).ToString("yyyy-MM-dd"));
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
@@ -127,7 +134,7 @@ namespace KMDIweb.KMDIweb.Installation
         }
         private void distinctknolocation(string parentjono)
         {
-            tboxDate.Text = Convert.ToDateTime(ViewState["lblStart"].ToString()).ToString("yyyy-MM-dd");
+            tboxDate.Text = Convert.ToDateTime(myschedule).ToString("yyyy-MM-dd");
             distinctkno(parentjono);
             distinctlocation(parentjono);
         }
@@ -252,7 +259,7 @@ namespace KMDIweb.KMDIweb.Installation
                 {
                     lblWarning.Text = "";
                 }
-                tboxDate.Text = Convert.ToDateTime(ViewState["lblStart"]).ToString("yyyy-MM-dd");
+                tboxDate.Text = Convert.ToDateTime(myschedule).ToString("yyyy-MM-dd");
                 loadkno(((Label)row.FindControl("lblparentjono")).Text);
                 loadNonproductiveActivity(((Label)row.FindControl("lblparentjono")).Text);
                 PNLschedule.Visible = false;
@@ -408,7 +415,7 @@ namespace KMDIweb.KMDIweb.Installation
             }
             finally
             {
-                InsertLog(column, jo, kno, "Check", d.ToString("MMMM dd, yyyy"));
+                InsertLog(column, jo, kno, "Check", d.ToString("MMMM dd, yyyy"), Convert.ToDateTime(myschedule).ToString("MMMM dd, yyyy"));
                 loadkno(ViewState["parentjono"].ToString());
                 if (column == "Screens" || column == "Cleaning" || column == "Final_Cleaning")
                 {
@@ -459,7 +466,7 @@ namespace KMDIweb.KMDIweb.Installation
             }
             finally
             {
-                InsertLog(section, jo, kno, "Uncheck", "");
+                InsertLog(section, jo, kno, "Uncheck", "", Convert.ToDateTime(myschedule).ToString("MMMM dd, yyyy"));
                 loadkno(ViewState["parentjono"].ToString());
                 if (column == "Screens='',Screens_Installer=''" || column == "Cleaning='',Cleaning_Installer=''" || column == "Final_Cleaning='',Final_Cleaning_Installer=''")
                 {
@@ -467,7 +474,7 @@ namespace KMDIweb.KMDIweb.Installation
                 }
             }
         }
-        private void InsertLog(string column, string jo, string kno, string action_made, string value)
+        private void InsertLog(string column, string jo, string kno, string action_made, string value, string schedule)
         {
             try
             {
@@ -485,6 +492,7 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.Parameters.AddWithValue("@Updated_By", myName);
                         sqlcmd.Parameters.AddWithValue("@Action_Made", action_made);
                         sqlcmd.Parameters.AddWithValue("@Value", value);
+                        sqlcmd.Parameters.AddWithValue("@Schedule", schedule);
                         sqlcmd.ExecuteNonQuery();
                     }
                 }
@@ -915,8 +923,9 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.Parameters.AddWithValue("@ParentJono", ViewState["parentjono"].ToString());
                         sqlcmd.Parameters.AddWithValue("@Installers", ViewState["installers"].ToString());
                         sqlcmd.Parameters.AddWithValue("@Date", tboxDate.Text);
+                        sqlcmd.Parameters.AddWithValue("@Schedule", Convert.ToDateTime(myschedule).ToString("MMMM dd, yyyy"));
+                        sqlcmd.Parameters.AddWithValue("@fullname", myName);
                         sqlcmd.ExecuteNonQuery();
-
                     }
                 }
             }

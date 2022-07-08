@@ -613,7 +613,7 @@
                                                 <ItemTemplate>
                                                     <div style="min-width: 500px;">
                                                         <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
-                                                        <asp:Label ID="lblactivity" runat="server" Text='<%# Bind("activity") %>'></asp:Label>
+                                                        <asp:Label ID="lblactivity"  Font-Size="Small" runat="server" Text='<%# Bind("activity") %>'></asp:Label>
                                                     </div>
 
                                                 </ItemTemplate>
@@ -622,7 +622,7 @@
                                             <asp:TemplateField HeaderText="INSTALLER" ItemStyle-Wrap="true">
                                                 <ItemTemplate>
                                                     <div style="min-width: 250px;">
-                                                        <asp:Label ID="lblinstaller" runat="server" Text='<%# Bind("Installers") %>'></asp:Label>
+                                                        <asp:Label ID="lblinstaller" Font-Size="X-Small" runat="server" Text='<%# Bind("Installers") %>'></asp:Label>
                                                     </div>
                                                 </ItemTemplate>
                                                 <ItemStyle Wrap="True" />
@@ -630,6 +630,13 @@
                                             <asp:TemplateField HeaderText="DATE" ItemStyle-Wrap="false">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lbldated" runat="server" Text='<%# Bind("DATED") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Wrap="False" />
+                                            </asp:TemplateField>
+                                                  <asp:TemplateField HeaderText="INPUTTED BY" ItemStyle-Wrap="false">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblinputtedby" runat="server" Text='<%# Bind("INPUTTED_BY") %>'></asp:Label><br />
+                                                       <asp:Label ID="lbldateinputted" CssClass="text-muted" runat="server" Text='<%# Bind("Date_Inputted") %>'></asp:Label>
                                                 </ItemTemplate>
                                                 <ItemStyle Wrap="False" />
                                             </asp:TemplateField>
