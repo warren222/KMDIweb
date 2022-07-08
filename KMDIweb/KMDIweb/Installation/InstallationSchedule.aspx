@@ -607,7 +607,7 @@
                                 </div>
                                 <br />
                                 <asp:Panel ID="panel20" ScrollBars="Auto" runat="server">
-                                    <asp:GridView ID="GridView3" CssClass="table" AutoGenerateColumns="False" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" EmptyDataText="No record" OnRowCommand="GridView3_RowCommand">
+                                    <asp:GridView ID="GridView3" CssClass="table" Font-Size="Small" AutoGenerateColumns="False" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" EmptyDataText="No record" OnRowCommand="GridView3_RowCommand">
                                         <Columns>
                                             <asp:TemplateField HeaderText="ACTIVITY" ItemStyle-Wrap="true" HeaderStyle-Width="500">
                                                 <ItemTemplate>
@@ -622,7 +622,7 @@
                                             <asp:TemplateField HeaderText="INSTALLER" ItemStyle-Wrap="true">
                                                 <ItemTemplate>
                                                     <div style="min-width: 250px;">
-                                                        <asp:Label ID="lblinstaller" Font-Size="X-Small" runat="server" Text='<%# Bind("Installers") %>'></asp:Label>
+                                                        <asp:Label ID="lblinstaller" runat="server" Text='<%# Bind("Installers") %>'></asp:Label>
                                                     </div>
                                                 </ItemTemplate>
                                                 <ItemStyle Wrap="True" />

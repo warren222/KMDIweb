@@ -29,7 +29,7 @@
         </div>
         <br />
         <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-            <asp:GridView ID="GridView1" CssClass="table" runat="server" AllowPaging="True" AutoGenerateColumns="False" PageSize="100" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" GridLines="Both" OnPageIndexChanging="GridView1_PageIndexChanging" CellSpacing="1">
+            <asp:GridView ID="GridView1" CssClass="table" Font-Size="X-Small" runat="server" AllowPaging="True" AutoGenerateColumns="False" PageSize="100" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" GridLines="Both" OnPageIndexChanging="GridView1_PageIndexChanging" CellSpacing="1">
                 <Columns>
                     <asp:TemplateField HeaderText="INSTALLATION SCHEDULE" ItemStyle-Wrap="false">
                         <ItemTemplate>
