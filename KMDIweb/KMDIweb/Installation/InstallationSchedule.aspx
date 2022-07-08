@@ -42,71 +42,98 @@
 
         <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
             <asp:Panel ID="PNLschedule" runat="server">
-                <asp:GridView ID="GridView1" CssClass="table" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" GridLines="Both" CellSpacing="1" OnRowCommand="GridView1_RowCommand">
-                    <Columns>
-                        <asp:TemplateField HeaderText="PROJECT" ItemStyle-BackColor="White" ItemStyle-BorderColor="Silver" ItemStyle-Wrap="false">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="BTNkno" runat="server" CommandName="loadkno" Font-Bold="true" Text='<%# Bind("PIR2_PROJECTNAME") %>'></asp:LinkButton><br />
-                                <asp:Label ID="lblInstruction" Font-Size="Small" Visible="false" CssClass="text-muted" runat="server" Text='<%# Bind("PIR2_SPECIALINSTRUCTIONS") %>'></asp:Label>
-                                <asp:Label ID="lblAddress" Font-Size="Small" CssClass="text-muted" runat="server" Text='<%# Bind("Fulladd") %>'></asp:Label><br />
-                                <asp:Label ID="lblparentjono" Font-Size="Smaller" runat="server" Text='<%# Bind("PIR2_PARENTJONO") %>'></asp:Label><br />
-                                <asp:Label ID="lblEngr" Font-Size="Smaller" CssClass="text-warning" runat="server" Text='<%# Bind("ENGR") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="SCHEDULE" ItemStyle-Wrap="false">
-                            <ItemTemplate>
-                                <asp:Label ID="lblStart" runat="server" Text='<%# Bind("PIR2_START_DATE") %>'></asp:Label><br />
-                                <asp:Label ID="lblEnd" runat="server" Text='<%# Bind("PIR2_END_DATE") %>'></asp:Label>
-                                <itemstyle wrap="False" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="LOCATION" ItemStyle-Wrap="false">
-                            <ItemTemplate>
-                                <asp:Label ID="lblLocation" runat="server" Text='<%# Bind("PIR2_PROJLOCATION") %>'></asp:Label>
-                                <itemstyle wrap="False" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderStyle-Width="200px" HeaderText="INSTALLERS" ItemStyle-Wrap="false">
-                            <ItemTemplate>
-                                <asp:Label ID="lblinstallershidden" runat="server" Visible="false" Text='<%# Bind("Installers") %>'></asp:Label>
-                                <asp:Label ID="lblInstallers" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Installers").ToString(), "\r\n|\r|\n", "<br>"))  %>'></asp:Label>
-                            </ItemTemplate>
-                            <HeaderStyle Width="200px" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderStyle-Width="200px" HeaderText="Driver" ItemStyle-Wrap="false">
-                            <ItemTemplate>
-                                <div class="text-center">
-                                    <asp:Label ID="lblPlatenumber" Font-Size="Larger" CssClass="text-muted" runat="server" Text='<%# Bind("Plate_No") %>'></asp:Label><br />
-                                    <br />
-                                    <asp:Label ID="lblDriver" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Driver").ToString(), "\r\n|\r|\n", "<br>"))  %>'></asp:Label>
-                                </div>
+                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                    <ContentTemplate>
+                        <asp:GridView ID="GridView1" CssClass="table" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" GridLines="Both" CellSpacing="1" OnRowCommand="GridView1_RowCommand">
+                            <Columns>
+                                <asp:TemplateField HeaderText="PROJECT" ItemStyle-BackColor="White" ItemStyle-BorderColor="Silver" ItemStyle-Wrap="false">
+                                    <ItemTemplate>
 
-                                <br />
-                                <br />
+                                        <asp:LinkButton ID="BTNkno" runat="server" CommandName="loadkno" Font-Bold="true" Text='<%# Bind("PIR2_PROJECTNAME") %>'></asp:LinkButton><br />
+                                        <asp:Label ID="lblInstruction" Font-Size="Small" Visible="false" CssClass="text-muted" runat="server" Text='<%# Bind("PIR2_SPECIALINSTRUCTIONS") %>'></asp:Label>
+                                        <asp:Label ID="lblpir2id" Font-Size="Small" Visible="false" CssClass="text-muted" runat="server" Text='<%# Bind("PIR2_ID") %>'></asp:Label>
+                                        <asp:Label ID="lblAddress" Font-Size="Small" CssClass="text-muted" runat="server" Text='<%# Bind("Fulladd") %>'></asp:Label><br />
+                                        <asp:Label ID="lblparentjono" Font-Size="Smaller" runat="server" Text='<%# Bind("PIR2_PARENTJONO") %>'></asp:Label><br />
+                                        <asp:Label ID="lblEngr" Font-Size="Smaller" CssClass="text-warning" runat="server" Text='<%# Bind("ENGR") %>'></asp:Label>
+                                        <br />
+                                        <br />
+                                        <asp:LinkButton ID="btnrequest" Visible='<%# Eval("[Req_Status]").ToString() == "requested" || Eval("[Req_Status]").ToString() == "scheduled" ? false : true %>' CssClass="btn btn-primary" CommandName="requestChangeSched" runat="server">request change schedule</asp:LinkButton>
+                                        <asp:Panel ID="Panel6" Visible='<%# Eval("[Req_Status]").ToString() == "requested" || Eval("[Req_Status]").ToString() == "scheduled" ? true : false %>' 
+                                            CssClass='<%# Eval("[Req_Status]").ToString() == "scheduled" ? "alert alert-success" : "alert alert-info" %>' runat="server">
+                                            <asp:Label ID="lblreqid" Font-Size="Smaller" runat="server" Visible="false" Text='<%# Bind("[Id]") %>'></asp:Label>
+                                            <asp:Label ID="lblnewproject" Font-Size="Smaller" runat="server" Text='<%# Bind("Project_Name") %>'></asp:Label><br />
+                                            <asp:Label ID="lblrequesteddate" Font-Size="Smaller" runat="server" Text='<%# Bind("Requested_Date") %>'></asp:Label>
+                                            <asp:LinkButton ID="LinkButton7" CssClass="pull-right text text-danger" 
+                                                Visible='<%# Eval("[Req_Status]").ToString() == "requested" ? true : false %>'
+                                                OnClientClick="return confirm('cancel request?')"
+                                                CommandName="deleteRequest" runat="server">cancel request</asp:LinkButton>
+                                        </asp:Panel>
+                                        <asp:Panel ID="pnlchangesched" Visible="false" CssClass="well" runat="server">
 
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Driver Instructions" ItemStyle-Wrap="false">
-                            <ItemTemplate>
-                                <asp:Label ID="lblDriverInstructor" runat="server" Text='<%# Bind("PIR2_DRIVERINSTRUCTIONS") %>'></asp:Label><br />
-                                <br />
-                                <asp:Label ID="lblDriverNote" runat="server" Text='<%# Bind("Driver_Note") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
+                                            <span>Project:</span>
+                                            <asp:TextBox ID="tboxproject" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:LinkButton ID="btnsendrequest" CommandName="sendRequest" CssClass="btn btn-success" runat="server">send request</asp:LinkButton>
+                                            | 
+                                    <asp:LinkButton ID="btncancel" CommandName="cancelRequesting" CssClass="btn btn-default" runat="server">cancel</asp:LinkButton>
+                                        </asp:Panel>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="SCHEDULE" ItemStyle-Wrap="false">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblStart" runat="server" Text='<%# Bind("PIR2_START_DATE") %>'></asp:Label><br />
+                                        <asp:Label ID="lblEnd" runat="server" Text='<%# Bind("PIR2_END_DATE") %>'></asp:Label>
+                                        <itemstyle wrap="False" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="LOCATION" ItemStyle-Wrap="false">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblLocation" runat="server" Text='<%# Bind("PIR2_PROJLOCATION") %>'></asp:Label>
+                                        <itemstyle wrap="False" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderStyle-Width="200px" HeaderText="INSTALLERS" ItemStyle-Wrap="false">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblinstallershidden" runat="server" Visible="false" Text='<%# Bind("Installers") %>'></asp:Label>
+                                        <asp:Label ID="lblInstallers" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Installers").ToString(), "\r\n|\r|\n", "<br>"))  %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <HeaderStyle Width="200px" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderStyle-Width="200px" HeaderText="Driver" ItemStyle-Wrap="false">
+                                    <ItemTemplate>
+                                        <div class="text-center">
+                                            <asp:Label ID="lblPlatenumber" Font-Size="Larger" CssClass="text-muted" runat="server" Text='<%# Bind("Plate_No") %>'></asp:Label><br />
+                                            <br />
+                                            <asp:Label ID="lblDriver" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Driver").ToString(), "\r\n|\r|\n", "<br>"))  %>'></asp:Label>
+                                        </div>
 
-                    <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
-                    <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+                                        <br />
+                                        <br />
 
-                    <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
-                    <PagerStyle CssClass="GridPager" ForeColor="Black" HorizontalAlign="Right" />
-                    <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
-                    <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                    <SortedAscendingHeaderStyle BackColor="#594B9C" />
-                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                    <SortedDescendingHeaderStyle BackColor="#33276A" />
-                </asp:GridView>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Driver Instructions" ItemStyle-Wrap="false">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblDriverInstructor" runat="server" Text='<%# Bind("PIR2_DRIVERINSTRUCTIONS") %>'></asp:Label><br />
+                                        <br />
+                                        <asp:Label ID="lblDriverNote" runat="server" Text='<%# Bind("Driver_Note") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+
+                            <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+                            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+
+                            <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
+                            <PagerStyle CssClass="GridPager" ForeColor="Black" HorizontalAlign="Right" />
+                            <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+                            <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                            <SortedAscendingHeaderStyle BackColor="#594B9C" />
+                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                            <SortedDescendingHeaderStyle BackColor="#33276A" />
+                        </asp:GridView>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </asp:Panel>
             <asp:Panel ID="PNLkno" Visible="false" ScrollBars="Auto" runat="server">
                 <div class="text-center">
@@ -613,7 +640,7 @@
                                                 <ItemTemplate>
                                                     <div style="min-width: 500px;">
                                                         <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
-                                                        <asp:Label ID="lblactivity"  Font-Size="Small" runat="server" Text='<%# Bind("activity") %>'></asp:Label>
+                                                        <asp:Label ID="lblactivity" Font-Size="Small" runat="server" Text='<%# Bind("activity") %>'></asp:Label>
                                                     </div>
 
                                                 </ItemTemplate>
@@ -633,10 +660,10 @@
                                                 </ItemTemplate>
                                                 <ItemStyle Wrap="False" />
                                             </asp:TemplateField>
-                                                  <asp:TemplateField HeaderText="INPUTTED BY" ItemStyle-Wrap="false">
+                                            <asp:TemplateField HeaderText="INPUTTED BY" ItemStyle-Wrap="false">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblinputtedby" runat="server" Text='<%# Bind("INPUTTED_BY") %>'></asp:Label><br />
-                                                       <asp:Label ID="lbldateinputted" CssClass="text-muted" runat="server" Text='<%# Bind("Date_Inputted") %>'></asp:Label>
+                                                    <asp:Label ID="lbldateinputted" CssClass="text-muted" runat="server" Text='<%# Bind("Date_Inputted") %>'></asp:Label>
                                                 </ItemTemplate>
                                                 <ItemStyle Wrap="False" />
                                             </asp:TemplateField>

@@ -207,6 +207,7 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Load");
                         sqlcmd.Parameters.AddWithValue("@parentjono", parentjono);
+                        sqlcmd.Parameters.AddWithValue("@user_code", Session["KMDI_user_code"].ToString());
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
@@ -240,11 +241,12 @@ namespace KMDIweb.KMDIweb.Installation
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+            GridViewRow row = GridView1.Rows[rowindex];
             if (e.CommandName == "loadkno")
             {
-                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
-                GridViewRow row = GridView1.Rows[rowindex];
-            
+
+
                 ViewState["parentjono"] = ((Label)row.FindControl("lblparentjono")).Text;
                 ViewState["installers"] = ((Label)row.FindControl("lblinstallershidden")).Text.Replace("\n", ", ");
                 ViewState["lblStart"] = ((Label)row.FindControl("lblStart")).Text;
@@ -267,6 +269,58 @@ namespace KMDIweb.KMDIweb.Installation
                 Panel4.Visible = false;
                 Panel5.Visible = false;
                 distinctknolocation(((Label)row.FindControl("lblparentjono")).Text);
+            }
+            else if (e.CommandName == "requestChangeSched")
+            {
+                ((LinkButton)row.FindControl("btnrequest")).Visible = false;
+                ((Panel)row.FindControl("pnlchangesched")).Visible = true;
+            }
+            else if (e.CommandName == "cancelRequesting")
+            {
+                ((LinkButton)row.FindControl("btnrequest")).Visible = true;
+                ((Panel)row.FindControl("pnlchangesched")).Visible = false;
+            }
+            else if(e.CommandName == "sendRequest")
+            {
+                RequestQueries("Add","",((Label)row.FindControl("lblpir2id")).Text
+                               ,myName
+                               ,((TextBox)row.FindControl("tboxproject")).Text);
+            }
+            else if (e.CommandName == "deleteRequest")
+            {
+                RequestQueries("Delete",((Label)row.FindControl("lblreqid")).Text,""
+                               ,""
+                               ,"");
+            }
+        }
+
+        private void RequestQueries(string command,string id, string pir2id, string requestedby, string project)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.CommandText = "Installation_Change_Sched_Request_Stp";
+                        sqlcmd.Parameters.AddWithValue("@Command", command);
+                        sqlcmd.Parameters.AddWithValue("@Id", id);
+                        sqlcmd.Parameters.AddWithValue("@Installation_Schedule_Id",pir2id);
+                        sqlcmd.Parameters.AddWithValue("@Requested_By", requestedby);
+                        sqlcmd.Parameters.AddWithValue("@Project_Name", project);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+            finally
+            {
+                loaddata();
             }
         }
 
@@ -728,7 +782,7 @@ namespace KMDIweb.KMDIweb.Installation
             {
                 clearUpdate("Glass_U_Seal='',Glass_U_Seal_Installer=''", jo, kno, "Glass_U_Seal");
             }
-            else if (e.CommandName == "ClearAddlReinf") 
+            else if (e.CommandName == "ClearAddlReinf")
             {
                 clearUpdate("Addl_Reinf='',Addl_Reinf_Installer=''", jo, kno, "Addl_Reinf");
             }
