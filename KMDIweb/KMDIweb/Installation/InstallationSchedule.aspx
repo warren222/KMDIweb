@@ -3,6 +3,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Installation Schedule</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            blinkeffect('#txtblnk');
+        })
+        function blinkeffect(selector) {
+            $(selector).fadeOut('slow', function () {
+                $(this).fadeIn('slow', function () {
+                    blinkeffect(this);
+                });
+            });
+        }
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
@@ -15,13 +28,21 @@
 
             <asp:Panel ID="Panel4" runat="server">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         START<br />
                         <asp:TextBox ID="tboxSdate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         END<br />
                         <asp:TextBox ID="tboxEdate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-sm-2">
+                        REQ STATUS<br />
+                        <asp:DropDownList ID="ddlReqStatus" CssClass="form-control" runat="server">
+                            <asp:ListItem Text="All" Value="All" Selected="True"></asp:ListItem>
+                            <asp:ListItem Text="Requested" Value="requested"></asp:ListItem>
+                            <asp:ListItem Text="Scheduled" Value="scheduled"></asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                     <div class="col-sm-4">
                         PROJECT<br />
@@ -37,103 +58,114 @@
 
         </div>
 
+        <div id="txtblnk">
+            <p>
+                <strong><font color="red">REMINDER: 
+PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW!</font></strong>
+            </p>
+        </div>
 
 
 
         <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
             <asp:Panel ID="PNLschedule" runat="server">
-                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                    <ContentTemplate>
-                        <asp:GridView ID="GridView1" CssClass="table" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" GridLines="Both" CellSpacing="1" OnRowCommand="GridView1_RowCommand">
-                            <Columns>
-                                <asp:TemplateField HeaderText="PROJECT" ItemStyle-BackColor="White" ItemStyle-BorderColor="Silver" ItemStyle-Wrap="false">
-                                    <ItemTemplate>
 
-                                        <asp:LinkButton ID="BTNkno" runat="server" CommandName="loadkno" Font-Bold="true" Text='<%# Bind("PIR2_PROJECTNAME") %>'></asp:LinkButton><br />
-                                        <asp:Label ID="lblInstruction" Font-Size="Small" Visible="false" CssClass="text-muted" runat="server" Text='<%# Bind("PIR2_SPECIALINSTRUCTIONS") %>'></asp:Label>
-                                        <asp:Label ID="lblpir2id" Font-Size="Small" Visible="false" CssClass="text-muted" runat="server" Text='<%# Bind("PIR2_ID") %>'></asp:Label>
-                                        <asp:Label ID="lblAddress" Font-Size="Small" CssClass="text-muted" runat="server" Text='<%# Bind("Fulladd") %>'></asp:Label><br />
-                                        <asp:Label ID="lblparentjono" Font-Size="Smaller" runat="server" Text='<%# Bind("PIR2_PARENTJONO") %>'></asp:Label><br />
-                                        <asp:Label ID="lblEngr" Font-Size="Smaller" CssClass="text-warning" runat="server" Text='<%# Bind("ENGR") %>'></asp:Label>
-                                        <br />
-                                        <br />
-                                        <asp:LinkButton ID="btnrequest" Visible='<%# Eval("[Req_Status]").ToString() == "requested" || Eval("[Req_Status]").ToString() == "scheduled" ? false : true %>' CssClass="btn btn-primary" CommandName="requestChangeSched" runat="server">request change schedule</asp:LinkButton>
-                                        <asp:Panel ID="Panel6" Visible='<%# Eval("[Req_Status]").ToString() == "requested" || Eval("[Req_Status]").ToString() == "scheduled" ? true : false %>' 
-                                            CssClass='<%# Eval("[Req_Status]").ToString() == "scheduled" ? "alert alert-success" : "alert alert-info" %>' runat="server">
-                                            <asp:Label ID="lblreqid" Font-Size="Smaller" runat="server" Visible="false" Text='<%# Bind("[Id]") %>'></asp:Label>
-                                            <asp:Label ID="lblnewproject" Font-Size="Smaller" runat="server" Text='<%# Bind("Project_Name") %>'></asp:Label><br />
-                                            <asp:Label ID="lblrequesteddate" Font-Size="Smaller" runat="server" Text='<%# Bind("Requested_Date") %>'></asp:Label>
-                                            <asp:LinkButton ID="LinkButton7" CssClass="pull-right text text-danger" 
-                                                Visible='<%# Eval("[Req_Status]").ToString() == "requested" ? true : false %>'
-                                                OnClientClick="return confirm('cancel request?')"
-                                                CommandName="deleteRequest" runat="server">cancel request</asp:LinkButton>
-                                        </asp:Panel>
-                                        <asp:Panel ID="pnlchangesched" Visible="false" CssClass="well" runat="server">
+                <asp:GridView ID="GridView1" CssClass="table" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" GridLines="Both" CellSpacing="1" OnRowCommand="GridView1_RowCommand">
+                    <Columns>
+                        <asp:TemplateField HeaderText="PROJECT" ItemStyle-BackColor="White" ItemStyle-BorderColor="Silver" ItemStyle-Wrap="false">
+                            <ItemTemplate>
 
-                                            <span>Project:</span>
-                                            <asp:TextBox ID="tboxproject" CssClass="form-control" runat="server"></asp:TextBox>
-                                            <asp:LinkButton ID="btnsendrequest" CommandName="sendRequest" CssClass="btn btn-success" runat="server">send request</asp:LinkButton>
-                                            | 
+
+                                <asp:LinkButton ID="BTNkno" runat="server" CommandName="loadkno" Font-Bold="true" Text='<%# Bind("PIR2_PROJECTNAME") %>'></asp:LinkButton><br />
+                                <asp:Label ID="lblInstruction" Font-Size="Small" Visible="false" CssClass="text-muted" runat="server" Text='<%# Bind("PIR2_SPECIALINSTRUCTIONS") %>'></asp:Label>
+                                <asp:Label ID="lblpir2id" Font-Size="Small" Visible="false" CssClass="text-muted" runat="server" Text='<%# Bind("PIR2_ID") %>'></asp:Label>
+                                <asp:Label ID="lblAddress" Font-Size="Small" CssClass="text-muted" runat="server" Text='<%# Bind("Fulladd") %>'></asp:Label><br />
+                                <asp:Label ID="lblparentjono" Font-Size="Smaller" runat="server" Text='<%# Bind("PIR2_PARENTJONO") %>'></asp:Label><br />
+                                <asp:Label ID="lblEngr" Font-Size="Smaller" CssClass="text-warning" runat="server" Text='<%# Bind("ENGR") %>'></asp:Label>
+                                <br />
+                                <asp:LinkButton ID="btnrequest" Visible='<%# Eval("[User_Code]").ToString() == "Installer" && Eval("[Req_Status]").ToString() == "" ? true : false %>' CssClass="btn btn-primary" CommandName="requestChangeSched" runat="server">request change schedule</asp:LinkButton>
+                                <asp:Panel ID="Panel6" Visible='<%# Eval("[Req_Status]").ToString() == "requested" || Eval("[Req_Status]").ToString() == "scheduled" ? true : false %>'
+                                    CssClass='<%# Eval("[Req_Status]").ToString() == "scheduled" ? "alert alert-success" : "alert alert-info" %>' runat="server">
+                                    <asp:Label ID="lblreqid" Font-Size="Smaller" runat="server" Visible="false" Text='<%# Bind("[Id]") %>'></asp:Label>
+                                    <asp:Label ID="lblnewproject" Font-Size="Smaller" runat="server" Text='<%# Bind("Project_Name") %>'></asp:Label><br />
+                                    <asp:Label ID="lblrequesteddate" Font-Size="Smaller" runat="server" Text='<%# Bind("Requested_Date") %>'></asp:Label>
+                                    <asp:LinkButton ID="LinkButton7" CssClass="pull-right text text-danger"
+                                        Visible='<%# Eval("[Req_Status]").ToString() == "requested" && Eval("[User_Code]").ToString() == "Installer"  ? true : false %>'
+                                        OnClientClick="return confirm('cancel request?')"
+                                        CommandName="deleteRequest" runat="server">cancel request</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton8" CssClass="pull-right text text-success"
+                                        Visible='<%# Eval("[Req_Status]").ToString() == "requested" && Eval("[User_Code]").ToString() == "Installation Staff"  ? true : false %>'
+                                        OnClientClick="return confirm('update status to rescheduled?')"
+                                        CommandName="approveRequest" runat="server">rescheduled</asp:LinkButton>
+                                </asp:Panel>
+                                <asp:Panel ID="pnlchangesched" Visible="false" CssClass="well" runat="server">
+                                    <span>Project/Remarks:</span>
+                                    <asp:TextBox ID="tboxproject" CssClass="form-control" runat="server"></asp:TextBox>
+                                    <asp:LinkButton ID="btnsendrequest" CommandName="sendRequest" CssClass="btn btn-success" runat="server">send request</asp:LinkButton>
+                                    | 
                                     <asp:LinkButton ID="btncancel" CommandName="cancelRequesting" CssClass="btn btn-default" runat="server">cancel</asp:LinkButton>
-                                        </asp:Panel>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="SCHEDULE" ItemStyle-Wrap="false">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblStart" runat="server" Text='<%# Bind("PIR2_START_DATE") %>'></asp:Label><br />
-                                        <asp:Label ID="lblEnd" runat="server" Text='<%# Bind("PIR2_END_DATE") %>'></asp:Label>
-                                        <itemstyle wrap="False" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="LOCATION" ItemStyle-Wrap="false">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblLocation" runat="server" Text='<%# Bind("PIR2_PROJLOCATION") %>'></asp:Label>
-                                        <itemstyle wrap="False" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderStyle-Width="200px" HeaderText="INSTALLERS" ItemStyle-Wrap="false">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblinstallershidden" runat="server" Visible="false" Text='<%# Bind("Installers") %>'></asp:Label>
-                                        <asp:Label ID="lblInstallers" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Installers").ToString(), "\r\n|\r|\n", "<br>"))  %>'></asp:Label>
-                                    </ItemTemplate>
-                                    <HeaderStyle Width="200px" />
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderStyle-Width="200px" HeaderText="Driver" ItemStyle-Wrap="false">
-                                    <ItemTemplate>
-                                        <div class="text-center">
-                                            <asp:Label ID="lblPlatenumber" Font-Size="Larger" CssClass="text-muted" runat="server" Text='<%# Bind("Plate_No") %>'></asp:Label><br />
-                                            <br />
-                                            <asp:Label ID="lblDriver" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Driver").ToString(), "\r\n|\r|\n", "<br>"))  %>'></asp:Label>
-                                        </div>
+                                </asp:Panel>
 
-                                        <br />
-                                        <br />
+                            </ItemTemplate>
 
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Driver Instructions" ItemStyle-Wrap="false">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblDriverInstructor" runat="server" Text='<%# Bind("PIR2_DRIVERINSTRUCTIONS") %>'></asp:Label><br />
-                                        <br />
-                                        <asp:Label ID="lblDriverNote" runat="server" Text='<%# Bind("Driver_Note") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
 
-                            <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
-                            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
 
-                            <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
-                            <PagerStyle CssClass="GridPager" ForeColor="Black" HorizontalAlign="Left" />
-                            <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
-                            <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
-                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                            <SortedAscendingHeaderStyle BackColor="#594B9C" />
-                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                            <SortedDescendingHeaderStyle BackColor="#33276A" />
-                        </asp:GridView>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="SCHEDULE" ItemStyle-Wrap="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblStart" runat="server" Text='<%# Bind("PIR2_START_DATE") %>'></asp:Label><br />
+                                <asp:Label ID="lblEnd" runat="server" Text='<%# Bind("PIR2_END_DATE") %>'></asp:Label>
+                                <itemstyle wrap="False" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="LOCATION" ItemStyle-Wrap="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblLocationpir2" runat="server" Text='<%# Bind("PIR2_PROJLOCATION") %>'></asp:Label>
+                                <itemstyle wrap="False" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="200px" HeaderText="INSTALLERS" ItemStyle-Wrap="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblinstallershidden" runat="server" Visible="false" Text='<%# Bind("Installers") %>'></asp:Label>
+                                <asp:Label ID="lblInstallers" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Installers").ToString(), "\r\n|\r|\n", "<br>"))  %>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle Width="200px" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="200px" HeaderText="Driver" ItemStyle-Wrap="false">
+                            <ItemTemplate>
+                                <div class="text-center">
+                                    <asp:Label ID="lblPlatenumber" Font-Size="Larger" CssClass="text-muted" runat="server" Text='<%# Bind("Plate_No") %>'></asp:Label><br />
+                                    <br />
+                                    <asp:Label ID="lblDriver" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Driver").ToString(), "\r\n|\r|\n", "<br>"))  %>'></asp:Label>
+                                </div>
+
+                                <br />
+                                <br />
+
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Driver Instructions" ItemStyle-Wrap="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblDriverInstructor" runat="server" Text='<%# Bind("PIR2_DRIVERINSTRUCTIONS") %>'></asp:Label><br />
+                                <br />
+                                <asp:Label ID="lblDriverNote" runat="server" Text='<%# Bind("Driver_Note") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+
+                    <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+                    <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+
+                    <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
+                    <PagerStyle CssClass="GridPager" ForeColor="Black" HorizontalAlign="Left" />
+                    <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+                    <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                    <SortedAscendingHeaderStyle BackColor="#594B9C" />
+                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                    <SortedDescendingHeaderStyle BackColor="#33276A" />
+                </asp:GridView>
+
             </asp:Panel>
             <asp:Panel ID="PNLkno" Visible="false" ScrollBars="Auto" runat="server">
                 <div class="text-center">
@@ -605,32 +637,25 @@
                     <div>
                         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>
-                                <asp:Panel ID="Panel3" Visible="false" runat="server">
-                                    <span>Select your activity</span><br />
-                                    <div class="input-group">
-                                        <asp:DropDownList ID="ddlActivity" CssClass="form-control" runat="server">
-                                            <asp:ListItem Text="Layout opening" Value="Layout opening"></asp:ListItem>
-                                            <asp:ListItem Text="Travel/Hanap boarding house" Value="Travel/Hanap boarding house"></asp:ListItem>
-                                            <asp:ListItem Text="Aftersales" Value="Aftersales"></asp:ListItem>
-                                            <asp:ListItem Text="Hauling Frame/Sash/Glass" Value="Hauling Frame/Sash/Glass"></asp:ListItem>
-                                            <asp:ListItem Text="Shipment" Value="Shipment"></asp:ListItem>
-                                            <asp:ListItem Text="Adjustment" Value="Adjustment"></asp:ListItem>
-                                            <asp:ListItem Text="Process ID" Value="Process ID"></asp:ListItem>
-                                            <asp:ListItem Text="Change Schedule" Value="Change Schedule"></asp:ListItem>
-                                        </asp:DropDownList>
-                                        <div class="input-group-btn">
-                                            <asp:LinkButton ID="LinkButton4" CssClass="btn btn-primary" runat="server" OnClick="LinkButton4_Click">add</asp:LinkButton>
-                                        </div>
-                                    </div>
-                                </asp:Panel>
+
                                 <br />
                                 <div class="well">
-                                    <span>Other</span>
-                                    <div>
-                                        <asp:TextBox ID="tboxActivity" TextMode="MultiLine" CssClass="form-control" runat="server" Rows="5"></asp:TextBox>
-                                        <br />
-                                        <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary" runat="server" OnClick="LinkButton5_Click">submit</asp:LinkButton>
-                                    </div>
+                                    <span>Select your activity</span>
+                                    <asp:DropDownList ID="ddlActivity" CssClass="form-control" runat="server">
+                                        <asp:ListItem Text="Layout opening" Value="Layout opening"></asp:ListItem>
+                                        <asp:ListItem Text="Travel/Hanap boarding house" Value="Travel/Hanap boarding house"></asp:ListItem>
+                                        <asp:ListItem Text="Aftersales" Value="Aftersales"></asp:ListItem>
+                                        <asp:ListItem Text="Hauling Frame/Sash/Glass" Value="Hauling Frame/Sash/Glass"></asp:ListItem>
+                                        <asp:ListItem Text="Shipment" Value="Shipment"></asp:ListItem>
+                                        <asp:ListItem Text="Adjustment" Value="Adjustment"></asp:ListItem>
+                                        <asp:ListItem Text="Process ID" Value="Process ID"></asp:ListItem>
+                                        <asp:ListItem Text="Change Schedule" Value="Change Schedule"></asp:ListItem>
+                                    </asp:DropDownList>
+                                    <span>Remarks</span>
+                                    <asp:TextBox ID="tboxActivity" TextMode="MultiLine" CssClass="form-control" runat="server" Rows="5"></asp:TextBox>                 
+                                    <asp:CheckBox ID="cboxAftersales" Text="Aftersales" runat="server" />
+                                    <br />
+                                    <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary" runat="server" OnClick="LinkButton5_Click">submit</asp:LinkButton>
                                 </div>
                                 <br />
                                 <asp:Panel ID="panel20" ScrollBars="Auto" runat="server">
@@ -669,7 +694,8 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField>
                                                 <ItemTemplate>
-                                                    <asp:LinkButton ID="btnDelete" OnClientClick="return confirm('delete this record?')" CssClass="text-danger" CommandName="myDelete" Visible='<%# Eval("Clear_Data").ToString() == "" ? false : true %>' runat="server">Delete</asp:LinkButton>
+                                                    <asp:LinkButton ID="btnDelete" OnClientClick="return confirm('delete this record?')" CssClass="text-danger" CommandName="myDelete"
+                                                        Visible='<%# Eval("Clear_Data").ToString() == "Clear data" ? true : false %>' runat="server">Delete</asp:LinkButton>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                         </Columns>
@@ -691,6 +717,8 @@
                 </div>
             </asp:Panel>
         </asp:Panel>
+
+
 
     </div>
 </asp:Content>

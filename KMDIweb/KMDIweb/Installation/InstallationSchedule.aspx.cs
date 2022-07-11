@@ -79,6 +79,7 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
                         sqlcmd.Parameters.AddWithValue("@fullname", Session["KMDI_fullname"].ToString());
                         sqlcmd.Parameters.AddWithValue("@user_code", Session["KMDI_user_code"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@req_status", ddlReqStatus.SelectedValue.ToString());
 
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
@@ -97,7 +98,6 @@ namespace KMDIweb.KMDIweb.Installation
         {
             try
             {
-
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
@@ -208,6 +208,7 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.Parameters.AddWithValue("@Command", "Load");
                         sqlcmd.Parameters.AddWithValue("@parentjono", parentjono);
                         sqlcmd.Parameters.AddWithValue("@user_code", Session["KMDI_user_code"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Schedule", Convert.ToDateTime(myschedule).ToString("MMMM dd, yyyy"));
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
@@ -240,8 +241,7 @@ namespace KMDIweb.KMDIweb.Installation
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-         
+        {    
             if (e.CommandName == "loadkno")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
@@ -284,25 +284,33 @@ namespace KMDIweb.KMDIweb.Installation
                 ((LinkButton)row.FindControl("btnrequest")).Visible = true;
                 ((Panel)row.FindControl("pnlchangesched")).Visible = false;
             }
-            else if(e.CommandName == "sendRequest")
+            else if (e.CommandName == "sendRequest")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = GridView1.Rows[rowindex];
-                RequestQueries("Add","",((Label)row.FindControl("lblpir2id")).Text
-                               ,myName
-                               ,((TextBox)row.FindControl("tboxproject")).Text);
+                RequestQueries("Add", "", ((Label)row.FindControl("lblpir2id")).Text
+                               , myName
+                               , ((TextBox)row.FindControl("tboxproject")).Text);
             }
             else if (e.CommandName == "deleteRequest")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = GridView1.Rows[rowindex];
-                RequestQueries("Delete",((Label)row.FindControl("lblreqid")).Text,""
-                               ,""
-                               ,"");
+                RequestQueries("Delete", ((Label)row.FindControl("lblreqid")).Text, ""
+                               , ""
+                               , "");
+            }
+            else if (e.CommandName == "approveRequest")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
+                RequestQueries("Approve", ((Label)row.FindControl("lblreqid")).Text, ""
+                               , ""
+                               , "");
             }
         }
 
-        private void RequestQueries(string command,string id, string pir2id, string requestedby, string project)
+        private void RequestQueries(string command, string id, string pir2id, string requestedby, string project)
         {
             try
             {
@@ -315,7 +323,7 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.CommandText = "Installation_Change_Sched_Request_Stp";
                         sqlcmd.Parameters.AddWithValue("@Command", command);
                         sqlcmd.Parameters.AddWithValue("@Id", id);
-                        sqlcmd.Parameters.AddWithValue("@Installation_Schedule_Id",pir2id);
+                        sqlcmd.Parameters.AddWithValue("@Installation_Schedule_Id", pir2id);
                         sqlcmd.Parameters.AddWithValue("@Requested_By", requestedby);
                         sqlcmd.Parameters.AddWithValue("@Project_Name", project);
                         sqlcmd.ExecuteNonQuery();
@@ -963,10 +971,7 @@ namespace KMDIweb.KMDIweb.Installation
             }
         }
 
-        protected void LinkButton4_Click(object sender, EventArgs e)
-        {
-            addActivity(ddlActivity.Text);
-        }
+    
         private void addActivity(string activity)
         {
             try
