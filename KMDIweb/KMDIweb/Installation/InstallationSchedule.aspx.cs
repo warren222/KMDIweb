@@ -269,6 +269,7 @@ namespace KMDIweb.KMDIweb.Installation
                 Panel4.Visible = false;
                 Panel5.Visible = false;
                 distinctknolocation(((Label)row.FindControl("lblparentjono")).Text);
+                lblmydate.Text = Convert.ToDateTime(myschedule).ToString("MMMM dd, yyyy");
             }
             else if (e.CommandName == "requestChangeSched")
             {
@@ -972,7 +973,7 @@ namespace KMDIweb.KMDIweb.Installation
         }
 
     
-        private void addActivity(string activity)
+        private void addActivity(string category_activity,string activity, string aftersales)
         {
             try
             {
@@ -992,6 +993,8 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.Parameters.AddWithValue("@Date", tboxDate.Text);
                         sqlcmd.Parameters.AddWithValue("@Schedule", Convert.ToDateTime(myschedule).ToString("MMMM dd, yyyy"));
                         sqlcmd.Parameters.AddWithValue("@fullname", myName);
+                        sqlcmd.Parameters.AddWithValue("@Activity_Category", category_activity);
+                        sqlcmd.Parameters.AddWithValue("@Aftersales", aftersales);
                         sqlcmd.ExecuteNonQuery();
                     }
                 }
@@ -1048,7 +1051,16 @@ namespace KMDIweb.KMDIweb.Installation
 
         protected void LinkButton5_Click(object sender, EventArgs e)
         {
-            addActivity(tboxActivity.Text);
+            string a = "";
+            if (cboxAftersales.Checked)
+            {
+                a = "Yes";
+            }
+            else
+            {
+                a = "-";
+            }
+            addActivity(ddlActivity.SelectedValue.ToString(),tboxActivity.Text,a);
         }
 
         protected void LinkButton6_Click(object sender, EventArgs e)

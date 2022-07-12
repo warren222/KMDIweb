@@ -242,6 +242,7 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                         </div>
                         <div class="col-sm-6">
                             <div style="background-color: bisque; padding: 10px;">
+                                <asp:Label ID="lblmydate" Font-Size="XX-Large" Font-Bold="true" runat="server" Text="Label"></asp:Label>
                                 <asp:Panel ID="Panel5" runat="server">
                                     Pumili ng date para sa check function
                              <br />
@@ -644,26 +645,41 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                     <asp:DropDownList ID="ddlActivity" CssClass="form-control" runat="server">
                                         <asp:ListItem Text="Layout opening" Value="Layout opening"></asp:ListItem>
                                         <asp:ListItem Text="Travel/Hanap boarding house" Value="Travel/Hanap boarding house"></asp:ListItem>
-                                        <asp:ListItem Text="Aftersales" Value="Aftersales"></asp:ListItem>
                                         <asp:ListItem Text="Hauling Frame/Sash/Glass" Value="Hauling Frame/Sash/Glass"></asp:ListItem>
                                         <asp:ListItem Text="Shipment" Value="Shipment"></asp:ListItem>
                                         <asp:ListItem Text="Adjustment" Value="Adjustment"></asp:ListItem>
                                         <asp:ListItem Text="Process ID" Value="Process ID"></asp:ListItem>
-                                        <asp:ListItem Text="Change Schedule" Value="Change Schedule"></asp:ListItem>
                                     </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ddlActivity" ValidationGroup="activityval" CssClass="text text-danger" runat="server" ErrorMessage="Select an activity">*</asp:RequiredFieldValidator>
+                                    <br />
                                     <span>Remarks</span>
-                                    <asp:TextBox ID="tboxActivity" TextMode="MultiLine" CssClass="form-control" runat="server" Rows="5"></asp:TextBox>                 
+                                    <asp:TextBox ID="tboxActivity" TextMode="MultiLine" CssClass="form-control" runat="server" Rows="5"></asp:TextBox>
                                     <asp:CheckBox ID="cboxAftersales" Text="Aftersales" runat="server" />
                                     <br />
                                     <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary" runat="server" OnClick="LinkButton5_Click">submit</asp:LinkButton>
+                                    <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="activityval" runat="server" />
                                 </div>
                                 <br />
                                 <asp:Panel ID="panel20" ScrollBars="Auto" runat="server">
                                     <asp:GridView ID="GridView3" CssClass="table" Font-Size="Small" AutoGenerateColumns="False" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" EmptyDataText="No record" OnRowCommand="GridView3_RowCommand">
                                         <Columns>
-                                            <asp:TemplateField HeaderText="ACTIVITY" ItemStyle-Wrap="true" HeaderStyle-Width="500">
+                                            <asp:TemplateField HeaderText="ACTIVITY" ItemStyle-Wrap="true" HeaderStyle-Width="200">
                                                 <ItemTemplate>
-                                                    <div style="min-width: 500px;">
+                                                    <div style="min-width: 200px;">
+                                                        <asp:Label ID="lblcategoryactivity" Font-Size="Small" runat="server" Text='<%# Bind("activity_category") %>'></asp:Label>
+                                                    </div>
+
+                                                </ItemTemplate>
+                                                <ItemStyle Wrap="True" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="AFTERSALES">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblaftersales" Font-Size="Small" runat="server" Text='<%# Bind("AFTERSALES") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="REMARKS" ItemStyle-Wrap="true" HeaderStyle-Width="300">
+                                                <ItemTemplate>
+                                                    <div style="min-width: 300px;">
                                                         <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
                                                         <asp:Label ID="lblactivity" Font-Size="Small" runat="server" Text='<%# Bind("activity") %>'></asp:Label>
                                                     </div>
