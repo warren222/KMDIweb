@@ -382,15 +382,6 @@ namespace KMDIweb.KMDIweb.Installation {
         protected global::System.Web.UI.WebControls.DropDownList ddlActivity;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
         /// tboxActivity control.
         /// </summary>
         /// <remarks>
@@ -398,15 +389,6 @@ namespace KMDIweb.KMDIweb.Installation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tboxActivity;
-        
-        /// <summary>
-        /// cboxAftersales control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cboxAftersales;
         
         /// <summary>
         /// LinkButton5 control.
@@ -418,13 +400,22 @@ namespace KMDIweb.KMDIweb.Installation {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton5;
         
         /// <summary>
-        /// ValidationSummary1 control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// panel20 control.

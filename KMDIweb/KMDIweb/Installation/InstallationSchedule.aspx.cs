@@ -973,7 +973,7 @@ namespace KMDIweb.KMDIweb.Installation
         }
 
     
-        private void addActivity(string category_activity,string activity, string aftersales)
+        private void addActivity(string category_activity,string activity)
         {
             try
             {
@@ -994,7 +994,6 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.Parameters.AddWithValue("@Schedule", Convert.ToDateTime(myschedule).ToString("MMMM dd, yyyy"));
                         sqlcmd.Parameters.AddWithValue("@fullname", myName);
                         sqlcmd.Parameters.AddWithValue("@Activity_Category", category_activity);
-                        sqlcmd.Parameters.AddWithValue("@Aftersales", aftersales);
                         sqlcmd.ExecuteNonQuery();
                     }
                 }
@@ -1051,16 +1050,8 @@ namespace KMDIweb.KMDIweb.Installation
 
         protected void LinkButton5_Click(object sender, EventArgs e)
         {
-            string a = "";
-            if (cboxAftersales.Checked)
-            {
-                a = "Yes";
-            }
-            else
-            {
-                a = "-";
-            }
-            addActivity(ddlActivity.SelectedValue.ToString(),tboxActivity.Text,a);
+           
+            addActivity(ddlActivity.SelectedValue.ToString(),tboxActivity.Text);
         }
 
         protected void LinkButton6_Click(object sender, EventArgs e)

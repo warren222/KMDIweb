@@ -664,15 +664,18 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                         <asp:ListItem Text="Assist" Value="Assist"></asp:ListItem>
                                         <asp:ListItem Text="Travel" Value="Travel"></asp:ListItem>
                                         <asp:ListItem Text="Processing" Value="Processing"></asp:ListItem>
+                                        <asp:ListItem Text="" Value="Aftersales" style="font-weight: bolder; font-size: larger; font-style: italic; color: red">----AFTERSALES----</asp:ListItem>
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ddlActivity" ValidationGroup="activityval" CssClass="text text-danger" runat="server" ErrorMessage="Select an activity">*</asp:RequiredFieldValidator>
-                                    <br />
-                                    <span>Remarks</span>
+
+                                    <span>Specific job</span>
                                     <asp:TextBox ID="tboxActivity" TextMode="MultiLine" CssClass="form-control" runat="server" Rows="5"></asp:TextBox>
-                                    <asp:CheckBox ID="cboxAftersales" Text="Aftersales" runat="server" />
+                                  
                                     <br />
                                     <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary" runat="server" ValidationGroup="activityval" OnClick="LinkButton5_Click">submit</asp:LinkButton>
-                                    <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="activityval" runat="server" />
+                                    <br />
+                                    <br />
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ddlActivity" ValidationGroup="activityval" CssClass="alert alert-danger" runat="server" ErrorMessage="Select an activity"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="tboxActivity" ValidationGroup="activityval" CssClass="alert alert-danger" runat="server" ErrorMessage="Specific job is required!"></asp:RequiredFieldValidator>
                                 </div>
                                 <br />
                                 <asp:Panel ID="panel20" ScrollBars="Auto" runat="server">
