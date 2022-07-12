@@ -690,11 +690,7 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                                 </ItemTemplate>
                                                 <ItemStyle Wrap="True" />
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="AFTERSALES">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="lblaftersales" Font-Size="Small" runat="server" Text='<%# Bind("AFTERSALES") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
+                                        
                                             <asp:TemplateField HeaderText="REMARKS" ItemStyle-Wrap="true" HeaderStyle-Width="300">
                                                 <ItemTemplate>
                                                     <div style="min-width: 300px;">
