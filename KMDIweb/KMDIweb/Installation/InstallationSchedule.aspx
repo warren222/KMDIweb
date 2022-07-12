@@ -642,12 +642,28 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                 <div class="well">
                                     <span>Select your activity</span>
                                     <asp:DropDownList ID="ddlActivity" CssClass="form-control" runat="server">
-                                        <asp:ListItem Text="Layout opening" Value="Layout opening"></asp:ListItem>
-                                        <asp:ListItem Text="Travel/Hanap boarding house" Value="Travel/Hanap boarding house"></asp:ListItem>
-                                        <asp:ListItem Text="Hauling Frame/Sash/Glass" Value="Hauling Frame/Sash/Glass"></asp:ListItem>
-                                        <asp:ListItem Text="Shipment" Value="Shipment"></asp:ListItem>
+                                        <asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----REWORKS----</asp:ListItem>
+                                        <asp:ListItem Text="Re-sealant" Value="Re-sealant"></asp:ListItem>
+                                        <asp:ListItem Text="Re-plastic" Value="Re-plastic"></asp:ListItem>
+                                        <asp:ListItem Text="Re-cleaning" Value="Re-cleaning"></asp:ListItem>
                                         <asp:ListItem Text="Adjustment" Value="Adjustment"></asp:ListItem>
-                                        <asp:ListItem Text="Process ID" Value="Process ID"></asp:ListItem>
+                                        <asp:ListItem Text="Dismantling" Value="Dismantling"></asp:ListItem>
+                                        <asp:ListItem Text="Re-installation" Value="Re-installation"></asp:ListItem>
+                                        <asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----VITROCSA----</asp:ListItem>
+                                        <asp:ListItem Text="Assemble" Value="Assemble"></asp:ListItem>
+                                        <asp:ListItem Text="Installation" Value="Installation"></asp:ListItem>
+                                        <asp:ListItem Text="Alignment" Value="Alignment"></asp:ListItem>
+                                        <asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----PREPARATION & CHECKING----</asp:ListItem>
+                                        <asp:ListItem Text="Inspection" Value="Inspection"></asp:ListItem>
+                                        <asp:ListItem Text="Layout Opening" Value="Layout Opening"></asp:ListItem>
+                                        <asp:ListItem Text="Checking of Opening" Value="Checking of Opening"></asp:ListItem>
+                                        <asp:ListItem Text="Assemble & dismantling of tubes/scaffoldings" Value="Assemble & dismantling of tubes/scaffoldings"></asp:ListItem>
+                                        <asp:ListItem Text="Unload" Value="Unload"></asp:ListItem>
+                                        <asp:ListItem Text="Leak test" Value="Leak test"></asp:ListItem>
+                                        <asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----OTHERS----</asp:ListItem>
+                                        <asp:ListItem Text="Assist" Value="Assist"></asp:ListItem>
+                                        <asp:ListItem Text="Travel" Value="Travel"></asp:ListItem>
+                                        <asp:ListItem Text="Processing" Value="Processing"></asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ddlActivity" ValidationGroup="activityval" CssClass="text text-danger" runat="server" ErrorMessage="Select an activity">*</asp:RequiredFieldValidator>
                                     <br />
@@ -655,7 +671,7 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                     <asp:TextBox ID="tboxActivity" TextMode="MultiLine" CssClass="form-control" runat="server" Rows="5"></asp:TextBox>
                                     <asp:CheckBox ID="cboxAftersales" Text="Aftersales" runat="server" />
                                     <br />
-                                    <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary" runat="server" OnClick="LinkButton5_Click">submit</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary" runat="server" ValidationGroup="activityval" OnClick="LinkButton5_Click">submit</asp:LinkButton>
                                     <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="activityval" runat="server" />
                                 </div>
                                 <br />
