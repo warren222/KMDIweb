@@ -657,6 +657,8 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                         <asp:ListItem Text="Inspection" Value="Inspection"></asp:ListItem>
                                         <asp:ListItem Text="Layout Opening" Value="Layout Opening"></asp:ListItem>
                                         <asp:ListItem Text="Checking of Opening" Value="Checking of Opening"></asp:ListItem>
+										<asp:ListItem Text="Hauling of Frame/Glass" Value="Hauling of Frame/Glass"></asp:ListItem>
+										<asp:ListItem Text="Grinding of Opening" Value="Grinding of Opening"></asp:ListItem>
                                         <asp:ListItem Text="Assemble & dismantling of tubes/scaffoldings" Value="Assemble & dismantling of tubes/scaffoldings"></asp:ListItem>
                                         <asp:ListItem Text="Unload" Value="Unload"></asp:ListItem>
                                         <asp:ListItem Text="Leak test" Value="Leak test"></asp:ListItem>
