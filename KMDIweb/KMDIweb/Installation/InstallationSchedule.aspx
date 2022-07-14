@@ -94,7 +94,7 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                     CssClass='<%# Eval("[Req_Status]").ToString() == "scheduled" ? "alert alert-success" : "alert alert-info" %>' runat="server">
                                     <asp:Label ID="lblreqid" Font-Size="Smaller" runat="server" Visible="false" Text='<%# Bind("[Id]") %>'></asp:Label>
                                     <asp:Label ID="lblnewproject" Font-Size="Smaller" runat="server" Text='<%# Bind("Project_Name") %>'></asp:Label><br />
-                                    <asp:Label ID="lblrequesteddate" Font-Size="Smaller" runat="server" Text='<%# Bind("Requested_Date") %>'></asp:Label>
+                                     <asp:Label ID="lblrequestedby" Font-Size="Smaller" runat="server" Text='<%# Bind("Requested_By") %>'></asp:Label>&nbsp;<asp:Label ID="lblrequesteddate" Font-Size="Smaller" runat="server" Text='<%# Bind("Requested_Date") %>'></asp:Label>
                                     <asp:LinkButton ID="LinkButton7" CssClass="pull-right text text-danger"
                                         Visible='<%# Eval("[Req_Status]").ToString() == "requested" && Eval("[User_Code]").ToString() == "Installer"  ? true : false %>'
                                         OnClientClick="return confirm('cancel request?')"
