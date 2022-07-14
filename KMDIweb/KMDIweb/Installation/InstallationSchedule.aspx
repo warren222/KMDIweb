@@ -666,7 +666,7 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                         <asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----OTHERS----</asp:ListItem>
                                         <asp:ListItem Text="Assist" Value="Assist"></asp:ListItem>
                                         <asp:ListItem Text="Travel" Value="Travel"></asp:ListItem>
-                                        <asp:ListItem Text="Processing" Value="Processing"></asp:ListItem>
+                                        <asp:ListItem Text="PROCESSING ID/PERMIT" Value="PROCESSING ID/PERMIT"></asp:ListItem>
                                         <asp:ListItem Text="" Value="Aftersales" style="font-weight: bolder; font-size: larger; font-style: italic; color: red">----AFTERSALES----</asp:ListItem>
                                     </asp:DropDownList>
 
