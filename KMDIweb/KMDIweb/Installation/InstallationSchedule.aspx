@@ -71,6 +71,13 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
 
                 <asp:GridView ID="GridView1" CssClass="table" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" GridLines="Both" CellSpacing="1" OnRowCommand="GridView1_RowCommand">
                     <Columns>
+                          <asp:TemplateField HeaderText="SCHEDULE" ItemStyle-Wrap="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblStart" runat="server" Text='<%# Bind("PIR2_START_DATE") %>'></asp:Label><br />
+                                <asp:Label ID="lblEnd" runat="server" Text='<%# Bind("PIR2_END_DATE") %>'></asp:Label>
+                                <itemstyle wrap="False" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="PROJECT" ItemStyle-BackColor="White" ItemStyle-BorderColor="Silver" ItemStyle-Wrap="false">
                             <ItemTemplate>
 
@@ -110,19 +117,13 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
 
 
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="SCHEDULE" ItemStyle-Wrap="false">
-                            <ItemTemplate>
-                                <asp:Label ID="lblStart" runat="server" Text='<%# Bind("PIR2_START_DATE") %>'></asp:Label><br />
-                                <asp:Label ID="lblEnd" runat="server" Text='<%# Bind("PIR2_END_DATE") %>'></asp:Label>
-                                <itemstyle wrap="False" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="LOCATION" ItemStyle-Wrap="false">
+                      
+                   <%--     <asp:TemplateField HeaderText="LOCATION" ItemStyle-Wrap="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblLocationpir2" runat="server" Text='<%# Bind("PIR2_PROJLOCATION") %>'></asp:Label>
                                 <itemstyle wrap="False" />
                             </ItemTemplate>
-                        </asp:TemplateField>
+                        </asp:TemplateField>--%>
                         <asp:TemplateField HeaderStyle-Width="200px" HeaderText="INSTALLERS" ItemStyle-Wrap="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblinstallershidden" runat="server" Visible="false" Text='<%# Bind("Installers") %>'></asp:Label>
@@ -130,7 +131,7 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                             </ItemTemplate>
                             <HeaderStyle Width="200px" />
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderStyle-Width="200px" HeaderText="Driver" ItemStyle-Wrap="false">
+                      <%--  <asp:TemplateField HeaderStyle-Width="200px" HeaderText="Driver" ItemStyle-Wrap="false">
                             <ItemTemplate>
                                 <div class="text-center">
                                     <asp:Label ID="lblPlatenumber" Font-Size="Larger" CssClass="text-muted" runat="server" Text='<%# Bind("Plate_No") %>'></asp:Label><br />
@@ -149,7 +150,7 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                 <br />
                                 <asp:Label ID="lblDriverNote" runat="server" Text='<%# Bind("Driver_Note") %>'></asp:Label>
                             </ItemTemplate>
-                        </asp:TemplateField>
+                        </asp:TemplateField>--%>
                     </Columns>
 
                     <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
