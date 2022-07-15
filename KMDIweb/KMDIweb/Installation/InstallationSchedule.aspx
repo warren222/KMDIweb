@@ -71,54 +71,79 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
 
                 <asp:GridView ID="GridView1" CssClass="table" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" GridLines="Both" CellSpacing="1" OnRowCommand="GridView1_RowCommand">
                     <Columns>
-                          <asp:TemplateField HeaderText="SCHEDULE" ItemStyle-Wrap="false">
+                        <asp:TemplateField HeaderText="SCHEDULE" ItemStyle-Wrap="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblStart" runat="server" Text='<%# Bind("PIR2_START_DATE") %>'></asp:Label><br />
                                 <asp:Label ID="lblEnd" runat="server" Text='<%# Bind("PIR2_END_DATE") %>'></asp:Label>
                                 <itemstyle wrap="False" />
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="PROJECT" ItemStyle-BackColor="White" ItemStyle-BorderColor="Silver" ItemStyle-Wrap="false">
+                        <asp:TemplateField HeaderText="PROJECT" ItemStyle-BackColor="White" ItemStyle-BorderColor="Silver" ItemStyle-Wrap="true">
                             <ItemTemplate>
 
-
-                                <asp:LinkButton ID="BTNkno" runat="server" CommandName="loadkno" Font-Bold="true" Text='<%# Bind("PIR2_PROJECTNAME") %>'></asp:LinkButton><br />
-                                <asp:Label ID="lblInstruction" Font-Size="Small" Visible="false" CssClass="text-muted" runat="server" Text='<%# Bind("PIR2_SPECIALINSTRUCTIONS") %>'></asp:Label>
-                                <asp:Label ID="lblpir2id" Font-Size="Small" Visible="false" CssClass="text-muted" runat="server" Text='<%# Bind("PIR2_ID") %>'></asp:Label>
-                                <asp:Label ID="lblAddress" Font-Size="Small" CssClass="text-muted" runat="server" Text='<%# Bind("Fulladd") %>'></asp:Label><br />
-                                <asp:Label ID="lblparentjono" Font-Size="Smaller" runat="server" Text='<%# Bind("PIR2_PARENTJONO") %>'></asp:Label><br />
-                                <asp:Label ID="lblEngr" Font-Size="Smaller" CssClass="text-warning" runat="server" Text='<%# Bind("ENGR") %>'></asp:Label>
-                                <br />
-                                <asp:LinkButton ID="btnrequest" Visible='<%# Eval("[User_Code]").ToString() == "Installer" && Eval("[Req_Status]").ToString() == "" ? true : false %>' CssClass="btn btn-primary" CommandName="requestChangeSched" runat="server">request change schedule</asp:LinkButton>
-                                <asp:Panel ID="Panel6" Visible='<%# Eval("[Req_Status]").ToString() == "requested" || Eval("[Req_Status]").ToString() == "scheduled" ? true : false %>'
-                                    CssClass='<%# Eval("[Req_Status]").ToString() == "scheduled" ? "alert alert-success" : "alert alert-info" %>' runat="server">
-                                    <asp:Label ID="lblreqid" Font-Size="Smaller" runat="server" Visible="false" Text='<%# Bind("[Id]") %>'></asp:Label>
-                                    <asp:Label ID="lblnewproject" Font-Size="Smaller" runat="server" Text='<%# Bind("Project_Name") %>'></asp:Label><br />
-                                     <asp:Label ID="lblrequestedby" Font-Size="Smaller" runat="server" Text='<%# Bind("Requested_By") %>'></asp:Label>&nbsp;<asp:Label ID="lblrequesteddate" Font-Size="Smaller" runat="server" Text='<%# Bind("Requested_Date") %>'></asp:Label>
-                                    <asp:LinkButton ID="LinkButton7" CssClass="pull-right text text-danger"
-                                        Visible='<%# Eval("[Req_Status]").ToString() == "requested" && Eval("[User_Code]").ToString() == "Installer"  ? true : false %>'
-                                        OnClientClick="return confirm('cancel request?')"
-                                        CommandName="deleteRequest" runat="server">cancel request</asp:LinkButton>
-                                    <asp:LinkButton ID="LinkButton8" CssClass="pull-right text text-success"
-                                        Visible='<%# Eval("[Req_Status]").ToString() == "requested" && Eval("[User_Code]").ToString() == "Installation Staff"  ? true : false %>'
-                                        OnClientClick="return confirm('update status to rescheduled?')"
-                                        CommandName="approveRequest" runat="server">rescheduled</asp:LinkButton>
-                                </asp:Panel>
-                                <asp:Panel ID="pnlchangesched" Visible="false" CssClass="well" runat="server">
-                                    <span>Project/Remarks:</span>
-                                    <asp:TextBox ID="tboxproject" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <asp:LinkButton ID="btnsendrequest" CommandName="sendRequest" CssClass="btn btn-success" runat="server">send request</asp:LinkButton>
-                                    | 
+                                <div style="min-width: 500px">
+                                    <asp:LinkButton ID="BTNkno" runat="server" CommandName="loadkno" Font-Bold="true" Text='<%# Bind("PIR2_PROJECTNAME") %>'></asp:LinkButton><br />
+                                    <asp:Label ID="lblInstruction" Font-Size="Small" Visible="false" CssClass="text-muted" runat="server" Text='<%# Bind("PIR2_SPECIALINSTRUCTIONS") %>'></asp:Label>
+                                    <asp:Label ID="lblpir2id" Font-Size="Small" Visible="false" CssClass="text-muted" runat="server" Text='<%# Bind("PIR2_ID") %>'></asp:Label>
+                                    <asp:Label ID="lblAddress" Font-Size="Small" CssClass="text-muted" runat="server" Text='<%# Bind("Fulladd") %>'></asp:Label><br />
+                                    <asp:Label ID="lblparentjono" Font-Size="Smaller" runat="server" Text='<%# Bind("PIR2_PARENTJONO") %>'></asp:Label><br />
+                                    <asp:Label ID="lblEngr" Font-Size="Smaller" CssClass="text-warning" runat="server" Text='<%# Bind("ENGR") %>'></asp:Label>
+                                    <br />
+                                    <asp:LinkButton ID="btnrequest" Visible='<%# Eval("[User_Code]").ToString() == "Installer" && Eval("[Req_Status]").ToString() == "" ? true : false %>' CssClass="btn btn-primary" CommandName="requestChangeSched" runat="server">request change schedule</asp:LinkButton>
+                                    <asp:Panel ID="Panel6" Visible='<%# Eval("[Req_Status]").ToString() == "requested" || Eval("[Req_Status]").ToString() == "scheduled" ? true : false %>'
+                                        CssClass='<%# Eval("[Req_Status]").ToString() == "scheduled" ? "alert alert-success" : "alert alert-info" %>' runat="server">
+                                        <asp:Label ID="lblreqid" Font-Size="Smaller" runat="server" Visible="false" Text='<%# Bind("[Id]") %>'></asp:Label>
+                                        <asp:Label ID="lblnewproject" Font-Size="Smaller" runat="server" Text='<%# Bind("Project_Name") %>'></asp:Label><br />
+                                        <asp:Label ID="lblrequestedby" Font-Size="Smaller" runat="server" Text='<%# Bind("Requested_By") %>'></asp:Label>&nbsp;<asp:Label ID="lblrequesteddate" Font-Size="Smaller" runat="server" Text='<%# Bind("Requested_Date") %>'></asp:Label>
+                                        <asp:LinkButton ID="LinkButton7" CssClass="pull-right text text-danger"
+                                            Visible='<%# Eval("[Req_Status]").ToString() == "requested" && Eval("[User_Code]").ToString() == "Installer"  ? true : false %>'
+                                            OnClientClick="return confirm('cancel request?')"
+                                            CommandName="deleteRequest" runat="server">cancel request</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton8" CssClass="pull-right text text-success"
+                                            Visible='<%# Eval("[Req_Status]").ToString() == "requested" && Eval("[User_Code]").ToString() == "Installation Staff"  ? true : false %>'
+                                            OnClientClick="return confirm('update status to rescheduled?')"
+                                            CommandName="approveRequest" runat="server">rescheduled</asp:LinkButton>
+                                    </asp:Panel>
+                                    <asp:Panel ID="pnlchangesched" Visible="false" CssClass="well" runat="server">
+                                        <span>Project/Remarks:</span>
+                                        <asp:TextBox ID="tboxproject" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:LinkButton ID="btnsendrequest" CommandName="sendRequest" CssClass="btn btn-success" runat="server">send request</asp:LinkButton>
+                                        | 
                                     <asp:LinkButton ID="btncancel" CommandName="cancelRequesting" CssClass="btn btn-default" runat="server">cancel</asp:LinkButton>
-                                </asp:Panel>
+                                    </asp:Panel>
 
+                                    <asp:LinkButton ID="LinkButton4" runat="server" Visible='<%# Eval("[User_Code]").ToString() == "Installer" && Eval("[Absentee_Req_Status]").ToString() == "" ? true : false %>'
+                                         CssClass="btn btn-warning" CommandName="loadCheckbox">Post the absent</asp:LinkButton>
+                                     <asp:Panel ID="Panel3" Visible='<%# Eval("[Absentee_Req_Status]").ToString() == "posted" || Eval("[Absentee_Req_Status]").ToString() == "noted" ? true : false %>'
+                                        CssClass='<%# Eval("[Absentee_Req_Status]").ToString() == "noted" ? "alert alert-success" : "alert alert-info" %>' runat="server">
+                                        <asp:Label ID="lblabsenteeid" Font-Size="Smaller" runat="server" Visible="false" Text='<%# Bind("[Absentee_Id]") %>'></asp:Label>
+                                         <span>Absent:</span><br />
+                                        <asp:Label ID="Label2" Font-Size="Small" Font-Bold="true" runat="server" Text='<%# Bind("Absentee") %>'></asp:Label><br />
+                                        <asp:Label ID="Label3" Font-Size="Smaller" runat="server" Text='<%# Bind("Posted_By") %>'></asp:Label>&nbsp;<asp:Label ID="Label4" Font-Size="Smaller" runat="server" Text='<%# Bind("Posted_Date") %>'></asp:Label>
+                                        <asp:LinkButton ID="LinkButton11" CssClass="pull-right text text-danger"
+                                            Visible='<%# Eval("[Absentee_Req_Status]").ToString() == "posted" && Eval("[User_Code]").ToString() == "Installer"  ? true : false %>'
+                                            OnClientClick="return confirm('cancel post?')"
+                                            CommandName="deletePost" runat="server">cancel posting</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton12" CssClass="pull-right text text-success"
+                                            Visible='<%# Eval("[Absentee_Req_Status]").ToString() == "posted" && Eval("[User_Code]").ToString() == "Installation Staff"  ? true : false %>'
+                                            OnClientClick="return confirm('noted on this?')"
+                                            CommandName="approvePost" runat="server">noted</asp:LinkButton>
+                                    </asp:Panel>
+                                      <asp:Panel ID="pnlabsentee" Visible="false" CssClass="well" runat="server">
+                                          <span>Select Absentee</span>
+                                        <asp:CheckBoxList ID="CheckBoxList1" runat="server"></asp:CheckBoxList>
+                                        <asp:LinkButton ID="LinkButton9" runat="server" CssClass="btn btn-success" CommandName="addAbsentee">post</asp:LinkButton>
+                                        |
+                                         <asp:LinkButton ID="LinkButton10" CommandName="cancelPosting" CssClass="btn btn-default" runat="server">cancel</asp:LinkButton>
+                                    </asp:Panel>
+                                </div>
                             </ItemTemplate>
 
 
 
                         </asp:TemplateField>
-                      
-                   <%--     <asp:TemplateField HeaderText="LOCATION" ItemStyle-Wrap="false">
+
+                        <%--     <asp:TemplateField HeaderText="LOCATION" ItemStyle-Wrap="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblLocationpir2" runat="server" Text='<%# Bind("PIR2_PROJLOCATION") %>'></asp:Label>
                                 <itemstyle wrap="False" />
@@ -131,7 +156,7 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                             </ItemTemplate>
                             <HeaderStyle Width="200px" />
                         </asp:TemplateField>
-                      <%--  <asp:TemplateField HeaderStyle-Width="200px" HeaderText="Driver" ItemStyle-Wrap="false">
+                        <%--  <asp:TemplateField HeaderStyle-Width="200px" HeaderText="Driver" ItemStyle-Wrap="false">
                             <ItemTemplate>
                                 <div class="text-center">
                                     <asp:Label ID="lblPlatenumber" Font-Size="Larger" CssClass="text-muted" runat="server" Text='<%# Bind("Plate_No") %>'></asp:Label><br />
@@ -658,8 +683,8 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                         <asp:ListItem Text="Inspection" Value="Inspection"></asp:ListItem>
                                         <asp:ListItem Text="Layout Opening" Value="Layout Opening"></asp:ListItem>
                                         <asp:ListItem Text="Checking of Opening" Value="Checking of Opening"></asp:ListItem>
-										<asp:ListItem Text="Hauling of Frame/Glass" Value="Hauling of Frame/Glass"></asp:ListItem>
-										<asp:ListItem Text="Grinding of Opening" Value="Grinding of Opening"></asp:ListItem>
+                                        <asp:ListItem Text="Hauling of Frame/Glass" Value="Hauling of Frame/Glass"></asp:ListItem>
+                                        <asp:ListItem Text="Grinding of Opening" Value="Grinding of Opening"></asp:ListItem>
                                         <asp:ListItem Text="Assemble & dismantling of tubes/scaffoldings" Value="Assemble & dismantling of tubes/scaffoldings"></asp:ListItem>
                                         <asp:ListItem Text="Unload" Value="Unload"></asp:ListItem>
                                         <asp:ListItem Text="Leak test" Value="Leak test"></asp:ListItem>
@@ -672,7 +697,7 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
 
                                     <span>Specific job</span>
                                     <asp:TextBox ID="tboxActivity" TextMode="MultiLine" CssClass="form-control" runat="server" Rows="5"></asp:TextBox>
-                                  
+
                                     <br />
                                     <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary" runat="server" ValidationGroup="activityval" OnClick="LinkButton5_Click">submit</asp:LinkButton>
                                     <br />
@@ -693,7 +718,7 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                                 </ItemTemplate>
                                                 <ItemStyle Wrap="True" />
                                             </asp:TemplateField>
-                                        
+
                                             <asp:TemplateField HeaderText="REMARKS" ItemStyle-Wrap="true" HeaderStyle-Width="300">
                                                 <ItemTemplate>
                                                     <div style="min-width: 300px;">

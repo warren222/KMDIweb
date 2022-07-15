@@ -241,7 +241,7 @@ namespace KMDIweb.KMDIweb.Installation
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        {    
+        {
             if (e.CommandName == "loadkno")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
@@ -309,6 +309,74 @@ namespace KMDIweb.KMDIweb.Installation
                                , ""
                                , "");
             }
+            else if (e.CommandName == "loadCheckbox")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
+                ((Panel)row.FindControl("pnlabsentee")).Visible = true;
+                ((LinkButton)row.FindControl("LinkButton4")).Visible = false;
+                checkboxListDS(((CheckBoxList)row.FindControl("CheckBoxList1")), ((Label)row.FindControl("lblpir2id")).Text);
+            }
+            else if (e.CommandName == "cancelPosting")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
+                ((Panel)row.FindControl("pnlabsentee")).Visible = false;
+                ((LinkButton)row.FindControl("LinkButton4")).Visible = true;
+            }
+            else if (e.CommandName == "addAbsentee")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
+                string absentee = "";
+                for (int i = 0; i < ((CheckBoxList)row.FindControl("CheckBoxList1")).Items.Count; i++)
+                {
+                    if (((CheckBoxList)row.FindControl("CheckBoxList1")).Items[i].Selected)
+
+                    {
+                        string x = ((CheckBoxList)row.FindControl("CheckBoxList1")).Items[i].Text;
+                        absentee += ", " + x;
+                    }
+                }
+                PostQueries("Add", "", ((Label)row.FindControl("lblpir2id")).Text
+                   , myName
+                   , absentee.Remove(0, 2));
+            }
+            else if (e.CommandName == "approvePost")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
+                PostQueries("Noted", ((Label)row.FindControl("lblabsenteeid")).Text, ""
+                   , ""
+                   , "");
+            }
+            else if (e.CommandName == "deletePost")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = GridView1.Rows[rowindex];
+                PostQueries("Delete", ((Label)row.FindControl("lblabsenteeid")).Text, ""
+                   , ""
+                   , "");
+            }
+        }
+        private void checkboxListDS(CheckBoxList cli, string pir2id)
+        {
+
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    sqlcon.Open();
+                    sqlcmd.CommandType = CommandType.StoredProcedure;
+                    sqlcmd.CommandText = "installation_schedule_stp";
+                    sqlcmd.Parameters.AddWithValue("@Command", "Installers");
+                    sqlcmd.Parameters.AddWithValue("@Installation_Schedule_Id", pir2id);
+                    cli.DataSource = sqlcmd.ExecuteReader();
+                    cli.DataTextField = "Emp_Name";
+                    cli.DataValueField = "Emp_Name";
+                    cli.DataBind();
+                }
+            }
         }
 
         private void RequestQueries(string command, string id, string pir2id, string requestedby, string project)
@@ -341,6 +409,35 @@ namespace KMDIweb.KMDIweb.Installation
             }
         }
 
+        private void PostQueries(string command, string id, string pir2id, string postedby, string absentee)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.CommandText = "Installation_Absentee_Stp";
+                        sqlcmd.Parameters.AddWithValue("@Command", command);
+                        sqlcmd.Parameters.AddWithValue("@Id", id);
+                        sqlcmd.Parameters.AddWithValue("@Installation_Schedule_Id", pir2id);
+                        sqlcmd.Parameters.AddWithValue("@Posted_By", postedby);
+                        sqlcmd.Parameters.AddWithValue("@Absentee", absentee);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.Message.ToString());
+            }
+            finally
+            {
+                loaddata();
+            }
+        }
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
             List<int> l = new List<int>();
@@ -972,8 +1069,8 @@ namespace KMDIweb.KMDIweb.Installation
             }
         }
 
-    
-        private void addActivity(string category_activity,string activity)
+
+        private void addActivity(string category_activity, string activity)
         {
             try
             {
@@ -1050,8 +1147,8 @@ namespace KMDIweb.KMDIweb.Installation
 
         protected void LinkButton5_Click(object sender, EventArgs e)
         {
-           
-            addActivity(ddlActivity.SelectedValue.ToString(),tboxActivity.Text);
+
+            addActivity(ddlActivity.SelectedValue.ToString(), tboxActivity.Text);
         }
 
         protected void LinkButton6_Click(object sender, EventArgs e)
