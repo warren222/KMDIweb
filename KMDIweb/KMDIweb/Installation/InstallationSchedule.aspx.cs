@@ -24,6 +24,7 @@ namespace KMDIweb.KMDIweb.Installation
                     tboxEdate.Text = DateTime.Today.ToString("yyyy-MM-dd");
                     tboxDate.Text = DateTime.Today.ToString("yyyy-MM-dd");
                     loaddata();
+                    filterAccess();
                 }
             }
             else
@@ -50,6 +51,17 @@ namespace KMDIweb.KMDIweb.Installation
             get
             {
                 return ConnectionString.sqlconstr();
+            }
+        }
+        private void filterAccess()
+        {
+            if (Session["KMDI_user_code"].ToString() == "Installer")
+            {
+                Panel7.Visible = false;
+            }
+            else
+            {
+                Panel7.Visible = true;
             }
         }
         private void errorrmessage(string message)

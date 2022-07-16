@@ -35,14 +35,16 @@
                         END<br />
                         <asp:TextBox ID="tboxEdate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
                     </div>
-                    <div class="col-sm-2">
-                        REQ STATUS<br />
-                        <asp:DropDownList ID="ddlReqStatus" CssClass="form-control" runat="server">
-                            <asp:ListItem Text="All" Value="All" Selected="True"></asp:ListItem>
-                            <asp:ListItem Text="Requested" Value="requested"></asp:ListItem>
-                            <asp:ListItem Text="Scheduled" Value="scheduled"></asp:ListItem>
-                        </asp:DropDownList>
-                    </div>
+                    <asp:Panel ID="Panel7" runat="server">
+                        <div class="col-sm-2">
+                            REQ STATUS<br />
+                            <asp:DropDownList ID="ddlReqStatus" CssClass="form-control" runat="server">
+                                <asp:ListItem Text="All" Value="All" Selected="True"></asp:ListItem>
+                                <asp:ListItem Text="Requested CS" Value="requested"></asp:ListItem>
+                                <asp:ListItem Text="Absentees" Value="Absentees"></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </asp:Panel>
                     <div class="col-sm-4">
                         PROJECT<br />
                         <div class="input-group">
@@ -113,11 +115,11 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                     </asp:Panel>
 
                                     <asp:LinkButton ID="LinkButton4" runat="server" Visible='<%# Eval("[User_Code]").ToString() == "Installer" && Eval("[Absentee_Req_Status]").ToString() == "" ? true : false %>'
-                                         CssClass="btn btn-warning" CommandName="loadCheckbox">Post the absent</asp:LinkButton>
-                                     <asp:Panel ID="Panel3" Visible='<%# Eval("[Absentee_Req_Status]").ToString() == "posted" || Eval("[Absentee_Req_Status]").ToString() == "noted" ? true : false %>'
+                                        CssClass="btn btn-warning" CommandName="loadCheckbox">Post the absent</asp:LinkButton>
+                                    <asp:Panel ID="Panel3" Visible='<%# Eval("[Absentee_Req_Status]").ToString() == "posted" || Eval("[Absentee_Req_Status]").ToString() == "noted" ? true : false %>'
                                         CssClass='<%# Eval("[Absentee_Req_Status]").ToString() == "noted" ? "alert alert-success" : "alert alert-info" %>' runat="server">
                                         <asp:Label ID="lblabsenteeid" Font-Size="Smaller" runat="server" Visible="false" Text='<%# Bind("[Absentee_Id]") %>'></asp:Label>
-                                         <span>Absent:</span><br />
+                                        <span>Absent:</span><br />
                                         <asp:Label ID="Label2" Font-Size="Small" Font-Bold="true" runat="server" Text='<%# Bind("Absentee") %>'></asp:Label><br />
                                         <asp:Label ID="Label3" Font-Size="Smaller" runat="server" Text='<%# Bind("Posted_By") %>'></asp:Label>&nbsp;<asp:Label ID="Label4" Font-Size="Smaller" runat="server" Text='<%# Bind("Posted_Date") %>'></asp:Label>
                                         <asp:LinkButton ID="LinkButton11" CssClass="pull-right text text-danger"
@@ -129,8 +131,8 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                             OnClientClick="return confirm('noted on this?')"
                                             CommandName="approvePost" runat="server">noted</asp:LinkButton>
                                     </asp:Panel>
-                                      <asp:Panel ID="pnlabsentee" Visible="false" CssClass="well" runat="server">
-                                          <span>Select Absentee</span>
+                                    <asp:Panel ID="pnlabsentee" Visible="false" CssClass="well" runat="server">
+                                        <span>Select Absentee</span>
                                         <asp:CheckBoxList ID="CheckBoxList1" runat="server"></asp:CheckBoxList>
                                         <asp:LinkButton ID="LinkButton9" runat="server" CssClass="btn btn-success" CommandName="addAbsentee">post</asp:LinkButton>
                                         |
@@ -668,31 +670,32 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                 <div class="well">
                                     <span>Select your activity</span>
                                     <asp:DropDownList ID="ddlActivity" CssClass="form-control" runat="server">
-                                        <asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----REWORKS----</asp:ListItem>
-                                        <asp:ListItem Text="Re-sealant" Value="Re-sealant"></asp:ListItem>
-                                        <asp:ListItem Text="Re-plastic" Value="Re-plastic"></asp:ListItem>
-                                        <asp:ListItem Text="Re-cleaning" Value="Re-cleaning"></asp:ListItem>
                                         <asp:ListItem Text="Adjustment" Value="Adjustment"></asp:ListItem>
-                                        <asp:ListItem Text="Dismantling" Value="Dismantling"></asp:ListItem>
-                                        <asp:ListItem Text="Re-installation" Value="Re-installation"></asp:ListItem>
-                                        <asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----VITROCSA----</asp:ListItem>
-                                        <asp:ListItem Text="Assemble" Value="Assemble"></asp:ListItem>
-                                        <asp:ListItem Text="Installation" Value="Installation"></asp:ListItem>
+                                        <asp:ListItem Text="Aftersales" Value="Aftersales"></asp:ListItem>
                                         <asp:ListItem Text="Alignment" Value="Alignment"></asp:ListItem>
-                                        <asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----PREPARATION & CHECKING----</asp:ListItem>
-                                        <asp:ListItem Text="Inspection" Value="Inspection"></asp:ListItem>
-                                        <asp:ListItem Text="Layout Opening" Value="Layout Opening"></asp:ListItem>
-                                        <asp:ListItem Text="Checking of Opening" Value="Checking of Opening"></asp:ListItem>
-                                        <asp:ListItem Text="Hauling of Frame/Glass" Value="Hauling of Frame/Glass"></asp:ListItem>
-                                        <asp:ListItem Text="Grinding of Opening" Value="Grinding of Opening"></asp:ListItem>
+                                        <asp:ListItem Text="Assemble" Value="Assemble"></asp:ListItem>
                                         <asp:ListItem Text="Assemble & dismantling of tubes/scaffoldings" Value="Assemble & dismantling of tubes/scaffoldings"></asp:ListItem>
-                                        <asp:ListItem Text="Unload" Value="Unload"></asp:ListItem>
-                                        <asp:ListItem Text="Leak test" Value="Leak test"></asp:ListItem>
-                                        <asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----OTHERS----</asp:ListItem>
                                         <asp:ListItem Text="Assist" Value="Assist"></asp:ListItem>
-                                        <asp:ListItem Text="Travel" Value="Travel"></asp:ListItem>
+                                        <asp:ListItem Text="Checking of Opening" Value="Checking of Opening"></asp:ListItem>
+                                        <asp:ListItem Text="Dismantling" Value="Dismantling"></asp:ListItem>
+                                        <asp:ListItem Text="Grinding of Opening" Value="Grinding of Opening"></asp:ListItem>
+                                        <asp:ListItem Text="Hauling of Frame/Glass" Value="Hauling of Frame/Glass"></asp:ListItem>
+                                        <asp:ListItem Text="Inspection" Value="Inspection"></asp:ListItem>
+                                        <asp:ListItem Text="Installation" Value="Installation"></asp:ListItem>
+                                        <asp:ListItem Text="Layout Opening" Value="Layout Opening"></asp:ListItem>
+                                        <asp:ListItem Text="Leak test" Value="Leak test"></asp:ListItem>
                                         <asp:ListItem Text="PROCESSING ID/PERMIT" Value="PROCESSING ID/PERMIT"></asp:ListItem>
-                                        <asp:ListItem Text="" Value="Aftersales" style="font-weight: bolder; font-size: larger; font-style: italic; color: red">----AFTERSALES----</asp:ListItem>
+                                        <asp:ListItem Text="Re-cleaning" Value="Re-cleaning"></asp:ListItem>
+                                        <asp:ListItem Text="Re-installation" Value="Re-installation"></asp:ListItem>
+                                        <asp:ListItem Text="Re-plastic" Value="Re-plastic"></asp:ListItem>
+                                        <asp:ListItem Text="Re-sealant" Value="Re-sealant"></asp:ListItem>
+                                        <asp:ListItem Text="Travel" Value="Travel"></asp:ListItem>
+                                        <asp:ListItem Text="Unload" Value="Unload"></asp:ListItem>
+                                        <%--<asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----REWORKS----</asp:ListItem>--%>
+                                        <%--<asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----VITROCSA----</asp:ListItem>--%>
+                                        <%--<asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----PREPARATION & CHECKING----</asp:ListItem>--%>
+                                        <%--<asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----OTHERS----</asp:ListItem>--%>
+                                        <%--<asp:ListItem Text="" Value="Aftersales" style="font-weight: bolder; font-size: larger; font-style: italic; color: red">----AFTERSALES----</asp:ListItem>--%>
                                     </asp:DropDownList>
 
                                     <span>Specific job</span>

@@ -27,6 +27,7 @@
                     <asp:DropDownList ID="ddlDataStatus" CssClass="form-control" runat="server">
                         <asp:ListItem Value="Updated" Text="with report"></asp:ListItem>
                         <asp:ListItem Value="Outdated" Text="no report"></asp:ListItem>
+                        <asp:ListItem Value="Aftersales" Text="Aftersales"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="col-sm-4">
@@ -61,7 +62,7 @@
                             </ItemTemplate>
                             <ItemStyle BackColor="White" BorderColor="Silver" Wrap="False" />
                         </asp:TemplateField>
-                           <asp:TemplateField HeaderStyle-Width="200px" HeaderText="INSTALLERS" ItemStyle-Wrap="false">
+                        <asp:TemplateField HeaderStyle-Width="200px" HeaderText="INSTALLERS" ItemStyle-Wrap="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblinstallershidden" runat="server" Visible="false" Text='<%# Bind("Installers") %>'></asp:Label>
                                 <asp:Label ID="lblInstallers" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Installers").ToString(), "\r\n|\r|\n", "<br>"))  %>'></asp:Label>
