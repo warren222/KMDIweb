@@ -75,8 +75,11 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                     <Columns>
                         <asp:TemplateField HeaderText="SCHEDULE" ItemStyle-Wrap="false">
                             <ItemTemplate>
-                                <asp:Label ID="lblStart" runat="server" Text='<%# Bind("PIR2_START_DATE") %>'></asp:Label><br />
-                                <asp:Label ID="lblEnd" runat="server" Text='<%# Bind("PIR2_END_DATE") %>'></asp:Label>
+                                <asp:Label ID="lblStart" Visible="false" runat="server" Text='<%# Bind("PIR2_START_DATE") %>'></asp:Label><br />
+                                <asp:Label ID="lblEnd" Visible="false" runat="server" Text='<%# Bind("PIR2_END_DATE") %>'></asp:Label>
+
+                                <asp:Label ID="lblsday" runat="server" Text='<%# Bind("PIR2_START_DATE_DAY") %>'></asp:Label><br />
+                                <asp:Label ID="lbleday" Visible='<%# Eval("date_2_visibility").ToString() == "hide" ? false : true %>' runat="server" Text='<%# Bind("PIR2_END_DATE_DAY") %>'></asp:Label>
                                 <itemstyle wrap="False" />
                             </ItemTemplate>
                         </asp:TemplateField>
