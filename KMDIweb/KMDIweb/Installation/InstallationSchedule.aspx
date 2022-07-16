@@ -103,8 +103,8 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                             CommandName="deleteRequest" runat="server">cancel request</asp:LinkButton>
                                         <asp:LinkButton ID="LinkButton8" CssClass="pull-right text text-success"
                                             Visible='<%# Eval("[Req_Status]").ToString() == "requested" && Eval("[User_Code]").ToString() == "Installation Staff"  ? true : false %>'
-                                            OnClientClick="return confirm('update status to rescheduled?')"
-                                            CommandName="approveRequest" runat="server">rescheduled</asp:LinkButton>
+                                            OnClientClick="return confirm('noted on this?')"
+                                            CommandName="approveRequest" runat="server">noted</asp:LinkButton>
                                     </asp:Panel>
                                     <asp:Panel ID="pnlchangesched" Visible="false" CssClass="well" runat="server">
                                         <span>Project/Remarks:</span>
