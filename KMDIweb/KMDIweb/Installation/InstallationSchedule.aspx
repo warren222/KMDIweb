@@ -673,6 +673,7 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                 <div class="well">
                                     <span>Select your activity</span>
                                     <asp:DropDownList ID="ddlActivity" CssClass="form-control" runat="server">
+                                        <asp:ListItem Text="" Value="" style="font-weight: bolder; font-size: larger; font-style: italic; color: aqua">----ACTIVITIES----</asp:ListItem>
                                         <asp:ListItem Text="Adjustment" Value="Adjustment"></asp:ListItem>
                                         <asp:ListItem Text="Aftersales" Value="Aftersales"></asp:ListItem>
                                         <asp:ListItem Text="Alignment" Value="Alignment"></asp:ListItem>
@@ -688,6 +689,7 @@ PAKI INFORM PO SI MS. HANNA/RACQUEL KUNG MAY ABSENT SA INYONG GRUPO, NGAYON ARAW
                                         <asp:ListItem Text="Layout Opening" Value="Layout Opening"></asp:ListItem>
                                         <asp:ListItem Text="Leak test" Value="Leak test"></asp:ListItem>
                                         <asp:ListItem Text="PROCESSING ID/PERMIT" Value="PROCESSING ID/PERMIT"></asp:ListItem>
+                                        <asp:ListItem Text="Railings" Value="Railings"></asp:ListItem>
                                         <asp:ListItem Text="Re-cleaning" Value="Re-cleaning"></asp:ListItem>
                                         <asp:ListItem Text="Re-installation" Value="Re-installation"></asp:ListItem>
                                         <asp:ListItem Text="Re-plastic" Value="Re-plastic"></asp:ListItem>
