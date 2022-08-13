@@ -45,7 +45,7 @@ namespace KMDIweb.KMDIweb.Installation
             }
             else
             {
-                if (usercode == "Installer")
+                if ((usercode == "Installer")||(usercode == "Engineer"))
                 {
                     HyperLink1.Visible = true;
                 }
@@ -54,8 +54,7 @@ namespace KMDIweb.KMDIweb.Installation
                     HyperLink1.Visible = false;
                 }
                 HyperLink3.Visible = false;
-            }
-           
+            }      
         }
         protected void LinkButton1_Click(object sender, EventArgs e)
         {

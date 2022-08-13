@@ -40,6 +40,17 @@
                     </div>
                 </div>
             </div>
+            <asp:Panel ID="Panel2" runat="server">
+                <div class="row">
+                    <div class="col-sm-6">
+                        Engr<br />
+                        <asp:DropDownList ID="ddlEngr" CssClass="form-control" runat="server"></asp:DropDownList>
+                    </div>
+                    <div class="col-sm-6">
+                    </div>
+                </div>
+            </asp:Panel>
+
 
             <br />
             <br />

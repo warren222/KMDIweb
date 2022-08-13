@@ -20,7 +20,13 @@ namespace KMDIweb.KMDIweb.Installation
                 {
                     tboxSdate.Text = DateTime.Today.ToString("yyyy-MM-dd");
                     tboxEdate.Text = DateTime.Today.ToString("yyyy-MM-dd");
+                    loadengr();
                     loaddata();
+                    if (Session["KMDI_user_code"].ToString() == "Engineer")
+                    {
+                        ddlEngr.Text = Session["KMDI_fullname"].ToString();
+                        Panel2.Visible = false;
+                    }
                 }
             }
             else
@@ -43,6 +49,31 @@ namespace KMDIweb.KMDIweb.Installation
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
+        private void loadengr()
+        {
+
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "installation_schedule_report_summary_stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "loadEngr");
+                        ddlEngr.DataSource = sqlcmd.ExecuteReader();
+                        ddlEngr.DataTextField = "project_engr_incharge";
+                        ddlEngr.DataValueField = "project_engr_incharge";
+                        ddlEngr.DataBind();
+                    }
+                    catch (Exception e)
+                    {
+                        errorrmessage(e.Message);
+                    }
+                }
+            }
+        }
         private void loaddata()
         {
             try
@@ -63,6 +94,7 @@ namespace KMDIweb.KMDIweb.Installation
                         sqlcmd.Parameters.AddWithValue("@DataStatus", ddlDataStatus.Text);
                         sqlcmd.Parameters.AddWithValue("@fullname", Session["KMDI_fullname"].ToString());
                         sqlcmd.Parameters.AddWithValue("@user_code", Session["KMDI_user_code"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@engr", ddlEngr.Text);
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
@@ -95,6 +127,7 @@ namespace KMDIweb.KMDIweb.Installation
             Session["PSDataStatus"] = ddlDataStatus.SelectedValue.ToString();
             Session["PSfullname"] = Session["KMDI_fullname"].ToString();
             Session["PSuser_code"] = Session["KMDI_user_code"].ToString();
+            Session["PSengr"] = ddlEngr.Text;
             Response.Redirect("~/KMDIweb/Installation/InstallationSummaryReportViewer.aspx");
         }
     }
