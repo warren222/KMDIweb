@@ -155,7 +155,7 @@
 
                     <small>
                         <asp:GridView ID="GridView1" CssClass="table tbl" AutoGenerateColumns="False" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging"
-                            PageSize="25" OnDataBound="GridView1_DataBound" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" 
+                            PageSize="25" OnDataBound="GridView1_DataBound" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE"
                             BorderStyle="None" BorderWidth="1px" OnRowCommand="GridView1_RowCommand">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
@@ -310,6 +310,8 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="LOCATION / DESCRIPTION" ItemStyle-HorizontalAlign="Center">
                                                 <ItemTemplate>
+                                                    <span>
+                                                        <asp:Label ID="lblItem_No" runat="server" CssClass="text-danger" Text='<%# Bind("ITEM_NO") %>'></asp:Label></span>&nbsp;&nbsp;
                                                     <asp:Label ID="LBLlocation" runat="server" CssClass="text-info" Text='<%# Bind("LOCATION") %>'></asp:Label>&nbsp;
                                         <asp:Label ID="LBLg2description" runat="server" Text='<%# Bind("DESCRIPTION") %>'></asp:Label>
                                                 </ItemTemplate>
@@ -370,50 +372,50 @@
                         </div>
                         <div id="menu1" class="tab-pane fade">
                             <h3>Glass</h3>
-                        
+
                         </div>
                     </div>
                 </asp:Panel>
-                    <asp:GridView ID="GridView3" AutoGenerateColumns="False" runat="server" CellPadding="4" ForeColor="#333333" GridLines="Both">
-                                <AlternatingRowStyle BackColor="White" />
-                                <Columns>
-                                    <asp:TemplateField HeaderText="DUE DATE">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblGlassDueDate" runat="server" Text='<%# Bind("DUE_DATE") %>'></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="ITEM">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblGlassDueDate" runat="server" CssClass="text-primary" Text='<%# Bind("KMDI_NO") %>'></asp:Label>
-                                            <asp:Label ID="lblGlassG_No" runat="server" CssClass="text-warning" Text='<%# Bind("G_NO") %>'></asp:Label>
-                                            <asp:Label ID="lblGlassItem_No" runat="server" CssClass="text-muted" Text='<%# Bind("ITEM_NO") %>'></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="SPECS">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblGlassSpecs" runat="server" CssClass="text-primary" Text='<%# Bind("GLASS_SPECS") %>'></asp:Label>
-                                            (<asp:Label ID="lblGlassWidth" runat="server" Text='<%# Bind("WIDTH") %>'></asp:Label>&nbsp;x&nbsp;
+                <asp:GridView ID="GridView3" AutoGenerateColumns="False" runat="server" CellPadding="4" ForeColor="#333333" GridLines="Both">
+                    <AlternatingRowStyle BackColor="White" />
+                    <Columns>
+                        <asp:TemplateField HeaderText="DUE DATE">
+                            <ItemTemplate>
+                                <asp:Label ID="lblGlassDueDate" runat="server" Text='<%# Bind("DUE_DATE") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="ITEM">
+                            <ItemTemplate>
+                                <asp:Label ID="lblGlassDueDate" runat="server" CssClass="text-primary" Text='<%# Bind("KMDI_NO") %>'></asp:Label>
+                                <asp:Label ID="lblGlassG_No" runat="server" CssClass="text-warning" Text='<%# Bind("G_NO") %>'></asp:Label>
+                                <asp:Label ID="lblGlassItem_No" runat="server" CssClass="text-muted" Text='<%# Bind("ITEM_NO") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="SPECS">
+                            <ItemTemplate>
+                                <asp:Label ID="lblGlassSpecs" runat="server" CssClass="text-primary" Text='<%# Bind("GLASS_SPECS") %>'></asp:Label>
+                                (<asp:Label ID="lblGlassWidth" runat="server" Text='<%# Bind("WIDTH") %>'></asp:Label>&nbsp;x&nbsp;
                                                   <asp:Label ID="lblGlassHeight" runat="server" Text='<%# Bind("HEIGHT") %>'></asp:Label>)
                                                  <asp:Label ID="lblGlassLocation" runat="server" CssClass="text-muted" Text='<%# Bind("LOCATION") %>'></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                     <asp:TemplateField HeaderText="REQUEST">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lbGlasslRequest" runat="server" CssClass="text-primary" Text='<%# Bind("REQUEST_FOR") %>'></asp:Label>
-                                            <asp:Label ID="lbGlasslDateRequested" runat="server" Text='<%# Bind("DATE_REQUESTED") %>'></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                </Columns>
-                                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                                <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                                <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                                <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                                <SortedDescendingHeaderStyle BackColor="#820000" />
-                            </asp:GridView>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="REQUEST">
+                            <ItemTemplate>
+                                <asp:Label ID="lbGlasslRequest" runat="server" CssClass="text-primary" Text='<%# Bind("REQUEST_FOR") %>'></asp:Label>
+                                <asp:Label ID="lbGlasslDateRequested" runat="server" Text='<%# Bind("DATE_REQUESTED") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                    <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                    <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                    <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                    <SortedDescendingHeaderStyle BackColor="#820000" />
+                </asp:GridView>
 
                 <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document">

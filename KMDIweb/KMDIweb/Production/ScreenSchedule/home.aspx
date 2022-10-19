@@ -299,6 +299,8 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="LOCATION / TYPE OF SCREEN" ItemStyle-HorizontalAlign="Center">
                                         <ItemTemplate>
+                                            <span>
+                                                <asp:Label ID="lblItem_No" runat="server" CssClass="text-danger" Text='<%# Bind("ITEM_NO") %>'></asp:Label></span>&nbsp;&nbsp;
                                             <asp:Label ID="LBLlocation" runat="server" CssClass="text-info" Text='<%# Bind("LOCATION") %>'></asp:Label>&nbsp;
                                         <asp:Label ID="LBLg2screentype" runat="server" Text='<%# Bind("TYPE_OF_SCREEN") %>'></asp:Label>
                                         </ItemTemplate>
