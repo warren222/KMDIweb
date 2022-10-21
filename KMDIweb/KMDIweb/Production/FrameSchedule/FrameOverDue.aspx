@@ -79,12 +79,14 @@
                     <asp:TemplateField HeaderText="DESCRIPTION" ItemStyle-Width="200">
                         <ItemTemplate>
                             <asp:Label ID="lblDescription" runat="server" Text='<%# Bind("DESCRIPTION") %>'></asp:Label><br />
-                             <asp:Label ID="lblColor" runat="server" CssClass="text-warning" Text='<%# Bind("Color") %>'></asp:Label>
+                            <asp:Label ID="lblColor" runat="server" CssClass="text-warning" Text='<%# Bind("Color") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="CL#" ItemStyle-Wrap="false">
                         <ItemTemplate>
                             <asp:Label ID="lblClno" runat="server" Text='<%# Bind("CLNO") %>'></asp:Label>
+                            <br />
+                            <asp:Label ID="lblCL" CssClass="text-warning" runat="server" Text='<%# Bind("CTRLNO") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="Points">
@@ -99,7 +101,7 @@
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
-                        <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Remarks">
+                    <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Remarks">
                         <ItemTemplate>
                             <asp:Label ID="lblremaks" runat="server" Text='<%# Bind("Sched_Remarks") %>'></asp:Label>
                         </ItemTemplate>
