@@ -60,13 +60,13 @@
         </table>
         <asp:Panel runat="server" ID="Panel1" ScrollBars="Auto">
 
-            <asp:GridView ID="GridView1" CssClass="tbl" AllowPaging="True" AutoGenerateColumns="False" runat="server" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="100" CellPadding="4" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" ForeColor="Black">
+            <asp:GridView ID="GridView1" CssClass="tbl" Font-Size="Small" AllowPaging="True" AutoGenerateColumns="False" runat="server" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="100" CellPadding="4" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" ForeColor="Black">
                 <Columns>
                     <asp:TemplateField HeaderText="Project">
                         <ItemTemplate>
                             <asp:Label ID="lblProject" runat="server" Text='<%# Bind("Project_Label") %>'></asp:Label><br />
                             <asp:Label ID="lblParentjono" runat="server" CssClass="text-info" Text='<%# Bind("parentjono") %>'></asp:Label><br />
-                            <asp:Label ID="lblFulladd" runat="server" CssClass="text-muted" Font-Size="Small" Text='<%# Bind("Fulladd") %>'></asp:Label><br />
+                            <asp:Label ID="lblFulladd" runat="server" CssClass="text-muted" Font-Size="X-Small" Text='<%# Bind("Fulladd") %>'></asp:Label><br />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="K#/Location">
@@ -76,13 +76,24 @@
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
+                    <asp:TemplateField HeaderText="DESCRIPTION" ItemStyle-Width="200">
+                        <ItemTemplate>
+                            <asp:Label ID="lblDescription" runat="server" Text='<%# Bind("DESCRIPTION") %>'></asp:Label><br />
+                             <asp:Label ID="lblColor" runat="server" CssClass="text-warning" Text='<%# Bind("Color") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="CL#" ItemStyle-Wrap="false">
+                        <ItemTemplate>
+                            <asp:Label ID="lblClno" runat="server" Text='<%# Bind("CLNO") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="Points">
                         <ItemTemplate>
                             <asp:Label ID="lblpoints" runat="server" Text='<%# Bind("points") %>'></asp:Label>
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Right" />
                     </asp:TemplateField>
-                    <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Schedule">
+                    <asp:TemplateField ItemStyle-HorizontalAlign="Center" ItemStyle-Wrap="false" HeaderText="Schedule">
                         <ItemTemplate>
                             <asp:Label ID="lbldate" runat="server" Text='<%# Bind("d") %>'></asp:Label>
                         </ItemTemplate>
