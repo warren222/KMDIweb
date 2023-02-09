@@ -263,6 +263,20 @@
     <Compile Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx.designer.cs">
       <DependentUpon>Fileupload.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx.cs">
+      <DependentUpon>FoilingCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx.designer.cs">
+      <DependentUpon>FoilingCalendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\FoilingSchedule\FoilingMaster.Master.cs">
+      <DependentUpon>FoilingMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\FoilingSchedule\FoilingMaster.Master.designer.cs">
+      <DependentUpon>FoilingMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Global\changesecurity.aspx.cs">
       <DependentUpon>changesecurity.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -698,6 +712,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="KMDIweb\Delivery\ScannedDR\DRuploadsSummary.aspx" />
     <Content Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx" />
+    <Content Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx" />
     <Content Include="KMDIweb\Global\changesecurity.aspx" />
     <Content Include="KMDIweb\Global\css\gridcss.css" />
     <Content Include="KMDIweb\Global\registerSign.aspx" />
@@ -779,6 +794,7 @@
       <DependentUpon>reportDS.xsd</DependentUpon>
     </Content>
     <Content Include="KMDIweb\AE\CollectionLedger\AEMaster.Master" />
+    <Content Include="KMDIweb\FoilingSchedule\FoilingMaster.Master" />
     <None Include="KMDIweb\Global\DataSetFiles\reportDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

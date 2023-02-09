@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="container">
-      
+
             <h2><strong class="text-muted">WEB applications</strong>  </h2>
             <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="val1" CssClass="alert alert-danger" runat="server" />
             <div class="row">
@@ -155,9 +155,24 @@
                         </div>
                     </asp:Panel>
                 </div>
+                <div class="col-sm-3">
+                    <asp:Panel ID="Panel7" runat="server">
+                        <div class="thumbnail">
+                            <asp:Image ID="Image7" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/scheduling.jpg" runat="server" AlternateText="installation schedule" />
+                            <br />
+                            <div>
+                                <strong style="font-size: x-large"><span class="glyphicon glyphicon-list-alt"></span>
+                                    <span>Foiling</span></strong><br />
+                                <small>Foiling Calendar</small>
+                                <asp:LinkButton ID="LinkButton8" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" PostBackUrl="~/KMDIweb/FoilingSchedule/FoilingCalendar.aspx">ENTER</asp:LinkButton>
+
+                            </div>
+                        </div>
+                    </asp:Panel>
+                </div>
 
             </div>
-       
+
         </div>
     </form>
 </body>
