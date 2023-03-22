@@ -132,8 +132,7 @@ namespace KMDIweb.KMDIweb.FoilingSchedule
             string caldate="";
             int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
             GridViewRow row = GridView1.Rows[rowindex];
-            if (Session["KMDI_ffm_acct"].ToString() == "Admin")
-            {
+         
                 if (e.CommandName == "viewlistMon")
                 {
                     //OpenModal("lbl1date", "lbl1points", e);
@@ -180,7 +179,7 @@ namespace KMDIweb.KMDIweb.FoilingSchedule
                 }
                 lblmodalDate.Text = Convert.ToDateTime(caldate).ToString("MMMM dd, yyyy");
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#myModal').modal()", true);
-            }
+            
         }
         private void loadItems(string d)
         {
