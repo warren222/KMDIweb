@@ -10,7 +10,7 @@
 namespace KMDIweb.KMDIweb.Installation {
     
     
-    public partial class InstallationUpdateLog {
+    public partial class InstallationUpdateLogRange {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -31,22 +31,31 @@ namespace KMDIweb.KMDIweb.Installation {
         protected global::System.Web.UI.WebControls.LinkButton btn1;
         
         /// <summary>
-        /// tboxDate control.
+        /// tboxSdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tboxDate;
+        protected global::System.Web.UI.WebControls.TextBox tboxSdate;
         
         /// <summary>
-        /// tboxProject_Name control.
+        /// tboxEdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tboxProject_Name;
+        protected global::System.Web.UI.WebControls.TextBox tboxEdate;
+        
+        /// <summary>
+        /// ddlInstl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlInstl;
         
         /// <summary>
         /// LinkButton1 control.

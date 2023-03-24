@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KMDIweb/Installation/InstallationMaster.Master" CodeBehind="InstallationUpdateLog.aspx.cs" Inherits="KMDIweb.KMDIweb.Installation.InstallationUpdateLog" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KMDIweb/Installation/InstallationMaster.Master" CodeBehind="InstallationUpdateLogRange.aspx.cs" Inherits="KMDIweb.KMDIweb.Installation.InstallationUpdateLogRange" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Installation Update Log</title>
 </asp:Content>
+
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -11,28 +12,31 @@
         <div class="well">
             <h2>Installation Update Log</h2>
         </div>
-
-        <asp:LinkButton ID="btn1" runat="server" CssClass="btn btn-warning" Text="Go by range >>" PostBackUrl="~/KMDIweb/Installation/InstallationUpdateLogRange.aspx"></asp:LinkButton>
-        <br /><br />
+        <asp:LinkButton ID="btn1" runat="server" CssClass="btn btn-warning" Text="<< go back" PostBackUrl="~/KMDIweb/Installation/InstallationUpdateLog.aspx"></asp:LinkButton>
+        <br />
+        <br />
         <div class="row">
             <div class="col-sm-3">
-                <span>Date of record</span>
-                <asp:TextBox ID="tboxDate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
+                <span>Start Date</span>
+                <asp:TextBox ID="tboxSdate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
+            </div>
+            <div class="col-sm-3">
+                <span>End Date</span>
+                <asp:TextBox ID="tboxEdate" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
             </div>
             <div class="col-sm-6">
-                <span>Project name / Updated by</span>
+                <span>Installer</span>
                 <div class="input-group">
-                    <asp:TextBox ID="tboxProject_Name" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlInstl" CssClass="form-control" runat="server"></asp:DropDownList>
                     <div class="input-group-btn">
                         <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click">search</asp:LinkButton>
                     </div>
                 </div>
-
             </div>
         </div>
         <br />
         <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-            <asp:GridView ID="GridView1" CssClass="table" Font-Size="X-Small" runat="server" AllowPaging="True" AutoGenerateColumns="False" PageSize="100" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" GridLines="Both" OnPageIndexChanging="GridView1_PageIndexChanging" CellSpacing="1">
+            <asp:GridView ID="GridView1" CssClass="table" Font-Size="X-Small" AutoGenerateColumns="false" runat="server" AllowPaging="True" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="Both" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="100">
                 <Columns>
                     <asp:TemplateField HeaderText="INSTALLATION SCHEDULE" ItemStyle-Wrap="false">
                         <ItemTemplate>
@@ -45,47 +49,17 @@
                             <asp:Label ID="lblProject" runat="server" Text='<%# Bind("PROJECT_LABEL") %>'></asp:Label><br />
                             <asp:Label ID="lblFulladd" runat="server" CssClass="text-muted" Text='<%# Bind("FULLADD") %>'></asp:Label>
                         </ItemTemplate>
-
-                        <ItemStyle Wrap="False"></ItemStyle>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="K#" ItemStyle-Wrap="false">
-                        <ItemTemplate>
-                            <asp:Label ID="lblKno" runat="server" Text='<%# Bind("K_No") %>'></asp:Label>
-                        </ItemTemplate>
-
-                        <ItemStyle Wrap="False"></ItemStyle>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="STATION" ItemStyle-Wrap="false">
-                        <ItemTemplate>
-                            <asp:Label ID="lblSatation" runat="server" Text='<%# Bind("STATION") %>'></asp:Label>
-                        </ItemTemplate>
-
                         <ItemStyle Wrap="False"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="UPDATED BY" ItemStyle-Wrap="false">
                         <ItemTemplate>
                             <asp:Label ID="lblUpdated_by" runat="server" Text='<%# Bind("UPDATED_BY") %>'></asp:Label>
                         </ItemTemplate>
-
-                        <ItemStyle Wrap="False"></ItemStyle>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="ACTION MADE" ItemStyle-Wrap="false">
-                        <ItemTemplate>
-                            <asp:Label ID="lblActionmade" runat="server" Text='<%# Bind("ACTION_MADE") %>'></asp:Label>
-                        </ItemTemplate>
-
-                        <ItemStyle Wrap="False"></ItemStyle>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="INSTALLATION DATE" ItemStyle-Wrap="false">
-                        <ItemTemplate>
-                            <asp:Label ID="lblValue" runat="server" Text='<%# Bind("VALUE") %>'></asp:Label>
-                        </ItemTemplate>
-
                         <ItemStyle Wrap="False"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="DATE INPUTTED" ItemStyle-Wrap="false">
                         <ItemTemplate>
-                            <asp:Label ID="lblDated" runat="server" Text='<%# Bind("DATED") %>'></asp:Label>
+                            <asp:Label ID="lblDated" runat="server" Text='<%# Bind("DATE") %>'></asp:Label>
                         </ItemTemplate>
                         <ItemStyle Wrap="False"></ItemStyle>
                     </asp:TemplateField>
@@ -93,15 +67,13 @@
                 <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
                 <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
                 <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
-
-                <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
+                <PagerStyle CssClass="GridPager" ForeColor="Black" HorizontalAlign="Left" />
                 <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
                 <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
                 <SortedAscendingCellStyle BackColor="#F1F1F1" />
                 <SortedAscendingHeaderStyle BackColor="#594B9C" />
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#33276A" />
-
             </asp:GridView>
         </asp:Panel>
     </div>

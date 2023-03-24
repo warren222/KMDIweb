@@ -81,7 +81,6 @@
                                 <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/KMDIweb/Installation/InstallationUpdateLog.aspx">
                                  <span class="glyphicon glyphicon-list-alt"></span>&nbsp;Installation Update Log</asp:HyperLink>
                         </li>
-
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
