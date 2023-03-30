@@ -155,6 +155,7 @@ namespace KMDIweb.KMDIweb.Installation
             Session["PSfullname"] = Session["KMDI_fullname"].ToString();
             Session["PSuser_code"] = Session["KMDI_user_code"].ToString();
             Session["PSengr"] = ddlEngr.Text;
+            Session["PSInstallers"] = ddlInstl.Text;
             Response.Redirect("~/KMDIweb/Installation/InstallationSummaryReportViewer.aspx");
         }
     }
