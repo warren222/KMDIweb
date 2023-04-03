@@ -20,6 +20,7 @@ namespace KMDIweb.KMDIweb.FoilingSchedule
                 {
                     ddlmonth.SelectedValue = DateTime.Now.ToString("MM");
                     tboxyear.Text = DateTime.Now.ToString("yyyy");
+                    ViewState["specification"] = ddlSpecification.Text;
                     loaddata();
                 }
             }
@@ -45,6 +46,7 @@ namespace KMDIweb.KMDIweb.FoilingSchedule
         }
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
+            ViewState["specification"] = ddlSpecification.Text;
             loaddata();
         }
         private void loaddata()
@@ -58,7 +60,14 @@ namespace KMDIweb.KMDIweb.FoilingSchedule
                     try
                     {
                         sqlcon.Open();
-                        sqlcmd.CommandText = "Foiling_Calendar_Stp";
+                        if (ViewState["specification"].ToString() == "Screen")
+                        {
+                            sqlcmd.CommandText = "Foiling_Calendar_Screen_Stp";
+                        }
+                        else
+                        {
+                            sqlcmd.CommandText = "Foiling_Calendar_Stp";
+                        }
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@COMMAND", "Calendar");
                         sqlcmd.Parameters.AddWithValue("@Date", d);
@@ -192,7 +201,14 @@ namespace KMDIweb.KMDIweb.FoilingSchedule
                         try
                         {
                             sqlcon.Open();
-                            sqlcmd.CommandText = "Foiling_Calendar_Stp";
+                            if (ViewState["specification"].ToString() == "Screen")
+                            {
+                                sqlcmd.CommandText = "Foiling_Calendar_Screen_Stp";
+                            }
+                            else
+                            {
+                                sqlcmd.CommandText = "Foiling_Calendar_Stp";
+                            }
                             sqlcmd.CommandType = CommandType.StoredProcedure;
                             sqlcmd.Parameters.AddWithValue("@COMMAND", "ViewListReport");
                             sqlcmd.Parameters.AddWithValue("@Date", d);

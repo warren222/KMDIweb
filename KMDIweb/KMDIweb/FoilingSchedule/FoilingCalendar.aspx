@@ -10,7 +10,18 @@
             <ContentTemplate>
                 <div class="row">
                     <div class="col-sm-2"></div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                Specification
+                            </div>
+                            <asp:DropDownList ID="ddlSpecification" CssClass="form-control" runat="server">
+                                <asp:ListItem Value="Frame" Text="Frame"></asp:ListItem>
+                                <asp:ListItem Value="Screen" Text="Screen"></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
                         <div class="input-group">
                             <div class="input-group-addon">
                                 Month
@@ -29,9 +40,10 @@
                                 <asp:ListItem Text="Nov" Value="11"></asp:ListItem>
                                 <asp:ListItem Text="Dec" Value="12"></asp:ListItem>
                             </asp:DropDownList>
+
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="input-group">
                             <div class="input-group-addon">
                                 Year
@@ -181,16 +193,16 @@
                             <div class="modal-body">
                                 <div style="overflow-x: auto; overflow-y: auto">
                                     <asp:GridView ID="GridView2" CssClass="tbl" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
-              <FooterStyle BackColor="White" ForeColor="#000066" />
-              <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-              <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-              <RowStyle ForeColor="#000066" />
-              <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-              <SortedAscendingCellStyle BackColor="#F1F1F1" />
-              <SortedAscendingHeaderStyle BackColor="#007DBB" />
-              <SortedDescendingCellStyle BackColor="#CAC9C9" />
-              <SortedDescendingHeaderStyle BackColor="#00547E" />
-        </asp:GridView>
+                                        <FooterStyle BackColor="White" ForeColor="#000066" />
+                                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                                        <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                                        <RowStyle ForeColor="#000066" />
+                                        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                        <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                        <SortedDescendingHeaderStyle BackColor="#00547E" />
+                                    </asp:GridView>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -202,6 +214,6 @@
 
             </ContentTemplate>
         </asp:UpdatePanel>
-        
+
     </div>
 </asp:Content>
