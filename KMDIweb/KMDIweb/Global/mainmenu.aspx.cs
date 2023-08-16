@@ -167,6 +167,9 @@ namespace KMDIweb.KMDIapp
 
         }
 
-    
+        protected void LinkButton9_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIweb/AE/AF/AF_Project_List.aspx");
+        }
     }
 }

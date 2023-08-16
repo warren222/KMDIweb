@@ -170,7 +170,21 @@
                         </div>
                     </asp:Panel>
                 </div>
+                 <div class="col-sm-3">
+                    <asp:Panel ID="Panel8" Visible="true" runat="server">
+                        <div class="thumbnail">
+                            <asp:Image ID="Image8" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/collection.jpg" runat="server" AlternateText="AF" />
+                            <br />
+                            <div>
+                                <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
+                                    <span>AF</span></strong><br />
+                                <small>AF Request</small>
+                                <asp:LinkButton ID="LinkButton9" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton9_Click">ENTER</asp:LinkButton>
 
+                            </div>
+                        </div>
+                    </asp:Panel>
+                </div>
             </div>
 
         </div>
