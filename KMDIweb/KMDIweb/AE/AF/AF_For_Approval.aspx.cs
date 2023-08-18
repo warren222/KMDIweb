@@ -1,5 +1,4 @@
-﻿using KMDIweb.KMDIweb.SessionVariables;
-using KMDIweb.SCREENfab;
+﻿using KMDIweb.SCREENfab;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,9 +10,8 @@ using System.Web.UI.WebControls;
 
 namespace KMDIweb.KMDIweb.AE.AF
 {
-    public partial class AF_Project_List : System.Web.UI.Page
+    public partial class AF_For_Approval : System.Web.UI.Page
     {
-      
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,7 +20,6 @@ namespace KMDIweb.KMDIweb.AE.AF
                 {
                     if (!IsPostBack)
                     {
-                        Retrive_QueryStrings();
                         loadae();
                         loaddata();
                     }
@@ -47,12 +44,6 @@ namespace KMDIweb.KMDIweb.AE.AF
             err.IsValid = false;
             err.ErrorMessage = message;
             Page.Validators.Add(err);
-        }
-        public void Retrive_QueryStrings()
-        {
-            tboxSearch.Text = Request.QueryString["search"] != null ? Request.QueryString["search"] : "";
-            ddlAE.Text = Request.QueryString["ae"] != null ? Request.QueryString["ae"] : "";
-            gvProject.PageIndex = Request.QueryString["page_index"] != null ? Convert.ToInt32(Request.QueryString["page_index"]) : 0;
         }
         private void loadae()
         {
@@ -89,17 +80,18 @@ namespace KMDIweb.KMDIweb.AE.AF
                         DataTable tb = new DataTable();
                         tb.Clear();
                         sqlcon.Open();
-                        sqlcmd.CommandText = "AF_Request_Stp";
+                        sqlcmd.CommandText = "AF_Request_Approval_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@Command", "Get_Project");
+                        sqlcmd.Parameters.AddWithValue("@Command", "Get");
                         sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
                         sqlcmd.Parameters.AddWithValue("@AE", ddlAE.Text);
+                        sqlcmd.Parameters.AddWithValue("@Req_Status", ddlStatus.Text);
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
                             da.SelectCommand = sqlcmd;
                             da.Fill(tb);
-                            gvProject.DataSource = tb;
-                            gvProject.DataBind();
+                            gv1.DataSource = tb;
+                            gv1.DataBind();
                         }
                     }
                 }
@@ -112,26 +104,6 @@ namespace KMDIweb.KMDIweb.AE.AF
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            loaddata();
-        }
-
-        protected void gvProject_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "view_request")
-            {
-                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
-                GridViewRow row = gvProject.Rows[rowindex];
-                string parentjono = ((LinkButton)row.FindControl("btnParentjono")).Text;
-                Response.Redirect("~/KMDIweb/AE/AF/AF_Project_Request.aspx" + AddQueryStrings(parentjono));
-            }
-        }
-        private string AddQueryStrings(string parentjono)
-        {
-            return "?jo_parent=" + parentjono + "&page_index=" + gvProject.PageIndex.ToString() + "&search=" + tboxSearch.Text + "&ae=" + ddlAE.SelectedValue.ToString();
-        }
-        protected void gvProject_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvProject.PageIndex = e.NewPageIndex;
             loaddata();
         }
     }

@@ -69,9 +69,14 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/KMDIweb/AE/CollectionLedger/CollectionLedgerFrm.aspx">
-                                 <span class="glyphicon glyphicon-home"></span>&nbsp;Home</asp:HyperLink></li>
-
+                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_Project_List.aspx">
+                                 <span class="glyphicon glyphicon-home"></span>&nbsp;Project</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_For_Checking.aspx">
+                                For Checking</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_For_Approval.aspx">
+                                For Approval</asp:HyperLink></li>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
