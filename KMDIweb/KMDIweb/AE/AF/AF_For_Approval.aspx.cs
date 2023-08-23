@@ -101,9 +101,72 @@ namespace KMDIweb.KMDIweb.AE.AF
                 errorrmessage(ex.ToString());
             }
         }
+        private void approve(string comment, string id)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "AF_Request_Approval_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Approve");
+                        sqlcmd.Parameters.AddWithValue("@Approval_Remarks", comment);
+                        sqlcmd.Parameters.AddWithValue("@Id", id);
+                        sqlcmd.Parameters.AddWithValue("@Approved_By", Session["KMDI_fullname"].ToString());
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            finally
+            {
+                loaddata();
+            }
+        }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            loaddata();
+        }
+        protected void gv1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "myApprove")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gv1.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                string comment = ((TextBox)row.FindControl("tboxComment")).Text;
+                approve(comment, id);
+            }
+            else if (e.CommandName == "myEdit")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gv1.Rows[rowindex];
+                if (((Panel)row.FindControl("pnlCommentEdit")).Visible == true)
+                {
+                    ((Panel)row.FindControl("pnlCommentEdit")).Visible = false;
+                    ((Panel)row.FindControl("pnlComment")).Visible = true;
+                }
+                else
+                {
+                    ((Panel)row.FindControl("pnlCommentEdit")).Visible = true;
+                    ((Panel)row.FindControl("pnlComment")).Visible = false;
+                }
+
+            }
+        }
+
+        protected void gv1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gv1.PageIndex = e.NewPageIndex;
             loaddata();
         }
     }
