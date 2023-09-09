@@ -28,22 +28,27 @@
                     </div>
                 </div>
             </div>
-
             <div>
-                <asp:GridView runat="server" ID="gvProject" AutoGenerateColumns="false" AllowPaging="true" GridLines="None" CssClass="tbl" OnRowCommand="gvProject_RowCommand" OnPageIndexChanging="gvProject_PageIndexChanging">
+            </div>
+            <div>
+                <asp:GridView runat="server" ID="gvProject" AutoGenerateColumns="false" AllowPaging="true" GridLines="None" ShowHeader="false" CssClass="wf_tbl"
+                    OnRowCommand="gvProject_RowCommand" OnPageIndexChanging="gvProject_PageIndexChanging">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <div style="padding: 5px; border-left: 3px solid #00ffff">
+                                <div style="padding: 5px; border-left: 3px solid #0094ff; margin-left: 10px;">
                                     <span><%# Eval("Project_Label") %></span><br />
                                     <span class="text-muted" style="font-size: smaller;"><%# Eval("FullAdd") %></span><br />
-                                       <span class="" style="font-size: smaller;"><%# Eval("Acct_Exec_Incharge") %></span><br />
+                                    <span class="" style="font-size: smaller;"><%# Eval("Acct_Exec_Incharge") %></span><br />
                                     <asp:LinkButton ID="btnParentjono" runat="server" CommandName="view_request" Text='<%# Bind("Parentjono") %>'></asp:LinkButton>
                                 </div>
                                 <br />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
+                    <EmptyDataTemplate>
+                        <p style="font-size: x-large" class="text-danger">0 result found!</p>
+                    </EmptyDataTemplate>
                     <PagerSettings PageButtonCount="15" Position="TopAndBottom" />
                     <PagerStyle CssClass="GridPager" BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Left" />
                 </asp:GridView>

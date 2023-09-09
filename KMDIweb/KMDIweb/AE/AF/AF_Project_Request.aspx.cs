@@ -108,7 +108,42 @@ namespace KMDIweb.KMDIweb.AE.AF
                     {
                         errorrmessage(e.Message);
                     }
+                    finally
+                    {
+                        loadSummary();
+                    }
                 }
+            }
+        }
+        private void loadSummary()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "AF_Request_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Summary_By_JO");
+                        sqlcmd.Parameters.AddWithValue("@JO_Parent", Request.QueryString["jo_parent"]);
+                        sqlcmd.Parameters.AddWithValue("@AE", "");
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(tb);
+                            gvSummary.DataSource = tb;
+                            gvSummary.DataBind();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
             }
         }
         private void Get_Arch_List()
@@ -132,6 +167,10 @@ namespace KMDIweb.KMDIweb.AE.AF
                             da.Fill(tb);
                             gvArchEmp.DataSource = tb;
                             gvArchEmp.DataBind();
+                        }
+                        if (gvArchEmp.Rows.Count == 0)
+                        {
+                            btnSubmitRequest.Visible = false;
                         }
                     }
                 }
@@ -209,6 +248,21 @@ namespace KMDIweb.KMDIweb.AE.AF
                 string id = ((Label)row.FindControl("lblId")).Text;
                 Delete_Request(id);
             }
+            else if (e.CommandName == "myEdit")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvRequestList.Rows[rowindex];
+                ((Panel)row.FindControl("pnlComment")).Visible = false;
+                ((Panel)row.FindControl("pnlCommentEdit")).Visible = true;
+            }
+            else  if (e.CommandName == "mySend")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvRequestList.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                string particular = ((TextBox)row.FindControl("tboxComment")).Text;
+                Edit_Request(id, particular);
+            }
         }
         private void Delete_Request(string id)
         {
@@ -223,6 +277,33 @@ namespace KMDIweb.KMDIweb.AE.AF
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Delete");
                         sqlcmd.Parameters.AddWithValue("@Id", id);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            finally
+            {
+                Get_Requests();
+            }
+        }
+        private void Edit_Request(string id, string particular)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "AF_Request_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Edit");
+                        sqlcmd.Parameters.AddWithValue("@Id", id);
+                        sqlcmd.Parameters.AddWithValue("@Particular", particular);
                         sqlcmd.ExecuteNonQuery();
                     }
                 }

@@ -54,7 +54,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="font-family:Bahnschrift">
     <form id="form1" runat="server" style="width: 100%; height: 100%; background-color: whitesmoke">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -64,19 +64,23 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Ledger</a>
+                    <a class="navbar-brand" href="#">AF</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="active">
-                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_Project_List.aspx">
+                        <li>
+                            <asp:HyperLink ID="hlProject" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_Project_List.aspx">
                                  <span class="glyphicon glyphicon-home"></span>&nbsp;Project</asp:HyperLink></li>
                         <li>
-                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_For_Checking.aspx">
-                                For Checking</asp:HyperLink></li>
+                            <asp:HyperLink ID="hlForChecking" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_For_Checking.aspx">
+                                <asp:Label ID="lblForChecking" runat="server" CssClass="badge"></asp:Label>
+                                AF Requests
+                            </asp:HyperLink></li>
                         <li>
-                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_For_Approval.aspx">
-                                For Approval</asp:HyperLink></li>
+                            <asp:HyperLink ID="hlForApproval" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_For_Approval.aspx">
+                                <asp:Label ID="lblForApproval" runat="server" CssClass="badge"></asp:Label>
+                                For Approval
+                            </asp:HyperLink></li>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

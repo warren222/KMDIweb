@@ -69,6 +69,19 @@ namespace KMDIweb.KMDIweb.AE.AF
                 }
             }
         }
+        private string ae()
+        {
+            string fullname = Session["KMDI_fullname"].ToString();
+            string user_code = Session["KMDI_user_code"].ToString();
+            if (user_code == "AE")
+            {
+                return fullname;
+            }
+            else
+            {
+                return ddlAE.Text;
+            }
+        }
         private void loaddata()
         {
             try
@@ -84,7 +97,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Get");
                         sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
-                        sqlcmd.Parameters.AddWithValue("@AE", ddlAE.Text);
+                        sqlcmd.Parameters.AddWithValue("@AE", ae());
                         sqlcmd.Parameters.AddWithValue("@Req_Status", ddlStatus.Text);
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
@@ -100,8 +113,12 @@ namespace KMDIweb.KMDIweb.AE.AF
             {
                 errorrmessage(ex.ToString());
             }
+            finally
+            {
+                loadSummary();
+            }
         }
-        private void approve(string comment, string id)
+        private void approve(string command, string comment, string id)
         {
             try
             {
@@ -114,7 +131,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                         sqlcon.Open();
                         sqlcmd.CommandText = "AF_Request_Approval_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@Command", "Approve");
+                        sqlcmd.Parameters.AddWithValue("@Command", command);
                         sqlcmd.Parameters.AddWithValue("@Approval_Remarks", comment);
                         sqlcmd.Parameters.AddWithValue("@Id", id);
                         sqlcmd.Parameters.AddWithValue("@Approved_By", Session["KMDI_fullname"].ToString());
@@ -131,7 +148,36 @@ namespace KMDIweb.KMDIweb.AE.AF
                 loaddata();
             }
         }
-
+        private void loadSummary()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "AF_Request_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Summary");
+                        sqlcmd.Parameters.AddWithValue("@AE", ae());
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(tb);
+                            gvSummary.DataSource = tb;
+                            gvSummary.DataBind();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+        }
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             loaddata();
@@ -144,7 +190,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                 GridViewRow row = gv1.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
                 string comment = ((TextBox)row.FindControl("tboxComment")).Text;
-                approve(comment, id);
+                approve("Approve",comment, id);
             }
             else if (e.CommandName == "myEdit")
             {
@@ -160,7 +206,20 @@ namespace KMDIweb.KMDIweb.AE.AF
                     ((Panel)row.FindControl("pnlCommentEdit")).Visible = true;
                     ((Panel)row.FindControl("pnlComment")).Visible = false;
                 }
-
+            }
+            else if (e.CommandName == "myHold")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gv1.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                approve("Hold", "", id);
+            }
+            else if (e.CommandName == "myUnhold")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gv1.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                approve("Unhold", "", id);
             }
         }
 
@@ -168,6 +227,58 @@ namespace KMDIweb.KMDIweb.AE.AF
         {
             gv1.PageIndex = e.NewPageIndex;
             loaddata();
+        }
+
+        protected void gvSummary_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "ForApproval")
+            {
+                tboxSearch.Text = "";
+                ddlAE.Text = "";
+                ddlStatus.Text = "For Approval";
+                loaddata();
+            }
+            else if (e.CommandName == "Approved")
+            {
+                tboxSearch.Text = "";
+                ddlAE.Text = "";
+                ddlStatus.Text = "Approved";
+                loaddata();
+            }
+            else if (e.CommandName == "Hold")
+            {
+                tboxSearch.Text = "";
+                ddlAE.Text = "";
+                ddlStatus.Text = "Hold";
+                loaddata();
+            }
+        }
+        protected void gv1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                TableCell cell = e.Row.Cells[0];
+                string status = ((Label)cell.FindControl("lblStatus")).Text;
+                HoldAccess(cell, status);
+            }
+        }
+        private void HoldAccess(TableCell cell, string status)
+        {
+            if (status == "Approved" || status == "For Approval")
+            {
+                ((LinkButton)cell.FindControl("btnHold")).Visible = true;
+                ((LinkButton)cell.FindControl("btnUnhold")).Visible = false;
+            }
+            else if (status == "Hold")
+            {
+                ((LinkButton)cell.FindControl("btnUnhold")).Visible = true;
+                ((LinkButton)cell.FindControl("btnHold")).Visible = false;
+            }
+            else
+            {
+                ((LinkButton)cell.FindControl("btnHold")).Visible = false;
+                ((LinkButton)cell.FindControl("btnUnhold")).Visible = false;
+            }
         }
     }
 }

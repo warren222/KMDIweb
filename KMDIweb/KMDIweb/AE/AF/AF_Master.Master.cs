@@ -1,5 +1,8 @@
-﻿using System;
+﻿using KMDIweb.SCREENfab;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,7 +16,9 @@ namespace KMDIweb.KMDIweb.AE.AF
         {
             if (Session["KMDI_userid"] != null)
             {
+
                 username.Text = Session["KMDI_nickname"].ToString() + " ";
+                loadSummary();
                 access();
             }
             else
@@ -23,7 +28,7 @@ namespace KMDIweb.KMDIweb.AE.AF
         }
         private void access()
         {
-            if (Session["KMDI_clg_acct"].ToString() == "Admin")
+            if (Session["KMDI_afr_acct"].ToString() == "Admin")
             {
                 BTNaccount.Visible = true;
             }
@@ -31,11 +36,102 @@ namespace KMDIweb.KMDIweb.AE.AF
             {
                 BTNaccount.Visible = false;
             }
+
+            if (Session["KMDI_user_code"].ToString() == "Programmer")
+            {
+                hlProject.Visible = true;
+                hlForApproval.Visible = true;
+                hlForChecking.Visible = true;
+            }
+            else if (Session["KMDI_user_code"].ToString() == "Management" && Session["KMDI_fullname"].ToString() == "Genalyn Garcia")
+            {
+                hlProject.Visible = false;
+                hlForApproval.Visible = true;
+                hlForChecking.Visible = false;
+            }
+            else if ((Session["KMDI_user_code"].ToString() == "Operations" && 
+                     Session["KMDI_fullname"].ToString() == "Jayvey Manalili"))
+            {
+                hlProject.Visible = false;
+                hlForApproval.Visible = false;
+                hlForChecking.Visible = true;
+            }
+            else if ((Session["KMDI_user_code"].ToString() == "AE"))
+            {
+                hlProject.Visible = true;
+                hlForApproval.Visible = false;
+                hlForChecking.Visible = true;
+            }
+            else
+            {
+                hlProject.Visible = false;
+                hlForApproval.Visible = false;
+                hlForChecking.Visible = false;
+            }
+        }
+        private string sqlconstr
+        {
+            get
+            {
+                return ConnectionString.sqlconstr();
+            }
         }
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Session.Abandon();
             Response.Redirect("~/KMDIweb/Global/login.aspx");
+        }
+        private string ae()
+        {
+            string fullname = Session["KMDI_fullname"].ToString();
+            string user_code = Session["KMDI_user_code"].ToString();
+            if(user_code == "AE")
+            {
+                return fullname;
+            }
+            else
+            {
+                return "";
+            }
+        }
+        private void loadSummary()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "AF_Request_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Summary");
+                        sqlcmd.Parameters.AddWithValue("@JO_Parent", Request.QueryString["jo_parent"]);
+                        sqlcmd.Parameters.AddWithValue("@AE", ae());
+                        using (SqlDataReader rdr = sqlcmd.ExecuteReader())
+                        {
+                            while (rdr.Read())
+                            {
+                                if (rdr[1].ToString() != "0")
+                                {
+                                    lblForApproval.BackColor = System.Drawing.Color.Red;
+                                }
+                                if (rdr[0].ToString() != "0")
+                                {
+                                    lblForChecking.BackColor = System.Drawing.Color.Red;
+                                }
+                                lblForApproval.Text = rdr[1].ToString();
+                                lblForChecking.Text = rdr[0].ToString();
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

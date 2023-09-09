@@ -13,7 +13,7 @@ namespace KMDIweb.KMDIweb.AE.AF
 {
     public partial class AF_Project_List : System.Web.UI.Page
     {
-      
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,6 +22,22 @@ namespace KMDIweb.KMDIweb.AE.AF
                 {
                     if (!IsPostBack)
                     {
+                        if (Session["KMDI_fullname"].ToString() == "Genalyn Garcia")
+                        {
+                            Response.Redirect("~/KMDIweb/AE/AF/AF_For_Approval.aspx");
+                        }
+                        else if (Session["KMDI_fullname"].ToString() == "Jayvey Manalili")
+                        {
+                            Response.Redirect("~/KMDIweb/AE/AF/AF_For_Checking.aspx");
+                        }
+                        if (Session["KMDI_user_code"].ToString() == "AE")
+                        {
+                            ddlAE.Enabled = false;
+                        }
+                        else
+                        {
+                            ddlAE.Enabled = true;
+                        }
                         Retrive_QueryStrings();
                         loadae();
                         loaddata();
@@ -78,6 +94,19 @@ namespace KMDIweb.KMDIweb.AE.AF
                 }
             }
         }
+        private string ae()
+        {
+            string fullname = Session["KMDI_fullname"].ToString();
+            string user_code = Session["KMDI_user_code"].ToString();
+            if (user_code == "AE")
+            {
+                return fullname;
+            }
+            else
+            {
+                return ddlAE.Text;
+            }
+        }
         private void loaddata()
         {
             try
@@ -93,7 +122,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Get_Project");
                         sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
-                        sqlcmd.Parameters.AddWithValue("@AE", ddlAE.Text);
+                        sqlcmd.Parameters.AddWithValue("@AE", ae());
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
                             da.SelectCommand = sqlcmd;
