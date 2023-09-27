@@ -220,6 +220,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                         sqlcmd.CommandText = "AF_Request_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Insert");
+                        sqlcmd.Parameters.AddWithValue("@SubCommand", "Manual");
                         sqlcmd.Parameters.AddWithValue("@JO_Parent", Request.QueryString["jo_parent"]);
                         sqlcmd.Parameters.AddWithValue("@Arch_Id", identifier);
                         sqlcmd.Parameters.AddWithValue("@Account_Exec", account_exec);

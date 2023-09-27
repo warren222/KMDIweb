@@ -102,6 +102,7 @@
                                     <asp:TemplateField>
                                         <ItemTemplate>
                                             <asp:Label runat="server" Visible="false" ID="lblStatus" Text='<%# Bind("Req_Status")%>'></asp:Label>
+                                            <asp:Label runat="server" Visible="false" ID="lblHoldBy" Text='<%# Bind("Hold_By")%>'></asp:Label>
                                             <div style='border-left: 2px solid; border-color: <%# Eval("Req_Status").ToString() == "For Checking" ? "SkyBlue" :
                                                         Eval("Req_Status").ToString() == "Hold" ? "Red" :
                                                 Eval("Req_Status").ToString() == "For Approval" ? "Orange" :

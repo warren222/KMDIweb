@@ -331,8 +331,31 @@ namespace KMDIweb.KMDIweb.AE.AF
             }
             else if (status == "Hold")
             {
-                ((LinkButton)cell.FindControl("btnUnhold")).Visible = true;
+             
                 ((LinkButton)cell.FindControl("btnHold")).Visible = false;
+                ((LinkButton)cell.FindControl("btnEdit")).Visible = false;
+                ((LinkButton)cell.FindControl("btnEditParticular")).Visible = false;
+                ((LinkButton)cell.FindControl("btnDone")).Visible = false;
+
+                string heldby = ((Label)cell.FindControl("lblHoldBy")).Text;
+                string fullname = Session["KMDI_fullname"].ToString();
+                string user_code = Session["KMDI_user_code"].ToString();
+
+                if (user_code == "Programmer")
+                {
+                    ((LinkButton)cell.FindControl("btnUnhold")).Visible = true;
+                }
+                else
+                {
+                    if(heldby == fullname)
+                    {
+                        ((LinkButton)cell.FindControl("btnUnhold")).Visible = true;
+                    }
+                    else
+                    {
+                        ((LinkButton)cell.FindControl("btnUnhold")).Visible = false;
+                    }
+                }
             }
             else
             {
