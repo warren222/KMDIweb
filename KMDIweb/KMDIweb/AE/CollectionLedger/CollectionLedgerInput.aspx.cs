@@ -35,7 +35,9 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
         }
         private bool ddlAE_Access()
         {
-            if (Session["KMDI_fullname"].ToString() == "Jayvey Manalili" || Session["KMDI_fullname"].ToString() == "Warren Mangaring")
+            if (Session["KMDI_fullname"].ToString() == "Jayvey Manalili" ||
+                Session["KMDI_fullname"].ToString() == "Ruffa Perez" ||
+                Session["KMDI_fullname"].ToString() == "Warren Mangaring")
             {
                 return true;
             }
