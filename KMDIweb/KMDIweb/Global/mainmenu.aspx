@@ -171,7 +171,7 @@
                     </asp:Panel>
                 </div>
                 <div class="col-sm-3">
-                    <asp:Panel ID="Panel8" Visible="true" runat="server">
+                    <asp:Panel ID="pnlAF" Visible="false" runat="server">
                         <div class="thumbnail">
                             <asp:Image ID="Image8" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/collection.jpg" runat="server" AlternateText="AF" />
                             <br />
@@ -186,7 +186,37 @@
                     </asp:Panel>
                 </div>
             </div>
-
+            <br />
+            <div class="row">
+                <div class="col-sm-3">
+                    <asp:Panel ID="pnlAC" Visible="false" runat="server">
+                        <div class="thumbnail">
+                            <asp:Image ID="Image9" CssClass="img-thumbnail img-circle ff" Height="170" Width="170"  ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="accg clearance" />
+                            <br />
+                            <div>
+                                <strong style="font-size: x-large"><span class="glyphicon glyphicon-list-alt"></span>
+                                    <span>Accg Clearance</span></strong><br />
+                                <small>Requisition</small>
+                                <asp:LinkButton ID="LinkButton10" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton10_Click">ENTER</asp:LinkButton>
+                            </div>
+                        </div>
+                    </asp:Panel>
+                </div>
+                  <div class="col-sm-3">
+                    <asp:Panel ID="pnlPO" Visible="false" runat="server">
+                        <div class="thumbnail">
+                            <asp:Image ID="Image10" CssClass="img-thumbnail img-circle ff" Height="170" Width="170"  ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="accg clearance" />
+                            <br />
+                            <div>
+                                <strong style="font-size: x-large"><span class="glyphicon glyphicon-list-alt"></span>
+                                    <span>Glass P.O.</span></strong><br />
+                                <small>Purchase Order</small>
+                                <asp:LinkButton ID="LinkButton11" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton11_Click">ENTER</asp:LinkButton>
+                            </div>
+                        </div>
+                    </asp:Panel>
+                </div>
+            </div>
         </div>
     </form>
 </body>

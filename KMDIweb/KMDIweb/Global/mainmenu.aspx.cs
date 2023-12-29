@@ -99,6 +99,13 @@ namespace KMDIweb.KMDIapp
                 return Session["KMDI_user_code"].ToString();
             }
         }
+        private string fullname
+        {
+            get
+            {
+                return Session["KMDI_fullname"].ToString();
+            }
+        }
         private void access()
         {
             if ((usercode == "Delivery") ||
@@ -141,6 +148,28 @@ namespace KMDIweb.KMDIapp
                 Panel3.Visible = false;
                 Panel4.Visible = false;
             }
+
+            if ((usercode == "AE") || 
+                (usercode == "Accounting") ||
+                ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
+                (usercode == "Programmer") ||
+                (fullname == "Genalyn Garcia"))
+            {
+                pnlAC.Visible = true;
+            }
+            if ((usercode == "AE") ||
+            ((fullname == "Jayvey Manalili" && usercode == "Operations")) ||
+            (usercode == "Programmer") ||
+            (fullname == "Genalyn Garcia"))
+            {
+                pnlAF.Visible = true;
+            }
+            if ((usercode == "Programmer") ||
+           (fullname == "Genalyn Garcia"))
+            {
+                pnlPO.Visible = true;
+            }
+
         }
 
         protected void LinkButton5_Click(object sender, EventArgs e)
@@ -170,6 +199,14 @@ namespace KMDIweb.KMDIapp
         protected void LinkButton9_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/KMDIweb/AE/AF/AF_Project_List.aspx");
+        }
+        protected void LinkButton10_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIweb/AE/AccountingClearance/AC_ProjectList.aspx");
+        }
+        protected void LinkButton11_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIweb/PO/PO_ForApproval.aspx");
         }
     }
 }

@@ -30,6 +30,14 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         
         private ProjectSummaryDataTable tableProjectSummary;
         
+        private KMDI_GLASSPO_TBDataTable tableKMDI_GLASSPO_TB;
+        
+        private KMDI_PONUM_TBDataTable tableKMDI_PONUM_TB;
+        
+        private KMDI_ACCT_TBDataTable tableKMDI_ACCT_TB;
+        
+        private ADDENDUM_TO_CONTRACT_TBDataTable tableADDENDUM_TO_CONTRACT_TB;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -66,6 +74,18 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 }
                 if ((ds.Tables["ProjectSummary"] != null)) {
                     base.Tables.Add(new ProjectSummaryDataTable(ds.Tables["ProjectSummary"]));
+                }
+                if ((ds.Tables["KMDI_GLASSPO_TB"] != null)) {
+                    base.Tables.Add(new KMDI_GLASSPO_TBDataTable(ds.Tables["KMDI_GLASSPO_TB"]));
+                }
+                if ((ds.Tables["KMDI_PONUM_TB"] != null)) {
+                    base.Tables.Add(new KMDI_PONUM_TBDataTable(ds.Tables["KMDI_PONUM_TB"]));
+                }
+                if ((ds.Tables["KMDI_ACCT_TB"] != null)) {
+                    base.Tables.Add(new KMDI_ACCT_TBDataTable(ds.Tables["KMDI_ACCT_TB"]));
+                }
+                if ((ds.Tables["ADDENDUM_TO_CONTRACT_TB"] != null)) {
+                    base.Tables.Add(new ADDENDUM_TO_CONTRACT_TBDataTable(ds.Tables["ADDENDUM_TO_CONTRACT_TB"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -112,6 +132,46 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         public ProjectSummaryDataTable ProjectSummary {
             get {
                 return this.tableProjectSummary;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public KMDI_GLASSPO_TBDataTable KMDI_GLASSPO_TB {
+            get {
+                return this.tableKMDI_GLASSPO_TB;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public KMDI_PONUM_TBDataTable KMDI_PONUM_TB {
+            get {
+                return this.tableKMDI_PONUM_TB;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public KMDI_ACCT_TBDataTable KMDI_ACCT_TB {
+            get {
+                return this.tableKMDI_ACCT_TB;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ADDENDUM_TO_CONTRACT_TBDataTable ADDENDUM_TO_CONTRACT_TB {
+            get {
+                return this.tableADDENDUM_TO_CONTRACT_TB;
             }
         }
         
@@ -191,6 +251,18 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 if ((ds.Tables["ProjectSummary"] != null)) {
                     base.Tables.Add(new ProjectSummaryDataTable(ds.Tables["ProjectSummary"]));
                 }
+                if ((ds.Tables["KMDI_GLASSPO_TB"] != null)) {
+                    base.Tables.Add(new KMDI_GLASSPO_TBDataTable(ds.Tables["KMDI_GLASSPO_TB"]));
+                }
+                if ((ds.Tables["KMDI_PONUM_TB"] != null)) {
+                    base.Tables.Add(new KMDI_PONUM_TBDataTable(ds.Tables["KMDI_PONUM_TB"]));
+                }
+                if ((ds.Tables["KMDI_ACCT_TB"] != null)) {
+                    base.Tables.Add(new KMDI_ACCT_TBDataTable(ds.Tables["KMDI_ACCT_TB"]));
+                }
+                if ((ds.Tables["ADDENDUM_TO_CONTRACT_TB"] != null)) {
+                    base.Tables.Add(new ADDENDUM_TO_CONTRACT_TBDataTable(ds.Tables["ADDENDUM_TO_CONTRACT_TB"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -242,6 +314,30 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                     this.tableProjectSummary.InitVars();
                 }
             }
+            this.tableKMDI_GLASSPO_TB = ((KMDI_GLASSPO_TBDataTable)(base.Tables["KMDI_GLASSPO_TB"]));
+            if ((initTable == true)) {
+                if ((this.tableKMDI_GLASSPO_TB != null)) {
+                    this.tableKMDI_GLASSPO_TB.InitVars();
+                }
+            }
+            this.tableKMDI_PONUM_TB = ((KMDI_PONUM_TBDataTable)(base.Tables["KMDI_PONUM_TB"]));
+            if ((initTable == true)) {
+                if ((this.tableKMDI_PONUM_TB != null)) {
+                    this.tableKMDI_PONUM_TB.InitVars();
+                }
+            }
+            this.tableKMDI_ACCT_TB = ((KMDI_ACCT_TBDataTable)(base.Tables["KMDI_ACCT_TB"]));
+            if ((initTable == true)) {
+                if ((this.tableKMDI_ACCT_TB != null)) {
+                    this.tableKMDI_ACCT_TB.InitVars();
+                }
+            }
+            this.tableADDENDUM_TO_CONTRACT_TB = ((ADDENDUM_TO_CONTRACT_TBDataTable)(base.Tables["ADDENDUM_TO_CONTRACT_TB"]));
+            if ((initTable == true)) {
+                if ((this.tableADDENDUM_TO_CONTRACT_TB != null)) {
+                    this.tableADDENDUM_TO_CONTRACT_TB.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,6 +354,14 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             base.Tables.Add(this.tableDailyOutput);
             this.tableProjectSummary = new ProjectSummaryDataTable();
             base.Tables.Add(this.tableProjectSummary);
+            this.tableKMDI_GLASSPO_TB = new KMDI_GLASSPO_TBDataTable();
+            base.Tables.Add(this.tableKMDI_GLASSPO_TB);
+            this.tableKMDI_PONUM_TB = new KMDI_PONUM_TBDataTable();
+            base.Tables.Add(this.tableKMDI_PONUM_TB);
+            this.tableKMDI_ACCT_TB = new KMDI_ACCT_TBDataTable();
+            base.Tables.Add(this.tableKMDI_ACCT_TB);
+            this.tableADDENDUM_TO_CONTRACT_TB = new ADDENDUM_TO_CONTRACT_TBDataTable();
+            base.Tables.Add(this.tableADDENDUM_TO_CONTRACT_TB);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -275,6 +379,30 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeProjectSummary() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeKMDI_GLASSPO_TB() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeKMDI_PONUM_TB() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeKMDI_ACCT_TB() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeADDENDUM_TO_CONTRACT_TB() {
             return false;
         }
         
@@ -341,6 +469,18 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void ProjectSummaryRowChangeEventHandler(object sender, ProjectSummaryRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void KMDI_GLASSPO_TBRowChangeEventHandler(object sender, KMDI_GLASSPO_TBRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void KMDI_PONUM_TBRowChangeEventHandler(object sender, KMDI_PONUM_TBRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void KMDI_ACCT_TBRowChangeEventHandler(object sender, KMDI_ACCT_TBRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void ADDENDUM_TO_CONTRACT_TBRowChangeEventHandler(object sender, ADDENDUM_TO_CONTRACT_TBRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1509,6 +1649,1723 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class KMDI_GLASSPO_TBDataTable : global::System.Data.TypedTableBase<KMDI_GLASSPO_TBRow> {
+            
+            private global::System.Data.DataColumn columnJOB_ORDER_NO;
+            
+            private global::System.Data.DataColumn columnKMDI_NO;
+            
+            private global::System.Data.DataColumn columnG_NO;
+            
+            private global::System.Data.DataColumn columnPO;
+            
+            private global::System.Data.DataColumn columnWIDTH;
+            
+            private global::System.Data.DataColumn columnHEIGHT;
+            
+            private global::System.Data.DataColumn columnTOTAL_PCS;
+            
+            private global::System.Data.DataColumn columnSUPPLIER;
+            
+            private global::System.Data.DataColumn columnGLASS_SPECS;
+            
+            private global::System.Data.DataColumn columnUNIT_PRICE;
+            
+            private global::System.Data.DataColumn columnSP;
+            
+            private global::System.Data.DataColumn columnCUT;
+            
+            private global::System.Data.DataColumn columnAMOUNT;
+            
+            private global::System.Data.DataColumn columnAREA;
+            
+            private global::System.Data.DataColumn columnWIDTH_FT;
+            
+            private global::System.Data.DataColumn columnBASIS_WIDTH;
+            
+            private global::System.Data.DataColumn columnHEIGHT_FT;
+            
+            private global::System.Data.DataColumn columnBASIS_HEIGHT;
+            
+            private global::System.Data.DataColumn columnREMARKS;
+            
+            private global::System.Data.DataColumn columnSP_SPECS;
+            
+            private global::System.Data.DataColumn columnWDW_NO;
+            
+            private global::System.Data.DataColumn columnLOCATION;
+            
+            private global::System.Data.DataColumn columnBEVELLED;
+            
+            private global::System.Data.DataColumn columnHOLES;
+            
+            private global::System.Data.DataColumn columnHOLES_QTY;
+            
+            private global::System.Data.DataColumn columnCOMPUTATION;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_GLASSPO_TBDataTable() {
+                this.TableName = "KMDI_GLASSPO_TB";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal KMDI_GLASSPO_TBDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected KMDI_GLASSPO_TBDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn JOB_ORDER_NOColumn {
+                get {
+                    return this.columnJOB_ORDER_NO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn KMDI_NOColumn {
+                get {
+                    return this.columnKMDI_NO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn G_NOColumn {
+                get {
+                    return this.columnG_NO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn POColumn {
+                get {
+                    return this.columnPO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WIDTHColumn {
+                get {
+                    return this.columnWIDTH;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HEIGHTColumn {
+                get {
+                    return this.columnHEIGHT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TOTAL_PCSColumn {
+                get {
+                    return this.columnTOTAL_PCS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SUPPLIERColumn {
+                get {
+                    return this.columnSUPPLIER;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GLASS_SPECSColumn {
+                get {
+                    return this.columnGLASS_SPECS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UNIT_PRICEColumn {
+                get {
+                    return this.columnUNIT_PRICE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SPColumn {
+                get {
+                    return this.columnSP;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CUTColumn {
+                get {
+                    return this.columnCUT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AMOUNTColumn {
+                get {
+                    return this.columnAMOUNT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AREAColumn {
+                get {
+                    return this.columnAREA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WIDTH_FTColumn {
+                get {
+                    return this.columnWIDTH_FT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BASIS_WIDTHColumn {
+                get {
+                    return this.columnBASIS_WIDTH;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HEIGHT_FTColumn {
+                get {
+                    return this.columnHEIGHT_FT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BASIS_HEIGHTColumn {
+                get {
+                    return this.columnBASIS_HEIGHT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn REMARKSColumn {
+                get {
+                    return this.columnREMARKS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SP_SPECSColumn {
+                get {
+                    return this.columnSP_SPECS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WDW_NOColumn {
+                get {
+                    return this.columnWDW_NO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LOCATIONColumn {
+                get {
+                    return this.columnLOCATION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BEVELLEDColumn {
+                get {
+                    return this.columnBEVELLED;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HOLESColumn {
+                get {
+                    return this.columnHOLES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HOLES_QTYColumn {
+                get {
+                    return this.columnHOLES_QTY;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn COMPUTATIONColumn {
+                get {
+                    return this.columnCOMPUTATION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_GLASSPO_TBRow this[int index] {
+                get {
+                    return ((KMDI_GLASSPO_TBRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KMDI_GLASSPO_TBRowChangeEventHandler KMDI_GLASSPO_TBRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KMDI_GLASSPO_TBRowChangeEventHandler KMDI_GLASSPO_TBRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KMDI_GLASSPO_TBRowChangeEventHandler KMDI_GLASSPO_TBRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KMDI_GLASSPO_TBRowChangeEventHandler KMDI_GLASSPO_TBRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddKMDI_GLASSPO_TBRow(KMDI_GLASSPO_TBRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_GLASSPO_TBRow AddKMDI_GLASSPO_TBRow(
+                        string JOB_ORDER_NO, 
+                        string KMDI_NO, 
+                        string G_NO, 
+                        string PO, 
+                        string WIDTH, 
+                        string HEIGHT, 
+                        short TOTAL_PCS, 
+                        string SUPPLIER, 
+                        string GLASS_SPECS, 
+                        decimal UNIT_PRICE, 
+                        decimal SP, 
+                        decimal CUT, 
+                        decimal AMOUNT, 
+                        string AREA, 
+                        string WIDTH_FT, 
+                        string BASIS_WIDTH, 
+                        string HEIGHT_FT, 
+                        string BASIS_HEIGHT, 
+                        string REMARKS, 
+                        string SP_SPECS, 
+                        string WDW_NO, 
+                        string LOCATION, 
+                        decimal BEVELLED, 
+                        decimal HOLES, 
+                        decimal HOLES_QTY, 
+                        string COMPUTATION) {
+                KMDI_GLASSPO_TBRow rowKMDI_GLASSPO_TBRow = ((KMDI_GLASSPO_TBRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        JOB_ORDER_NO,
+                        KMDI_NO,
+                        G_NO,
+                        PO,
+                        WIDTH,
+                        HEIGHT,
+                        TOTAL_PCS,
+                        SUPPLIER,
+                        GLASS_SPECS,
+                        UNIT_PRICE,
+                        SP,
+                        CUT,
+                        AMOUNT,
+                        AREA,
+                        WIDTH_FT,
+                        BASIS_WIDTH,
+                        HEIGHT_FT,
+                        BASIS_HEIGHT,
+                        REMARKS,
+                        SP_SPECS,
+                        WDW_NO,
+                        LOCATION,
+                        BEVELLED,
+                        HOLES,
+                        HOLES_QTY,
+                        COMPUTATION};
+                rowKMDI_GLASSPO_TBRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowKMDI_GLASSPO_TBRow);
+                return rowKMDI_GLASSPO_TBRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                KMDI_GLASSPO_TBDataTable cln = ((KMDI_GLASSPO_TBDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new KMDI_GLASSPO_TBDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnJOB_ORDER_NO = base.Columns["JOB_ORDER_NO"];
+                this.columnKMDI_NO = base.Columns["KMDI_NO"];
+                this.columnG_NO = base.Columns["G_NO"];
+                this.columnPO = base.Columns["PO"];
+                this.columnWIDTH = base.Columns["WIDTH"];
+                this.columnHEIGHT = base.Columns["HEIGHT"];
+                this.columnTOTAL_PCS = base.Columns["TOTAL_PCS"];
+                this.columnSUPPLIER = base.Columns["SUPPLIER"];
+                this.columnGLASS_SPECS = base.Columns["GLASS_SPECS"];
+                this.columnUNIT_PRICE = base.Columns["UNIT_PRICE"];
+                this.columnSP = base.Columns["SP"];
+                this.columnCUT = base.Columns["CUT"];
+                this.columnAMOUNT = base.Columns["AMOUNT"];
+                this.columnAREA = base.Columns["AREA"];
+                this.columnWIDTH_FT = base.Columns["WIDTH_FT"];
+                this.columnBASIS_WIDTH = base.Columns["BASIS_WIDTH"];
+                this.columnHEIGHT_FT = base.Columns["HEIGHT_FT"];
+                this.columnBASIS_HEIGHT = base.Columns["BASIS_HEIGHT"];
+                this.columnREMARKS = base.Columns["REMARKS"];
+                this.columnSP_SPECS = base.Columns["SP_SPECS"];
+                this.columnWDW_NO = base.Columns["WDW_NO"];
+                this.columnLOCATION = base.Columns["LOCATION"];
+                this.columnBEVELLED = base.Columns["BEVELLED"];
+                this.columnHOLES = base.Columns["HOLES"];
+                this.columnHOLES_QTY = base.Columns["HOLES_QTY"];
+                this.columnCOMPUTATION = base.Columns["COMPUTATION"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnJOB_ORDER_NO = new global::System.Data.DataColumn("JOB_ORDER_NO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJOB_ORDER_NO);
+                this.columnKMDI_NO = new global::System.Data.DataColumn("KMDI_NO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKMDI_NO);
+                this.columnG_NO = new global::System.Data.DataColumn("G_NO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnG_NO);
+                this.columnPO = new global::System.Data.DataColumn("PO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPO);
+                this.columnWIDTH = new global::System.Data.DataColumn("WIDTH", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWIDTH);
+                this.columnHEIGHT = new global::System.Data.DataColumn("HEIGHT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHEIGHT);
+                this.columnTOTAL_PCS = new global::System.Data.DataColumn("TOTAL_PCS", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTOTAL_PCS);
+                this.columnSUPPLIER = new global::System.Data.DataColumn("SUPPLIER", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSUPPLIER);
+                this.columnGLASS_SPECS = new global::System.Data.DataColumn("GLASS_SPECS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGLASS_SPECS);
+                this.columnUNIT_PRICE = new global::System.Data.DataColumn("UNIT_PRICE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUNIT_PRICE);
+                this.columnSP = new global::System.Data.DataColumn("SP", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSP);
+                this.columnCUT = new global::System.Data.DataColumn("CUT", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCUT);
+                this.columnAMOUNT = new global::System.Data.DataColumn("AMOUNT", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAMOUNT);
+                this.columnAREA = new global::System.Data.DataColumn("AREA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAREA);
+                this.columnWIDTH_FT = new global::System.Data.DataColumn("WIDTH_FT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWIDTH_FT);
+                this.columnBASIS_WIDTH = new global::System.Data.DataColumn("BASIS_WIDTH", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBASIS_WIDTH);
+                this.columnHEIGHT_FT = new global::System.Data.DataColumn("HEIGHT_FT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHEIGHT_FT);
+                this.columnBASIS_HEIGHT = new global::System.Data.DataColumn("BASIS_HEIGHT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBASIS_HEIGHT);
+                this.columnREMARKS = new global::System.Data.DataColumn("REMARKS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnREMARKS);
+                this.columnSP_SPECS = new global::System.Data.DataColumn("SP_SPECS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSP_SPECS);
+                this.columnWDW_NO = new global::System.Data.DataColumn("WDW_NO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWDW_NO);
+                this.columnLOCATION = new global::System.Data.DataColumn("LOCATION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLOCATION);
+                this.columnBEVELLED = new global::System.Data.DataColumn("BEVELLED", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBEVELLED);
+                this.columnHOLES = new global::System.Data.DataColumn("HOLES", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHOLES);
+                this.columnHOLES_QTY = new global::System.Data.DataColumn("HOLES_QTY", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHOLES_QTY);
+                this.columnCOMPUTATION = new global::System.Data.DataColumn("COMPUTATION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOMPUTATION);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_GLASSPO_TBRow NewKMDI_GLASSPO_TBRow() {
+                return ((KMDI_GLASSPO_TBRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new KMDI_GLASSPO_TBRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(KMDI_GLASSPO_TBRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.KMDI_GLASSPO_TBRowChanged != null)) {
+                    this.KMDI_GLASSPO_TBRowChanged(this, new KMDI_GLASSPO_TBRowChangeEvent(((KMDI_GLASSPO_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.KMDI_GLASSPO_TBRowChanging != null)) {
+                    this.KMDI_GLASSPO_TBRowChanging(this, new KMDI_GLASSPO_TBRowChangeEvent(((KMDI_GLASSPO_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.KMDI_GLASSPO_TBRowDeleted != null)) {
+                    this.KMDI_GLASSPO_TBRowDeleted(this, new KMDI_GLASSPO_TBRowChangeEvent(((KMDI_GLASSPO_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.KMDI_GLASSPO_TBRowDeleting != null)) {
+                    this.KMDI_GLASSPO_TBRowDeleting(this, new KMDI_GLASSPO_TBRowChangeEvent(((KMDI_GLASSPO_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveKMDI_GLASSPO_TBRow(KMDI_GLASSPO_TBRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                reportDS ds = new reportDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "KMDI_GLASSPO_TBDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class KMDI_PONUM_TBDataTable : global::System.Data.TypedTableBase<KMDI_PONUM_TBRow> {
+            
+            private global::System.Data.DataColumn columnNO;
+            
+            private global::System.Data.DataColumn columnDATE;
+            
+            private global::System.Data.DataColumn columnTERMS;
+            
+            private global::System.Data.DataColumn columnSUPPLIER;
+            
+            private global::System.Data.DataColumn columnADDRESS;
+            
+            private global::System.Data.DataColumn columnTEL;
+            
+            private global::System.Data.DataColumn columnFAX;
+            
+            private global::System.Data.DataColumn columnREQUESTED;
+            
+            private global::System.Data.DataColumn columnNOTED;
+            
+            private global::System.Data.DataColumn columnAPPROVED;
+            
+            private global::System.Data.DataColumn columnDELAT;
+            
+            private global::System.Data.DataColumn columnCUTOFF;
+            
+            private global::System.Data.DataColumn columnREMARKS;
+            
+            private global::System.Data.DataColumn columnRUSH;
+            
+            private global::System.Data.DataColumn columnDELON;
+            
+            private global::System.Data.DataColumn columnSHIPBY;
+            
+            private global::System.Data.DataColumn columnDISC;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_PONUM_TBDataTable() {
+                this.TableName = "KMDI_PONUM_TB";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal KMDI_PONUM_TBDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected KMDI_PONUM_TBDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOColumn {
+                get {
+                    return this.columnNO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DATEColumn {
+                get {
+                    return this.columnDATE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TERMSColumn {
+                get {
+                    return this.columnTERMS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SUPPLIERColumn {
+                get {
+                    return this.columnSUPPLIER;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ADDRESSColumn {
+                get {
+                    return this.columnADDRESS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TELColumn {
+                get {
+                    return this.columnTEL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FAXColumn {
+                get {
+                    return this.columnFAX;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn REQUESTEDColumn {
+                get {
+                    return this.columnREQUESTED;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOTEDColumn {
+                get {
+                    return this.columnNOTED;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn APPROVEDColumn {
+                get {
+                    return this.columnAPPROVED;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DELATColumn {
+                get {
+                    return this.columnDELAT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CUTOFFColumn {
+                get {
+                    return this.columnCUTOFF;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn REMARKSColumn {
+                get {
+                    return this.columnREMARKS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RUSHColumn {
+                get {
+                    return this.columnRUSH;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DELONColumn {
+                get {
+                    return this.columnDELON;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SHIPBYColumn {
+                get {
+                    return this.columnSHIPBY;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DISCColumn {
+                get {
+                    return this.columnDISC;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_PONUM_TBRow this[int index] {
+                get {
+                    return ((KMDI_PONUM_TBRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KMDI_PONUM_TBRowChangeEventHandler KMDI_PONUM_TBRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KMDI_PONUM_TBRowChangeEventHandler KMDI_PONUM_TBRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KMDI_PONUM_TBRowChangeEventHandler KMDI_PONUM_TBRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KMDI_PONUM_TBRowChangeEventHandler KMDI_PONUM_TBRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddKMDI_PONUM_TBRow(KMDI_PONUM_TBRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_PONUM_TBRow AddKMDI_PONUM_TBRow(
+                        string NO, 
+                        string DATE, 
+                        string TERMS, 
+                        string SUPPLIER, 
+                        string ADDRESS, 
+                        string TEL, 
+                        string FAX, 
+                        string REQUESTED, 
+                        string NOTED, 
+                        string APPROVED, 
+                        string DELAT, 
+                        string CUTOFF, 
+                        string REMARKS, 
+                        string RUSH, 
+                        string DELON, 
+                        string SHIPBY, 
+                        decimal DISC) {
+                KMDI_PONUM_TBRow rowKMDI_PONUM_TBRow = ((KMDI_PONUM_TBRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        NO,
+                        DATE,
+                        TERMS,
+                        SUPPLIER,
+                        ADDRESS,
+                        TEL,
+                        FAX,
+                        REQUESTED,
+                        NOTED,
+                        APPROVED,
+                        DELAT,
+                        CUTOFF,
+                        REMARKS,
+                        RUSH,
+                        DELON,
+                        SHIPBY,
+                        DISC};
+                rowKMDI_PONUM_TBRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowKMDI_PONUM_TBRow);
+                return rowKMDI_PONUM_TBRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                KMDI_PONUM_TBDataTable cln = ((KMDI_PONUM_TBDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new KMDI_PONUM_TBDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnNO = base.Columns["NO"];
+                this.columnDATE = base.Columns["DATE"];
+                this.columnTERMS = base.Columns["TERMS"];
+                this.columnSUPPLIER = base.Columns["SUPPLIER"];
+                this.columnADDRESS = base.Columns["ADDRESS"];
+                this.columnTEL = base.Columns["TEL"];
+                this.columnFAX = base.Columns["FAX"];
+                this.columnREQUESTED = base.Columns["REQUESTED"];
+                this.columnNOTED = base.Columns["NOTED"];
+                this.columnAPPROVED = base.Columns["APPROVED"];
+                this.columnDELAT = base.Columns["DELAT"];
+                this.columnCUTOFF = base.Columns["CUTOFF"];
+                this.columnREMARKS = base.Columns["REMARKS"];
+                this.columnRUSH = base.Columns["RUSH"];
+                this.columnDELON = base.Columns["DELON"];
+                this.columnSHIPBY = base.Columns["SHIPBY"];
+                this.columnDISC = base.Columns["DISC"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnNO = new global::System.Data.DataColumn("NO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNO);
+                this.columnDATE = new global::System.Data.DataColumn("DATE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDATE);
+                this.columnTERMS = new global::System.Data.DataColumn("TERMS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTERMS);
+                this.columnSUPPLIER = new global::System.Data.DataColumn("SUPPLIER", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSUPPLIER);
+                this.columnADDRESS = new global::System.Data.DataColumn("ADDRESS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnADDRESS);
+                this.columnTEL = new global::System.Data.DataColumn("TEL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTEL);
+                this.columnFAX = new global::System.Data.DataColumn("FAX", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFAX);
+                this.columnREQUESTED = new global::System.Data.DataColumn("REQUESTED", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnREQUESTED);
+                this.columnNOTED = new global::System.Data.DataColumn("NOTED", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOTED);
+                this.columnAPPROVED = new global::System.Data.DataColumn("APPROVED", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAPPROVED);
+                this.columnDELAT = new global::System.Data.DataColumn("DELAT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDELAT);
+                this.columnCUTOFF = new global::System.Data.DataColumn("CUTOFF", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCUTOFF);
+                this.columnREMARKS = new global::System.Data.DataColumn("REMARKS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnREMARKS);
+                this.columnRUSH = new global::System.Data.DataColumn("RUSH", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRUSH);
+                this.columnDELON = new global::System.Data.DataColumn("DELON", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDELON);
+                this.columnSHIPBY = new global::System.Data.DataColumn("SHIPBY", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSHIPBY);
+                this.columnDISC = new global::System.Data.DataColumn("DISC", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDISC);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_PONUM_TBRow NewKMDI_PONUM_TBRow() {
+                return ((KMDI_PONUM_TBRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new KMDI_PONUM_TBRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(KMDI_PONUM_TBRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.KMDI_PONUM_TBRowChanged != null)) {
+                    this.KMDI_PONUM_TBRowChanged(this, new KMDI_PONUM_TBRowChangeEvent(((KMDI_PONUM_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.KMDI_PONUM_TBRowChanging != null)) {
+                    this.KMDI_PONUM_TBRowChanging(this, new KMDI_PONUM_TBRowChangeEvent(((KMDI_PONUM_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.KMDI_PONUM_TBRowDeleted != null)) {
+                    this.KMDI_PONUM_TBRowDeleted(this, new KMDI_PONUM_TBRowChangeEvent(((KMDI_PONUM_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.KMDI_PONUM_TBRowDeleting != null)) {
+                    this.KMDI_PONUM_TBRowDeleting(this, new KMDI_PONUM_TBRowChangeEvent(((KMDI_PONUM_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveKMDI_PONUM_TBRow(KMDI_PONUM_TBRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                reportDS ds = new reportDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "KMDI_PONUM_TBDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class KMDI_ACCT_TBDataTable : global::System.Data.TypedTableBase<KMDI_ACCT_TBRow> {
+            
+            private global::System.Data.DataColumn columnAUTONUM;
+            
+            private global::System.Data.DataColumn columnFULLNAME;
+            
+            private global::System.Data.DataColumn columnACCTTYPE;
+            
+            private global::System.Data.DataColumn columnUSERNAME;
+            
+            private global::System.Data.DataColumn columnPASSWORD;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_ACCT_TBDataTable() {
+                this.TableName = "KMDI_ACCT_TB";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal KMDI_ACCT_TBDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected KMDI_ACCT_TBDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AUTONUMColumn {
+                get {
+                    return this.columnAUTONUM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FULLNAMEColumn {
+                get {
+                    return this.columnFULLNAME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ACCTTYPEColumn {
+                get {
+                    return this.columnACCTTYPE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn USERNAMEColumn {
+                get {
+                    return this.columnUSERNAME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PASSWORDColumn {
+                get {
+                    return this.columnPASSWORD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_ACCT_TBRow this[int index] {
+                get {
+                    return ((KMDI_ACCT_TBRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KMDI_ACCT_TBRowChangeEventHandler KMDI_ACCT_TBRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KMDI_ACCT_TBRowChangeEventHandler KMDI_ACCT_TBRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KMDI_ACCT_TBRowChangeEventHandler KMDI_ACCT_TBRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KMDI_ACCT_TBRowChangeEventHandler KMDI_ACCT_TBRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddKMDI_ACCT_TBRow(KMDI_ACCT_TBRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_ACCT_TBRow AddKMDI_ACCT_TBRow(string AUTONUM, string FULLNAME, string ACCTTYPE, string USERNAME, string PASSWORD) {
+                KMDI_ACCT_TBRow rowKMDI_ACCT_TBRow = ((KMDI_ACCT_TBRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        AUTONUM,
+                        FULLNAME,
+                        ACCTTYPE,
+                        USERNAME,
+                        PASSWORD};
+                rowKMDI_ACCT_TBRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowKMDI_ACCT_TBRow);
+                return rowKMDI_ACCT_TBRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                KMDI_ACCT_TBDataTable cln = ((KMDI_ACCT_TBDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new KMDI_ACCT_TBDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnAUTONUM = base.Columns["AUTONUM"];
+                this.columnFULLNAME = base.Columns["FULLNAME"];
+                this.columnACCTTYPE = base.Columns["ACCTTYPE"];
+                this.columnUSERNAME = base.Columns["USERNAME"];
+                this.columnPASSWORD = base.Columns["PASSWORD"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnAUTONUM = new global::System.Data.DataColumn("AUTONUM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAUTONUM);
+                this.columnFULLNAME = new global::System.Data.DataColumn("FULLNAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFULLNAME);
+                this.columnACCTTYPE = new global::System.Data.DataColumn("ACCTTYPE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACCTTYPE);
+                this.columnUSERNAME = new global::System.Data.DataColumn("USERNAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUSERNAME);
+                this.columnPASSWORD = new global::System.Data.DataColumn("PASSWORD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPASSWORD);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_ACCT_TBRow NewKMDI_ACCT_TBRow() {
+                return ((KMDI_ACCT_TBRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new KMDI_ACCT_TBRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(KMDI_ACCT_TBRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.KMDI_ACCT_TBRowChanged != null)) {
+                    this.KMDI_ACCT_TBRowChanged(this, new KMDI_ACCT_TBRowChangeEvent(((KMDI_ACCT_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.KMDI_ACCT_TBRowChanging != null)) {
+                    this.KMDI_ACCT_TBRowChanging(this, new KMDI_ACCT_TBRowChangeEvent(((KMDI_ACCT_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.KMDI_ACCT_TBRowDeleted != null)) {
+                    this.KMDI_ACCT_TBRowDeleted(this, new KMDI_ACCT_TBRowChangeEvent(((KMDI_ACCT_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.KMDI_ACCT_TBRowDeleting != null)) {
+                    this.KMDI_ACCT_TBRowDeleting(this, new KMDI_ACCT_TBRowChangeEvent(((KMDI_ACCT_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveKMDI_ACCT_TBRow(KMDI_ACCT_TBRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                reportDS ds = new reportDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "KMDI_ACCT_TBDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ADDENDUM_TO_CONTRACT_TBDataTable : global::System.Data.TypedTableBase<ADDENDUM_TO_CONTRACT_TBRow> {
+            
+            private global::System.Data.DataColumn columnJOB_ORDER_NO;
+            
+            private global::System.Data.DataColumn columnCLIENTS_NAME;
+            
+            private global::System.Data.DataColumn columnCOMPANY_NAME;
+            
+            private global::System.Data.DataColumn columnPROJECT_LABEL;
+            
+            private global::System.Data.DataColumn columnFULLADD;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ADDENDUM_TO_CONTRACT_TBDataTable() {
+                this.TableName = "ADDENDUM_TO_CONTRACT_TB";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ADDENDUM_TO_CONTRACT_TBDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected ADDENDUM_TO_CONTRACT_TBDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn JOB_ORDER_NOColumn {
+                get {
+                    return this.columnJOB_ORDER_NO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CLIENTS_NAMEColumn {
+                get {
+                    return this.columnCLIENTS_NAME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn COMPANY_NAMEColumn {
+                get {
+                    return this.columnCOMPANY_NAME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PROJECT_LABELColumn {
+                get {
+                    return this.columnPROJECT_LABEL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FULLADDColumn {
+                get {
+                    return this.columnFULLADD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ADDENDUM_TO_CONTRACT_TBRow this[int index] {
+                get {
+                    return ((ADDENDUM_TO_CONTRACT_TBRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ADDENDUM_TO_CONTRACT_TBRowChangeEventHandler ADDENDUM_TO_CONTRACT_TBRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ADDENDUM_TO_CONTRACT_TBRowChangeEventHandler ADDENDUM_TO_CONTRACT_TBRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ADDENDUM_TO_CONTRACT_TBRowChangeEventHandler ADDENDUM_TO_CONTRACT_TBRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ADDENDUM_TO_CONTRACT_TBRowChangeEventHandler ADDENDUM_TO_CONTRACT_TBRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddADDENDUM_TO_CONTRACT_TBRow(ADDENDUM_TO_CONTRACT_TBRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ADDENDUM_TO_CONTRACT_TBRow AddADDENDUM_TO_CONTRACT_TBRow(string JOB_ORDER_NO, string CLIENTS_NAME, string COMPANY_NAME, string PROJECT_LABEL, string FULLADD) {
+                ADDENDUM_TO_CONTRACT_TBRow rowADDENDUM_TO_CONTRACT_TBRow = ((ADDENDUM_TO_CONTRACT_TBRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        JOB_ORDER_NO,
+                        CLIENTS_NAME,
+                        COMPANY_NAME,
+                        PROJECT_LABEL,
+                        FULLADD};
+                rowADDENDUM_TO_CONTRACT_TBRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowADDENDUM_TO_CONTRACT_TBRow);
+                return rowADDENDUM_TO_CONTRACT_TBRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ADDENDUM_TO_CONTRACT_TBDataTable cln = ((ADDENDUM_TO_CONTRACT_TBDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ADDENDUM_TO_CONTRACT_TBDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnJOB_ORDER_NO = base.Columns["JOB_ORDER_NO"];
+                this.columnCLIENTS_NAME = base.Columns["CLIENTS_NAME"];
+                this.columnCOMPANY_NAME = base.Columns["COMPANY_NAME"];
+                this.columnPROJECT_LABEL = base.Columns["PROJECT_LABEL"];
+                this.columnFULLADD = base.Columns["FULLADD"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnJOB_ORDER_NO = new global::System.Data.DataColumn("JOB_ORDER_NO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJOB_ORDER_NO);
+                this.columnCLIENTS_NAME = new global::System.Data.DataColumn("CLIENTS_NAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCLIENTS_NAME);
+                this.columnCOMPANY_NAME = new global::System.Data.DataColumn("COMPANY_NAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOMPANY_NAME);
+                this.columnPROJECT_LABEL = new global::System.Data.DataColumn("PROJECT_LABEL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPROJECT_LABEL);
+                this.columnFULLADD = new global::System.Data.DataColumn("FULLADD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFULLADD);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ADDENDUM_TO_CONTRACT_TBRow NewADDENDUM_TO_CONTRACT_TBRow() {
+                return ((ADDENDUM_TO_CONTRACT_TBRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ADDENDUM_TO_CONTRACT_TBRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ADDENDUM_TO_CONTRACT_TBRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ADDENDUM_TO_CONTRACT_TBRowChanged != null)) {
+                    this.ADDENDUM_TO_CONTRACT_TBRowChanged(this, new ADDENDUM_TO_CONTRACT_TBRowChangeEvent(((ADDENDUM_TO_CONTRACT_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ADDENDUM_TO_CONTRACT_TBRowChanging != null)) {
+                    this.ADDENDUM_TO_CONTRACT_TBRowChanging(this, new ADDENDUM_TO_CONTRACT_TBRowChangeEvent(((ADDENDUM_TO_CONTRACT_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ADDENDUM_TO_CONTRACT_TBRowDeleted != null)) {
+                    this.ADDENDUM_TO_CONTRACT_TBRowDeleted(this, new ADDENDUM_TO_CONTRACT_TBRowChangeEvent(((ADDENDUM_TO_CONTRACT_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ADDENDUM_TO_CONTRACT_TBRowDeleting != null)) {
+                    this.ADDENDUM_TO_CONTRACT_TBRowDeleting(this, new ADDENDUM_TO_CONTRACT_TBRowChangeEvent(((ADDENDUM_TO_CONTRACT_TBRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveADDENDUM_TO_CONTRACT_TBRow(ADDENDUM_TO_CONTRACT_TBRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                reportDS ds = new reportDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ADDENDUM_TO_CONTRACT_TBDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class Notice_For_Inc_ItemsRow : global::System.Data.DataRow {
@@ -2456,6 +4313,1554 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class KMDI_GLASSPO_TBRow : global::System.Data.DataRow {
+            
+            private KMDI_GLASSPO_TBDataTable tableKMDI_GLASSPO_TB;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal KMDI_GLASSPO_TBRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableKMDI_GLASSPO_TB = ((KMDI_GLASSPO_TBDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string JOB_ORDER_NO {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.JOB_ORDER_NOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'JOB_ORDER_NO\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.JOB_ORDER_NOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string KMDI_NO {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.KMDI_NOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'KMDI_NO\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.KMDI_NOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string G_NO {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.G_NOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'G_NO\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.G_NOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PO {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.POColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PO\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.POColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WIDTH {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.WIDTHColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WIDTH\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.WIDTHColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string HEIGHT {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.HEIGHTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HEIGHT\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.HEIGHTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public short TOTAL_PCS {
+                get {
+                    try {
+                        return ((short)(this[this.tableKMDI_GLASSPO_TB.TOTAL_PCSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TOTAL_PCS\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.TOTAL_PCSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SUPPLIER {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.SUPPLIERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SUPPLIER\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.SUPPLIERColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string GLASS_SPECS {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.GLASS_SPECSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GLASS_SPECS\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.GLASS_SPECSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal UNIT_PRICE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableKMDI_GLASSPO_TB.UNIT_PRICEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'UNIT_PRICE\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.UNIT_PRICEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal SP {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableKMDI_GLASSPO_TB.SPColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SP\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.SPColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal CUT {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableKMDI_GLASSPO_TB.CUTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CUT\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.CUTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal AMOUNT {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableKMDI_GLASSPO_TB.AMOUNTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AMOUNT\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.AMOUNTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AREA {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.AREAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AREA\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.AREAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WIDTH_FT {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.WIDTH_FTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WIDTH_FT\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.WIDTH_FTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BASIS_WIDTH {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.BASIS_WIDTHColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BASIS_WIDTH\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.BASIS_WIDTHColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string HEIGHT_FT {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.HEIGHT_FTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HEIGHT_FT\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.HEIGHT_FTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BASIS_HEIGHT {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.BASIS_HEIGHTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BASIS_HEIGHT\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.BASIS_HEIGHTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string REMARKS {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.REMARKSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'REMARKS\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.REMARKSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SP_SPECS {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.SP_SPECSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SP_SPECS\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.SP_SPECSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WDW_NO {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.WDW_NOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WDW_NO\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.WDW_NOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string LOCATION {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.LOCATIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LOCATION\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.LOCATIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal BEVELLED {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableKMDI_GLASSPO_TB.BEVELLEDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BEVELLED\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.BEVELLEDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal HOLES {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableKMDI_GLASSPO_TB.HOLESColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HOLES\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.HOLESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal HOLES_QTY {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableKMDI_GLASSPO_TB.HOLES_QTYColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HOLES_QTY\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.HOLES_QTYColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string COMPUTATION {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_GLASSPO_TB.COMPUTATIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'COMPUTATION\' in table \'KMDI_GLASSPO_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_GLASSPO_TB.COMPUTATIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsJOB_ORDER_NONull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.JOB_ORDER_NOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetJOB_ORDER_NONull() {
+                this[this.tableKMDI_GLASSPO_TB.JOB_ORDER_NOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsKMDI_NONull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.KMDI_NOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetKMDI_NONull() {
+                this[this.tableKMDI_GLASSPO_TB.KMDI_NOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsG_NONull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.G_NOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetG_NONull() {
+                this[this.tableKMDI_GLASSPO_TB.G_NOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPONull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.POColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPONull() {
+                this[this.tableKMDI_GLASSPO_TB.POColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWIDTHNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.WIDTHColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWIDTHNull() {
+                this[this.tableKMDI_GLASSPO_TB.WIDTHColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHEIGHTNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.HEIGHTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHEIGHTNull() {
+                this[this.tableKMDI_GLASSPO_TB.HEIGHTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTOTAL_PCSNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.TOTAL_PCSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTOTAL_PCSNull() {
+                this[this.tableKMDI_GLASSPO_TB.TOTAL_PCSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSUPPLIERNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.SUPPLIERColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSUPPLIERNull() {
+                this[this.tableKMDI_GLASSPO_TB.SUPPLIERColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGLASS_SPECSNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.GLASS_SPECSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGLASS_SPECSNull() {
+                this[this.tableKMDI_GLASSPO_TB.GLASS_SPECSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUNIT_PRICENull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.UNIT_PRICEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUNIT_PRICENull() {
+                this[this.tableKMDI_GLASSPO_TB.UNIT_PRICEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSPNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.SPColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSPNull() {
+                this[this.tableKMDI_GLASSPO_TB.SPColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCUTNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.CUTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCUTNull() {
+                this[this.tableKMDI_GLASSPO_TB.CUTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAMOUNTNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.AMOUNTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAMOUNTNull() {
+                this[this.tableKMDI_GLASSPO_TB.AMOUNTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAREANull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.AREAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAREANull() {
+                this[this.tableKMDI_GLASSPO_TB.AREAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWIDTH_FTNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.WIDTH_FTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWIDTH_FTNull() {
+                this[this.tableKMDI_GLASSPO_TB.WIDTH_FTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBASIS_WIDTHNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.BASIS_WIDTHColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBASIS_WIDTHNull() {
+                this[this.tableKMDI_GLASSPO_TB.BASIS_WIDTHColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHEIGHT_FTNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.HEIGHT_FTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHEIGHT_FTNull() {
+                this[this.tableKMDI_GLASSPO_TB.HEIGHT_FTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBASIS_HEIGHTNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.BASIS_HEIGHTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBASIS_HEIGHTNull() {
+                this[this.tableKMDI_GLASSPO_TB.BASIS_HEIGHTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsREMARKSNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.REMARKSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetREMARKSNull() {
+                this[this.tableKMDI_GLASSPO_TB.REMARKSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSP_SPECSNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.SP_SPECSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSP_SPECSNull() {
+                this[this.tableKMDI_GLASSPO_TB.SP_SPECSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWDW_NONull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.WDW_NOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWDW_NONull() {
+                this[this.tableKMDI_GLASSPO_TB.WDW_NOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLOCATIONNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.LOCATIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLOCATIONNull() {
+                this[this.tableKMDI_GLASSPO_TB.LOCATIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBEVELLEDNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.BEVELLEDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBEVELLEDNull() {
+                this[this.tableKMDI_GLASSPO_TB.BEVELLEDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHOLESNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.HOLESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHOLESNull() {
+                this[this.tableKMDI_GLASSPO_TB.HOLESColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHOLES_QTYNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.HOLES_QTYColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHOLES_QTYNull() {
+                this[this.tableKMDI_GLASSPO_TB.HOLES_QTYColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCOMPUTATIONNull() {
+                return this.IsNull(this.tableKMDI_GLASSPO_TB.COMPUTATIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCOMPUTATIONNull() {
+                this[this.tableKMDI_GLASSPO_TB.COMPUTATIONColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class KMDI_PONUM_TBRow : global::System.Data.DataRow {
+            
+            private KMDI_PONUM_TBDataTable tableKMDI_PONUM_TB;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal KMDI_PONUM_TBRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableKMDI_PONUM_TB = ((KMDI_PONUM_TBDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NO {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.NOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NO\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.NOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DATE {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.DATEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DATE\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.DATEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TERMS {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.TERMSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TERMS\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.TERMSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SUPPLIER {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.SUPPLIERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SUPPLIER\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.SUPPLIERColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ADDRESS {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.ADDRESSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ADDRESS\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.ADDRESSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TEL {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.TELColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TEL\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.TELColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FAX {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.FAXColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FAX\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.FAXColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string REQUESTED {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.REQUESTEDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'REQUESTED\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.REQUESTEDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NOTED {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.NOTEDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOTED\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.NOTEDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string APPROVED {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.APPROVEDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'APPROVED\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.APPROVEDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DELAT {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.DELATColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DELAT\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.DELATColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CUTOFF {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.CUTOFFColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CUTOFF\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.CUTOFFColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string REMARKS {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.REMARKSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'REMARKS\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.REMARKSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string RUSH {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.RUSHColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RUSH\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.RUSHColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DELON {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.DELONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DELON\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.DELONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SHIPBY {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.SHIPBYColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SHIPBY\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.SHIPBYColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal DISC {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableKMDI_PONUM_TB.DISCColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DISC\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.DISCColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNONull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.NOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNONull() {
+                this[this.tableKMDI_PONUM_TB.NOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDATENull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.DATEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDATENull() {
+                this[this.tableKMDI_PONUM_TB.DATEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTERMSNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.TERMSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTERMSNull() {
+                this[this.tableKMDI_PONUM_TB.TERMSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSUPPLIERNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.SUPPLIERColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSUPPLIERNull() {
+                this[this.tableKMDI_PONUM_TB.SUPPLIERColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsADDRESSNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.ADDRESSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetADDRESSNull() {
+                this[this.tableKMDI_PONUM_TB.ADDRESSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTELNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.TELColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTELNull() {
+                this[this.tableKMDI_PONUM_TB.TELColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFAXNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.FAXColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFAXNull() {
+                this[this.tableKMDI_PONUM_TB.FAXColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsREQUESTEDNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.REQUESTEDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetREQUESTEDNull() {
+                this[this.tableKMDI_PONUM_TB.REQUESTEDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOTEDNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.NOTEDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOTEDNull() {
+                this[this.tableKMDI_PONUM_TB.NOTEDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAPPROVEDNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.APPROVEDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAPPROVEDNull() {
+                this[this.tableKMDI_PONUM_TB.APPROVEDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDELATNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.DELATColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDELATNull() {
+                this[this.tableKMDI_PONUM_TB.DELATColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCUTOFFNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.CUTOFFColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCUTOFFNull() {
+                this[this.tableKMDI_PONUM_TB.CUTOFFColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsREMARKSNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.REMARKSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetREMARKSNull() {
+                this[this.tableKMDI_PONUM_TB.REMARKSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRUSHNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.RUSHColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRUSHNull() {
+                this[this.tableKMDI_PONUM_TB.RUSHColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDELONNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.DELONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDELONNull() {
+                this[this.tableKMDI_PONUM_TB.DELONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSHIPBYNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.SHIPBYColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSHIPBYNull() {
+                this[this.tableKMDI_PONUM_TB.SHIPBYColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDISCNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.DISCColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDISCNull() {
+                this[this.tableKMDI_PONUM_TB.DISCColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class KMDI_ACCT_TBRow : global::System.Data.DataRow {
+            
+            private KMDI_ACCT_TBDataTable tableKMDI_ACCT_TB;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal KMDI_ACCT_TBRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableKMDI_ACCT_TB = ((KMDI_ACCT_TBDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AUTONUM {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_ACCT_TB.AUTONUMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AUTONUM\' in table \'KMDI_ACCT_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_ACCT_TB.AUTONUMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FULLNAME {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_ACCT_TB.FULLNAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FULLNAME\' in table \'KMDI_ACCT_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_ACCT_TB.FULLNAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ACCTTYPE {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_ACCT_TB.ACCTTYPEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACCTTYPE\' in table \'KMDI_ACCT_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_ACCT_TB.ACCTTYPEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string USERNAME {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_ACCT_TB.USERNAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'USERNAME\' in table \'KMDI_ACCT_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_ACCT_TB.USERNAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PASSWORD {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_ACCT_TB.PASSWORDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PASSWORD\' in table \'KMDI_ACCT_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_ACCT_TB.PASSWORDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAUTONUMNull() {
+                return this.IsNull(this.tableKMDI_ACCT_TB.AUTONUMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAUTONUMNull() {
+                this[this.tableKMDI_ACCT_TB.AUTONUMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFULLNAMENull() {
+                return this.IsNull(this.tableKMDI_ACCT_TB.FULLNAMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFULLNAMENull() {
+                this[this.tableKMDI_ACCT_TB.FULLNAMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsACCTTYPENull() {
+                return this.IsNull(this.tableKMDI_ACCT_TB.ACCTTYPEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetACCTTYPENull() {
+                this[this.tableKMDI_ACCT_TB.ACCTTYPEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUSERNAMENull() {
+                return this.IsNull(this.tableKMDI_ACCT_TB.USERNAMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUSERNAMENull() {
+                this[this.tableKMDI_ACCT_TB.USERNAMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPASSWORDNull() {
+                return this.IsNull(this.tableKMDI_ACCT_TB.PASSWORDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPASSWORDNull() {
+                this[this.tableKMDI_ACCT_TB.PASSWORDColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ADDENDUM_TO_CONTRACT_TBRow : global::System.Data.DataRow {
+            
+            private ADDENDUM_TO_CONTRACT_TBDataTable tableADDENDUM_TO_CONTRACT_TB;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ADDENDUM_TO_CONTRACT_TBRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableADDENDUM_TO_CONTRACT_TB = ((ADDENDUM_TO_CONTRACT_TBDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string JOB_ORDER_NO {
+                get {
+                    try {
+                        return ((string)(this[this.tableADDENDUM_TO_CONTRACT_TB.JOB_ORDER_NOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'JOB_ORDER_NO\' in table \'ADDENDUM_TO_CONTRACT_TB\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableADDENDUM_TO_CONTRACT_TB.JOB_ORDER_NOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CLIENTS_NAME {
+                get {
+                    try {
+                        return ((string)(this[this.tableADDENDUM_TO_CONTRACT_TB.CLIENTS_NAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CLIENTS_NAME\' in table \'ADDENDUM_TO_CONTRACT_TB\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableADDENDUM_TO_CONTRACT_TB.CLIENTS_NAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string COMPANY_NAME {
+                get {
+                    try {
+                        return ((string)(this[this.tableADDENDUM_TO_CONTRACT_TB.COMPANY_NAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'COMPANY_NAME\' in table \'ADDENDUM_TO_CONTRACT_TB\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableADDENDUM_TO_CONTRACT_TB.COMPANY_NAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PROJECT_LABEL {
+                get {
+                    try {
+                        return ((string)(this[this.tableADDENDUM_TO_CONTRACT_TB.PROJECT_LABELColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PROJECT_LABEL\' in table \'ADDENDUM_TO_CONTRACT_TB\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableADDENDUM_TO_CONTRACT_TB.PROJECT_LABELColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FULLADD {
+                get {
+                    try {
+                        return ((string)(this[this.tableADDENDUM_TO_CONTRACT_TB.FULLADDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FULLADD\' in table \'ADDENDUM_TO_CONTRACT_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableADDENDUM_TO_CONTRACT_TB.FULLADDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsJOB_ORDER_NONull() {
+                return this.IsNull(this.tableADDENDUM_TO_CONTRACT_TB.JOB_ORDER_NOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetJOB_ORDER_NONull() {
+                this[this.tableADDENDUM_TO_CONTRACT_TB.JOB_ORDER_NOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCLIENTS_NAMENull() {
+                return this.IsNull(this.tableADDENDUM_TO_CONTRACT_TB.CLIENTS_NAMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCLIENTS_NAMENull() {
+                this[this.tableADDENDUM_TO_CONTRACT_TB.CLIENTS_NAMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCOMPANY_NAMENull() {
+                return this.IsNull(this.tableADDENDUM_TO_CONTRACT_TB.COMPANY_NAMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCOMPANY_NAMENull() {
+                this[this.tableADDENDUM_TO_CONTRACT_TB.COMPANY_NAMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPROJECT_LABELNull() {
+                return this.IsNull(this.tableADDENDUM_TO_CONTRACT_TB.PROJECT_LABELColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPROJECT_LABELNull() {
+                this[this.tableADDENDUM_TO_CONTRACT_TB.PROJECT_LABELColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFULLADDNull() {
+                return this.IsNull(this.tableADDENDUM_TO_CONTRACT_TB.FULLADDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFULLADDNull() {
+                this[this.tableADDENDUM_TO_CONTRACT_TB.FULLADDColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2543,6 +5948,142 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ProjectSummaryRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class KMDI_GLASSPO_TBRowChangeEvent : global::System.EventArgs {
+            
+            private KMDI_GLASSPO_TBRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_GLASSPO_TBRowChangeEvent(KMDI_GLASSPO_TBRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_GLASSPO_TBRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class KMDI_PONUM_TBRowChangeEvent : global::System.EventArgs {
+            
+            private KMDI_PONUM_TBRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_PONUM_TBRowChangeEvent(KMDI_PONUM_TBRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_PONUM_TBRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class KMDI_ACCT_TBRowChangeEvent : global::System.EventArgs {
+            
+            private KMDI_ACCT_TBRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_ACCT_TBRowChangeEvent(KMDI_ACCT_TBRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KMDI_ACCT_TBRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class ADDENDUM_TO_CONTRACT_TBRowChangeEvent : global::System.EventArgs {
+            
+            private ADDENDUM_TO_CONTRACT_TBRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ADDENDUM_TO_CONTRACT_TBRowChangeEvent(ADDENDUM_TO_CONTRACT_TBRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ADDENDUM_TO_CONTRACT_TBRow Row {
                 get {
                     return this.eventRow;
                 }

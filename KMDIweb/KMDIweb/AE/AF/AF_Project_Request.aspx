@@ -154,7 +154,7 @@
                                                     <span class="pull-right text-right">
                                                         <span style="font-size: small"><%# Eval("Requested_Date") %></span><br />
                                                         <span style="font-size: smaller"><%# Eval("Request") %></span><br />
-                                                        <asp:LinkButton ID="btnDelete" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? true : false %>' runat="server" CssClass="btn btn-default" CommandName="MyDelete" OnClientClick="return confirm('delete this record?')">d e l e t e</asp:LinkButton>
+                                                        <asp:LinkButton ID="btnDelete" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? true : false %>' runat="server" CssClass="btn btn-default" CommandName="MyDelete" OnClientClick="return confirm('delete this request?')">d e l e t e</asp:LinkButton>
                                                         <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
                                                     </span>
                                                     <br />

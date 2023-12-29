@@ -121,9 +121,9 @@
                                                             <span style="font-size: small"><%# Eval("Requested_Date") %></span><br />
                                                             <span style="font-size: smaller"><%# Eval("Request") %></span><br />
                                                             <asp:LinkButton ID="btnHold" CssClass="btn btn-danger" Visible="false"
-                                                                CommandName="myHold" runat="server" OnClientClick="return confirm('hold this request?')">Hold</asp:LinkButton>
+                                                                CommandName="myHold" runat="server" OnClientClick="return confirm('update status to hold?')">Hold</asp:LinkButton>
                                                             <asp:LinkButton ID="btnUnhold" CssClass="btn btn-warning" Visible="false"
-                                                                CommandName="myUnhold" runat="server" OnClientClick="return confirm('unhold this request?')">Unhold</asp:LinkButton>
+                                                                CommandName="myUnhold" runat="server" OnClientClick="return confirm('cancel hold status?')">Unhold</asp:LinkButton>
                                                             <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
                                                         </span>
                                                         <br />
@@ -137,19 +137,19 @@
                                                     <div style="background-color: cornsilk">
                                                         <div style="border-left: solid 0px SkyBlue; padding: 10px">
                                                             <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Particular").ToString(), "\r\n|\r|\n", "<br>")) %></span>
-                                                            <span style="font-size: small;" class="text-info">&nbsp;&nbsp;&nbsp;<%# "-"+Eval("Account_Exec") %></span><span style="font-size: small" class="text-muted"><%# Eval("Requested_Date") %></span></div>
+                                                            <span style="font-size: small;" class="text-info">&nbsp;&nbsp;&nbsp;<%# "-"+Eval("Account_Exec") %></span> <span style="font-size: small" class="text-muted"><%# Eval("Requested_Date") %></span></div>
                                                         <div style="border-left: solid 0px orange; border-top: 0.5px solid #bab9b9; padding: 10px">
                                                             <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Checked_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span>
-                                                            <span style="font-size: small;" class="text-info">&nbsp;&nbsp;&nbsp;<%# "-"+Eval("Checked_By") %></span><span style="font-size: small" class="text-muted"><%# Eval("Checked_Date") %></span></div>
+                                                            <span style="font-size: small;" class="text-info">&nbsp;&nbsp;&nbsp;<%# "-"+Eval("Checked_By") %></span> <span style="font-size: small" class="text-muted"><%# Eval("Checked_Date") %></span></div>
                                                         <div style="border-left: solid 0px green; min-height: 35px; border-top: 0.5px solid #bab9b9; padding: 10px">
                                                             <asp:Panel runat="server" Visible='<%# Eval("Req_Status").ToString() == "For Approval" ? true : false %>' ID="pnlCommentEdit">
-                                                                <span>Comment</span>
+                                                                <span>Comment to approve</span>
                                                                 <asp:TextBox runat="server" ID="tboxComment" CssClass="form-control" Text='<%# Bind("Approval_Remarks") %>' TextMode="MultiLine" Rows="2"></asp:TextBox>
                                                                 <asp:LinkButton runat="server" ID="btnSave" CommandName="myApprove" CssClass="btn btn-default">s u b m i t</asp:LinkButton>
                                                             </asp:Panel>
                                                             <asp:Panel runat="server" Visible='<%# Eval("Req_Status").ToString() == "For Approval" ? false : true %>' ID="pnlComment">
                                                                 <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Approval_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %>
-                                                                    <span style="font-size: small;" class="text-info">&nbsp;&nbsp;&nbsp;<%# "-"+Eval("Approved_By") %></span><span style="font-size: small" class="text-muted"><%# Eval("Approved_Date") %></span><span class="pull-right"><asp:LinkButton ID="btnEdit" Visible='<%# Eval("Req_Status").ToString() == "Done" ? false : true %>' CommandName="myEdit" runat="server">Edit</asp:LinkButton>
+                                                                    <span style="font-size: small;" class="text-info">&nbsp;&nbsp;&nbsp;<%# "-"+Eval("Approved_By") %></span> <span style="font-size: small" class="text-muted"><%# Eval("Approved_Date") %></span><span class="pull-right"><asp:LinkButton ID="btnEdit" Visible='<%# Eval("Req_Status").ToString() == "Done" ? false : true %>' CommandName="myEdit" runat="server">Edit</asp:LinkButton>
                                                                     </span>
                                                                 </span>
                                                             </asp:Panel>

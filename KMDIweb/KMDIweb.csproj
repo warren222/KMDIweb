@@ -208,6 +208,36 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="KMDIweb\AE\AccountingClearance\AC.Master.cs">
+      <DependentUpon>AC.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\AE\AccountingClearance\AC.Master.designer.cs">
+      <DependentUpon>AC.Master</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\AE\AccountingClearance\AC_For_Approval.aspx.cs">
+      <DependentUpon>AC_For_Approval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\AE\AccountingClearance\AC_For_Approval.aspx.designer.cs">
+      <DependentUpon>AC_For_Approval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\AE\AccountingClearance\AC_For_Trun_Over.aspx.cs">
+      <DependentUpon>AC_For_Trun_Over.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\AE\AccountingClearance\AC_For_Trun_Over.aspx.designer.cs">
+      <DependentUpon>AC_For_Trun_Over.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\AE\AccountingClearance\AC_ProjectList.aspx.cs">
+      <DependentUpon>AC_ProjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\AE\AccountingClearance\AC_ProjectList.aspx.designer.cs">
+      <DependentUpon>AC_ProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\AE\AccountingClearance\AC_RequestModel.cs" />
+    <Compile Include="KMDIweb\AE\AccountingClearance\JO_ListModel.cs" />
     <Compile Include="KMDIweb\AE\AF\AF_For_Approval.aspx.cs">
       <DependentUpon>AF_For_Approval.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -398,6 +428,48 @@
     </Compile>
     <Compile Include="KMDIweb\Installation\InstallationUpdateLogRange.aspx.designer.cs">
       <DependentUpon>InstallationUpdateLogRange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO.Master.cs">
+      <DependentUpon>PO.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO.Master.designer.cs">
+      <DependentUpon>PO.Master</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO_Ajiya_Rpt.aspx.cs">
+      <DependentUpon>PO_Ajiya_Rpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO_Ajiya_Rpt.aspx.designer.cs">
+      <DependentUpon>PO_Ajiya_Rpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO_ForApproval.aspx.cs">
+      <DependentUpon>PO_ForApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO_ForApproval.aspx.designer.cs">
+      <DependentUpon>PO_ForApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO_Laminated_Rpt.aspx.cs">
+      <DependentUpon>PO_Laminated_Rpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO_Laminated_Rpt.aspx.designer.cs">
+      <DependentUpon>PO_Laminated_Rpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO_Rpt.aspx.cs">
+      <DependentUpon>PO_Rpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO_Rpt.aspx.designer.cs">
+      <DependentUpon>PO_Rpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO_X_Rpt.aspx.cs">
+      <DependentUpon>PO_X_Rpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO_X_Rpt.aspx.designer.cs">
+      <DependentUpon>PO_X_Rpt.aspx</DependentUpon>
     </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx.cs">
       <DependentUpon>CalendarFrame.aspx</DependentUpon>
@@ -749,6 +821,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.css" />
     <Content Include="Images\transpa.png" />
+    <Content Include="KMDIweb\AE\AccountingClearance\AC_For_Approval.aspx" />
+    <Content Include="KMDIweb\AE\AccountingClearance\AC_For_Trun_Over.aspx" />
+    <Content Include="KMDIweb\AE\AccountingClearance\AC_ProjectList.aspx" />
     <Content Include="KMDIweb\AE\AF\AF_For_Approval.aspx" />
     <Content Include="KMDIweb\AE\AF\AF_For_Checking.aspx" />
     <Content Include="KMDIweb\AE\AF\AF_Project_List.aspx" />
@@ -786,6 +861,11 @@
     <Content Include="KMDIweb\Installation\InstallationSummaryReportViewer.aspx" />
     <Content Include="KMDIweb\Installation\InstallationUpdateLog.aspx" />
     <Content Include="KMDIweb\Installation\InstallationUpdateLogRange.aspx" />
+    <Content Include="KMDIweb\PO\PO_Ajiya_Rpt.aspx" />
+    <Content Include="KMDIweb\PO\PO_ForApproval.aspx" />
+    <Content Include="KMDIweb\PO\PO_Laminated_Rpt.aspx" />
+    <Content Include="KMDIweb\PO\PO_Rpt.aspx" />
+    <Content Include="KMDIweb\PO\PO_X_Rpt.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrameNewDueDate.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\ChartComparison.aspx" />
@@ -849,6 +929,7 @@
     <Content Include="KMDIweb\AE\CollectionLedger\AEMaster.Master" />
     <Content Include="KMDIweb\FoilingSchedule\FoilingMaster.Master" />
     <Content Include="KMDIweb\AE\AF\AF_Master.Master" />
+    <Content Include="KMDIweb\AE\AccountingClearance\AC.Master" />
     <None Include="KMDIweb\Global\DataSetFiles\reportDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -858,6 +939,7 @@
       <DependentUpon>reportDS.xsd</DependentUpon>
     </Content>
     <Content Include="KMDIweb\Installation\InstallationMaster.Master" />
+    <Content Include="KMDIweb\PO\PO.Master" />
     <None Include="Properties\PublishProfiles\IISpub.pubxml" />
     <Content Include="KMDIweb\Production\FrameSchedule\FrameScheduleMaster.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -920,6 +1002,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="KMDIweb\Global\Reports\NoticeForINCItemsReport.rdlc" />
+    <EmbeddedResource Include="KMDIweb\Global\Reports\PO.rdlc" />
+    <EmbeddedResource Include="KMDIweb\Global\Reports\PO_Ajiya.rdlc" />
+    <EmbeddedResource Include="KMDIweb\Global\Reports\PO_Laminated.rdlc" />
+    <EmbeddedResource Include="KMDIweb\Global\Reports\PO_X.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\ProjectSummaryRPT.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\SectionDailyOutputRPT.rdlc" />
   </ItemGroup>

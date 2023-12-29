@@ -128,11 +128,11 @@
                                                                 <span style="font-size: smaller"><%# Eval("Request") %></span><br />
                                                                 <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
                                                                 <asp:LinkButton ID="btnDone" CssClass="btn btn-success" Visible="false"
-                                                                    CommandName="myDone" runat="server" OnClientClick="return confirm('note as finish?')">Done</asp:LinkButton>
+                                                                    CommandName="myDone" runat="server" OnClientClick="return confirm('update status to done?')">Done</asp:LinkButton>
                                                                 <asp:LinkButton ID="btnHold" CssClass="btn btn-danger" Visible="false"
-                                                                    CommandName="myHold" runat="server" OnClientClick="return confirm('hold this request?')">Hold</asp:LinkButton>
+                                                                    CommandName="myHold" runat="server" OnClientClick="return confirm('update status to hold?')">Hold</asp:LinkButton>
                                                                 <asp:LinkButton ID="btnUnhold" CssClass="btn btn-warning" Visible="false"
-                                                                    CommandName="myUnhold" runat="server" OnClientClick="return confirm('unhold this request?')">Unhold</asp:LinkButton>
+                                                                    CommandName="myUnhold" runat="server" OnClientClick="return confirm('cancel hold status?')">Unhold</asp:LinkButton>
                                                             </span>
                                                             <br />
                                                             <span style="font-size: smaller"><%# Eval("OFFICENAME") %></span><br />

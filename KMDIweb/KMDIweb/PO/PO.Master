@@ -1,0 +1,110 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PO.master.cs" Inherits="KMDIweb.KMDIweb.PO.PO" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+      <script src="../../Scripts/bootstrap.js"></script>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <link href="../Global/css/gridcss.css" rel="stylesheet" />
+    <style>
+        .vl {
+            border-left: 6px solid green;
+            padding-left: 20px;
+            margin-bottom: 20PX;
+        }
+
+        body, html, form {
+            width: 100%;
+            height: 100%;
+            background-color: #e4e5e7;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .wrapper {
+            background-color: darkorchid;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            min-height: 100%;
+            height: 100%;
+        }
+
+        .myform {
+            background-color: white;
+            height: 100%;
+        }
+
+        .banner {
+            background-color: #35465d;
+            color: white;
+            margin: 0px;
+            border-color: #35465d;
+            border-radius: 0px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+        <form id="form1" runat="server" style="width: 100%; height: 100%; background-color: whitesmoke">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Glass PO</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <asp:HyperLink ID="hlProject" runat="server" NavigateUrl="~/KMDIweb/PO/PO_ForApproval.aspx">
+                                 <span class="glyphicon glyphicon-home"></span>&nbsp;Request</asp:HyperLink></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <asp:HyperLink ID="BTNaccount" runat="server" NavigateUrl="~/KMDIweb/Global/manageaccount.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp; Accounts</asp:HyperLink>
+                        </li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <asp:Label ID="username" runat="server" Text="acctlink"></asp:Label><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/KMDIweb/Global/mainmenu.aspx"><span class="glyphicon glyphicon-th-large"></span>&nbsp;Main Menu</asp:LinkButton></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/KMDIweb/Global/changesecurity.aspx"><span class="glyphicon glyphicon-lock"></span>&nbsp; Change Security</asp:HyperLink></li>
+
+                                <li>
+                                    <asp:LinkButton ID="LinkButton1" OnClick="LinkButton1_Click" runat="server"><span class="glyphicon  glyphicon-log-out"></span>&nbsp;Logout</asp:LinkButton></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <br />
+        <br />
+        <div class="" style="background-color: white; padding-bottom: 25px; margin-bottom: 0px;">
+            <asp:ContentPlaceHolder ID="content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer class="container-fluid text-center" style="background-color: white; margin-top: 0px;">
+            <br />
+            <br />
+            <br />
+            <p>Copyright 2020. Kenneth and Mock windows and doors. All rights Reserved.</p>
+        </footer>
+    </form>
+</body>
+</html>
