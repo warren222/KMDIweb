@@ -464,6 +464,13 @@
     <Compile Include="KMDIweb\PO\PO_Rpt.aspx.designer.cs">
       <DependentUpon>PO_Rpt.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\PO\PO_Sign.aspx.cs">
+      <DependentUpon>PO_Sign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO_Sign.aspx.designer.cs">
+      <DependentUpon>PO_Sign.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\PO\PO_X_Rpt.aspx.cs">
       <DependentUpon>PO_X_Rpt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -865,6 +872,7 @@
     <Content Include="KMDIweb\PO\PO_ForApproval.aspx" />
     <Content Include="KMDIweb\PO\PO_Laminated_Rpt.aspx" />
     <Content Include="KMDIweb\PO\PO_Rpt.aspx" />
+    <Content Include="KMDIweb\PO\PO_Sign.aspx" />
     <Content Include="KMDIweb\PO\PO_X_Rpt.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrameNewDueDate.aspx" />

@@ -16,7 +16,18 @@ namespace KMDIweb.KMDIweb.PO
         {
             if (!IsPostBack)
             {
-
+                if (Request.QueryString["PO_Search"] != null)
+                {
+                    tboxsearchkey.Text = Request.QueryString["PO_Search"].ToString();
+                }
+                if (Request.QueryString["PO_For_Signature"] != null)
+                {
+                    ddlForSignature.Text = Request.QueryString["PO_For_Signature"].ToString();
+                }
+                if (Request.QueryString["PO_PageIndex"] != null)
+                {
+                    GridView1.PageIndex = Request.QueryString["PO_PageIndex"] != null ? Convert.ToInt32(Request.QueryString["PO_PageIndex"].ToString()) : 0;
+                }
                 getdata();
             }
         }
@@ -69,6 +80,7 @@ namespace KMDIweb.KMDIweb.PO
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Get_Submitted");
                         sqlcmd.Parameters.AddWithValue("@Search", tboxsearchkey.Text);
+                        sqlcmd.Parameters.AddWithValue("@For_Signature", ddlForSignature.SelectedValue.ToString());
                         DataTable tb = new DataTable();
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
@@ -99,34 +111,38 @@ namespace KMDIweb.KMDIweb.PO
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = GridView1.Rows[rowindex];
-                string pono = ((LinkButton)row.FindControl("btnPONO")).Text;
+                string pono = ((Label)row.FindControl("lblPONO")).Text;
                 string jono = ((Label)row.FindControl("lblJONO")).Text;
                 Session["POPO_No"] = pono;
                 Session["POJO_No"] = jono;
-            
 
                 if (get_supplier(pono) == "Ajiya Safety Glass SDN BHD" ||
                     get_supplier(pono) == "Saint Gobain India Private Limited (Vetrotech Business)")
                 {
-                    Response.Redirect("~/KMDIweb/PO/PO_Ajiya_Rpt.aspx");
+                    Response.Redirect("~/KMDIweb/PO/PO_Ajiya_Rpt.aspx"+ AddQuerystring);
                 }
                 else
                 {
                     if (get_computation(jono, pono) == "Laminated")
                     {
-                        Response.Redirect("~/KMDIweb/PO/PO_Laminated_Rpt.aspx");
+                        Response.Redirect("~/KMDIweb/PO/PO_Laminated_Rpt.aspx" + AddQuerystring);
                     }
                     else if (get_computation(jono, pono) == "X")
                     {
-                        Response.Redirect("~/KMDIweb/PO/PO_X_Rpt.aspx");
+                        Response.Redirect("~/KMDIweb/PO/PO_X_Rpt.aspx" + AddQuerystring);
                     }
                     else
                     {
-                        Response.Redirect("~/KMDIweb/PO/PO_Rpt.aspx");
+                        Response.Redirect("~/KMDIweb/PO/PO_Rpt.aspx" + AddQuerystring);
                     }
                 }
-
-               
+            }
+        }
+        private string AddQuerystring
+        {
+            get
+            {
+                return "?PO_Search=" + tboxsearchkey.Text + "&PO_For_Signature=" + ddlForSignature.SelectedValue.ToString() + "&PO_PageIndex=" + GridView1.PageIndex.ToString();
             }
         }
         private string get_computation(string jono, string pono)

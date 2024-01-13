@@ -114,6 +114,10 @@
               <xs:element name="DELON" msprop:Generator_ColumnVarNameInTable="columnDELON" msprop:Generator_ColumnPropNameInRow="DELON" msprop:Generator_ColumnPropNameInTable="DELONColumn" msprop:Generator_UserColumnName="DELON" type="xs:string" minOccurs="0" />
               <xs:element name="SHIPBY" msprop:Generator_ColumnVarNameInTable="columnSHIPBY" msprop:Generator_ColumnPropNameInRow="SHIPBY" msprop:Generator_ColumnPropNameInTable="SHIPBYColumn" msprop:Generator_UserColumnName="SHIPBY" type="xs:string" minOccurs="0" />
               <xs:element name="DISC" msprop:Generator_ColumnVarNameInTable="columnDISC" msprop:Generator_ColumnPropNameInRow="DISC" msprop:Generator_ColumnPropNameInTable="DISCColumn" msprop:Generator_UserColumnName="DISC" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Web_Prepared_By" msprop:Generator_ColumnVarNameInTable="columnWeb_Prepared_By" msprop:Generator_ColumnPropNameInRow="Web_Prepared_By" msprop:Generator_ColumnPropNameInTable="Web_Prepared_ByColumn" msprop:Generator_UserColumnName="Web_Prepared_By" type="xs:string" minOccurs="0" />
+              <xs:element name="Web_Noted_By" msprop:Generator_ColumnVarNameInTable="columnWeb_Noted_By" msprop:Generator_ColumnPropNameInRow="Web_Noted_By" msprop:Generator_ColumnPropNameInTable="Web_Noted_ByColumn" msprop:Generator_UserColumnName="Web_Noted_By" type="xs:string" minOccurs="0" />
+              <xs:element name="Web_Approved_By" msprop:Generator_ColumnVarNameInTable="columnWeb_Approved_By" msprop:Generator_ColumnPropNameInRow="Web_Approved_By" msprop:Generator_ColumnPropNameInTable="Web_Approved_ByColumn" msprop:Generator_UserColumnName="Web_Approved_By" type="xs:string" minOccurs="0" />
+              <xs:element name="Web_Requested_By" msprop:Generator_ColumnVarNameInTable="columnWeb_Requested_By" msprop:Generator_ColumnPropNameInRow="Web_Requested_By" msprop:Generator_ColumnPropNameInTable="Web_Requested_ByColumn" msprop:Generator_UserColumnName="Web_Requested_By" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

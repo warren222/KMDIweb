@@ -2312,6 +2312,14 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             private global::System.Data.DataColumn columnDISC;
             
+            private global::System.Data.DataColumn columnWeb_Prepared_By;
+            
+            private global::System.Data.DataColumn columnWeb_Noted_By;
+            
+            private global::System.Data.DataColumn columnWeb_Approved_By;
+            
+            private global::System.Data.DataColumn columnWeb_Requested_By;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public KMDI_PONUM_TBDataTable() {
@@ -2483,6 +2491,38 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Web_Prepared_ByColumn {
+                get {
+                    return this.columnWeb_Prepared_By;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Web_Noted_ByColumn {
+                get {
+                    return this.columnWeb_Noted_By;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Web_Approved_ByColumn {
+                get {
+                    return this.columnWeb_Approved_By;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Web_Requested_ByColumn {
+                get {
+                    return this.columnWeb_Requested_By;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2535,7 +2575,11 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                         string RUSH, 
                         string DELON, 
                         string SHIPBY, 
-                        decimal DISC) {
+                        decimal DISC, 
+                        string Web_Prepared_By, 
+                        string Web_Noted_By, 
+                        string Web_Approved_By, 
+                        string Web_Requested_By) {
                 KMDI_PONUM_TBRow rowKMDI_PONUM_TBRow = ((KMDI_PONUM_TBRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NO,
@@ -2554,7 +2598,11 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                         RUSH,
                         DELON,
                         SHIPBY,
-                        DISC};
+                        DISC,
+                        Web_Prepared_By,
+                        Web_Noted_By,
+                        Web_Approved_By,
+                        Web_Requested_By};
                 rowKMDI_PONUM_TBRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowKMDI_PONUM_TBRow);
                 return rowKMDI_PONUM_TBRow;
@@ -2594,6 +2642,10 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 this.columnDELON = base.Columns["DELON"];
                 this.columnSHIPBY = base.Columns["SHIPBY"];
                 this.columnDISC = base.Columns["DISC"];
+                this.columnWeb_Prepared_By = base.Columns["Web_Prepared_By"];
+                this.columnWeb_Noted_By = base.Columns["Web_Noted_By"];
+                this.columnWeb_Approved_By = base.Columns["Web_Approved_By"];
+                this.columnWeb_Requested_By = base.Columns["Web_Requested_By"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2633,6 +2685,14 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 base.Columns.Add(this.columnSHIPBY);
                 this.columnDISC = new global::System.Data.DataColumn("DISC", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDISC);
+                this.columnWeb_Prepared_By = new global::System.Data.DataColumn("Web_Prepared_By", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWeb_Prepared_By);
+                this.columnWeb_Noted_By = new global::System.Data.DataColumn("Web_Noted_By", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWeb_Noted_By);
+                this.columnWeb_Approved_By = new global::System.Data.DataColumn("Web_Approved_By", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWeb_Approved_By);
+                this.columnWeb_Requested_By = new global::System.Data.DataColumn("Web_Requested_By", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWeb_Requested_By);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5343,6 +5403,70 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Web_Prepared_By {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.Web_Prepared_ByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Web_Prepared_By\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.Web_Prepared_ByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Web_Noted_By {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.Web_Noted_ByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Web_Noted_By\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.Web_Noted_ByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Web_Approved_By {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.Web_Approved_ByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Web_Approved_By\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.Web_Approved_ByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Web_Requested_By {
+                get {
+                    try {
+                        return ((string)(this[this.tableKMDI_PONUM_TB.Web_Requested_ByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Web_Requested_By\' in table \'KMDI_PONUM_TB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKMDI_PONUM_TB.Web_Requested_ByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNONull() {
                 return this.IsNull(this.tableKMDI_PONUM_TB.NOColumn);
             }
@@ -5543,6 +5667,54 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDISCNull() {
                 this[this.tableKMDI_PONUM_TB.DISCColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWeb_Prepared_ByNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.Web_Prepared_ByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWeb_Prepared_ByNull() {
+                this[this.tableKMDI_PONUM_TB.Web_Prepared_ByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWeb_Noted_ByNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.Web_Noted_ByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWeb_Noted_ByNull() {
+                this[this.tableKMDI_PONUM_TB.Web_Noted_ByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWeb_Approved_ByNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.Web_Approved_ByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWeb_Approved_ByNull() {
+                this[this.tableKMDI_PONUM_TB.Web_Approved_ByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWeb_Requested_ByNull() {
+                return this.IsNull(this.tableKMDI_PONUM_TB.Web_Requested_ByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWeb_Requested_ByNull() {
+                this[this.tableKMDI_PONUM_TB.Web_Requested_ByColumn] = global::System.Convert.DBNull;
             }
         }
         

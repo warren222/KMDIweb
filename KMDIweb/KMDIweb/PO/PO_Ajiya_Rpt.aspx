@@ -12,7 +12,11 @@
     <div class="container">
         <div class="well">
             <h2 class="text-center">AJIYA PO</h2>
+            <span class="pull-right">
+                <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-warning" OnClick="btnBack_Click"><span class="glyphicon glyphicon-chevron-left"></span> back</asp:LinkButton>
+            </span>
         </div>
+
         <div>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sqlcon %>" SelectCommand="Web_PO_Stp" SelectCommandType="StoredProcedure" OnSelecting="SqlDataSource1_Selecting">
                 <SelectParameters>
@@ -27,7 +31,7 @@
                     <asp:SessionParameter Name="PO_No" SessionField="POPO_No" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
-             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:sqlcon %>" SelectCommand="Web_PO_Stp" SelectCommandType="StoredProcedure" OnSelecting="SqlDataSource3_Selecting">
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:sqlcon %>" SelectCommand="Web_PO_Stp" SelectCommandType="StoredProcedure" OnSelecting="SqlDataSource3_Selecting">
                 <SelectParameters>
                     <asp:Parameter Name="Command" Type="String" DefaultValue="Get_Addendum" />
                     <asp:SessionParameter Name="JO_No" SessionField="POJO_No" Type="String" />
@@ -45,5 +49,8 @@
                 </rsweb:ReportViewer>
             </asp:Panel>
         </div>
+        <asp:LinkButton ID="btnPreparedby" CssClass="btn btn-primary" runat="server" OnClick="btnPreparedby_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Sign Prepared by</asp:LinkButton>
+        <asp:LinkButton ID="btnNotedby" CssClass="btn btn-primary" runat="server" OnClick="btnNotedby_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Sign Noted by</asp:LinkButton>
+        <asp:LinkButton ID="btnApprovedby" CssClass="btn btn-primary" runat="server" OnClick="btnApprovedby_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Sign Approved by</asp:LinkButton>
     </div>
 </asp:Content>
