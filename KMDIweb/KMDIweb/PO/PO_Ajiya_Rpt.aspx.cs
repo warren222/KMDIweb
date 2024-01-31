@@ -33,7 +33,7 @@ namespace KMDIweb.KMDIweb.PO
                 btnNotedby.Visible = false;
                 btnApprovedby.Visible = false;
             }
-            else if (poa == "Take note")
+            else if (poa == "Noter")
             {
                 btnPreparedby.Visible = false;
                 btnNotedby.Visible = true;
@@ -109,16 +109,22 @@ namespace KMDIweb.KMDIweb.PO
             string _prepared = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Prepared_By.jpg")).AbsoluteUri;
             string _noted = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Noted_By.jpg")).AbsoluteUri;
             string _approved = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Approved_By.jpg")).AbsoluteUri;
-            ReportParameter[] repparam = new ReportParameter[3];
+            ReportParameter[] repparam = new ReportParameter[5];
             repparam[0] = new ReportParameter("ImgPreparedBy", _prepared);
             repparam[1] = new ReportParameter("ImgNotedBy", _noted);
             repparam[2] = new ReportParameter("ImgApprovedBy", _approved);
-            for (int i = 0; i < 3; i++)
+            repparam[3] = new ReportParameter("forigu", cboxForIGU.Checked.ToString());
+            repparam[4] = new ReportParameter("fornewglasslogo", cboxNewLogo.Checked.ToString());
+            for (int i = 0; i < 5; i++)
             {
                 ReportViewer1.LocalReport.SetParameters(repparam[i]);
             }
 
             ReportViewer1.LocalReport.Refresh();
+        }
+        protected void ReportViewer1_ReportRefresh(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            getparameters();
         }
     }
 }

@@ -1387,13 +1387,13 @@
             </TablixMember>
             <TablixMember>
               <Visibility>
-                <Hidden>=iif(Parameters!forigu.Value="1",false,true)</Hidden>
+                <Hidden>=iif(Parameters!forigu.Value="True",false,true)</Hidden>
               </Visibility>
               <KeepWithGroup>Before</KeepWithGroup>
             </TablixMember>
             <TablixMember>
               <Visibility>
-                <Hidden>=iif(Parameters!fornewglasslogo.Value="1",false,true)</Hidden>
+                <Hidden>=iif(Parameters!fornewglasslogo.Value="True",false,true)</Hidden>
               </Visibility>
               <KeepWithGroup>Before</KeepWithGroup>
             </TablixMember>

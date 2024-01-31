@@ -5,17 +5,21 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
+    <title>PO X</title>
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
         <div class="well">
-            <h2 class="text-center">PO X</h2>
+            <h2 class="text-center">PO Viewer</h2>
             <span class="pull-right">
                 <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-warning" OnClick="btnBack_Click"><span class="glyphicon glyphicon-chevron-left"></span> back</asp:LinkButton>
             </span>
+        </div>
+        <div class="panel panel-info">
+            <asp:CheckBox ID="cboxForIGU" runat="server" Text="FOR IGU" />&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:CheckBox ID="cboxNewLogo" runat="server" Text="NEW GLASS LOGO" />
         </div>
         <div>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sqlcon %>" SelectCommand="Web_PO_Stp" SelectCommandType="StoredProcedure" OnSelecting="SqlDataSource1_Selecting">
@@ -32,7 +36,7 @@
                 </SelectParameters>
             </asp:SqlDataSource>
             <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-                <rsweb:ReportViewer ID="ReportViewer1" Width="100%" Height="800px" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
+                <rsweb:ReportViewer ID="ReportViewer1" Width="100%" Height="800px" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" OnReportRefresh="ReportViewer1_ReportRefresh">
                     <LocalReport ReportPath="KMDIweb\Global\Reports\PO_X.rdlc">
                         <DataSources>
                             <rsweb:ReportDataSource DataSourceId="SqlDataSource1" Name="DataSet1" />
@@ -42,19 +46,8 @@
                 </rsweb:ReportViewer>
             </asp:Panel>
         </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <asp:LinkButton ID="btnPreparedby" CssClass="btn btn-primary" runat="server" OnClick="btnPreparedby_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;PREPARED BY</asp:LinkButton>
-            </div>
-            <div class="col-sm-3">
-                <asp:LinkButton ID="btnRequestedby" CssClass="btn btn-primary" runat="server" OnClick="btnRequestedby_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;REQUESTED BY</asp:LinkButton>
-            </div>
-            <div class="col-sm-3">
-                <asp:LinkButton ID="btnNotedby" CssClass="btn btn-primary" runat="server" OnClick="btnNotedby_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;NOTED BY</asp:LinkButton>
-            </div>
-            <div class="col-sm-3">
-                <asp:LinkButton ID="btnApprovedby" CssClass="btn btn-primary" runat="server" OnClick="btnApprovedby_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;APPROVED BY</asp:LinkButton>
-            </div>
-        </div>
+        <asp:LinkButton ID="btnPreparedby" CssClass="btn btn-primary" runat="server" OnClick="btnPreparedby_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;PREPARED BY</asp:LinkButton>
+        <asp:LinkButton ID="btnNotedby" CssClass="btn btn-primary" runat="server" OnClick="btnNotedby_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;NOTED BY</asp:LinkButton>
+        <asp:LinkButton ID="btnApprovedby" CssClass="btn btn-primary" runat="server" OnClick="btnApprovedby_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;APPROVED BY</asp:LinkButton>
     </div>
 </asp:Content>

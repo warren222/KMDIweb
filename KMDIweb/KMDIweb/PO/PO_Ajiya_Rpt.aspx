@@ -4,19 +4,22 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
+    <title>Ajiya</title>
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
         <div class="well">
-            <h2 class="text-center">AJIYA PO</h2>
+            <h2 class="text-center">PO Viewer</h2>
             <span class="pull-right">
                 <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-warning" OnClick="btnBack_Click"><span class="glyphicon glyphicon-chevron-left"></span> back</asp:LinkButton>
             </span>
         </div>
-
+        <div>
+            <asp:CheckBox ID="cboxForIGU" runat="server" Text="FOR IGU" />&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:CheckBox ID="cboxNewLogo" runat="server" Text="NEW GLASS LOGO" />
+        </div>
         <div>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sqlcon %>" SelectCommand="Web_PO_Stp" SelectCommandType="StoredProcedure" OnSelecting="SqlDataSource1_Selecting">
                 <SelectParameters>
@@ -38,7 +41,7 @@
                 </SelectParameters>
             </asp:SqlDataSource>
             <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-                <rsweb:ReportViewer ID="ReportViewer1" Width="100%" Height="800px" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ZoomMode="FullPage">
+                <rsweb:ReportViewer ID="ReportViewer1" Width="100%" Height="800px" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ZoomMode="FullPage" OnReportRefresh="ReportViewer1_ReportRefresh">
                     <LocalReport ReportPath="KMDIweb\Global\Reports\PO_Ajiya.rdlc">
                         <DataSources>
                             <rsweb:ReportDataSource DataSourceId="SqlDataSource1" Name="DataSet1" />

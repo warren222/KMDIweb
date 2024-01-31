@@ -31,13 +31,13 @@ namespace KMDIweb.KMDIweb.PO {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// hlProject control.
+        /// hlRequest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlProject;
+        protected global::System.Web.UI.WebControls.HyperLink hlRequest;
         
         /// <summary>
         /// BTNaccount control.

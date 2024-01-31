@@ -1041,13 +1041,13 @@
             </TablixMember>
             <TablixMember>
               <Visibility>
-                <Hidden>=iif(Parameters!forigu.Value="1",false,true)</Hidden>
+                <Hidden>=iif(Parameters!forigu.Value="True",false,true)</Hidden>
               </Visibility>
               <KeepWithGroup>Before</KeepWithGroup>
             </TablixMember>
             <TablixMember>
               <Visibility>
-                <Hidden>=iif(Parameters!fornewglasslogo.Value="1",false,true)</Hidden>
+                <Hidden>=iif(Parameters!fornewglasslogo.Value="True",false,true)</Hidden>
               </Visibility>
               <KeepWithGroup>Before</KeepWithGroup>
             </TablixMember>
@@ -2335,7 +2335,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!Web_Requested_By.Value, "DataSet1") + System.Environment.NewLine + "requested by:"</Value>
+                      <Value>=First(Fields!REQUESTED.Value, "DataSet1") + System.Environment.NewLine + "requested by:"</Value>
                       <Style>
                         <FontSize>9pt</FontSize>
                       </Style>
@@ -2348,6 +2348,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>0.23139in</Top>
+              <Left>0.01986cm</Left>
               <Height>0.41667in</Height>
               <Width>1.92164in</Width>
               <Style>
@@ -2361,21 +2362,6 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Image Name="Image6">
-              <Source>External</Source>
-              <Value>=Parameters!ImgRequestedBy.Value</Value>
-              <Sizing>Fit</Sizing>
-              <Top>0.01255cm</Top>
-              <Left>0.36258in</Left>
-              <Height>0.64806in</Height>
-              <Width>1.21875in</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-            </Image>
           </ReportItems>
           <KeepTogether>true</KeepTogether>
           <Top>1.66161in</Top>
@@ -2965,12 +2951,6 @@ First(Fields!DELAT.Value, "DataSet1")</Value>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="ImgApprovedBy">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="ImgRequestedBy">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
       <AllowBlank>true</AllowBlank>

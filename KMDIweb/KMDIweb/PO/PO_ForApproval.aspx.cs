@@ -38,18 +38,19 @@ namespace KMDIweb.KMDIweb.PO
                 return Session["KMDI_user_code"].ToString();
             }
         }
-        private string fullname
+        private string user_fullname
         {
             get
             {
                 return Session["KMDI_fullname"].ToString();
             }
         }
-        private string userRole
+
+        private string poa
         {
             get
             {
-                return Session["KMDI_clg_acct"].ToString();
+                return Session["KMDI_poa_acct"].ToString();
             }
         }
         private string sqlconstr
@@ -81,12 +82,49 @@ namespace KMDIweb.KMDIweb.PO
                         sqlcmd.Parameters.AddWithValue("@Command", "Get_Submitted");
                         sqlcmd.Parameters.AddWithValue("@Search", tboxsearchkey.Text);
                         sqlcmd.Parameters.AddWithValue("@For_Signature", ddlForSignature.SelectedValue.ToString());
+                        sqlcmd.Parameters.AddWithValue("@POA_Acct", poa);
+                        sqlcmd.Parameters.AddWithValue("@Fullname", user_fullname);
                         DataTable tb = new DataTable();
                         SqlDataAdapter da = new SqlDataAdapter();
                         da.SelectCommand = sqlcmd;
                         da.Fill(tb);
                         GridView1.DataSource = tb;
                         GridView1.DataBind();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            finally
+            {
+                loadSummary();
+            }
+        }
+        private void loadSummary()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Web_PO_Approval_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Notification_Counter");
+                        sqlcmd.Parameters.AddWithValue("@POA_Acct", poa);
+                        sqlcmd.Parameters.AddWithValue("@Fullname", user_fullname);
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(tb);
+                            gvSummary.DataSource = tb;
+                            gvSummary.DataBind();
+                        }
                     }
                 }
             }
@@ -119,7 +157,7 @@ namespace KMDIweb.KMDIweb.PO
                 if (get_supplier(pono) == "Ajiya Safety Glass SDN BHD" ||
                     get_supplier(pono) == "Saint Gobain India Private Limited (Vetrotech Business)")
                 {
-                    Response.Redirect("~/KMDIweb/PO/PO_Ajiya_Rpt.aspx"+ AddQuerystring);
+                    Response.Redirect("~/KMDIweb/PO/PO_Ajiya_Rpt.aspx" + AddQuerystring);
                 }
                 else
                 {
@@ -205,6 +243,92 @@ namespace KMDIweb.KMDIweb.PO
                 errorrmessage(ex.ToString());
             }
             return supplier;
+        }
+        protected void gvSummary_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "PreparedBy")
+            {
+                tboxsearchkey.Text = "";
+                ddlForSignature.Text = "Prepared by";
+                getdata();
+            }
+            else if (e.CommandName == "NotedBy")
+            {
+                tboxsearchkey.Text = "";
+                ddlForSignature.Text = "Noted by";
+                getdata();
+            }
+            else if (e.CommandName == "ApprovedBy")
+            {
+                tboxsearchkey.Text = "";
+                ddlForSignature.Text = "Approved by";
+                getdata();
+            }
+            else if (e.CommandName == "Done")
+            {
+                tboxsearchkey.Text = "";
+                ddlForSignature.SelectedIndex = 4;
+                getdata();
+            }
+        }
+
+        protected void gvSummary_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                TableCell cell = e.Row.Cells[0];
+                LinkButton btnpreparedBy = ((LinkButton)cell.FindControl("btnPreparedBy"));
+                LinkButton btnnotedBy = ((LinkButton)cell.FindControl("btnNotedBy"));
+                LinkButton btnapprovedBy = ((LinkButton)cell.FindControl("btnApprvoedBy"));
+                if (poa == "Admin")
+                {
+                    BtnAccess(btnpreparedBy, true, btnnotedBy, true, btnapprovedBy, true);
+                }
+                else if (poa == "PO")
+                {
+                    BtnAccess(btnpreparedBy, true, btnnotedBy, false, btnapprovedBy, false);
+                }
+                else if (poa == "Noter")
+                {
+                    BtnAccess(btnpreparedBy, false, btnnotedBy, true, btnapprovedBy, false);
+                }
+                else if (poa == "Approver")
+                {
+                    BtnAccess(btnpreparedBy, false, btnnotedBy, false, btnapprovedBy, true);
+                }
+                else
+                {
+                    BtnAccess(btnpreparedBy, false, btnnotedBy, false, btnapprovedBy, false);
+                }
+            }
+        }
+        private void BtnAccess(LinkButton btnpreparedBy, bool x,
+                               LinkButton btnnotedBy, bool y,
+                               LinkButton btnapprovedBy, bool z)
+        {
+            btnpreparedBy.Enabled = x;
+            btnnotedBy.Enabled = y;
+            btnapprovedBy.Enabled = z;
+
+            if (x == false)
+            {
+                BtnDisabled(btnpreparedBy);
+            }
+            if (y == false)
+            {
+                BtnDisabled(btnnotedBy);
+            }
+            if (z == false)
+            {
+                BtnDisabled(btnapprovedBy);
+            }
+        }
+        private void BtnDisabled(LinkButton btn)
+        {
+            btn.ForeColor = System.Drawing.Color.Black;
+            btn.Font.Bold = false;
+            btn.BackColor = System.Drawing.Color.White;
+            btn.Style.Add("cursur", "not-allowed");
         }
     }
 }

@@ -24,42 +24,30 @@ namespace KMDIweb.KMDIweb.PO
             if (poa == "Admin")
             {
                 btnPreparedby.Visible = true;
-                btnRequestedby.Visible = true;
                 btnNotedby.Visible = true;
                 btnApprovedby.Visible = true;
             }
             else if (poa == "PO")
             {
                 btnPreparedby.Visible = true;
-                btnRequestedby.Visible = false;
                 btnNotedby.Visible = false;
                 btnApprovedby.Visible = false;
             }
-            else if (poa == "Requester")
+            else if (poa == "Noter")
             {
                 btnPreparedby.Visible = false;
-                btnRequestedby.Visible = true;
-                btnNotedby.Visible = false;
-                btnApprovedby.Visible = false;
-            }
-            else if (poa == "Take note")
-            {
-                btnPreparedby.Visible = false;
-                btnRequestedby.Visible = false;
                 btnNotedby.Visible = true;
                 btnApprovedby.Visible = false;
             }
             else if (poa == "Approver")
             {
                 btnPreparedby.Visible = false;
-                btnRequestedby.Visible = false;
                 btnNotedby.Visible = false;
                 btnApprovedby.Visible = true;
             }
             else
             {
                 btnPreparedby.Visible = false;
-                btnRequestedby.Visible = false;
                 btnNotedby.Visible = false;
                 btnApprovedby.Visible = false;
             }
@@ -87,25 +75,33 @@ namespace KMDIweb.KMDIweb.PO
         {
             e.Command.CommandTimeout = 32000;
         }
+
         protected void btnPreparedby_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/PO/PO_Sign.aspx?PO_Sender=PO_X_Rpt&PO_Sign_Field=Web_Prepared_By&PO_Search=" + Request.QueryString["PO_Search"].ToString() + "&PO_PageIndex=" + Request.QueryString["PO_PageIndex"].ToString());
+            Response.Redirect("~/KMDIweb/PO/PO_Sign.aspx" + AddQuerystring + "&PO_Sender=PO_X_Rpt&PO_Sign_Field=Web_Prepared_By");
         }
         protected void btnRequestedby_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/PO/PO_Sign.aspx?PO_Sender=PO_X_Rpt&PO_Sign_Field=Web_Requested_By&PO_Search=" + Request.QueryString["PO_Search"].ToString() + "&PO_PageIndex=" + Request.QueryString["PO_PageIndex"].ToString());
+            Response.Redirect("~/KMDIweb/PO/PO_Sign.aspx" + AddQuerystring + "&PO_Sender=PO_X_Rpt&PO_Sign_Field=Web_Requested_By");
         }
         protected void btnNotedby_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/PO/PO_Sign.aspx?PO_Sender=PO_X_Rpt&PO_Sign_Field=Web_Noted_By&PO_Search=" + Request.QueryString["PO_Search"].ToString() + "&PO_PageIndex=" + Request.QueryString["PO_PageIndex"].ToString());
+            Response.Redirect("~/KMDIweb/PO/PO_Sign.aspx" + AddQuerystring + "&PO_Sender=PO_X_Rpt&PO_Sign_Field=Web_Noted_By");
         }
         protected void btnApprovedby_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/PO/PO_Sign.aspx?PO_Sender=PO_X_Rpt&PO_Sign_Field=Web_Approved_By&PO_Search=" + Request.QueryString["PO_Search"].ToString() + "&PO_PageIndex=" + Request.QueryString["PO_PageIndex"].ToString());
+            Response.Redirect("~/KMDIweb/PO/PO_Sign.aspx" + AddQuerystring + "&PO_Sender=PO_X_Rpt&PO_Sign_Field=Web_Approved_By");
         }
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/PO/PO_ForApproval.aspx?PO_Search=" + Request.QueryString["PO_Search"].ToString() + "&PO_PageIndex=" + Request.QueryString["PO_PageIndex"].ToString());
+            Response.Redirect("~/KMDIweb/PO/PO_ForApproval.aspx" + AddQuerystring);
+        }
+        private string AddQuerystring
+        {
+            get
+            {
+                return "?PO_Search=" + Request.QueryString["PO_Search"].ToString() + "&PO_For_Signature=" + Request.QueryString["PO_For_Signature"].ToString() + "&PO_PageIndex=" + Request.QueryString["PO_PageIndex"].ToString();
+            }
         }
         private void getparameters()
         {
@@ -113,18 +109,22 @@ namespace KMDIweb.KMDIweb.PO
             string _prepared = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Prepared_By.jpg")).AbsoluteUri;
             string _noted = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Noted_By.jpg")).AbsoluteUri;
             string _approved = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Approved_By.jpg")).AbsoluteUri;
-            string _requested = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Requested_By.jpg")).AbsoluteUri;
-            ReportParameter[] repparam = new ReportParameter[4];
+            ReportParameter[] repparam = new ReportParameter[5];
             repparam[0] = new ReportParameter("ImgPreparedBy", _prepared);
             repparam[1] = new ReportParameter("ImgNotedBy", _noted);
             repparam[2] = new ReportParameter("ImgApprovedBy", _approved);
-            repparam[3] = new ReportParameter("ImgRequestedBy", _requested);
-            for (int i = 0; i < 4; i++)
+            repparam[3] = new ReportParameter("forigu", cboxForIGU.Checked.ToString());
+            repparam[4] = new ReportParameter("fornewglasslogo", cboxNewLogo.Checked.ToString());
+            for (int i = 0; i < 5; i++)
             {
                 ReportViewer1.LocalReport.SetParameters(repparam[i]);
             }
 
             ReportViewer1.LocalReport.Refresh();
+        }
+        protected void ReportViewer1_ReportRefresh(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            getparameters();
         }
     }
 }

@@ -92,6 +92,13 @@ namespace KMDIweb.KMDIapp
 
             }
         }
+        private string poa
+        {
+            get
+            {
+                return Session["KMDI_poa_acct"].ToString();
+            }
+        }
         private string usercode
         {
             get
@@ -149,27 +156,26 @@ namespace KMDIweb.KMDIapp
                 Panel4.Visible = false;
             }
 
-            if ((usercode == "AE") || 
-                (usercode == "Accounting") ||
-                ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
-                (usercode == "Programmer") ||
-                (fullname == "Genalyn Garcia"))
-            {
-                pnlAC.Visible = true;
-            }
-            if ((usercode == "AE") ||
-            ((fullname == "Jayvey Manalili" && usercode == "Operations")) ||
-            (usercode == "Programmer") ||
-            (fullname == "Genalyn Garcia"))
-            {
-                pnlAF.Visible = true;
-            }
-            if ((usercode == "Programmer") ||
-           (fullname == "Genalyn Garcia"))
+            //if ((usercode == "AE") || 
+            //    (usercode == "Accounting") ||
+            //    ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
+            //    (usercode == "Programmer") ||
+            //    (fullname == "Genalyn Garcia"))
+            //{
+            //    pnlAC.Visible = true;
+            //}
+            //if ((usercode == "AE") ||
+            //((fullname == "Jayvey Manalili" && usercode == "Operations")) ||
+            //(usercode == "Programmer") ||
+            //(fullname == "Genalyn Garcia"))
+            //{
+            //    pnlAF.Visible = true;
+            //}
+            if(poa != "")
             {
                 pnlPO.Visible = true;
             }
-
+           
         }
 
         protected void LinkButton5_Click(object sender, EventArgs e)
