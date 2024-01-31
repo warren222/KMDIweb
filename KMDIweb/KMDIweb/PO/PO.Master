@@ -69,7 +69,7 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <asp:HyperLink ID="hlRequest" runat="server" NavigateUrl="~/KMDIweb/PO/PO_ForApproval.aspx">
-                                 <span class="glyphicon glyphicon-home"></span>&nbsp;Request</asp:HyperLink></li>
+                                 <span class="glyphicon glyphicon-home"></span>&nbsp;Home</asp:HyperLink></li>
                             <li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
