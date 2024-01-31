@@ -18,7 +18,7 @@
         $(document).ready(function () {
             $('#myCanvas').sign({
                 resetButton: $('#resetSign'),
-                lineWidth: 5
+                lineWidth: 2
             });
         });
     </script>
