@@ -141,7 +141,7 @@
 
 
                                                         <div class="text-center" style="background-color: whitesmoke; padding: 5px;">
-                                                            <br />
+                                                   
                                                             <span><%# Eval("Project_Label") %></span><br />
                                                             <span style="font-size: smaller"><%# Eval("Fulladd") %></span>
                                                         </div>
@@ -149,7 +149,7 @@
                                                             <div style="border-left: solid 0px skyblue; padding: 10px">
                                                                 <asp:Panel runat="server" Visible="true" ID="pnlCommentParticular">
                                                                     <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Particular").ToString(), "\r\n|\r|\n", "<br>")) %></span>
-                                                                    <span style="font-size: small;" class="text-info">&nbsp;&nbsp;&nbsp;<%# "-"+Eval("Account_Exec") %></span> <span style="font-size: small" class="text-muted"><%# Eval("Requested_Date") %></span>
+                                                                    <span style="font-size: small;" class="text-info">&nbsp;&nbsp;&nbsp;<%# "Requested by "+Eval("Account_Exec") %></span>  <span style="font-size: small" class="text-muted"><%# Eval("Requested_Date") %></span>
                                                                     <span class="pull-right">
                                                                         <asp:LinkButton ID="btnEditParticular" Visible="False" CommandName="myEditParticular" runat="server">Edit</asp:LinkButton>
                                                                 </asp:Panel>
@@ -168,14 +168,14 @@
                                                                 </asp:Panel>
                                                                 <asp:Panel runat="server" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? false : true %>' ID="pnlComment">
                                                                     <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Checked_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %>
-                                                                        <span style="font-size: small;" class="text-info">&nbsp;&nbsp;&nbsp;<%# "-"+Eval("Checked_By") %></span> <span style="font-size: small" class="text-muted"><%# Eval("Checked_Date") %></span><span class="pull-right"><asp:LinkButton ID="btnEdit" Visible='<%# Eval("Req_Status").ToString() == "For Approval" ? true : false %>' CommandName="myEdit" runat="server">Edit</asp:LinkButton>
+                                                                        <span style="font-size: small;" class="text-info">&nbsp;&nbsp;&nbsp;<%# ""+Eval("Checked_By") %></span> <span style="font-size: small" class="text-muted"><%# Eval("Checked_Date") %></span><span class="pull-right"><asp:LinkButton ID="btnEdit" Visible='<%# Eval("Req_Status").ToString() == "For Approval" ? true : false %>' CommandName="myEdit" runat="server">Edit</asp:LinkButton>
                                                                         </span>
                                                                     </span>
                                                                 </asp:Panel>
                                                             </div>
                                                             <div style="border-left: solid 0px green; min-height: 35px; border-top: 0.5px solid #bab9b9; padding: 10px">
                                                                 <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Approval_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span>
-                                                                <span style="font-size: small;" class="text-info">&nbsp;&nbsp;&nbsp;<%# "-"+Eval("Approved_By") %></span> <span style="font-size: small" class="text-muted"><%# Eval("Approved_Date") %></span>
+                                                                <span style="font-size: small;" class="text-info">&nbsp;&nbsp;&nbsp;<%# ""+Eval("Approved_By") %></span> <span style="font-size: small" class="text-muted"><%# Eval("Approved_Date") %></span>
                                                             </div>
 
                                                         </div>

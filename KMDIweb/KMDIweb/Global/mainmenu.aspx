@@ -33,8 +33,8 @@
         }
 
         .headerbanner {
-            background-color: #ff006e;
-            border-color: #336699;
+            background-color: #303030;
+            border-bottom: solid 5px #ff006e;
             color: white;
             padding:10px;
         }
