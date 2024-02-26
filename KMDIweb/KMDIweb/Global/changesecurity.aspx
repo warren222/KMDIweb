@@ -36,6 +36,7 @@
                 <h1>
                     <strong>Change Security</strong><small></small>
                 </h1>
+                <asp:LinkButton ID="btnMenu" runat="server" PostBackUrl="~/KMDIweb/Global/mainmenu.aspx" CssClass="btn btn-primary">RETURN TO MENU</asp:LinkButton>
             </div>
 
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -66,14 +67,14 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="oldpasswordtbox"
                                 ValidationGroup="val1" ErrorMessage="Old password is required" ForeColor="Red">*</asp:RequiredFieldValidator>
                             <br />
-                            <asp:LinkButton ID="LinkButton1" CssClass="form-control btn btn-primary" ValidationGroup="val1" runat="server" OnClick="LinkButton1_Click">confirm changes</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton1" CssClass="form-control btn btn-success" ValidationGroup="val1" runat="server" OnClick="LinkButton1_Click">confirm changes</asp:LinkButton>
                             <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="val1" runat="server" class="alert alert-danger" />
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6" style="background-color: whitesmoke">
                     <asp:Image ID="Image1" CssClass="img-thumbnail" Width="350" Height="250" runat="server" /><br />
-                    <asp:LinkButton ID="LinkButton2" CssClass="btn btn-warning" PostBackUrl="~/KMDIweb/Global/registerSign.aspx" runat="server">register my signature</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton2" Width="350" CssClass="btn btn-warning" PostBackUrl="~/KMDIweb/Global/registerSign.aspx" runat="server">register my signature</asp:LinkButton>
                 </div>
             </div>
 
