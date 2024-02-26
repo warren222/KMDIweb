@@ -21,6 +21,7 @@
                 <h1>
                     <strong>Manage accounts</strong><small></small>
                 </h1>
+                <asp:LinkButton ID="btnMenu" runat="server" PostBackUrl="~/KMDIweb/Global/mainmenu.aspx" CssClass="btn btn-primary">RETURN TO MENU</asp:LinkButton>
             </div>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -119,7 +120,7 @@
                                         </asp:DropDownList>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                  <asp:TemplateField HeaderText="FFM">
+                                <asp:TemplateField HeaderText="FFM">
                                     <ItemTemplate>
                                         <asp:Label ID="LBLffm" runat="server" Text='<%# Bind("FFM") %>'></asp:Label>
                                         <asp:DropDownList Visible="false" ID="DDLeditffm" CssClass="form-control" runat="server">

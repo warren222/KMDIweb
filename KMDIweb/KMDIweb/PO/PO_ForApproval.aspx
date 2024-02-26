@@ -11,7 +11,7 @@
     <div class="container">
         <div class="well">
             <div class="container text-left">
-                <h2>Glass PO Requests</h2>
+                <h2>Glass PO Request</h2>
             </div>
         </div>
         <asp:UpdatePanel ID="UpdatePanel4" runat="server">
