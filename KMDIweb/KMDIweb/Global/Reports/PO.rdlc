@@ -2569,9 +2569,9 @@
               <Source>External</Source>
               <Value>=Parameters!ImgApprovedBy.Value</Value>
               <Sizing>Fit</Sizing>
-              <Left>0.37311in</Left>
-              <Height>0.64806in</Height>
-              <Width>1.21875in</Width>
+              <Left>0.37716in</Left>
+              <Height>0.56473in</Height>
+              <Width>1.07292in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -2632,8 +2632,8 @@
               <Value>=Parameters!ImgNotedBy.Value</Value>
               <Sizing>Fit</Sizing>
               <Left>0.36938in</Left>
-              <Height>0.64806in</Height>
-              <Width>1.21875in</Width>
+              <Height>0.56473in</Height>
+              <Width>1.07292in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -2742,8 +2742,8 @@
               <Value>=Parameters!ImgPreparedBy.Value</Value>
               <Sizing>Fit</Sizing>
               <Left>0.33891in</Left>
-              <Height>0.64806in</Height>
-              <Width>1.21875in</Width>
+              <Height>0.56473in</Height>
+              <Width>1.07292in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
