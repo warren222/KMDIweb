@@ -61,7 +61,7 @@ namespace KMDIweb.KMDIweb.PO
                 }
                 UploadImage(Request.Form["myurl"].ToString().Replace("data:image/png;base64,", ""), Server.MapPath(filepath + PO_Sign_Field + ".jpg"));
 
-                string str = "update KMDI_PONUM_TB set " + PO_Sign_Field + "='" + tboxName.Text + "' where [NO] = @PO_No";
+                string str = "update KMDI_PONUM_TB set " + PO_Sign_Field + "='" + tboxName.Text + "'," + PO_Sign_Field + "_Date = format(getdate(),'yyyy-MM-dd') where [NO] = @PO_No";
                 updatetb(str);
 
             }
@@ -152,7 +152,7 @@ namespace KMDIweb.KMDIweb.PO
                     File.Copy(Server.MapPath(sourcepath + fileinfo.Name), Server.MapPath(filepath + PO_Sign_Field + ".jpg"), true);
                 }
 
-                string str = "update KMDI_PONUM_TB set " + PO_Sign_Field + "='" + Session["KMDI_fullname"].ToString() + "' where [NO] = @PO_No";
+                string str = "update KMDI_PONUM_TB set " + PO_Sign_Field + "='" + Session["KMDI_fullname"].ToString() + "'," + PO_Sign_Field + "_Date = format(getdate(),'yyyy-MM-dd') where [NO] = @PO_No";
                 updatetb(str);
 
             }

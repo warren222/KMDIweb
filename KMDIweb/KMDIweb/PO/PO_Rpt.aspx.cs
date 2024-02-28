@@ -114,7 +114,7 @@ namespace KMDIweb.KMDIweb.PO
             {
                 ReportViewer1.LocalReport.SetParameters(repparam[i]);
             }
-
+            ReportViewer1.LocalReport.DisplayName = Session["POPO_No"].ToString();
             ReportViewer1.LocalReport.Refresh();
         }
 

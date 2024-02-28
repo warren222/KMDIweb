@@ -119,7 +119,7 @@ namespace KMDIweb.KMDIweb.PO
             {
                 ReportViewer1.LocalReport.SetParameters(repparam[i]);
             }
-
+            ReportViewer1.LocalReport.DisplayName = Session["POPO_No"].ToString();
             ReportViewer1.LocalReport.Refresh();
         }
         protected void ReportViewer1_ReportRefresh(object sender, System.ComponentModel.CancelEventArgs e)
