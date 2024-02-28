@@ -2545,8 +2545,8 @@ First(Fields!Web_Approved_By.Value, "DataSet1")</Value>
               <Value>=Parameters!ImgApprovedBy.Value</Value>
               <Sizing>Fit</Sizing>
               <Left>0.75165in</Left>
-              <Height>0.64806in</Height>
-              <Width>1.21875in</Width>
+              <Height>0.56473in</Height>
+              <Width>1.07292in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -2608,8 +2608,8 @@ First(Fields!Web_Approved_By.Value, "DataSet1")</Value>
               <Sizing>Fit</Sizing>
               <Top>0.01763cm</Top>
               <Left>0.69252in</Left>
-              <Height>0.64806in</Height>
-              <Width>1.21875in</Width>
+              <Height>0.56473in</Height>
+              <Width>1.07292in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -2673,8 +2673,8 @@ First(Fields!Web_Prepared_By.Value, "DataSet1")</Value>
               <Sizing>Fit</Sizing>
               <Top>0.01763cm</Top>
               <Left>0.64644in</Left>
-              <Height>0.64806in</Height>
-              <Width>1.21875in</Width>
+              <Height>0.56473in</Height>
+              <Width>1.07292in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
