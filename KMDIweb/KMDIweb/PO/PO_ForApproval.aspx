@@ -58,27 +58,47 @@
                 </asp:UpdatePanel>
             </div>
             <div class="col-sm-6">
-                <div class="well">
-                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                        <ContentTemplate>
-                            For Signature
-                    <asp:DropDownList ID="ddlForSignature" runat="server" CssClass="form-control">
-                        <asp:ListItem Value="All" Text="All" Selected="True"></asp:ListItem>
-                        <asp:ListItem Value="Prepared by" Text="Prepared by"></asp:ListItem>
-                        <asp:ListItem Value="Noted by" Text="Noted by"></asp:ListItem>
-                        <asp:ListItem Value="Approved by" Text="Approved by"></asp:ListItem>
-                        <asp:ListItem Value="Approved" Text="(status)Approved"></asp:ListItem>
-                    </asp:DropDownList>
-                            Search
-                    <div class="input-group">
-                        <asp:TextBox ID="tboxsearchkey" CssClass="form-control" runat="server"></asp:TextBox>
-                        <div class="input-group-btn">
-                            <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default" runat="server" OnClick="LinkButton1_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                    <ContentTemplate>
+                        <div class="well">
+                              <div class="row">
+                                <div class="col-sm-4">
+                                    <span>Date Filter</span>
+                                    <asp:DropDownList runat="server" ID="ddlDateFilter" CssClass="form-control">
+                                        <asp:ListItem Value="All" Text="All"></asp:ListItem>
+                                        <asp:ListItem Value="Date Noted" Text="Date Noted"></asp:ListItem>
+                                        <asp:ListItem Value="Date Approved" Text="Date Approved"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="col-sm-8">
+                                    <span>Date</span>
+                                    <asp:TextBox runat="server" ID="tboxDate" TextMode="Date" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <span>For Signature</span>
+                                    <asp:DropDownList ID="ddlForSignature" runat="server" CssClass="form-control">
+                                        <asp:ListItem Value="All" Text="All" Selected="True"></asp:ListItem>
+                                        <asp:ListItem Value="Prepared by" Text="Prepared by"></asp:ListItem>
+                                        <asp:ListItem Value="Noted by" Text="Noted by"></asp:ListItem>
+                                        <asp:ListItem Value="Approved by" Text="Approved by"></asp:ListItem>
+                                        <asp:ListItem Value="Approved" Text="(status)Approved"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="col-sm-8">
+                                    <span>Search</span>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tboxsearchkey" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <div class="input-group-btn">
+                                            <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default" runat="server" OnClick="LinkButton1_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>              
                         </div>
-                    </div>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
         </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -97,6 +117,7 @@
                                                 <div class="panel-heading">
                                                     <asp:Label runat="server" ID="lblPONO" CommandName="view_request" Text='<%# Bind("NO") %>'></asp:Label>
                                                     <asp:Label runat="server" ID="lblJONO" Visible="false" Text='<%# Bind("JONO") %>'></asp:Label>
+                                                    <asp:Label runat="server" ID="lblREQUESTED" Visible="false" Text='<%# Bind("REQUESTED") %>'></asp:Label>
                                                 </div>
                                                 <div class=" panel-body">
                                                     <asp:LinkButton ID="btnProjectLabel" CommandName="view_request" runat="server">

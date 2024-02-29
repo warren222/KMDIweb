@@ -67,6 +67,24 @@ namespace KMDIweb.KMDIweb.PO {
         protected global::System.Web.UI.UpdatePanel UpdatePanel3;
         
         /// <summary>
+        /// ddlDateFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDateFilter;
+        
+        /// <summary>
+        /// tboxDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxDate;
+        
+        /// <summary>
         /// ddlForSignature control.
         /// </summary>
         /// <remarks>
