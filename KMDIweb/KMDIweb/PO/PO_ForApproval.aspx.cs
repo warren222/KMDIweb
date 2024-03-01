@@ -262,24 +262,32 @@ namespace KMDIweb.KMDIweb.PO
             if (e.CommandName == "PreparedBy")
             {
                 tboxsearchkey.Text = "";
+                ddlDateFilter.Text = "All";
+                tboxDate.Text = "";
                 ddlForSignature.Text = "Prepared by";
                 getdata();
             }
             else if (e.CommandName == "NotedBy")
             {
                 tboxsearchkey.Text = "";
+                ddlDateFilter.Text = "All";
+                tboxDate.Text = "";
                 ddlForSignature.Text = "Noted by";
                 getdata();
             }
             else if (e.CommandName == "ApprovedBy")
             {
                 tboxsearchkey.Text = "";
+                ddlDateFilter.Text = "All";
+                tboxDate.Text = "";
                 ddlForSignature.Text = "Approved by";
                 getdata();
             }
             else if (e.CommandName == "Done")
             {
                 tboxsearchkey.Text = "";
+                ddlDateFilter.Text = "All";
+                tboxDate.Text = "";
                 ddlForSignature.SelectedIndex = 4;
                 getdata();
             }
