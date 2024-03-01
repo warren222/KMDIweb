@@ -387,6 +387,13 @@
     <Compile Include="KMDIweb\Global\registerSign.aspx.designer.cs">
       <DependentUpon>registerSign.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Global\SignGenerator.aspx.cs">
+      <DependentUpon>SignGenerator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Global\SignGenerator.aspx.designer.cs">
+      <DependentUpon>SignGenerator.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Installation\InstallationMaster.Master.cs">
       <DependentUpon>InstallationMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -851,6 +858,7 @@
     <Content Include="KMDIweb\Global\css\gridcss.css" />
     <Content Include="KMDIweb\Global\registerSign.aspx" />
     <Content Include="KMDIweb\Global\scripts\sign.js" />
+    <Content Include="KMDIweb\Global\SignGenerator.aspx" />
     <Content Include="KMDIweb\Images\collection.jpg" />
     <Content Include="KMDIweb\Images\dr.jpg" />
     <Content Include="KMDIweb\Images\installation.jpg" />

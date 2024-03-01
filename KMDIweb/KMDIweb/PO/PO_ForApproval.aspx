@@ -66,6 +66,7 @@
                                     <span>Date Filter</span>
                                     <asp:DropDownList runat="server" ID="ddlDateFilter" CssClass="form-control">
                                         <asp:ListItem Value="All" Text="All"></asp:ListItem>
+                                        <asp:ListItem Value="Date Prepared" Text="Date Prepared"></asp:ListItem>
                                         <asp:ListItem Value="Date Noted" Text="Date Noted"></asp:ListItem>
                                         <asp:ListItem Value="Date Approved" Text="Date Approved"></asp:ListItem>
                                     </asp:DropDownList>

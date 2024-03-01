@@ -24,6 +24,14 @@ namespace KMDIweb.KMDIweb.PO
                 {
                     ddlForSignature.Text = Request.QueryString["PO_For_Signature"].ToString();
                 }
+                if (Request.QueryString["Date_Filter"] != null)
+                {
+                    ddlDateFilter.Text = Request.QueryString["Date_Filter"].ToString();
+                }
+                if (Request.QueryString["Date"] != null)
+                {
+                    tboxDate.Text = Request.QueryString["Date"].ToString();
+                }
                 if (Request.QueryString["PO_PageIndex"] != null)
                 {
                     GridView1.PageIndex = Request.QueryString["PO_PageIndex"] != null ? Convert.ToInt32(Request.QueryString["PO_PageIndex"].ToString()) : 0;
@@ -184,7 +192,8 @@ namespace KMDIweb.KMDIweb.PO
             get
             {
                 return "?PO_Search=" + tboxsearchkey.Text + "&PO_For_Signature=" + ddlForSignature.SelectedValue.ToString() +
-                       "&PO_PageIndex=" + GridView1.PageIndex.ToString();
+                       "&PO_PageIndex=" + GridView1.PageIndex.ToString() + "&Date_Filter=" + ddlDateFilter.SelectedValue.ToString() +
+                       "&Date=" + tboxDate.Text;
             }
         }
         private string get_computation(string jono, string pono)
