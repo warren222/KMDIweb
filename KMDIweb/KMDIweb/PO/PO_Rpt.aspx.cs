@@ -95,22 +95,26 @@ namespace KMDIweb.KMDIweb.PO
         {
             get
             {
-                return "?PO_Search=" + Request.QueryString["PO_Search"].ToString() + "&PO_For_Signature=" + Request.QueryString["PO_For_Signature"].ToString() + "&PO_PageIndex=" + Request.QueryString["PO_PageIndex"].ToString();
+                return "?PO_Search=" + Request.QueryString["PO_Search"].ToString() + "&PO_For_Signature=" + Request.QueryString["PO_For_Signature"].ToString() +
+                       "&PO_PageIndex=" + Request.QueryString["PO_PageIndex"].ToString() + "&Requested_By=" + Request.QueryString["Requested_By"].ToString() +
+                       "&Date_Filter=" + Request.QueryString["Date_Filter"].ToString() + "&Date=" + Request.QueryString["Date"].ToString();
             }
         }
         private void getparameters()
         {
             ReportViewer1.LocalReport.EnableExternalImages = true;
             string _prepared = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Prepared_By.jpg")).AbsoluteUri;
+            string _requested = new Uri(Server.MapPath("~/KMDIweb/Uploads/UserSignature/DefaultForPO/" + Request.QueryString["Requested_By"].ToString() + ".jpg")).AbsoluteUri;
             string _noted = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Noted_By.jpg")).AbsoluteUri;
             string _approved = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Approved_By.jpg")).AbsoluteUri;
-            ReportParameter[] repparam = new ReportParameter[5];
+            ReportParameter[] repparam = new ReportParameter[6];
             repparam[0] = new ReportParameter("ImgPreparedBy", _prepared);
             repparam[1] = new ReportParameter("ImgNotedBy", _noted);
             repparam[2] = new ReportParameter("ImgApprovedBy", _approved);
             repparam[3] = new ReportParameter("forigu", cboxForIGU.Checked.ToString());
             repparam[4] = new ReportParameter("fornewglasslogo", cboxNewLogo.Checked.ToString());
-            for (int i = 0; i < 5; i++)
+            repparam[5] = new ReportParameter("imgRequestedBy", _requested);
+            for (int i = 0; i < 6; i++)
             {
                 ReportViewer1.LocalReport.SetParameters(repparam[i]);
             }

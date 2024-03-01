@@ -2362,6 +2362,20 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
+            <Image Name="Image3">
+              <Source>External</Source>
+              <Value>=Parameters!imgRequestedBy.Value</Value>
+              <Sizing>Fit</Sizing>
+              <Left>0.42827in</Left>
+              <Height>0.56473in</Height>
+              <Width>1.07292in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
           </ReportItems>
           <KeepTogether>true</KeepTogether>
           <Top>1.66161in</Top>
@@ -2951,6 +2965,12 @@ First(Fields!DELAT.Value, "DataSet1")</Value>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="ImgApprovedBy">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="imgRequestedBy">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
       <AllowBlank>true</AllowBlank>

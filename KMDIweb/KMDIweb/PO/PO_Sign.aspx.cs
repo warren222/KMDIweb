@@ -121,7 +121,9 @@ namespace KMDIweb.KMDIweb.PO
         {
             get
             {
-                return "?PO_Search=" + Request.QueryString["PO_Search"].ToString() + "&PO_For_Signature=" + Request.QueryString["PO_For_Signature"].ToString() + "&PO_PageIndex=" + Request.QueryString["PO_PageIndex"].ToString();
+                return "?PO_Search=" + Request.QueryString["PO_Search"].ToString() + "&PO_For_Signature=" + Request.QueryString["PO_For_Signature"].ToString() +
+                       "&PO_PageIndex=" + Request.QueryString["PO_PageIndex"].ToString() + "&Requested_By=" + Request.QueryString["Requested_By"].ToString() +
+                       "&Date_Filter=" + Request.QueryString["Date_Filter"].ToString() + "&Date=" + Request.QueryString["Date"].ToString();
             }
         }
         protected void btnBack_Click(object sender, EventArgs e)
