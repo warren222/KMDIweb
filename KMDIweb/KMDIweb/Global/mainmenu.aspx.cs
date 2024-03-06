@@ -164,13 +164,13 @@ namespace KMDIweb.KMDIapp
             //{
             //    pnlAC.Visible = true;
             //}
-            //if ((usercode == "AE") ||
-            //((fullname == "Jayvey Manalili" && usercode == "Operations")) ||
-            //(usercode == "Programmer") ||
-            //(fullname == "Genalyn Garcia"))
-            //{
-            //    pnlAF.Visible = true;
-            //}
+            if ((usercode == "AE") ||
+            ((fullname == "Jayvey Manalili" && usercode == "Operations")) ||
+            (usercode == "Programmer") ||
+            (fullname == "Genalyn Garcia"))
+            {
+                pnlAF.Visible = true;
+            }
 
             if (poa != "")
             {

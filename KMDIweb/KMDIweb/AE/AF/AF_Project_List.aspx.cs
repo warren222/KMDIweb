@@ -150,7 +150,7 @@ namespace KMDIweb.KMDIweb.AE.AF
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvProject.Rows[rowindex];
-                string parentjono = ((LinkButton)row.FindControl("btnParentjono")).Text;
+                string parentjono = ((Label)row.FindControl("lblParentjono")).Text;
                 Response.Redirect("~/KMDIweb/AE/AF/AF_Project_Request.aspx" + AddQueryStrings(parentjono));
             }
         }

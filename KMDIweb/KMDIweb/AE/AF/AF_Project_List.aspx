@@ -2,6 +2,7 @@
 
 <asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AF | Project List</title>
 </asp:Content>
 
 <asp:Content ID="content2" ContentPlaceHolderID="content" runat="server">
@@ -30,17 +31,17 @@
             </div>
             <div>
             </div>
-            <div>
-                <asp:GridView runat="server" ID="gvProject" AutoGenerateColumns="false" AllowPaging="true" GridLines="None" ShowHeader="false" CssClass="wf_tbl"
+            <div style="background-color:white;">
+                <asp:GridView runat="server" ID="gvProject" AutoGenerateColumns="false" BackColor="White" AllowPaging="true" GridLines="None" ShowHeader="false" CssClass=""
                     OnRowCommand="gvProject_RowCommand" OnPageIndexChanging="gvProject_PageIndexChanging">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <div style="padding: 5px; border-left: 3px solid #0094ff; margin-left: 10px;">
-                                    <span><%# Eval("Project_Label") %></span><br />
+                                  <asp:LinkButton ID="btnProject" runat="server" Font-Size="Medium" CommandName="view_request" Text='<%# Eval("Project_Label") %>'></asp:LinkButton><br />
                                     <span class="text-muted" style="font-size: smaller;"><%# Eval("FullAdd") %></span><br />
                                     <span class="" style="font-size: smaller;"><%# Eval("Acct_Exec_Incharge") %></span><br />
-                                    <asp:LinkButton ID="btnParentjono" runat="server" CommandName="view_request" Text='<%# Bind("Parentjono") %>'></asp:LinkButton>
+                                    <asp:Label ID="lblParentjono" Font-Size="Small" runat="server" Text='<%# Bind("Parentjono") %>'></asp:Label>
                                 </div>
                                 <br />
                             </ItemTemplate>
