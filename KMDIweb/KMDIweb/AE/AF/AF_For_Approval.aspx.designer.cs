@@ -76,6 +76,24 @@ namespace KMDIweb.KMDIweb.AE.AF {
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
         
         /// <summary>
+        /// ddlDate_Filter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDate_Filter;
+        
+        /// <summary>
+        /// tboxDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxDate;
+        
+        /// <summary>
         /// ddlAE control.
         /// </summary>
         /// <remarks>

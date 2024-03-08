@@ -99,6 +99,8 @@ namespace KMDIweb.KMDIweb.AE.AF
                         sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
                         sqlcmd.Parameters.AddWithValue("@AE", ae());
                         sqlcmd.Parameters.AddWithValue("@Req_Status", ddlStatus.Text);
+                        sqlcmd.Parameters.AddWithValue("@Date_Filter", ddlDate_Filter.Text);
+                        sqlcmd.Parameters.AddWithValue("@Date", tboxDate.Text);
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
                             da.SelectCommand = sqlcmd;

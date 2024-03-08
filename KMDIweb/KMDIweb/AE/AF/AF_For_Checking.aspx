@@ -60,10 +60,10 @@
                     <div class="well">
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
-                                <div class="row" style="margin:0;padding:0;">
-                                    <div class="col-sm-4" style="margin:0;padding:0;">
+                                <div class="row" style="margin: 0; padding: 0;">
+                                    <div class="col-sm-4" style="margin: 0; padding: 0;">
                                         <span>Status</span>
-                                        <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control" style="border-radius:0;"> 
+                                        <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control" Style="border-radius: 0;">
                                             <asp:ListItem Text="All" Value="All"></asp:ListItem>
                                             <asp:ListItem Text="Hold" Value="Hold"></asp:ListItem>
                                             <asp:ListItem Text="For Checking" Value="For Checking"></asp:ListItem>
@@ -72,31 +72,31 @@
                                             <asp:ListItem Text="Done" Value="Done"></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
-                                    <div class="col-sm-4" style="margin:0;padding:0;">
+                                    <div class="col-sm-4" style="margin: 0; padding: 0;">
                                         <span>Date Filter</span>
-                                        <asp:DropDownList runat="server" CssClass="form-control" ID="ddlDate_Filter" style="border-radius:0;">
+                                        <asp:DropDownList runat="server" CssClass="form-control" ID="ddlDate_Filter" Style="border-radius: 0;">
                                             <asp:ListItem Value="All" Text="All"></asp:ListItem>
                                             <asp:ListItem Value="Date Requested" Text="Date Requested"></asp:ListItem>
                                             <asp:ListItem Value="Date Checked" Text="Date Checked"></asp:ListItem>
                                             <asp:ListItem Value="Date Approved" Text="Date Approved"></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
-                                    <div class="col-sm-4" style="margin:0;padding:0;">
+                                    <div class="col-sm-4" style="margin: 0; padding: 0;">
                                         <span>Date</span>
-                                        <asp:TextBox runat="server" TextMode="Date" ID="tboxDate" CssClass="form-control" style="border-radius:0;"></asp:TextBox>
+                                        <asp:TextBox runat="server" TextMode="Date" ID="tboxDate" CssClass="form-control" Style="border-radius: 0;"></asp:TextBox>
                                     </div>
                                 </div>
-                                <div class="row" style="margin:0;padding:0;">
-                                    <div class="col-sm-6" style="margin:0;padding:0;">
+                                <div class="row" style="margin: 0; padding: 0;">
+                                    <div class="col-sm-6" style="margin: 0; padding: 0;">
                                         <span>Account Executive</span>
-                                        <asp:DropDownList runat="server" ID="ddlAE" CssClass="form-control" style="border-radius:0;"></asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="ddlAE" CssClass="form-control" Style="border-radius: 0;"></asp:DropDownList>
                                     </div>
-                                    <div class="col-sm-6" style="margin:0;padding:0;">
+                                    <div class="col-sm-6" style="margin: 0; padding: 0;">
                                         <span>Find</span>
                                         <div class="input-group">
-                                            <asp:TextBox runat="server" ID="tboxSearch" CssClass="form-control" style="border-radius:0;"></asp:TextBox>
+                                            <asp:TextBox runat="server" ID="tboxSearch" CssClass="form-control" Style="border-radius: 0;"></asp:TextBox>
                                             <div class="input-group-btn">
-                                                <asp:LinkButton runat="server" ID="btnSearch" CssClass="btn btn-default" style="border-radius:0;" OnClick="btnSearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                                                <asp:LinkButton runat="server" ID="btnSearch" CssClass="btn btn-default" Style="border-radius: 0;" OnClick="btnSearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
                                             </div>
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@
                                                         Eval("Req_Status").ToString() == "Hold" ? "Red" :
                                                 Eval("Req_Status").ToString() == "For Approval" ? "Orange" :
                                                 Eval("Req_Status").ToString() == "Approved" ? "Green" : "Black" %>;'>
-                                                <div style="min-width: 370px; white-space: normal; margin-bottom: 20px;">
+                                                <div style="min-width: 370px; white-space: normal;">
                                                     <asp:Panel ID="pnlStatus" runat="server"
                                                         Style="padding: 5px; border-top-right-radius: 0px;"
                                                         ForeColor='<%# Eval("Req_Status").ToString() == "For Approval" || Eval("Req_Status").ToString() == "For Checking" ? System.Drawing.Color.Black : System.Drawing.Color.White %>'
@@ -129,6 +129,9 @@
                                                 Eval("Req_Status").ToString() == "For Approval" ? System.Drawing.Color.Orange :
                                                 Eval("Req_Status").ToString() == "Approved" ? System.Drawing.Color.Green : System.Drawing.Color.Black %>'>
                                                         <span style="font-size: large; letter-spacing: 3px;"><%# Eval("Req_Status") %></span>
+                                                        <span class="pull-right text-right">
+                                                            <span style="font-size: small"><%# Eval("ACCT_EXEC_INCHARGE").ToString() %></span>
+                                                        </span>
                                                     </asp:Panel>
                                                     <asp:Panel ID="pnl1" runat="server" BorderStyle="Dashed" Style="border-bottom-width: 0px" BorderWidth="0px" BorderColor='<%# Eval("Req_Status").ToString() == "For Checking" ? System.Drawing.Color.SkyBlue :
                                                 Eval("Req_Status").ToString() == "For Approval" ? System.Drawing.Color.Orange :

@@ -149,6 +149,9 @@
                                                 Eval("Req_Status").ToString() == "For Approval" ? System.Drawing.Color.Orange :
                                                 Eval("Req_Status").ToString() == "Approved" ? System.Drawing.Color.Green : System.Drawing.Color.Black %>'>
                                                     <span style="font-size: large; letter-spacing: 3px;"><%# Eval("Req_Status") %></span>
+                                                    <span class="pull-right text-right">
+                                                        <span style="font-size: small"><%# Eval("ACCT_EXEC_INCHARGE").ToString() %></span>
+                                                    </span>
                                                 </asp:Panel>
                                                 <div class="row" style="margin: 0; padding: 0;">
                                                     <div class="col-sm-6" style="margin: 0; padding: 0;">
@@ -156,7 +159,7 @@
                                                             <span style="font-weight: bold; font-size: medium;"><%# Eval("NAME") %></span>
                                                             <span class="pull-right text-right">
                                                                 <span style="font-size: medium;"><%# Eval("Requested_Date") %></span><br />
-                                                                <span style="font-size: medium;"><%# Eval("Request") %></span><br />
+                                                                <span style="font-size: medium;" class="text-info"><%# Eval("Request") %></span><br />
                                                             </span>
                                                             <br />
                                                             <span style="font-size: smaller"><%# Eval("OFFICENAME") %></span><br />
@@ -178,17 +181,20 @@
                                                                 </asp:Panel>
                                                                 <asp:Panel runat="server" Visible="true" ID="pnlComment">
                                                                     <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Particular").ToString(), "\r\n|\r|\n", "<br>")) %></span><br />
-                                                                    <span style="font-size: small;" class="text-success"><%# "Requested by "+Eval("Account_Exec") %></span><br /><span style="font-size: small" class="text-muted"><%# Eval("Requested_Date") %></span><span class="pull-right"><asp:LinkButton ID="btnEdit" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? true : false %>' CommandName="myEdit" runat="server">Edit</asp:LinkButton>
+                                                                    <span style="font-size: small;" class="text-success"><%# "Requested by "+Eval("Account_Exec") %></span><br />
+                                                                    <span style="font-size: small" class="text-muted"><%# Eval("Requested_Date") %></span><span class="pull-right"><asp:LinkButton ID="btnEdit" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? true : false %>' CommandName="myEdit" runat="server">Edit</asp:LinkButton>
                                                                     </span>
                                                                 </asp:Panel>
                                                             </div>
                                                             <div style="border-bottom: 1px solid #bab9b9; border-top: 1px solid #bab9b9; padding-left: 10px;">
                                                                 <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Checked_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span><br />
-                                                                <span style="font-size: small;" class="text-success"><%# ""+Eval("Checked_By") %></span><br /><span style="font-size: small" class="text-muted"><%# Eval("Checked_Date") %></span>
+                                                                <span style="font-size: small;" class="text-success"><%# ""+Eval("Checked_By") %></span><br />
+                                                                <span style="font-size: small" class="text-muted"><%# Eval("Checked_Date") %></span>
                                                             </div>
                                                             <div style="padding-left: 10px; background-color: white;">
                                                                 <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Approval_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span><br />
-                                                                <span style="font-size: small;" class="text-success"><%# ""+Eval("Approved_By") %></span><br /><span style="font-size: small" class="text-muted"><%# Eval("Approved_Date") %></span>
+                                                                <span style="font-size: small;" class="text-success"><%# ""+Eval("Approved_By") %></span><br />
+                                                                <span style="font-size: small" class="text-muted"><%# Eval("Approved_Date") %></span>
                                                             </div>
                                                         </div>
                                                     </div>

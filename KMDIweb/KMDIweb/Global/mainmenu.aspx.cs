@@ -156,14 +156,14 @@ namespace KMDIweb.KMDIapp
                 Panel4.Visible = false;
             }
 
-            //if ((usercode == "AE") ||
-            //    (usercode == "Accounting") ||
-            //    ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
-            //    (usercode == "Programmer") ||
-            //    (fullname == "Genalyn Garcia"))
-            //{
-            //    pnlAC.Visible = true;
-            //}
+            if ((usercode == "AE") ||
+                (usercode == "Accounting") ||
+                ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
+                (usercode == "Programmer") ||
+                (fullname == "Genalyn Garcia"))
+            {
+                pnlAC.Visible = true;
+            }
             if ((usercode == "AE") ||
             ((fullname == "Jayvey Manalili" && usercode == "Operations")) ||
             (usercode == "Programmer") ||
