@@ -62,24 +62,41 @@
                     <div class="well">
                         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>
-                                <span>Account Executive</span>
-                                <asp:DropDownList runat="server" ID="ddlAE" CssClass="form-control"></asp:DropDownList>
-                                <div class="row">
-                                    <div class="col-sm-4">
+                                <div class="row nopm">
+                                    <div class="col-sm-4 nopm">
                                         <span>Status</span>
-                                        <asp:DropDownList runat="server" ID="ddlStatus" CssClass="form-control">
+                                        <asp:DropDownList runat="server" ID="ddlStatus" CssClass="form-control" Style="border-radius: 0;">
                                             <asp:ListItem Text="-All-" Value=""></asp:ListItem>
                                             <asp:ListItem Text="For Approval" Value="For Approval"></asp:ListItem>
                                             <asp:ListItem Text="Approved" Value="Approved"></asp:ListItem>
                                             <asp:ListItem Text="Hold" Value="Hold"></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-4 nopm">
+                                        <span>Date Filter</span>
+                                        <asp:DropDownList runat="server" CssClass="form-control" ID="ddlDate_Filter" Style="border-radius: 0;">
+                                            <asp:ListItem Value="All" Text="All"></asp:ListItem>
+                                            <asp:ListItem Text="For Approval" Value="For Approval"></asp:ListItem>
+                                            <asp:ListItem Text="Approved" Value="Approved"></asp:ListItem>
+                                            <asp:ListItem Text="Hold" Value="Hold"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                    <div class="col-sm-4 nopm">
+                                        <span>Date</span>
+                                        <asp:TextBox runat="server" TextMode="Date" ID="tboxDate" CssClass="form-control" Style="border-radius: 0;"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row nopm">
+                                    <div class="col-sm-6 nopm">
+                                        <span>Account Executive</span>
+                                        <asp:DropDownList runat="server" ID="ddlAE" CssClass="form-control" Style="border-radius: 0;"></asp:DropDownList>
+                                    </div>
+                                    <div class="col-sm-6 nopm">
                                         <span>Find</span>
                                         <div class="input-group">
-                                            <asp:TextBox runat="server" ID="tboxSearch" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox runat="server" ID="tboxSearch" CssClass="form-control" Style="border-radius: 0;"></asp:TextBox>
                                             <div class="input-group-btn">
-                                                <asp:LinkButton runat="server" ID="btnSearch" CssClass="btn btn-primary" OnClick="btnSearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                                                <asp:LinkButton runat="server" ID="btnSearch" CssClass="btn btn-default" Style="border-radius: 0;" OnClick="btnSearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
                                             </div>
                                         </div>
                                     </div>
@@ -108,7 +125,7 @@
                                                 <span style="font-size: large; letter-spacing: 3px;"><%# Eval("Status") %></span>
                                                 <span class="pull-right text-right">
                                                     <span style="font-size: small"><%# Eval("Status_Date") %></span>
-                                                </spa>
+                                                </span>
                                             </div>
                                             <div class="row nopm">
                                                 <div class="col-sm-6 nopm">
@@ -116,10 +133,10 @@
                                                         <span style="font-size: medium; font-weight: bold;"><%# Eval("Project_Label") %></span><br />
                                                         <span class="" style="font-size: smaller;"><%# Eval("FullAdd") %></span><br />
                                                         <asp:Label ID="lblJob_Order_No" Font-Size="Smaller" runat="server" Text='<%# Bind("Job_Order_No") %>'></asp:Label>
-                                                        <asp:Label ID="lblParentjono" Font-Size="Smaller" runat="server" Text='<%# Bind("Parentjono") %>'></asp:Label>
+                                                        <asp:Label ID="lblParentjono" Font-Size="Smaller" Visible="false" runat="server" Text='<%# Bind("Parentjono") %>'></asp:Label>
                                                     </div>
-                                                    <div class="text-center" style="padding-bottom:10px;">
-                                                        <asp:LinkButton ID="btnCancelRequest" Style="" Visible='<%# Eval("Status").ToString() == "Approved" || Eval("Status").ToString() == "" ? false:true %>' 
+                                                    <div class="text-center" style="padding-bottom: 10px;">
+                                                        <asp:LinkButton ID="btnCancelRequest" Style="" Visible='<%# Eval("Status").ToString() == "Approved" || Eval("Status").ToString() == "" ? false:true %>'
                                                             runat="server" CommandName="cancelRequest" CssClass="btn btn-default" OnClientClick="return confirm('continue to cancel request?')">c a n c e l</asp:LinkButton>
                                                     </div>
                                                 </div>
@@ -138,8 +155,7 @@
                                                             </asp:Label>
                                                         </div>
                                                         <div style="background-color: white;">
-                                                            <a data-toggle="collapse" style="margin-left: 10px; border-radius: 0;font-size:medium" class="" href='<%# "#"+Eval("number").ToString() %>' role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                                Add request</a>
+                                                            <a data-toggle="collapse" style="margin-left: 10px; border-radius: 0; font-size: medium" class="" href='<%# "#"+Eval("number").ToString() %>' role="button" aria-expanded="false" aria-controls="collapseExample">Add request</a>
                                                             <div class="collapse" id='<%# Eval("number").ToString() %>'>
                                                                 <asp:Panel ID="pnlRequestForm" Visible='<%# Eval("Status").ToString() == "" ? true:true %>' runat="server">
                                                                     <div class="well well-sm" style="border-radius: 0;">
