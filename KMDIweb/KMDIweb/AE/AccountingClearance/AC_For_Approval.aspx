@@ -25,8 +25,8 @@
             </ContentTemplate>
         </asp:UpdatePanel>
         <div>
-            <div class="row">
-                <div class="col-sm-6">
+            <div class="row nopm">
+                <div class="col-sm-6 nopm">
                     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                         <ContentTemplate>
                             <asp:GridView ID="gvSummary" ShowHeader="false" GridLines="None" Width="100%" AutoGenerateColumns="false" OnRowCommand="gvSummary_RowCommand" runat="server">
@@ -58,7 +58,7 @@
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 nopm">
                     <div class="well">
                         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>
@@ -76,9 +76,9 @@
                                         <span>Date Filter</span>
                                         <asp:DropDownList runat="server" CssClass="form-control" ID="ddlDate_Filter" Style="border-radius: 0;">
                                             <asp:ListItem Value="All" Text="All"></asp:ListItem>
-                                            <asp:ListItem Text="For Approval" Value="For Approval"></asp:ListItem>
-                                            <asp:ListItem Text="Approved" Value="Approved"></asp:ListItem>
-                                            <asp:ListItem Text="Hold" Value="Hold"></asp:ListItem>
+                                            <asp:ListItem Text="For Approval Date" Value="For Approval Date"></asp:ListItem>
+                                            <asp:ListItem Text="Date Approved" Value="Date Approved"></asp:ListItem>
+                                            <asp:ListItem Text="Date Hold" Value="Date Hold"></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                     <div class="col-sm-4 nopm">
@@ -145,11 +145,24 @@
                                                         <div class="text-center" style="border-bottom: 1px solid #bab9b9; padding: 5px;">
                                                             <span class="" style="font-size: small; letter-spacing: 1px; text-transform: uppercase"><%# Eval("Acct_Exec_Incharge") %></span>
                                                         </div>
-                                                        <div style="padding-left: 10px; background-color: white; border-bottom: 1px solid #bab9b9;">
-                                                            <span>Payment Status: </span><span class='<%# Convert.ToDecimal(Eval("Collection_Per")) >= 100 ? "text-success" : "text-danger" %>' style="font-size: medium">
-                                                                <%# Convert.ToDecimal(Eval("Collection_Per")).ToString("n2") %>%</span> paid
+                                                         <div style="padding-left: 10px; padding-right: 10px; background-color: white; border-bottom: 1px solid #bab9b9; font-size: small;">
+                                                            <span>Payment Status: </span>
+                                                            <span class="pull-right text-right">
+                                                                <span class='<%# Convert.ToDecimal(Eval("Collection_Per")) >= 100 ? "text-success" : "text-danger" %>'>
+                                                                    <%# Convert.ToDecimal(Eval("Collection_Per")).ToString("n2") %>%</span><br />
+                                                                <span style='visibility: <%# Eval("Requested_Date").ToString() == "" ? "hidden" : "visible" %>;'><%# Eval("Requested_Date").ToString() %><br />
+                                                                </span>
+                                                                <span style='visibility: <%# Eval("Approved_Date").ToString() == "" ? "hidden" : "visible" %>;'><%# Eval("Approved_Date").ToString() %><br />
+                                                                </span>
+                                                                <span style='visibility: <%# Eval("Hold_Date").ToString() == "" ? "hidden" : "visible" %>;'><%# Eval("Hold_Date").ToString() %></span>
+                                                            </span>
+                                                            <br />
+                                                            <span style='visibility: <%# Eval("Requested_Date").ToString() == "" ? "hidden" : "visible" %>;'>For Approval Date:</span><br />
+                                                            <span style='visibility: <%# Eval("Approved_Date").ToString() == "" ? "hidden" : "visible" %>;'>Date Approved:<br />
+                                                            </span>
+                                                            <span style='visibility: <%# Eval("Hold_Date").ToString() == "" ? "hidden" : "visible" %>;'>Date Hold:</span>
                                                         </div>
-                                                        <div style="border-bottom: 1px solid #bab9b9; padding-left: 10px;">
+                                                        <div style="padding-left: 10px;">
                                                             <asp:Label ID="lblHoldReason" Font-Size="small" runat="server" Visible='<%# Eval("Status").ToString().Contains("Hold") ? true:false %>'>
                                                                <span>Hold Reason: </span><span class="text-danger"><%# Eval("Hold_Reason") %></span>
                                                             </asp:Label>

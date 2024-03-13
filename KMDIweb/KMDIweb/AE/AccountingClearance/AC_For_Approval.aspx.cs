@@ -105,6 +105,8 @@ namespace KMDIweb.KMDIweb.AE.AccountingClearance
                         sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
                         sqlcmd.Parameters.AddWithValue("@AE", ae());
                         sqlcmd.Parameters.AddWithValue("@Status", ddlStatus.SelectedValue.ToString());
+                        sqlcmd.Parameters.AddWithValue("@Date_Filter", ddlDate_Filter.Text);
+                        sqlcmd.Parameters.AddWithValue("@Date", tboxDate.Text);
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
                             da.SelectCommand = sqlcmd;
