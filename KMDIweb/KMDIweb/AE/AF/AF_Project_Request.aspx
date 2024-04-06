@@ -67,7 +67,7 @@
                                                         </div>
                                                         <div class="col-xs-9">
                                                             <span>Particular:</span>
-                                                            <asp:TextBox ID="tboxParticular" runat="server" Style="border-radius: 0px;" CssClass="form-control" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                                                            <asp:TextBox ID="tboxParticular" Text='<%# Eval("AF") %>' runat="server" Style="border-radius: 0px;" CssClass="form-control" TextMode="MultiLine" Rows="2"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>

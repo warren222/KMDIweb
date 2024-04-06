@@ -3,6 +3,12 @@
 <asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AF | Request</title>
+    <style>
+        .nopm {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="content2" ContentPlaceHolderID="content" runat="server">
@@ -20,8 +26,8 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
 
-            <div class="row">
-                <div class="col-sm-6">
+            <div class="row nopm">
+                <div class="col-sm-6 nopm">
                     <div>
                         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                             <ContentTemplate>
@@ -56,7 +62,7 @@
                         </asp:UpdatePanel>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 nopm">
                     <div class="well">
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>

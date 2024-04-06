@@ -3,6 +3,12 @@
 <asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AF | For Approval</title>
+    <style>
+        .nopm {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="content2" ContentPlaceHolderID="content" runat="server">
@@ -19,8 +25,8 @@
                     <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <div class="row">
-                <div class="col-sm-4">
+            <div class="row nopm">
+                <div class="col-sm-5 nopm">
                     <div>
                         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                             <ContentTemplate>
@@ -54,7 +60,7 @@
                         </asp:UpdatePanel>
                     </div>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-7 nopm">
                     <div class="well">
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
@@ -130,7 +136,7 @@
                                                 Eval("Req_Status").ToString() == "Approved" ? System.Drawing.Color.Green : System.Drawing.Color.Black %>'>
                                                         <span style="font-size: large; letter-spacing: 3px;"><%# Eval("Req_Status") %></span>
                                                         <span class="pull-right text-right">
-                                                            <span style="font-size:small"><%# Eval("ACCT_EXEC_INCHARGE").ToString() %></span>
+                                                            <span style="font-size: small"><%# Eval("ACCT_EXEC_INCHARGE").ToString() %></span>
                                                         </span>
                                                     </asp:Panel>
 
