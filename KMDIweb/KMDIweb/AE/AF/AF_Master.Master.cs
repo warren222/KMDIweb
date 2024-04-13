@@ -112,16 +112,19 @@ namespace KMDIweb.KMDIweb.AE.AF
                         {
                             while (rdr.Read())
                             {
-                                if (rdr[1].ToString() != "0")
-                                {
-                                    lblForApproval.BackColor = System.Drawing.Color.Red;
-                                }
-                                if (rdr[0].ToString() != "0")
+                                int notif_for_checking = Convert.ToInt32(rdr[0].ToString()) + Convert.ToInt32(rdr[3].ToString()) + Convert.ToInt32(rdr[4].ToString());
+                                int notif_for_approval = Convert.ToInt32(rdr[1].ToString()) + Convert.ToInt32(rdr[4].ToString());
+                                if (notif_for_checking != 0)
                                 {
                                     lblForChecking.BackColor = System.Drawing.Color.Red;
                                 }
-                                lblForApproval.Text = rdr[1].ToString();
-                                lblForChecking.Text = rdr[0].ToString();
+                                if (notif_for_approval != 0)
+                                {
+                                    lblForApproval.BackColor = System.Drawing.Color.Red;
+                                }
+                               
+                                lblForApproval.Text = notif_for_approval.ToString();
+                                lblForChecking.Text = notif_for_checking.ToString();
                             }
                         }
 

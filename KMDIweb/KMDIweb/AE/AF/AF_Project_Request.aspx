@@ -12,7 +12,7 @@
         <div class="container">
             <div class="well">
                 <div class="container text-left">
-                    <h2>AF Request</h2>
+                    <h2>Request Page</h2>
                     <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-default" Text="back" OnClick="btnBack_Click"></asp:LinkButton>
                 </div>
             </div>
