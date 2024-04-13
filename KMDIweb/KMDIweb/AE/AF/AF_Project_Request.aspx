@@ -16,10 +16,14 @@
                     <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-default" Text="back" OnClick="btnBack_Click"></asp:LinkButton>
                 </div>
             </div>
-            <div style="padding: 10px; font-family: Bahnschrift; background-color: white;" class="text-center">
+            <div style="padding: 10px; font-family: Bahnschrift; background-color: white;" class="text-left">
                 <asp:Label ID="lblProject" Font-Size="Medium" runat="server"></asp:Label><br />
                 <asp:Label ID="lblAddress" Font-Size="Small" runat="server"></asp:Label><br />
                 <asp:Label ID="lblJO" Font-Size="Small" runat="server"></asp:Label>
+            </div>
+            <div style="background-color:whitesmoke;padding:5px; font-family: Bahnschrift;"  class="text-center">
+                <span><asp:Label ID="lblContract_Price" Font-Size="Large" runat="server"></asp:Label></span><br />
+                <span style="font-size:medium;font-family:Bradley Hand ITC; font-weight:bold;">contract price</span>
             </div>
             <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                 <ContentTemplate>
@@ -50,6 +54,8 @@
                                                     <asp:CheckBox ID="cbox" runat="server" Text='<%# Eval("NAME") %>' /><br />
                                                     <span style="font-size: smaller; margin-left: 15px;"><%# Eval("OFFICENAME") %></span><br />
                                                     <span style="font-size: smaller; margin-left: 15px;"><%# Eval("POSITION") %></span><br />
+                                                    <span style="font-size: medium; margin-left: 15px;color:forestgreen"><%# Eval("AMOUNT") %></span>
+                                                    <span style="font-family:Bradley Hand ITC; font-weight:bold;font-size:small">received amount</span>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>

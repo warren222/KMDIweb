@@ -70,6 +70,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                                 lblProject.Text = rd[0].ToString();
                                 lblAddress.Text = rd[1].ToString();
                                 lblJO.Text = rd[2].ToString();
+                                lblContract_Price.Text = rd[3].ToString();
                             }
                         }
 
