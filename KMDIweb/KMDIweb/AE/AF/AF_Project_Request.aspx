@@ -55,7 +55,7 @@
                                                     <span style="font-size: smaller; margin-left: 15px;"><%# Eval("OFFICENAME") %></span><br />
                                                     <span style="font-size: smaller; margin-left: 15px;"><%# Eval("POSITION") %></span><br />
                                                     <span style="font-size: medium; margin-left: 15px;color:forestgreen"><%# Eval("AMOUNT") %></span>
-                                                    <span style="font-family:Bradley Hand ITC; font-weight:bold;font-size:small">received amount</span>
+                                                    <span style="font-family:Bradley Hand ITC; font-weight:bold;font-size:small">total received amount</span>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
