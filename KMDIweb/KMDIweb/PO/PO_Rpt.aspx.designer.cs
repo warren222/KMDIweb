@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KMDIweb.KMDIweb.PO {
-    
-    
-    public partial class PO_Rpt {
-        
+namespace KMDIweb.KMDIweb.PO
+{
+
+
+    public partial class PO_Rpt
+    {
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace KMDIweb.KMDIweb.PO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// btnBack control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace KMDIweb.KMDIweb.PO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnBack;
-        
+
         /// <summary>
         /// cboxForIGU control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace KMDIweb.KMDIweb.PO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cboxForIGU;
-        
+
         /// <summary>
         /// cboxNewLogo control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace KMDIweb.KMDIweb.PO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cboxNewLogo;
-        
+
         /// <summary>
         /// SqlDataSource1 control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace KMDIweb.KMDIweb.PO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-        
+
         /// <summary>
         /// SqlDataSource2 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace KMDIweb.KMDIweb.PO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-        
+
         /// <summary>
         /// Panel1 control.
         /// </summary>
@@ -74,16 +76,16 @@ namespace KMDIweb.KMDIweb.PO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel1;
-        
+
         /// <summary>
-        /// ReportViewer1 control.
+        /// ReportViewer2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
-        
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer2;
+
         /// <summary>
         /// btnPreparedby control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace KMDIweb.KMDIweb.PO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnPreparedby;
-        
+
         /// <summary>
         /// btnNotedby control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace KMDIweb.KMDIweb.PO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnNotedby;
-        
+
         /// <summary>
         /// btnApprovedby control.
         /// </summary>

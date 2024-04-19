@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/KMDIweb/PO/PO.Master" AutoEventWireup="true" CodeBehind="PO_Laminated_Rpt.aspx.cs" Inherits="KMDIweb.KMDIweb.PO.PO_Laminated_Rpt" %>
 
-
-<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +35,7 @@
                 </SelectParameters>
             </asp:SqlDataSource>
             <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-                <rsweb:ReportViewer ID="ReportViewer1" Width="100%" Height="800px" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" OnReportRefresh="ReportViewer1_ReportRefresh">
+                <rsweb:ReportViewer ID="ReportViewer1" SizeToReportContent="true"  runat="server" OnReportRefresh="ReportViewer1_ReportRefresh">
                     <LocalReport ReportPath="KMDIweb\Global\Reports\PO_Laminated.rdlc">
                         <DataSources>
                             <rsweb:ReportDataSource DataSourceId="SqlDataSource1" Name="DataSet1" />
