@@ -112,7 +112,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                         {
                             while (rdr.Read())
                             {
-                                int notif_for_checking = Convert.ToInt32(rdr[0].ToString()) + Convert.ToInt32(rdr[3].ToString()) + Convert.ToInt32(rdr[4].ToString());
+                                int notif_for_checking = Convert.ToInt32(rdr[0].ToString()) + Convert.ToInt32(rdr[3].ToString());
                                 int notif_for_approval = Convert.ToInt32(rdr[1].ToString()) + Convert.ToInt32(rdr[4].ToString());
                                 if (notif_for_checking != 0)
                                 {
