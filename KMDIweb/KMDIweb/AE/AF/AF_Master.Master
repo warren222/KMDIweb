@@ -69,12 +69,13 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li>
-                            <asp:HyperLink ID="hlProject" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_Project_List.aspx">
-                                 <span class="glyphicon glyphicon-home"></span>&nbsp;Project</asp:HyperLink></li>
+                            <asp:HyperLink ID="hlProject" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_New_Payment.aspx">
+                               <asp:Label ID="lblAvailable" runat="server" CssClass="badge"></asp:Label>
+                                Available AF</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="hlForChecking" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_For_Checking.aspx">
                                 <asp:Label ID="lblForChecking" runat="server" CssClass="badge"></asp:Label>
-                                AF Request
+                                Requested AF
                             </asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="hlForApproval" runat="server" NavigateUrl="~/KMDIweb/AE/AF/AF_For_Approval.aspx">

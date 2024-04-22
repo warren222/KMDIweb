@@ -2,7 +2,7 @@
 
 <asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AF | Request</title>
+    <title>AF | Requested</title>
     <style>
         .nopm {
             margin: 0;
@@ -17,7 +17,7 @@
         <div class="container">
             <div class="well">
                 <div class="container text-left">
-                    <h2>AF Request</h2>
+                    <h2>Requested AF</h2>
                 </div>
             </div>
             <asp:UpdatePanel ID="UpdatePanel4" runat="server">

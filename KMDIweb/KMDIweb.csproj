@@ -283,6 +283,13 @@
     <Compile Include="KMDIweb\AE\AF\AF_Master.Master.designer.cs">
       <DependentUpon>AF_Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\AE\AF\AF_New_Payment.aspx.cs">
+      <DependentUpon>AF_New_Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\AE\AF\AF_New_Payment.aspx.designer.cs">
+      <DependentUpon>AF_New_Payment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\AE\AF\AF_Project_List.aspx.cs">
       <DependentUpon>AF_Project_List.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -865,6 +872,7 @@
     <Content Include="KMDIweb\AE\AccountingClearance\AC_ProjectList.aspx" />
     <Content Include="KMDIweb\AE\AF\AF_For_Approval.aspx" />
     <Content Include="KMDIweb\AE\AF\AF_For_Checking.aspx" />
+    <Content Include="KMDIweb\AE\AF\AF_New_Payment.aspx" />
     <Content Include="KMDIweb\AE\AF\AF_Project_List.aspx" />
     <Content Include="KMDIweb\AE\AF\AF_Project_Request.aspx" />
     <Content Include="KMDIweb\AE\CollectionLedger\CollectionLedgerFrm.aspx" />
