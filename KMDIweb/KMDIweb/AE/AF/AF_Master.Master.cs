@@ -19,6 +19,7 @@ namespace KMDIweb.KMDIweb.AE.AF
 
                 username.Text = Session["KMDI_nickname"].ToString() + " ";
                 loadSummary();
+                Available_AF_Notification_Counter();
                 access();
             }
             else
@@ -49,7 +50,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                 hlForApproval.Visible = true;
                 hlForChecking.Visible = false;
             }
-            else if ((Session["KMDI_user_code"].ToString() == "Operations" && 
+            else if ((Session["KMDI_user_code"].ToString() == "Operations" &&
                      Session["KMDI_fullname"].ToString() == "Jayvey Manalili"))
             {
                 hlProject.Visible = false;
@@ -85,7 +86,7 @@ namespace KMDIweb.KMDIweb.AE.AF
         {
             string fullname = Session["KMDI_fullname"].ToString();
             string user_code = Session["KMDI_user_code"].ToString();
-            if(user_code == "AE")
+            if (user_code == "AE")
             {
                 return fullname;
             }
@@ -94,6 +95,42 @@ namespace KMDIweb.KMDIweb.AE.AF
                 return "";
             }
         }
+        private void Available_AF_Notification_Counter()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "AF_New_Payment_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Get");
+                        sqlcmd.Parameters.AddWithValue("@Sub_Command", "Notification");
+                        sqlcmd.Parameters.AddWithValue("@AE", ae());
+                        using (SqlDataReader rdr = sqlcmd.ExecuteReader())
+                        {
+                            while (rdr.Read())
+                            {
+                                int notif_available_af = Convert.ToInt32(rdr[0].ToString());
+                                if (notif_available_af != 0)
+                                {
+                                    lblAvailable.BackColor = System.Drawing.Color.Red;
+                                }
+                                lblAvailable.Text = notif_available_af.ToString();
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
         private void loadSummary()
         {
             try
@@ -122,7 +159,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                                 {
                                     lblForApproval.BackColor = System.Drawing.Color.Red;
                                 }
-                               
+
                                 lblForApproval.Text = notif_for_approval.ToString();
                                 lblForChecking.Text = notif_for_checking.ToString();
                             }

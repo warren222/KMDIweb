@@ -143,11 +143,12 @@
 
                                                     <div class="row" style="margin: 0; padding: 0;">
                                                         <div class="col-sm-6" style="margin: 0; padding: 0;">
+                                                            <div class="text-center" style="letter-spacing: 5px; padding: 5px; text-transform: uppercase"><span><%# Eval("Payment_Type") %></span></div>
                                                             <div style="background-color: white; padding: 10px;">
                                                                 <span style="font-weight: bold; font-size: medium"><%# Eval("Project_Label") %></span>
                                                                 <span class="pull-right text-right">
-                                                                    <span style="font-size: medium"><%# Eval("Requested_Date") %></span><br />
-                                                                    <span style="font-size: medium" class="text-info"><%# Eval("Request") %></span>
+                                                                    <span style="font-size: medium"><%# Eval("Payment_Date") %></span><br />
+                                                                    <span style="font-size: medium; color: limegreen;"><%# Eval("PAYMENT_FORMATTED") %></span>
                                                                 </span>
                                                                 <br />
                                                                 <span style="font-size: smaller"><%# Eval("JO_Parent") %></span>
@@ -158,41 +159,77 @@
                                                                 <span style="font-size: smaller"><%# Eval("POSITION") %></span>
                                                             </div>
                                                             <div class="text-center">
-                                                                <asp:LinkButton ID="btnHold" CssClass="btn btn-danger" Visible="false"
+                                                                <asp:LinkButton ID="btnHold" CssClass="btn btn-danger" Visible="false" Width="120px"
                                                                     CommandName="myHold" runat="server" OnClientClick="return confirm('update status to hold?')">Hold</asp:LinkButton>
-                                                                <asp:LinkButton ID="btnUnhold" CssClass="btn btn-warning" Visible="false"
-                                                                    CommandName="myUnhold" runat="server" OnClientClick="return confirm('cancel hold status?')">Unhold</asp:LinkButton>
+                                                                <asp:LinkButton ID="btnUnhold" CssClass="btn btn-warning" Visible="false" Width="120px"
+                                                                    CommandName="myUnhold" runat="server" OnClientClick="return confirm('cancel hold status?')">Release</asp:LinkButton>
+                                                                <asp:LinkButton ID="btnApprove" CssClass="btn btn-success" Visible='<%# Eval("Req_Status").ToString() == "Approved" || Eval("Req_Status").ToString() == "Done" || Eval("Hold_Status").ToString() == "Approved" ? false : true %>' Width="120px"
+                                                                    CommandName="myApprove" runat="server" OnClientClick="return confirm('approve this AF?')">Approve</asp:LinkButton>
                                                                 <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6" style="margin: 0; padding: 0;">
-                                                            <div style="border-left: 1px solid #bab9b9; padding: 5px; padding-left: 0px; height: inherit;">
-                                                                <div class="text-center" style="letter-spacing: 5px;"><span>PARTICULARS</span></div>
-                                                                <div style="padding-left: 10px; background-color: white;">
-                                                                    <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Particular").ToString(), "\r\n|\r|\n", "<br>")) %></span><br />
-                                                                    <span style="font-size: small;" class="text-success"><%# "Requested by "+Eval("Account_Exec") %></span><br />
-                                                                    <span style="font-size: small" class="text-muted"><%# Eval("Requested_Date") %></span>
+                                                            <div class="text-center" style="letter-spacing: 5px; padding: 5px; border-left: 1px solid #bab9b9;"><span>PARTICULARS</span></div>
+                                                            <div style="border-left: 1px solid #bab9b9; padding: 0px; height: inherit;">
+                                                                <div style="background-color: white; font-size: small; padding: 5px; padding-left: 10px;">
+                                                                    <span>Request Type:</span>
+                                                                    <span class="pull-right text-right">
+                                                                        <span class="" style="text-transform: uppercase"><%# Eval("Request") %></span><br />
+                                                                        <span class=""><%# Eval("AF_Releasing") %></span>
+                                                                    </span>
+                                                                    <br />
+                                                                    <span>AF Releasing:</span>
                                                                 </div>
-                                                                <div style="border-bottom: 1px solid #bab9b9; border-top: 1px solid #bab9b9; padding-left: 10px;">
-                                                                    <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Checked_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span><br />
-                                                                    <span style="font-size: small;" class="text-success"><%# ""+Eval("Checked_By") %></span><br />
-                                                                    <span style="font-size: small" class="text-muted"><%# Eval("Checked_Date") %></span>
-                                                                </div>
-                                                                <div style="padding-left: 10px; background-color: white;">
-                                                                    <asp:Panel runat="server" Visible='<%# Eval("Req_Status").ToString() == "For Approval" ? true : false %>' ID="pnlCommentEdit">
-                                                                        <span>Comment</span>
-                                                                        <asp:TextBox runat="server" ID="tboxComment" CssClass="form-control" Text='<%# Bind("Approval_Remarks") %>' TextMode="MultiLine" Rows="2"></asp:TextBox>
-                                                                        <asp:LinkButton runat="server" ID="btnSave" CommandName="myApprove" CssClass="btn btn-default">s u b m i t</asp:LinkButton>
-                                                                    </asp:Panel>
-                                                                    <asp:Panel runat="server" Visible='<%# Eval("Req_Status").ToString() == "For Approval" ? false : true %>' ID="pnlComment">
-                                                                        <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Approval_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span><br />
-                                                                        <span style="font-size: small;" class="text-success"><%# ""+Eval("Approved_By") %></span><br />
-                                                                        <span style="font-size: small" class="text-muted"><%# Eval("Approved_Date") %></span>
-                                                                        <span class="pull-right">
-                                                                            <asp:LinkButton ID="btnEdit" Visible='<%# Eval("Req_Status").ToString() == "Done" ? false : true %>' CommandName="myEdit" runat="server">Edit</asp:LinkButton>
-                                                                        </span>
-                                                                    </asp:Panel>
 
+                                                                <div style="padding: 5px; padding-left: 10px; background-color: whitesmoke;">
+                                                                    <div style="display: flex; flex-flow: row wrap;">
+                                                                        <div style="width: 30%; vertical-align: text-top;">
+                                                                            <span style="font-size: small"><%# Eval("Requested_Date") %></span><br />
+                                                                            <span style="font-size: smaller;" class="text-info"><%# Eval("Account_Exec") %></span>
+                                                                        </div>
+                                                                        <div style="width: 70%; vertical-align: text-top;">
+                                                                            <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Particular").ToString(), "\r\n|\r|\n", "<br>")) %></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="border-bottom: 1px solid #bab9b9; background-color: white; border-top: 1px solid #bab9b9; padding: 5px; padding-left: 10px;">
+                                                                    <div style="display: flex; flex-flow: row wrap;">
+                                                                        <div style="width: 30%; vertical-align: text-top;">
+                                                                            <span style="font-size: small"><%# Eval("Checked_Date") %></span><br />
+                                                                            <span style="font-size: smaller;" class="text-info"><%# Eval("Checked_By") %></span>
+                                                                        </div>
+                                                                        <div style="width: 70%; vertical-align: text-top;">
+                                                                            <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Checked_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="padding: 5px; padding-left: 10px; background-color: whitesmoke;">
+                                                                    <div style="display: flex; flex-flow: row wrap;">
+                                                                        <div style="width: 30%; vertical-align: text-top;">
+                                                                            <span style="font-size: small"><%# Eval("General_Remarks_Date") %></span><br />
+                                                                            <span style="font-size: smaller;" class="text-info"><%# Eval("General_Remarks_By") %></span>
+                                                                        </div>
+                                                                        <div style="width: 70%; vertical-align: text-top;">
+                                                                            <asp:Panel runat="server" Visible='<%# Eval("Approval_Remarks").ToString() == "" ? true : false %>' ID="pnlCommentEdit">
+                                                                                <span>Comment</span>
+                                                                                <asp:TextBox runat="server" ID="tboxComment" CssClass="form-control" Text='<%# Bind("Approval_Remarks") %>' TextMode="MultiLine" Rows="3"></asp:TextBox>
+                                                                                <asp:LinkButton runat="server" ID="btnSave" CommandName="myApproval_Remarks" CssClass="btn btn-default">s u b m i t</asp:LinkButton>
+                                                                            </asp:Panel>
+                                                                            <asp:Panel runat="server" Visible='<%# Eval("Approval_Remarks").ToString() == "" ? false : true %>' ID="pnlComment">
+                                                                                <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Approval_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span>
+                                                                                <span class="pull-right">
+                                                                                    <asp:LinkButton ID="btnEdit" Visible='<%# Eval("Req_Status").ToString() == "Done" ? false : true %>' CommandName="myEdit" runat="server">Edit</asp:LinkButton>
+                                                                                </span>
+                                                                            </asp:Panel>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="padding: 5px; padding-left: 10px;" class="text-center">
+                                                                    <asp:Panel ID="pnlApproved" runat="server" Visible='<%# Eval("Req_Status").ToString() == "Approved" || Eval("Req_Status").ToString() == "Done" || Eval("Hold_Status").ToString() == "Approved" ? true : false %>'>
+                                                                        <span style="font-family: Candara Light; color: green; font-weight: bold">
+                                                                            <span class="glyphicon glyphicon-ok"></span>
+                                                                            Approved by <%# Eval("Approved_By").ToString() %> on <%# Eval("Approved_Date") %></span>
+                                                                    </asp:Panel>
                                                                 </div>
                                                             </div>
                                                         </div>

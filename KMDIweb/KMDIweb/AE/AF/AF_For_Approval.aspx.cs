@@ -120,7 +120,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                 loadSummary();
             }
         }
-        private void approve(string command, string comment, string id)
+        private void Execute_Query(string command, string comment, string id)
         {
             try
             {
@@ -191,8 +191,15 @@ namespace KMDIweb.KMDIweb.AE.AF
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gv1.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
+                Execute_Query("Approve","", id);
+            }
+            else if (e.CommandName == "myApproval_Remarks")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gv1.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
                 string comment = ((TextBox)row.FindControl("tboxComment")).Text;
-                approve("Approve",comment, id);
+                Execute_Query("Approval_Remarks", comment, id);
             }
             else if (e.CommandName == "myEdit")
             {
@@ -214,14 +221,14 @@ namespace KMDIweb.KMDIweb.AE.AF
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gv1.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
-                approve("Hold", "", id);
+                Execute_Query("Hold", "", id);
             }
             else if (e.CommandName == "myUnhold")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gv1.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
-                approve("Unhold", "", id);
+                Execute_Query("Unhold", "", id);
             }
         }
 
@@ -274,7 +281,7 @@ namespace KMDIweb.KMDIweb.AE.AF
             else if (status == "Hold")
             {
                 ((LinkButton)cell.FindControl("btnHold")).Visible = false;
-                ((LinkButton)cell.FindControl("btnEdit")).Visible = false;
+           
 
                 string heldby = ((Label)cell.FindControl("lblHoldBy")).Text;
                 string fullname = Session["KMDI_fullname"].ToString();

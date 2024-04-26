@@ -12,7 +12,16 @@ namespace KMDIweb.KMDIweb.AE.AF
 {
     public partial class AF_New_Payment : System.Web.UI.Page
     {
-        string _identifier = "", _account_Exec_Incharge = "", _request = "", _particular = "",_payType="",_payment_Id = "",_parentjono = "";
+        string _identifier = "", _account_Exec_Incharge = "", _request = ""
+            , _particular = "", _payType = "", _payment_Id = "", _parentjono = ""
+            , _payment = "", _af_releasing = "", _payment_date = "";
+
+        protected void gvAF_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvAF.PageIndex = e.NewPageIndex;
+            Loaddata();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,13 +40,15 @@ namespace KMDIweb.KMDIweb.AE.AF
                         }
                         if (Session["KMDI_user_code"].ToString() == "AE")
                         {
-                            ddlAE.Enabled = false;
+                            lblAE.Visible = false;
+                            ddlAE.Visible = false;
                         }
                         else
                         {
-                            ddlAE.Enabled = true;
+                            lblAE.Visible = true;
+                            ddlAE.Visible = true;
                         }
-                     
+
                         Loadae();
                         Loaddata();
                     }
@@ -136,7 +147,7 @@ namespace KMDIweb.KMDIweb.AE.AF
         {
             Loaddata();
         }
-       
+
         private void Send_Request()
         {
             try
@@ -156,6 +167,9 @@ namespace KMDIweb.KMDIweb.AE.AF
                         sqlcmd.Parameters.AddWithValue("@Particular", _particular);
                         sqlcmd.Parameters.AddWithValue("@Payment_Id", _payment_Id);
                         sqlcmd.Parameters.AddWithValue("@Paytype", _payType);
+                        sqlcmd.Parameters.AddWithValue("@Payment_Amount", _payment);
+                        sqlcmd.Parameters.AddWithValue("@Payment_Date", _payment_date);
+                        sqlcmd.Parameters.AddWithValue("@AF_Releasing", _af_releasing);
                         sqlcmd.ExecuteNonQuery();
                     }
                 }
@@ -169,7 +183,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                 Loaddata();
             }
         }
-       
+
         protected void gvAF_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "send_request")
@@ -182,6 +196,9 @@ namespace KMDIweb.KMDIweb.AE.AF
                 _payType = ((Label)row.FindControl("lblPayType")).Text;
                 _payment_Id = ((Label)row.FindControl("lblPayment_Id")).Text;
                 _parentjono = ((Label)row.FindControl("lblParentjono")).Text;
+                _payment = ((Label)row.FindControl("lblPayment")).Text;
+                _payment_date = ((Label)row.FindControl("lblPaymentDate")).Text;
+                _af_releasing = ((Label)row.FindControl("lblAFReleasing")).Text;
                 _account_Exec_Incharge = Session["KMDI_fullname"].ToString();
                 Send_Request();
             }

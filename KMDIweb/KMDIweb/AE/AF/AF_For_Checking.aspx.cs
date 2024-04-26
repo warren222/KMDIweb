@@ -24,7 +24,8 @@ namespace KMDIweb.KMDIweb.AE.AF
                         loaddata();
                         if (Session["KMDI_user_code"].ToString() == "AE")
                         {
-                            ddlAE.Enabled = false;
+                            lblAE.Visible = false;
+                            ddlAE.Visible = false;
                         }
                     }
                 }
@@ -259,6 +260,13 @@ namespace KMDIweb.KMDIweb.AE.AF
                 string id = ((Label)row.FindControl("lblId")).Text;
                 check("Unhold", "", id);
             }
+            else if (e.CommandName == "myCancel")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gv1.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                check("Cancel", "", id);
+            }
         }
         private void Edit_Request(string id, string particular)
         {
@@ -326,7 +334,7 @@ namespace KMDIweb.KMDIweb.AE.AF
         }
         private void HoldAccess(TableCell cell, string status)
         {
-            if (status == "For Checking" || status == "For Approval")
+            if (status == "For Checking")
             {
                 ((LinkButton)cell.FindControl("btnHold")).Visible = true;
                 ((LinkButton)cell.FindControl("btnUnhold")).Visible = false;

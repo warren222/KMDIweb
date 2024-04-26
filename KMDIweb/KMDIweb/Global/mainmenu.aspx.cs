@@ -205,7 +205,7 @@ namespace KMDIweb.KMDIapp
 
         protected void LinkButton9_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/AE/AF/AF_Project_List.aspx");
+            Response.Redirect("~/KMDIweb/AE/AF/AF_New_Payment.aspx");
         }
         protected void LinkButton10_Click(object sender, EventArgs e)
         {
