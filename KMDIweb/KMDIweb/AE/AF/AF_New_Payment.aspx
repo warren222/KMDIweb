@@ -106,7 +106,7 @@
                                                                 <span>AF Releasing:</span>
                                                             </div>
                                                             <div style="min-width: 370px; border-left: 1px solid #bab9b9; padding: 5px; height: inherit; background-color: whitesmoke;">
-                                                                <span>Remarks:</span>
+                                                                <span>Particulars: (%, Item/Size/Colour, pax)</span>
                                                                 <asp:TextBox ID="tboxParticular" Text='<%# Eval("Remarks") %>' runat="server" Style="border-radius: 0px;" CssClass="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                                                                 <div class="row">
                                                                     <div class="col-xs-4"></div>

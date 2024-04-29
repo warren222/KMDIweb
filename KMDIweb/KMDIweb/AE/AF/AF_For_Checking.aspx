@@ -17,7 +17,7 @@
         <div class="container">
             <div class="well">
                 <div class="container text-left">
-                    <h2>Requested AF</h2>
+                    <h2>AF For Checking</h2>
                 </div>
             </div>
             <asp:UpdatePanel ID="UpdatePanel4" runat="server">
@@ -165,15 +165,16 @@
                                                                 </div>
                                                                 <div class="text-center">
                                                                     <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
-                                                                    <asp:LinkButton ID="btnDone" CssClass="btn btn-success" Visible="false" Width="120px"
+                                                                    <asp:LinkButton ID="btnDone" CssClass="btn btn-default" Visible="false" Width="120px"
                                                                         CommandName="myDone" runat="server" OnClientClick="return confirm('update status to done?')">Done</asp:LinkButton>
-                                                                    <asp:LinkButton ID="btnHold" CssClass="btn btn-danger" Visible="false" Width="120px"
-                                                                        CommandName="myHold" runat="server" OnClientClick="return confirm('update status to hold?')">Hold</asp:LinkButton>
-                                                                    <asp:LinkButton ID="btnUnhold" CssClass="btn btn-success" Visible="false" Width="120px"
-                                                                        CommandName="myUnhold" runat="server" OnClientClick="return confirm('cancel hold status?')">Release</asp:LinkButton>
+                                                                    <asp:LinkButton ID="btnHold" CssClass="btn btn-default" Visible="false" Width="120px"
+                                                                        CommandName="myHold" runat="server" OnClientClick="return confirm('update status to hold?')"><span class="glyphicon glyphicon-ban-circle"></span> Hold</asp:LinkButton>
+                                                                    <asp:LinkButton ID="btnUnhold" CssClass="btn btn-default" Visible="false" Width="120px"
+                                                                        CommandName="myUnhold" runat="server" OnClientClick="return confirm('cancel hold status?')"><span class="glyphicon glyphicon-ok-circle"></span> Release</asp:LinkButton>
                                                                     <asp:LinkButton ID="btnCancel" CssClass="btn btn-default" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? true : false %>' Width="120px"
-                                                                        CommandName="myCancel" runat="server" OnClientClick="return confirm('cancel this request?')">Cancel</asp:LinkButton>
+                                                                        CommandName="myCancel" runat="server" OnClientClick="return confirm('cancel this request?')"><span class="glyphicon glyphicon-trash"></span> Cancel</asp:LinkButton>
                                                                 </div>
+                                                                <br />
                                                             </div>
                                                             <div class="col-sm-6" style="margin: 0; padding: 0;">
                                                                 <div class="text-center" style="letter-spacing: 5px; padding: 5px; border-left: 1px solid #bab9b9;"><span>PARTICULARS</span></div>
@@ -194,13 +195,13 @@
                                                                                 <span style="font-size: smaller;" class="text-info"><%# Eval("Account_Exec") %></span>
                                                                             </div>
                                                                             <div style="width: 70%; vertical-align: text-top;">
-                                                                                <asp:Panel runat="server" Visible="true" ID="pnlCommentParticular">
+                                                                                <asp:Panel runat="server" Visible="true" ID="pnlRequestedRemarks">
                                                                                     <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Particular").ToString(), "\r\n|\r|\n", "<br>")) %></span>
                                                                                     <span class="pull-right">
                                                                                         <asp:LinkButton ID="btnEditParticular" Visible="False" CommandName="myEditParticular" runat="server">Edit</asp:LinkButton>
                                                                                     </span>
                                                                                 </asp:Panel>
-                                                                                <asp:Panel runat="server" Visible="false" ID="pnlCommentEditParticular">
+                                                                                <asp:Panel runat="server" Visible="false" ID="pnlRequestedRemarksEdit">
                                                                                     <span>Comment</span>
                                                                                     <asp:TextBox runat="server" ID="tboxCommentParticular" CssClass="form-control" Text='<%# Bind("Particular") %>' TextMode="MultiLine" Rows="3"></asp:TextBox>
                                                                                     <asp:LinkButton runat="server" ID="btnSaveParticular" CommandName="mySaveParticular" CssClass="btn btn-default">s u b m i t</asp:LinkButton>
@@ -211,16 +212,18 @@
                                                                     <div style="border-bottom: 1px solid #bab9b9; background-color: white; border-top: 1px solid #bab9b9; padding: 5px; padding-left: 10px;">
                                                                         <div style="display: flex; flex-flow: row wrap;">
                                                                             <div style="width: 30%; vertical-align: text-top;">
-                                                                                <span class="" style="font-size: small"><%# Eval("Checked_Date") %></span><br />
-                                                                                <span style="font-size: smaller;" class="text-info"><%# Eval("Checked_By") %></span>
+                                                                                <asp:Panel ID="pnlCheckedDate" runat="server">
+                                                                                    <span class="" style="font-size: small"><%# Eval("Checked_Date") %></span><br />
+                                                                                    <span style="font-size: smaller;" class="text-info"><%# Eval("Checked_By") %></span>
+                                                                                </asp:Panel>
                                                                             </div>
                                                                             <div style="width: 70%; vertical-align: text-top;">
-                                                                                <asp:Panel runat="server" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? true : false %>' ID="pnlCommentEdit">
+                                                                                <asp:Panel runat="server" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? true : false %>' ID="pnlCheckedRemarksEdit">
                                                                                     <span>Comment</span>
                                                                                     <asp:TextBox runat="server" ID="tboxComment" CssClass="form-control" Text='<%# Bind("Checked_Remarks") %>' TextMode="MultiLine" Rows="3"></asp:TextBox>
                                                                                     <asp:LinkButton runat="server" ID="btnSave" CommandName="myCheck" CssClass="btn btn-default">s u b m i t</asp:LinkButton>
                                                                                 </asp:Panel>
-                                                                                <asp:Panel runat="server" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? false : true %>' ID="pnlComment">
+                                                                                <asp:Panel runat="server" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? false : true %>' ID="pnlCheckedRemarks">
                                                                                     <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Checked_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span>
                                                                                     <span class="pull-right">
                                                                                         <asp:LinkButton ID="btnEdit" Visible='<%# Eval("Req_Status").ToString() == "For Approval" ? true : false %>' CommandName="myEdit" runat="server">Edit</asp:LinkButton>
@@ -233,16 +236,21 @@
                                                                     <div style="padding: 5px; padding-left: 10px; background-color: whitesmoke;">
                                                                         <div style="display: flex; flex-flow: row wrap;">
                                                                             <div style="width: 30%; vertical-align: text-top;">
-                                                                                <span style="font-size: small" class=""><%# Eval("General_Remarks_Date") %></span><br />
-                                                                                <span style="font-size: smaller;" class="text-info"><%# Eval("General_Remarks_By") %></span>
+                                                                                <asp:Panel ID="pnlApprovedDate" runat="server">
+                                                                                    <span style="font-size: small" class=""><%# Eval("General_Remarks_Date") %></span><br />
+                                                                                    <span style="font-size: smaller;" class="text-info"><%# Eval("General_Remarks_By") %></span>
+                                                                                </asp:Panel>
+
                                                                             </div>
                                                                             <div style="width: 70%; vertical-align: text-top;">
-                                                                                <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Approval_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span>
+                                                                                <asp:Panel ID="pnlApprovedRemarks" runat="server">
+                                                                                    <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Approval_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span>
+                                                                                </asp:Panel>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div style="padding: 5px; padding-left: 10px;" class="text-center">
-                                                                        <asp:Panel ID="pnlApproved" runat="server" Visible='<%# Eval("Req_Status").ToString() == "Approved" || Eval("Req_Status").ToString() == "Done" || Eval("Hold_Status").ToString() == "Approved" ? true : false %>'>
+                                                                        <asp:Panel ID="pnlNote" runat="server" Visible='<%# Eval("Req_Status").ToString() == "Approved" || Eval("Req_Status").ToString() == "Done" || Eval("Hold_Status").ToString() == "Approved" ? true : false %>'>
                                                                             <span style="font-family: Candara Light; color: green; font-weight: bold">
                                                                                 <span class="glyphicon glyphicon-ok"></span>
                                                                                 Approved by <%# Eval("Approved_By").ToString() %> on <%# Eval("Approved_Date") %></span>
