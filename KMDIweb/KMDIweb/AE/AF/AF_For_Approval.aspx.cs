@@ -191,7 +191,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gv1.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
-                Execute_Query("Approve","", id);
+                Execute_Query("Approve", "", id);
             }
             else if (e.CommandName == "myApproval_Remarks")
             {
@@ -216,6 +216,13 @@ namespace KMDIweb.KMDIweb.AE.AF
                     ((Panel)row.FindControl("pnlComment")).Visible = false;
                 }
             }
+            else if (e.CommandName == "myOpenHold")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gv1.Rows[rowindex];
+                ((Panel)row.FindControl("pnlHold")).Visible = true;
+                ((LinkButton)row.FindControl("btnOpenHold")).Visible = false;
+            }
             else if (e.CommandName == "myHold")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
@@ -223,12 +230,28 @@ namespace KMDIweb.KMDIweb.AE.AF
                 string id = ((Label)row.FindControl("lblId")).Text;
                 Execute_Query("Hold", "", id);
             }
+            else if (e.CommandName == "myHoldReason")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gv1.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                string comment = ((TextBox)row.FindControl("tboxReason")).Text;
+                Execute_Query("Hold_Reason", comment, id);
+            }
             else if (e.CommandName == "myUnhold")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gv1.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
                 Execute_Query("Unhold", "", id);
+            }
+            else if (e.CommandName == "myEditReason")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gv1.Rows[rowindex];
+                ((Panel)row.FindControl("pnlHold")).Visible = true;
+                ((Panel)row.FindControl("pnlHoldReason")).Visible = false; 
+                ((LinkButton)row.FindControl("btnHold")).Visible = false;
             }
         }
 
@@ -281,9 +304,9 @@ namespace KMDIweb.KMDIweb.AE.AF
             else if (status == "Hold")
             {
                 ((LinkButton)cell.FindControl("btnHold")).Visible = false;
-           
 
-                string heldby = ((Label)cell.FindControl("lblHoldBy")).Text;
+
+                string holdby = ((Label)cell.FindControl("lblHoldBy")).Text;
                 string fullname = Session["KMDI_fullname"].ToString();
                 string user_code = Session["KMDI_user_code"].ToString();
 
@@ -293,7 +316,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                 }
                 else
                 {
-                    if (heldby == fullname)
+                    if (holdby == fullname)
                     {
                         ((LinkButton)cell.FindControl("btnUnhold")).Visible = true;
                     }
