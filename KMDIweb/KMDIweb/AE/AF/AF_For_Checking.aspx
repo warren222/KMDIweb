@@ -168,9 +168,9 @@
                                                                     <asp:LinkButton ID="btnDone" CssClass="btn btn-success" Visible="false" Width="120px"
                                                                         CommandName="myDone" runat="server" OnClientClick="return confirm('update status to done?')"><span class="glyphicon glyphicon-check"></span> d o n e</asp:LinkButton>
                                                                     <asp:LinkButton ID="btnHold" CssClass="btn btn-danger" Visible="false" Width="120px"
-                                                                        CommandName="myHold" runat="server" OnClientClick="return confirm('update status to hold?')"><span class="glyphicon glyphicon-ban-circle"></span> h o l d</asp:LinkButton>
+                                                                        CommandName="myHold" runat="server" OnClientClick="return confirm('hold this request?')"><span class="glyphicon glyphicon-ban-circle"></span> h o l d</asp:LinkButton>
                                                                     <asp:LinkButton ID="btnUnhold" CssClass="btn btn-warning" Visible="false" Width="120px" ForeColor="Black"
-                                                                        CommandName="myUnhold" runat="server" OnClientClick="return confirm('cancel hold status?')"><span class="glyphicon glyphicon-ok-circle"></span> r e l e a s e</asp:LinkButton>
+                                                                        CommandName="myUnhold" runat="server" OnClientClick="return confirm('release this AF?')"><span class="glyphicon glyphicon-ok-circle"></span> r e l e a s e</asp:LinkButton>
                                                                     <asp:LinkButton ID="btnCancel" CssClass="btn btn-default" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? true : false %>' Width="120px"
                                                                         CommandName="myCancel" runat="server" OnClientClick="return confirm('cancel this request?')"><span class="glyphicon glyphicon-trash"></span> c a n c e l</asp:LinkButton>
                                                                 </div>
@@ -208,7 +208,7 @@
                                                                                 <asp:Panel runat="server" Visible="false" ID="pnlRequestedRemarksEdit">
                                                                                     <span>Comment</span>
                                                                                     <asp:TextBox runat="server" ID="tboxCommentParticular" CssClass="form-control" Text='<%# Bind("Particular") %>' TextMode="MultiLine" Rows="3"></asp:TextBox>
-                                                                                    <asp:LinkButton runat="server" ID="btnSaveParticular" CommandName="mySaveParticular" CssClass="btn btn-default">s u b m i t <span class="glyphicon glyphicon-send"></span></asp:LinkButton>
+                                                                                    <asp:LinkButton runat="server" ID="btnSaveParticular" CommandName="mySaveParticular" CssClass="btn btn-default">s e n d <span class="glyphicon glyphicon-send"></span></asp:LinkButton>
                                                                                 </asp:Panel>
                                                                             </div>
                                                                         </div>
@@ -225,7 +225,7 @@
                                                                                 <asp:Panel runat="server" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? true : false %>' ID="pnlCheckedRemarksEdit">
                                                                                     <span>Comment</span>
                                                                                     <asp:TextBox runat="server" ID="tboxComment" CssClass="form-control" Text='<%# Bind("Checked_Remarks") %>' TextMode="MultiLine" Rows="3"></asp:TextBox>
-                                                                                    <asp:LinkButton runat="server" ID="btnSave" CommandName="myCheck" CssClass="btn btn-default">s u b m i t <span class="glyphicon glyphicon-send"></span></asp:LinkButton>
+                                                                                    <asp:LinkButton runat="server" ID="btnSave" CommandName="myCheck" CssClass="btn btn-default">s e n d <span class="glyphicon glyphicon-send"></span></asp:LinkButton>
                                                                                 </asp:Panel>
                                                                                 <asp:Panel runat="server" Visible='<%# Eval("Req_Status").ToString() == "For Checking" ? false : true %>' ID="pnlCheckedRemarks">
                                                                                     <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Checked_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span>
@@ -265,7 +265,6 @@
                                                                             </div>
                                                                         </div>
                                                                     </asp:Panel>
-
                                                                 </div>
                                                             </div>
                                                         </div>
