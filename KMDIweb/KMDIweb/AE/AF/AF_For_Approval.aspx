@@ -219,7 +219,7 @@
                                                                             <asp:Panel runat="server" Visible='<%# Eval("Approval_Remarks").ToString() == "" ? true : false %>' ID="pnlCommentEdit">
                                                                                 <span>Approval Comment:</span>
                                                                                 <asp:TextBox runat="server" ID="tboxComment" CssClass="form-control" Text='<%# Bind("Approval_Remarks") %>' TextMode="MultiLine" Rows="3"></asp:TextBox>
-                                                                                <asp:LinkButton runat="server" ID="btnSave" CommandName="myApproval_Remarks" CssClass="btn btn-default">s u b m i t <span class="glyphicon glyphicon-send"></span></asp:LinkButton>
+                                                                                <asp:LinkButton runat="server" ID="btnSave" CommandName="myApproval_Remarks" CssClass="btn btn-default">s e n d <span class="glyphicon glyphicon-send"></span></asp:LinkButton>
                                                                             </asp:Panel>
                                                                             <asp:Panel runat="server" Visible='<%# Eval("Approval_Remarks").ToString() == "" ? false : true %>' ID="pnlComment">
                                                                                 <span style="font-size: small"><%# Server.HtmlDecode(Regex.Replace(Eval("Approval_Remarks").ToString(), "\r\n|\r|\n", "<br>")) %></span>
@@ -244,7 +244,7 @@
                                                                             <asp:Panel ID="pnlHold" runat="server" Visible="false">
                                                                                 <span>Hold Reason</span>
                                                                                 <asp:TextBox runat="server" ID="tboxReason" CssClass="form-control" Text='<%# Bind("Hold_Reason") %>' TextMode="MultiLine" Rows="3"></asp:TextBox>
-                                                                                <asp:LinkButton ID="btnUpdateReason" CommandName="myHoldReason" runat="server" CssClass="btn btn-default">s u b m i t <span class="glyphicon glyphicon-send"></span></asp:LinkButton>
+                                                                                <asp:LinkButton ID="btnUpdateReason" CommandName="myHoldReason" runat="server" CssClass="btn btn-default">s e n d <span class="glyphicon glyphicon-send"></span></asp:LinkButton>
                                                                             </asp:Panel>
                                                                             <asp:Panel ID="pnlHoldReason" Visible='<%# Eval("Hold_Reason").ToString() == "" ? false : true %>' runat="server">
                                                                                 <span style="font-size: small; color: red;"><%# Eval("Hold_Reason") %></span>

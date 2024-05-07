@@ -2,7 +2,7 @@
 
 <asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Accg Clearance | Request</title>
+    <title>Accg Clearance | Project List</title>
     <style>
         .nopm {
             padding: 0;
@@ -16,7 +16,7 @@
     <div class="container">
         <div class="well">
             <div class="container text-left">
-                <h2>Accg Clearance Request</h2>
+                <h2>Project List</h2>
             </div>
         </div>
         <asp:UpdatePanel ID="UpdatePanel4" runat="server">
@@ -76,7 +76,7 @@
                                         <span>Date Filter</span>
                                         <asp:DropDownList runat="server" CssClass="form-control" ID="ddlDate_Filter" Style="border-radius: 0;">
                                             <asp:ListItem Value="All" Text="All"></asp:ListItem>
-                                            <asp:ListItem Text="For Approval Date" Value="For Approval Date"></asp:ListItem>
+                                            <asp:ListItem Text="Date Requested" Value="For Approval Date"></asp:ListItem>
                                             <asp:ListItem Text="Date Approved" Value="Date Approved"></asp:ListItem>
                                             <asp:ListItem Text="Date Hold" Value="Date Hold"></asp:ListItem>
                                         </asp:DropDownList>
@@ -96,7 +96,7 @@
                                         <div class="input-group">
                                             <asp:TextBox runat="server" ID="tboxSearch" CssClass="form-control" Style="border-radius: 0;"></asp:TextBox>
                                             <div class="input-group-btn">
-                                                <asp:LinkButton runat="server" ID="btnSearch" CssClass="btn btn-default" Style="border-radius: 0;" OnClick="btnSearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                                                <asp:LinkButton runat="server" ID="btnSearch" CssClass="btn btn-primary" Style="border-radius: 0;" OnClick="btnSearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
                                             </div>
                                         </div>
                                     </div>
@@ -117,14 +117,15 @@
                                     <ItemTemplate>
                                         <div style='padding: 0; border: 2px solid; margin: 2px; border-color: <%# Eval("Status").ToString().Contains("Approved") ? "Green" :
                                                                           Eval("Status").ToString().Contains("For Approval") ? "Yellow" :
-                                                                          Eval("Status").ToString().Contains("Hold") ? "Red" : "#e0e0e0" %>;'>
+                                                                          Eval("Status").ToString().Contains("Hold") ? "Red" : "Aqua" %>;'>
                                             <div style='color: <%# Eval("Status").ToString().Contains("Approved") ? "white" :
-                                                                   Eval("Status").ToString().Contains("Hold") ? "white" : "black" %>; background-color: <%# Eval("Status").ToString().Contains("Approved") ? "Green" :
+                                                                   Eval("Status").ToString().Contains("Hold") ? "white" : "black" %>; 
+                                             background-color: <%# Eval("Status").ToString().Contains("Approved") ? "Green" :
                                                                    Eval("Status").ToString().Contains("Approval") ? "Yellow" :
-                                                                   Eval("Status").ToString().Contains("Hold") ? "Red" : "#e0e0e0" %>; padding: 5px;'>
+                                                                   Eval("Status").ToString().Contains("Hold") ? "Red" : "Aqua" %>; padding: 5px;'>
                                                 <span style="font-size: large; letter-spacing: 3px;"><%# Eval("Status") %></span>
                                                 <span class="pull-right text-right">
-                                                    <span style="font-size: small"><%# Eval("Status_Date") %></span>
+                                                    <span style="font-size: small"><%# Eval("Acct_Exec_Incharge") %></span>
                                                 </span>
                                             </div>
                                             <div class="row nopm">
@@ -137,14 +138,14 @@
                                                         <asp:Label ID="lblParentjono" Font-Size="Smaller" Visible="false" runat="server" Text='<%# Bind("Parentjono") %>'></asp:Label>
                                                     </div>
                                                     <div class="text-center" style="padding-bottom: 10px;">
-                                                        <asp:LinkButton ID="btnCancelRequest" Style="" Visible='<%# Eval("Status").ToString() == "Approved" || Eval("Status").ToString() == "" ? false:true %>'
-                                                            runat="server" CommandName="cancelRequest" CssClass="btn btn-default" OnClientClick="return confirm('continue to cancel request?')">c a n c e l</asp:LinkButton>
+                                                        <asp:LinkButton ID="btnCancelRequest" Style="" Visible='<%# Eval("Status").ToString() == "Approved" || Eval("Status").ToString() == "_" ? false:true %>'
+                                                            runat="server" CommandName="cancelRequest" CssClass="btn btn-default" OnClientClick="return confirm('continue to cancel request?')"><span class="glyphicon glyphicon-trash"></span> c a n c e l</asp:LinkButton>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6 nopm">
                                                     <div style="border-left: 1px solid #bab9b9; padding: 0; height: inherit;">
                                                         <div class="text-center" style="border-bottom: 1px solid #bab9b9; padding: 5px;">
-                                                            <span class="" style="font-size: small; letter-spacing: 1px; text-transform: uppercase"><%# Eval("Acct_Exec_Incharge") %></span>
+                                                            <span class="" style="font-size: small; letter-spacing: 1px; text-transform: uppercase">D E T A I L S</span>
                                                         </div>
                                                         <div style="padding-left: 10px; padding-right: 10px; background-color: white; border-bottom: 1px solid #bab9b9; font-size: small;">
                                                             <span>Payment Status: </span>
@@ -158,7 +159,7 @@
                                                                 <span style='visibility: <%# Eval("Hold_Date").ToString() == "" ? "hidden" : "visible" %>;'><%# Eval("Hold_Date").ToString() %></span>
                                                             </span>
                                                             <br />
-                                                            <span style='visibility: <%# Eval("Requested_Date").ToString() == "" ? "hidden" : "visible" %>;'>For Approval Date:</span><br />
+                                                            <span style='visibility: <%# Eval("Requested_Date").ToString() == "" ? "hidden" : "visible" %>;'>Date Requested:</span><br />
                                                             <span style='visibility: <%# Eval("Approved_Date").ToString() == "" ? "hidden" : "visible" %>;'>Date Approved:<br />
                                                             </span>
                                                             <span style='visibility: <%# Eval("Hold_Date").ToString() == "" ? "hidden" : "visible" %>;'>Date Hold:</span>
@@ -169,15 +170,16 @@
                                                             </asp:Label>
                                                         </div>
                                                         <div style="background-color: white;">
-                                                            <a data-toggle="collapse" style="margin-left: 10px; border-radius: 0; font-size: medium" class="" href='<%# "#"+Eval("number").ToString() %>' role="button" aria-expanded="false" aria-controls="collapseExample">Add request</a>
+                                                            <a data-toggle="collapse" style="margin-left: 10px; border-radius: 0; font-size: medium" class="" href='<%# "#"+Eval("number").ToString() %>' role="button" aria-expanded="false" aria-controls="collapseExample">Add Request</a>
                                                             <div class="collapse" id='<%# Eval("number").ToString() %>'>
                                                                 <asp:Panel ID="pnlRequestForm" Visible='<%# Eval("Status").ToString() == "" ? true:true %>' runat="server">
                                                                     <div class="well well-sm" style="border-radius: 0;">
+                                                                        <div class="text-center">R E QU E S T&nbsp;&nbsp;F O R M</div>
                                                                         <span>Select Contract</span>
                                                                         <div class="input-group" style="margin: 0;">
                                                                             <asp:DropDownList ID="dlJO" CssClass="form-control" runat="server"></asp:DropDownList>
                                                                             <div class="input-group-btn">
-                                                                                <asp:LinkButton ID="btnSendRequest" runat="server" CommandName="sendRequest" CssClass="btn btn-success">send request</asp:LinkButton>
+                                                                                <asp:LinkButton ID="btnSendRequest" runat="server" CommandName="sendRequest" CssClass="btn btn-default">s e n d <span class="glyphicon glyphicon-send"></span></asp:LinkButton>
                                                                             </div>
                                                                         </div>
                                                                     </div>

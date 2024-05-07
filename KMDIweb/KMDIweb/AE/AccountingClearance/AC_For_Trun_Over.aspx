@@ -116,15 +116,16 @@
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:Label ID="lblId" Visible="false" runat="server" CssClass="text-info" Text='<%# Bind("Id") %>'></asp:Label>
-                                        <div style='padding: 0; border: 2px solid; margin: 2px; border-color: <%# Eval("Status").ToString().Contains("COC Received") ? "Gray" :
+                                        <div style='padding: 0; border: 2px solid; margin: 2px; border-color: <%# Eval("Status").ToString().Contains("COC Received") ? "Black" :
                                                         Eval("Status").ToString().Contains("Key Released") ? "Green" :
                                                         Eval("Status").ToString().Contains("For Key Prep") ? "Yellow" : "#e0e0e0" %>;'>
-                                            <div style='padding: 5px; color: <%# Eval("Status").ToString().Contains("For Key Prep") ? "black" : "white" %>; background-color: <%# Eval("Status").ToString().Contains("COC Received") ? "Gray" :
+                                            <div style='padding: 5px; color: <%# Eval("Status").ToString().Contains("For Key Prep") ? "black" : "white" %>; 
+                                                                 background-color: <%# Eval("Status").ToString().Contains("COC Received") ? "Black" :
                                                                                        Eval("Status").ToString().Contains("Key Released") ? "Green" :
                                                                                        Eval("Status").ToString().Contains("For Key Prep") ? "Yellow" : "#e0e0e0" %>;'>
                                                 <span style="font-size: large; letter-spacing: 3px;"><%# Eval("Status") %></span>
                                                 <span class="pull-right text-right">
-                                                    <span style="font-size: small"><%# Eval("Status_Date") %></span>
+                                                   <span style="font-size: small"><%# Eval("Acct_Exec_Incharge") %></span>
                                                 </span>
                                             </div>
                                             <div class="row nopm">
@@ -143,13 +144,15 @@
                                                 <div class="col-sm-6 nopm">
                                                     <div style="border-left: 1px solid #bab9b9; padding: 0; height: inherit;">
                                                         <div class="text-center" style="border-bottom: 1px solid #bab9b9; padding: 5px;">
-                                                            <span class="" style="font-size: small; letter-spacing: 1px; text-transform: uppercase"><%# Eval("Acct_Exec_Incharge") %></span>
+                                                            <span class="" style="font-size: small; letter-spacing: 1px; text-transform: uppercase">D A T A</span>
                                                         </div>
-                                                        <div style="padding-left: 10px;padding-right:10px; background-color: white; border-bottom: 1px solid #bab9b9;">
+                                                        <div style="padding-left: 10px; padding-right: 10px; background-color: white; border-bottom: 1px solid #bab9b9;">
                                                             <span>Payment Status: </span>
                                                             <span class="pull-right text-right">
                                                                 <span class='<%# Convert.ToDecimal(Eval("Collection_Per")) >= 100 ? "text-success" : "text-danger" %>'>
                                                                     <%# Convert.ToDecimal(Eval("Collection_Per")).ToString("n2") %>%</span><br />
+                                                                <span style='visibility: <%# Eval("Requested_Date").ToString() == "" ? "hidden" : "visible" %>;'><%# Eval("Requested_Date").ToString() %><br />
+                                                                </span>
                                                                 <span style='visibility: <%# Eval("Approved_Date").ToString() == "" ? "hidden" : "visible" %>;'><%# Eval("Approved_Date").ToString() %><br />
                                                                 </span>
                                                                 <span style='visibility: <%# Eval("Key_Released_Date").ToString() == "" ? "hidden" : "visible" %>;'><%# Eval("Key_Released_Date").ToString() %><br />
@@ -157,7 +160,8 @@
                                                                 <span style='visibility: <%# Eval("COC_Received").ToString() == "" ? "hidden" : "visible" %>;'><%# Eval("COC_Received").ToString() %></span>
                                                             </span>
                                                             <br />
-                                                            <span style='visibility: <%# Eval("Approved_Date").ToString() == "" ? "hidden" : "visible" %>;'>For Key Prep Date:</span><br />
+                                                            <span style='visibility: <%# Eval("Requested_Date").ToString() == "" ? "hidden" : "visible" %>;'>Date Requested</span><br />
+                                                            <span style='visibility: <%# Eval("Approved_Date").ToString() == "" ? "hidden" : "visible" %>;'>Date Approved:</span><br />
                                                             <span style='visibility: <%# Eval("Key_Released_Date").ToString() == "" ? "hidden" : "visible" %>;'>Key Released Date:<br />
                                                             </span>
                                                             <span style='visibility: <%# Eval("COC_Received").ToString() == "" ? "hidden" : "visible" %>;'>COC Received Date:</span>
@@ -169,27 +173,29 @@
                                                         </div>
                                                         <div style="background-color: white; border-bottom: 0px solid #bab9b9;">
                                                             <asp:Panel ID="pnlCOC" Visible='<%# Eval("Status").ToString() == "Key Released" ? true:false %>' runat="server">
-                                                                <div class="well well-sm" style="border-radius: 0;">
-                                                                    <span>Remarks</span>
-                                                                    <div class="input-group" style="margin: 0;">
-                                                                        <asp:TextBox ID="tboxRemarks" runat="server" CssClass="form-control"></asp:TextBox>
-                                                                        <div class="input-group-btn">
-                                                                            <asp:LinkButton ID="btnCOC" runat="server" CommandName="COCreceive" CssClass="btn btn-default" OnClientClick="return confirm('update status to COC received?')">
+                                                                <a data-toggle="collapse" style="margin-left: 10px; border-radius: 0; font-size: medium" class="" href='<%# "#"+Eval("Id").ToString() %>' role="button" aria-expanded="false" aria-controls="collapseExample">Receive COC</a>
+                                                                <div class="collapse" id='<%# Eval("Id").ToString() %>'>
+                                                                    <div class="well well-sm" style="border-radius: 0;">
+                                                                        <span>Remarks</span>
+                                                                        <asp:TextBox ID="tboxRemarks" runat="server" TextMode="MultiLine" Rows="3" CssClass="form-control"></asp:TextBox>
+                                                                        <asp:LinkButton ID="btnCOC" runat="server" CommandName="COCreceive" CssClass="btn btn-default" OnClientClick="return confirm('update status to COC received?')">
                                                                                 COC received</asp:LinkButton>
-                                                                        </div>
                                                                     </div>
                                                                 </div>
+
                                                             </asp:Panel>
                                                         </div>
-                                                        <div style="">
-                                                            <asp:Panel runat="server" ID="pnlRemarks" Style="padding: 10px;" CssClass="alert alert-info" Visible='<%# Eval("Remarks").ToString() == "" ? false:true %>' role="alert">
-                                                                <asp:Label ID="lblRemarks" ForeColor="Black" runat="server">
+
+                                                    </div>
+                                                    <div style="">
+                                                        <asp:Panel runat="server" ID="pnlRemarks" Style="padding: 10px;" CssClass="alert alert-info" Visible='<%# Eval("Remarks").ToString() == "" ? false:true %>' role="alert">
+                                                            <asp:Label ID="lblRemarks" ForeColor="Black" runat="server">
                                                      <span>Remarks: </span> <span class=""><%# Eval("Remarks") %></span></asp:Label>
-                                                            </asp:Panel>
-                                                        </div>
+                                                        </asp:Panel>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>

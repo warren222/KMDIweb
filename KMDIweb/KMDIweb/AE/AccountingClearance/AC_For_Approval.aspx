@@ -2,7 +2,7 @@
 
 <asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Accg Clearance | Approval</title>
+    <title>Accg Clearance | For Approval</title>
     <style>
         .nopm {
             padding: 0;
@@ -16,7 +16,7 @@
     <div class="container">
         <div class="well">
             <div class="container text-left">
-                <h2>Accg Clearance Approval</h2>
+                <h2>For Approval</h2>
             </div>
         </div>
         <asp:UpdatePanel ID="UpdatePanel4" runat="server">
@@ -125,7 +125,7 @@
                                                                                  Eval("Status").ToString().Contains("Hold") ? "Red" : "#e0e0e0" %>;'>
                                                 <span style="font-size: large; letter-spacing: 3px;"><%# Eval("Status") %></span>
                                                 <span class="pull-right text-right">
-                                                    <span style="font-size: small"><%# Eval("Status_Date") %></span>
+                                                    <span style="font-size: small"><%# Eval("Acct_Exec_Incharge") %></span>
                                                 </span>
                                             </div>
                                             <div class="row nopm">
@@ -137,15 +137,15 @@
                                                         <asp:Label ID="lblParentjono" Font-Size="Smaller" Visible="false" runat="server" Text='<%# Bind("Parentjono") %>'></asp:Label>
                                                     </div>
                                                     <div class="text-center" style="padding-bottom: 10px;">
-                                                        <asp:LinkButton ID="btnApproved" Visible='<%# Eval("Status").ToString() == "For Approval" || Eval("Status").ToString() == "Hold" ? true:false %>' runat="server" CommandName="approve" CssClass="btn btn-success" OnClientClick="return confirm('continue to approve?')">a p p r o v e</asp:LinkButton>
+                                                        <asp:LinkButton ID="btnApproved" Visible='<%# Eval("Status").ToString() == "For Approval" || Eval("Status").ToString() == "Hold" ? true:false %>' runat="server" CommandName="approve" CssClass="btn btn-success" OnClientClick="return confirm('continue to approve?')"><span class="glyphicon glyphicon-check"></span> a p p r o v e</asp:LinkButton>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6 nopm">
                                                     <div style="border-left: 1px solid #bab9b9; padding: 0; height: inherit;">
                                                         <div class="text-center" style="border-bottom: 1px solid #bab9b9; padding: 5px;">
-                                                            <span class="" style="font-size: small; letter-spacing: 1px; text-transform: uppercase"><%# Eval("Acct_Exec_Incharge") %></span>
+                                                            <span class="" style="font-size: small; letter-spacing: 1px; text-transform: uppercase">D A T A</span>
                                                         </div>
-                                                         <div style="padding-left: 10px; padding-right: 10px; background-color: white; border-bottom: 1px solid #bab9b9; font-size: small;">
+                                                        <div style="padding-left: 10px; padding-right: 10px; background-color: white; border-bottom: 1px solid #bab9b9; font-size: small;">
                                                             <span>Payment Status: </span>
                                                             <span class="pull-right text-right">
                                                                 <span class='<%# Convert.ToDecimal(Eval("Collection_Per")) >= 100 ? "text-success" : "text-danger" %>'>
@@ -157,7 +157,7 @@
                                                                 <span style='visibility: <%# Eval("Hold_Date").ToString() == "" ? "hidden" : "visible" %>;'><%# Eval("Hold_Date").ToString() %></span>
                                                             </span>
                                                             <br />
-                                                            <span style='visibility: <%# Eval("Requested_Date").ToString() == "" ? "hidden" : "visible" %>;'>For Approval Date:</span><br />
+                                                            <span style='visibility: <%# Eval("Requested_Date").ToString() == "" ? "hidden" : "visible" %>;'>Date Requested:</span><br />
                                                             <span style='visibility: <%# Eval("Approved_Date").ToString() == "" ? "hidden" : "visible" %>;'>Date Approved:<br />
                                                             </span>
                                                             <span style='visibility: <%# Eval("Hold_Date").ToString() == "" ? "hidden" : "visible" %>;'>Date Hold:</span>
@@ -169,13 +169,13 @@
                                                         </div>
                                                         <div style="background-color: white;">
                                                             <asp:LinkButton ID="btnHold" Style="margin-left: 10px; border-radius: 0; font-size: medium" Visible='<%# Eval("Status").ToString() == "For Approval" ? true:false %>' runat="server" CommandName="hold">
-                                                                hold request</asp:LinkButton>
+                                                                h o l d</asp:LinkButton>
                                                             <asp:Panel ID="pnlHold" Visible="false" runat="server">
                                                                 <div class="well well-sm" style="border-radius: 0;">
                                                                     <span>Reason for hold</span>
                                                                     <asp:TextBox ID="tboxHoldReason" TextMode="MultiLine" Rows="2" runat="server" CssClass="form-control"></asp:TextBox>
-                                                                    <asp:LinkButton ID="btnSubmit" runat="server" CommandName="btnsubmitHold" CssClass="btn btn-default"><span>submit</span></asp:LinkButton>
-                                                                    <asp:LinkButton ID="btnCancel" runat="server" CommandName="btncancelHold" CssClass="btn btn-default"><span>cancel</span></asp:LinkButton>
+                                                                    <asp:LinkButton ID="btnSubmit" runat="server" CommandName="btnsubmitHold" CssClass="btn btn-default">s u b m i t <span class="glyphicon glyphicon-send"></span></asp:LinkButton>
+                                                                    <asp:LinkButton ID="btnCancel" runat="server" CommandName="btncancelHold" CssClass="btn btn-default">c a n c e l <span class="glyphicon glyphicon-remove"></span></asp:LinkButton>
                                                                 </div>
                                                             </asp:Panel>
                                                         </div>
