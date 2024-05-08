@@ -17,7 +17,7 @@
         <div class="container">
             <div class="well">
                 <div class="container text-left">
-                    <h2>AF For Checking</h2>
+                    <h2>For Checking</h2>
                 </div>
             </div>
             <asp:UpdatePanel ID="UpdatePanel4" runat="server">

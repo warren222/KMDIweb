@@ -2,7 +2,7 @@
 
 <asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Available AF | New Payment</title>
+    <title>Available AF</title>
     <style>
         .nopad {
             padding: 0;

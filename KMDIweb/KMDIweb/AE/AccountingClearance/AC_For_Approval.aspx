@@ -137,7 +137,14 @@
                                                         <asp:Label ID="lblParentjono" Font-Size="Smaller" Visible="false" runat="server" Text='<%# Bind("Parentjono") %>'></asp:Label>
                                                     </div>
                                                     <div class="text-center" style="padding-bottom: 10px;">
-                                                        <asp:LinkButton ID="btnApproved" Visible='<%# Eval("Status").ToString() == "For Approval" || Eval("Status").ToString() == "Hold" ? true:false %>' runat="server" CommandName="approve" CssClass="btn btn-success" OnClientClick="return confirm('continue to approve?')"><span class="glyphicon glyphicon-check"></span> a p p r o v e</asp:LinkButton>
+                                                        <asp:LinkButton ID="btnApproved" Visible='<%# Eval("Status").ToString() == "For Approval" || Eval("Status").ToString() == "Hold" ? true:false %>'
+                                                            runat="server" CommandName="approve" CssClass="btn btn-success" OnClientClick="return confirm('continue to approve?')">
+                                                            <span class="glyphicon glyphicon-check"></span> a p p r o v e</asp:LinkButton>
+                                                        <asp:LinkButton ID="btnRelease" Visible='<%# Eval("Status").ToString() == "Hold" ? true : false %>' 
+                                                            CommandName="btnRelease" OnClientClick="return confirm('release this request?')"
+                                                            ForeColor="Black" CssClass="btn btn-warning" runat="server">
+                                                            <span><span class="glyphicon glyphicon-ok-circle"></span> r e l e a s e</span>
+                                                        </asp:LinkButton>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6 nopm">
@@ -172,7 +179,7 @@
                                                                 h o l d</asp:LinkButton>
                                                             <asp:Panel ID="pnlHold" Visible="false" runat="server">
                                                                 <div class="well well-sm" style="border-radius: 0;">
-                                                                    <span>Reason for hold</span>
+                                                                    <span>Hold Reason</span>
                                                                     <asp:TextBox ID="tboxHoldReason" TextMode="MultiLine" Rows="2" runat="server" CssClass="form-control"></asp:TextBox>
                                                                     <asp:LinkButton ID="btnSubmit" runat="server" CommandName="btnsubmitHold" CssClass="btn btn-default">s u b m i t <span class="glyphicon glyphicon-send"></span></asp:LinkButton>
                                                                     <asp:LinkButton ID="btnCancel" runat="server" CommandName="btncancelHold" CssClass="btn btn-default">c a n c e l <span class="glyphicon glyphicon-remove"></span></asp:LinkButton>

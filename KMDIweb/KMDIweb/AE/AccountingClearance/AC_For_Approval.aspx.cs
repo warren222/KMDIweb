@@ -193,6 +193,13 @@ namespace KMDIweb.KMDIweb.AE.AccountingClearance
                 string id = ((Label)row.FindControl("lblId")).Text;
                 executeQuery("Hold", id, ((TextBox)row.FindControl("tboxHoldReason")).Text);
             }
+            else if (e.CommandName == "btnRelease")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvProject.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                executeQuery("Release", id, "");
+            }
         }
 
         protected void gvProject_PageIndexChanging(object sender, GridViewPageEventArgs e)
