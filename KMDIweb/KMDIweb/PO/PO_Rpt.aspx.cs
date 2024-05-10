@@ -102,7 +102,7 @@ namespace KMDIweb.KMDIweb.PO
         }
         private void getparameters()
         {
-            ReportViewer1.LocalReport.EnableExternalImages = true;
+            ReportViewer2.LocalReport.EnableExternalImages = true;
             string _prepared = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Prepared_By.jpg")).AbsoluteUri;
             string _requested = new Uri(Server.MapPath("~/KMDIweb/Uploads/UserSignature/DefaultForPO/" + Request.QueryString["Requested_By"].ToString() + ".jpg")).AbsoluteUri;
             string _noted = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Noted_By.jpg")).AbsoluteUri;
@@ -116,10 +116,10 @@ namespace KMDIweb.KMDIweb.PO
             repparam[5] = new ReportParameter("imgRequestedBy", _requested);
             for (int i = 0; i < 6; i++)
             {
-                ReportViewer1.LocalReport.SetParameters(repparam[i]);
+                ReportViewer2.LocalReport.SetParameters(repparam[i]);
             }
-            ReportViewer1.LocalReport.DisplayName = Session["POPO_No"].ToString();
-            ReportViewer1.LocalReport.Refresh();
+            ReportViewer2.LocalReport.DisplayName = Session["POPO_No"].ToString();
+            ReportViewer2.LocalReport.Refresh();
         }
 
         protected void ReportViewer1_ReportRefresh(object sender, System.ComponentModel.CancelEventArgs e)

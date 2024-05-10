@@ -105,6 +105,8 @@ namespace KMDIweb.KMDIweb.AE.AccountingClearance
                         sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
                         sqlcmd.Parameters.AddWithValue("@AE", ae());
                         sqlcmd.Parameters.AddWithValue("@Status", ddlStatus.SelectedValue.ToString());
+                        sqlcmd.Parameters.AddWithValue("@Date_Filter", ddlDate_Filter.Text);
+                        sqlcmd.Parameters.AddWithValue("@Date", tboxDate.Text);
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
                             da.SelectCommand = sqlcmd;
@@ -190,6 +192,13 @@ namespace KMDIweb.KMDIweb.AE.AccountingClearance
                 GridViewRow row = gvProject.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
                 executeQuery("Hold", id, ((TextBox)row.FindControl("tboxHoldReason")).Text);
+            }
+            else if (e.CommandName == "btnRelease")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvProject.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                executeQuery("Release", id, "");
             }
         }
 

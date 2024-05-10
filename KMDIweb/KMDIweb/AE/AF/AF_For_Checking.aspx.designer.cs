@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KMDIweb.KMDIweb.AE.AF {
-    
-    
-    public partial class AF_For_Checking {
-        
+namespace KMDIweb.KMDIweb.AE.AF
+{
+
+
+    public partial class AF_For_Checking
+    {
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace KMDIweb.KMDIweb.AE.AF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// UpdatePanel4 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace KMDIweb.KMDIweb.AE.AF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel4;
-        
+
         /// <summary>
         /// ValidationSummary1 control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace KMDIweb.KMDIweb.AE.AF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
-        
+
         /// <summary>
         /// UpdatePanel3 control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace KMDIweb.KMDIweb.AE.AF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel3;
-        
+
         /// <summary>
         /// gvSummary control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace KMDIweb.KMDIweb.AE.AF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvSummary;
-        
+
         /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace KMDIweb.KMDIweb.AE.AF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
+
         /// <summary>
         /// ddlStatus control.
         /// </summary>
@@ -74,7 +76,34 @@ namespace KMDIweb.KMDIweb.AE.AF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
-        
+
+        /// <summary>
+        /// ddlDate_Filter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDate_Filter;
+
+        /// <summary>
+        /// tboxDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxDate;
+
+        /// <summary>
+        /// lblAE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAE;
+
         /// <summary>
         /// ddlAE control.
         /// </summary>
@@ -83,7 +112,7 @@ namespace KMDIweb.KMDIweb.AE.AF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAE;
-        
+
         /// <summary>
         /// tboxSearch control.
         /// </summary>
@@ -92,7 +121,7 @@ namespace KMDIweb.KMDIweb.AE.AF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tboxSearch;
-        
+
         /// <summary>
         /// btnSearch control.
         /// </summary>
@@ -101,7 +130,7 @@ namespace KMDIweb.KMDIweb.AE.AF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnSearch;
-        
+
         /// <summary>
         /// UpdatePanel2 control.
         /// </summary>
@@ -110,7 +139,7 @@ namespace KMDIweb.KMDIweb.AE.AF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
-        
+
         /// <summary>
         /// gv1 control.
         /// </summary>

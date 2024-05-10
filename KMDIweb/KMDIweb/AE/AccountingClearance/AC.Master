@@ -69,7 +69,7 @@
                     <ul class="nav navbar-nav">
                      <li>
                             <asp:HyperLink ID="hlProject" runat="server" NavigateUrl="~/KMDIweb/AE/AccountingClearance/AC_ProjectList.aspx">
-                                 Request</asp:HyperLink></li>
+                                 Project List</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="hlForApproval" runat="server" NavigateUrl="~/KMDIweb/AE/AccountingClearance/AC_For_Approval.aspx">
                                 <asp:Label ID="lblForApproval" runat="server" CssClass="badge"></asp:Label>
@@ -113,7 +113,7 @@
             <br />
             <br />
             <br />
-            <p>Copyright 2020. Kenneth and Mock windows and doors. All rights Reserved.</p>
+            <p>Copyright 2024. Kenneth and Mock windows and doors. All rights Reserved.</p>
         </footer>
     </form>
 </body>

@@ -156,21 +156,21 @@ namespace KMDIweb.KMDIapp
                 Panel4.Visible = false;
             }
 
-            //if ((usercode == "AE") ||
-            //    (usercode == "Accounting") ||
-            //    ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
-            //    (usercode == "Programmer") ||
-            //    (fullname == "Genalyn Garcia"))
-            //{
-            //    pnlAC.Visible = true;
-            //}
-            //if ((usercode == "AE") ||
-            //((fullname == "Jayvey Manalili" && usercode == "Operations")) ||
-            //(usercode == "Programmer") ||
-            //(fullname == "Genalyn Garcia"))
-            //{
-            //    pnlAF.Visible = true;
-            //}
+            if ((usercode == "AE") ||
+                (usercode == "Accounting") ||
+                ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
+                (usercode == "Programmer") ||
+                (fullname == "Genalyn Garcia"))
+            {
+                pnlAC.Visible = true;
+            }
+            if ((usercode == "AE") ||
+            ((fullname == "Jayvey Manalili" && usercode == "Operations")) ||
+            (usercode == "Programmer") ||
+            (fullname == "Genalyn Garcia"))
+            {
+                pnlAF.Visible = true;
+            }
 
             if (poa != "")
             {
@@ -205,7 +205,7 @@ namespace KMDIweb.KMDIapp
 
         protected void LinkButton9_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/AE/AF/AF_Project_List.aspx");
+            Response.Redirect("~/KMDIweb/AE/AF/AF_New_Payment.aspx");
         }
         protected void LinkButton10_Click(object sender, EventArgs e)
         {

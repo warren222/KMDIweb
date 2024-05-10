@@ -24,7 +24,8 @@ namespace KMDIweb.KMDIweb.AE.AF
                         loaddata();
                         if (Session["KMDI_user_code"].ToString() == "AE")
                         {
-                            ddlAE.Enabled = false;
+                            lblAE.Visible = false;
+                            ddlAE.Visible = false;
                         }
                     }
                 }
@@ -103,6 +104,8 @@ namespace KMDIweb.KMDIweb.AE.AF
                         sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
                         sqlcmd.Parameters.AddWithValue("@AE", ae());
                         sqlcmd.Parameters.AddWithValue("@Req_Status", ddlStatus.Text);
+                        sqlcmd.Parameters.AddWithValue("@Date_Filter", ddlDate_Filter.Text);
+                        sqlcmd.Parameters.AddWithValue("@Date", tboxDate.Text);
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
                             da.SelectCommand = sqlcmd;
@@ -202,30 +205,30 @@ namespace KMDIweb.KMDIweb.AE.AF
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gv1.Rows[rowindex];
-                if (((Panel)row.FindControl("pnlCommentEdit")).Visible == true)
+                if (((Panel)row.FindControl("pnlCheckedRemarksEdit")).Visible == true)
                 {
-                    ((Panel)row.FindControl("pnlCommentEdit")).Visible = false;
+                    ((Panel)row.FindControl("pnlCheckedRemarksEdit")).Visible = false;
                     ((Panel)row.FindControl("pnlComment")).Visible = true;
                 }
                 else
                 {
-                    ((Panel)row.FindControl("pnlCommentEdit")).Visible = true;
-                    ((Panel)row.FindControl("pnlComment")).Visible = false;
+                    ((Panel)row.FindControl("pnlCheckedRemarksEdit")).Visible = true;
+                    ((Panel)row.FindControl("pnlCheckedRemarks")).Visible = false;
                 }
             }
             else if (e.CommandName == "myEditParticular")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gv1.Rows[rowindex];
-                if (((Panel)row.FindControl("pnlCommentEditParticular")).Visible == true)
+                if (((Panel)row.FindControl("pnlRequestedRemarksEdit")).Visible == true)
                 {
-                    ((Panel)row.FindControl("pnlCommentEditParticular")).Visible = false;
-                    ((Panel)row.FindControl("pnlCommentParticular")).Visible = true;
+                    ((Panel)row.FindControl("pnlRequestedRemarksEdit")).Visible = false;
+                    ((Panel)row.FindControl("pnlRequestedRemarks")).Visible = true;
                 }
                 else
                 {
-                    ((Panel)row.FindControl("pnlCommentEditParticular")).Visible = true;
-                    ((Panel)row.FindControl("pnlCommentParticular")).Visible = false;
+                    ((Panel)row.FindControl("pnlRequestedRemarksEdit")).Visible = true;
+                    ((Panel)row.FindControl("pnlRequestedRemarks")).Visible = false;
                 }
             }
             else if (e.CommandName == "mySaveParticular")
@@ -256,6 +259,13 @@ namespace KMDIweb.KMDIweb.AE.AF
                 GridViewRow row = gv1.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
                 check("Unhold", "", id);
+            }
+            else if (e.CommandName == "myCancel")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gv1.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                check("Cancel", "", id);
             }
         }
         private void Edit_Request(string id, string particular)
@@ -324,14 +334,14 @@ namespace KMDIweb.KMDIweb.AE.AF
         }
         private void HoldAccess(TableCell cell, string status)
         {
-            if (status == "For Checking" || status == "For Approval")
+            if (status == "For Checking")
             {
                 ((LinkButton)cell.FindControl("btnHold")).Visible = true;
                 ((LinkButton)cell.FindControl("btnUnhold")).Visible = false;
             }
             else if (status == "Hold")
             {
-             
+
                 ((LinkButton)cell.FindControl("btnHold")).Visible = false;
                 ((LinkButton)cell.FindControl("btnEdit")).Visible = false;
                 ((LinkButton)cell.FindControl("btnEditParticular")).Visible = false;
@@ -347,7 +357,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                 }
                 else
                 {
-                    if(heldby == fullname)
+                    if (heldby == fullname)
                     {
                         ((LinkButton)cell.FindControl("btnUnhold")).Visible = true;
                     }
@@ -378,32 +388,32 @@ namespace KMDIweb.KMDIweb.AE.AF
         {
             if (status == "For Checking")
             {
-                ((Panel)cell.FindControl("pnlCommentEdit")).Visible = true;
+                ((Panel)cell.FindControl("pnlCheckedRemarksEdit")).Visible = true;
                 ((LinkButton)cell.FindControl("btnEdit")).Visible = false;
                 ((LinkButton)cell.FindControl("btnDone")).Visible = false;
             }
             else if (status == "For Approval")
             {
-                ((Panel)cell.FindControl("pnlCommentEdit")).Visible = false;
+                ((Panel)cell.FindControl("pnlCheckedRemarksEdit")).Visible = false;
                 ((LinkButton)cell.FindControl("btnEdit")).Visible = true;
                 ((LinkButton)cell.FindControl("btnDone")).Visible = false;
             }
             else if (status == "Approved")
             {
                 ((LinkButton)cell.FindControl("btnEdit")).Visible = false;
-                ((Panel)cell.FindControl("pnlCommentEdit")).Visible = false;
+                ((Panel)cell.FindControl("pnlCheckedRemarksEdit")).Visible = false;
                 ((LinkButton)cell.FindControl("btnDone")).Visible = true;
             }
             else
             {
                 ((LinkButton)cell.FindControl("btnEdit")).Visible = false;
-                ((Panel)cell.FindControl("pnlCommentEdit")).Visible = false;
+                ((Panel)cell.FindControl("pnlCheckedRemarksEdit")).Visible = false;
                 ((LinkButton)cell.FindControl("btnDone")).Visible = false;
             }
         }
         private void DisableCheckingAccess(TableCell cell, string status)
         {
-            ((Panel)cell.FindControl("pnlCommentEdit")).Visible = false;
+            ((Panel)cell.FindControl("pnlCheckedRemarksEdit")).Visible = false;
             ((LinkButton)cell.FindControl("btnEdit")).Visible = false;
             ((LinkButton)cell.FindControl("btnDone")).Visible = false;
         }
@@ -430,11 +440,15 @@ namespace KMDIweb.KMDIweb.AE.AF
                     DisableCheckingAccess(cell, status);
                     EditParticularAccess(cell, status);
                     HoldAccess(cell, status);
+                    ((Panel)cell.FindControl("pnlCheckedDate")).Visible = false;
+                    ((Panel)cell.FindControl("pnlCheckedRemarks")).Visible = false;
+                    ((Panel)cell.FindControl("pnlApprovedDate")).Visible = false;
+                    ((Panel)cell.FindControl("pnlApprovedRemarks")).Visible = false;
                 }
                 else
                 {
                     ((LinkButton)cell.FindControl("btnEditParticular")).Visible = false;
-                    ((Panel)cell.FindControl("pnlCommentEdit")).Visible = false;
+                    ((Panel)cell.FindControl("pnlCheckedRemarksEdit")).Visible = false;
                     ((LinkButton)cell.FindControl("btnEdit")).Visible = false;
                     ((LinkButton)cell.FindControl("btnDone")).Visible = false;
                 }
