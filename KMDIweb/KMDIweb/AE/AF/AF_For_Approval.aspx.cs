@@ -1,4 +1,5 @@
-﻿using KMDIweb.SCREENfab;
+﻿using KMDIweb.KMDIweb.Global.FileBL;
+using KMDIweb.SCREENfab;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -285,6 +286,16 @@ namespace KMDIweb.KMDIweb.AE.AF
                 loaddata();
             }
         }
+        protected void gvFiles_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "myView")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = ((GridView)sender).Rows[rowindex];
+                string file_path = ((Label)row.FindControl("lblFile_Path")).Text;
+                Response.Redirect(file_path);
+            }
+        }
         protected void gv1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -292,6 +303,13 @@ namespace KMDIweb.KMDIweb.AE.AF
                 TableCell cell = e.Row.Cells[0];
                 string status = ((Label)cell.FindControl("lblStatus")).Text;
                 HoldAccess(cell, status);
+
+
+                string id = ((Label)cell.FindControl("lblId")).Text;
+                string folder_path = "~/KMDIweb/Uploads/AF_Attachment/" + id;
+                File_Upload_BusinessLogic x = new File_Upload_BusinessLogic();
+                ((GridView)cell.FindControl("gvFiles")).DataSource = x.Files_In_Model(folder_path);
+                ((GridView)cell.FindControl("gvFiles")).DataBind();
             }
         }
         private void HoldAccess(TableCell cell, string status)

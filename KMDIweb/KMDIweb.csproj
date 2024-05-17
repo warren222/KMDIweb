@@ -262,6 +262,13 @@
     </Compile>
     <Compile Include="KMDIweb\AE\AccountingClearance\AC_RequestModel.cs" />
     <Compile Include="KMDIweb\AE\AccountingClearance\JO_ListModel.cs" />
+    <Compile Include="KMDIweb\AE\AF\AF_Attachment.aspx.cs">
+      <DependentUpon>AF_Attachment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\AE\AF\AF_Attachment.aspx.designer.cs">
+      <DependentUpon>AF_Attachment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\AE\AF\AF_For_Approval.aspx.cs">
       <DependentUpon>AF_For_Approval.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -389,6 +396,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>reportDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Global\FileBL\File_Upload_BusinessLogic.cs" />
     <Compile Include="KMDIweb\Global\invalidaccess.aspx.cs">
       <DependentUpon>invalidaccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -833,6 +841,8 @@
     </Compile>
     <Compile Include="KMDIweb\SessionVariables\MyQueryString.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\FileModel.cs" />
+    <Compile Include="Models\FolderFileModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -870,6 +880,7 @@
     <Content Include="KMDIweb\AE\AccountingClearance\AC_For_Approval.aspx" />
     <Content Include="KMDIweb\AE\AccountingClearance\AC_For_Trun_Over.aspx" />
     <Content Include="KMDIweb\AE\AccountingClearance\AC_ProjectList.aspx" />
+    <Content Include="KMDIweb\AE\AF\AF_Attachment.aspx" />
     <Content Include="KMDIweb\AE\AF\AF_For_Approval.aspx" />
     <Content Include="KMDIweb\AE\AF\AF_For_Checking.aspx" />
     <Content Include="KMDIweb\AE\AF\AF_New_Payment.aspx" />
