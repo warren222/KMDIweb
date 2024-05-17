@@ -122,7 +122,7 @@
                                         <ItemTemplate>
                                             <asp:Label runat="server" Visible="false" ID="lblStatus" Text='<%# Bind("Req_Status")%>'></asp:Label>
                                             <asp:Label runat="server" Visible="false" ID="lblHoldBy" Text='<%# Bind("Hold_By")%>'></asp:Label>
-                                            <div style='border: 2px solid; margin-bottom:5px; border-color: <%# Eval("Req_Status").ToString() == "For Checking" ? "SkyBlue" :
+                                            <div style='border: 2px solid; margin-bottom: 5px; border-color: <%# Eval("Req_Status").ToString() == "For Checking" ? "SkyBlue" :
                                                         Eval("Req_Status").ToString() == "Hold" ? "Red" :
                                                 Eval("Req_Status").ToString() == "For Approval" ? "Orange" :
                                                 Eval("Req_Status").ToString() == "Approved" ? "Green" : "Black" %>;'>
@@ -168,7 +168,7 @@
                                                                 <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
                                                             </div>
                                                             <br />
-                                                            <asp:Panel ID="pnlApproved" Style="padding: 5px; padding-left: 10px;" class="text-center" runat="server" 
+                                                            <asp:Panel ID="pnlApproved" Style="padding: 5px; padding-left: 10px;" class="text-center" runat="server"
                                                                 Visible='<%# Eval("Req_Status").ToString() == "Approved" || Eval("Req_Status").ToString() == "Done" || Eval("Hold_Status").ToString() == "Approved" ? true : false %>'>
                                                                 <span style="font-family: Candara Light; color: green; font-weight: bold">Approved by <%# Eval("Approved_By").ToString() %> on <%# Eval("Approved_Date") %></span>
                                                             </asp:Panel>
@@ -177,7 +177,7 @@
                                                         <div class="col-sm-6" style="margin: 0; padding: 0;">
                                                             <div class="text-center" style="letter-spacing: 5px; padding: 5px; border-left: 1px solid #bab9b9;"><span>PARTICULARS</span></div>
                                                             <div style="border-left: 1px solid #bab9b9; padding: 0px; height: inherit;">
-                                                                <div style="background-color:antiquewhite; font-size: small; padding: 5px; padding-left: 10px;">
+                                                                <div style="background-color: antiquewhite; font-size: small; padding: 5px; padding-left: 10px;">
                                                                     <span>Request Type:</span>
                                                                     <span class="pull-right text-right">
                                                                         <span class="" style="text-transform: uppercase"><%# Eval("Request") %></span><br />
@@ -261,7 +261,20 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
+                                                    <div>
+                                                        <asp:GridView ID="gvFiles" runat="server" BorderColor="#bab9b9" ShowHeader="false" Width="100%" AutoGenerateColumns="false" Style="border-spacing: 0px;" GridLines="Both" OnRowCommand="gvFiles_RowCommand">
+                                                            <Columns>
+                                                                <asp:TemplateField>
+                                                                    <ItemTemplate>
+                                                                        <div style="margin: 0; padding: 0;" class="text-center">
+                                                                            <asp:Label ID="lblFile_Path" Visible="false" runat="server" Text='<%# Bind("File_Path") %>'></asp:Label>
+                                                                            <asp:LinkButton ID="btnView" Font-Size="Large" runat="server" CommandName="myView" Text='<%# Bind("FileName") %>'></asp:LinkButton>
+                                                                        </div>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </ItemTemplate>

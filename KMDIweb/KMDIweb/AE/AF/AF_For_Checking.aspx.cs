@@ -3,15 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using KMDIweb.Models;
+using KMDIweb.KMDIweb.Global.FileBL;
 
 namespace KMDIweb.KMDIweb.AE.AF
 {
     public partial class AF_For_Checking : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,6 +24,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                 {
                     if (!IsPostBack)
                     {
+                        Retrive_QueryStrings();
                         loadae();
                         loaddata();
                         if (Session["KMDI_user_code"].ToString() == "AE")
@@ -34,6 +39,15 @@ namespace KMDIweb.KMDIweb.AE.AF
                     Response.Redirect("~/KMDIweb/Global/Login.aspx");
                 }
             }
+        }
+        public void Retrive_QueryStrings()
+        {
+            tboxSearch.Text = Request.QueryString["tboxFind"] != null ? Request.QueryString["tboxFind"].ToString() : "";
+            ddlAE.SelectedValue = Request.QueryString["ddlAE"] != null ? Request.QueryString["ddlAE"].ToString() : "";
+            ddlStatus.SelectedValue = Request.QueryString["ddlStatus"] != null ? Request.QueryString["ddlStatus"].ToString() : "";
+            ddlDate_Filter.SelectedValue = Request.QueryString["ddlDate_Filter"] != null ? Request.QueryString["ddlDate_Filter"].ToString() : "";
+            tboxDate.Text = Request.QueryString["tboxDate"] != null ? Request.QueryString["tboxDate"].ToString() : "";
+            gv1.PageIndex = Request.QueryString["page_index"] != null ? Convert.ToInt32(Request.QueryString["page_index"].ToString()) : 0;
         }
         private string sqlconstr
         {
@@ -190,7 +204,16 @@ namespace KMDIweb.KMDIweb.AE.AF
         {
             loaddata();
         }
-
+        protected void gvFiles_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "myView")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = ((GridView)sender).Rows[rowindex];
+                string file_path = ((Label)row.FindControl("lblFile_Path")).Text;
+                Response.Redirect(file_path);
+            }
+        }
         protected void gv1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "myCheck")
@@ -267,6 +290,19 @@ namespace KMDIweb.KMDIweb.AE.AF
                 string id = ((Label)row.FindControl("lblId")).Text;
                 check("Cancel", "", id);
             }
+            else if (e.CommandName == "myUploadFile")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = ((GridView)sender).Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                Response.Redirect("~/KMDIweb/AE/AF/AF_Attachment.aspx" + AddQueryStrings() + "&lblId=" + id);
+            }
+        }
+        private string AddQueryStrings()
+        {
+            return "?ddlStatus=" + ddlStatus.Text + "&ddlDate_Filter=" + ddlDate_Filter.Text +
+                "&tboxDate=" + tboxDate.Text + "&ddlAE=" + ddlAE.Text +
+                "&tboxFind=" + tboxSearch.Text + "&page_index=" + gv1.PageIndex.ToString() + "";
         }
         private void Edit_Request(string id, string particular)
         {
@@ -331,6 +367,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                 ddlStatus.Text = "Hold";
                 loaddata();
             }
+
         }
         private void HoldAccess(TableCell cell, string status)
         {
@@ -424,17 +461,24 @@ namespace KMDIweb.KMDIweb.AE.AF
                 TableCell cell = e.Row.Cells[0];
                 string status = ((Label)cell.FindControl("lblStatus")).Text;
 
+                string id = ((Label)cell.FindControl("lblId")).Text;
+                string folder_path = "~/KMDIweb/Uploads/AF_Attachment/" + id;
+                File_Upload_BusinessLogic x = new File_Upload_BusinessLogic();
+                ((GridView)cell.FindControl("gvFiles")).DataSource = x.Files_In_Model(folder_path);
+                ((GridView)cell.FindControl("gvFiles")).DataBind();
+
                 if (Session["KMDI_user_code"].ToString() == "Programmer")
                 {
                     ForCheckingAccess(cell, status);
                     EditParticularAccess(cell, status);
                     HoldAccess(cell, status);
+                    ((LinkButton)cell.FindControl("btnUploadedFiles")).Visible = true;
                 }
                 else if (Session["KMDI_fullname"].ToString() == "Jayvey Manalili")
                 {
                     ForCheckingAccess(cell, status);
+                    ((LinkButton)cell.FindControl("btnUploadedFiles")).Visible = true;
                 }
-
                 else if (Session["KMDI_user_code"].ToString() == "AE")
                 {
                     DisableCheckingAccess(cell, status);
@@ -454,5 +498,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                 }
             }
         }
+
+
     }
 }
