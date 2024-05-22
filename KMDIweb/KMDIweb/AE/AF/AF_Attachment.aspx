@@ -16,7 +16,7 @@
     <div style="background-color: aliceblue">
         <div class="container">
             <div class="well">
-                <h1>Uploaded Files</h1>
+                <h1>File Manager</h1>
                 <asp:LinkButton ID="btnBack" CssClass="btn btn-default" OnClick="btnBack_Click" runat="server">b a c k</asp:LinkButton>
             </div>
             <div class="row">
