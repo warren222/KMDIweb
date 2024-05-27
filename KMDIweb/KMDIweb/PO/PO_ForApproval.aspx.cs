@@ -36,6 +36,15 @@ namespace KMDIweb.KMDIweb.PO
                 {
                     GridView1.PageIndex = Request.QueryString["PO_PageIndex"] != null ? Convert.ToInt32(Request.QueryString["PO_PageIndex"].ToString()) : 0;
                 }
+                if (user_fullname == "Genalyn Garcia")
+                {
+                  
+                    ddlForSignature.Items.Clear();
+                    ListItem approbedby = new ListItem("Approved by","Approved by");
+                    ListItem approved = new ListItem("(status)Approved", "Approved");
+                    ddlForSignature.Items.Add(approbedby);
+                    ddlForSignature.Items.Add(approved);
+                }
                 getdata();
             }
         }
@@ -180,6 +189,10 @@ namespace KMDIweb.KMDIweb.PO
                     {
                         Response.Redirect("~/KMDIweb/PO/PO_X_Rpt.aspx" + AddQuerystring + "&Requested_By=" + requested);
                     }
+                    else if (get_computation(jono, pono) == "Basic")
+                    {
+                        Response.Redirect("~/KMDIweb/PO/PO_Meiheng.aspx" + AddQuerystring + "&Requested_By=" + requested);
+                    }
                     else
                     {
                         Response.Redirect("~/KMDIweb/PO/PO_Rpt.aspx" + AddQuerystring + "&Requested_By=" + requested);
@@ -288,7 +301,7 @@ namespace KMDIweb.KMDIweb.PO
                 tboxsearchkey.Text = "";
                 ddlDateFilter.Text = "All";
                 tboxDate.Text = "";
-                ddlForSignature.SelectedIndex = 4;
+                ddlForSignature.Text = "Approved";
                 getdata();
             }
         }
