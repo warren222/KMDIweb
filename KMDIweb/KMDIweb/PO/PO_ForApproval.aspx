@@ -78,7 +78,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <span>For Signature</span>
+                                    <asp:Label ID="lblForSignature" runat="server">For Signature</asp:Label>
                                     <asp:DropDownList ID="ddlForSignature" runat="server" CssClass="form-control">
                                         <asp:ListItem Value="All" Text="All" Selected="True"></asp:ListItem>
                                         <asp:ListItem Value="Prepared by" Text="Prepared by"></asp:ListItem>

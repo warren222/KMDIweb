@@ -116,6 +116,10 @@ namespace KMDIweb.KMDIweb.PO
             {
                 Response.Redirect("~/KMDIweb/PO/PO_Laminated_Rpt.aspx" + AddQuerystring);
             }
+            else if (PO_Sender == "PO_Meiheng")
+            {
+                Response.Redirect("~/KMDIweb/PO/PO_Meiheng.aspx" + AddQuerystring);
+            }
         }
         private string AddQuerystring
         {

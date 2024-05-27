@@ -285,7 +285,7 @@
                                                             </asp:GridView>
                                                         </div>
                                                         <div style="background-color: antiquewhite; padding: 5px;" class="text-center">
-                                                            <asp:LinkButton ID="btnUploadedFiles" runat="server" Visible="false" Font-Size="Large" CommandName="myUploadFile">uploaded files >>></asp:LinkButton>
+                                                            <asp:LinkButton ID="btnUploadedFiles" runat="server" Visible="false" Font-Size="Large" CommandName="myUploadFile">File Manager >>></asp:LinkButton>
                                                         </div>
                                                     </asp:Panel>
                                                 </div>

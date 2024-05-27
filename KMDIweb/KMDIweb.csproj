@@ -503,6 +503,13 @@
     <Compile Include="KMDIweb\PO\PO_Laminated_Rpt.aspx.designer.cs">
       <DependentUpon>PO_Laminated_Rpt.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\PO\PO_Meiheng.aspx.cs">
+      <DependentUpon>PO_Meiheng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\PO\PO_Meiheng.aspx.designer.cs">
+      <DependentUpon>PO_Meiheng.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\PO\PO_Rpt.aspx.cs">
       <DependentUpon>PO_Rpt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -923,6 +930,7 @@
     <Content Include="KMDIweb\PO\PO_Ajiya_Rpt.aspx" />
     <Content Include="KMDIweb\PO\PO_ForApproval.aspx" />
     <Content Include="KMDIweb\PO\PO_Laminated_Rpt.aspx" />
+    <Content Include="KMDIweb\PO\PO_Meiheng.aspx" />
     <Content Include="KMDIweb\PO\PO_Rpt.aspx" />
     <Content Include="KMDIweb\PO\PO_Sign.aspx" />
     <Content Include="KMDIweb\PO\PO_X_Rpt.aspx" />
@@ -1070,6 +1078,7 @@
     <EmbeddedResource Include="KMDIweb\Global\Reports\PO.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\PO_Ajiya.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\PO_Laminated.rdlc" />
+    <EmbeddedResource Include="KMDIweb\Global\Reports\PO_Meiheng.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\PO_X.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\ProjectSummaryRPT.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\SectionDailyOutputRPT.rdlc" />
