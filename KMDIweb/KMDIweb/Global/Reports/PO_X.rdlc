@@ -1765,7 +1765,7 @@
             <Image Name="Image2">
               <Source>Embedded</Source>
               <Value>KENNETHANDHAUSERLOGO</Value>
-              <Sizing>FitProportional</Sizing>
+              <Sizing>Fit</Sizing>
               <Top>0.02645cm</Top>
               <Left>0.01499cm</Left>
               <Height>0.95445in</Height>
