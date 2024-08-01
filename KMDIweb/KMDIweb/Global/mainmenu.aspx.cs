@@ -156,21 +156,21 @@ namespace KMDIweb.KMDIapp
                 Panel4.Visible = false;
             }
 
-            //if ((usercode == "AE") ||
-            //    (usercode == "Accounting") ||
-            //    ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
-            //    (usercode == "Programmer") ||
-            //    (fullname == "Genalyn Garcia"))
-            //{
-            //    pnlAC.Visible = true;
-            //}
-            //if ((usercode == "AE") ||
-            //((fullname == "Jayvey Manalili" && usercode == "Operations")) ||
-            //(usercode == "Programmer") ||
-            //(fullname == "Genalyn Garcia"))
-            //{
-            //    pnlAF.Visible = true;
-            //}
+            if ((usercode == "AE") ||
+                (usercode == "Accounting") ||
+                ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
+                (usercode == "Programmer") ||
+                (fullname == "Genalyn Garcia"))
+            {
+                pnlAC.Visible = true;
+            }
+            if ((usercode == "AE") ||
+            ((fullname == "Jayvey Manalili" && usercode == "Operations")) ||
+            (usercode == "Programmer") ||
+            (fullname == "Genalyn Garcia"))
+            {
+                pnlAF.Visible = true;
+            }
 
             if (poa != "")
             {
@@ -214,6 +214,10 @@ namespace KMDIweb.KMDIapp
         protected void LinkButton11_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/KMDIweb/PO/PO_ForApproval.aspx");
+        }
+        protected void LinkButton12_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIweb/AE/ProjectImages/Project_Images.aspx");
         }
     }
 }

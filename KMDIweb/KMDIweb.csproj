@@ -339,6 +339,20 @@
     <Compile Include="KMDIweb\AE\CollectionLedger\FileUpload.aspx.designer.cs">
       <DependentUpon>FileUpload.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\AE\ProjectImages\Project_ImageMaster.Master.cs">
+      <DependentUpon>Project_ImageMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\AE\ProjectImages\Project_ImageMaster.Master.designer.cs">
+      <DependentUpon>Project_ImageMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\AE\ProjectImages\Project_Images.aspx.cs">
+      <DependentUpon>Project_Images.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\AE\ProjectImages\Project_Images.aspx.designer.cs">
+      <DependentUpon>Project_Images.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Delivery\ScannedDR\DRscannedHome.aspx.cs">
       <DependentUpon>DRscannedHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -897,6 +911,7 @@
     <Content Include="KMDIweb\AE\CollectionLedger\CollectionLedgerInput.aspx" />
     <Content Include="KMDIweb\AE\CollectionLedger\FileUpload.aspx" />
     <Content Include="KMDIweb\AE\CollectionLedger\Responsive.css" />
+    <Content Include="KMDIweb\AE\ProjectImages\Project_Images.aspx" />
     <Content Include="KMDIweb\Delivery\ScannedDR\DRscannedHome.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -907,6 +922,10 @@
     <Content Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx" />
     <Content Include="KMDIweb\Global\changesecurity.aspx" />
     <Content Include="KMDIweb\Global\css\gridcss.css" />
+    <Content Include="KMDIweb\Global\css\images\close.png" />
+    <Content Include="KMDIweb\Global\css\images\loading.gif" />
+    <Content Include="KMDIweb\Global\css\images\next.png" />
+    <Content Include="KMDIweb\Global\css\images\prev.png" />
     <Content Include="KMDIweb\Global\registerSign.aspx" />
     <Content Include="KMDIweb\Global\scripts\sign.js" />
     <Content Include="KMDIweb\Global\SignGenerator.aspx" />
@@ -998,6 +1017,7 @@
     <Content Include="KMDIweb\FoilingSchedule\FoilingMaster.Master" />
     <Content Include="KMDIweb\AE\AF\AF_Master.Master" />
     <Content Include="KMDIweb\AE\AccountingClearance\AC.Master" />
+    <Content Include="KMDIweb\AE\ProjectImages\Project_ImageMaster.Master" />
     <None Include="KMDIweb\Global\DataSetFiles\reportDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

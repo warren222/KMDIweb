@@ -36,7 +36,7 @@
             background-color: #303030;
             border-bottom: solid 5px #ff006e;
             color: white;
-            padding:10px;
+            padding: 10px;
         }
 
         .myopacity {
@@ -52,7 +52,7 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <span><span style="font-size:20px;">Kenneth & Mock Web Application</span> </span>
+                        <span><span style="font-size: 20px;">Kenneth & Mock Web Application</span> </span>
                     </div>
                     <div class="col-sm-6">
                         <div class="navbar-right">
@@ -183,7 +183,7 @@
 
                         <asp:Panel ID="pnlAC" Visible="false" runat="server" Width="250px">
                             <div class="thumbnail">
-                                <asp:Image ID="Image9" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="accg clearance" />
+                                <asp:Image ID="Image9" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="Accounting Clearance" />
                                 <br />
                                 <div>
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
@@ -196,7 +196,7 @@
 
                         <asp:Panel ID="pnlPO" Visible="false" runat="server" Width="250px">
                             <div class="thumbnail">
-                                <asp:Image ID="Image10" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="accg clearance" />
+                                <asp:Image ID="Image10" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="Glass PO" />
                                 <br />
                                 <div>
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
@@ -207,6 +207,18 @@
                             </div>
                         </asp:Panel>
 
+                        <asp:Panel ID="pnlPI" Visible="TRUE" runat="server" Width="250px">
+                            <div class="thumbnail">
+                                <asp:Image ID="Image11" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="Project Photos" />
+                                <br />
+                                <div>
+                                    <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
+                                        <span>Images</span></strong><br />
+                                    <small>Poject Photos</small>
+                                    <asp:LinkButton ID="LinkButton12" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton12_Click">ENTER</asp:LinkButton>
+                                </div>
+                            </div>
+                        </asp:Panel>
                     </div>
                 </div>
                 <div class="col-xs-1">

@@ -251,7 +251,7 @@ namespace KMDIweb.KMDIweb.AE.AF
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gv1.Rows[rowindex];
                 ((Panel)row.FindControl("pnlHold")).Visible = true;
-                ((Panel)row.FindControl("pnlHoldReason")).Visible = false; 
+                ((Panel)row.FindControl("pnlHoldReason")).Visible = false;
                 ((LinkButton)row.FindControl("btnHold")).Visible = false;
             }
         }

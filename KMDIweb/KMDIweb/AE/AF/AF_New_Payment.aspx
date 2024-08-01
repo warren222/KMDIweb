@@ -79,7 +79,7 @@
                                                             <div style="background-color: white; padding: 10px;">
                                                                 <span style="font-weight: bold; font-size: medium"><%# Eval("PROJECT") %></span>
                                                                 <span class="pull-right text-right">
-                                                                    <asp:Label ID="lblPaymentDate" runat="server" style="font-size: medium" Text='<%# Bind("PaymentDate") %>'></asp:Label><br />
+                                                                    <asp:Label ID="lblPaymentDate" runat="server" Style="font-size: medium" Text='<%# Bind("PaymentDate") %>'></asp:Label><br />
                                                                     <span style="font-size: medium; color: limegreen;"><%# Eval("PAYMENT_FORMATTED") %></span>
                                                                 </span>
                                                                 <br />
@@ -100,7 +100,7 @@
                                                                 <span>AF(%):</span>
                                                                 <span class="pull-right text-right">
                                                                     <span><%# Eval("AF").ToString() %></span><br />
-                                                                    <asp:Label Id="lblAFReleasing" runat="server" Text='<%# Bind("AFReleasing") %>'></asp:Label>
+                                                                    <asp:Label ID="lblAFReleasing" runat="server" Text='<%# Bind("AFReleasing") %>'></asp:Label>
                                                                 </span>
                                                                 <br />
                                                                 <span>AF Releasing:</span>
@@ -128,12 +128,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>                                
+                                                </div>
                                             </div>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
-                                 <PagerSettings PageButtonCount="15" Position="TopAndBottom" />
+                                <PagerSettings PageButtonCount="15" Position="TopAndBottom" />
                                 <PagerStyle CssClass="GridPager" BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Left" />
                                 <EmptyDataTemplate>
                                     <p style="font-size: x-large" class="text-danger">0 result found!</p>

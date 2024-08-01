@@ -70,7 +70,6 @@
                                         <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control" Style="border-radius: 0;">
                                             <asp:ListItem Text="All" Value="All"></asp:ListItem>
                                             <asp:ListItem Text="Hold" Value="Hold"></asp:ListItem>
-                                            <asp:ListItem Text="For Checking" Value="For Checking"></asp:ListItem>
                                             <asp:ListItem Text="For Approval" Value="For Approval"></asp:ListItem>
                                             <asp:ListItem Text="Approved" Value="Approved"></asp:ListItem>
                                             <asp:ListItem Text="Done" Value="Done"></asp:ListItem>
