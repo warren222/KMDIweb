@@ -21,7 +21,6 @@
                     <h2>Project Photos</h2>
                 </div>
             </div>
-            <asp:LinkButton ID="btnCreateDirectory" runat="server" Text="create directory" OnClick="btnCreateDirectory_Click"></asp:LinkButton>
             <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                 <ContentTemplate>
                     <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />

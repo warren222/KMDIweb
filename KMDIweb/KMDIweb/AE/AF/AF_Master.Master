@@ -5,11 +5,13 @@
 <html>
 <head runat="server">
     <script src="../../../Scripts/bootstrap.js"></script>
+     <script type="text/javascript" src='<%= Page.ResolveClientUrl("~/Scripts/lightbox-plus-jquery.min.js") %>'></script>
     <link href="../../../Content/bootstrap.css" rel="stylesheet" />
     <link href="../../../Content/bootstrap.min.css" rel="stylesheet" />
     <script src="../../../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../../../Scripts/bootstrap.min.js"></script>
     <link href="../../Global/css/gridcss.css" rel="stylesheet" />
+    <link href="../../Global/css/lightbox.min.css" rel="stylesheet" />
     <style>
         .vl {
             border-left: 6px solid green;

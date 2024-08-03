@@ -86,7 +86,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Get");
                         sqlcmd.Parameters.AddWithValue("@AE", ddlAE.Text);
-                        sqlcmd.Parameters.AddWithValue("@Search",  tboxSearch.Text);
+                        sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
                         DataTable dt = new DataTable();
                         dt.Clear();
                         using (SqlDataAdapter da = new SqlDataAdapter())
@@ -115,7 +115,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         {
             LoadProject();
         }
-     
+
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -141,7 +141,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
                         sqlcmd.CommandText = "Project_Image_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Get_Images");
-                        sqlcmd.Parameters.AddWithValue("@JO_No", jono);           
+                        sqlcmd.Parameters.AddWithValue("@JO_No", jono);
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
                             da.SelectCommand = sqlcmd;
@@ -155,42 +155,6 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
                 }
             }
             return dt;
-        }
-
-        protected void btnCreateDirectory_Click(object sender, EventArgs e)
-        {
-            string filestr = @"\\\\121.58.229.248:8083\\2008-12-281\\ProjectImage\\";
-            var x = Files_In_Model(filestr);
-        }
-        public List<FileModel> Files_In_Model(string Folder_Path)
-        {
-            List<FileModel> model = new List<FileModel>();
-            var filepaths = Folder_Files(Folder_Path);
-            foreach (string filepath in filepaths)
-            {
-                FileModel i = new FileModel();
-                var myPath = filepath.Replace("Uploads", "{");
-                var myPathRevised = @"~\KMDIweb\Uploads\" + (myPath.Substring(myPath.LastIndexOf('{') + 1)).ToString().Replace(@"/", @"\");
-
-
-                i.FileName = Path.GetFileName(filepath);
-                i.FileExtension = Path.GetExtension(filepath);
-                i.File_Path = myPathRevised;
-                i.Date_Modified = File.GetLastWriteTime(filepath).ToString();
-                model.Add(i);
-            }
-            return model;
-        }
-        public string[] Folder_Files(string Folder_Path)
-        {
-            Boolean IsExists = Directory.Exists(HttpContext.Current.Server.MapPath(Folder_Path));
-            if (!IsExists)
-            {
-                Directory.CreateDirectory(HttpContext.Current.Server.MapPath(Folder_Path));
-            }
-            string[] filepaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(Folder_Path), "*.*", SearchOption.AllDirectories);
-
-            return filepaths;
         }
     }
 }

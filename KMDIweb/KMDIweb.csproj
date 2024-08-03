@@ -353,6 +353,13 @@
     <Compile Include="KMDIweb\AE\ProjectImages\Project_Images.aspx.designer.cs">
       <DependentUpon>Project_Images.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\AE\ProjectImages\Project_ImageUploader.aspx.cs">
+      <DependentUpon>Project_ImageUploader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\AE\ProjectImages\Project_ImageUploader.aspx.designer.cs">
+      <DependentUpon>Project_ImageUploader.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Delivery\ScannedDR\DRscannedHome.aspx.cs">
       <DependentUpon>DRscannedHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -912,6 +919,7 @@
     <Content Include="KMDIweb\AE\CollectionLedger\FileUpload.aspx" />
     <Content Include="KMDIweb\AE\CollectionLedger\Responsive.css" />
     <Content Include="KMDIweb\AE\ProjectImages\Project_Images.aspx" />
+    <Content Include="KMDIweb\AE\ProjectImages\Project_ImageUploader.aspx" />
     <Content Include="KMDIweb\Delivery\ScannedDR\DRscannedHome.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

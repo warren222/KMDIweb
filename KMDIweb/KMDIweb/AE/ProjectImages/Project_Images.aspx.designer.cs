@@ -24,15 +24,6 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// btnCreateDirectory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCreateDirectory;
-
-        /// <summary>
         /// UpdatePanel4 control.
         /// </summary>
         /// <remarks>

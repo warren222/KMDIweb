@@ -271,13 +271,21 @@
                                                         </div>
 
                                                         <div>
-                                                            <asp:GridView ID="gvFiles" runat="server" ShowHeader="false"  BorderColor="#bab9b9" Width="100%" AutoGenerateColumns="false" Style="border-spacing: 0px;" GridLines="Both" OnRowCommand="gvFiles_RowCommand">
+                                                            <asp:GridView ID="gvFiles" runat="server" ShowHeader="false" BorderColor="#bab9b9" Width="100%" AutoGenerateColumns="false" Style="border-spacing: 0px;" GridLines="Both">
                                                                 <Columns>
                                                                     <asp:TemplateField>
                                                                         <ItemTemplate>
-                                                                            <div style="margin:0;padding:0;" class="text-center">
-                                                                                <asp:Label ID="lblFile_Path" Visible="false" runat="server" Text='<%# Bind("File_Path") %>'></asp:Label>
-                                                                                <asp:LinkButton ID="btnView" Font-Size="Large" runat="server" CommandName="myView" Text='<%# Bind("FileName") %>'></asp:LinkButton>
+                                                                            <div style="margin: 0; padding: 0;" class="text-center">
+                                                                                <asp:HyperLink ID="HyperLink1"
+                                                                                    CssClass='<%# Eval("FileExtension").ToString() == ".pdf" ? "" : "example-image-link"%>'
+                                                                                    NavigateUrl='<%# Eval("File_Path").ToString() %>'
+                                                                                    data-lightbox='<%# Eval("FileExtension").ToString() == ".pdf" ? "" : "example-set"%>' data-title='<%# Eval("FileName").ToString() %>' runat="server">
+                                                                                 <%--   <asp:Image ID="Image2" Width="100px" Style="object-fit: contain; min-width: 100px; min-height: 100px;" Height="100px" CssClass='<%# Eval("File_Path").ToString() == ".pdf"? "wf_img img-thumbnail" : "wf_img img-thumbnail example-image"%>'
+                                                                                        ImageUrl='<%# Eval("File_Path").ToString() == ".pdf" ? "~/Images/pdflogo.png" : Eval("File_Path") %>' runat="server" />--%>
+                                                                                    <span style="font-size:medium"  class='<%# Eval("FileExtension").ToString() == ".pdf"? "" : "example-image"%>'><%# Eval("FileName") %></span>
+                                                                                </asp:HyperLink>
+                                                                            <%--    <asp:Label ID="lblFile_Path" Visible="false" runat="server" Text='<%# Bind("File_Path") %>'></asp:Label>
+                                                                                <asp:LinkButton ID="btnView" Font-Size="Large" runat="server" CommandName="myView" Text='<%# Bind("FileName") %>'></asp:LinkButton>--%>
                                                                             </div>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
