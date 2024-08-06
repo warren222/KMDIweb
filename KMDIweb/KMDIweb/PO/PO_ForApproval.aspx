@@ -61,7 +61,7 @@
                 <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                     <ContentTemplate>
                         <div class="well">
-                              <div class="row">
+                            <div class="row">
                                 <div class="col-sm-4">
                                     <span>Date Filter</span>
                                     <asp:DropDownList runat="server" ID="ddlDateFilter" CssClass="form-control">
@@ -96,7 +96,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>              
+                            </div>
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
@@ -141,18 +141,21 @@
                                                         <asp:Image ID="Image1" Width="100" Height="60" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDIweb/Uploads/PO/" + Eval("NO").ToString() + "/Signatures/Web_Prepared_By.jpg" %>' />
                                                         <br />
                                                         <span><%# Eval("Web_Prepared_By") %></span><br />
+                                                        <span style="font-size:smaller"><%# Eval("Web_Prepared_By_Date") %></span><br />
                                                         <span class="text-muted">Prepared by:</span>
                                                     </div>
                                                     <div class="col-xs-4">
                                                         <asp:Image ID="Image2" Width="100" Height="60" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDIweb/Uploads/PO/" + Eval("NO").ToString() + "/Signatures/Web_Noted_By.jpg" %>' />
                                                         <br />
                                                         <span><%# Eval("Web_Noted_By") %></span><br />
+                                                        <span style="font-size:smaller"><%# Eval("Web_Noted_By_Date") %></span><br />
                                                         <span class="text-muted">Noted by:</span>
                                                     </div>
                                                     <div class="col-xs-4">
                                                         <asp:Image ID="Image3" Width="100" Height="60" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDIweb/Uploads/PO/" + Eval("NO").ToString() + "/Signatures/Web_Approved_By.jpg" %>' />
                                                         <br />
                                                         <span><%# Eval("Web_Approved_By") %></span><br />
+                                                        <span style="font-size:smaller"><%# Eval("Web_Approved_By_Date") %></span><br />
                                                         <span class="text-muted">Approved by:</span>
                                                     </div>
                                                 </div>

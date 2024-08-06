@@ -215,5 +215,9 @@ namespace KMDIweb.KMDIapp
         {
             Response.Redirect("~/KMDIweb/PO/PO_ForApproval.aspx");
         }
+        protected void LinkButton12_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIweb/AE/ProjectImages/Project_Images.aspx");
+        }
     }
 }

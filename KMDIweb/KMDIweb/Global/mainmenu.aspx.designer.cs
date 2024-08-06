@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KMDIweb.KMDIapp {
-    
-    
-    public partial class mainmenu {
-        
+namespace KMDIweb.KMDIapp
+{
+
+
+    public partial class mainmenu
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// LinkButton3 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
-        
+
         /// <summary>
         /// ValidationSummary1 control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
-        
+
         /// <summary>
         /// Panel3 control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel3;
-        
+
         /// <summary>
         /// Image3 control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image3;
-        
+
         /// <summary>
         /// LinkButton4 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
-        
+
         /// <summary>
         /// Panel4 control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel4;
-        
+
         /// <summary>
         /// Image1 control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image1;
-        
+
         /// <summary>
         /// LinkButton2 control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
-        
+
         /// <summary>
         /// Panel1 control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel1;
-        
+
         /// <summary>
         /// Image2 control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image2;
-        
+
         /// <summary>
         /// LinkButton1 control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
-        
+
         /// <summary>
         /// Panel2 control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel2;
-        
+
         /// <summary>
         /// Image4 control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image4;
-        
+
         /// <summary>
         /// LinkButton5 control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton5;
-        
+
         /// <summary>
         /// Panel5 control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel5;
-        
+
         /// <summary>
         /// Image5 control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image5;
-        
+
         /// <summary>
         /// LinkButton6 control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton6;
-        
+
         /// <summary>
         /// Panel6 control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel6;
-        
+
         /// <summary>
         /// Image6 control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image6;
-        
+
         /// <summary>
         /// LinkButton7 control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton7;
-        
+
         /// <summary>
         /// Panel7 control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel7;
-        
+
         /// <summary>
         /// Image7 control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image7;
-        
+
         /// <summary>
         /// LinkButton8 control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton8;
-        
+
         /// <summary>
         /// pnlAF control.
         /// </summary>
@@ -236,7 +238,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlAF;
-        
+
         /// <summary>
         /// Image8 control.
         /// </summary>
@@ -245,7 +247,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image8;
-        
+
         /// <summary>
         /// LinkButton9 control.
         /// </summary>
@@ -254,7 +256,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton9;
-        
+
         /// <summary>
         /// pnlAC control.
         /// </summary>
@@ -263,7 +265,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlAC;
-        
+
         /// <summary>
         /// Image9 control.
         /// </summary>
@@ -272,7 +274,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image9;
-        
+
         /// <summary>
         /// LinkButton10 control.
         /// </summary>
@@ -281,7 +283,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton10;
-        
+
         /// <summary>
         /// pnlPO control.
         /// </summary>
@@ -290,7 +292,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlPO;
-        
+
         /// <summary>
         /// Image10 control.
         /// </summary>
@@ -299,7 +301,7 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image10;
-        
+
         /// <summary>
         /// LinkButton11 control.
         /// </summary>
@@ -308,5 +310,32 @@ namespace KMDIweb.KMDIapp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton11;
+
+        /// <summary>
+        /// pnlPI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlPI;
+
+        /// <summary>
+        /// Image11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image11;
+
+        /// <summary>
+        /// LinkButton12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton12;
     }
 }
