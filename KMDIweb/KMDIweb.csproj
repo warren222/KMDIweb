@@ -930,10 +930,6 @@
     <Content Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx" />
     <Content Include="KMDIweb\Global\changesecurity.aspx" />
     <Content Include="KMDIweb\Global\css\gridcss.css" />
-    <Content Include="KMDIweb\Global\css\images\close.png" />
-    <Content Include="KMDIweb\Global\css\images\loading.gif" />
-    <Content Include="KMDIweb\Global\css\images\next.png" />
-    <Content Include="KMDIweb\Global\css\images\prev.png" />
     <Content Include="KMDIweb\Global\css\lightbox.css" />
     <Content Include="KMDIweb\Global\css\lightbox.min.css" />
     <Content Include="KMDIweb\Global\images\close.png" />
