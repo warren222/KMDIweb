@@ -74,7 +74,7 @@
                         <li>
                             <asp:HyperLink ID="hlProject" runat="server" NavigateUrl="~/KMDIweb/AE/ProjectImages/Project_Images.aspx">
                                 <asp:Label ID="lblAvailable" runat="server" CssClass="badge"></asp:Label>
-                                Image Viewer
+                                Home
                             </asp:HyperLink></li>
                             <li>
                             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/KMDIweb/AE/ProjectImages/Project_ImageUploader.aspx">

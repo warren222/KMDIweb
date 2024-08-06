@@ -934,6 +934,12 @@
     <Content Include="KMDIweb\Global\css\images\loading.gif" />
     <Content Include="KMDIweb\Global\css\images\next.png" />
     <Content Include="KMDIweb\Global\css\images\prev.png" />
+    <Content Include="KMDIweb\Global\css\lightbox.css" />
+    <Content Include="KMDIweb\Global\css\lightbox.min.css" />
+    <Content Include="KMDIweb\Global\images\close.png" />
+    <Content Include="KMDIweb\Global\images\loading.gif" />
+    <Content Include="KMDIweb\Global\images\next.png" />
+    <Content Include="KMDIweb\Global\images\prev.png" />
     <Content Include="KMDIweb\Global\registerSign.aspx" />
     <Content Include="KMDIweb\Global\scripts\sign.js" />
     <Content Include="KMDIweb\Global\SignGenerator.aspx" />
