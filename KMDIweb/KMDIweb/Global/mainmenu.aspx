@@ -213,7 +213,7 @@
                                 <br />
                                 <div>
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
-                                        <span>Images</span></strong><br />
+                                        <span>Photos</span></strong><br />
                                     <small>Poject Photos</small>
                                     <asp:LinkButton ID="LinkButton12" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton12_Click">ENTER</asp:LinkButton>
                                 </div>

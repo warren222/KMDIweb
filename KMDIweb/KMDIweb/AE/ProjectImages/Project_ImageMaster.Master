@@ -72,13 +72,9 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li>
-                            <asp:HyperLink ID="hlProject" runat="server" NavigateUrl="~/KMDIweb/AE/ProjectImages/Project_Images.aspx">
+                            <asp:HyperLink ID="hlProject" runat="server" NavigateUrl="~/KMDIweb/AE/ProjectImages/Project_Photos.aspx">
                                 <asp:Label ID="lblAvailable" runat="server" CssClass="badge"></asp:Label>
                                 Home
-                            </asp:HyperLink></li>
-                            <li>
-                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/KMDIweb/AE/ProjectImages/Project_ImageUploader.aspx">
-                                Uploader
                             </asp:HyperLink></li>
 
                     </ul>
