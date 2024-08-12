@@ -60,15 +60,6 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         protected global::System.Web.UI.WebControls.Label lblProject_Name;
 
         /// <summary>
-        /// lblAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddress;
-
-        /// <summary>
         /// lblJO control.
         /// </summary>
         /// <remarks>
@@ -76,6 +67,15 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblJO;
+
+        /// <summary>
+        /// lblAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddress;
 
         /// <summary>
         /// pnlUpload control.

@@ -14,7 +14,7 @@
 
 <asp:Content ID="content2" ContentPlaceHolderID="content" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div style="background-color: #fcedf5">
+    <div style="background-color: white">
         <div class="container">
             <div class="well">
                 <div class="container text-left">
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="col-sm-2 nopm"></div>
-        </div>  
+        </div>
         <div class="row nopm">
             <div class="col-sm-2 nopm"></div>
             <div class="col-sm-8 nopm">
@@ -58,21 +58,21 @@
                         <Columns>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <div style="margin-bottom: 15px;">
-
-
-                                        <div style="padding: 10px; background-color: white; font-family: Calibri; font-size: medium;">
-                                            <asp:Label runat="server" ID="lblProject_Name" ForeColor="#d93692" Font-Size="Large" Text='<%# Bind("Project_Name") %>'></asp:Label>
-                                            <br />
+                                    <div style="margin-bottom: 15px;border:solid 1px #d93692;">
+                                        <div style="padding: 5px; background-color: #d93692; font-family: Calibri; font-size: medium;">
+                                            <asp:Label runat="server" ID="lblProject_Name" ForeColor="white" Font-Size="Large" Text='<%# Bind("Project_Name") %>'></asp:Label>
+                                            <span class="pull-right">
+                                                   <asp:Label ID="lblAE" ForeColor="White" runat="server" Font-Size="Smaller" Text='<%# Bind("AE") %>'></asp:Label>
+                                            </span>
+                                        </div>
+                                        <div style="padding:5px;background-color:white;">
                                             <asp:Label ID="lblJOB_ORDER_NO" runat="server" Text='<%# Bind("JOB_ORDER_NO") %>'></asp:Label>
                                             | 
                                               <asp:Label runat="server" ID="lblAddress" Text='<%# Bind("Address") %>'></asp:Label><br />
                                             <asp:LinkButton ID="btnUploadedFiles" runat="server" Visible="false" Font-Size="Medium" CommandName="myUploadFile">File Manager</asp:LinkButton>
-
                                         </div>
-
-                                        <div style="padding: 10px; background-color: #dedede; width: 100%;">
-                                            <asp:DataList ID="DataList1" GridLines="None" CellPadding="5" RepeatDirection="Horizontal" RepeatColumns="7" runat="server">
+                                        <div style="padding: 2px; width: 100%;">
+                                            <asp:DataList ID="DataList1" GridLines="None" CellPadding="5" RepeatDirection="Horizontal" RepeatColumns="8" runat="server">
                                                 <ItemTemplate>
                                                     <table>
                                                         <tr>
@@ -82,7 +82,7 @@
                                                                     NavigateUrl='<%# Eval("File_Path").ToString() %>'
                                                                     data-lightbox='<%# Eval("FileExtension").ToString() == ".pdf" ? "" : "example-set"%>'
                                                                     data-title='<%# Eval("FileName").ToString() %>' runat="server">
-                                                                    <asp:Image ID="Image2" Width="150px" BackColor="White" Style="object-fit: contain; min-width: 100px; min-height: 100px;" Height="100px" CssClass='<%# Eval("File_Path").ToString() == ".pdf"? "wf_img img-thumbnail" : "wf_img img-thumbnail example-image"%>'
+                                                                    <asp:Image ID="Image2" Width="100px" BackColor="White" Style="object-fit: contain; min-width: 100px; min-height: 80px;" Height="80px" CssClass='<%# Eval("File_Path").ToString() == ".pdf"? "wf_img img-thumbnail" : "wf_img img-thumbnail example-image"%>'
                                                                         ImageUrl='<%# Eval("File_Path").ToString() == ".pdf" ? "~/Images/pdflogo.png" : Eval("File_Path") %>' runat="server" />
                                                                 </asp:HyperLink>
                                                             </td>
@@ -93,18 +93,9 @@
                                             <div class="text-center">
                                                 <asp:Label ID="lblEmpty" runat="server" Visible="true" Font-Size="Large" Font-Bold="true">No Image Found!</asp:Label>
                                             </div>
-                                            <div class="text-center">
-                                                <asp:Label ID="lblAE" runat="server" Font-Size="Smaller" Text='<%# Bind("AE") %>'></asp:Label>
-                                            </div>
                                         </div>
-
-
                                     </div>
 
-
-
-
-                                    </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
@@ -117,6 +108,6 @@
                 </div>
             </div>
             <div class="col-sm-2 nopm"></div>
-        </div>    
+        </div>
     </div>
 </asp:Content>

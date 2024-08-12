@@ -37,7 +37,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         public void Retrive_QueryStrings()
         {
             tboxSearch.Text = Request.QueryString["tboxFind"] != null ? Request.QueryString["tboxFind"].ToString() : "";
-            ddlAE.SelectedValue = Request.QueryString["ddlAE"] != null ? Request.QueryString["ddlAE"].ToString() : "";
+            ddlAE.SelectedValue = Request.QueryString["ddlAE"] != null ? Request.QueryString["ddlAE"].ToString() : "All";
             GridView1.PageIndex = Request.QueryString["page_index"] != null ? Convert.ToInt32(Request.QueryString["page_index"].ToString()) : 0;
         }
         private string Sqlconstr
@@ -64,7 +64,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
                     try
                     {
                         sqlcon.Open();
-                        sqlcmd.CommandText = "AF_New_Payment_Stp";
+                        sqlcmd.CommandText = "Project_Photo_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "AE_List");
                         ddlAE.DataSource = sqlcmd.ExecuteReader();

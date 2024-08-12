@@ -27,11 +27,9 @@
             <div style="border: 1px solid #b72162; margin-bottom: 15px;">
                 <div style="padding: 10px; background-color: white;">
                     <asp:Label runat="server" ID="lblProject_Name" ForeColor="#b72162" Font-Bold="true" Font-Size="Large"></asp:Label><br />
-                    <asp:Label runat="server" ID="lblAddress" Font-Size="Small" Font-Bold="true"></asp:Label><br />
-                    <asp:Label runat="server" ID="lblJO" Font-Size="Small"></asp:Label>
+                    <asp:Label runat="server" ID="lblJO"></asp:Label> | <asp:Label runat="server" ID="lblAddress"></asp:Label>
                 </div>
                 <div class="row">
-
                     <div class="col-sm-5">
                         <asp:Panel ID="pnlUpload" runat="server" Style="padding: 10px;">
                             <div class="FontSpacing FontLarge text-center">UPLOAD FORM</div>
