@@ -360,6 +360,13 @@
     <Compile Include="KMDIweb\AE\ProjectImages\Project_ImageUploader.aspx.designer.cs">
       <DependentUpon>Project_ImageUploader.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\AE\ProjectImages\Project_Photos.aspx.cs">
+      <DependentUpon>Project_Photos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\AE\ProjectImages\Project_Photos.aspx.designer.cs">
+      <DependentUpon>Project_Photos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Delivery\ScannedDR\DRscannedHome.aspx.cs">
       <DependentUpon>DRscannedHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -920,6 +927,7 @@
     <Content Include="KMDIweb\AE\CollectionLedger\Responsive.css" />
     <Content Include="KMDIweb\AE\ProjectImages\Project_Images.aspx" />
     <Content Include="KMDIweb\AE\ProjectImages\Project_ImageUploader.aspx" />
+    <Content Include="KMDIweb\AE\ProjectImages\Project_Photos.aspx" />
     <Content Include="KMDIweb\Delivery\ScannedDR\DRscannedHome.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -930,10 +938,6 @@
     <Content Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx" />
     <Content Include="KMDIweb\Global\changesecurity.aspx" />
     <Content Include="KMDIweb\Global\css\gridcss.css" />
-    <Content Include="KMDIweb\Global\css\images\close.png" />
-    <Content Include="KMDIweb\Global\css\images\loading.gif" />
-    <Content Include="KMDIweb\Global\css\images\next.png" />
-    <Content Include="KMDIweb\Global\css\images\prev.png" />
     <Content Include="KMDIweb\Global\css\lightbox.css" />
     <Content Include="KMDIweb\Global\css\lightbox.min.css" />
     <Content Include="KMDIweb\Global\images\close.png" />

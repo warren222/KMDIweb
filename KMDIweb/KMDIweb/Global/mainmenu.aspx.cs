@@ -217,7 +217,7 @@ namespace KMDIweb.KMDIapp
         }
         protected void LinkButton12_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/AE/ProjectImages/Project_Images.aspx");
+            Response.Redirect("~/KMDIweb/AE/ProjectImages/Project_Photos.aspx");
         }
     }
 }

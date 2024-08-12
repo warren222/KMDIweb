@@ -207,13 +207,13 @@
                             </div>
                         </asp:Panel>
 
-                        <asp:Panel ID="pnlPI" Visible="false" runat="server" Width="250px">
+                        <asp:Panel ID="pnlPI" Visible="true" runat="server" Width="250px">
                             <div class="thumbnail">
-                                <asp:Image ID="Image11" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="Project Photos" />
+                                <asp:Image ID="Image11" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/house.png" runat="server" AlternateText="Project Photos" />
                                 <br />
                                 <div>
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
-                                        <span>Images</span></strong><br />
+                                        <span>Photos</span></strong><br />
                                     <small>Poject Photos</small>
                                     <asp:LinkButton ID="LinkButton12" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton12_Click">ENTER</asp:LinkButton>
                                 </div>

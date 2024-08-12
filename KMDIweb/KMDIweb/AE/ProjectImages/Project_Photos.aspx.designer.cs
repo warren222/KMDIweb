@@ -11,7 +11,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
 {
 
 
-    public partial class Project_ImageUploader
+    public partial class Project_Photos
     {
 
         /// <summary>
@@ -22,15 +22,6 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-
-        /// <summary>
-        /// btnBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnBack;
 
         /// <summary>
         /// UpdatePanel4 control.
@@ -51,75 +42,48 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
 
         /// <summary>
-        /// lblProject_Name control.
+        /// lblAE control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProject_Name;
+        protected global::System.Web.UI.WebControls.Label lblAE;
 
         /// <summary>
-        /// lblJO control.
+        /// ddlAE control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblJO;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAE;
 
         /// <summary>
-        /// lblAddress control.
+        /// tboxSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddress;
+        protected global::System.Web.UI.WebControls.TextBox tboxSearch;
 
         /// <summary>
-        /// pnlUpload control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlUpload;
+        protected global::System.Web.UI.WebControls.LinkButton btnSearch;
 
         /// <summary>
-        /// FileUpload1 control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-
-        /// <summary>
-        /// LinkButton2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
-
-        /// <summary>
-        /// lblError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
-
-        /// <summary>
-        /// DataList1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList1;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

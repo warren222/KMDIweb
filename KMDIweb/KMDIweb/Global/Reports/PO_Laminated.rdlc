@@ -101,10 +101,22 @@
           <DataField>Web_Requested_By</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Web_Prepared_By_Date">
+          <DataField>Web_Prepared_By_Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Web_Noted_By_Date">
+          <DataField>Web_Noted_By_Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Web_Approved_By_Date">
+          <DataField>Web_Approved_By_Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportDS</rd:DataSetName>
-        <rd:SchemaPath>D:\KMDIweb\KMDIweb\KMDIweb\Global\DataSetFiles\reportDS.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\MyApplications\KMDIweb\KMDIweb\KMDIweb\Global\DataSetFiles\reportDS.xsd</rd:SchemaPath>
         <rd:TableName>KMDI_PONUM_TB</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -2270,7 +2282,7 @@
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
             <DataSetName>DataSet2</DataSetName>
-            <Left>0.00457cm</Left>
+            <Left>0.00685cm</Left>
             <Height>5.24896cm</Height>
             <Width>20.30999cm</Width>
             <Style>
@@ -2308,7 +2320,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox52</rd:DefaultName>
               <Top>4.0506cm</Top>
-              <Left>0.01499cm</Left>
+              <Left>0.01727cm</Left>
               <Height>0.6cm</Height>
               <Width>1.61367cm</Width>
               <Style>
@@ -2339,7 +2351,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>4.6506cm</Top>
-              <Left>0.01499cm</Left>
+              <Left>0.01727cm</Left>
               <Height>0.6cm</Height>
               <Width>1.61367cm</Width>
               <ZIndex>1</ZIndex>
@@ -2373,7 +2385,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>4.6506cm</Top>
-              <Left>1.91088cm</Left>
+              <Left>1.91316cm</Left>
               <Height>0.6cm</Height>
               <Width>13.05575cm</Width>
               <ZIndex>2</ZIndex>
@@ -2408,7 +2420,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>4.0506cm</Top>
-              <Left>1.91088cm</Left>
+              <Left>1.91316cm</Left>
               <Height>0.6cm</Height>
               <Width>13.05575cm</Width>
               <ZIndex>3</ZIndex>
@@ -2440,7 +2452,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>5.2506cm</Top>
-              <Left>0.01499cm</Left>
+              <Left>0.01727cm</Left>
               <Height>0.6cm</Height>
               <Width>1.61367cm</Width>
               <ZIndex>4</ZIndex>
@@ -2472,7 +2484,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>5.8506cm</Top>
-              <Left>0.01499cm</Left>
+              <Left>0.01727cm</Left>
               <Height>0.6cm</Height>
               <Width>1.61367cm</Width>
               <ZIndex>5</ZIndex>
@@ -2504,7 +2516,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>5.2506cm</Top>
-              <Left>1.91088cm</Left>
+              <Left>1.91316cm</Left>
               <Height>0.6cm</Height>
               <Width>13.06662cm</Width>
               <ZIndex>6</ZIndex>
@@ -2536,7 +2548,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>5.8506cm</Top>
-              <Left>1.88442cm</Left>
+              <Left>1.8867cm</Left>
               <Height>0.6cm</Height>
               <Width>13.06662cm</Width>
               <ZIndex>7</ZIndex>
@@ -2568,7 +2580,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>4.6506cm</Top>
-              <Left>15.11156cm</Left>
+              <Left>15.11384cm</Left>
               <Height>0.6cm</Height>
               <Width>1.00718cm</Width>
               <ZIndex>8</ZIndex>
@@ -2600,7 +2612,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>5.2506cm</Top>
-              <Left>15.11156cm</Left>
+              <Left>15.11384cm</Left>
               <Height>0.6cm</Height>
               <Width>1.00718cm</Width>
               <ZIndex>9</ZIndex>
@@ -2632,7 +2644,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>5.8506cm</Top>
-              <Left>15.11156cm</Left>
+              <Left>15.11384cm</Left>
               <Height>0.6cm</Height>
               <Width>1.00718cm</Width>
               <ZIndex>10</ZIndex>
@@ -2665,7 +2677,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>4.41247cm</Top>
-              <Left>16.37627cm</Left>
+              <Left>16.37855cm</Left>
               <Height>0.83813cm</Height>
               <Width>3.92256cm</Width>
               <ZIndex>11</ZIndex>
@@ -2697,7 +2709,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>5.2506cm</Top>
-              <Left>16.37627cm</Left>
+              <Left>16.37855cm</Left>
               <Height>0.6cm</Height>
               <Width>3.92256cm</Width>
               <ZIndex>12</ZIndex>
@@ -2729,7 +2741,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>5.8506cm</Top>
-              <Left>16.37627cm</Left>
+              <Left>16.37855cm</Left>
               <Height>0.6cm</Height>
               <Width>3.92256cm</Width>
               <ZIndex>13</ZIndex>
@@ -2762,7 +2774,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox62</rd:DefaultName>
               <Top>1.21695in</Top>
-              <Left>5.95in</Left>
+              <Left>5.9509in</Left>
               <Height>0.3125in</Height>
               <Width>2.04167in</Width>
               <ZIndex>14</ZIndex>
@@ -2778,7 +2790,7 @@
             </Textbox>
             <Line Name="Line10">
               <Top>1.78986in</Top>
-              <Left>0.7419in</Left>
+              <Left>0.7428in</Left>
               <Height>0in</Height>
               <Width>5.14434in</Width>
               <ZIndex>15</ZIndex>
@@ -2790,7 +2802,7 @@
             </Line>
             <Line Name="Line11">
               <Top>2.01508in</Top>
-              <Left>0.7419in</Left>
+              <Left>0.7428in</Left>
               <Height>0in</Height>
               <Width>5.14434in</Width>
               <ZIndex>16</ZIndex>
@@ -2802,7 +2814,7 @@
             </Line>
             <Line Name="Line12">
               <Top>2.27283in</Top>
-              <Left>0.7419in</Left>
+              <Left>0.7428in</Left>
               <Height>0in</Height>
               <Width>5.14434in</Width>
               <ZIndex>17</ZIndex>
@@ -2814,7 +2826,7 @@
             </Line>
             <Line Name="Line13">
               <Top>2.5021in</Top>
-              <Left>0.7419in</Left>
+              <Left>0.7428in</Left>
               <Height>0in</Height>
               <Width>5.14434in</Width>
               <ZIndex>18</ZIndex>
@@ -2826,7 +2838,7 @@
             </Line>
             <Line Name="Line14">
               <Top>2.03939in</Top>
-              <Left>6.44735in</Left>
+              <Left>6.44825in</Left>
               <Height>0in</Height>
               <Width>1.54432in</Width>
               <ZIndex>19</ZIndex>
@@ -2838,7 +2850,7 @@
             </Line>
             <Line Name="Line15">
               <Top>2.27283in</Top>
-              <Left>6.44735in</Left>
+              <Left>6.44825in</Left>
               <Height>0in</Height>
               <Width>1.54432in</Width>
               <ZIndex>20</ZIndex>
@@ -2850,7 +2862,7 @@
             </Line>
             <Line Name="Line16">
               <Top>2.5021in</Top>
-              <Left>6.44735in</Left>
+              <Left>6.44825in</Left>
               <Height>0in</Height>
               <Width>1.5464in</Width>
               <ZIndex>21</ZIndex>
@@ -2878,7 +2890,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>4.0506cm</Top>
-              <Left>1.61306cm</Left>
+              <Left>1.61534cm</Left>
               <Height>0.6cm</Height>
               <Width>0.2643cm</Width>
               <ZIndex>22</ZIndex>
@@ -2910,7 +2922,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>4.6506cm</Top>
-              <Left>1.61306cm</Left>
+              <Left>1.61534cm</Left>
               <Height>0.6cm</Height>
               <Width>0.2643cm</Width>
               <ZIndex>23</ZIndex>
@@ -2942,7 +2954,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>5.2506cm</Top>
-              <Left>1.61306cm</Left>
+              <Left>1.61534cm</Left>
               <Height>0.6cm</Height>
               <Width>0.2643cm</Width>
               <ZIndex>24</ZIndex>
@@ -2974,7 +2986,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>5.8506cm</Top>
-              <Left>1.61306cm</Left>
+              <Left>1.61534cm</Left>
               <Height>0.6cm</Height>
               <Width>0.2643cm</Width>
               <ZIndex>25</ZIndex>
@@ -3006,7 +3018,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>4.65061cm</Top>
-              <Left>16.11197cm</Left>
+              <Left>16.11425cm</Left>
               <Height>0.6cm</Height>
               <Width>0.2643cm</Width>
               <ZIndex>26</ZIndex>
@@ -3038,7 +3050,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>5.25061cm</Top>
-              <Left>16.11197cm</Left>
+              <Left>16.11425cm</Left>
               <Height>0.6cm</Height>
               <Width>0.2643cm</Width>
               <ZIndex>27</ZIndex>
@@ -3070,7 +3082,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox51</rd:DefaultName>
               <Top>5.85061cm</Top>
-              <Left>16.11197cm</Left>
+              <Left>16.11425cm</Left>
               <Height>0.6cm</Height>
               <Width>0.2643cm</Width>
               <ZIndex>28</ZIndex>
@@ -3088,7 +3100,7 @@
               <Source>Embedded</Source>
               <Value>kmdiVIBER1</Value>
               <Sizing>Fit</Sizing>
-              <Left>0.01586cm</Left>
+              <Left>0.01814cm</Left>
               <Height>1.19057in</Height>
               <Width>7.98715in</Width>
               <ZIndex>29</ZIndex>
@@ -3106,7 +3118,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>2.38009in</Height>
+          <Height>2.44033in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -3151,8 +3163,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox97</rd:DefaultName>
-              <Top>2.45179cm</Top>
-              <Left>0.01389in</Left>
+              <Top>2.38119cm</Top>
+              <Left>0.00139in</Left>
               <Height>0.78125in</Height>
               <Width>7.98576in</Width>
               <Style>
@@ -3174,7 +3186,9 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!Web_Approved_By.Value, "DataSet1")+SYSTEM.Environment.NewLine+"approved by:"</Value>
+                          <Value>=First(Fields!Web_Approved_By.Value, "DataSet1")+
+SYSTEM.Environment.NewLine+First(Fields!Web_Approved_By_Date.Value, "DataSet1")+
+SYSTEM.Environment.NewLine+"approved by:"</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
                           </Style>
@@ -3186,8 +3200,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0.22645in</Top>
-                  <Height>0.41667in</Height>
+                  <Top>0.23478in</Top>
+                  <Height>0.53334in</Height>
                   <Width>1.92164in</Width>
                   <Style>
                     <Border>
@@ -3204,8 +3218,7 @@
                   <Source>External</Source>
                   <Value>=Parameters!ImgApprovedBy.Value</Value>
                   <Sizing>Fit</Sizing>
-                  <Top>0.02117cm</Top>
-                  <Left>0.37311in</Left>
+                  <Left>0.37716in</Left>
                   <Height>0.56473in</Height>
                   <Width>1.07292in</Width>
                   <ZIndex>1</ZIndex>
@@ -3217,9 +3230,9 @@
                 </Image>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>1.70848in</Top>
-              <Left>6.0684in</Left>
-              <Height>0.66667in</Height>
+              <Top>1.66727in</Top>
+              <Left>6.07019in</Left>
+              <Height>0.76812in</Height>
               <Width>1.92946in</Width>
               <ZIndex>1</ZIndex>
               <Style>
@@ -3237,7 +3250,9 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!Web_Noted_By.Value, "DataSet1") + System.Environment.NewLine + "noted by:"</Value>
+                          <Value>=First(Fields!Web_Noted_By.Value, "DataSet1") + 
+System.Environment.NewLine + First(Fields!Web_Noted_By_Date.Value, "DataSet1") + 
+System.Environment.NewLine + "noted by:"</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
                           </Style>
@@ -3249,8 +3264,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0.22645in</Top>
-                  <Height>0.41667in</Height>
+                  <Top>0.23478in</Top>
+                  <Height>0.53334in</Height>
                   <Width>1.92164in</Width>
                   <Style>
                     <Border>
@@ -3267,7 +3282,6 @@
                   <Source>External</Source>
                   <Value>=Parameters!ImgNotedBy.Value</Value>
                   <Sizing>Fit</Sizing>
-                  <Top>0.02117cm</Top>
                   <Left>0.36938in</Left>
                   <Height>0.56473in</Height>
                   <Width>1.07292in</Width>
@@ -3280,9 +3294,9 @@
                 </Image>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>1.70848in</Top>
-              <Left>4.0462in</Left>
-              <Height>0.66667in</Height>
+              <Top>1.66727in</Top>
+              <Left>4.04799in</Left>
+              <Height>0.76812in</Height>
               <Width>1.92946in</Width>
               <ZIndex>2</ZIndex>
               <Style>
@@ -3300,7 +3314,8 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!REQUESTED.Value, "DataSet1") + System.Environment.NewLine + "requested by:"</Value>
+                          <Value>=First(Fields!REQUESTED.Value, "DataSet1") + 
+System.Environment.NewLine + "requested by:"</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
                           </Style>
@@ -3312,8 +3327,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0.23139in</Top>
-                  <Height>0.41667in</Height>
+                  <Top>0.23478in</Top>
+                  <Height>0.53828in</Height>
                   <Width>1.92164in</Width>
                   <Style>
                     <Border>
@@ -3330,7 +3345,6 @@
                   <Source>External</Source>
                   <Value>=Parameters!imgRequestedBy.Value</Value>
                   <Sizing>Fit</Sizing>
-                  <Top>0.02117cm</Top>
                   <Left>0.42827in</Left>
                   <Height>0.56473in</Height>
                   <Width>1.07292in</Width>
@@ -3343,9 +3357,9 @@
                 </Image>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>1.70848in</Top>
-              <Left>2.024in</Left>
-              <Height>0.67161in</Height>
+              <Top>1.66727in</Top>
+              <Left>2.02579in</Left>
+              <Height>0.77306in</Height>
               <Width>1.92946in</Width>
               <ZIndex>3</ZIndex>
               <Style>
@@ -3363,7 +3377,9 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!Web_Prepared_By.Value, "DataSet1") + System.Environment.NewLine + "prepared &amp; checked by:"</Value>
+                          <Value>=First(Fields!Web_Prepared_By.Value, "DataSet1") + 
+System.Environment.NewLine + First(Fields!Web_Prepared_By_Date.Value, "DataSet1") +
+System.Environment.NewLine + "prepared &amp; checked by:"</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
                           </Style>
@@ -3375,8 +3391,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0.22645in</Top>
-                  <Height>0.41667in</Height>
+                  <Top>0.23478in</Top>
+                  <Height>0.53334in</Height>
                   <Width>1.92164in</Width>
                   <Style>
                     <Border>
@@ -3393,8 +3409,7 @@
                   <Source>External</Source>
                   <Value>=Parameters!ImgPreparedBy.Value</Value>
                   <Sizing>Fit</Sizing>
-                  <Top>0.02117cm</Top>
-                  <Left>0.33891in</Left>
+                  <Left>0.3425in</Left>
                   <Height>0.56473in</Height>
                   <Width>1.07292in</Width>
                   <ZIndex>1</ZIndex>
@@ -3406,10 +3421,9 @@
                 </Image>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>1.70848in</Top>
-              <Left>0.0018in</Left>
-              <Height>0.66667in</Height>
-              <Width>1.92946in</Width>
+              <Top>1.66727in</Top>
+              <Height>0.76812in</Height>
+              <Width>1.93305in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -3438,8 +3452,8 @@ First(Fields!DELAT.Value, "DataSet1")</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox99</rd:DefaultName>
-              <Top>0.47554in</Top>
-              <Left>0.00295in</Left>
+              <Top>0.48664in</Top>
+              <Left>0.0059in</Left>
               <Height>0.35778in</Height>
               <Width>7.92732cm</Width>
               <ZIndex>5</ZIndex>
@@ -3486,8 +3500,8 @@ First(Fields!DELAT.Value, "DataSet1")</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox99</rd:DefaultName>
-              <Top>0.47554in</Top>
-              <Left>7.93483cm</Left>
+              <Top>0.48664in</Top>
+              <Left>7.94232cm</Left>
               <Height>0.35778in</Height>
               <Width>2.40922in</Width>
               <ZIndex>6</ZIndex>
@@ -3534,8 +3548,8 @@ First(Fields!DELAT.Value, "DataSet1")</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox99</rd:DefaultName>
-              <Top>0.47554in</Top>
-              <Left>14.05425cm</Left>
+              <Top>0.48664in</Top>
+              <Left>14.06174cm</Left>
               <Height>0.35778in</Height>
               <Width>2.46353in</Width>
               <ZIndex>7</ZIndex>
@@ -3582,8 +3596,8 @@ First(Fields!DELAT.Value, "DataSet1")</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox104</rd:DefaultName>
-              <Top>0.02178in</Top>
-              <Left>5.53317in</Left>
+              <Top>0.03288in</Top>
+              <Left>5.53612in</Left>
               <Height>0.45376in</Height>
               <Width>2.46353in</Width>
               <ZIndex>8</ZIndex>
@@ -3631,8 +3645,8 @@ First(Fields!DELAT.Value, "DataSet1")</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox104</rd:DefaultName>
-              <Top>0.02178in</Top>
-              <Left>0.00295in</Left>
+              <Top>0.03288in</Top>
+              <Left>0.0059in</Left>
               <Height>0.45376in</Height>
               <Width>5.53021in</Width>
               <ZIndex>9</ZIndex>

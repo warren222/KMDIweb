@@ -101,6 +101,18 @@
           <DataField>Web_Requested_By</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Web_Prepared_By_Date">
+          <DataField>Web_Prepared_By_Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Web_Noted_By_Date">
+          <DataField>Web_Noted_By_Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Web_Approved_By_Date">
+          <DataField>Web_Approved_By_Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportDS</rd:DataSetName>
@@ -2214,7 +2226,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.8935in</Height>
+          <Height>1.99156in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2281,7 +2293,9 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!Web_Approved_By.Value, "DataSet1")+SYSTEM.Environment.NewLine+"approved by:"</Value>
+                          <Value>=First(Fields!Web_Approved_By.Value, "DataSet1")+
+SYSTEM.Environment.NewLine+First(Fields!Web_Approved_By_Date.Value, "DataSet1")+
+SYSTEM.Environment.NewLine+"approved by:"</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
                           </Style>
@@ -2294,7 +2308,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.22645in</Top>
-                  <Height>0.41667in</Height>
+                  <Height>0.53828in</Height>
                   <Width>1.92164in</Width>
                   <Style>
                     <Border>
@@ -2325,7 +2339,7 @@
               <KeepTogether>true</KeepTogether>
               <Top>1.22189in</Top>
               <Left>6.0688in</Left>
-              <Height>0.66667in</Height>
+              <Height>0.76473in</Height>
               <Width>1.92946in</Width>
               <ZIndex>1</ZIndex>
               <Style>
@@ -2343,7 +2357,9 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!Web_Noted_By.Value, "DataSet1") + System.Environment.NewLine + "noted by:"</Value>
+                          <Value>=First(Fields!Web_Noted_By.Value, "DataSet1") +
+System.Environment.NewLine + First(Fields!Web_Noted_By_Date.Value, "DataSet1") +
+System.Environment.NewLine + "noted by:"</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
                           </Style>
@@ -2356,7 +2372,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.22645in</Top>
-                  <Height>0.41667in</Height>
+                  <Height>0.53828in</Height>
                   <Width>1.92164in</Width>
                   <Style>
                     <Border>
@@ -2387,7 +2403,7 @@
               <KeepTogether>true</KeepTogether>
               <Top>1.22189in</Top>
               <Left>4.0466in</Left>
-              <Height>0.66667in</Height>
+              <Height>0.76473in</Height>
               <Width>1.92946in</Width>
               <ZIndex>2</ZIndex>
               <Style>
@@ -2405,7 +2421,8 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!REQUESTED.Value, "DataSet1") + System.Environment.NewLine + "requested by:"</Value>
+                          <Value>=First(Fields!REQUESTED.Value, "DataSet1") + 
+System.Environment.NewLine + "requested by:"</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
                           </Style>
@@ -2418,7 +2435,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.23139in</Top>
-                  <Height>0.41667in</Height>
+                  <Height>0.53828in</Height>
                   <Width>1.92164in</Width>
                   <Style>
                     <Border>
@@ -2449,7 +2466,7 @@
               <KeepTogether>true</KeepTogether>
               <Top>1.22189in</Top>
               <Left>2.0244in</Left>
-              <Height>0.67161in</Height>
+              <Height>0.76967in</Height>
               <Width>1.92946in</Width>
               <ZIndex>3</ZIndex>
               <Style>
@@ -2467,7 +2484,9 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!Web_Prepared_By.Value, "DataSet1") + System.Environment.NewLine + "prepared &amp; checked by:"</Value>
+                          <Value>=First(Fields!Web_Prepared_By.Value, "DataSet1") + 
+System.Environment.NewLine + First(Fields!Web_Prepared_By_Date.Value, "DataSet1") + 
+System.Environment.NewLine + "prepared &amp; checked by:"</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
                           </Style>
@@ -2480,7 +2499,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.22645in</Top>
-                  <Height>0.41667in</Height>
+                  <Height>0.53828in</Height>
                   <Width>1.92164in</Width>
                   <Style>
                     <Border>
@@ -2511,7 +2530,7 @@
               <KeepTogether>true</KeepTogether>
               <Top>1.22189in</Top>
               <Left>0.0022in</Left>
-              <Height>0.66667in</Height>
+              <Height>0.76473in</Height>
               <Width>1.92946in</Width>
               <ZIndex>4</ZIndex>
               <Style>
