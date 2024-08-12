@@ -209,7 +209,7 @@
 
                         <asp:Panel ID="pnlPI" Visible="true" runat="server" Width="250px">
                             <div class="thumbnail">
-                                <asp:Image ID="Image11" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="Project Photos" />
+                                <asp:Image ID="Image11" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/house.png" runat="server" AlternateText="Project Photos" />
                                 <br />
                                 <div>
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
