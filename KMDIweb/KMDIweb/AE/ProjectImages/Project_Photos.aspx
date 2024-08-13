@@ -60,7 +60,7 @@
                                 <ItemTemplate>
                                     <div style="margin-bottom: 15px;border:solid 1px #d93692;">
                                         <div style="padding: 5px; background-color: #d93692; font-family: Calibri; font-size: medium;">
-                                            <asp:Label runat="server" ID="lblProject_Name" ForeColor="white" Font-Size="Large" Text='<%# Bind("Project_Name") %>'></asp:Label>
+                                            <asp:Label runat="server" ID="lblProject_Name" ForeColor="white" Text='<%# Bind("Project_Name") %>'></asp:Label>
                                             <span class="pull-right">
                                                    <asp:Label ID="lblAE" ForeColor="White" runat="server" Font-Size="Smaller" Text='<%# Bind("AE") %>'></asp:Label>
                                             </span>

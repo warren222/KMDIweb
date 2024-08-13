@@ -3,6 +3,7 @@ using KMDIweb.Models;
 using KMDIweb.SCREENfab;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -59,10 +60,47 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
                 model = x.Files_In_Model(folder_path);
                 DataList1.DataSource = model;
                 DataList1.DataBind();
+
             }
             catch (Exception ex)
             {
                 errorrmessage(ex.Message.ToString());
+            }
+            finally
+            {
+                UpdatePimg();
+            }
+        }
+        private void UpdatePimg()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(Sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        string pimg;
+                        if (DataList1.Items.Count > 0)
+                        {
+                            pimg = "yes";
+                        }
+                        else
+                        {
+                            pimg = "";
+                        }
+                        sqlcmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        sqlcmd.CommandText = "Project_Photo_Stp";
+                        sqlcmd.Parameters.AddWithValue("@Command", "Update_Pimg");
+                        sqlcmd.Parameters.AddWithValue("@JO_No", Request.QueryString["lblJO"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Pimg", pimg);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
             }
         }
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
@@ -108,7 +146,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         private string AddQueryStrings()
         {
             return "?ddlAE=" + Request.QueryString["ddlAE"].ToString() +
-                "&tboxFind=" + Request.QueryString["tboxFind"].ToString() + 
+                "&tboxFind=" + Request.QueryString["tboxFind"].ToString() +
                 "&page_index=" + Request.QueryString["page_index"].ToString() + "";
         }
     }
