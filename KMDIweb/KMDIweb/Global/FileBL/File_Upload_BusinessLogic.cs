@@ -41,7 +41,11 @@ namespace KMDIweb.KMDIweb.Global.FileBL
                 i.FileExtension = Path.GetExtension(filepath);
                 i.File_Path = myPathRevised;
                 i.Date_Modified = File.GetLastWriteTime(filepath).ToString();
-                model.Add(i);
+                if (i.FileExtension != ".db")
+                {
+                    model.Add(i);
+                }
+             
             }
             return model;
         }
