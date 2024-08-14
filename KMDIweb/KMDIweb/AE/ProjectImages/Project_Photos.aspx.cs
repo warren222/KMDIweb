@@ -38,6 +38,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         {
             tboxSearch.Text = Request.QueryString["tboxFind"] != null ? Request.QueryString["tboxFind"].ToString() : "";
             ddlAE.SelectedValue = Request.QueryString["ddlAE"] != null ? Request.QueryString["ddlAE"].ToString() : "All";
+            ddlPhotos.SelectedValue = Request.QueryString["ddlPhotos"] != null ? Request.QueryString["ddlPhotos"].ToString() : "With";
             GridView1.PageIndex = Request.QueryString["page_index"] != null ? Convert.ToInt32(Request.QueryString["page_index"].ToString()) : 0;
         }
         private string Sqlconstr
@@ -93,6 +94,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Get");
                         sqlcmd.Parameters.AddWithValue("@AE", ddlAE.Text);
+                        sqlcmd.Parameters.AddWithValue("@PimgSearch", ddlPhotos.Text);
                         sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
                         DataTable dt = new DataTable();
                         dt.Clear();
@@ -175,7 +177,8 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         private string AddQueryStrings()
         {
             return "?ddlAE=" + ddlAE.Text +
-                "&tboxFind=" + tboxSearch.Text + 
+                "&ddlPhotos" + ddlPhotos.Text +
+                "&tboxFind=" + tboxSearch.Text +
                 "&page_index=" + GridView1.PageIndex.ToString() + "";
         }
 
