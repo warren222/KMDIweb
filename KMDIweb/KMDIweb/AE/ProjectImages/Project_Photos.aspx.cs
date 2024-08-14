@@ -177,7 +177,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         private string AddQueryStrings()
         {
             return "?ddlAE=" + ddlAE.Text +
-                "&ddlPhotos" + ddlPhotos.Text +
+                "&ddlPhotos=" + ddlPhotos.Text +
                 "&tboxFind=" + tboxSearch.Text +
                 "&page_index=" + GridView1.PageIndex.ToString() + "";
         }
