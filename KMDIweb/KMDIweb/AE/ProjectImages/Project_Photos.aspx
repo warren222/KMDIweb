@@ -32,11 +32,19 @@
             <div class="col-sm-8 nopm">
                 <div class="well">
                     <div class="row" style="padding: 0; margin: 0;">
-                        <div class="col-sm-5" style="padding: 0; margin: 0;">
+                        <div class="col-sm-2 nopm">
+                            <asp:Label ID="Label1" runat="server" Text="Photos"></asp:Label>
+                            <asp:DropDownList runat="server" ID="ddlPhotos" Style="border-radius: 0;" CssClass="form-control">
+                                <asp:ListItem Value="With" Text="With"></asp:ListItem>
+                                <asp:ListItem Value="Without" Text="Without"></asp:ListItem>
+                                <asp:ListItem Value="All" Text="All"></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        <div class="col-sm-4" style="padding: 0; margin: 0;">
                             <asp:Label ID="lblAE" runat="server" Text="Account Executive"></asp:Label>
                             <asp:DropDownList runat="server" ID="ddlAE" Style="border-radius: 0;" CssClass="form-control"></asp:DropDownList>
                         </div>
-                        <div class="col-sm-7" style="padding: 0; margin: 0;">
+                        <div class="col-sm-6" style="padding: 0; margin: 0;">
                             <span>Find</span>
                             <div class="input-group">
                                 <asp:TextBox runat="server" ID="tboxSearch" Style="border-radius: 0;" CssClass="form-control"></asp:TextBox>
@@ -58,14 +66,14 @@
                         <Columns>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <div style="margin-bottom: 15px;border:solid 1px #d93692;">
+                                    <div style="margin-bottom: 15px; border: solid 1px #d93692;">
                                         <div style="padding: 5px; background-color: #d93692; font-family: Calibri; font-size: medium;">
                                             <asp:Label runat="server" ID="lblProject_Name" ForeColor="white" Text='<%# Bind("Project_Name") %>'></asp:Label>
                                             <span class="pull-right">
-                                                   <asp:Label ID="lblAE" ForeColor="White" runat="server" Font-Size="Smaller" Text='<%# Bind("AE") %>'></asp:Label>
+                                                <asp:Label ID="lblAE" ForeColor="White" runat="server" Font-Size="Smaller" Text='<%# Bind("AE") %>'></asp:Label>
                                             </span>
                                         </div>
-                                        <div style="padding:5px;background-color:white;">
+                                        <div style="padding: 5px; background-color: white;">
                                             <asp:Label ID="lblJOB_ORDER_NO" runat="server" Text='<%# Bind("JOB_ORDER_NO") %>'></asp:Label>
                                             | 
                                               <asp:Label runat="server" ID="lblAddress" Text='<%# Bind("Address") %>'></asp:Label><br />
