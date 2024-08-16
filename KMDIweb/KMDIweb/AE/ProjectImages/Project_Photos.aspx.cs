@@ -171,7 +171,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
                 string id = ((Label)row.FindControl("lblJOB_ORDER_NO")).Text;
                 string project_name = ((Label)row.FindControl("lblProject_Name")).Text;
                 string address = ((Label)row.FindControl("lblAddress")).Text;
-                Response.Redirect("~/KMDIweb/AE/ProjectImages/Project_ImageUploader.aspx" + AddQueryStrings() + "&lblJO=" + id + "&lblProject_Name=" + project_name + "&lblAddress=" + address);
+                Response.Redirect("~/KMDIweb/AE/ProjectImages/ProjectGallery.aspx" + AddQueryStrings() + "&lblJO=" + id + "&lblProject_Name=" + project_name + "&lblAddress=" + address);
             }
         }
         private string AddQueryStrings()
