@@ -16,7 +16,10 @@
     <link href="../../Global/css/lightbox.min.css" rel="stylesheet" />
     <style>
       
-
+        .nomp{
+            padding:0;
+            margin:0;
+        }
         .imgcs {
             border-radius: 0;
         }
@@ -35,9 +38,9 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-10">
+        <div class="row nomp">
+            <div class="col-sm-1 nomp"></div>
+            <div class="col-sm-10 nomp">
                 <asp:DataList ID="DataList1" CellSpacing="20" Width="100%" CellPadding="5" RepeatDirection="Horizontal" RepeatColumns="1" runat="server">
                     <ItemTemplate>
                        
@@ -54,7 +57,7 @@
                     </ItemTemplate>
                 </asp:DataList>
             </div>
-            <div class="col-sm-1"></div>
+            <div class="col-sm-1 nomp"></div>
         </div>
     </form>
 </body>
