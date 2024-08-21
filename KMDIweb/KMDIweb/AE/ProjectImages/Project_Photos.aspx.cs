@@ -154,8 +154,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
                     ((LinkButton)cell.FindControl("btnUploadedFiles")).Visible = true;
                 }
                 else if (Session["KMDI_fullname"].ToString() == "Jayvey Manalili" ||
-                         Session["KMDI_fullname"].ToString() == "Leo Candelaria" ||
-                         ae.Contains(Session["KMDI_fullname"].ToString()))
+                         Session["KMDI_fullname"].ToString() == "Leo Candelaria")
                 {
                     ((LinkButton)cell.FindControl("btnUploadedFiles")).Visible = true;
                 }
