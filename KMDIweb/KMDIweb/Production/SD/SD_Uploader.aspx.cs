@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -175,6 +176,27 @@ namespace KMDIweb.KMDIweb.Production.SD
             {
                 int index = e.Item.ItemIndex;
                 ExecuteDelete(((Label)DataList1.Items[index].FindControl("lblFile_Path")).Text.ToString());
+            }
+            else if (e.CommandName == "myRotate")
+            {
+                int index = e.Item.ItemIndex;
+                string path = Server.MapPath(((System.Web.UI.WebControls.Image)DataList1.Items[index].FindControl("Image2")).ImageUrl);
+
+                // creating image from the image url
+                System.Drawing.Image i = System.Drawing.Image.FromFile(path);
+
+                // rotate Image 90' Degree
+                i.RotateFlip(RotateFlipType.Rotate90FlipXY);
+
+                // save it to its actual path
+                i.Save(path);
+
+                // release Image File
+                i.Dispose();
+
+                // Set Image Control Attribute property to new image(but its old path)
+                ((System.Web.UI.WebControls.Image)DataList1.Items[index].FindControl("Image2")).Attributes.Add("ImageUrl", path);
+               
             }
             else if (e.CommandName == "myView")
             {

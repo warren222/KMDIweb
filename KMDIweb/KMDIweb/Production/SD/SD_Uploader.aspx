@@ -45,7 +45,7 @@
 
 
             <div>
-                <div class="row" style="padding: 10px; color: white;background-color:#2f2f2f">
+                <div class="row" style="padding: 10px; color: white; background-color: #2f2f2f">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-3 text-center">
                         <span>K#</span>
@@ -90,6 +90,11 @@
                                 <tr>
                                     <td>
                                         <asp:Label ID="lblDate_Modified" CssClass="text-muted" runat="server" Text='<%# Bind("Date_Modified") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                       <asp:LinkButton ID="LinkButton1" runat="server" CommandName="myRotate" ForeColor="Red">ROTATE</asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
