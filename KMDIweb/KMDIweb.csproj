@@ -881,6 +881,20 @@
     <Compile Include="KMDIweb\Production\ScreenSchedule\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\SD\SD_Uploader.aspx.cs">
+      <DependentUpon>SD_Uploader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\SD\SD_Uploader.aspx.designer.cs">
+      <DependentUpon>SD_Uploader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\Production\SD\SD_Viewer.aspx.cs">
+      <DependentUpon>SD_Viewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\SD\SD_Viewer.aspx.designer.cs">
+      <DependentUpon>SD_Viewer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\SessionVariables\MyQueryString.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FileModel.cs" />
@@ -1029,6 +1043,8 @@
     <Content Include="KMDIweb\Production\ScreenSchedule\scYearlyOutput.aspx" />
     <Content Include="KMDIweb\Production\ScreenSchedule\WebForm1.aspx" />
     <Content Include="KMDIweb\Production\scripts\sign.js" />
+    <Content Include="KMDIweb\Production\SD\SD_Uploader.aspx" />
+    <Content Include="KMDIweb\Production\SD\SD_Viewer.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
