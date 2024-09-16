@@ -56,7 +56,7 @@ namespace KMDIweb.KMDIweb.Global.FileBL
             foreach (string filepath in filepaths)
             {
                 FileModel i = new FileModel();
-                var myPath = filepath.Replace("KMDIFILES", "{");
+                var myPath = filepath.Replace("KMDI_FILES", "{");
                 var myPathRevised = @"~\KMDIFILES\" + (myPath.Substring(myPath.LastIndexOf('{') + 1)).ToString().Replace(@"/", @"\");
 
 
