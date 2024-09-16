@@ -3,6 +3,7 @@ using KMDIweb.Models;
 using KMDIweb.SCREENfab;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace KMDIweb.KMDIweb.Production.SD
         {
             get
             {
-                return ConnectionString.sqlconstr();
+                return ConfigurationManager.ConnectionStrings["sqlcon"].ConnectionString;
             }
         }
         private void errorrmessage(string message)

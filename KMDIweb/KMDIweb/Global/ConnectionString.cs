@@ -21,7 +21,6 @@ namespace KMDIweb.SCREENfab
                     connectionstring = ConfigurationManager.ConnectionStrings["sqlcon2"].ConnectionString;
                     break;
                 default:
-                    connectionstring = ConfigurationManager.ConnectionStrings["sqlcon"].ConnectionString;
                     break;
             }
             con = connectionstring;
