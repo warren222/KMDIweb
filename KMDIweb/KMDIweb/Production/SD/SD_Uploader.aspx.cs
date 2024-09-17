@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -29,7 +30,7 @@ namespace KMDIweb.KMDIweb.Production.SD
         {
             get
             {
-                return "~/KMDIFILES/" + Request.QueryString["lblJO"].ToString() + "/Shopdrawing";  
+                return "~/KMDIFILES/WMS/ProjectFiles/" + Request.QueryString["lblJO"].ToString() + "/Shopdrawing";
             }
         }
         private string Sqlconstr
@@ -54,8 +55,8 @@ namespace KMDIweb.KMDIweb.Production.SD
             {
                 using (SqlConnection sqlcon = new SqlConnection(Sqlconstr))
                 {
-                    sqlcon.Open();               
-                    using (SqlCommand sqlcmd =  sqlcon.CreateCommand())
+                    sqlcon.Open();
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcmd.CommandText = "Flow_SD_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
@@ -193,10 +194,11 @@ namespace KMDIweb.KMDIweb.Production.SD
 
                 // release Image File
                 i.Dispose();
-
+              
                 // Set Image Control Attribute property to new image(but its old path)
                 ((System.Web.UI.WebControls.Image)DataList1.Items[index].FindControl("Image2")).Attributes.Add("ImageUrl", path);
-               
+
+
             }
             else if (e.CommandName == "myView")
             {

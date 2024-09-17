@@ -28,7 +28,7 @@ namespace KMDIweb.KMDIweb.Production.SD
         {
             get
             {
-                return "~/KMDIFILES/" + Request.QueryString["lblJO"].ToString() + "/Shopdrawing";
+                return "~/KMDIFILES/WMS/ProjectFiles/" + Request.QueryString["lblJO"].ToString() + "/Shopdrawing";
             }
         }
         private string Sqlconstr
