@@ -96,15 +96,6 @@ namespace KMDIweb.KMDIweb.Production.SD
         protected global::System.Web.UI.WebControls.DropDownList ddlK_No;
 
         /// <summary>
-        /// btnSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnSearch;
-
-        /// <summary>
         /// pnlUpload control.
         /// </summary>
         /// <remarks>

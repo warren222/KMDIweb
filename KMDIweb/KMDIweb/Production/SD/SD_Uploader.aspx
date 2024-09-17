@@ -49,16 +49,21 @@
                     <div class="col-sm-3"></div>
                     <div class="col-sm-3 text-center">
                         <span>K#</span>
-                        <asp:DropDownList ID="ddlK_No" runat="server" AutoPostBack="true" CssClass="form-control" OnSelectedIndexChanged="ddlK_No_SelectedIndexChanged"></asp:DropDownList>
-                        <asp:LinkButton runat="server" ID="btnSearch" BackColor="#b72162" BorderColor="#b72162" Style="margin-top: 5px;" CssClass=" wf_control_btn btn btn-success" Width="100%" OnClick="btnSearch_Click">search</asp:LinkButton>
+                        <asp:DropDownList ID="ddlK_No" runat="server" Style="background-color: #272727; border-color: #565656; color: ghostwhite;" AutoPostBack="true" CssClass="form-control" OnSelectedIndexChanged="ddlK_No_SelectedIndexChanged"></asp:DropDownList>
+                        <%--<asp:LinkButton runat="server" ID="btnSearch" BackColor="#b72162" BorderColor="#b72162" Style="margin-top: 5px;" CssClass=" wf_control_btn btn btn-success" Width="100%" OnClick="btnSearch_Click">search</asp:LinkButton>--%>
                     </div>
                     <div class="col-sm-3">
                         <asp:Panel ID="pnlUpload" Visble="false" runat="server">
                             <div class="FontSpacing FontLarge text-center">UPLOAD FORM</div>
-                            <label class="form-control">
-                                <asp:FileUpload ID="FileUpload1" CssClass="" runat="server"></asp:FileUpload>
-                            </label>
-                            <asp:LinkButton ID="LinkButton2" runat="server" BackColor="#b72162" BorderColor="#b72162" OnClick="LinkButton2_Click" CssClass=" wf_control_btn btn btn-success" Width="100%">upload selected file(s)</asp:LinkButton>
+                            <div class="input-group">
+                                <label class="form-control" style="background-color: #272727; border-color: #565656; color: ghostwhite;">
+                                    <asp:FileUpload ID="FileUpload1" CssClass="" runat="server"></asp:FileUpload>
+                                </label>
+                                <div class="input-group-btn">
+                                    <asp:LinkButton ID="LinkButton2" runat="server" BackColor="#b72162" BorderColor="#b72162" OnClick="LinkButton2_Click" CssClass=" wf_control_btn btn btn-success" Width="100%">upload</asp:LinkButton>
+                                </div>
+                            </div>
+
                         </asp:Panel>
                     </div>
                     <div class="col-sm-3"></div>
@@ -94,7 +99,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                       <asp:LinkButton ID="LinkButton1" runat="server" CommandName="myRotate" ForeColor="Red">ROTATE</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" CommandName="myRotate" ForeColor="Red">ROTATE</asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>

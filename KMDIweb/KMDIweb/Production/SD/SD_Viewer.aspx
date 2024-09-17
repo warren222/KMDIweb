@@ -44,13 +44,13 @@
 
             <div>
                 <div class="row" style="padding: 10px; color: white; background-color: #2f2f2f">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6 text-center">
-                        <span>K#</span>
-                        <asp:DropDownList ID="ddlK_No" runat="server" AutoPostBack="true" CssClass="form-control" OnSelectedIndexChanged="ddlK_No_SelectedIndexChanged"></asp:DropDownList>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4 text-center">
+                        <span class="text-muted">SELECT K#</span>
+                        <asp:DropDownList ID="ddlK_No" runat="server" style="background-color:#272727;border-color:#565656;color:ghostwhite;height:40px;" AutoPostBack="true" CssClass="form-control" OnSelectedIndexChanged="ddlK_No_SelectedIndexChanged"></asp:DropDownList>
                         <asp:LinkButton runat="server" ID="btnSearch" Visible="false" BackColor="#b72162" BorderColor="#b72162" Style="margin-top: 5px;" CssClass=" wf_control_btn btn btn-success" Width="100%" OnClick="btnSearch_Click">search</asp:LinkButton>
                     </div>
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-4"></div>
                 </div>
                 <asp:Label ID="lblError" CssClass="text-danger" runat="server" Text=""></asp:Label>
                 <br />
