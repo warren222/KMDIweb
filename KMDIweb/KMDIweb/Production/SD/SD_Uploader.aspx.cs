@@ -124,7 +124,20 @@ namespace KMDIweb.KMDIweb.Production.SD
                 fm = model.Where(m => m.FileName.ToString().Replace(m.FileExtension.ToString(), "") == ddlK_No.SelectedValue.ToString()).SingleOrDefault();
 
                 string path = fm == null ? "" : fm.File_Path.ToString();
-                DataList1.DataSource = model.Where(m => m.FileName.ToString().Replace(m.FileExtension.ToString(), "") == ddlK_No.SelectedValue.ToString());
+
+
+                List<FileModel> modelDS = new List<FileModel>();
+                modelDS = x.Files_In_Model_Virtual(folder_path + "/" + ddlK_No.SelectedValue.ToString());
+                if (fm == null)
+                {
+
+                }
+                else
+                {
+                    modelDS.Add(fm);
+                }
+            
+                DataList1.DataSource = modelDS;
                 DataList1.DataBind();
 
             }
@@ -194,7 +207,7 @@ namespace KMDIweb.KMDIweb.Production.SD
 
                 // release Image File
                 i.Dispose();
-              
+
                 // Set Image Control Attribute property to new image(but its old path)
                 ((System.Web.UI.WebControls.Image)DataList1.Items[index].FindControl("Image2")).Attributes.Add("ImageUrl", path);
 
@@ -222,7 +235,7 @@ namespace KMDIweb.KMDIweb.Production.SD
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
             File_Upload_BusinessLogic x = new File_Upload_BusinessLogic();
-            lblError.Text = x.Upload_File_Virtual_Sd(FileUpload1, folder_path, ddlK_No.SelectedValue.ToString());
+            lblError.Text = x.Upload_File(FileUpload1, folder_path + "/" + ddlK_No.SelectedValue.ToString());
             LoadFolderFileData();
         }
 

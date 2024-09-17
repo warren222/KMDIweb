@@ -21,16 +21,16 @@
         }
     </style>
 </head>
-<body style="background-color: rgb(31,31,31)">
+<body style="background-color: #bfbfbf;">
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <div>
+     
             <div>
-                <div style="background-color: #f21f77;">
-                    <div style="padding: 10px;">
+                <div style="  background-color: #303030;border-bottom: solid 5px #ff006e;padding-left:10px">
+                    <div style="padding: 10px;color:antiquewhite;font-family:Calibri">
                         <asp:Label runat="server" ID="lblProject_Name" ForeColor="White" Font-Size="XX-Large"></asp:Label><br />
                         <asp:Label runat="server" Visible="false" ID="lblJO"></asp:Label>
-                        <asp:Label runat="server" Font-Size="X-Large" ID="lblAddress"></asp:Label><br />
+                        <asp:Label runat="server" Font-Size="Medium" ID="lblAddress"></asp:Label><br />
                         <asp:Label runat="server" Font-Size="Medium" ID="lblSubJO"></asp:Label>
                     </div>
                 </div>
@@ -44,76 +44,78 @@
             </asp:UpdatePanel>
 
 
-            <div>
-                <div class="row" style="padding: 10px; color: white; background-color: #2f2f2f">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-3 text-center">
-                        <span>K#</span>
-                        <asp:DropDownList ID="ddlK_No" runat="server" Style="background-color: #272727; border-color: #565656; color: ghostwhite;" AutoPostBack="true" CssClass="form-control" OnSelectedIndexChanged="ddlK_No_SelectedIndexChanged"></asp:DropDownList>
+
+                <div class="row nopm" style="padding: 10px; color: white; background-color: #2f2f2f">
+                    <div class="col-sm-3 nopm"></div>
+                    <div class="col-sm-3 nopm text-center">
+                        <span class="text-muted">SELECT K#</span>
+                        <asp:DropDownList ID="ddlK_No" runat="server" Style="background-color: #272727; border-color: #565656; color: ghostwhite; border-radius:0;height:35px;" AutoPostBack="true" CssClass="form-control" OnSelectedIndexChanged="ddlK_No_SelectedIndexChanged"></asp:DropDownList>
                         <%--<asp:LinkButton runat="server" ID="btnSearch" BackColor="#b72162" BorderColor="#b72162" Style="margin-top: 5px;" CssClass=" wf_control_btn btn btn-success" Width="100%" OnClick="btnSearch_Click">search</asp:LinkButton>--%>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-3 nopm">
                         <asp:Panel ID="pnlUpload" Visble="false" runat="server">
-                            <div class="FontSpacing FontLarge text-center">UPLOAD FORM</div>
+                            <div class="FontSpacing FontLarge text-center text-muted">UPLOAD FORM</div>
                             <div class="input-group">
-                                <label class="form-control" style="background-color: #272727; border-color: #565656; color: ghostwhite;">
-                                    <asp:FileUpload ID="FileUpload1" CssClass="" runat="server"></asp:FileUpload>
+                                <label class="form-control" style="background-color: #272727; border-color: #565656; color: ghostwhite; border-radius:0;">
+                                    <asp:FileUpload ID="FileUpload1" CssClass="" runat="server" AllowMultiple="True"></asp:FileUpload>
                                 </label>
                                 <div class="input-group-btn">
-                                    <asp:LinkButton ID="LinkButton2" runat="server" BackColor="#b72162" BorderColor="#b72162" OnClick="LinkButton2_Click" CssClass=" wf_control_btn btn btn-success" Width="100%">upload</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" BackColor="#b72162" BorderColor="#b72162" OnClick="LinkButton2_Click" CssClass=" btn btn-success">upload</asp:LinkButton>
                                 </div>
                             </div>
 
                         </asp:Panel>
                     </div>
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-3 nopm"></div>
                 </div>
                 <asp:Label ID="lblError" CssClass="text-danger" runat="server" Text=""></asp:Label>
                 <br />
                 <br />
                 <div style="overflow-x: auto">
-                    <asp:DataList ID="DataList1" CellSpacing="20" Width="100%" CellPadding="5" RepeatDirection="Horizontal" RepeatColumns="1" runat="server" OnItemCommand="DataList1_ItemCommand">
+                    <asp:DataList ID="DataList1" CellSpacing="20" Width="100%" CellPadding="5" RepeatDirection="Horizontal" RepeatColumns="4" runat="server" OnItemCommand="DataList1_ItemCommand">
                         <ItemTemplate>
                             <table border="0">
                                 <tr>
                                     <td class="text-center">
-                                        <asp:HyperLink ID="HyperLink1"
+                                        <asp:HyperLink ID="HyperLink2"
                                             CssClass='<%# Eval("FileExtension").ToString() == ".pdf" ? "" : "example-image-link"%>'
                                             NavigateUrl='<%# Eval("File_Path").ToString() %>'
-                                            data-lightbox='<%# Eval("FileExtension").ToString() == ".pdf" ? "" : "example-set"%>' data-title='<%# Eval("FileName").ToString() %>' runat="server">
-                                            <asp:Image ID="Image2" CssClass='<%# Eval("FileExtension").ToString() == ".pdf"? "wf_img img-thumbnail" : "wf_img img-thumbnail example-image"%>'
+                                            data-lightbox='<%# Eval("FileExtension").ToString() == ".pdf" ? "" : "example-set"%>'
+                                            data-title='<%# Eval("FileName").ToString() %>' runat="server">
+                                            <asp:Image ID="Image2" Style="object-fit: contain;max-height:300px;" CssClass='<%# Eval("File_Path").ToString() == ".pdf"? "imgcs img-thumbnail" : " imgcs img-thumbnail example-image"%>'
                                                 ImageUrl='<%# Eval("FileExtension").ToString() == ".pdf" ? "~/Images/pdflogo.png" : Eval("File_Path") %>' runat="server" />
                                         </asp:HyperLink>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr> 
                                     <td>
                                         <asp:Label ID="lblFile_Path" Visible="false" runat="server" Text='<%# Bind("File_Path") %>'></asp:Label>
-                                        <asp:LinkButton ID="btnView" ForeColor="White" runat="server" CommandName="myView" Text='<%# Bind("FileName") %>'></asp:LinkButton>
+                                        <span><%# Eval("FileName") %></span>
+                                        <asp:LinkButton ID="btnView" ForeColor="Black" Visible="false" runat="server" CommandName="myView" Text='<%# Bind("FileName") %>'></asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:Label ID="lblDate_Modified" CssClass="text-muted" runat="server" Text='<%# Bind("Date_Modified") %>'></asp:Label>
+                                        <asp:Label ID="lblDate_Modified" ForeColor="#666666"  runat="server" Text='<%# Bind("Date_Modified") %>'></asp:Label>
                                     </td>
                                 </tr>
-                                <tr>
+                              <%--  <tr>
                                     <td>
-                                        <asp:LinkButton ID="LinkButton1" runat="server" CommandName="myRotate" ForeColor="Red">ROTATE</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" Visible='<%# Eval("FileExtension").ToString() == ".pdf" ? false : true %>' CommandName="myRotate">ROTATE</asp:LinkButton>
                                     </td>
-                                </tr>
+                                </tr>--%>
                                 <tr>
                                     <td>
-                                        <asp:LinkButton ID="LinkButton3" runat="server" CommandName="myDelete" ForeColor="Red" OnClientClick="return confirm('delete this image?')">DELETE</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton3" runat="server" CssClass="text-danger" CommandName="myDelete" OnClientClick="return confirm('delete this image?')">DELETE</asp:LinkButton>
                                     </td>
                                 </tr>
                             </table>
                         </ItemTemplate>
                     </asp:DataList>
                 </div>
-            </div>
+           
 
-        </div>
+     
     </form>
 </body>
 </html>

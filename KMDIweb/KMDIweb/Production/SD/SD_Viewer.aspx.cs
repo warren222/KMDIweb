@@ -114,12 +114,28 @@ namespace KMDIweb.KMDIweb.Production.SD
         {
             try
             {
+     
                 List<FileModel> model = new List<FileModel>();
                 File_Upload_BusinessLogic x = new File_Upload_BusinessLogic();
                 model = x.Files_In_Model_Virtual(folder_path);
-                DataList1.DataSource = model.Where(m => m.FileName.ToString().Replace(m.FileExtension.ToString(), "") == ddlK_No.SelectedValue.ToString());
-                DataList1.DataBind();
 
+                FileModel fm = new FileModel();
+                fm = model.Where(m => m.FileName.ToString().Replace(m.FileExtension.ToString(), "") == ddlK_No.SelectedValue.ToString()).SingleOrDefault();
+
+              
+                List<FileModel> modelDS = new List<FileModel>();
+                modelDS = x.Files_In_Model_Virtual(folder_path + "/" + ddlK_No.SelectedValue.ToString());
+                if (fm == null)
+                {
+
+                }
+                else
+                {
+                    modelDS.Add(fm);
+                }
+
+                DataList1.DataSource = modelDS;
+                DataList1.DataBind();
             }
             catch (Exception ex)
             {

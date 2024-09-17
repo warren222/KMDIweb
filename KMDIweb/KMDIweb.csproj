@@ -932,6 +932,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.css" />
+    <Content Include="Images\pdflogo.png" />
     <Content Include="Images\transpa.png" />
     <Content Include="KMDIweb\AE\AccountingClearance\AC_For_Approval.aspx" />
     <Content Include="KMDIweb\AE\AccountingClearance\AC_For_Trun_Over.aspx" />
