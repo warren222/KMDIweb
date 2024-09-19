@@ -172,7 +172,7 @@ namespace KMDIweb.KMDIweb.Production.SD
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.CommandText = "Flow_SD_Stp";
                         sqlcmd.Parameters.AddWithValue("@Command", "Has_SD");
-                        sqlcmd.Parameters.AddWithValue("@JO_No", Request.QueryString["lblJO"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Job_Order_No", Request.QueryString["lblJO"].ToString());
                         sqlcmd.Parameters.AddWithValue("@K_No", ddlK_No.SelectedValue.ToString());
                         sqlcmd.Parameters.AddWithValue("@Has_SD", has_sd);
                         sqlcmd.ExecuteNonQuery();
