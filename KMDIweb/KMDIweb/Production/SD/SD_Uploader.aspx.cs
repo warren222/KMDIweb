@@ -147,11 +147,11 @@ namespace KMDIweb.KMDIweb.Production.SD
             }
             finally
             {
-                //UpdateImg();
+                Has_SD();
             }
 
         }
-        private void UpdateImg()
+        private void Has_SD()
         {
             try
             {
@@ -160,21 +160,21 @@ namespace KMDIweb.KMDIweb.Production.SD
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
-                        string pimg;
+                        int has_sd;
                         if (DataList1.Items.Count > 0)
                         {
-                            pimg = "yes";
+                            has_sd = 1;
                         }
                         else
                         {
-                            pimg = "";
+                            has_sd = 0;
                         }
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.CommandText = "Flow_SD_Stp";
-                        sqlcmd.Parameters.AddWithValue("@Command", "Update_Img");
+                        sqlcmd.Parameters.AddWithValue("@Command", "Has_SD");
                         sqlcmd.Parameters.AddWithValue("@JO_No", Request.QueryString["lblJO"].ToString());
                         sqlcmd.Parameters.AddWithValue("@K_No", ddlK_No.SelectedValue.ToString());
-
+                        sqlcmd.Parameters.AddWithValue("@Has_SD", has_sd);
                         sqlcmd.ExecuteNonQuery();
                     }
                 }

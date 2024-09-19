@@ -141,7 +141,43 @@ namespace KMDIweb.KMDIweb.Production.SD
             {
                 errorrmessage(ex.Message.ToString());
             }
-
+            finally
+            {
+                Has_SD();
+            }
+        }
+        private void Has_SD()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(Sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        int has_sd;
+                        if (DataList1.Items.Count > 0)
+                        {
+                            has_sd = 1;
+                        }
+                        else
+                        {
+                            has_sd = 0;
+                        }
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.CommandText = "Flow_SD_Stp";
+                        sqlcmd.Parameters.AddWithValue("@Command", "Has_SD");
+                        sqlcmd.Parameters.AddWithValue("@JO_No", Request.QueryString["lblJO"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@K_No", ddlK_No.SelectedValue.ToString());
+                        sqlcmd.Parameters.AddWithValue("@Has_SD", has_sd);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
         }
         protected void btnSearch_Click(object sender, EventArgs e)
         {
