@@ -130,13 +130,13 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
                 string jo = ((Label)cell.FindControl("lblJOB_ORDER_NO")).Text;
                 string project_name = ((Label)cell.FindControl("lblProject_Name")).Text;
                 string ae = ((Label)cell.FindControl("lblAE")).Text;
-                string folder_path = "~/KMDIweb/Uploads/ProjectPhotos/" + jo + "/ProjectImage";
+                string folder_path = "~/KMDI_FILES/WMS/ProjectPhotos/" + jo + "/ProjectImage";
 
                 Boolean IsExists = Directory.Exists(HttpContext.Current.Server.MapPath(folder_path));
                 if (IsExists)
                 {
                     File_Upload_BusinessLogic x = new File_Upload_BusinessLogic();
-                    var model = x.Files_In_Model(folder_path);
+                    var model = x.Files_In_Model_Virtual(folder_path);
                     foreach (FileModel m in model)
                     {
                         m.FileName = project_name + @" \ " + jo + @" \ " + m.FileName;

@@ -26,7 +26,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         {
             get
             {
-                return "~/KMDIweb/Uploads/ProjectPhotos/" + Request.QueryString["lblJO"].ToString() + "/ProjectImage";
+                return "~/KMDI_FILES/WMS/ProjectPhotos/" + Request.QueryString["lblJO"].ToString() + "/ProjectImage";
             }
         }
         private string Sqlconstr
@@ -82,7 +82,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
             {
                 List<FileModel> model = new List<FileModel>();
                 File_Upload_BusinessLogic x = new File_Upload_BusinessLogic();
-                model = x.Files_In_Model(folder_path);
+                model = x.Files_In_Model_Virtual(folder_path);
                 DataList1.DataSource = model;
                 DataList1.DataBind();
 
