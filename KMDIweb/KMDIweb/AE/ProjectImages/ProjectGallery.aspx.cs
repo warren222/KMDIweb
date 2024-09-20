@@ -26,7 +26,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
         {
             get
             {
-                return "~/KMDI_FILES/WMS/ProjectPhotos/" + Request.QueryString["lblJO"].ToString() + "/ProjectImage";
+                return "~/KMDI_FILES/WMS/ProjectPhotos/" + Request.QueryString["lblJO"].ToString().Replace(":", "") + "/ProjectImage";
             }
         }
         private string Sqlconstr
