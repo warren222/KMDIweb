@@ -68,7 +68,7 @@ namespace KMDIweb.KMDIweb.AE.ProjectImages
             }
             finally
             {
-                //UpdatePimg();
+                UpdatePimg();
             }
         }
         private void UpdatePimg()
