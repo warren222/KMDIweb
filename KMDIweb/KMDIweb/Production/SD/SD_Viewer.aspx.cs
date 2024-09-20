@@ -120,7 +120,7 @@ namespace KMDIweb.KMDIweb.Production.SD
                 model = x.Files_In_Model_Virtual(folder_path);
 
                 FileModel fm = new FileModel();
-                fm = model.Where(m => m.FileName.ToString().Replace(m.FileExtension.ToString(), "") == ddlK_No.SelectedValue.ToString()).SingleOrDefault();
+                fm = model.Where(m => m.FileName.ToString().Replace(m.FileExtension.ToString(), "") == ddlK_No.SelectedValue.ToString()).FirstOrDefault();
 
               
                 List<FileModel> modelDS = new List<FileModel>();
