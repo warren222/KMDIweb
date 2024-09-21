@@ -13,7 +13,7 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
 {
     public partial class Fileupload : System.Web.UI.Page
     {
-        string filepath = "~/KMDIweb/Uploads/DRscannedFiles/";
+        string filepath = "~/KMDI_FILES/WMS/DRscannedFiles/";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["KMDI_userid"] != null)
