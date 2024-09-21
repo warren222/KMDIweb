@@ -107,10 +107,10 @@ namespace KMDIweb.KMDIweb.PO
         private void getparameters()
         {
             ReportViewer1.LocalReport.EnableExternalImages = true;
-            string _prepared = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Prepared_By.jpg")).AbsoluteUri;
-            string _requested = new Uri(Server.MapPath("~/KMDIweb/Uploads/UserSignature/DefaultForPO/" + Request.QueryString["Requested_By"].ToString() + ".jpg")).AbsoluteUri;
-            string _noted = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Noted_By.jpg")).AbsoluteUri;
-            string _approved = new Uri(Server.MapPath("~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Approved_By.jpg")).AbsoluteUri;
+            string _prepared = new Uri(Server.MapPath("~/KMDI_FILES/WMS/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Prepared_By.jpg")).AbsoluteUri;
+            string _requested = new Uri(Server.MapPath("~/KMDI_FILES/WMS/UserSignature/DefaultForPO/" + Request.QueryString["Requested_By"].ToString() + ".jpg")).AbsoluteUri;
+            string _noted = new Uri(Server.MapPath("~/KMDI_FILES/WMS/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Noted_By.jpg")).AbsoluteUri;
+            string _approved = new Uri(Server.MapPath("~/KMDI_FILES/WMS/PO/" + Session["POPO_No"].ToString() + "/Signatures/Web_Approved_By.jpg")).AbsoluteUri;
             ReportParameter[] repparam = new ReportParameter[6];
             repparam[0] = new ReportParameter("ImgPreparedBy", _prepared);
             repparam[1] = new ReportParameter("ImgNotedBy", _noted);
