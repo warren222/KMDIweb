@@ -36,7 +36,7 @@ namespace KMDIweb.KMDIweb.Global
             if (IsValid)
             {
 
-                string filepath = "~/KMDIweb/Uploads/UserSignature/DefaultForPO/";
+                string filepath = "~/KMDI_FILES/WMS/UserSignature/DefaultForPO/";
                 Boolean IsExists = System.IO.Directory.Exists(Server.MapPath(filepath));
                 if (!IsExists)
                 {
