@@ -53,7 +53,7 @@ namespace KMDIweb.KMDIweb.PO
             if (IsValid)
             {
 
-                string filepath = "~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/";
+                string filepath = "~/KMDI_FILES/WMS/PO/" + Session["POPO_No"].ToString() + "/Signatures/";
                 Boolean IsExists = System.IO.Directory.Exists(Server.MapPath(filepath));
                 if (!IsExists)
                 {
@@ -139,13 +139,13 @@ namespace KMDIweb.KMDIweb.PO
             if (IsValid)
             {
 
-                string filepath = "~/KMDIweb/Uploads/PO/" + Session["POPO_No"].ToString() + "/Signatures/";
+                string filepath = "~/KMDI_FILES/WMS/PO/" + Session["POPO_No"].ToString() + "/Signatures/";
                 Boolean IsExists = System.IO.Directory.Exists(Server.MapPath(filepath));
                 if (!IsExists)
                 {
                     System.IO.Directory.CreateDirectory(Server.MapPath(filepath));
                 }
-                string sourcepath = "~/KMDIweb/Uploads/UserSignature/" + Session["KMDI_userid"].ToString() + "/";
+                string sourcepath = "~/KMDI_FILES/WMS/UserSignature/" + Session["KMDI_userid"].ToString() + "/";
                 Boolean IsExists1 = System.IO.Directory.Exists(Server.MapPath(sourcepath));
                 if (!IsExists1)
                 {

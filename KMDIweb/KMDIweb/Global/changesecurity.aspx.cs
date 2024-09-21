@@ -18,7 +18,7 @@ namespace KMDIweb.KMDIapp
             {
                 if (!IsPostBack)
                 {
-                    string filepath = "~/KMDIweb/Uploads/UserSignature/" + Session["KMDI_userid"].ToString() + "/";
+                    string filepath = "~/KMDI_FILES/WMS/UserSignature/" + Session["KMDI_userid"].ToString() + "/";
                     Boolean IsExists = System.IO.Directory.Exists(Server.MapPath(filepath));
                     if (!IsExists)
                     {
