@@ -318,6 +318,20 @@
     <Compile Include="KMDIweb\AE\CollectionLedger\AEMaster.Master.designer.cs">
       <DependentUpon>AEMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\AE\CollectionLedger\CollectionLedgerFiles.aspx.cs">
+      <DependentUpon>CollectionLedgerFiles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\AE\CollectionLedger\CollectionLedgerFiles.aspx.designer.cs">
+      <DependentUpon>CollectionLedgerFiles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\AE\CollectionLedger\CollectionLedgerFileViewer.aspx.cs">
+      <DependentUpon>CollectionLedgerFileViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\AE\CollectionLedger\CollectionLedgerFileViewer.aspx.designer.cs">
+      <DependentUpon>CollectionLedgerFileViewer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\AE\CollectionLedger\CollectionLedgerFrm.aspx.cs">
       <DependentUpon>CollectionLedgerFrm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -943,6 +957,8 @@
     <Content Include="KMDIweb\AE\AF\AF_New_Payment.aspx" />
     <Content Include="KMDIweb\AE\AF\AF_Project_List.aspx" />
     <Content Include="KMDIweb\AE\AF\AF_Project_Request.aspx" />
+    <Content Include="KMDIweb\AE\CollectionLedger\CollectionLedgerFiles.aspx" />
+    <Content Include="KMDIweb\AE\CollectionLedger\CollectionLedgerFileViewer.aspx" />
     <Content Include="KMDIweb\AE\CollectionLedger\CollectionLedgerFrm.aspx" />
     <Content Include="KMDIweb\AE\CollectionLedger\CollectionLedgerInput.aspx" />
     <Content Include="KMDIweb\AE\CollectionLedger\FileUpload.aspx" />

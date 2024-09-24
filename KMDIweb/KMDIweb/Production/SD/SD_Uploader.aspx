@@ -26,7 +26,7 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
      
             <div>
-                <div style="  background-color: #303030;border-bottom: solid 5px #ff006e;padding-left:10px">
+                <div style="background-color: #303030;border-bottom: solid 5px #ff006e;padding-left:10px">
                     <div style="padding: 10px;color:antiquewhite;font-family:Calibri">
                         <asp:Label runat="server" ID="lblProject_Name" ForeColor="White" Font-Size="XX-Large"></asp:Label><br />
                         <asp:Label runat="server" Visible="false" ID="lblJO"></asp:Label>
