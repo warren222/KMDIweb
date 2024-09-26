@@ -170,9 +170,13 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = GridView1.Rows[rowindex];
-                Session["CollectionId"] = ((Label)row.FindControl("CollectionId")).Text;
-                Session["CollectionProject"] = ((Label)row.FindControl("Label4")).Text;
-                Response.Redirect("~/KMDIweb/AE/CollectionLedger/Fileupload.aspx");
+                //Session["CollectionId"] = ((Label)row.FindControl("CollectionId")).Text;
+                //Session["CollectionProject"] = ((Label)row.FindControl("Label4")).Text;
+                //Response.Redirect("~/KMDIweb/AE/CollectionLedger/FileUpload.aspx");
+                Response.Redirect("~/KMDIweb/AE/CollectionLedger/CollectionLedgerFiles.aspx?Collection_Id=" +
+                    ((Label)row.FindControl("CollectionId")).Text + "&Project_Name=" +
+                    ((Label)row.FindControl("Label4")).Text + "&Amount=" +
+                    ((Label)row.FindControl("Label1")).Text);
             }
             else if (e.CommandName == "DeleteItem")
             {
