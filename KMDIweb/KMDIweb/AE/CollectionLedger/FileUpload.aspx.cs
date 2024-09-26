@@ -13,7 +13,7 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
 {
     public partial class FileUpload : System.Web.UI.Page
     {
-        string filepath = "~/KMDI_FILES/WMS/CollectionLedger/";
+        string filepath = "~/KMDIweb/Uploads/DRscannedFiles/";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["KMDI_userid"] != null)

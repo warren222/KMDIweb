@@ -50,5 +50,13 @@ namespace KMDIweb.KMDIweb.AE.CollectionLedger
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "myView")
+            {
+                int index = e.Item.ItemIndex;
+                Response.Redirect(((Label)DataList1.Items[index].FindControl("lblFile_Path")).Text.ToString());
+            }
+        }
     }
 }

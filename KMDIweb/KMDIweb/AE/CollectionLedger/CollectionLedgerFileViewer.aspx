@@ -21,7 +21,7 @@
         }
     </style>
 </head>
-<body style="background-color: #bfbfbf;">
+<body style="background-color: white;">
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div style="background-color: #303030; border-bottom: solid 5px #ff006e; padding-left: 10px">
@@ -43,7 +43,7 @@
             </asp:UpdatePanel>
             <div style="background-color: aliceblue; border: solid 5px antiquewhite;">
                 <div style="overflow-x: auto">
-                    <asp:DataList ID="DataList1" CellSpacing="20" Width="100%" CellPadding="5" RepeatDirection="Horizontal" RepeatColumns="4" runat="server">
+                    <asp:DataList ID="DataList1" CellSpacing="20" Width="100%" CellPadding="5" RepeatDirection="Horizontal" RepeatColumns="4" runat="server" OnItemCommand="DataList1_ItemCommand">
                         <ItemTemplate>
                             <table border="0">
                                 <tr>
@@ -61,7 +61,7 @@
                                 <tr>
                                     <td>
                                         <asp:Label ID="lblFile_Path" Visible="false" runat="server" Text='<%# Bind("File_Path") %>'></asp:Label>
-                                        <span><%# Eval("FileName") %></span>
+                                        <asp:LinkButton ID="btnView" runat="server" CommandName="myView" Text='<%# Bind("FileName") %>'></asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
@@ -69,7 +69,7 @@
                                         <asp:Label ID="lblDate_Modified" ForeColor="#666666" runat="server" Text='<%# Bind("Date_Modified") %>'></asp:Label>
                                     </td>
                                 </tr>
-                             
+
                             </table>
                         </ItemTemplate>
                     </asp:DataList>
