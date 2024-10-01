@@ -97,7 +97,7 @@ namespace KMDIweb.KMDIweb.Production.SD
                             da.SelectCommand = sqlcmd;
                             da.Fill(ds, "kmdi_engr_operations_tb");
                             ddlK_No.DataSource = ds.Tables[0];
-                            ddlK_No.DataTextField = "kmdi_no";
+                            ddlK_No.DataTextField = "kmdi_no_text";
                             ddlK_No.DataValueField = "kmdi_no";
                             ddlK_No.DataBind();
                             ddlK_No.Text = Request.QueryString["lblJKNo"].ToString();
