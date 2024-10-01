@@ -306,9 +306,9 @@ namespace KMDIweb.KMDIweb.AE.AF
 
 
                 string id = ((Label)cell.FindControl("lblId")).Text;
-                string folder_path = "~/KMDIweb/Uploads/AF_Attachment/" + id;
+                string folder_path = "~/KMDI_FILES/WMS/AF_Attachment/" + id;
                 File_Upload_BusinessLogic x = new File_Upload_BusinessLogic();
-                ((GridView)cell.FindControl("gvFiles")).DataSource = x.Files_In_Model(folder_path);
+                ((GridView)cell.FindControl("gvFiles")).DataSource = x.Files_In_Model_Virtual(folder_path);
                 ((GridView)cell.FindControl("gvFiles")).DataBind();
             }
         }

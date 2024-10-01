@@ -26,7 +26,7 @@ namespace KMDIweb.KMDIweb.AE.AF
         {
             get
             {
-                return "~/KMDIweb/Uploads/AF_Attachment/" + Request.QueryString["lblId"].ToString();
+                return "~/KMDI_FILES/WMS/AF_Attachment/" + Request.QueryString["lblId"].ToString();
             }
         }
         private string Sqlconstr
@@ -82,7 +82,7 @@ namespace KMDIweb.KMDIweb.AE.AF
             {
                 List<FileModel> model = new List<FileModel>();
                 File_Upload_BusinessLogic x = new File_Upload_BusinessLogic();
-                model = x.Files_In_Model(folder_path);
+                model = x.Files_In_Model_Virtual(folder_path);
                 DataList1.DataSource = model;
                 DataList1.DataBind();
             }
