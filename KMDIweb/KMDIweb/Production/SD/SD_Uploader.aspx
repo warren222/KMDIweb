@@ -90,8 +90,8 @@
                                 <tr> 
                                     <td>
                                         <asp:Label ID="lblFile_Path" Visible="false" runat="server" Text='<%# Bind("File_Path") %>'></asp:Label>
-                                        <span><%# Eval("FileName") %></span>
-                                        <asp:LinkButton ID="btnView" ForeColor="Black" Visible="false" runat="server" CommandName="myView" Text='<%# Bind("FileName") %>'></asp:LinkButton>
+                                        <span><%# Eval("FileName") %></span><br />
+                                        <asp:LinkButton ID="btnView" ForeColor="Black" Visible="true" runat="server" CommandName="myView" Text="View Image"></asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
