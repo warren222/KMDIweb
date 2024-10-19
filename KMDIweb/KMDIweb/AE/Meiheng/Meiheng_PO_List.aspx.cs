@@ -26,6 +26,7 @@ namespace KMDIweb.KMDIweb.AE.Meiheng
                             ddlAE.Text = fullname;
                             ddlAE.Enabled = false;
                         }
+                        GetData();
                     }
                 }
                 else
@@ -99,6 +100,7 @@ namespace KMDIweb.KMDIweb.AE.Meiheng
                         sqlcmd.CommandText = "Meiheng_Glass_PO_List_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command","");
+                        sqlcmd.Parameters.AddWithValue("@Find", tboxFind.Text);
                         sqlcmd.Parameters.AddWithValue("@Fullname", ddlAE.SelectedValue.ToString());
                         DataTable tb = new DataTable();
                         tb.Clear();
@@ -109,6 +111,8 @@ namespace KMDIweb.KMDIweb.AE.Meiheng
                             gv.DataSource = tb;
                             gv.DataBind();
                         }
+                        string row_count = tb.Rows.Count.ToString("N0");
+                        lblResult.Text = row_count;
                     }
                 }
             }

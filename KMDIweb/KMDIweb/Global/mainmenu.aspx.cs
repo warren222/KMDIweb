@@ -156,6 +156,14 @@ namespace KMDIweb.KMDIapp
                 Panel4.Visible = false;
             }
 
+            if (usercode=="AE" || usercode =="Engineering" || usercode == "Programmer")
+            {
+                pnlMeiheng.Visible = true;
+            }
+            else
+            {
+                pnlMeiheng.Visible = false;
+            }
             //if ((usercode == "AE") ||
             //    (usercode == "Accounting") ||
             //    ((fullname == "Leo Candelaria" && usercode == "Operations")) ||

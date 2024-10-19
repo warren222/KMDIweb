@@ -1001,6 +1001,7 @@
     <Content Include="KMDIweb\Global\registerSign.aspx" />
     <Content Include="KMDIweb\Global\scripts\sign.js" />
     <Content Include="KMDIweb\Global\SignGenerator.aspx" />
+    <Content Include="KMDIweb\Images\Clear-Glass.jpg" />
     <Content Include="KMDIweb\Images\collection.jpg" />
     <Content Include="KMDIweb\Images\dr.jpg" />
     <Content Include="KMDIweb\Images\installation.jpg" />
