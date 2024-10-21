@@ -166,7 +166,7 @@ namespace KMDIweb.KMDIapp
             {
                 pnlMeiheng.Visible = false;
             }
-            pnlMeiheng.Visible = false;
+       
             //if ((usercode == "AE") ||
             //    (usercode == "Accounting") ||
             //    ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
