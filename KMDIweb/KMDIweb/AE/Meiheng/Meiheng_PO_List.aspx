@@ -86,7 +86,7 @@
                     <PagerSettings PageButtonCount="10" Position="TopAndBottom" />
                     <PagerStyle CssClass="GridPager" BackColor="White" ForeColor="Black" HorizontalAlign="Left" />
                     <EmptyDataTemplate>
-                        <p style="font-size: x-large" class="text-danger">0 result found!</p>
+                        <p style="font-size: x-large" class="text-danger">Empty Table</p>
                     </EmptyDataTemplate>
                 </asp:GridView>
                 <br />

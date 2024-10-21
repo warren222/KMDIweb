@@ -156,7 +156,7 @@ namespace KMDIweb.KMDIapp
                 Panel4.Visible = false;
             }
 
-            if (usercode=="AE" || usercode =="Engineering" || usercode == "Programmer")
+            if (usercode=="AE" || usercode == "Engineer" || usercode == "Programmer")
             {
                 pnlMeiheng.Visible = true;
             }
