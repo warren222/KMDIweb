@@ -219,6 +219,19 @@
                                 </div>
                             </div>
                         </asp:Panel>
+
+                           <asp:Panel ID="pnlMeiheng" Visible="true" runat="server" Width="250px">
+                            <div class="thumbnail">
+                                <asp:Image ID="Image12" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/Clear-Glass.jpg" runat="server" AlternateText="Project Photos" />
+                                <br />
+                                <div>
+                                    <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
+                                        <span>Meiheng Glass Order</span></strong><br />
+                                    <small>P.O</small>
+                                    <asp:LinkButton ID="LinkButton13" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton13_Click">ENTER</asp:LinkButton>
+                                </div>
+                            </div>
+                        </asp:Panel>
                     </div>
                 </div>
                 <div class="col-xs-1">

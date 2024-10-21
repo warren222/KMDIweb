@@ -156,6 +156,14 @@ namespace KMDIweb.KMDIapp
                 Panel4.Visible = false;
             }
 
+            if (usercode=="AE" || usercode == "Engineer" || usercode == "Programmer")
+            {
+                pnlMeiheng.Visible = true;
+            }
+            else
+            {
+                pnlMeiheng.Visible = false;
+            }
             //if ((usercode == "AE") ||
             //    (usercode == "Accounting") ||
             //    ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
@@ -218,6 +226,10 @@ namespace KMDIweb.KMDIapp
         protected void LinkButton12_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/KMDIweb/AE/ProjectImages/Project_Photos.aspx");
+        }
+        protected void LinkButton13_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIweb/AE/Meiheng/Meiheng_PO_List.aspx");
         }
     }
 }
