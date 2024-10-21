@@ -26,6 +26,10 @@ namespace KMDIweb.KMDIweb.AE.Meiheng
                             ddlAE.Text = fullname;
                             ddlAE.Enabled = false;
                         }
+                        else
+                        {
+                            ddlAE.Enabled = true;
+                        }
                         GetData();
                     }
                 }
