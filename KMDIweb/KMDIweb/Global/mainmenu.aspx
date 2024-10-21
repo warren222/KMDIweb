@@ -226,7 +226,7 @@
                                 <br />
                                 <div>
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
-                                        <span>Meiheng Glass Order</span></strong><br />
+                                        <span>Imported Glass Order</span></strong><br />
                                     <small>P.O</small>
                                     <asp:LinkButton ID="LinkButton13" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton13_Click">ENTER</asp:LinkButton>
                                 </div>

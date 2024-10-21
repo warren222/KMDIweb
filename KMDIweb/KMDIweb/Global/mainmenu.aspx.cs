@@ -156,7 +156,9 @@ namespace KMDIweb.KMDIapp
                 Panel4.Visible = false;
             }
 
-            if (usercode=="AE" || usercode == "Engineer" || usercode == "Programmer")
+            if (usercode=="AE" || usercode == "Engineer" ||
+                usercode == "Programmer" || usercode == "Engineer Manager" ||
+                usercode == "Installation Staff")
             {
                 pnlMeiheng.Visible = true;
             }
@@ -164,6 +166,7 @@ namespace KMDIweb.KMDIapp
             {
                 pnlMeiheng.Visible = false;
             }
+            pnlMeiheng.Visible = false;
             //if ((usercode == "AE") ||
             //    (usercode == "Accounting") ||
             //    ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
