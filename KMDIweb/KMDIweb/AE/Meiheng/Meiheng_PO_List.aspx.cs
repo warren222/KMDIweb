@@ -20,7 +20,8 @@ namespace KMDIweb.KMDIweb.AE.Meiheng
                 {
                     if (!IsPostBack)
                     {
-                        loadae();
+                        LoadAE();
+                        LoadSupplier();
                         if (user_code == "AE" || user_code == "Engineer")
                         {
                             ddlAE.Text = fullname;
@@ -68,7 +69,7 @@ namespace KMDIweb.KMDIweb.AE.Meiheng
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
-        private void loadae()
+        private void LoadAE()
         {
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
@@ -92,6 +93,30 @@ namespace KMDIweb.KMDIweb.AE.Meiheng
                 }
             }
         }
+        private void LoadSupplier()
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Meiheng_Glass_PO_List_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Supplier_List");
+                        ddlSupplier.DataSource = sqlcmd.ExecuteReader();
+                        ddlSupplier.DataTextField = "supplier";
+                        ddlSupplier.DataValueField = "supplier";
+                        ddlSupplier.DataBind();
+                    }
+                    catch (Exception e)
+                    {
+                        errorrmessage(e.Message);
+                    }
+                }
+            }
+        }
         private void GetData()
         {
             try
@@ -106,6 +131,7 @@ namespace KMDIweb.KMDIweb.AE.Meiheng
                         sqlcmd.Parameters.AddWithValue("@Command","");
                         sqlcmd.Parameters.AddWithValue("@Find", tboxFind.Text);
                         sqlcmd.Parameters.AddWithValue("@Fullname", ddlAE.SelectedValue.ToString());
+                        sqlcmd.Parameters.AddWithValue("@Supplier", ddlSupplier.SelectedValue.ToString());
                         DataTable tb = new DataTable();
                         tb.Clear();
                         using (SqlDataAdapter da = new SqlDataAdapter())

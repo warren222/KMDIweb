@@ -3,7 +3,7 @@
 
 <asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Meiheng Glass | P.O</title>
+    <title>Imported Glass | P.O</title>
     <style>
         .nopm {
             margin: 0;
@@ -17,8 +17,10 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div style="background-color: aliceblue">
         <div class="">
-            <div class="well">
-                <h3>Meiheng Glass P.O</h3>
+            <div class="well" style="background-color: #303030; border-bottom: solid 5px #ff006e; padding-left: 10px; color: white; font-family: Calibri;">
+                <div class="container">
+                    <h3>Imported Glass P.O</h3>
+                </div>
             </div>
             <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                 <ContentTemplate>
@@ -27,12 +29,15 @@
             </asp:UpdatePanel>
             <div class="well">
                 <div class="row">
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3">
+                        <span>Glass Supplier</span>
+                        <asp:DropDownList runat="server" ID="ddlSupplier" Style="border-radius: 0;" CssClass="form-control"></asp:DropDownList>
+                    </div>
+                    <div class="col-sm-3">
                         <span>AE / Engr.</span>
                         <asp:DropDownList runat="server" ID="ddlAE" Style="border-radius: 0;" CssClass="form-control"></asp:DropDownList>
                     </div>
-
                     <div class="col-sm-4">
                         <span>Find</span>
                         <div class="input-group">
@@ -42,9 +47,11 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-sm-1"></div>
                 </div>
             </div>
-            <div style="overflow-x:auto">
+            <div style="overflow-x: auto">
                 <asp:GridView ID="gv" AutoGenerateColumns="False" AllowPaging="True" PageSize="25" OnPageIndexChanging="gv_PageIndexChanging"
                     CssClass="table" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Horizontal" ForeColor="Black">
                     <Columns>
@@ -62,7 +69,8 @@
                                     <span><%# Eval("kmdi_no") %></span><br />
                                     <span><%# Eval("G_No") %></span><br />
                                     <span><%# Eval("width").ToString() +"w x "+ Eval("height").ToString()+"h" %></span><br />
-                                    <span><%# Eval("GLASS_SPECS") %></span>
+                                    <span><%# Eval("GLASS_SPECS") %></span><br />
+                                    <span class="text-info"><%# Eval("Supplier") %></span>
                                 </div>
                             </ItemTemplate>
                         </asp:TemplateField>
@@ -70,7 +78,15 @@
                             <ItemTemplate>
                                 <div style="min-width: 300px;">
                                     <span><%# Eval("Project_Name") %></span><br />
-                                    <span style="font-size:smaller;"><%# Eval("Sub_JO") %></span>
+                                    <span style="font-size: small;"><%# Eval("Sub_JO") %></span>
+                                </div>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="AE/Engr.">
+                            <ItemTemplate>
+                                <div style="min-width: 300px; white-space: nowrap">
+                                    <span style="font-size: small"><%# Eval("ACCT_EXEC_INCHARGE") %></span><br />
+                                    <span style="font-size: small"><%# Eval("PROJECT_ENGR_INCHARGE") %></span>
                                 </div>
                             </ItemTemplate>
                         </asp:TemplateField>
@@ -89,8 +105,12 @@
                         <p style="font-size: x-large" class="text-danger">Empty Table</p>
                     </EmptyDataTemplate>
                 </asp:GridView>
+              
+                <div class="container">
+                    Results found:
+                <asp:Label runat="server" ID="lblResult"></asp:Label>
+                </div>
                 <br />
-                Results found: <asp:Label runat="server" ID="lblResult"></asp:Label>
             </div>
         </div>
     </div>
