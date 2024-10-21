@@ -43,7 +43,7 @@
                         <div class="input-group">
                             <asp:TextBox runat="server" ID="tboxFind" CssClass="form-control"></asp:TextBox>
                             <div class="input-group-btn">
-                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-primary" OnClick="LinkButton1_Click">GO</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-danger" Style="background-color:#ff006e;border-color:#ff006e" OnClick="LinkButton1_Click">GO</asp:LinkButton>
                             </div>
                         </div>
                     </div>

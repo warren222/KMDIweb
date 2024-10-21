@@ -42,6 +42,11 @@
         .myopacity {
             opacity: 0.5;
         }
+
+        .btnstyle {
+            background-color: #ff006e;
+            border-color: #ff006e
+        }
     </style>
 </head>
 <body>
@@ -79,7 +84,7 @@
                                     <span>Frame Schedule</span></strong>
                                 <br />
                                 <small>Frame fabrication monitoring</small>
-                                <asp:LinkButton ID="LinkButton4" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton4_Click">ENTER</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton4" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton4_Click">ENTER</asp:LinkButton>
                             </div>
                         </asp:Panel>
 
@@ -91,7 +96,7 @@
                                     <span>Screen Schedule</span></strong>
                                 <br />
                                 <small>screen fabrication monitoring</small>
-                                <asp:LinkButton ID="LinkButton2" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton2_Click">ENTER</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton2" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton2_Click">ENTER</asp:LinkButton>
                             </div>
                         </asp:Panel>
 
@@ -103,7 +108,7 @@
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                         <span>DR Reports</span></strong><br />
                                     <small>Uploaded DR Scanned fileS</small>
-                                    <asp:LinkButton ID="LinkButton1" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton1_Click">ENTER</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton1" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton1_Click">ENTER</asp:LinkButton>
 
                                 </div>
                             </div>
@@ -117,7 +122,7 @@
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                         <span>Collection Ledger</span></strong><br />
                                     <small>collection ledger</small>
-                                    <asp:LinkButton ID="LinkButton5" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton5_Click">ENTER</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton5" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton5_Click">ENTER</asp:LinkButton>
 
                                 </div>
                             </div>
@@ -132,7 +137,7 @@
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                         <span>Installation</span></strong><br />
                                     <small>installation schedule</small>
-                                    <asp:LinkButton ID="LinkButton6" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton6_Click">ENTER</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton6" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton6_Click">ENTER</asp:LinkButton>
 
                                 </div>
                             </div>
@@ -146,7 +151,7 @@
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                         <span>DHP</span></strong><br />
                                     <small>Daily Health Profile</small>
-                                    <asp:LinkButton ID="LinkButton7" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" PostBackUrl="http://dhp.kennethandmock.com">ENTER</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton7" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" PostBackUrl="http://dhp.kennethandmock.com">ENTER</asp:LinkButton>
 
                                 </div>
                             </div>
@@ -160,7 +165,7 @@
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                         <span>Foiling</span></strong><br />
                                     <small>Foiling Calendar</small>
-                                    <asp:LinkButton ID="LinkButton8" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" PostBackUrl="~/KMDIweb/FoilingSchedule/FoilingCalendar.aspx">ENTER</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton8" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" PostBackUrl="~/KMDIweb/FoilingSchedule/FoilingCalendar.aspx">ENTER</asp:LinkButton>
 
                                 </div>
                             </div>
@@ -174,7 +179,7 @@
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                         <span>AF</span></strong><br />
                                     <small>AF Request</small>
-                                    <asp:LinkButton ID="LinkButton9" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton9_Click">ENTER</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton9" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton9_Click">ENTER</asp:LinkButton>
 
                                 </div>
                             </div>
@@ -189,7 +194,7 @@
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                         <span>Accg Clearance</span></strong><br />
                                     <small>Requisition</small>
-                                    <asp:LinkButton ID="LinkButton10" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton10_Click">ENTER</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton10" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton10_Click">ENTER</asp:LinkButton>
                                 </div>
                             </div>
                         </asp:Panel>
@@ -202,7 +207,7 @@
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                         <span>Glass P.O.</span></strong><br />
                                     <small>Purchase Order</small>
-                                    <asp:LinkButton ID="LinkButton11" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton11_Click">ENTER</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton11" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton11_Click">ENTER</asp:LinkButton>
                                 </div>
                             </div>
                         </asp:Panel>
@@ -215,12 +220,12 @@
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                         <span>Photos</span></strong><br />
                                     <small>Poject Photos</small>
-                                    <asp:LinkButton ID="LinkButton12" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton12_Click">ENTER</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton12" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton12_Click">ENTER</asp:LinkButton>
                                 </div>
                             </div>
                         </asp:Panel>
 
-                           <asp:Panel ID="pnlMeiheng" Visible="true" runat="server" Width="250px">
+                        <asp:Panel ID="pnlMeiheng" Visible="true" runat="server" Width="250px">
                             <div class="thumbnail">
                                 <asp:Image ID="Image12" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/Clear-Glass.jpg" runat="server" AlternateText="Project Photos" />
                                 <br />
@@ -228,7 +233,7 @@
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                         <span>Imported Glass Order</span></strong><br />
                                     <small>P.O</small>
-                                    <asp:LinkButton ID="LinkButton13" Font-Size="Large" runat="server" CssClass="form-control btn btn-primary" OnClick="LinkButton13_Click">ENTER</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton13" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton13_Click">ENTER</asp:LinkButton>
                                 </div>
                             </div>
                         </asp:Panel>
