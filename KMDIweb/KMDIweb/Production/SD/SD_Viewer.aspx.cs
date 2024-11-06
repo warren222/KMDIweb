@@ -85,7 +85,7 @@ namespace KMDIweb.KMDIweb.Production.SD
                 {
                     sqlcon.Open();
                     DataSet ds = new DataSet();
-                    ds.Clear();     
+                    ds.Clear();
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcmd.CommandText = "Flow_SD_Stp";
@@ -114,7 +114,7 @@ namespace KMDIweb.KMDIweb.Production.SD
         {
             try
             {
-     
+
                 List<FileModel> model = new List<FileModel>();
                 File_Upload_BusinessLogic x = new File_Upload_BusinessLogic();
                 model = x.Files_In_Model_Virtual(folder_path);
@@ -122,7 +122,7 @@ namespace KMDIweb.KMDIweb.Production.SD
                 FileModel fm = new FileModel();
                 fm = model.Where(m => m.FileName.ToString().Replace(m.FileExtension.ToString(), "") == ddlK_No.SelectedValue.ToString()).FirstOrDefault();
 
-              
+
                 List<FileModel> modelDS = new List<FileModel>();
                 modelDS = x.Files_In_Model_Virtual(folder_path + "/" + ddlK_No.SelectedValue.ToString());
                 if (fm == null)
@@ -193,7 +193,14 @@ namespace KMDIweb.KMDIweb.Production.SD
             if (e.CommandName == "myView")
             {
                 int index = e.Item.ItemIndex;
-                Response.Redirect(((Label)DataList1.Items[index].FindControl("lblFile_Path")).Text.ToString());
+                string path = ((Label)DataList1.Items[index].FindControl("lblFile_Path")).Text.ToString();
+              
+                string url = HttpContext.Current.Request.Url.ToString();
+                string rawurl = HttpContext.Current.Request.RawUrl.ToString();
+                string serverurl = url.Replace(rawurl, "");
+                string path_reworked = path.Replace("~", "").Replace(@"\", "/");
+                string imagelink = serverurl + path_reworked;
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "openModal", "window.open('" + imagelink + "' ,'_blank');", true);
             }
         }
     }
