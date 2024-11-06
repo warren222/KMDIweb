@@ -56,7 +56,7 @@
                 <br />
                 <br />
                 <div style="overflow-x: auto">
-                    <asp:DataList ID="DataList1" CCellSpacing="20" Width="100%" CellPadding="5" RepeatDirection="Horizontal" RepeatColumns="4" runat="server">
+                    <asp:DataList ID="DataList1" CCellSpacing="20" Width="100%" CellPadding="5" RepeatDirection="Horizontal" RepeatColumns="4" runat="server" OnItemCommand="DataList1_ItemCommand">
                         <ItemTemplate>
                           <table border="0">
                                 <tr>
@@ -71,11 +71,11 @@
                                         </asp:HyperLink>
                                     </td>
                                 </tr>
-                                <tr> 
+                              <tr> 
                                     <td>
                                         <asp:Label ID="lblFile_Path" Visible="false" runat="server" Text='<%# Bind("File_Path") %>'></asp:Label>
-                                        <span><%# Eval("FileName") %></span>
-                                        <asp:LinkButton ID="btnView" ForeColor="Black" Visible="false" runat="server" CommandName="myView" Text='<%# Bind("FileName") %>'></asp:LinkButton>
+                                        <span><%# Eval("FileName") %></span><br />
+                                        <asp:LinkButton ID="btnView" Visible="true" runat="server" CommandName="myView" Text="Open in new tab"></asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
