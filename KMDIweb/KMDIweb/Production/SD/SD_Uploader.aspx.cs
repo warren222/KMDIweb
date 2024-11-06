@@ -216,7 +216,14 @@ namespace KMDIweb.KMDIweb.Production.SD
             else if (e.CommandName == "myView")
             {
                 int index = e.Item.ItemIndex;
-                Response.Redirect(((Label)DataList1.Items[index].FindControl("lblFile_Path")).Text.ToString());
+                string path = ((Label)DataList1.Items[index].FindControl("lblFile_Path")).Text.ToString();
+
+                string url = HttpContext.Current.Request.Url.ToString();
+                string rawurl = HttpContext.Current.Request.RawUrl.ToString();
+                string serverurl = url.Replace(rawurl, "");
+                string path_reworked = path.Replace("~", "").Replace(@"\", "/");
+                string imagelink = serverurl + path_reworked;
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "openModal", "window.open('" + imagelink + "' ,'_blank');", true);
             }
         }
         private void ExecuteDelete(string filepath)
