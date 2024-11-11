@@ -131,10 +131,28 @@ namespace KMDIweb.KMDIweb.Production.SD
                 }
                 else
                 {
-                    modelDS.Add(fm);
+                    FileModel n = new FileModel();
+                    n = modelDS.Where(m => m.FileName == fm.FileName).FirstOrDefault();
+                    if (n == null)
+                    {
+
+                    }
+                    else
+                    {
+                        if (fm.File_Path == n.File_Path)
+                        {
+
+                        }
+                        else
+                        {
+                            modelDS.Add(fm);
+                        }
+
+                    }
+
                 }
 
-                DataList1.DataSource = modelDS;
+                DataList1.DataSource = modelDS.Distinct().ToList();
                 DataList1.DataBind();
             }
             catch (Exception ex)
