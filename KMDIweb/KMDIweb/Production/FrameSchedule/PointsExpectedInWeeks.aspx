@@ -13,18 +13,41 @@
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
 
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <span>Product Classification</span>
+                        <div class="input-group">
+                            <asp:DropDownList ID="ddlProduct_Classification" CssClass="form-control" runat="server">
+                                <asp:ListItem Text="All" Value="All"></asp:ListItem>
+                                <asp:ListItem Text="G r e e n l i n e" Value="Greenline"></asp:ListItem>
+                                <asp:ListItem Text="A l u t e k" Value="Alutek"></asp:ListItem>
+                            </asp:DropDownList>
+                            <div class="input-group-btn">
+                                <asp:LinkButton ID="btnSearch" CssClass="btn btn-warning" Text="GO" ForeColor="Black" runat="server" OnClick="btnSearch_Click"></asp:LinkButton>
+                            </div>
+                        </div>
 
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <br />
                 <div style="overflow-x: auto">
                     <table border="1" style="width: 100%; font-family: Calibri;">
                         <tr>
                             <td style="white-space: nowrap">
                                 <span style="font-size: x-large">Total project points</span>
                                 <span class="text-success">(Active)</span>
+                                <span class="pull-right">
+                                    <span>
+                                        <asp:Label ID="lbl6" CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server"></asp:Label></span>
+                                </span>
                             </td>
                             <td class="text-right">
                                 <asp:LinkButton ID="linkTotalproject" Font-Size="XX-Large" runat="server" OnClick="linkTotalproject_Click">LinkButton</asp:LinkButton>
                                 <asp:Panel ID="pnlTotalproject" Visible="false" BackColor="Yellow" runat="server" Height="15px"></asp:Panel>
                             </td>
+
                         </tr>
                         <tr>
                             <td colspan="2" class="text-center">
@@ -35,6 +58,10 @@
                             <td style="white-space: nowrap">
                                 <span style="font-size: x-large">New projects</span>
                                 <span class="text-info">(No request for shop drawing)</span>
+                                <span class="pull-right">
+                                    <span>
+                                        <asp:Label ID="lbl1" CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server"></asp:Label></span>
+                                </span>
                             </td>
                             <td class="text-right">
                                 <asp:LinkButton ID="linkNotrequested" Font-Size="XX-Large" runat="server" OnClick="linkNotrequested_Click">LinkButton</asp:LinkButton>
@@ -45,6 +72,10 @@
                             <td style="white-space: nowrap">
                                 <span style="font-size: x-large">Expected points to receive</span>
                                 <span class="text-info">(SD in progress)</span>
+                                <span class="pull-right">
+                                    <span>
+                                        <asp:Label ID="lbl2" CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server"></asp:Label></span>
+                                </span>
                             </td>
                             <td class="text-right">
                                 <asp:LinkButton ID="linkRequested" Font-Size="XX-Large" runat="server" OnClick="linkRequested_Click">LinkButton</asp:LinkButton>
@@ -55,6 +86,10 @@
                             <td style="white-space: nowrap">
                                 <span style="font-size: x-large">SD at hand</span>
                                 <span class="text-info">(SD received only)</span>
+                                <span class="pull-right">
+                                    <span>
+                                        <asp:Label ID="lbl7" CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server" Text="All"></asp:Label></span>
+                                </span>
                             </td>
                             <td class="text-right">
                                 <asp:LinkButton ID="linkSDathand" Font-Size="XX-Large" runat="server" OnClick="linkSDathand_Click">LinkButton</asp:LinkButton>
@@ -65,6 +100,10 @@
                             <td style="white-space: nowrap">
                                 <span style="font-size: x-large">Ongoing fabrication</span>
                                 <span class="text-info">(Current production load)</span>
+                                <span class="pull-right">
+                                    <span>
+                                        <asp:Label ID="lbl3"  CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server"></asp:Label></span>
+                                </span>
                             </td>
                             <td class="text-right">
                                 <asp:LinkButton ID="linkOngoing" Font-Size="XX-Large" runat="server" OnClick="linkOngoing_Click">LinkButton</asp:LinkButton>
@@ -75,6 +114,10 @@
                             <td style="white-space: nowrap">
                                 <span style="font-size: x-large">Fabricated</span>
                                 <span class="text-info">(Fabricated points and not delivered)</span>
+                                <span class="pull-right">
+                                    <span>
+                                        <asp:Label ID="lbl4"  CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server"></asp:Label></span>
+                                </span>
                             </td>
                             <td class="text-right">
                                 <asp:LinkButton ID="linkFabricated" Font-Size="XX-Large" runat="server" OnClick="linkFabricated_Click">LinkButton</asp:LinkButton>
@@ -85,6 +128,10 @@
                             <td style="white-space: nowrap">
                                 <span style="font-size: x-large">Delivered</span>
                                 <span class="text-info">(Delivered points)</span>
+                                <span class="pull-right">
+                                    <span>
+                                        <asp:Label ID="lbl5"  CssClass="label label-warning" Font-Size="Small" ForeColor="Black"  runat="server"></asp:Label></span>
+                                </span>
                             </td>
                             <td class="text-right">
                                 <asp:LinkButton ID="linkDelivered" Font-Size="XX-Large" runat="server" OnClick="linkDelivered_Click">LinkButton</asp:LinkButton>
