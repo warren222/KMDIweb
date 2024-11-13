@@ -73,7 +73,7 @@
                                 </tr>
                               <tr> 
                                     <td>
-                                        <asp:Label ID="lblFile_Path" Visible="true" runat="server" Text='<%# Bind("File_Path") %>'></asp:Label>
+                                        <asp:Label ID="lblFile_Path" Visible="false" runat="server" Text='<%# Bind("File_Path") %>'></asp:Label>
                                         <span><%# Eval("FileName") %></span><br />
                                         <asp:LinkButton ID="btnView" Visible="true" runat="server" CommandName="myView" Text="Open in new tab"></asp:LinkButton>
                                     </td>

@@ -84,10 +84,10 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     sqlcon.Open();
 
                     sqlcmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    sqlcmd.CommandText = "SD_TO_RECEIVE_STP";
+                    sqlcmd.CommandText = "SD_TO_RECEIVE_ALU_STP";
 
                     sqlcmd.Parameters.AddWithValue("@Command", command);
-
+                    sqlcmd.Parameters.AddWithValue("@Product_Classification", ddlProduct_Classification.SelectedValue.ToString());
                     using (SqlDataAdapter da = new SqlDataAdapter())
                     {
                         da.SelectCommand = sqlcmd;
@@ -112,10 +112,9 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     sqlcon.Open();
 
                     sqlcmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    sqlcmd.CommandText = "SD_TO_RECEIVE_STP";
-
+                    sqlcmd.CommandText = "SD_TO_RECEIVE_ALU_STP";
                     sqlcmd.Parameters.AddWithValue("@Command", "tableData");
-
+                    sqlcmd.Parameters.AddWithValue("@Product_Classification", ddlProduct_Classification.SelectedValue.ToString());
                     using (SqlDataReader rd = sqlcmd.ExecuteReader())
                     {
                         while (rd.Read())
@@ -127,6 +126,12 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                             linkTotalproject.Text = rd[4].ToString();
                             linkDelivered.Text = rd[5].ToString();
                             linkFabricated.Text = rd[6].ToString();
+                            lbl1.Text = ddlProduct_Classification.SelectedItem.ToString();
+                            lbl2.Text = ddlProduct_Classification.SelectedItem.ToString();
+                            lbl3.Text = ddlProduct_Classification.SelectedItem.ToString();
+                            lbl4.Text = ddlProduct_Classification.SelectedItem.ToString();
+                            lbl5.Text = ddlProduct_Classification.SelectedItem.ToString();
+                            lbl6.Text = ddlProduct_Classification.SelectedItem.ToString();
                         }
                     }
                 }
@@ -169,6 +174,11 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         {
             gridData("Total_Contract_Points");
             highlight(pnlTotalproject);
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            tableData();
         }
     }
 }
