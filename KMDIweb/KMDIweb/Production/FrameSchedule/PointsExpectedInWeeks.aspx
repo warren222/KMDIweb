@@ -18,7 +18,7 @@
                     <div class="col-sm-4">
                         <span>Product Classification</span>
                         <div class="input-group">
-                            <asp:DropDownList ID="ddlProduct_Classification" CssClass="form-control" runat="server">
+                            <asp:DropDownList ID="ddlProduct_Classification" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlProduct_Classification_SelectedIndexChanged">
                                 <asp:ListItem Text="All" Value="All"></asp:ListItem>
                                 <asp:ListItem Text="G r e e n l i n e" Value="Greenline"></asp:ListItem>
                                 <asp:ListItem Text="A l u t e k" Value="Alutek"></asp:ListItem>
@@ -88,7 +88,7 @@
                                 <span class="text-info">(SD received only)</span>
                                 <span class="pull-right">
                                     <span>
-                                        <asp:Label ID="lbl7" CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server" Text="All"></asp:Label></span>
+                                        <asp:Label ID="lbl7" CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server" Text="(Greenline/Alutek)"></asp:Label></span>
                                 </span>
                             </td>
                             <td class="text-right">

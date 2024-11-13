@@ -180,5 +180,10 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         {
             tableData();
         }
+
+        protected void ddlProduct_Classification_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tableData();
+        }
     }
 }
