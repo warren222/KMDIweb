@@ -237,6 +237,19 @@
                                 </div>
                             </div>
                         </asp:Panel>
+
+                          <asp:Panel ID="pnlGlassPONotif" Visible="true" runat="server" Width="250px">
+                            <div class="thumbnail">
+                                <asp:Image ID="Image13" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/Clear-Glass.jpg" runat="server" AlternateText="Project Photos" />
+                                <br />
+                                <div>
+                                    <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
+                                        <span>Glass Notification</span></strong><br />
+                                    <small>P.O Notification</small>
+                                    <asp:LinkButton ID="LinkButton14" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton14_Click">ENTER</asp:LinkButton>
+                                </div>
+                            </div>
+                        </asp:Panel>
                     </div>
                 </div>
                 <div class="col-xs-1">
