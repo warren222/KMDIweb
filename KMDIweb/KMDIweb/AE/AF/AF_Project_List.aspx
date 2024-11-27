@@ -80,7 +80,6 @@
                 </div>
                 <div class="col-sm-2 nomargin"></div>
             </div>
-
         </div>
     </div>
 </asp:Content>

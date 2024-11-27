@@ -67,5 +67,62 @@ namespace KMDIweb.KMDIweb.GlassNotification
         {
             Get_PO();
         }
+
+        protected void gvFind_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvFind.PageIndex = e.NewPageIndex;
+            Get_PO();
+        }
+
+        protected void gvFind_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "view_po")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvFind.Rows[rowindex];
+                row.RowState = DataControlRowState.Selected;
+                string po = ((Label)row.FindControl("lblPO")).Text;
+                string jono = ((Label)row.FindControl("lblJO")).Text;
+                Get_PO_Items(po,jono);
+            }
+        }
+        private void Get_PO_Items(string po, string jono)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Glass_PO_Notification_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Get_PO_Items");
+                        sqlcmd.Parameters.AddWithValue("@PO", po);
+                        sqlcmd.Parameters.AddWithValue("@Job_Order_No", jono);
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(tb);
+                            gvPO_Items.DataSource = tb;
+                            gvPO_Items.DataBind();
+                        }
+                        string row_count = tb.Rows.Count.ToString("N0");
+                        //lblResult.Text = row_count;
+                    }
+                    catch (Exception ex)
+                    {
+                        errorrmessage(ex.ToString());
+                    }
+                }
+            }
+        }
+
+        protected void btnProceed_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
