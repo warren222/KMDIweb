@@ -8,6 +8,10 @@
             margin: 0;
             padding: 0;
         }
+
+        .tb {
+            white-space: nowrap;
+        }
     </style>
 </asp:Content>
 
@@ -97,7 +101,7 @@
                                 PO Items
                             </div>
                             <div class="panel-body">
-                                <asp:GridView ID="gvPO_Items" runat="server" Width="100%" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4">
+                                <asp:GridView ID="gvPO_Items" runat="server" Width="100%" CssClass="tb" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4">
                                     <Columns>
                                         <asp:TemplateField>
                                             <ItemTemplate>
@@ -116,7 +120,9 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Glass Specs">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblGlass_Specs" runat="server" Text='<%# Bind("Glass_Specs") %>'></asp:Label>
+                                                <div style="white-space: normal">
+                                                    <asp:Label ID="lblGlass_Specs" runat="server" Text='<%# Bind("Glass_Specs") %>'></asp:Label>
+                                                </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Width">
