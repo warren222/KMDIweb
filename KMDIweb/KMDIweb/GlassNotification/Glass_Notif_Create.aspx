@@ -67,6 +67,7 @@
                                         <asp:TemplateField HeaderText="PROJECT">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblProject_Name" runat="server" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label>
+                                                <asp:Label ID="lblAddress" runat="server" Visible="false" Text='<%# Bind("Full_Address") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="PO DATE">

@@ -86,6 +86,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 ViewState["PO"] = po;
                 ViewState["SUPPLIER"] = ((Label)row.FindControl("lblSupplier")).Text;
                 ViewState["PROJECT_NAME"] = ((Label)row.FindControl("lblProject_Name")).Text;
+                ViewState["ADDRESS"] = ((Label)row.FindControl("lblAddress")).Text;
                 Get_PO_Items(po, jono);
             }
         }
@@ -174,7 +175,22 @@ namespace KMDIweb.KMDIweb.GlassNotification
 
         protected void btnProceed_Click1(object sender, EventArgs e)
         {
-            InsertSelectedItems(Add_Notification());
+            try
+            {
+                InsertSelectedItems(Add_Notification());
+            }
+            catch(Exception ex)
+            {
+                if (ex == null)
+                {
+                    Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_List.aspx");
+                }
+                else
+                {
+                    errorrmessage(ex.ToString());
+                }
+            }
+           
         }
 
         private string Add_Notification()
@@ -193,7 +209,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                         sqlcmd.Parameters.AddWithValue("@PO", ViewState["PO"].ToString());
                         sqlcmd.Parameters.AddWithValue("@Supplier", ViewState["SUPPLIER"].ToString());
                         sqlcmd.Parameters.AddWithValue("@Project_Name", ViewState["PROJECT_NAME"].ToString());
-
+                        sqlcmd.Parameters.AddWithValue("@Full_Address", ViewState["ADDRESS"].ToString());
                         using (SqlDataReader rd = sqlcmd.ExecuteReader())
                         {
                             while (rd.Read())
