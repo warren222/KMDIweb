@@ -475,6 +475,13 @@
     <Compile Include="KMDIweb\GlassNotification\Glass_Notif_Rpt.aspx.designer.cs">
       <DependentUpon>Glass_Notif_Rpt.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\GlassNotification\GN_Sign.aspx.cs">
+      <DependentUpon>GN_Sign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\GN_Sign.aspx.designer.cs">
+      <DependentUpon>GN_Sign.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Global\changesecurity.aspx.cs">
       <DependentUpon>changesecurity.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1021,6 +1028,7 @@
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_Create.aspx" />
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_List.aspx" />
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_Rpt.aspx" />
+    <Content Include="KMDIweb\GlassNotification\GN_Sign.aspx" />
     <Content Include="KMDIweb\Global\changesecurity.aspx" />
     <Content Include="KMDIweb\Global\css\gridcss.css" />
     <Content Include="KMDIweb\Global\css\lightbox.css" />

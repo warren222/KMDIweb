@@ -93,7 +93,7 @@
                                             <span class="text-muted">Received by:</span>
                                         </div>
                                         <div class="col-xs-3 nopm">
-                                            <asp:Image ID="Image4" Width="100" Height="60" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDI_FILES/WMS/Glass_Notification/" + Eval("Control_No").ToString() + "/Signatures/Noted_By.jpg" %>' />
+                                            <asp:Image ID="Image4" Width="100" Height="60" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDI_FILES/WMS/Glass_Notification/" + Eval("Control_No").ToString() + "/Signatures/Noted_By_IM.jpg" %>' />
                                             <br />
                                             <span><%# Eval("Noted_By_IM") %></span><br />
                                             <span style="font-size: smaller"><%# Eval("Noted_By_IM_Date") %></span><br />

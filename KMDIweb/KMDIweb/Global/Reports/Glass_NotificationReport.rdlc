@@ -1303,269 +1303,8 @@
               </Border>
             </Style>
           </Tablix>
-          <Rectangle Name="Rectangle1">
-            <ReportItems>
-              <Textbox Name="Textbox2">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>=First(Fields!Noted_By_IM.Value, "DataSet1") + 
-System.Environment.NewLine + 
-First(Fields!Noted_By_IM_Date.Value, "DataSet1") +
-System.Environment.NewLine + "Noted by:"</Value>
-                        <Style>
-                          <FontSize>9pt</FontSize>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox1</rd:DefaultName>
-                <Top>0.23478in</Top>
-                <Height>0.53334in</Height>
-                <Width>1.92164in</Width>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <VerticalAlign>Bottom</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Image Name="Image5">
-                <Source>External</Source>
-                <Value>=Parameters!NotedByIMImg.Value</Value>
-                <Sizing>Fit</Sizing>
-                <Left>0.37716in</Left>
-                <Height>0.56473in</Height>
-                <Width>1.07292in</Width>
-                <ZIndex>1</ZIndex>
-                <ToolTip>=Parameters!NotedByIMImg.Value</ToolTip>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                </Style>
-              </Image>
-            </ReportItems>
-            <KeepTogether>true</KeepTogether>
-            <Top>1.86181in</Top>
-            <Left>6.07036in</Left>
-            <Height>0.76812in</Height>
-            <Width>1.92946in</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Rectangle>
-          <Rectangle Name="Rectangle2">
-            <ReportItems>
-              <Textbox Name="Textbox5">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>=First(Fields!Received_By.Value, "DataSet1") + 
-System.Environment.NewLine + 
-First(Fields!Received_By_Date.Value, "DataSet1") +
-System.Environment.NewLine + "Received by:"</Value>
-                        <Style>
-                          <FontSize>9pt</FontSize>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox1</rd:DefaultName>
-                <Top>0.23478in</Top>
-                <Height>0.53334in</Height>
-                <Width>1.92164in</Width>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <VerticalAlign>Bottom</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Image Name="Image4">
-                <Source>External</Source>
-                <Value>=Parameters!ReceivedByImg.Value</Value>
-                <Sizing>Fit</Sizing>
-                <Left>0.36938in</Left>
-                <Height>0.56473in</Height>
-                <Width>1.07292in</Width>
-                <ZIndex>1</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                </Style>
-              </Image>
-            </ReportItems>
-            <KeepTogether>true</KeepTogether>
-            <Top>1.86181in</Top>
-            <Left>4.04817in</Left>
-            <Height>0.76812in</Height>
-            <Width>1.92946in</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Rectangle>
-          <Rectangle Name="Rectangle3">
-            <ReportItems>
-              <Textbox Name="Textbox7">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>=First(Fields!Noted_By_PM.Value, "DataSet1") + 
-System.Environment.NewLine + 
-First(Fields!Noted_By_PM_Date.Value, "DataSet1") +
-System.Environment.NewLine + "Noted by:"</Value>
-                        <Style>
-                          <FontSize>9pt</FontSize>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox1</rd:DefaultName>
-                <Top>0.23478in</Top>
-                <Height>0.53828in</Height>
-                <Width>1.92164in</Width>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <VerticalAlign>Bottom</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Image Name="Image3">
-                <Source>External</Source>
-                <Value>=Parameters!NotedByPMImg.Value</Value>
-                <Sizing>Fit</Sizing>
-                <Left>0.42827in</Left>
-                <Height>0.56473in</Height>
-                <Width>1.07292in</Width>
-                <ZIndex>1</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                </Style>
-              </Image>
-            </ReportItems>
-            <KeepTogether>true</KeepTogether>
-            <Top>1.86181in</Top>
-            <Left>2.02597in</Left>
-            <Height>0.77306in</Height>
-            <Width>1.92946in</Width>
-            <ZIndex>4</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Rectangle>
-          <Rectangle Name="Rectangle4">
-            <ReportItems>
-              <Textbox Name="Textbox12">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>=First(Fields!Prepared_By.Value, "DataSet1") + 
-System.Environment.NewLine + 
-First(Fields!Prepared_By_Date.Value, "DataSet1") +
-System.Environment.NewLine + "Prepared by:"</Value>
-                        <Style>
-                          <FontSize>9pt</FontSize>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox1</rd:DefaultName>
-                <Top>0.23478in</Top>
-                <Height>0.53334in</Height>
-                <Width>1.92164in</Width>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <VerticalAlign>Bottom</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Image Name="Image1">
-                <Source>External</Source>
-                <Value>=Parameters!PreparedByImg.Value</Value>
-                <Sizing>Fit</Sizing>
-                <Left>0.3425in</Left>
-                <Height>0.56473in</Height>
-                <Width>1.07292in</Width>
-                <ZIndex>1</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                </Style>
-              </Image>
-            </ReportItems>
-            <KeepTogether>true</KeepTogether>
-            <Top>1.86181in</Top>
-            <Left>0.00044cm</Left>
-            <Height>0.76812in</Height>
-            <Width>1.93305in</Width>
-            <ZIndex>5</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Rectangle>
         </ReportItems>
-        <Height>2.63487in</Height>
+        <Height>1.42166in</Height>
         <Style />
       </Body>
       <Width>8in</Width>
@@ -1630,6 +1369,278 @@ System.Environment.NewLine + "Prepared by:"</Value>
             </Border>
           </Style>
         </PageHeader>
+        <PageFooter>
+          <Height>0.775in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Rectangle Name="Rectangle1">
+              <ReportItems>
+                <Textbox Name="Textbox2">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!Noted_By_IM.Value, "DataSet1") + 
+System.Environment.NewLine + 
+First(Fields!Noted_By_IM_Date.Value, "DataSet1") +
+System.Environment.NewLine + "Noted by:"</Value>
+                          <Style>
+                            <FontSize>9pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox1</rd:DefaultName>
+                  <Top>0.23478in</Top>
+                  <Height>0.53334in</Height>
+                  <Width>1.92164in</Width>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Bottom</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Image Name="Image5">
+                  <Source>External</Source>
+                  <Value>=Parameters!NotedByIMImg.Value</Value>
+                  <Sizing>Fit</Sizing>
+                  <Left>0.37716in</Left>
+                  <Height>0.56473in</Height>
+                  <Width>1.07292in</Width>
+                  <ZIndex>1</ZIndex>
+                  <ToolTip>=Parameters!NotedByIMImg.Value</ToolTip>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                  </Style>
+                </Image>
+              </ReportItems>
+              <KeepTogether>true</KeepTogether>
+              <Top>0.00194in</Top>
+              <Left>6.07036in</Left>
+              <Height>0.76812in</Height>
+              <Width>1.92946in</Width>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+              </Style>
+            </Rectangle>
+            <Rectangle Name="Rectangle2">
+              <ReportItems>
+                <Textbox Name="Textbox5">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!Received_By.Value, "DataSet1") + 
+System.Environment.NewLine + 
+First(Fields!Received_By_Date.Value, "DataSet1") +
+System.Environment.NewLine + "Received by:"</Value>
+                          <Style>
+                            <FontSize>9pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox1</rd:DefaultName>
+                  <Top>0.23478in</Top>
+                  <Height>0.53334in</Height>
+                  <Width>1.92164in</Width>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Bottom</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Image Name="Image4">
+                  <Source>External</Source>
+                  <Value>=Parameters!ReceivedByImg.Value</Value>
+                  <Sizing>Fit</Sizing>
+                  <Left>0.36938in</Left>
+                  <Height>0.56473in</Height>
+                  <Width>1.07292in</Width>
+                  <ZIndex>1</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                  </Style>
+                </Image>
+              </ReportItems>
+              <KeepTogether>true</KeepTogether>
+              <Top>0.00194in</Top>
+              <Left>4.04817in</Left>
+              <Height>0.76812in</Height>
+              <Width>1.92946in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+              </Style>
+            </Rectangle>
+            <Rectangle Name="Rectangle3">
+              <ReportItems>
+                <Textbox Name="Textbox7">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!Noted_By_PM.Value, "DataSet1") + 
+System.Environment.NewLine + 
+First(Fields!Noted_By_PM_Date.Value, "DataSet1") +
+System.Environment.NewLine + "Noted by:"</Value>
+                          <Style>
+                            <FontSize>9pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox1</rd:DefaultName>
+                  <Top>0.23478in</Top>
+                  <Height>0.53828in</Height>
+                  <Width>1.92164in</Width>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Bottom</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Image Name="Image3">
+                  <Source>External</Source>
+                  <Value>=Parameters!NotedByPMImg.Value</Value>
+                  <Sizing>Fit</Sizing>
+                  <Left>0.42827in</Left>
+                  <Height>0.56473in</Height>
+                  <Width>1.07292in</Width>
+                  <ZIndex>1</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                  </Style>
+                </Image>
+              </ReportItems>
+              <KeepTogether>true</KeepTogether>
+              <Top>0.00194in</Top>
+              <Left>2.02597in</Left>
+              <Height>0.77306in</Height>
+              <Width>1.92946in</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+              </Style>
+            </Rectangle>
+            <Rectangle Name="Rectangle4">
+              <ReportItems>
+                <Textbox Name="Textbox12">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!Prepared_By.Value, "DataSet1") + 
+System.Environment.NewLine + 
+First(Fields!Prepared_By_Date.Value, "DataSet1") +
+System.Environment.NewLine + "Prepared by:"</Value>
+                          <Style>
+                            <FontSize>9pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox1</rd:DefaultName>
+                  <Top>0.23478in</Top>
+                  <Height>0.53334in</Height>
+                  <Width>1.92164in</Width>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Bottom</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Image Name="Image1">
+                  <Source>External</Source>
+                  <Value>=Parameters!PreparedByImg.Value</Value>
+                  <Sizing>Fit</Sizing>
+                  <Left>0.3425in</Left>
+                  <Height>0.56473in</Height>
+                  <Width>1.07292in</Width>
+                  <ZIndex>1</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                  </Style>
+                </Image>
+              </ReportItems>
+              <KeepTogether>true</KeepTogether>
+              <Top>0.00194in</Top>
+              <Left>0.00044cm</Left>
+              <Height>0.76812in</Height>
+              <Width>1.93305in</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+              </Style>
+            </Rectangle>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
         <LeftMargin>0.25in</LeftMargin>
         <RightMargin>0.25in</RightMargin>
         <TopMargin>0.25in</TopMargin>

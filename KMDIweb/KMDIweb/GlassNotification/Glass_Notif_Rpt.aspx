@@ -39,6 +39,12 @@
                 </LocalReport>
             </rsweb:ReportViewer>
         </asp:Panel>
+        <div>
+            <asp:LinkButton ID="btnPreparedBy" CssClass="btn btn-primary" runat="server" OnClick="btnPreparedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;PREPARED BY</asp:LinkButton>
+            <asp:LinkButton ID="btnNotedByPM" CssClass="btn btn-primary" runat="server" OnClick="btnNotedByPM_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;NOTED BY</asp:LinkButton>
+            <asp:LinkButton ID="btnReceivedBy" CssClass="btn btn-primary" runat="server" OnClick="btnReceivedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;RECEIVED BY</asp:LinkButton>
+            <asp:LinkButton ID="btnNotedByIM" CssClass="btn btn-primary" runat="server" OnClick="btnNotedByIM_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;NOTED BY</asp:LinkButton>
+        </div>
     </div>
 
 </asp:Content>

@@ -93,7 +93,8 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvGlassNotifList.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
-                Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Rpt.aspx?Glass_PO_Notification_Id=" + id + "" + AddQuerystring);
+                string control_no = ((Label)row.FindControl("lblControl_No")).Text;
+                Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Rpt.aspx?Glass_PO_Notification_Id=" + id + "&Control_No=" + control_no + AddQuerystring);
             }
         }
         private string AddQuerystring
@@ -103,5 +104,6 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 return "&Find=" + tboxFind.Text + "&PageIndex=" + gvGlassNotifList.PageIndex.ToString();
             }
         }
+        
     }
 }
