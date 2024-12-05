@@ -57,6 +57,9 @@ namespace KMDIweb.KMDIweb.GlassNotification
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Get_Data");
                         sqlcmd.Parameters.AddWithValue("@Search", tboxFind.Text);
+                        sqlcmd.Parameters.AddWithValue("@For_Signature", ddlForSignature.SelectedValue.ToString());
+                        sqlcmd.Parameters.AddWithValue("@Date_Filter", ddlDateFilter.SelectedValue.ToString());
+                        sqlcmd.Parameters.AddWithValue("@Date", tboxDate.Text);
                         DataTable tb = new DataTable();
                         tb.Clear();
                         using (SqlDataAdapter da = new SqlDataAdapter())
@@ -73,8 +76,40 @@ namespace KMDIweb.KMDIweb.GlassNotification
             {
                 errorrmessage(ex.ToString());
             }
+            finally
+            {
+                LoadSummary();
+            }
         }
-
+        private void LoadSummary()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Glass_PO_Notification_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Notification_Counter");
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(tb);
+                            gvSummary.DataSource = tb;
+                            gvSummary.DataBind();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+        }
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Get_Data();

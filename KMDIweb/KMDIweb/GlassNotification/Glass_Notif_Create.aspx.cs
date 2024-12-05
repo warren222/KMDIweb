@@ -179,18 +179,15 @@ namespace KMDIweb.KMDIweb.GlassNotification
             {
                 InsertSelectedItems(Add_Notification());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                if (ex == null)
-                {
-                    Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_List.aspx");
-                }
-                else
-                {
-                    errorrmessage(ex.ToString());
-                }
+                errorrmessage(ex.ToString());
             }
-           
+            finally
+            {
+                Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_List.aspx");
+            }
+
         }
 
         private string Add_Notification()
@@ -228,10 +225,6 @@ namespace KMDIweb.KMDIweb.GlassNotification
             }
             return id;
         }
-        private void Add_Notification_Item(string glass_po_notification_id)
-        {
-
-
-        }
+    
     }
 }
