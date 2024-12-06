@@ -8,9 +8,22 @@
             margin: 0;
             padding: 0;
         }
-        .bcRed{
-            background-color:red;
-            color:white;
+
+        .bcRed {
+            background-color: red;
+            color: white;
+        }
+        .bcOrange{
+            background-color: orange;
+            color: white;
+        }
+        .bcBlue{
+            background-color: aqua;
+            color: black;
+        }
+        .bcYellow{
+            background-color: yellow;
+            color: black;
         }
     </style>
 </asp:Content>
@@ -32,14 +45,13 @@
             <div class="col-sm-6">
                 <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                     <ContentTemplate>
-                        <asp:GridView ID="gvSummary" ShowHeader="false" GridLines="None" Width="100%" AutoGenerateColumns="false" runat="server"
-                           >
+                        <asp:GridView ID="gvSummary" ShowHeader="false" GridLines="None" Width="100%" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSummary_RowCommand" OnRowDataBound="gvSummary_RowDataBound">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <table border="1" style="border-color: bisque;" class="wf_tbl">
                                             <tr>
-                                                <th style="background-color: yellow" class="text-center" colspan="4">For Signature</th>
+                                                <th style="background-color: whitesmoke" class="text-center" colspan="4">For Signature</th>
                                             </tr>
                                             <tr class="text-center">
                                                 <td style="width: 100px;">Prepared By</td>
@@ -49,13 +61,13 @@
                                             </tr>
                                             <tr class="text-center">
                                                 <td>
-                                                    <asp:LinkButton ID="btnPreparedBy" CssClass='<%# Eval("Notif_Prepared_By").ToString() == "0" ? "" : "badge bcRed" %>'  CommandName="PreparedBy" Font-Bold="true" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Prepared_By") %></span></asp:LinkButton></td>
+                                                    <asp:LinkButton ID="btnPreparedBy" CssClass='<%# Eval("Notif_Prepared_By").ToString() == "0" ? "" : "badge bcBlue" %>' CommandName="PreparedBy" Font-Bold="true" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Prepared_By") %></span></asp:LinkButton></td>
                                                 <td>
-                                                    <asp:LinkButton ID="btnNotedByPM" CssClass='<%# Eval("Notif_Noted_By_PM").ToString() == "0" ? "" : "badge bcRed" %>'  CommandName="NotedByPM" Font-Bold="true" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Noted_By_PM") %></span></asp:LinkButton></td>
+                                                    <asp:LinkButton ID="btnNotedByPM" CssClass='<%# Eval("Notif_Noted_By_PM").ToString() == "0" ? "" : "badge bcRed" %>' CommandName="NotedBy" Font-Bold="true" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Noted_By_PM") %></span></asp:LinkButton></td>
                                                 <td>
-                                                    <asp:LinkButton ID="btnReceivedBy" CssClass='<%# Eval("Notif_Received_By").ToString() == "0" ? "" : "badge bcRed" %>'  CommandName="ReceivedBy" Font-Bold="true" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Received_By") %></span></asp:LinkButton></td>
+                                                    <asp:LinkButton ID="btnReceivedBy" CssClass='<%# Eval("Notif_Received_By").ToString() == "0" ? "" : "badge bcOrange" %>' CommandName="ReceivedBy" Font-Bold="true" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Received_By") %></span></asp:LinkButton></td>
                                                 <td>
-                                                    <asp:LinkButton ID="btnNotedByIM" CssClass='<%# Eval("Notif_Noted_By_IM").ToString() == "0" ? "" : "badge bcRed" %>'  CommandName="NotedByIM" Font-Bold="true" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Noted_By_IM") %></span></asp:LinkButton></td>
+                                                    <asp:LinkButton ID="btnNotedByIM" CssClass='<%# Eval("Notif_Noted_By_IM").ToString() == "0" ? "" : "badge bcYellow" %>' CommandName="NotedBySirCule" Font-Bold="true" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Noted_By_IM") %></span></asp:LinkButton></td>
                                             </tr>
                                         </table>
                                     </ItemTemplate>
@@ -127,8 +139,16 @@
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <div class="panel panel-danger">
-                                            <div class="panel-heading">
+                                        <div class="panel panel-danger"  style='border-color:<%# Eval("Noted_By_IM").ToString() != "" ? "#80ffa2" : 
+                                                                                   Eval("Received_By").ToString() != "" ? "#eeff80" :
+                                                                                   Eval("Noted_By_PM").ToString() != "" ? "#ffc080" :
+                                                                                   Eval("Prepared_By").ToString() != "" ? "#ff8080" :
+                                                                                   "#80f0ff" %>'>
+                                            <div class="panel-heading" style='color:black;background-color:<%# Eval("Noted_By_IM").ToString() != "" ? "#80ffa2" : 
+                                                                                   Eval("Received_By").ToString() != "" ? "#eeff80" :
+                                                                                   Eval("Noted_By_PM").ToString() != "" ? "#ffc080" :
+                                                                                   Eval("Prepared_By").ToString() != "" ? "#ff8080" :
+                                                                                   "#80f0ff" %>'>
                                                 <asp:Label runat="server" ID="lblId" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
                                                 <asp:Label runat="server" ID="lblControl_No" CommandName="view_notification" Text='<%# Bind("Control_No") %>'></asp:Label>
                                             </div>
