@@ -126,7 +126,7 @@
         <div class="container">
             <asp:LinkButton ID="btnCreate" runat="server" CssClass="btn btn-danger" Style="background-color: #ff006e; border-color: #ff006e" OnClick="btnCreate_Click">Create New Notification</asp:LinkButton>
         </div>
-        <br />
+      
 
         <div class="container">
             <div style="overflow-x: auto">

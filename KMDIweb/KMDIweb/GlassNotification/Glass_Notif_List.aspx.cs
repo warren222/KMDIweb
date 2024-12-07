@@ -17,6 +17,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
             if (!IsPostBack)
             {
                 RetriverQS();
+                ForSignatureCboxAccess();
                 Get_Data();
             }
         }
@@ -30,6 +31,37 @@ namespace KMDIweb.KMDIweb.GlassNotification
             get
             {
                 return ConnectionString.sqlconstr();
+            }
+        }
+        private void ForSignatureCboxAccess()
+        {
+            if (user_code == "Production Manager")
+            {
+                ddlForSignature.Items.Clear();
+                ListItem x1 = new ListItem("All", "All");
+                ListItem x2 = new ListItem("Noted By", "Noted By PM");
+                ddlForSignature.Items.Add(x1);
+                ddlForSignature.Items.Add(x2);
+            }
+            else if (user_code == "Delivery")
+            {
+                ddlForSignature.Items.Clear();
+                ListItem x1 = new ListItem("All", "All");
+                ListItem x2 = new ListItem("Received By", "Received By");
+                ddlForSignature.Items.Add(x1);
+                ddlForSignature.Items.Add(x2);
+            }
+            else if (user_code == "Engineer Manager")
+            {
+                ddlForSignature.Items.Clear();
+                ListItem x1 = new ListItem("All", "All");
+                ListItem x2 = new ListItem("Noted By", "Noted By IM");
+                ddlForSignature.Items.Add(x1);
+                ddlForSignature.Items.Add(x2);
+            }
+            else
+            {
+
             }
         }
         private void errorrmessage(string message)
@@ -156,7 +188,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 tboxFind.Text = "";
                 ddlDateFilter.Text = "All";
                 tboxDate.Text = "";
-                ddlForSignature.Text = "Noted By (Engr. Mon)";
+                ddlForSignature.Text = (user_code == "Production Manager" ? "Noted By" : "Noted By (Engr. Mon)");
                 ddlForSignature.SelectedValue = "Noted By PM";
                 Get_Data();
             }
@@ -173,7 +205,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 tboxFind.Text = "";
                 ddlDateFilter.Text = "All";
                 tboxDate.Text = "";
-                ddlForSignature.Text = "Noted By (Engr. Cule)";
+                ddlForSignature.Text = user_code == "Engineer Manager" ? "Noted By" : "Noted By (Engr. Cule)";
                 ddlForSignature.SelectedValue = "Noted By IM";
                 Get_Data();
             }
@@ -194,7 +226,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 LinkButton btnnotedByPM = ((LinkButton)cell.FindControl("btnNotedByPM"));
                 LinkButton btnreceiveddBy = ((LinkButton)cell.FindControl("btnReceivedBy"));
                 LinkButton btnnotedByIM = ((LinkButton)cell.FindControl("btnNotedByIM"));
-                if (user_code == "Programmer")
+                if (user_code == "Programmer" || user_code == "Glass Section")
                 {
                     BtnAccess(btnpreparedBy, true, btnnotedByPM, true, btnreceiveddBy, true, btnnotedByIM, true);
                 }

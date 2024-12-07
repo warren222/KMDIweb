@@ -15,6 +15,59 @@ namespace KMDIweb.KMDIweb.GlassNotification
             if (!IsPostBack)
             {
                 getparameters();
+                BtnAccess();
+            }
+        }
+        private string user_code
+        {
+            get
+            {
+                return Session["KMDI_user_code"].ToString();
+            }
+        }
+        private void BtnAccess()
+        {
+            if (user_code == "Programmer")
+            {
+                btnPreparedBy.Visible = true;
+                btnNotedByPM.Visible = true;
+                btnReceivedBy.Visible = true;
+                btnNotedByIM.Visible = true;
+            }
+            else if (user_code == "Glass Section")
+            {
+                btnPreparedBy.Visible = true;
+                btnNotedByPM.Visible = false;
+                btnReceivedBy.Visible = false;
+                btnNotedByIM.Visible = false;
+            }
+            else if (user_code == "Production Manager")
+            {
+                btnPreparedBy.Visible = false;
+                btnNotedByPM.Visible = true;
+                btnReceivedBy.Visible = false;
+                btnNotedByIM.Visible = false;
+            }
+            else if (user_code == "Delivery")
+            {
+                btnPreparedBy.Visible = false;
+                btnNotedByPM.Visible = false;
+                btnReceivedBy.Visible = true;
+                btnNotedByIM.Visible = false;
+            }
+            else if (user_code == "Engineer Manager")
+            {
+                btnPreparedBy.Visible = false;
+                btnNotedByPM.Visible = false;
+                btnReceivedBy.Visible = false;
+                btnNotedByIM.Visible = true;
+            }
+            else
+            {
+                btnPreparedBy.Visible = false;
+                btnNotedByPM.Visible = false;
+                btnReceivedBy.Visible = false;
+                btnNotedByIM.Visible = false;
             }
         }
         protected void btnBack_Click(object sender, EventArgs e)
