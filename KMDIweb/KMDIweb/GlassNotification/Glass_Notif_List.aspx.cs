@@ -24,6 +24,9 @@ namespace KMDIweb.KMDIweb.GlassNotification
         private void RetriverQS()
         {
             tboxFind.Text = Request.QueryString["Find"] != null ? Request.QueryString["Find"].ToString() : "";
+            ddlDateFilter.SelectedValue = Request.QueryString["DateFilter"] != null ? Request.QueryString["DateFilter"].ToString() : "All";
+            tboxDate.Text = Request.QueryString["Date"] != null ? Request.QueryString["Date"].ToString() : "";
+            ddlForSignature.SelectedValue = Request.QueryString["ForSignature"] != null ? Request.QueryString["ForSignature"].ToString() : "All";
             gvGlassNotifList.PageIndex = Request.QueryString["PageIndex"] != null ? Convert.ToInt32(Request.QueryString["PageIndex"].ToString()) : 0;
         }
         private string sqlconstr
@@ -35,6 +38,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
         }
         private void ForSignatureCboxAccess()
         {
+            btnCreate.Visible = false;
             if (user_code == "Production Manager")
             {
                 ddlForSignature.Items.Clear();
@@ -42,6 +46,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 ListItem x2 = new ListItem("Noted By", "Noted By PM");
                 ddlForSignature.Items.Add(x1);
                 ddlForSignature.Items.Add(x2);
+                ddlForSignature.SelectedValue = "Noted By PM";
             }
             else if (user_code == "Delivery")
             {
@@ -50,6 +55,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 ListItem x2 = new ListItem("Received By", "Received By");
                 ddlForSignature.Items.Add(x1);
                 ddlForSignature.Items.Add(x2);
+                ddlForSignature.SelectedValue = "Received By";
             }
             else if (user_code == "Engineer Manager")
             {
@@ -58,10 +64,17 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 ListItem x2 = new ListItem("Noted By", "Noted By IM");
                 ddlForSignature.Items.Add(x1);
                 ddlForSignature.Items.Add(x2);
+                ddlForSignature.SelectedValue = "Noted By IM";
+            }
+            else if (user_code == "Glass Section")
+            {
+                btnCreate.Visible = true;
+                ddlForSignature.SelectedValue = "Prepared By";
             }
             else
             {
-
+               
+               
             }
         }
         private void errorrmessage(string message)
@@ -164,15 +177,51 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 string control_no = ((Label)row.FindControl("lblControl_No")).Text;
                 Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Rpt.aspx?Glass_PO_Notification_Id=" + id + "&Control_No=" + control_no + AddQuerystring);
             }
+            else if (e.CommandName == "execDelete")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvGlassNotifList.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                ExecDelete(id);
+            }
         }
         private string AddQuerystring
         {
             get
             {
-                return "&Find=" + tboxFind.Text + "&PageIndex=" + gvGlassNotifList.PageIndex.ToString();
+                return "&Find=" + tboxFind.Text + 
+                       "&DateFilter="+ ddlDateFilter.SelectedValue.ToString() +
+                       "&Date=" + tboxDate.Text +
+                       "&ForSignature=" + ddlForSignature.SelectedValue.ToString() +
+                       "&PageIndex=" + gvGlassNotifList.PageIndex.ToString();
             }
         }
-
+        private void ExecDelete(string id)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd =  sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Glass_PO_Notification_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Delete");
+                        sqlcmd.Parameters.AddWithValue("@Id", id);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        errorrmessage(ex.ToString());
+                    }
+                    finally
+                    {
+                        Get_Data();
+                    }
+                }
+            }
+        }
         protected void gvSummary_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "PreparedBy")
@@ -188,8 +237,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 tboxFind.Text = "";
                 ddlDateFilter.Text = "All";
                 tboxDate.Text = "";
-                ddlForSignature.Text = (user_code == "Production Manager" ? "Noted By" : "Noted By (Engr. Mon)");
-                ddlForSignature.SelectedValue = "Noted By PM";
+                ddlForSignature.SelectedValue = "Noted By PM";     
                 Get_Data();
             }
             else if (e.CommandName == "ReceivedBy")
@@ -205,7 +253,6 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 tboxFind.Text = "";
                 ddlDateFilter.Text = "All";
                 tboxDate.Text = "";
-                ddlForSignature.Text = user_code == "Engineer Manager" ? "Noted By" : "Noted By (Engr. Cule)";
                 ddlForSignature.SelectedValue = "Noted By IM";
                 Get_Data();
             }
@@ -253,10 +300,10 @@ namespace KMDIweb.KMDIweb.GlassNotification
                                LinkButton btnreceiveddBy, bool z,
                                LinkButton btnnotedByIM, bool u)
         {
-            btnpreparedBy.Enabled = x;
-            btnnotedByPM.Enabled = y;
-            btnreceiveddBy.Enabled = z;
-            btnnotedByIM.Enabled = u;
+            btnpreparedBy.Visible = x;
+            btnnotedByPM.Visible = y;
+            btnreceiveddBy.Visible = z;
+            btnnotedByIM.Visible = u;
             if (x == false)
             {
                 BtnDisabled(btnpreparedBy);
@@ -280,6 +327,19 @@ namespace KMDIweb.KMDIweb.GlassNotification
             btn.Font.Bold = false;
             btn.BackColor = System.Drawing.Color.White;
             btn.Style.Add("cursur", "not-allowed");
+        }
+
+        protected void gvGlassNotifList_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                TableCell cell = e.Row.Cells[0];
+                LinkButton btnDelete = ((LinkButton)cell.FindControl("btnDelete"));
+                if (user_code == "Glass Section" || user_code == "Programmer")
+                {
+                    btnDelete.Visible = true;
+                }
+            }
         }
     }
 }

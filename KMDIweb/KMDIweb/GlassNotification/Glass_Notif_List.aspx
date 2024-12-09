@@ -135,7 +135,7 @@
                         <asp:GridView ID="gvGlassNotifList" runat="server" Width="100%"
                             OnPageIndexChanging="gvGlassNotifList_PageIndexChanging"
                             AutoGenerateColumns="false" GridLines="None" AllowPaging="True"
-                            OnRowCommand="gvGlassNotifList_RowCommand">
+                            OnRowCommand="gvGlassNotifList_RowCommand" OnRowDataBound="gvGlassNotifList_RowDataBound">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -151,6 +151,9 @@
                                                                                    "#80f0ff" %>'>
                                                 <asp:Label runat="server" ID="lblId" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
                                                 <asp:Label runat="server" ID="lblControl_No" CommandName="view_notification" Text='<%# Bind("Control_No") %>'></asp:Label>
+                                                <span class="pull-right">
+                                                    <asp:LinkButton runat="server" ID="btnDelete" Visible="false" CommandName="execDelete" OnClientClick="return confirm('Do you want to delete this notification?')"><span class="glyphicon glyphicon-remove"></span></asp:LinkButton>
+                                                </span>
                                             </div>
                                             <div class="panel-body">
                                                 <asp:LinkButton ID="btnProject_Name" CommandName="view_notification" runat="server">

@@ -78,8 +78,13 @@ namespace KMDIweb.KMDIweb.GlassNotification
         {
             get
             {
-                return "?Find=" + Request.QueryString["Find"].ToString() + "&PageIndex=" + Request.QueryString["PageIndex"].ToString() +
-                    "&Glass_PO_Notification_Id=" + Request.QueryString["Glass_PO_Notification_Id"].ToString() + "&Control_No=" + Request.QueryString["Control_No"].ToString();
+                return "?Find=" + Request.QueryString["Find"].ToString() +
+                    "&DateFilter=" + Request.QueryString["DateFilter"].ToString() +
+                    "&Date=" + Request.QueryString["Date"].ToString() +
+                    "&ForSignature=" + Request.QueryString["ForSignature"].ToString() +
+                    "&PageIndex=" + Request.QueryString["PageIndex"].ToString() +
+                    "&Glass_PO_Notification_Id=" + Request.QueryString["Glass_PO_Notification_Id"].ToString() + 
+                    "&Control_No=" + Request.QueryString["Control_No"].ToString();
             }
         }
         protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
