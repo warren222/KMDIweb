@@ -447,6 +447,48 @@
     <Compile Include="KMDIweb\FoilingSchedule\FoilingMaster.Master.designer.cs">
       <DependentUpon>FoilingMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\GlassNotification\GlassNotificationMaster.Master.cs">
+      <DependentUpon>GlassNotificationMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\GlassNotificationMaster.Master.designer.cs">
+      <DependentUpon>GlassNotificationMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\Glass_Notif_Create.aspx.cs">
+      <DependentUpon>Glass_Notif_Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\Glass_Notif_Create.aspx.designer.cs">
+      <DependentUpon>Glass_Notif_Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\Glass_Notif_Edit.aspx.cs">
+      <DependentUpon>Glass_Notif_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\Glass_Notif_Edit.aspx.designer.cs">
+      <DependentUpon>Glass_Notif_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\Glass_Notif_List.aspx.cs">
+      <DependentUpon>Glass_Notif_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\Glass_Notif_List.aspx.designer.cs">
+      <DependentUpon>Glass_Notif_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\Glass_Notif_Rpt.aspx.cs">
+      <DependentUpon>Glass_Notif_Rpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\Glass_Notif_Rpt.aspx.designer.cs">
+      <DependentUpon>Glass_Notif_Rpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\GN_Sign.aspx.cs">
+      <DependentUpon>GN_Sign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\GN_Sign.aspx.designer.cs">
+      <DependentUpon>GN_Sign.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Global\changesecurity.aspx.cs">
       <DependentUpon>changesecurity.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -990,6 +1032,11 @@
     <Content Include="KMDIweb\Delivery\ScannedDR\DRuploadsSummary.aspx" />
     <Content Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx" />
     <Content Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx" />
+    <Content Include="KMDIweb\GlassNotification\Glass_Notif_Create.aspx" />
+    <Content Include="KMDIweb\GlassNotification\Glass_Notif_Edit.aspx" />
+    <Content Include="KMDIweb\GlassNotification\Glass_Notif_List.aspx" />
+    <Content Include="KMDIweb\GlassNotification\Glass_Notif_Rpt.aspx" />
+    <Content Include="KMDIweb\GlassNotification\GN_Sign.aspx" />
     <Content Include="KMDIweb\Global\changesecurity.aspx" />
     <Content Include="KMDIweb\Global\css\gridcss.css" />
     <Content Include="KMDIweb\Global\css\lightbox.css" />
@@ -1094,6 +1141,7 @@
     <Content Include="KMDIweb\AE\AccountingClearance\AC.Master" />
     <Content Include="KMDIweb\AE\ProjectImages\Project_ImageMaster.Master" />
     <Content Include="KMDIweb\AE\Meiheng\MeiihengMaster.Master" />
+    <Content Include="KMDIweb\GlassNotification\GlassNotificationMaster.Master" />
     <None Include="KMDIweb\Global\DataSetFiles\reportDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -1170,6 +1218,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="KMDIweb\Global\Reports\Glass_NotificationReport.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\NoticeForINCItemsReport.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\PO.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\PO_Ajiya.rdlc" />

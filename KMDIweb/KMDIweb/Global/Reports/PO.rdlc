@@ -2785,8 +2785,12 @@ System.Environment.NewLine + "prepared &amp; checked by:"</Value>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="Note: Kindly deliver on "+First(Fields!DELON.Value, "DataSet1")+system.Environment.NewLine+
-First(Fields!DELAT.Value, "DataSet1")</Value>
+                      <Value>=iif(
+      First(Fields!DELON.Value, "DataSet1").ToString()="",
+	  "",
+	  "Note: Kindly deliver on "+First(Fields!DELON.Value, "DataSet1")+
+	  System.Environment.NewLine)+
+	  First(Fields!DELAT.Value, "DataSet1")</Value>
                       <Style>
                         <FontFamily>Arial Rounded MT Bold</FontFamily>
                         <FontSize>9pt</FontSize>

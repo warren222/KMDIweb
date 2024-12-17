@@ -126,12 +126,14 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                             linkTotalproject.Text = rd[4].ToString();
                             linkDelivered.Text = rd[5].ToString();
                             linkFabricated.Text = rd[6].ToString();
+                            linkReceivedSD.Text = rd[7].ToString();
                             lbl1.Text = ddlProduct_Classification.SelectedItem.ToString();
                             lbl2.Text = ddlProduct_Classification.SelectedItem.ToString();
                             lbl3.Text = ddlProduct_Classification.SelectedItem.ToString();
                             lbl4.Text = ddlProduct_Classification.SelectedItem.ToString();
                             lbl5.Text = ddlProduct_Classification.SelectedItem.ToString();
                             lbl6.Text = ddlProduct_Classification.SelectedItem.ToString();
+                            lbl72.Text = ddlProduct_Classification.SelectedItem.ToString();
                         }
                     }
                 }

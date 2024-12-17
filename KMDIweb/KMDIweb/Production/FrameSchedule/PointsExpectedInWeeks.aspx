@@ -102,7 +102,7 @@
                                 <span class="text-info">(Current production load)</span>
                                 <span class="pull-right">
                                     <span>
-                                        <asp:Label ID="lbl3"  CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server"></asp:Label></span>
+                                        <asp:Label ID="lbl3" CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server"></asp:Label></span>
                                 </span>
                             </td>
                             <td class="text-right">
@@ -116,7 +116,7 @@
                                 <span class="text-info">(Fabricated points and not delivered)</span>
                                 <span class="pull-right">
                                     <span>
-                                        <asp:Label ID="lbl4"  CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server"></asp:Label></span>
+                                        <asp:Label ID="lbl4" CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server"></asp:Label></span>
                                 </span>
                             </td>
                             <td class="text-right">
@@ -130,12 +130,26 @@
                                 <span class="text-info">(Delivered points)</span>
                                 <span class="pull-right">
                                     <span>
-                                        <asp:Label ID="lbl5"  CssClass="label label-warning" Font-Size="Small" ForeColor="Black"  runat="server"></asp:Label></span>
+                                        <asp:Label ID="lbl5" CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server"></asp:Label></span>
                                 </span>
                             </td>
                             <td class="text-right">
                                 <asp:LinkButton ID="linkDelivered" Font-Size="XX-Large" runat="server" OnClick="linkDelivered_Click">LinkButton</asp:LinkButton>
                                 <asp:Panel ID="pnlDelivered" Visible="false" BackColor="Yellow" runat="server" Height="15px"></asp:Panel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="white-space: nowrap">
+                                <span style="font-size: x-large">SD Received</span>
+                                <span class="text-info">(Fabrcation)</span>
+                                <span class="pull-right">
+                                    <span>
+                                        <asp:Label ID="lbl72" CssClass="label label-warning" Font-Size="Small" ForeColor="Black" runat="server"></asp:Label></span>
+                                </span>
+                            </td>
+                            <td class="text-right">
+                                <asp:LinkButton ID="linkReceivedSD" Font-Size="XX-Large" runat="server" >LinkButton</asp:LinkButton>
+                                <asp:Panel ID="pnlReceivedSD" Visible="false" BackColor="Yellow" runat="server" Height="15px"></asp:Panel>
                             </td>
                         </tr>
                     </table>

@@ -234,5 +234,9 @@ namespace KMDIweb.KMDIapp
         {
             Response.Redirect("~/KMDIweb/AE/Meiheng/Meiheng_PO_List.aspx");
         }
+        protected void LinkButton14_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_List.aspx");
+        }
     }
 }

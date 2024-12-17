@@ -38,6 +38,10 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         
         private ADDENDUM_TO_CONTRACT_TBDataTable tableADDENDUM_TO_CONTRACT_TB;
         
+        private Glass_PO_Notification_Item_TblDataTable tableGlass_PO_Notification_Item_Tbl;
+        
+        private Glass_PO_Notification_TblDataTable tableGlass_PO_Notification_Tbl;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -86,6 +90,12 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 }
                 if ((ds.Tables["ADDENDUM_TO_CONTRACT_TB"] != null)) {
                     base.Tables.Add(new ADDENDUM_TO_CONTRACT_TBDataTable(ds.Tables["ADDENDUM_TO_CONTRACT_TB"]));
+                }
+                if ((ds.Tables["Glass_PO_Notification_Item_Tbl"] != null)) {
+                    base.Tables.Add(new Glass_PO_Notification_Item_TblDataTable(ds.Tables["Glass_PO_Notification_Item_Tbl"]));
+                }
+                if ((ds.Tables["Glass_PO_Notification_Tbl"] != null)) {
+                    base.Tables.Add(new Glass_PO_Notification_TblDataTable(ds.Tables["Glass_PO_Notification_Tbl"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -177,6 +187,26 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Glass_PO_Notification_Item_TblDataTable Glass_PO_Notification_Item_Tbl {
+            get {
+                return this.tableGlass_PO_Notification_Item_Tbl;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Glass_PO_Notification_TblDataTable Glass_PO_Notification_Tbl {
+            get {
+                return this.tableGlass_PO_Notification_Tbl;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -263,6 +293,12 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 if ((ds.Tables["ADDENDUM_TO_CONTRACT_TB"] != null)) {
                     base.Tables.Add(new ADDENDUM_TO_CONTRACT_TBDataTable(ds.Tables["ADDENDUM_TO_CONTRACT_TB"]));
                 }
+                if ((ds.Tables["Glass_PO_Notification_Item_Tbl"] != null)) {
+                    base.Tables.Add(new Glass_PO_Notification_Item_TblDataTable(ds.Tables["Glass_PO_Notification_Item_Tbl"]));
+                }
+                if ((ds.Tables["Glass_PO_Notification_Tbl"] != null)) {
+                    base.Tables.Add(new Glass_PO_Notification_TblDataTable(ds.Tables["Glass_PO_Notification_Tbl"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -338,6 +374,18 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                     this.tableADDENDUM_TO_CONTRACT_TB.InitVars();
                 }
             }
+            this.tableGlass_PO_Notification_Item_Tbl = ((Glass_PO_Notification_Item_TblDataTable)(base.Tables["Glass_PO_Notification_Item_Tbl"]));
+            if ((initTable == true)) {
+                if ((this.tableGlass_PO_Notification_Item_Tbl != null)) {
+                    this.tableGlass_PO_Notification_Item_Tbl.InitVars();
+                }
+            }
+            this.tableGlass_PO_Notification_Tbl = ((Glass_PO_Notification_TblDataTable)(base.Tables["Glass_PO_Notification_Tbl"]));
+            if ((initTable == true)) {
+                if ((this.tableGlass_PO_Notification_Tbl != null)) {
+                    this.tableGlass_PO_Notification_Tbl.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -362,6 +410,10 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             base.Tables.Add(this.tableKMDI_ACCT_TB);
             this.tableADDENDUM_TO_CONTRACT_TB = new ADDENDUM_TO_CONTRACT_TBDataTable();
             base.Tables.Add(this.tableADDENDUM_TO_CONTRACT_TB);
+            this.tableGlass_PO_Notification_Item_Tbl = new Glass_PO_Notification_Item_TblDataTable();
+            base.Tables.Add(this.tableGlass_PO_Notification_Item_Tbl);
+            this.tableGlass_PO_Notification_Tbl = new Glass_PO_Notification_TblDataTable();
+            base.Tables.Add(this.tableGlass_PO_Notification_Tbl);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -403,6 +455,18 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeADDENDUM_TO_CONTRACT_TB() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeGlass_PO_Notification_Item_Tbl() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeGlass_PO_Notification_Tbl() {
             return false;
         }
         
@@ -481,6 +545,12 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void ADDENDUM_TO_CONTRACT_TBRowChangeEventHandler(object sender, ADDENDUM_TO_CONTRACT_TBRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void Glass_PO_Notification_Item_TblRowChangeEventHandler(object sender, Glass_PO_Notification_Item_TblRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void Glass_PO_Notification_TblRowChangeEventHandler(object sender, Glass_PO_Notification_TblRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3471,6 +3541,836 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Glass_PO_Notification_Item_TblDataTable : global::System.Data.TypedTableBase<Glass_PO_Notification_Item_TblRow> {
+            
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnGlass_PO_Notification_Id;
+            
+            private global::System.Data.DataColumn columnK_No;
+            
+            private global::System.Data.DataColumn columnG_No;
+            
+            private global::System.Data.DataColumn columnGlass_Specs;
+            
+            private global::System.Data.DataColumn columnWidth;
+            
+            private global::System.Data.DataColumn columnHeight;
+            
+            private global::System.Data.DataColumn columnQty;
+            
+            private global::System.Data.DataColumn columnDue_Date;
+            
+            private global::System.Data.DataColumn columnDelivery_Schedule;
+            
+            private global::System.Data.DataColumn columnReason;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Glass_PO_Notification_Item_TblDataTable() {
+                this.TableName = "Glass_PO_Notification_Item_Tbl";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal Glass_PO_Notification_Item_TblDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected Glass_PO_Notification_Item_TblDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Glass_PO_Notification_IdColumn {
+                get {
+                    return this.columnGlass_PO_Notification_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn K_NoColumn {
+                get {
+                    return this.columnK_No;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn G_NoColumn {
+                get {
+                    return this.columnG_No;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Glass_SpecsColumn {
+                get {
+                    return this.columnGlass_Specs;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn WidthColumn {
+                get {
+                    return this.columnWidth;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn HeightColumn {
+                get {
+                    return this.columnHeight;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn QtyColumn {
+                get {
+                    return this.columnQty;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Due_DateColumn {
+                get {
+                    return this.columnDue_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Delivery_ScheduleColumn {
+                get {
+                    return this.columnDelivery_Schedule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ReasonColumn {
+                get {
+                    return this.columnReason;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Glass_PO_Notification_Item_TblRow this[int index] {
+                get {
+                    return ((Glass_PO_Notification_Item_TblRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Glass_PO_Notification_Item_TblRowChangeEventHandler Glass_PO_Notification_Item_TblRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Glass_PO_Notification_Item_TblRowChangeEventHandler Glass_PO_Notification_Item_TblRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Glass_PO_Notification_Item_TblRowChangeEventHandler Glass_PO_Notification_Item_TblRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Glass_PO_Notification_Item_TblRowChangeEventHandler Glass_PO_Notification_Item_TblRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddGlass_PO_Notification_Item_TblRow(Glass_PO_Notification_Item_TblRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Glass_PO_Notification_Item_TblRow AddGlass_PO_Notification_Item_TblRow(string Id, string Glass_PO_Notification_Id, string K_No, string G_No, string Glass_Specs, string Width, string Height, string Qty, string Due_Date, string Delivery_Schedule, string Reason) {
+                Glass_PO_Notification_Item_TblRow rowGlass_PO_Notification_Item_TblRow = ((Glass_PO_Notification_Item_TblRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Id,
+                        Glass_PO_Notification_Id,
+                        K_No,
+                        G_No,
+                        Glass_Specs,
+                        Width,
+                        Height,
+                        Qty,
+                        Due_Date,
+                        Delivery_Schedule,
+                        Reason};
+                rowGlass_PO_Notification_Item_TblRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGlass_PO_Notification_Item_TblRow);
+                return rowGlass_PO_Notification_Item_TblRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Glass_PO_Notification_Item_TblDataTable cln = ((Glass_PO_Notification_Item_TblDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Glass_PO_Notification_Item_TblDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnId = base.Columns["Id"];
+                this.columnGlass_PO_Notification_Id = base.Columns["Glass_PO_Notification_Id"];
+                this.columnK_No = base.Columns["K_No"];
+                this.columnG_No = base.Columns["G_No"];
+                this.columnGlass_Specs = base.Columns["Glass_Specs"];
+                this.columnWidth = base.Columns["Width"];
+                this.columnHeight = base.Columns["Height"];
+                this.columnQty = base.Columns["Qty"];
+                this.columnDue_Date = base.Columns["Due_Date"];
+                this.columnDelivery_Schedule = base.Columns["Delivery_Schedule"];
+                this.columnReason = base.Columns["Reason"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnGlass_PO_Notification_Id = new global::System.Data.DataColumn("Glass_PO_Notification_Id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGlass_PO_Notification_Id);
+                this.columnK_No = new global::System.Data.DataColumn("K_No", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnK_No);
+                this.columnG_No = new global::System.Data.DataColumn("G_No", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnG_No);
+                this.columnGlass_Specs = new global::System.Data.DataColumn("Glass_Specs", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGlass_Specs);
+                this.columnWidth = new global::System.Data.DataColumn("Width", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWidth);
+                this.columnHeight = new global::System.Data.DataColumn("Height", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHeight);
+                this.columnQty = new global::System.Data.DataColumn("Qty", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQty);
+                this.columnDue_Date = new global::System.Data.DataColumn("Due_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDue_Date);
+                this.columnDelivery_Schedule = new global::System.Data.DataColumn("Delivery_Schedule", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDelivery_Schedule);
+                this.columnReason = new global::System.Data.DataColumn("Reason", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReason);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Glass_PO_Notification_Item_TblRow NewGlass_PO_Notification_Item_TblRow() {
+                return ((Glass_PO_Notification_Item_TblRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Glass_PO_Notification_Item_TblRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Glass_PO_Notification_Item_TblRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Glass_PO_Notification_Item_TblRowChanged != null)) {
+                    this.Glass_PO_Notification_Item_TblRowChanged(this, new Glass_PO_Notification_Item_TblRowChangeEvent(((Glass_PO_Notification_Item_TblRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Glass_PO_Notification_Item_TblRowChanging != null)) {
+                    this.Glass_PO_Notification_Item_TblRowChanging(this, new Glass_PO_Notification_Item_TblRowChangeEvent(((Glass_PO_Notification_Item_TblRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Glass_PO_Notification_Item_TblRowDeleted != null)) {
+                    this.Glass_PO_Notification_Item_TblRowDeleted(this, new Glass_PO_Notification_Item_TblRowChangeEvent(((Glass_PO_Notification_Item_TblRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Glass_PO_Notification_Item_TblRowDeleting != null)) {
+                    this.Glass_PO_Notification_Item_TblRowDeleting(this, new Glass_PO_Notification_Item_TblRowChangeEvent(((Glass_PO_Notification_Item_TblRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveGlass_PO_Notification_Item_TblRow(Glass_PO_Notification_Item_TblRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                reportDS ds = new reportDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Glass_PO_Notification_Item_TblDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Glass_PO_Notification_TblDataTable : global::System.Data.TypedTableBase<Glass_PO_Notification_TblRow> {
+            
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnControl_No;
+            
+            private global::System.Data.DataColumn columnDate_Filed;
+            
+            private global::System.Data.DataColumn columnPO;
+            
+            private global::System.Data.DataColumn columnSupplier;
+            
+            private global::System.Data.DataColumn columnProject_Name;
+            
+            private global::System.Data.DataColumn columnPrepared_By;
+            
+            private global::System.Data.DataColumn columnPrepared_By_Date;
+            
+            private global::System.Data.DataColumn columnNoted_By_PM;
+            
+            private global::System.Data.DataColumn columnNoted_By_PM_Date;
+            
+            private global::System.Data.DataColumn columnReceived_By;
+            
+            private global::System.Data.DataColumn columnReceived_By_Date;
+            
+            private global::System.Data.DataColumn columnNoted_By_IM;
+            
+            private global::System.Data.DataColumn columnNoted_By_IM_Date;
+            
+            private global::System.Data.DataColumn columnFull_Address;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Glass_PO_Notification_TblDataTable() {
+                this.TableName = "Glass_PO_Notification_Tbl";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal Glass_PO_Notification_TblDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected Glass_PO_Notification_TblDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Control_NoColumn {
+                get {
+                    return this.columnControl_No;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Date_FiledColumn {
+                get {
+                    return this.columnDate_Filed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn POColumn {
+                get {
+                    return this.columnPO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SupplierColumn {
+                get {
+                    return this.columnSupplier;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Project_NameColumn {
+                get {
+                    return this.columnProject_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Prepared_ByColumn {
+                get {
+                    return this.columnPrepared_By;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Prepared_By_DateColumn {
+                get {
+                    return this.columnPrepared_By_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Noted_By_PMColumn {
+                get {
+                    return this.columnNoted_By_PM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Noted_By_PM_DateColumn {
+                get {
+                    return this.columnNoted_By_PM_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Received_ByColumn {
+                get {
+                    return this.columnReceived_By;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Received_By_DateColumn {
+                get {
+                    return this.columnReceived_By_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Noted_By_IMColumn {
+                get {
+                    return this.columnNoted_By_IM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Noted_By_IM_DateColumn {
+                get {
+                    return this.columnNoted_By_IM_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Full_AddressColumn {
+                get {
+                    return this.columnFull_Address;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Glass_PO_Notification_TblRow this[int index] {
+                get {
+                    return ((Glass_PO_Notification_TblRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Glass_PO_Notification_TblRowChangeEventHandler Glass_PO_Notification_TblRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Glass_PO_Notification_TblRowChangeEventHandler Glass_PO_Notification_TblRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Glass_PO_Notification_TblRowChangeEventHandler Glass_PO_Notification_TblRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Glass_PO_Notification_TblRowChangeEventHandler Glass_PO_Notification_TblRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddGlass_PO_Notification_TblRow(Glass_PO_Notification_TblRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Glass_PO_Notification_TblRow AddGlass_PO_Notification_TblRow(string Id, string Control_No, string Date_Filed, string PO, string Supplier, string Project_Name, string Prepared_By, string Prepared_By_Date, string Noted_By_PM, string Noted_By_PM_Date, string Received_By, string Received_By_Date, string Noted_By_IM, string Noted_By_IM_Date, string Full_Address) {
+                Glass_PO_Notification_TblRow rowGlass_PO_Notification_TblRow = ((Glass_PO_Notification_TblRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Id,
+                        Control_No,
+                        Date_Filed,
+                        PO,
+                        Supplier,
+                        Project_Name,
+                        Prepared_By,
+                        Prepared_By_Date,
+                        Noted_By_PM,
+                        Noted_By_PM_Date,
+                        Received_By,
+                        Received_By_Date,
+                        Noted_By_IM,
+                        Noted_By_IM_Date,
+                        Full_Address};
+                rowGlass_PO_Notification_TblRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGlass_PO_Notification_TblRow);
+                return rowGlass_PO_Notification_TblRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Glass_PO_Notification_TblDataTable cln = ((Glass_PO_Notification_TblDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Glass_PO_Notification_TblDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnId = base.Columns["Id"];
+                this.columnControl_No = base.Columns["Control_No"];
+                this.columnDate_Filed = base.Columns["Date_Filed"];
+                this.columnPO = base.Columns["PO"];
+                this.columnSupplier = base.Columns["Supplier"];
+                this.columnProject_Name = base.Columns["Project_Name"];
+                this.columnPrepared_By = base.Columns["Prepared_By"];
+                this.columnPrepared_By_Date = base.Columns["Prepared_By_Date"];
+                this.columnNoted_By_PM = base.Columns["Noted_By_PM"];
+                this.columnNoted_By_PM_Date = base.Columns["Noted_By_PM_Date"];
+                this.columnReceived_By = base.Columns["Received_By"];
+                this.columnReceived_By_Date = base.Columns["Received_By_Date"];
+                this.columnNoted_By_IM = base.Columns["Noted_By_IM"];
+                this.columnNoted_By_IM_Date = base.Columns["Noted_By_IM_Date"];
+                this.columnFull_Address = base.Columns["Full_Address"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnControl_No = new global::System.Data.DataColumn("Control_No", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnControl_No);
+                this.columnDate_Filed = new global::System.Data.DataColumn("Date_Filed", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate_Filed);
+                this.columnPO = new global::System.Data.DataColumn("PO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPO);
+                this.columnSupplier = new global::System.Data.DataColumn("Supplier", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSupplier);
+                this.columnProject_Name = new global::System.Data.DataColumn("Project_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_Name);
+                this.columnPrepared_By = new global::System.Data.DataColumn("Prepared_By", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrepared_By);
+                this.columnPrepared_By_Date = new global::System.Data.DataColumn("Prepared_By_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrepared_By_Date);
+                this.columnNoted_By_PM = new global::System.Data.DataColumn("Noted_By_PM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNoted_By_PM);
+                this.columnNoted_By_PM_Date = new global::System.Data.DataColumn("Noted_By_PM_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNoted_By_PM_Date);
+                this.columnReceived_By = new global::System.Data.DataColumn("Received_By", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReceived_By);
+                this.columnReceived_By_Date = new global::System.Data.DataColumn("Received_By_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReceived_By_Date);
+                this.columnNoted_By_IM = new global::System.Data.DataColumn("Noted_By_IM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNoted_By_IM);
+                this.columnNoted_By_IM_Date = new global::System.Data.DataColumn("Noted_By_IM_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNoted_By_IM_Date);
+                this.columnFull_Address = new global::System.Data.DataColumn("Full_Address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFull_Address);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Glass_PO_Notification_TblRow NewGlass_PO_Notification_TblRow() {
+                return ((Glass_PO_Notification_TblRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Glass_PO_Notification_TblRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Glass_PO_Notification_TblRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Glass_PO_Notification_TblRowChanged != null)) {
+                    this.Glass_PO_Notification_TblRowChanged(this, new Glass_PO_Notification_TblRowChangeEvent(((Glass_PO_Notification_TblRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Glass_PO_Notification_TblRowChanging != null)) {
+                    this.Glass_PO_Notification_TblRowChanging(this, new Glass_PO_Notification_TblRowChangeEvent(((Glass_PO_Notification_TblRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Glass_PO_Notification_TblRowDeleted != null)) {
+                    this.Glass_PO_Notification_TblRowDeleted(this, new Glass_PO_Notification_TblRowChangeEvent(((Glass_PO_Notification_TblRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Glass_PO_Notification_TblRowDeleting != null)) {
+                    this.Glass_PO_Notification_TblRowDeleting(this, new Glass_PO_Notification_TblRowChangeEvent(((Glass_PO_Notification_TblRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveGlass_PO_Notification_TblRow(Glass_PO_Notification_TblRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                reportDS ds = new reportDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Glass_PO_Notification_TblDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class Notice_For_Inc_ItemsRow : global::System.Data.DataRow {
@@ -6162,6 +7062,783 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Glass_PO_Notification_Item_TblRow : global::System.Data.DataRow {
+            
+            private Glass_PO_Notification_Item_TblDataTable tableGlass_PO_Notification_Item_Tbl;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal Glass_PO_Notification_Item_TblRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGlass_PO_Notification_Item_Tbl = ((Glass_PO_Notification_Item_TblDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Id {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Item_Tbl.IdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Id\' in table \'Glass_PO_Notification_Item_Tbl\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Item_Tbl.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Glass_PO_Notification_Id {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Item_Tbl.Glass_PO_Notification_IdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Glass_PO_Notification_Id\' in table \'Glass_PO_Notification_I" +
+                                "tem_Tbl\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Item_Tbl.Glass_PO_Notification_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string K_No {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Item_Tbl.K_NoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'K_No\' in table \'Glass_PO_Notification_Item_Tbl\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Item_Tbl.K_NoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string G_No {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Item_Tbl.G_NoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'G_No\' in table \'Glass_PO_Notification_Item_Tbl\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Item_Tbl.G_NoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Glass_Specs {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Item_Tbl.Glass_SpecsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Glass_Specs\' in table \'Glass_PO_Notification_Item_Tbl\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Item_Tbl.Glass_SpecsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Width {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Item_Tbl.WidthColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Width\' in table \'Glass_PO_Notification_Item_Tbl\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Item_Tbl.WidthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Height {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Item_Tbl.HeightColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Height\' in table \'Glass_PO_Notification_Item_Tbl\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Item_Tbl.HeightColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Qty {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Item_Tbl.QtyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Qty\' in table \'Glass_PO_Notification_Item_Tbl\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Item_Tbl.QtyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Due_Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Item_Tbl.Due_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Due_Date\' in table \'Glass_PO_Notification_Item_Tbl\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Item_Tbl.Due_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Delivery_Schedule {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Item_Tbl.Delivery_ScheduleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Delivery_Schedule\' in table \'Glass_PO_Notification_Item_Tbl" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Item_Tbl.Delivery_ScheduleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Reason {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Item_Tbl.ReasonColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Reason\' in table \'Glass_PO_Notification_Item_Tbl\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Item_Tbl.ReasonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIdNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.IdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIdNull() {
+                this[this.tableGlass_PO_Notification_Item_Tbl.IdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsGlass_PO_Notification_IdNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.Glass_PO_Notification_IdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetGlass_PO_Notification_IdNull() {
+                this[this.tableGlass_PO_Notification_Item_Tbl.Glass_PO_Notification_IdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsK_NoNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.K_NoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetK_NoNull() {
+                this[this.tableGlass_PO_Notification_Item_Tbl.K_NoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsG_NoNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.G_NoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetG_NoNull() {
+                this[this.tableGlass_PO_Notification_Item_Tbl.G_NoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsGlass_SpecsNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.Glass_SpecsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetGlass_SpecsNull() {
+                this[this.tableGlass_PO_Notification_Item_Tbl.Glass_SpecsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsWidthNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.WidthColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetWidthNull() {
+                this[this.tableGlass_PO_Notification_Item_Tbl.WidthColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsHeightNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.HeightColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetHeightNull() {
+                this[this.tableGlass_PO_Notification_Item_Tbl.HeightColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsQtyNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.QtyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetQtyNull() {
+                this[this.tableGlass_PO_Notification_Item_Tbl.QtyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDue_DateNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.Due_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDue_DateNull() {
+                this[this.tableGlass_PO_Notification_Item_Tbl.Due_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDelivery_ScheduleNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.Delivery_ScheduleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDelivery_ScheduleNull() {
+                this[this.tableGlass_PO_Notification_Item_Tbl.Delivery_ScheduleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsReasonNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.ReasonColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetReasonNull() {
+                this[this.tableGlass_PO_Notification_Item_Tbl.ReasonColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Glass_PO_Notification_TblRow : global::System.Data.DataRow {
+            
+            private Glass_PO_Notification_TblDataTable tableGlass_PO_Notification_Tbl;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal Glass_PO_Notification_TblRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGlass_PO_Notification_Tbl = ((Glass_PO_Notification_TblDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Id {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.IdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Id\' in table \'Glass_PO_Notification_Tbl\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Control_No {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.Control_NoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Control_No\' in table \'Glass_PO_Notification_Tbl\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.Control_NoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Date_Filed {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.Date_FiledColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Date_Filed\' in table \'Glass_PO_Notification_Tbl\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.Date_FiledColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PO {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.POColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PO\' in table \'Glass_PO_Notification_Tbl\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.POColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Supplier {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.SupplierColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Supplier\' in table \'Glass_PO_Notification_Tbl\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.SupplierColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Project_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.Project_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Name\' in table \'Glass_PO_Notification_Tbl\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.Project_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Prepared_By {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.Prepared_ByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Prepared_By\' in table \'Glass_PO_Notification_Tbl\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.Prepared_ByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Prepared_By_Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.Prepared_By_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Prepared_By_Date\' in table \'Glass_PO_Notification_Tbl\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.Prepared_By_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Noted_By_PM {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.Noted_By_PMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Noted_By_PM\' in table \'Glass_PO_Notification_Tbl\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.Noted_By_PMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Noted_By_PM_Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.Noted_By_PM_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Noted_By_PM_Date\' in table \'Glass_PO_Notification_Tbl\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.Noted_By_PM_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Received_By {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.Received_ByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Received_By\' in table \'Glass_PO_Notification_Tbl\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.Received_ByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Received_By_Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.Received_By_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Received_By_Date\' in table \'Glass_PO_Notification_Tbl\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.Received_By_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Noted_By_IM {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.Noted_By_IMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Noted_By_IM\' in table \'Glass_PO_Notification_Tbl\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.Noted_By_IMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Noted_By_IM_Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.Noted_By_IM_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Noted_By_IM_Date\' in table \'Glass_PO_Notification_Tbl\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.Noted_By_IM_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Full_Address {
+                get {
+                    try {
+                        return ((string)(this[this.tableGlass_PO_Notification_Tbl.Full_AddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Full_Address\' in table \'Glass_PO_Notification_Tbl\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Tbl.Full_AddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIdNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.IdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIdNull() {
+                this[this.tableGlass_PO_Notification_Tbl.IdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsControl_NoNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.Control_NoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetControl_NoNull() {
+                this[this.tableGlass_PO_Notification_Tbl.Control_NoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDate_FiledNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.Date_FiledColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDate_FiledNull() {
+                this[this.tableGlass_PO_Notification_Tbl.Date_FiledColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPONull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.POColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPONull() {
+                this[this.tableGlass_PO_Notification_Tbl.POColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSupplierNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.SupplierColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSupplierNull() {
+                this[this.tableGlass_PO_Notification_Tbl.SupplierColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsProject_NameNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.Project_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetProject_NameNull() {
+                this[this.tableGlass_PO_Notification_Tbl.Project_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPrepared_ByNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.Prepared_ByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPrepared_ByNull() {
+                this[this.tableGlass_PO_Notification_Tbl.Prepared_ByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPrepared_By_DateNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.Prepared_By_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPrepared_By_DateNull() {
+                this[this.tableGlass_PO_Notification_Tbl.Prepared_By_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNoted_By_PMNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.Noted_By_PMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNoted_By_PMNull() {
+                this[this.tableGlass_PO_Notification_Tbl.Noted_By_PMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNoted_By_PM_DateNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.Noted_By_PM_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNoted_By_PM_DateNull() {
+                this[this.tableGlass_PO_Notification_Tbl.Noted_By_PM_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsReceived_ByNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.Received_ByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetReceived_ByNull() {
+                this[this.tableGlass_PO_Notification_Tbl.Received_ByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsReceived_By_DateNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.Received_By_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetReceived_By_DateNull() {
+                this[this.tableGlass_PO_Notification_Tbl.Received_By_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNoted_By_IMNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.Noted_By_IMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNoted_By_IMNull() {
+                this[this.tableGlass_PO_Notification_Tbl.Noted_By_IMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNoted_By_IM_DateNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.Noted_By_IM_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNoted_By_IM_DateNull() {
+                this[this.tableGlass_PO_Notification_Tbl.Noted_By_IM_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFull_AddressNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Tbl.Full_AddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFull_AddressNull() {
+                this[this.tableGlass_PO_Notification_Tbl.Full_AddressColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -6385,6 +8062,74 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ADDENDUM_TO_CONTRACT_TBRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class Glass_PO_Notification_Item_TblRowChangeEvent : global::System.EventArgs {
+            
+            private Glass_PO_Notification_Item_TblRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Glass_PO_Notification_Item_TblRowChangeEvent(Glass_PO_Notification_Item_TblRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Glass_PO_Notification_Item_TblRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class Glass_PO_Notification_TblRowChangeEvent : global::System.EventArgs {
+            
+            private Glass_PO_Notification_TblRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Glass_PO_Notification_TblRowChangeEvent(Glass_PO_Notification_TblRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Glass_PO_Notification_TblRow Row {
                 get {
                     return this.eventRow;
                 }
