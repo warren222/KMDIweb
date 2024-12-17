@@ -124,6 +124,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 HyperLink17.Visible = true;
                 HyperLink27.Visible = true;
             }
+            
             else
             {
                 HyperLink22.Visible = false;
@@ -132,6 +133,10 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 HyperLink15.Visible = false;
                 HyperLink17.Visible = false;
                 HyperLink27.Visible = false;
+            }
+            if (usercode == "AE" || usercode == "Engineer")
+            {
+                HyperLink15.Visible = true;
             }
         }
         private void estdaccess()

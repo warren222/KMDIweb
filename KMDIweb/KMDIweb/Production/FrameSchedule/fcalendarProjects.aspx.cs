@@ -20,11 +20,38 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 {
                     loadae();
                     loadae2();
+                    if (user_code == "AE" || user_code == "Engineer")
+                    {
+                        ddlae.Text = fullname;
+                        ddlae.Enabled = false;
+                        ddlae2.Text = fullname;
+                        ddlae2.Enabled = false;
+                    }
+                    else
+                    {
+                        ddlae.Enabled = true;
+                        ddlae2.Enabled = true;
+                    }
+                    loadproject();
                 }
             }
             else
             {
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
+            }
+        }
+        private string fullname
+        {
+            get
+            {
+                return Session["KMDI_fullname"].ToString();
+            }
+        }
+        private string user_code
+        {
+            get
+            {
+                return Session["KMDI_user_code"].ToString();
             }
         }
         private string sqlconstr
@@ -114,6 +141,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         object points_delay = tb.Compute("Sum(Points)", "Prod_Status = 'Delay'");
                         lblTotalPoints.Text = string.Format("{0:N0}", points);
                         lblDelayPoints.Text = string.Format("{0:N0}", points_delay);
+                        lblSelectedAE.Text = ddlae.Text;
                     }
                     catch (Exception e)
                     {

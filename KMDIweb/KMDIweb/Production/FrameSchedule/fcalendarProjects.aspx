@@ -32,13 +32,10 @@
                     <ContentTemplate>
 
                         <div class="row nopm">
-                            <div class="col-sm-6 nopm"></div>
                             <div class="col-sm-6 nopm">
-                                <div class="well">
+                                <div class="well well-sm">
                                     <div class="input-group">
-                                        <div class="input-group-addon">
-                                            AE/ENGR.
-                                        </div>
+                                        <div class="input-group-addon">AE/Engr:</div>
                                         <asp:DropDownList ID="ddlae" runat="server" CssClass="form-control">
                                         </asp:DropDownList>
                                         <div class="input-group-btn">
@@ -48,6 +45,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-6 nopm">
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Selected Filter:</strong>
+                                    <asp:Label ID="lblSelectedAE" runat="server"></asp:Label>
+                                </div>
+                            </div>
+
                         </div>
 
 
@@ -129,6 +134,9 @@
                                 </Columns>
                                 <PagerSettings Position="TopAndBottom" />
                                 <PagerStyle CssClass="GridPager" />
+                                <EmptyDataTemplate>
+                                    <p style="font-size: x-large" class="text-danger">Empty Table</p>
+                                </EmptyDataTemplate>
                             </asp:GridView>
                             </span>
                         </asp:Panel>
