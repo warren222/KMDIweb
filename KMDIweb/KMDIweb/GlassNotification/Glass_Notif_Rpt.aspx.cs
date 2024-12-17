@@ -12,11 +12,19 @@ namespace KMDIweb.KMDIweb.GlassNotification
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["KMDI_userid"] != null)
             {
-                getparameters();
-                BtnAccess();
+                if (!IsPostBack)
+                {
+                    getparameters();
+                    BtnAccess();
+                }
             }
+            else
+            {
+                Response.Redirect("~/KMDIweb/Global/Login.aspx");
+            }
+           
         }
         private string user_code
         {

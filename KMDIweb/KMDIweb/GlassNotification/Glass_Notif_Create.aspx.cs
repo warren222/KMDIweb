@@ -14,7 +14,17 @@ namespace KMDIweb.KMDIweb.GlassNotification
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["KMDI_userid"] != null)
+            {
+                if (!IsPostBack)
+                {
 
+                }
+            }
+            else
+            {
+                Response.Redirect("~/KMDIweb/Global/Login.aspx");
+            }
         }
         private string sqlconstr
         {
@@ -67,7 +77,21 @@ namespace KMDIweb.KMDIweb.GlassNotification
         {
             Get_PO();
         }
-
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_List.aspx" + AddQuerystring);
+        }
+        private string AddQuerystring
+        {
+            get
+            {
+                return "?Find=" + Request.QueryString["Find"].ToString() +
+                    "&DateFilter=" + Request.QueryString["DateFilter"].ToString() +
+                    "&Date=" + Request.QueryString["Date"].ToString() +
+                    "&ForSignature=" + Request.QueryString["ForSignature"].ToString() +
+                    "&PageIndex=" + Request.QueryString["PageIndex"].ToString();
+            }
+        }
         protected void gvFind_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvFind.PageIndex = e.NewPageIndex;

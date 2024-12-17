@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KMDIweb.KMDIweb.Production.FrameSchedule {
-    
-    
-    public partial class fcalendarProjects {
-        
+namespace KMDIweb.KMDIweb.Production.FrameSchedule
+{
+
+
+    public partial class fcalendarProjects
+    {
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
+
         /// <summary>
         /// ddlae control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlae;
-        
+
         /// <summary>
         /// LinkButton1 control.
         /// </summary>
@@ -47,7 +49,16 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
-        
+
+        /// <summary>
+        /// lblTotalPoints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalPoints;
+
         /// <summary>
         /// Panel1 control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel1;
-        
+
         /// <summary>
         /// GridView3 control.
         /// </summary>
@@ -65,7 +76,16 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView3;
-        
+
+        /// <summary>
+        /// lblDelayPoints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDelayPoints;
+
         /// <summary>
         /// UpdatePanel2 control.
         /// </summary>
@@ -74,7 +94,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
-        
+
         /// <summary>
         /// ddlae2 control.
         /// </summary>
@@ -83,7 +103,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlae2;
-        
+
         /// <summary>
         /// LinkButton2 control.
         /// </summary>
@@ -92,7 +112,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
-        
+
         /// <summary>
         /// Panel2 control.
         /// </summary>
@@ -101,7 +121,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel2;
-        
+
         /// <summary>
         /// GridView1 control.
         /// </summary>

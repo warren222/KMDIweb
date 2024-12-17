@@ -240,6 +240,33 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         protected global::System.Web.UI.WebControls.Panel pnlDelivered;
 
         /// <summary>
+        /// lbl72 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl72;
+
+        /// <summary>
+        /// linkReceivedSD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkReceivedSD;
+
+        /// <summary>
+        /// pnlReceivedSD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlReceivedSD;
+
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>

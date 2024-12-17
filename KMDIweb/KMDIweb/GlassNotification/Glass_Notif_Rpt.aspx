@@ -10,13 +10,15 @@
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="container">
-        <div class="well">
-            <h2 class="text-center">Glass Notification</h2>
+     <div class="well" style="background-color: #303030; border-bottom: solid 5px #ff006e; padding-left: 10px; color: white; font-family: Calibri;">
+            <div class="container">
+                <h3>Glass Notification | Report</h3>
+            </div>
             <span class="pull-right">
-                <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-warning" OnClick="btnBack_Click"><span class="glyphicon glyphicon-chevron-left"></span> back</asp:LinkButton>
+                <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-warning" ForeColor="Black" OnClick="btnBack_Click"><span class="glyphicon glyphicon-chevron-left"></span> back</asp:LinkButton>
             </span>
         </div>
+    <div class="container">
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sqlcon %>" SelectCommand="Glass_PO_Notification_Stp" SelectCommandType="StoredProcedure" OnSelecting="SqlDataSource1_Selecting">
             <SelectParameters>
                 <asp:Parameter Name="Command" Type="String" DefaultValue="Select" />

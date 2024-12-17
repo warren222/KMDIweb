@@ -21,7 +21,11 @@
         <div class="well" style="background-color: #303030; border-bottom: solid 5px #ff006e; padding-left: 10px; color: white; font-family: Calibri;">
             <div class="container">
                 <h3>Glass Notification | Create</h3>
+
             </div>
+            <span class="pull-right">
+                <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-warning" ForeColor="Black" OnClick="btnBack_Click"><span class="glyphicon glyphicon-chevron-left"></span> back</asp:LinkButton>
+            </span>
         </div>
         <asp:UpdatePanel ID="UpdatePanel4" runat="server">
             <ContentTemplate>

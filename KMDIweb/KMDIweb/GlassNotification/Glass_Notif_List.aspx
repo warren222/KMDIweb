@@ -13,15 +13,18 @@
             background-color: red;
             color: white;
         }
-        .bcOrange{
+
+        .bcOrange {
             background-color: orange;
             color: white;
         }
-        .bcBlue{
+
+        .bcBlue {
             background-color: aqua;
             color: black;
         }
-        .bcYellow{
+
+        .bcYellow {
             background-color: yellow;
             color: black;
         }
@@ -124,9 +127,10 @@
             </div>
         </div>
         <div class="container">
-            <asp:LinkButton ID="btnCreate" runat="server" CssClass="btn btn-danger" Style="background-color: #ff006e; border-color: #ff006e" OnClick="btnCreate_Click">Create New Notification</asp:LinkButton>
+            <asp:LinkButton ID="btnCreate" runat="server" CssClass="btn btn-default"
+                OnClick="btnCreate_Click">Create New Notification</asp:LinkButton>
         </div>
-      
+
 
         <div class="container">
             <div style="overflow-x: auto">
@@ -139,12 +143,12 @@
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <div class="panel panel-danger"  style='border-color:<%# Eval("Noted_By_IM").ToString() != "" ? "#80ffa2" : 
+                                        <div class="panel panel-danger" style='border-color: <%# Eval("Noted_By_IM").ToString() != "" ? "#80ffa2" : 
                                                                                    Eval("Received_By").ToString() != "" ? "#eeff80" :
                                                                                    Eval("Noted_By_PM").ToString() != "" ? "#ffc080" :
                                                                                    Eval("Prepared_By").ToString() != "" ? "#ff8080" :
                                                                                    "#80f0ff" %>'>
-                                            <div class="panel-heading" style='color:black;background-color:<%# Eval("Noted_By_IM").ToString() != "" ? "#80ffa2" : 
+                                            <div class="panel-heading" style='color: black; background-color: <%# Eval("Noted_By_IM").ToString() != "" ? "#80ffa2" : 
                                                                                    Eval("Received_By").ToString() != "" ? "#eeff80" :
                                                                                    Eval("Noted_By_PM").ToString() != "" ? "#ffc080" :
                                                                                    Eval("Prepared_By").ToString() != "" ? "#ff8080" :
@@ -159,6 +163,9 @@
                                                 <asp:LinkButton ID="btnProject_Name" CommandName="view_notification" runat="server">
                                         <span style="font-size: large; font-weight: bold;"><%# Eval("Project_Name") %></span>
                                                 </asp:LinkButton>
+                                                <span class="pull-right">
+                                                    <asp:LinkButton ID="btnEdit" runat="server" Text="Edit" CommandName="execEdit"></asp:LinkButton>
+                                                </span>
                                                 <br />
                                                 <span style="font-size: small"><%# Eval("Supplier") %></span><br />
                                                 <span style="font-size: small"><%# Eval("PO") %></span><br />

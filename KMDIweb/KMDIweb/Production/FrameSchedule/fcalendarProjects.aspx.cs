@@ -109,6 +109,11 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                         da.Fill(tb);
                         GridView3.DataSource = tb;
                         GridView3.DataBind();
+                     
+                        object points = tb.Compute("Sum(Points)", "");
+                        object points_delay = tb.Compute("Sum(Points)", "Prod_Status = 'Delay'");
+                        lblTotalPoints.Text = string.Format("{0:N0}", points);
+                        lblDelayPoints.Text = string.Format("{0:N0}", points_delay);
                     }
                     catch (Exception e)
                     {
@@ -162,6 +167,17 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         {
             GridView1.PageIndex = e.NewPageIndex;
             load_special_system();
+        }
+      
+        protected void GridView3_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                TableCell cell = e.Row.Cells[0];
+                //int points  = Convert.ToInt32(((Label)cell.FindControl("lblPoints")).Text);
+                //totalpoints += points;
+                //lblTotalPoints.Text = string.Format("{0:N0}", totalpoints);
+            }
         }
     }
 }

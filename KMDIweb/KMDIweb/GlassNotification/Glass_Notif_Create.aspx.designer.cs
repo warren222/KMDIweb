@@ -24,6 +24,15 @@ namespace KMDIweb.KMDIweb.GlassNotification
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
+        /// btnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnBack;
+
+        /// <summary>
         /// UpdatePanel4 control.
         /// </summary>
         /// <remarks>

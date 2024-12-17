@@ -238,7 +238,7 @@
                             </div>
                         </asp:Panel>
 
-                          <asp:Panel ID="pnlGlassPONotif" Visible="true" runat="server" Width="250px">
+                          <asp:Panel ID="pnlGlassPONotif" Visible="false" runat="server" Width="250px">
                             <div class="thumbnail">
                                 <asp:Image ID="Image13" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/Clear-Glass.jpg" runat="server" AlternateText="Project Photos" />
                                 <br />

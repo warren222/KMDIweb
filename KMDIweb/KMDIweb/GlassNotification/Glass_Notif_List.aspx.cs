@@ -14,12 +14,19 @@ namespace KMDIweb.KMDIweb.GlassNotification
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["KMDI_userid"] != null)
             {
-                RetriverQS();
-                ForSignatureCboxAccess();
-                Get_Data();
+                if (!IsPostBack)
+                {
+                    RetriverQS();
+                    ForSignatureCboxAccess();
+                    Get_Data();
+                }
             }
+            else
+            {
+                Response.Redirect("~/KMDIweb/Global/Login.aspx");
+            }      
         }
         private void RetriverQS()
         {
@@ -71,10 +78,13 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 btnCreate.Visible = true;
                 ddlForSignature.SelectedValue = "Prepared By";
             }
+            else if (user_code == "Programmer")
+            {
+                btnCreate.Visible = true;
+            }
             else
             {
-               
-               
+                btnCreate.Visible = false;
             }
         }
         private void errorrmessage(string message)
@@ -87,7 +97,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
         }
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Create.aspx");
+            Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Create.aspx?Id=0" + AddQuerystring);
         }
         private void Get_Data()
         {
@@ -183,6 +193,13 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 GridViewRow row = gvGlassNotifList.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
                 ExecDelete(id);
+            }
+            else if (e.CommandName == "execEdit")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvGlassNotifList.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Edit.aspx?Id=" + id + AddQuerystring);
             }
         }
         private string AddQuerystring
