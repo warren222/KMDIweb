@@ -26,7 +26,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
             else
             {
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
-            }      
+            }
         }
         private void RetriverQS()
         {
@@ -192,22 +192,29 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvGlassNotifList.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
+                string notedbypm = ((Label)row.FindControl("lblNoted_By_PM")).Text;
                 ExecDelete(id);
+                //if (notedbypm == "")
+                //{
+                //    ExecDelete(id);
+                //}
             }
             else if (e.CommandName == "execEdit")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvGlassNotifList.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
-                Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Edit.aspx?Id=" + id + AddQuerystring);
+                string po = ((Label)row.FindControl("lblPO")).Text;
+                string jo = ((Label)row.FindControl("lbljO")).Text;
+                Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Edit.aspx?Id=" + id + "&PO=" + po + "&JO=" + jo + AddQuerystring);
             }
         }
         private string AddQuerystring
         {
             get
             {
-                return "&Find=" + tboxFind.Text + 
-                       "&DateFilter="+ ddlDateFilter.SelectedValue.ToString() +
+                return "&Find=" + tboxFind.Text +
+                       "&DateFilter=" + ddlDateFilter.SelectedValue.ToString() +
                        "&Date=" + tboxDate.Text +
                        "&ForSignature=" + ddlForSignature.SelectedValue.ToString() +
                        "&PageIndex=" + gvGlassNotifList.PageIndex.ToString();
@@ -217,7 +224,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
         {
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
-                using (SqlCommand sqlcmd =  sqlcon.CreateCommand())
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                 {
                     try
                     {
@@ -254,7 +261,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 tboxFind.Text = "";
                 ddlDateFilter.Text = "All";
                 tboxDate.Text = "";
-                ddlForSignature.SelectedValue = "Noted By PM";     
+                ddlForSignature.SelectedValue = "Noted By PM";
                 Get_Data();
             }
             else if (e.CommandName == "ReceivedBy")

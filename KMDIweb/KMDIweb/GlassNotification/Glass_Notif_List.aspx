@@ -154,7 +154,11 @@
                                                                                    Eval("Prepared_By").ToString() != "" ? "#ff8080" :
                                                                                    "#80f0ff" %>'>
                                                 <asp:Label runat="server" ID="lblId" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
-                                                <asp:Label runat="server" ID="lblControl_No" CommandName="view_notification" Text='<%# Bind("Control_No") %>'></asp:Label>
+                                                <asp:Label runat="server" ID="lblNoted_By_PM" Visible="false" Text='<%# Bind("Noted_By_PM") %>'></asp:Label>
+                                                <asp:Label runat="server" ID="lblPO" Visible="false" Text='<%# Bind("PO") %>'></asp:Label>
+                                                <asp:Label runat="server" ID="lblJO" Visible="false" Text='<%# Bind("JO") %>'></asp:Label>
+
+                                                <asp:Label runat="server" ID="lblControl_No" Text='<%# Bind("Control_No") %>'></asp:Label>
                                                 <span class="pull-right">
                                                     <asp:LinkButton runat="server" ID="btnDelete" Visible="false" CommandName="execDelete" OnClientClick="return confirm('Do you want to delete this notification?')"><span class="glyphicon glyphicon-remove"></span></asp:LinkButton>
                                                 </span>

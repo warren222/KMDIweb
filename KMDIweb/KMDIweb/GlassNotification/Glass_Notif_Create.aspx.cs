@@ -111,6 +111,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 ViewState["SUPPLIER"] = ((Label)row.FindControl("lblSupplier")).Text;
                 ViewState["PROJECT_NAME"] = ((Label)row.FindControl("lblProject_Name")).Text;
                 ViewState["ADDRESS"] = ((Label)row.FindControl("lblAddress")).Text;
+                ViewState["JO"] = jono;
                 Get_PO_Items(po, jono);
             }
         }
@@ -185,6 +186,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                                 sqlcmd.Parameters.AddWithValue("@Due_Date", due_date);
                                 sqlcmd.Parameters.AddWithValue("@Delivery_Schedule", delivery_schedule);
                                 sqlcmd.Parameters.AddWithValue("@Reason", reason);
+                             
                                 sqlcmd.ExecuteNonQuery();
                             }
                             catch (Exception ex)
@@ -231,6 +233,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                         sqlcmd.Parameters.AddWithValue("@Supplier", ViewState["SUPPLIER"].ToString());
                         sqlcmd.Parameters.AddWithValue("@Project_Name", ViewState["PROJECT_NAME"].ToString());
                         sqlcmd.Parameters.AddWithValue("@Full_Address", ViewState["ADDRESS"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@JO", ViewState["JO"].ToString());
                         using (SqlDataReader rd = sqlcmd.ExecuteReader())
                         {
                             while (rd.Read())
