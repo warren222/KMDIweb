@@ -22,15 +22,38 @@
         </span>
     </div>
     <div class="container">
-        <asp:LinkButton ID="btnGet_PO_Items" runat="server" OnClick="btnGet_PO_Items_Click" Text="Show PO"></asp:LinkButton>
+        <div>
+            <asp:GridView ID="gvSelectNotif" BorderStyle="None" GridLines="None" ShowHeader="false" Style="font-family: Calibri; white-space: nowrap;" runat="server" AutoGenerateColumns="false">
+                <Columns>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <div style="font-size:medium;">
+                                <span><%# Eval("Project_Name") %></span><br />
+                                <span><%# Eval("Supplier") %></span><br />
+                                <span><%# Eval("Date_Filed") %></span><br />
+                                <span><%# Eval("Control_No") %></span>
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+        </div>
+        <br />
+        <asp:LinkButton ID="btnGet_PO_Items" runat="server" CssClass="btn btn-default" OnClick="btnGet_PO_Items_Click" Text="Show P.O."></asp:LinkButton>
+
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <asp:Panel runat="server" ID="pnlPO_Items" Visible="false">
+                    <div style="background-color: aqua; padding: 5px;">
+                        <asp:Label ID="lblPO" runat="server"></asp:Label>
+                    </div>
                     <asp:GridView ID="gvPO_Items" runat="server" Width="100%" Style="font-family: Calibri; white-space: nowrap;" AutoGenerateColumns="False">
                         <Columns>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:CheckBox runat="server" ID="cboxSelect" />
+                                    <div class="text-center">
+                                        <asp:CheckBox runat="server" ID="cboxSelect" />
+                                    </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="K No.">
@@ -52,27 +75,37 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Width">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblWidth" runat="server" Text='<%# Bind("Width") %>'></asp:Label>
+                                    <div class="text-center">
+                                        <asp:Label ID="lblWidth" runat="server" Text='<%# Bind("Width") %>'></asp:Label>
+                                    </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Height">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblHeight" runat="server" Text='<%# Bind("Height") %>'></asp:Label>
+                                    <div class="text-center">
+                                        <asp:Label ID="lblHeight" runat="server" Text='<%# Bind("Height") %>'></asp:Label>
+                                    </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Qty">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblQty" runat="server" Text='<%# Bind("Qty") %>'></asp:Label>
+                                    <div class="text-center">
+                                        <asp:Label ID="lblQty" runat="server" Text='<%# Bind("Qty") %>'></asp:Label>
+                                    </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Due Date">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblDue_Date" runat="server" Text='<%# Bind("Due_Date") %>'></asp:Label>
+                                    <div class="text-center">
+                                        <asp:Label ID="lblDue_Date" runat="server" Text='<%# Bind("Due_Date") %>'></asp:Label>
+                                    </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Delivery Schedule">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblDelivery_Schedule" runat="server" Text='<%# Bind("GREQUEST") %>'></asp:Label>
+                                    <div class="text-center">
+                                        <asp:Label ID="lblDelivery_Schedule" runat="server" Text='<%# Bind("GREQUEST") %>'></asp:Label>
+                                    </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Reason">
@@ -82,12 +115,14 @@
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
-                    <asp:LinkButton runat="server" ID="btnProceed" CssClass="btn btn-success" OnClick="btnProceed_Click1">insert selected items</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnProceed" CssClass="btn btn-success" Style="border-radius: 0; width: 100%;" OnClick="btnProceed_Click1"><span class="glyphicon glyphicon-arrow-down"></span> Insert Selected Items</asp:LinkButton>
                 </asp:Panel>
             </ContentTemplate>
         </asp:UpdatePanel>
+        <br />
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
+                <div style="background-color: #ff006e; color: white; padding: 5px;">Notification Items</div>
                 <asp:GridView ID="gvtem" runat="server" AutoGenerateColumns="False"
                     Width="100%" Style="font-family: Calibri; white-space: nowrap;"
                     CssClass="nowraptxt" OnRowCommand="gvtem_RowCommand">

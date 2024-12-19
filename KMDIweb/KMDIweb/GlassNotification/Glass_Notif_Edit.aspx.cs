@@ -18,6 +18,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
             {
                 if (!IsPostBack)
                 {
+                    SelectNotif();
                     LoadItem();
                 }
             }
@@ -54,6 +55,36 @@ namespace KMDIweb.KMDIweb.GlassNotification
                     "&Date=" + Request.QueryString["Date"].ToString() +
                     "&ForSignature=" + Request.QueryString["ForSignature"].ToString() +
                     "&PageIndex=" + Request.QueryString["PageIndex"].ToString();
+            }
+        }
+        private void SelectNotif()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Glass_PO_Notification_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Select");
+                        sqlcmd.Parameters.AddWithValue("@Id", Request.QueryString["Id"]);
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(tb);
+                            gvSelectNotif.DataSource = tb;
+                            gvSelectNotif.DataBind();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
             }
         }
         private void LoadItem()
@@ -109,7 +140,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                             gvPO_Items.DataSource = tb;
                             gvPO_Items.DataBind();
                         }
-                       
+                        lblPO.Text = Request.QueryString["PO"].ToString();
                     }
                     catch (Exception ex)
                     {
@@ -248,7 +279,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
             }
             finally
             {
-                btnGet_PO_Items.Text = "Show PO";
+                btnGet_PO_Items.Text = "Show P.O.";
                 pnlPO_Items.Visible = false;
                 LoadItem();
             }
@@ -259,12 +290,12 @@ namespace KMDIweb.KMDIweb.GlassNotification
         {
             if (pnlPO_Items.Visible ==  true)
             {
-                btnGet_PO_Items.Text = "Show PO";
+                btnGet_PO_Items.Text = "Show P.O.";
                 pnlPO_Items.Visible = false;
             }
             else
             {
-                btnGet_PO_Items.Text = "Hide PO";
+                btnGet_PO_Items.Text = "Hide P.O.";
                 pnlPO_Items.Visible = true;
             }
           

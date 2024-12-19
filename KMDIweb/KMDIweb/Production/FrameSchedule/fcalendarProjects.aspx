@@ -16,7 +16,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="well" style="background-color: #303030; border-bottom: solid 5px #ff006e; padding-left: 10px; color: white; font-family: Calibri;">
         <div class="container">
-            <h3>Ongoing Projects</h3>
+            <h3>Ongoing Projects (based on schedule)</h3>
         </div>
     </div>
     <div class="container">
@@ -84,7 +84,6 @@
                                         <ItemTemplate>
                                             <div class="text-right">
                                                 <asp:Label ID="lblProdStatus" runat="server" ForeColor="Red" CssClass='<%# Eval("Prod_Status").ToString() == "Delay" ? "glyphicon glyphicon-warning-sign" : "" %>'></asp:Label>
-
                                             </div>
                                         </ItemTemplate>
                                     </asp:TemplateField>
@@ -116,7 +115,7 @@
                                             </div>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="J.O. POINTS">
+                                    <asp:TemplateField HeaderText="SCHED POINTS">
                                         <ItemTemplate>
                                             <div class="text-right text-muted">
                                                 <span><%# Eval("contract_points") %></span>

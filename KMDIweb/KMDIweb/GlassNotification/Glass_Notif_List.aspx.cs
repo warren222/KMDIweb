@@ -193,11 +193,15 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 GridViewRow row = gvGlassNotifList.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
                 string notedbypm = ((Label)row.FindControl("lblNoted_By_PM")).Text;
-                ExecDelete(id);
-                //if (notedbypm == "")
-                //{
-                //    ExecDelete(id);
-                //}
+                //ExecDelete(id);
+                if (notedbypm == "")
+                {
+                    ExecDelete(id);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(Page, GetType(), "warning", "alert('WARNING: signed notification! unable to proceed.');", true);
+                }
             }
             else if (e.CommandName == "execEdit")
             {
@@ -206,7 +210,15 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 string id = ((Label)row.FindControl("lblId")).Text;
                 string po = ((Label)row.FindControl("lblPO")).Text;
                 string jo = ((Label)row.FindControl("lbljO")).Text;
-                Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Edit.aspx?Id=" + id + "&PO=" + po + "&JO=" + jo + AddQuerystring);
+                string notedbypm = ((Label)row.FindControl("lblNoted_By_PM")).Text;
+                if (notedbypm == "")
+                {
+                    Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Edit.aspx?Id=" + id + "&PO=" + po + "&JO=" + jo + AddQuerystring);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(Page, GetType(), "warning", "alert('WARNING: signed notification! unable to proceed.');", true);
+                }
             }
         }
         private string AddQuerystring
