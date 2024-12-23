@@ -55,12 +55,15 @@
                                         <table border="1" style="border-color: bisque;" class="wf_tbl">
                                             <tr>
                                                 <th style="background-color: whitesmoke" class="text-center" colspan="4">For Signature</th>
+                                                <th style="background-color: whitesmoke" class="text-center"></th>
                                             </tr>
+
                                             <tr class="text-center">
                                                 <td style="width: 100px;">Prepared By</td>
                                                 <td style="width: 100px;">Noted By</td>
                                                 <td style="width: 100px;">Received By</td>
                                                 <td style="width: 100px;">Noted By</td>
+                                                <td style="width: 100px;">All</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td>
@@ -71,6 +74,8 @@
                                                     <asp:LinkButton ID="btnReceivedBy" CssClass='<%# Eval("Notif_Received_By").ToString() == "0" ? "" : "badge bcOrange" %>' CommandName="ReceivedBy" Font-Bold="true" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Received_By") %></span></asp:LinkButton></td>
                                                 <td>
                                                     <asp:LinkButton ID="btnNotedByIM" CssClass='<%# Eval("Notif_Noted_By_IM").ToString() == "0" ? "" : "badge bcYellow" %>' CommandName="NotedBySirCule" Font-Bold="true" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Noted_By_IM") %></span></asp:LinkButton></td>
+                                                <td>
+                                                    <asp:LinkButton ID="btnAll" CssClass='<%# Eval("All_Notification").ToString() == "0" ? "" : "" %>' CommandName="AllNotification" Style="font-size: xx-large; color: green" runat="server"><span style="font-size: xx-large;"><%# Eval("All_Notification") %></span></asp:LinkButton></td>
                                             </tr>
                                         </table>
                                     </ItemTemplate>
