@@ -18,7 +18,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
             {
                 if (!IsPostBack)
                 {
-
+                    Get_PO();
                 }
             }
             else
@@ -102,6 +102,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
         {
             if (e.CommandName == "view_po")
             {
+           
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvFind.Rows[rowindex];
                 row.RowState = DataControlRowState.Selected;
@@ -113,6 +114,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 ViewState["ADDRESS"] = ((Label)row.FindControl("lblAddress")).Text;
                 ViewState["JO"] = jono;
                 Get_PO_Items(po, jono);
+                pnl.Visible = true;
             }
         }
         private void Get_PO_Items(string po, string jono)

@@ -23,7 +23,8 @@
     </div>
     <div class="container">
         <div>
-            <asp:GridView ID="gvSelectNotif" BorderStyle="None" GridLines="None" ShowHeader="false" Style="font-family: Calibri; white-space: nowrap;" runat="server" AutoGenerateColumns="false">
+            <asp:GridView ID="gvSelectNotif" BorderStyle="None" GridLines="None" ShowHeader="false" 
+                Style="font-family: Calibri; white-space: nowrap;" runat="server" AutoGenerateColumns="false">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
