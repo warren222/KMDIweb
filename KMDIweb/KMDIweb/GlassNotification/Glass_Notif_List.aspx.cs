@@ -292,12 +292,20 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 ddlForSignature.SelectedValue = "Noted By IM";
                 Get_Data();
             }
-            else if (e.CommandName == "AllNotification")
+            //else if (e.CommandName == "AllNotification")
+            //{
+            //    tboxFind.Text = "";
+            //    ddlDateFilter.Text = "All";
+            //    tboxDate.Text = "";
+            //    ddlForSignature.SelectedValue = "All";
+            //    Get_Data();
+            //}
+            else if (e.CommandName == "SignedNotifications")
             {
                 tboxFind.Text = "";
                 ddlDateFilter.Text = "All";
                 tboxDate.Text = "";
-                ddlForSignature.SelectedValue = "All";
+                ddlForSignature.SelectedValue = "Signed Notifications";
                 Get_Data();
             }
         }

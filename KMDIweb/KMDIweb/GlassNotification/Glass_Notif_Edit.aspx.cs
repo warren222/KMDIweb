@@ -156,7 +156,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvtem.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
-                ExecQuery("Delete", id, "");
+                ExecQuery("Delete", id, "", "");
             }
             else if (e.CommandName == "execEdit")
             {
@@ -164,8 +164,10 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 GridViewRow row = gvtem.Rows[rowindex];
                 ((LinkButton)row.FindControl("btnSave")).Visible = true;
                 ((LinkButton)row.FindControl("btnCancel")).Visible = true;
+                ((TextBox)row.FindControl("tboxReceivedQtyEdit")).Visible = true;
                 ((TextBox)row.FindControl("tboxReasonEdit")).Visible = true;
                 ((Label)row.FindControl("lblReason_Item")).Visible = false;
+                ((Label)row.FindControl("lblReceivedQty")).Visible = false;
                 ((LinkButton)row.FindControl("btnDelete")).Visible = false;
                 ((LinkButton)row.FindControl("btnEdit")).Visible = false;
             }
@@ -175,7 +177,8 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 GridViewRow row = gvtem.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
                 string reason = ((TextBox)row.FindControl("tboxReasonEdit")).Text;
-                ExecQuery("Update", id, reason);
+                string received_qty = ((TextBox)row.FindControl("tboxReceivedQtyEdit")).Text;
+                ExecQuery("Update", id, reason, received_qty);
             }
             else if (e.CommandName == "execCancel")
             {
@@ -183,13 +186,15 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 GridViewRow row = gvtem.Rows[rowindex];
                 ((LinkButton)row.FindControl("btnSave")).Visible = false;
                 ((LinkButton)row.FindControl("btnCancel")).Visible = false;
+                ((TextBox)row.FindControl("tboxReceivedQtyEdit")).Visible = false;
                 ((TextBox)row.FindControl("tboxReasonEdit")).Visible = false;
                 ((Label)row.FindControl("lblReason_Item")).Visible = true;
+                ((Label)row.FindControl("lblReceivedQty")).Visible = true;
                 ((LinkButton)row.FindControl("btnDelete")).Visible = true;
                 ((LinkButton)row.FindControl("btnEdit")).Visible = true;
             }
         }
-        private void ExecQuery(string command, string id, string reason)
+        private void ExecQuery(string command, string id, string reason, string received_qty)
         {
             try
             {
@@ -203,6 +208,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                         sqlcmd.Parameters.AddWithValue("@Command", command);
                         sqlcmd.Parameters.AddWithValue("@Id", id);
                         sqlcmd.Parameters.AddWithValue("@Reason", reason);
+                        sqlcmd.Parameters.AddWithValue("@Received_Qty", received_qty);
                         sqlcmd.ExecuteNonQuery();
                     }
                 }
@@ -224,7 +230,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 CheckBox cbk = (CheckBox)row.FindControl("cboxSelect");
                 if (cbk.Checked)
                 {
-                    string kno, gno, glass_specs, width, height, qty, due_date, delivery_schedule, reason;
+                    string kno, gno, glass_specs, width, height, qty, due_date, delivery_schedule, reason, received_qty;
                     kno = ((Label)row.FindControl("lblK_No")).Text.ToString();
                     gno = ((Label)row.FindControl("lblG_No")).Text.ToString();
                     glass_specs = ((Label)row.FindControl("lblGlass_Specs")).Text.ToString();
@@ -233,6 +239,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                     qty = ((Label)row.FindControl("lblQty")).Text.ToString();
                     due_date = ((Label)row.FindControl("lblDue_Date")).Text.ToString();
                     delivery_schedule = ((Label)row.FindControl("lblDelivery_Schedule")).Text.ToString();
+                    received_qty = ((TextBox)row.FindControl("tboxReceivedQty")).Text.ToString();
                     reason = ((TextBox)row.FindControl("tboxReason")).Text.ToString();
                     using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                     {
@@ -254,7 +261,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                                 sqlcmd.Parameters.AddWithValue("@Due_Date", due_date);
                                 sqlcmd.Parameters.AddWithValue("@Delivery_Schedule", delivery_schedule);
                                 sqlcmd.Parameters.AddWithValue("@Reason", reason);
-
+                                sqlcmd.Parameters.AddWithValue("@Received_Qty", received_qty);
                                 sqlcmd.ExecuteNonQuery();
                             }
                             catch (Exception ex)
@@ -288,7 +295,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
 
         protected void btnGet_PO_Items_Click(object sender, EventArgs e)
         {
-            if (pnlPO_Items.Visible ==  true)
+            if (pnlPO_Items.Visible == true)
             {
                 btnGet_PO_Items.Text = "Show P.O.";
                 pnlPO_Items.Visible = false;
@@ -298,7 +305,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 btnGet_PO_Items.Text = "Hide P.O.";
                 pnlPO_Items.Visible = true;
             }
-          
+
             Get_PO_Items();
         }
     }

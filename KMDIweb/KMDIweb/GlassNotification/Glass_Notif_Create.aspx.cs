@@ -102,7 +102,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
         {
             if (e.CommandName == "view_po")
             {
-           
+
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvFind.Rows[rowindex];
                 row.RowState = DataControlRowState.Selected;
@@ -158,7 +158,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 CheckBox cbk = (CheckBox)row.FindControl("cboxSelect");
                 if (cbk.Checked)
                 {
-                    string kno, gno, glass_specs, width, height, qty, due_date, delivery_schedule, reason;
+                    string kno, gno, glass_specs, width, height, qty, due_date, delivery_schedule, reason, received_qty;
                     kno = ((Label)row.FindControl("lblK_No")).Text.ToString();
                     gno = ((Label)row.FindControl("lblG_No")).Text.ToString();
                     glass_specs = ((Label)row.FindControl("lblGlass_Specs")).Text.ToString();
@@ -167,6 +167,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                     qty = ((Label)row.FindControl("lblQty")).Text.ToString();
                     due_date = ((Label)row.FindControl("lblDue_Date")).Text.ToString();
                     delivery_schedule = ((Label)row.FindControl("lblDelivery_Schedule")).Text.ToString();
+                    received_qty = ((TextBox)row.FindControl("tboxReceivedQty")).Text.ToString();
                     reason = ((TextBox)row.FindControl("tboxReason")).Text.ToString();
                     using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                     {
@@ -187,8 +188,9 @@ namespace KMDIweb.KMDIweb.GlassNotification
                                 sqlcmd.Parameters.AddWithValue("@Qty", qty);
                                 sqlcmd.Parameters.AddWithValue("@Due_Date", due_date);
                                 sqlcmd.Parameters.AddWithValue("@Delivery_Schedule", delivery_schedule);
+                                sqlcmd.Parameters.AddWithValue("@Received_Qty", received_qty);
                                 sqlcmd.Parameters.AddWithValue("@Reason", reason);
-                             
+
                                 sqlcmd.ExecuteNonQuery();
                             }
                             catch (Exception ex)
@@ -254,6 +256,6 @@ namespace KMDIweb.KMDIweb.GlassNotification
             }
             return id;
         }
-    
+
     }
 }

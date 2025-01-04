@@ -44,8 +44,8 @@
                 <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
             </ContentTemplate>
         </asp:UpdatePanel>
-        <div class="row">
-            <div class="col-sm-6">
+        <div class="row nopm">
+            <div class="col-sm-6 nopm">
                 <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                     <ContentTemplate>
                         <asp:GridView ID="gvSummary" ShowHeader="false" GridLines="None" Width="100%" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSummary_RowCommand" OnRowDataBound="gvSummary_RowDataBound">
@@ -55,7 +55,7 @@
                                         <table border="1" style="border-color: bisque;" class="wf_tbl">
                                             <tr>
                                                 <th style="background-color: whitesmoke" class="text-center" colspan="4">For Signature</th>
-                                                <th style="background-color: whitesmoke" class="text-center"></th>
+                                                <th style="background-color: whitesmoke" class="text-center">Signed</th>
                                             </tr>
 
                                             <tr class="text-center">
@@ -63,7 +63,7 @@
                                                 <td style="width: 100px;">Noted By</td>
                                                 <td style="width: 100px;">Received By</td>
                                                 <td style="width: 100px;">Noted By</td>
-                                                <td style="width: 100px;">All</td>
+                                                <td style="width: 100px;">-</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td>
@@ -75,7 +75,7 @@
                                                 <td>
                                                     <asp:LinkButton ID="btnNotedByIM" CssClass='<%# Eval("Notif_Noted_By_IM").ToString() == "0" ? "" : "badge bcYellow" %>' CommandName="NotedBySirCule" Font-Bold="true" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Noted_By_IM") %></span></asp:LinkButton></td>
                                                 <td>
-                                                    <asp:LinkButton ID="btnAll" CssClass='<%# Eval("All_Notification").ToString() == "0" ? "" : "" %>' CommandName="AllNotification" Style="font-size: xx-large; color: green" runat="server"><span style="font-size: xx-large;"><%# Eval("All_Notification") %></span></asp:LinkButton></td>
+                                                    <asp:LinkButton ID="btnSigned" CssClass='<%# Eval("Notif_Signed").ToString() == "0" ? "" : "" %>' CommandName="SignedNotifications" Style="font-size: xx-large; color: green" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Signed") %></span></asp:LinkButton></td>
                                             </tr>
                                         </table>
                                     </ItemTemplate>
@@ -85,11 +85,11 @@
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 nopm">
                 <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                     <ContentTemplate>
                         <div class="well">
-                            <div class="row">
+                            <div class="row nopm">
                                 <div class="col-sm-4">
                                     <span>Date Filter</span>
                                     <asp:DropDownList runat="server" ID="ddlDateFilter" CssClass="form-control">
@@ -105,7 +105,7 @@
                                     <asp:TextBox runat="server" ID="tboxDate" TextMode="Date" CssClass="form-control"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row nopm">
                                 <div class="col-sm-4">
                                     <asp:Label ID="lblForSignature" runat="server">For Signature</asp:Label>
                                     <asp:DropDownList ID="ddlForSignature" runat="server" CssClass="form-control">
@@ -114,6 +114,7 @@
                                         <asp:ListItem Value="Noted By PM" Text="Noted By (Engr. Mon)"></asp:ListItem>
                                         <asp:ListItem Value="Received By" Text="Received By"></asp:ListItem>
                                         <asp:ListItem Value="Noted By IM" Text="Noted By (Engr. Cule)"></asp:ListItem>
+                                        <asp:ListItem Value="Signed Notifications" style="color:green;font-weight:bold;font-style:italic;" Text="Signed Notifications"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                                 <div class="col-sm-8">
@@ -143,7 +144,7 @@
                     <ContentTemplate>
                         <asp:GridView ID="gvGlassNotifList" runat="server" Width="100%"
                             OnPageIndexChanging="gvGlassNotifList_PageIndexChanging"
-                            AutoGenerateColumns="false" GridLines="None" AllowPaging="True"
+                            AutoGenerateColumns="false" GridLines="None" AllowPaging="True" Style="min-width: 700px;"
                             OnRowCommand="gvGlassNotifList_RowCommand" OnRowDataBound="gvGlassNotifList_RowDataBound">
                             <Columns>
                                 <asp:TemplateField>
