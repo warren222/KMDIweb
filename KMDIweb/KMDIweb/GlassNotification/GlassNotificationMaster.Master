@@ -32,8 +32,11 @@
                     <ul class="nav navbar-nav">
                         <li class="active">
                             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/KMDIweb/GlassNotification/Glass_Notif_List.aspx">
-                                 <span class="glyphicon glyphicon-home"></span>&nbsp;Home</asp:HyperLink></li>
-
+                                 <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;Glass Notif</asp:HyperLink></li>
+                        <li>
+                               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/KMDIweb/GlassNotification/Glass_Notif_List.aspx">
+                                 <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;Glass Notif Updates</asp:HyperLink>
+                        </li>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

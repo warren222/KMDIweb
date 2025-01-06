@@ -114,7 +114,7 @@
                                         <asp:ListItem Value="Noted By PM" Text="Noted By (Engr. Mon)"></asp:ListItem>
                                         <asp:ListItem Value="Received By" Text="Received By"></asp:ListItem>
                                         <asp:ListItem Value="Noted By IM" Text="Noted By (Engr. Cule)"></asp:ListItem>
-                                        <asp:ListItem Value="Signed Notifications" style="color:green;font-weight:bold;font-style:italic;" Text="Signed Notifications"></asp:ListItem>
+                                        <asp:ListItem Value="Signed Notifications" style="color: green; font-weight: bold; font-style: italic;" Text="Signed Notifications"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                                 <div class="col-sm-8">
@@ -173,13 +173,15 @@
                                                 <asp:LinkButton ID="btnProject_Name" CommandName="view_notification" runat="server">
                                         <span style="font-size: large; font-weight: bold;"><%# Eval("Project_Name") %></span>
                                                 </asp:LinkButton>
-                                                <span class="pull-right">
+                                                <span class="pull-right text-right">
                                                     <asp:LinkButton ID="btnEdit" runat="server" Text="Edit" CommandName="execEdit"></asp:LinkButton>
+                                                    
                                                 </span>
                                                 <br />
                                                 <span style="font-size: small"><%# Eval("Supplier") %></span><br />
                                                 <span style="font-size: small"><%# Eval("PO") %></span><br />
                                                 <span style="font-size: small;" class="text-muted"><%# Eval("Date_Filed") %></span><br />
+                                                <asp:LinkButton ID="btnReceivingUpdate" runat="server" Text="Receiving Update" CssClass="btn btn-primary" CommandName="execReceivingUpdate"></asp:LinkButton>
                                             </div>
                                             <div class="row nopm">
                                                 <div class="col-xs-3 nopm">

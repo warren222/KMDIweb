@@ -220,6 +220,15 @@ namespace KMDIweb.KMDIweb.GlassNotification
                     ScriptManager.RegisterStartupScript(Page, GetType(), "warning", "alert('WARNING: signed notification! unable to proceed.');", true);
                 }
             }
+            else if (e.CommandName == "execReceivingUpdate")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvGlassNotifList.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                string po = ((Label)row.FindControl("lblPO")).Text;
+                string jo = ((Label)row.FindControl("lbljO")).Text;
+                Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Receiving_Update.aspx?Id=" + id + "&PO=" + po + "&JO=" + jo + AddQuerystring);
+            }
         }
         private string AddQuerystring
         {

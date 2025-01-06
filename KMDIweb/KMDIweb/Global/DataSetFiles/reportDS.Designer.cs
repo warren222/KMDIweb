@@ -3571,6 +3571,8 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             private global::System.Data.DataColumn columnReceived_Qty;
             
+            private global::System.Data.DataColumn columnTotal_Received;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public Glass_PO_Notification_Item_TblDataTable() {
@@ -3702,6 +3704,14 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Total_ReceivedColumn {
+                get {
+                    return this.columnTotal_Received;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3737,7 +3747,7 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Glass_PO_Notification_Item_TblRow AddGlass_PO_Notification_Item_TblRow(string Id, string Glass_PO_Notification_Id, string K_No, string G_No, string Glass_Specs, string Width, string Height, int Qty, string Due_Date, string Delivery_Schedule, string Reason, int Received_Qty) {
+            public Glass_PO_Notification_Item_TblRow AddGlass_PO_Notification_Item_TblRow(string Id, string Glass_PO_Notification_Id, string K_No, string G_No, string Glass_Specs, string Width, string Height, int Qty, string Due_Date, string Delivery_Schedule, string Reason, int Received_Qty, int Total_Received) {
                 Glass_PO_Notification_Item_TblRow rowGlass_PO_Notification_Item_TblRow = ((Glass_PO_Notification_Item_TblRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -3751,7 +3761,8 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                         Due_Date,
                         Delivery_Schedule,
                         Reason,
-                        Received_Qty};
+                        Received_Qty,
+                        Total_Received};
                 rowGlass_PO_Notification_Item_TblRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGlass_PO_Notification_Item_TblRow);
                 return rowGlass_PO_Notification_Item_TblRow;
@@ -3786,6 +3797,7 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 this.columnDelivery_Schedule = base.Columns["Delivery_Schedule"];
                 this.columnReason = base.Columns["Reason"];
                 this.columnReceived_Qty = base.Columns["Received_Qty"];
+                this.columnTotal_Received = base.Columns["Total_Received"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3815,6 +3827,8 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 base.Columns.Add(this.columnReason);
                 this.columnReceived_Qty = new global::System.Data.DataColumn("Received_Qty", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReceived_Qty);
+                this.columnTotal_Received = new global::System.Data.DataColumn("Total_Received", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal_Received);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7291,6 +7305,23 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Total_Received {
+                get {
+                    try {
+                        return ((int)(this[this.tableGlass_PO_Notification_Item_Tbl.Total_ReceivedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Received\' in table \'Glass_PO_Notification_Item_Tbl\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGlass_PO_Notification_Item_Tbl.Total_ReceivedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsIdNull() {
                 return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.IdColumn);
             }
@@ -7431,6 +7462,18 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetReceived_QtyNull() {
                 this[this.tableGlass_PO_Notification_Item_Tbl.Received_QtyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotal_ReceivedNull() {
+                return this.IsNull(this.tableGlass_PO_Notification_Item_Tbl.Total_ReceivedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotal_ReceivedNull() {
+                this[this.tableGlass_PO_Notification_Item_Tbl.Total_ReceivedColumn] = global::System.Convert.DBNull;
             }
         }
         
