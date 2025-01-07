@@ -175,13 +175,14 @@
                                                 </asp:LinkButton>
                                                 <span class="pull-right text-right">
                                                     <asp:LinkButton ID="btnEdit" runat="server" Text="Edit" CommandName="execEdit"></asp:LinkButton>
-                                                    
+
                                                 </span>
                                                 <br />
                                                 <span style="font-size: small"><%# Eval("Supplier") %></span><br />
                                                 <span style="font-size: small"><%# Eval("PO") %></span><br />
                                                 <span style="font-size: small;" class="text-muted"><%# Eval("Date_Filed") %></span><br />
-                                                <asp:LinkButton ID="btnReceivingUpdate" runat="server" Text="Receiving Update" CssClass="btn btn-primary" CommandName="execReceivingUpdate"></asp:LinkButton>
+                                                <asp:LinkButton ID="btnReceivingUpdate" runat="server" Text="Add Updates" CssClass="btn btn-default" 
+                                                    CommandName="execReceivingUpdate"></asp:LinkButton>
                                             </div>
                                             <div class="row nopm">
                                                 <div class="col-xs-3 nopm">

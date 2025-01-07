@@ -56,19 +56,12 @@
                 <div style="overflow-x: auto;">
                     <asp:GridView ID="gvtem" runat="server" AutoGenerateColumns="False"
                         Width="100%"
-                        CssClass="tblLocal" OnRowCommand="gvtem_RowCommand">
+                        CssClass="tblLocal">
                         <Columns>
-                            <asp:TemplateField>
+                            <asp:TemplateField HeaderText="K#">
                                 <ItemTemplate>
                                     <asp:Label ID="lblId" Visible="false" runat="server" Text='<%# Bind("Id") %>'></asp:Label>
                                     <asp:Label ID="lblGlass_PO_Notification_Id" Visible="false" runat="server" Text='<%# Bind("Glass_PO_Notification_Id") %>'></asp:Label>
-                                    <asp:LinkButton ID="btnEdit" runat="server" CommandName="execEdit">Edit</asp:LinkButton>
-                                    <asp:LinkButton ID="btnSave" runat="server" Visible="false" CommandName="execSave">Save</asp:LinkButton>
-                                    <asp:LinkButton ID="btnCancel" runat="server" Visible="false" CommandName="execCancel">Cancel</asp:LinkButton>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="K#">
-                                <ItemTemplate>
                                     <span><%# Eval("K_No") %></span>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -118,16 +111,16 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderText="New Received Qty">
+                            <asp:TemplateField HeaderText="Add Received Qty">
                                 <ItemTemplate>
-                                    <asp:TextBox ID="tboxReceivedQtyEdit" Style="min-width: 80px;"
-                                        runat="server" Visible="false" CssClass="form-control" TextMode="Number" Text='<%# Bind("Received_Qty") %>'></asp:TextBox>
+                                    <asp:TextBox ID="tboxUpdateReceivedQtyEdit" Style="min-width: 80px;"
+                                        runat="server" CssClass="form-control" TextMode="Number" Text-="0"></asp:TextBox>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Received Qty">
                                 <ItemTemplate>
-                                    <div>
-                                        <asp:Label ID="lblReceivedQty" runat="server" Text='<%# Bind("Received_Qty") %>'></asp:Label>
+                                    <div class="text-center">
+                                        <asp:Label ID="lblUpdate_Received_Qty" runat="server" Text='<%# Bind("Update_Received_Qty") %>'></asp:Label>
                                     </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -138,16 +131,22 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Add Reason">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" ID="tboxUpdateReasonEdit" Style="min-width: 150px;"
+                                        CssClass="form-control"></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Reason">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblReason_Item" runat="server" Text='<%# Bind("Reason") %>'></asp:Label>
-                                    <asp:TextBox runat="server" ID="tboxReasonEdit" Visible="false" Style="min-width: 150px;"
-                                        CssClass="form-control" Text='<%# Bind("Reason") %>'></asp:TextBox>
+                                    <div>
+                                        <asp:Label ID="lblUpdateReason" runat="server" Text='<%# Bind("Update_Reason") %>'></asp:Label>
+                                    </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
-                    <asp:LinkButton runat="server" ID="btnSubmit" CssClass="btn btn-success" Style="border-radius: 0; width: 100%;"><span class="glyphicon glyphicon-send"></span>  Submit</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnSubmit" CssClass="btn btn-success" Style="border-radius: 0; width: 100%;" OnClick="btnSubmit_Click"><span class="glyphicon glyphicon-send"></span>  Submit</asp:LinkButton>
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>

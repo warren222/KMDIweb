@@ -117,11 +117,53 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 errorrmessage(e.ToString());
             }
         }
-        protected void gvtem_RowCommand(object sender, GridViewCommandEventArgs e)
+
+        private void ExecQuery(string command, string id, string update_reason, string update_received_qty)
         {
-             if (e.CommandName == "execEdit")
+            try
             {
-               
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Glass_PO_Notification_Item_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", command);
+                        sqlcmd.Parameters.AddWithValue("@Id", id);
+                        sqlcmd.Parameters.AddWithValue("@Glass_PO_Notification_Id", Request.QueryString["Id"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Update_Reason", update_reason);
+                        sqlcmd.Parameters.AddWithValue("@Update_Received_Qty", update_received_qty);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i <= gvtem.Rows.Count - 1; i++)
+                {
+                    GridViewRow row = gvtem.Rows[i];
+                    string id = ((Label)row.FindControl("lblId")).Text;
+                    string update_reason = ((TextBox)row.FindControl("tboxUpdateReasonEdit")).Text;
+                    string update_received_qty = ((TextBox)row.FindControl("tboxUpdateReceivedQtyEdit")).Text;
+                    ExecQuery("Glass_Notif_Update", id, update_reason, update_received_qty);
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            finally
+            {
+                LoadItem();
             }
         }
     }
