@@ -496,6 +496,13 @@
     <Compile Include="KMDIweb\GlassNotification\Glass_Notif_Updates.aspx.designer.cs">
       <DependentUpon>Glass_Notif_Updates.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\GlassNotification\Glass_Notif_Updates_Rpt.aspx.cs">
+      <DependentUpon>Glass_Notif_Updates_Rpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\GlassNotification\Glass_Notif_Updates_Rpt.aspx.designer.cs">
+      <DependentUpon>Glass_Notif_Updates_Rpt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\GlassNotification\GN_Sign.aspx.cs">
       <DependentUpon>GN_Sign.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1052,6 +1059,7 @@
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_Receiving_Update.aspx" />
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_Rpt.aspx" />
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_Updates.aspx" />
+    <Content Include="KMDIweb\GlassNotification\Glass_Notif_Updates_Rpt.aspx" />
     <Content Include="KMDIweb\GlassNotification\GN_Sign.aspx" />
     <Content Include="KMDIweb\Global\changesecurity.aspx" />
     <Content Include="KMDIweb\Global\css\gridcss.css" />
@@ -1235,6 +1243,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="KMDIweb\Global\Reports\Glass_NotificationReport.rdlc" />
+    <EmbeddedResource Include="KMDIweb\Global\Reports\Glass_NotificationUpdatesReport.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\NoticeForINCItemsReport.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\PO.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\PO_Ajiya.rdlc" />

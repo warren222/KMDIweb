@@ -162,6 +162,8 @@
               <xs:element name="Reason" msprop:Generator_ColumnVarNameInTable="columnReason" msprop:Generator_ColumnPropNameInRow="Reason" msprop:Generator_ColumnPropNameInTable="ReasonColumn" msprop:Generator_UserColumnName="Reason" type="xs:string" minOccurs="0" />
               <xs:element name="Received_Qty" msprop:Generator_ColumnVarNameInTable="columnReceived_Qty" msprop:Generator_ColumnPropNameInRow="Received_Qty" msprop:Generator_ColumnPropNameInTable="Received_QtyColumn" msprop:Generator_UserColumnName="Received_Qty" type="xs:int" minOccurs="0" />
               <xs:element name="Total_Received" msprop:Generator_ColumnVarNameInTable="columnTotal_Received" msprop:Generator_ColumnPropNameInRow="Total_Received" msprop:Generator_ColumnPropNameInTable="Total_ReceivedColumn" msprop:Generator_UserColumnName="Total_Received" type="xs:int" minOccurs="0" />
+              <xs:element name="Update_Received_Qty" msprop:Generator_ColumnVarNameInTable="columnUpdate_Received_Qty" msprop:Generator_ColumnPropNameInRow="Update_Received_Qty" msprop:Generator_ColumnPropNameInTable="Update_Received_QtyColumn" msprop:Generator_UserColumnName="Update_Received_Qty" type="xs:int" minOccurs="0" />
+              <xs:element name="Update_Reason" msprop:Generator_ColumnVarNameInTable="columnUpdate_Reason" msprop:Generator_ColumnPropNameInRow="Update_Reason" msprop:Generator_ColumnPropNameInTable="Update_ReasonColumn" msprop:Generator_UserColumnName="Update_Reason" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -183,6 +185,7 @@
               <xs:element name="Noted_By_IM" msprop:Generator_ColumnVarNameInTable="columnNoted_By_IM" msprop:Generator_ColumnPropNameInRow="Noted_By_IM" msprop:Generator_ColumnPropNameInTable="Noted_By_IMColumn" msprop:Generator_UserColumnName="Noted_By_IM" type="xs:string" minOccurs="0" />
               <xs:element name="Noted_By_IM_Date" msprop:Generator_ColumnVarNameInTable="columnNoted_By_IM_Date" msprop:Generator_ColumnPropNameInRow="Noted_By_IM_Date" msprop:Generator_ColumnPropNameInTable="Noted_By_IM_DateColumn" msprop:Generator_UserColumnName="Noted_By_IM_Date" type="xs:string" minOccurs="0" />
               <xs:element name="Full_Address" msprop:Generator_ColumnVarNameInTable="columnFull_Address" msprop:Generator_ColumnPropNameInRow="Full_Address" msprop:Generator_ColumnPropNameInTable="Full_AddressColumn" msprop:Generator_UserColumnName="Full_Address" type="xs:string" minOccurs="0" />
+              <xs:element name="Glass_Update" msprop:Generator_ColumnVarNameInTable="columnGlass_Update" msprop:Generator_ColumnPropNameInRow="Glass_Update" msprop:Generator_ColumnPropNameInTable="Glass_UpdateColumn" msprop:Generator_UserColumnName="Glass_Update" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
