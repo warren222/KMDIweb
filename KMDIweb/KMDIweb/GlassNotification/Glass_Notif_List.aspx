@@ -36,7 +36,7 @@
     <div style="background-color: aliceblue">
         <div class="well" style="background-color: #303030; border-bottom: solid 5px #ff006e; padding-left: 10px; color: white; font-family: Calibri;">
             <div class="container">
-                <h3>Glass Notification</h3>
+                <h3>Glass Notifications</h3>
             </div>
         </div>
         <asp:UpdatePanel ID="UpdatePanel4" runat="server">
@@ -58,12 +58,12 @@
                                                 <th style="background-color: whitesmoke" class="text-center">Signed</th>
                                             </tr>
 
-                                            <tr class="text-center">
-                                                <td style="width: 100px;">Prepared By</td>
-                                                <td style="width: 100px;">Noted By</td>
-                                                <td style="width: 100px;">Received By</td>
-                                                <td style="width: 100px;">Noted By</td>
-                                                <td style="width: 100px;">-</td>
+                                            <tr class="text-center" style="padding:2px;">
+                                                <td style="width: 100px;padding:2px;">Prepared By<br />(Glass)</td>
+                                                <td style="width: 100px;padding:2px;">Noted By<br />(Sir. Mon)</td>
+                                                <td style="width: 100px;padding:2px;">Received By<br />(Delivery)</td>
+                                                <td style="width: 100px;padding:2px;">Noted By<br />(Sr. Cule)</td>
+                                                <td style="width: 100px;padding:2px;">All</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td>
@@ -181,7 +181,7 @@
                                                 <span style="font-size: small"><%# Eval("Supplier") %></span><br />
                                                 <span style="font-size: small"><%# Eval("PO") %></span><br />
                                                 <span style="font-size: small;" class="text-muted"><%# Eval("Date_Filed") %></span><br />
-                                                <asp:LinkButton ID="btnReceivingUpdate" runat="server" Text="Add Updates" CssClass="btn btn-default" 
+                                                <asp:LinkButton ID="btnReceivingUpdate" runat="server" Visible="false" Text="Add Updates" CssClass="btn btn-default" 
                                                     CommandName="execReceivingUpdate"></asp:LinkButton>
                                             </div>
                                             <div class="row nopm">

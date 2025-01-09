@@ -18,8 +18,8 @@ namespace KMDIweb.KMDIweb.GlassNotification
             {
                 if (!IsPostBack)
                 {
-                    RetriverQS();
                     ForSignatureCboxAccess();
+                    RetriverQS();
                     Get_Data();
                 }
             }
@@ -49,28 +49,28 @@ namespace KMDIweb.KMDIweb.GlassNotification
             if (user_code == "Production Manager")
             {
                 ddlForSignature.Items.Clear();
-                ListItem x1 = new ListItem("All", "All");
                 ListItem x2 = new ListItem("Noted By", "Noted By PM");
-                ddlForSignature.Items.Add(x1);
+                ListItem x3 = new ListItem("Signed Notifications", "Signed Notifications");
                 ddlForSignature.Items.Add(x2);
+                ddlForSignature.Items.Add(x3);
                 ddlForSignature.SelectedValue = "Noted By PM";
             }
             else if (user_code == "Delivery")
             {
                 ddlForSignature.Items.Clear();
-                ListItem x1 = new ListItem("All", "All");
                 ListItem x2 = new ListItem("Received By", "Received By");
-                ddlForSignature.Items.Add(x1);
+                ListItem x3 = new ListItem("Signed Notifications", "Signed Notifications");
                 ddlForSignature.Items.Add(x2);
+                ddlForSignature.Items.Add(x3);
                 ddlForSignature.SelectedValue = "Received By";
             }
             else if (user_code == "Engineer Manager")
             {
                 ddlForSignature.Items.Clear();
-                ListItem x1 = new ListItem("All", "All");
                 ListItem x2 = new ListItem("Noted By", "Noted By IM");
-                ddlForSignature.Items.Add(x1);
+                ListItem x3 = new ListItem("Signed Notifications", "Signed Notifications");
                 ddlForSignature.Items.Add(x2);
+                ddlForSignature.Items.Add(x3);
                 ddlForSignature.SelectedValue = "Noted By IM";
             }
             else if (user_code == "Glass Section")
@@ -151,6 +151,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                         sqlcmd.CommandText = "Glass_PO_Notification_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Notification_Counter");
+                        sqlcmd.Parameters.AddWithValue("@User_Code", user_code);
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
                             da.SelectCommand = sqlcmd;
@@ -396,10 +397,13 @@ namespace KMDIweb.KMDIweb.GlassNotification
             {
                 TableCell cell = e.Row.Cells[0];
                 LinkButton btnDelete = ((LinkButton)cell.FindControl("btnDelete"));
+                LinkButton btnReceivingUpdate = ((LinkButton)cell.FindControl("btnReceivingUpdate"));
                 if (user_code == "Glass Section" || user_code == "Programmer")
                 {
                     btnDelete.Visible = true;
+                    btnReceivingUpdate.Visible = true;
                 }
+               
             }
         }
     }

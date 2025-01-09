@@ -68,6 +68,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                         sqlcmd.Parameters.AddWithValue("@Command", "Get_Data");
                         sqlcmd.Parameters.AddWithValue("@Search", tboxFind.Text);
                         sqlcmd.Parameters.AddWithValue("@User_Code",user_code);
+                        sqlcmd.Parameters.AddWithValue("@New_Update", New_Update);
                         DataTable tb = new DataTable();
                         tb.Clear();
                         using (SqlDataAdapter da = new SqlDataAdapter())
@@ -83,6 +84,10 @@ namespace KMDIweb.KMDIweb.GlassNotification
             catch (Exception ex)
             {
                 errorrmessage(ex.ToString());
+            }
+            finally
+            {
+                LoadSummary();
             }
         }
         protected void gvUpdates_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -115,6 +120,18 @@ namespace KMDIweb.KMDIweb.GlassNotification
             gvUpdates.PageIndex = e.NewPageIndex;
             Get_Data();
         }
+        string new_update;
+        private string New_Update
+        {
+            get
+            {
+                return new_update;
+            }
+            set
+            {
+                new_update = value;
+            }
+        }
         private void LoadSummary()
         {
             try
@@ -126,10 +143,17 @@ namespace KMDIweb.KMDIweb.GlassNotification
                         DataTable tb = new DataTable();
                         tb.Clear();
                         sqlcon.Open();
-                        sqlcmd.CommandText = "Glass_PO_Notification_Stp";
+                        sqlcmd.CommandText = "Glass_PO_Notification_Updates_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@Command", "Notification_Counter");
+                        sqlcmd.Parameters.AddWithValue("@Command", "Summary");
                         sqlcmd.Parameters.AddWithValue("@User_Code", user_code);
+                        using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                btnBadge.Text = rd[0].ToString();
+                            }
+                        }
                     }
                 }
             }
@@ -137,6 +161,12 @@ namespace KMDIweb.KMDIweb.GlassNotification
             {
                 errorrmessage(ex.ToString());
             }
+        }
+
+        protected void btnBadge_Click(object sender, EventArgs e)
+        {
+            new_update = "Yes";
+            Get_Data();
         }
     }
 }

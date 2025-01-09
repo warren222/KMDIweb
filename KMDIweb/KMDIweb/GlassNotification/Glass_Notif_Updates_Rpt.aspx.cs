@@ -34,6 +34,13 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 return Session["KMDI_user_code"].ToString();
             }
         }
+        private string fullname
+        {
+            get
+            {
+                return Session["KMDI_fullname"].ToString();    
+            }
+        }
         private string sqlconstr
         {
             get
@@ -55,6 +62,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                         sqlcmd.Parameters.AddWithValue("@Command", "Update_View");
                         sqlcmd.Parameters.AddWithValue("@User_Code", user_code);
                         sqlcmd.Parameters.AddWithValue("@Id", Request.QueryString["Glass_PO_Notification_Id"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Fullname", fullname);
                         sqlcmd.ExecuteNonQuery();
                     }
                 }

@@ -49,10 +49,16 @@
         <div class="container">
 
             <div class="row nopm">
-                <div class="col-sm-6 nopm">
+                <div class="col-sm-2 nopm">
+                    <div style="padding: 9px; background-color: whitesmoke; font-size: medium; border: 1px solid bisque;" class="text-center">
+                        <span>New Updates</span>
+                    </div>
+                    <div class="text-center" style="padding: 10px; border: 1px solid bisque; background-color: white;">
+                        <asp:LinkButton ID="btnBadge" CssClass="badge bcRed" Font-Bold="true" runat="server" Font-Size="X-Large" OnClick="btnBadge_Click"></asp:LinkButton>
+                    </div>
                 </div>
-                <div class="col-sm-6 nopm">
-                    <div class="well">
+                <div class="col-sm-5 nopm">
+                    <div class="well" style="border-radius: 0;">
                         <span>Search</span>
                         <div class="input-group">
                             <asp:TextBox runat="server" ID="tboxFind" CssClass="form-control"></asp:TextBox>
@@ -66,13 +72,12 @@
 
 
 
-            <br />
-            <div style="overflow-x: auto">
+            <div style="overflow-x: auto" class="nopm">
                 <asp:GridView runat="server" ID="gvUpdates" Width="100%"
                     AutoGenerateColumns="false"
                     GridLines="None"
                     AllowPaging="True"
-                    Style="min-width: 700px;" OnRowCommand="gvUpdates_RowCommand" OnPageIndexChanging="gvUpdates_PageIndexChanging" PageSize="2">
+                    Style="min-width: 700px;" OnRowCommand="gvUpdates_RowCommand" OnPageIndexChanging="gvUpdates_PageIndexChanging">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
@@ -94,6 +99,19 @@
                                         <span style="font-size: small"><%# Eval("Supplier") %></span><br />
                                         <span style="font-size: small"><%# Eval("PO") %></span><br />
                                         <span style="font-size: small;" class="text-muted"><%# Eval("Date_Filed") %></span><br />
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="row nopm text-center" style="font-size: small">
+                                            <div class="col-sm-4">
+                                                <span><%# Eval("View_PM").ToString().Replace("/","<br/>") %></span>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <span><%# Eval("View_Received").ToString().Replace("/","<br/>") %></span>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <span><%# Eval("View_IM").ToString().Replace("/","<br/>") %></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </ItemTemplate>
