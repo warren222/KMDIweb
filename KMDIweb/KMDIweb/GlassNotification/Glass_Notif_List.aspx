@@ -16,7 +16,7 @@
 
         .bcOrange {
             background-color: orange;
-            color: white;
+            color: black;
         }
 
         .bcBlue {
@@ -48,7 +48,7 @@
             <div class="col-sm-6 nopm">
                 <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                     <ContentTemplate>
-                        <asp:GridView ID="gvSummary" ShowHeader="false" GridLines="None" Width="100%" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSummary_RowCommand" OnRowDataBound="gvSummary_RowDataBound">
+                        <asp:GridView ID="gvSummary" ShowHeader="false" GridLines="None" Width="100%" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSummary_RowCommand" OnRowDataBound="gvSummary_RowDataBound" AllowPaging="True" PageSize="1">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -58,12 +58,16 @@
                                                 <th style="background-color: whitesmoke" class="text-center">Signed</th>
                                             </tr>
 
-                                            <tr class="text-center" style="padding:2px;">
-                                                <td style="width: 100px;padding:2px;">Prepared By<br />(Glass)</td>
-                                                <td style="width: 100px;padding:2px;">Noted By<br />(Sir. Mon)</td>
-                                                <td style="width: 100px;padding:2px;">Received By<br />(Delivery)</td>
-                                                <td style="width: 100px;padding:2px;">Noted By<br />(Sr. Cule)</td>
-                                                <td style="width: 100px;padding:2px;">All</td>
+                                            <tr class="text-center" style="padding: 2px;">
+                                                <td style="width: 100px; padding: 2px;">Prepared By<br />
+                                                    (Glass)</td>
+                                                <td style="width: 100px; padding: 2px;">Noted By<br />
+                                                    (Sir. Mon)</td>
+                                                <td style="width: 100px; padding: 2px;">Received By<br />
+                                                    (Delivery)</td>
+                                                <td style="width: 100px; padding: 2px;">Noted By<br />
+                                                    (Sr. Cule)</td>
+                                                <td style="width: 100px; padding: 2px;">All</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td>
@@ -154,16 +158,16 @@
                                                                                    Eval("Noted_By_PM").ToString() != "" ? "#ffc080" :
                                                                                    Eval("Prepared_By").ToString() != "" ? "#ff8080" :
                                                                                    "#80f0ff" %>'>
-                                            <div class="panel-heading" style='color: black; background-color: <%# Eval("Noted_By_IM").ToString() != "" ? "#80ffa2" : 
+                                            <div class="panel-heading" style='color: black ; background-color: <%# Eval("Noted_By_IM").ToString() != "" ? "#80ffa2" : 
                                                                                    Eval("Received_By").ToString() != "" ? "#eeff80" :
                                                                                    Eval("Noted_By_PM").ToString() != "" ? "#ffc080" :
                                                                                    Eval("Prepared_By").ToString() != "" ? "#ff8080" :
-                                                                                   "#80f0ff" %>'>
+                                                                                   "" %>'>
                                                 <asp:Label runat="server" ID="lblId" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
                                                 <asp:Label runat="server" ID="lblNoted_By_PM" Visible="false" Text='<%# Bind("Noted_By_PM") %>'></asp:Label>
+                                                <asp:Label runat="server" ID="lblNoted_By_IM" Visible="false" Text='<%# Bind("Noted_By_IM") %>'></asp:Label>
                                                 <asp:Label runat="server" ID="lblPO" Visible="false" Text='<%# Bind("PO") %>'></asp:Label>
                                                 <asp:Label runat="server" ID="lblJO" Visible="false" Text='<%# Bind("JO") %>'></asp:Label>
-
                                                 <asp:Label runat="server" ID="lblControl_No" Text='<%# Bind("Control_No") %>'></asp:Label>
                                                 <span class="pull-right">
                                                     <asp:LinkButton runat="server" ID="btnDelete" Visible="false" CommandName="execDelete" OnClientClick="return confirm('Do you want to delete this notification?')"><span class="glyphicon glyphicon-remove"></span></asp:LinkButton>
@@ -181,7 +185,7 @@
                                                 <span style="font-size: small"><%# Eval("Supplier") %></span><br />
                                                 <span style="font-size: small"><%# Eval("PO") %></span><br />
                                                 <span style="font-size: small;" class="text-muted"><%# Eval("Date_Filed") %></span><br />
-                                                <asp:LinkButton ID="btnReceivingUpdate" runat="server" Visible="false" Text="Add Updates" CssClass="btn btn-default" 
+                                                <asp:LinkButton ID="btnReceivingUpdate" runat="server" Visible="false" Text="Add Updates" CssClass="btn btn-success" style="padding:5px;"
                                                     CommandName="execReceivingUpdate"></asp:LinkButton>
                                             </div>
                                             <div class="row nopm">

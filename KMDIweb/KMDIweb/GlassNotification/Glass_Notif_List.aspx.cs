@@ -398,12 +398,20 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 TableCell cell = e.Row.Cells[0];
                 LinkButton btnDelete = ((LinkButton)cell.FindControl("btnDelete"));
                 LinkButton btnReceivingUpdate = ((LinkButton)cell.FindControl("btnReceivingUpdate"));
+                string lblNoted_By_IM = ((Label)cell.FindControl("lblNoted_By_IM")).Text.ToString();
                 if (user_code == "Glass Section" || user_code == "Programmer")
                 {
                     btnDelete.Visible = true;
-                    btnReceivingUpdate.Visible = true;
+                    if (lblNoted_By_IM != "")
+                    {
+                        btnReceivingUpdate.Visible = true;
+                    }
+                    else
+                    {
+                        btnReceivingUpdate.Visible = false;
+                    }
                 }
-               
+
             }
         }
     }

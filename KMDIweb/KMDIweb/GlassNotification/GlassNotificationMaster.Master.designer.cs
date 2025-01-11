@@ -42,6 +42,15 @@ namespace KMDIweb.KMDIweb.GlassNotification
         protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
 
         /// <summary>
+        /// lblGlassNotification control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGlassNotification;
+
+        /// <summary>
         /// HyperLink1 control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace KMDIweb.KMDIweb.GlassNotification
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+
+        /// <summary>
+        /// lblGlassUpdateNotification control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGlassUpdateNotification;
 
         /// <summary>
         /// BTNaccount control.

@@ -37,7 +37,7 @@
     <div style="background-color: aliceblue">
         <div class="well" style="background-color: #303030; border-bottom: solid 5px #ff006e; padding-left: 10px; color: white; font-family: Calibri;">
             <div class="container">
-                <h3>Glass Notification Update</h3>
+                <h3>Glass Notification Updates</h3>
             </div>
         </div>
         <asp:UpdatePanel ID="UpdatePanel4" runat="server">
@@ -81,8 +81,8 @@
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <div class="panel panel-default" style='border-color: <%# Eval("Notify").ToString() == "1" ? "#ff8080" : "#80f0ff" %>'>
-                                    <div class="panel-heading" style='background-color: <%# Eval("Notify").ToString() == "1" ? "#ff8080" : "#80f0ff" %>'>
+                                <div class="panel panel-default" style='border-color: <%# Eval("Notify").ToString() == "1" ? "#ff8080" : "#80ffa2" %>'>
+                                    <div class="panel-heading" style='background-color: <%# Eval("Notify").ToString() == "1" ? "#ff8080" : "#80ffa2" %>'>
                                         <asp:Label runat="server" ID="lblId" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
                                         <asp:Label runat="server" ID="lblPO" Visible="false" Text='<%# Bind("PO") %>'></asp:Label>
                                         <asp:Label runat="server" ID="lblJO" Visible="false" Text='<%# Bind("JO") %>'></asp:Label>
