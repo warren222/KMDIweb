@@ -72,21 +72,9 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Glass Specs">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblGlass_Specs_Item" runat="server" Text='<%# Bind("Glass_Specs") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Width">
-                                <ItemTemplate>
-                                    <div class="text-center">
-                                        <asp:Label ID="lblWidth_Item" runat="server" Text='<%# Bind("Width") %>'></asp:Label>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Height">
-                                <ItemTemplate>
-                                    <div class="text-center">
-                                        <asp:Label ID="lblHeight_Item" runat="server" Text='<%# Bind("Height") %>'></asp:Label>
-                                    </div>
+                                    <asp:Label ID="lblGlass_Specs_Item" runat="server" Text='<%# Bind("Glass_Specs") %>'></asp:Label><br />
+                                    <asp:Label ID="lblWidth_Item" runat="server" Text='<%# Bind("Width") %>'></asp:Label><span>w x </span>
+                                    <asp:Label ID="lblHeight_Item" runat="server" Text='<%# Bind("Height") %>'></asp:Label><span>h</span>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Qty">
@@ -131,6 +119,13 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Blanace">
+                                <ItemTemplate>
+                                    <div>
+                                        <asp:Label ID="lblBalance_Qty" runat="server" Text='<%# Bind("Balance_Qty") %>'></asp:Label>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Add Reason">
                                 <ItemTemplate>
                                     <asp:TextBox runat="server" ID="tboxUpdateReasonEdit" Style="min-width: 150px;"
@@ -141,6 +136,13 @@
                                 <ItemTemplate>
                                     <div>
                                         <asp:Label ID="lblUpdateReason" runat="server" Text='<%# Bind("Update_Reason") %>'></asp:Label>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                              <asp:TemplateField HeaderText="Status">
+                                <ItemTemplate>
+                                    <div>
+                                        <asp:Label ID="lblStatus_Remarks" runat="server" Text='<%# Bind("Status_Remarks") %>'></asp:Label>
                                     </div>
                                 </ItemTemplate>
                             </asp:TemplateField>

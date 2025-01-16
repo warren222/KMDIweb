@@ -66,7 +66,6 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
-
                         sqlcon.Open();
                         sqlcmd.CommandText = "Glass_PO_Notification_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;

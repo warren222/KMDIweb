@@ -162,7 +162,7 @@
                                                                                    Eval("Received_By").ToString() != "" ? "#eeff80" :
                                                                                    Eval("Noted_By_PM").ToString() != "" ? "#ffc080" :
                                                                                    Eval("Prepared_By").ToString() != "" ? "#ff8080" :
-                                                                                   "" %>'>
+                                                                                   "#80f0ff" %>'>
                                                 <asp:Label runat="server" ID="lblId" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
                                                 <asp:Label runat="server" ID="lblNoted_By_PM" Visible="false" Text='<%# Bind("Noted_By_PM") %>'></asp:Label>
                                                 <asp:Label runat="server" ID="lblNoted_By_IM" Visible="false" Text='<%# Bind("Noted_By_IM") %>'></asp:Label>

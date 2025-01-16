@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="mainmenu.aspx.cs" Inherits="KMDIweb.KMDIapp.mainmenu" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
@@ -202,6 +201,9 @@
                         <asp:Panel ID="pnlPO" Visible="false" runat="server" Width="250px">
                             <div class="thumbnail">
                                 <asp:Image ID="Image10" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/dr.jpg" runat="server" AlternateText="Glass PO" />
+                                <span class="pull-right">
+                                    <asp:Label ID="lblGlassPOCounter" runat="server" Font-Size="XX-Large" CssClass="badge"></asp:Label>
+                                </span>
                                 <br />
                                 <div>
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
@@ -238,9 +240,12 @@
                             </div>
                         </asp:Panel>
 
-                          <asp:Panel ID="pnlGlassPONotif" Visible="true" runat="server" Width="250px">
+                        <asp:Panel ID="pnlGlassPONotif" Visible="false" runat="server" Width="250px">
                             <div class="thumbnail">
-                                <asp:Image ID="Image13" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/Clear-Glass.jpg" runat="server" AlternateText="Project Photos" />
+                                <asp:Image ID="Image13" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/G03.jpg" runat="server" AlternateText="Project Photos" />
+                                <span class="pull-right">
+                                    <asp:Label ID="lblGlassNotifCounter" runat="server" Font-Size="XX-Large" CssClass="badge"></asp:Label>
+                                </span>
                                 <br />
                                 <div>
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
