@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KMDIweb.DRscannedReports {
-    
-    
-    public partial class SDRmaster {
-        
+namespace KMDIweb.DRscannedReports
+{
+
+
+    public partial class SDRmaster
+    {
+
         /// <summary>
         /// head control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace KMDIweb.DRscannedReports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-        
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace KMDIweb.DRscannedReports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// HyperLink2 control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace KMDIweb.DRscannedReports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
-        
+
         /// <summary>
         /// HyperLink1 control.
         /// </summary>
@@ -47,7 +49,16 @@ namespace KMDIweb.DRscannedReports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
-        
+
+        /// <summary>
+        /// HyperLink3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink3;
+
         /// <summary>
         /// BTNaccount control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace KMDIweb.DRscannedReports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink BTNaccount;
-        
+
         /// <summary>
         /// username control.
         /// </summary>
@@ -65,7 +76,7 @@ namespace KMDIweb.DRscannedReports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label username;
-        
+
         /// <summary>
         /// LinkButton2 control.
         /// </summary>
@@ -74,7 +85,7 @@ namespace KMDIweb.DRscannedReports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
-        
+
         /// <summary>
         /// HyperLink9 control.
         /// </summary>
@@ -83,7 +94,7 @@ namespace KMDIweb.DRscannedReports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink9;
-        
+
         /// <summary>
         /// LinkButton1 control.
         /// </summary>
@@ -92,7 +103,7 @@ namespace KMDIweb.DRscannedReports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
-        
+
         /// <summary>
         /// content control.
         /// </summary>
