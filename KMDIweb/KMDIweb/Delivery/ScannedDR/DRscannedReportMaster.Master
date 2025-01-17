@@ -54,7 +54,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="font-family:Bahnschrift">
     <form id="form1" runat="server" style="width: 100%; height: 100%; background-color: whitesmoke">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -76,7 +76,7 @@
                                Summary</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/KMDIweb/Delivery/ScannedDR/DRupdates.aspx">
-                               Updates</asp:HyperLink></li>
+                               DR Updates</asp:HyperLink></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>

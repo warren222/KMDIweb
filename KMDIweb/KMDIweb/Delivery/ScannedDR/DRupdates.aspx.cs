@@ -18,14 +18,14 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
             {
                 if (!IsPostBack)
                 {
-                    Get_PO();
+                    Get_Data();
                 }
             }
             else
             {
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
             }
-        }
+        } 
         private string sqlconstr
         {
             get
@@ -43,9 +43,9 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
         }
         protected void btnFind_Click(object sender, EventArgs e)
         {
-            Get_PO();
+            Get_Data();
         }
-        private void Get_PO()
+        private void Get_Data()
         {
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
@@ -65,11 +65,11 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
                         {
                             da.SelectCommand = sqlcmd;
                             da.Fill(tb);
-                            //gvFind.DataSource = tb;
-                            //gvFind.DataBind();
+                            gvList.DataSource = tb;
+                            gvList.DataBind();
                         }
                         string row_count = tb.Rows.Count.ToString("N0");
-                      
+                        lblSpecification.Text = ddlSpecification.Text + (tboxFind.Text == "" ? "" : " / " + tboxFind.Text);
                     }
                     catch (Exception ex)
                     {
@@ -77,6 +77,17 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
                     }
                 }
             }
+        }
+
+        protected void btnFind_Click1(object sender, EventArgs e)
+        {
+            Get_Data();
+        }
+
+        protected void gvList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvList.PageIndex = e.NewPageIndex;
+            Get_Data();
         }
     }
 }
