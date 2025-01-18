@@ -89,5 +89,62 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
             gvList.PageIndex = e.NewPageIndex;
             Get_Data();
         }
+
+        protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "viewDR")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvList.Rows[rowindex];
+                string filename = ((LinkButton)row.FindControl("btnDR")).Text;
+                string filepath = GetFilePath(filename) ;
+                if(filepath != "")
+                {
+                    Response.Redirect(filepath + filename+".pdf");
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(Page, GetType(), "warning", "alert('Sorry! No file detected.');", true);
+                }
+              
+            }
+        }
+        private string GetFilePath(string filename)
+        {
+            string result = "";
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        try
+                        {
+                            sqlcon.Open();
+                            sqlcmd.CommandText = "DR_Web_Updates_Stp";
+                            sqlcmd.CommandType = CommandType.StoredProcedure;
+                            sqlcmd.Parameters.AddWithValue("@Command", "Get_Uploaded_Fle_Data");
+                            sqlcmd.Parameters.AddWithValue("@FileName", filename);
+                            using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                            {
+                                while (rd.Read())
+                                {
+                                    result = rd[0].ToString();
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            errorrmessage(ex.ToString());
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            return result;
+        }
     }
 }
