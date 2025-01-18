@@ -87,7 +87,7 @@
                         <asp:GridView runat="server" ID="gvList" AllowPaging="True" OnPageIndexChanging="gvList_PageIndexChanging"
                             Width="100%" CssClass="tblLocal" AutoGenerateColumns="false"
                             PageSize="25" BackColor="White"
-                            BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+                            BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnRowCommand="gvList_RowCommand">
                             <Columns>
                                 <asp:TemplateField HeaderText="Specification">
                                     <ItemTemplate>
@@ -106,7 +106,7 @@
                                 </asp:TemplateField>
                                  <asp:TemplateField HeaderText="DR">
                                     <ItemTemplate>
-                                        <span><%# Eval("DR_NO") %></span>
+                                        <asp:LinkButton runat="server" ID="btnDR" Text='<%# Bind("DR_NO") %>' CommandName="viewDR"></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                  <asp:TemplateField HeaderText="DR Date">
