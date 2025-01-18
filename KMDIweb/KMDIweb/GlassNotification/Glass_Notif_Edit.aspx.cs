@@ -18,6 +18,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
             {
                 if (!IsPostBack)
                 {
+                    SelectNotif();
                     LoadItem();
                 }
             }
@@ -56,6 +57,36 @@ namespace KMDIweb.KMDIweb.GlassNotification
                     "&PageIndex=" + Request.QueryString["PageIndex"].ToString();
             }
         }
+        private void SelectNotif()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Glass_PO_Notification_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Select");
+                        sqlcmd.Parameters.AddWithValue("@Id", Request.QueryString["Id"]);
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(tb);
+                            gvSelectNotif.DataSource = tb;
+                            gvSelectNotif.DataBind();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+        }
         private void LoadItem()
         {
             try
@@ -86,7 +117,38 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 errorrmessage(e.ToString());
             }
         }
-
+        private void Get_PO_Items()
+        {
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+            {
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                {
+                    try
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Glass_PO_Notification_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Get_PO_Items");
+                        sqlcmd.Parameters.AddWithValue("@PO", Request.QueryString["PO"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Job_Order_No", Request.QueryString["JO"].ToString());
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(tb);
+                            gvPO_Items.DataSource = tb;
+                            gvPO_Items.DataBind();
+                        }
+                        lblPO.Text = Request.QueryString["PO"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        errorrmessage(ex.ToString());
+                    }
+                }
+            }
+        }
         protected void gvtem_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "execDelete")
@@ -94,7 +156,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvtem.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
-                ExecQuery("Delete", id, "");
+                ExecQuery("Delete", id, "", "");
             }
             else if (e.CommandName == "execEdit")
             {
@@ -102,8 +164,10 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 GridViewRow row = gvtem.Rows[rowindex];
                 ((LinkButton)row.FindControl("btnSave")).Visible = true;
                 ((LinkButton)row.FindControl("btnCancel")).Visible = true;
+                ((TextBox)row.FindControl("tboxReceivedQtyEdit")).Visible = true;
                 ((TextBox)row.FindControl("tboxReasonEdit")).Visible = true;
                 ((Label)row.FindControl("lblReason_Item")).Visible = false;
+                ((Label)row.FindControl("lblReceivedQty")).Visible = false;
                 ((LinkButton)row.FindControl("btnDelete")).Visible = false;
                 ((LinkButton)row.FindControl("btnEdit")).Visible = false;
             }
@@ -113,7 +177,8 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 GridViewRow row = gvtem.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
                 string reason = ((TextBox)row.FindControl("tboxReasonEdit")).Text;
-                ExecQuery("Update", id, reason);
+                string received_qty = ((TextBox)row.FindControl("tboxReceivedQtyEdit")).Text;
+                ExecQuery("Update", id, reason, received_qty);
             }
             else if (e.CommandName == "execCancel")
             {
@@ -121,13 +186,15 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 GridViewRow row = gvtem.Rows[rowindex];
                 ((LinkButton)row.FindControl("btnSave")).Visible = false;
                 ((LinkButton)row.FindControl("btnCancel")).Visible = false;
+                ((TextBox)row.FindControl("tboxReceivedQtyEdit")).Visible = false;
                 ((TextBox)row.FindControl("tboxReasonEdit")).Visible = false;
                 ((Label)row.FindControl("lblReason_Item")).Visible = true;
+                ((Label)row.FindControl("lblReceivedQty")).Visible = true;
                 ((LinkButton)row.FindControl("btnDelete")).Visible = true;
                 ((LinkButton)row.FindControl("btnEdit")).Visible = true;
             }
         }
-        private void ExecQuery(string command, string id, string reason)
+        private void ExecQuery(string command, string id, string reason, string received_qty)
         {
             try
             {
@@ -141,6 +208,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                         sqlcmd.Parameters.AddWithValue("@Command", command);
                         sqlcmd.Parameters.AddWithValue("@Id", id);
                         sqlcmd.Parameters.AddWithValue("@Reason", reason);
+                        sqlcmd.Parameters.AddWithValue("@Received_Qty", received_qty);
                         sqlcmd.ExecuteNonQuery();
                     }
                 }
@@ -153,6 +221,92 @@ namespace KMDIweb.KMDIweb.GlassNotification
             {
                 LoadItem();
             }
+        }
+        private void InsertSelectedItems(string glass_po_notification_id)
+        {
+            for (int i = 0; i <= gvPO_Items.Rows.Count - 1; i++)
+            {
+                GridViewRow row = gvPO_Items.Rows[i];
+                CheckBox cbk = (CheckBox)row.FindControl("cboxSelect");
+                if (cbk.Checked)
+                {
+                    string kno, gno, glass_specs, width, height, qty, due_date, delivery_schedule, reason, received_qty;
+                    kno = ((Label)row.FindControl("lblK_No")).Text.ToString();
+                    gno = ((Label)row.FindControl("lblG_No")).Text.ToString();
+                    glass_specs = ((Label)row.FindControl("lblGlass_Specs")).Text.ToString();
+                    width = ((Label)row.FindControl("lblWidth")).Text.ToString();
+                    height = ((Label)row.FindControl("lblHeight")).Text.ToString();
+                    qty = ((Label)row.FindControl("lblQty")).Text.ToString();
+                    due_date = ((Label)row.FindControl("lblDue_Date")).Text.ToString();
+                    delivery_schedule = ((Label)row.FindControl("lblDelivery_Schedule")).Text.ToString();
+                    received_qty = ((TextBox)row.FindControl("tboxReceivedQty")).Text.ToString();
+                    reason = ((TextBox)row.FindControl("tboxReason")).Text.ToString();
+                    using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                    {
+                        using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                        {
+                            try
+                            {
+                                sqlcon.Open();
+                                sqlcmd.CommandText = "Glass_PO_Notification_Item_Stp";
+                                sqlcmd.CommandType = CommandType.StoredProcedure;
+                                sqlcmd.Parameters.AddWithValue("@Command", "Insert");
+                                sqlcmd.Parameters.AddWithValue("@Glass_PO_Notification_Id", glass_po_notification_id);
+                                sqlcmd.Parameters.AddWithValue("@K_No", kno);
+                                sqlcmd.Parameters.AddWithValue("@G_No", gno);
+                                sqlcmd.Parameters.AddWithValue("@Glass_Specs", glass_specs);
+                                sqlcmd.Parameters.AddWithValue("@Width", width);
+                                sqlcmd.Parameters.AddWithValue("@Height", height);
+                                sqlcmd.Parameters.AddWithValue("@Qty", qty);
+                                sqlcmd.Parameters.AddWithValue("@Due_Date", due_date);
+                                sqlcmd.Parameters.AddWithValue("@Delivery_Schedule", delivery_schedule);
+                                sqlcmd.Parameters.AddWithValue("@Reason", reason);
+                                sqlcmd.Parameters.AddWithValue("@Received_Qty", received_qty);
+                                sqlcmd.ExecuteNonQuery();
+                            }
+                            catch (Exception ex)
+                            {
+                                errorrmessage(ex.ToString());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        protected void btnProceed_Click1(object sender, EventArgs e)
+        {
+            try
+            {
+                InsertSelectedItems(Request.QueryString["Id"].ToString());
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            finally
+            {
+                btnGet_PO_Items.Text = "Show P.O.";
+                pnlPO_Items.Visible = false;
+                LoadItem();
+            }
+
+        }
+
+        protected void btnGet_PO_Items_Click(object sender, EventArgs e)
+        {
+            if (pnlPO_Items.Visible == true)
+            {
+                btnGet_PO_Items.Text = "Show P.O.";
+                pnlPO_Items.Visible = false;
+            }
+            else
+            {
+                btnGet_PO_Items.Text = "Hide P.O.";
+                pnlPO_Items.Visible = true;
+            }
+
+            Get_PO_Items();
         }
     }
 }

@@ -9,9 +9,16 @@
             padding: 0;
         }
 
-        .tb {
+        .tblLocal {
+               font-family: Calibri;
+            white-space: nowrap;
             white-space: nowrap;
         }
+
+            .tblLocal th, tr, td {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
     </style>
 </asp:Content>
 
@@ -34,83 +41,103 @@
         </asp:UpdatePanel>
         <div>
             <div class="container">
-                <div class="panel panel-default">
-                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                        <ContentTemplate>
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="form-group">
-                                        <div class="col-md-6">
-                                            <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">FIND PO</span>
-                                                <asp:TextBox ID="tboxFind" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <div class="input-group-btn">
-                                                    <asp:LinkButton ID="btnFind" runat="server" CssClass="btn btn-primary" Style="background-color: #ff006e; border-color: #ff006e" OnClick="btnFind_Click">GO</asp:LinkButton>
-                                                </div>
-                                            </div>
-                                        </div>
+
+                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                    <ContentTemplate>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span>Find P.O.</span>
+                                <div class="input-group">
+
+                                    <asp:TextBox ID="tboxFind" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <div class="input-group-btn">
+                                        <asp:LinkButton ID="btnFind" runat="server" CssClass="btn btn-primary" Style="background-color: #ff006e; border-color: #ff006e" OnClick="btnFind_Click">GO</asp:LinkButton>
                                     </div>
                                 </div>
-
                             </div>
-                            <div class="panel-body">
+                        </div>
 
-                                <asp:GridView runat="server" ID="gvFind" Width="100%" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="gvFind_PageIndexChanging" PageSize="5" OnRowCommand="gvFind_RowCommand" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+                        <br />
+
+
+
+
+                        <div style="background-color: #303030; padding: 5px; color: white; border: 1px #7b7b7b solid; border-bottom: 0px;">
+                            <span>P.O. Source Table</span>
+                        </div>
+                        <div style="overflow-x: auto">
+                            <asp:GridView runat="server" ID="gvFind" Width="100%" AutoGenerateColumns="False" AllowPaging="True" CssClass="tblLocal"
+                                OnPageIndexChanging="gvFind_PageIndexChanging" PageSize="5" OnRowCommand="gvFind_RowCommand" BackColor="White"
+                                BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+                                <Columns>
+                                    <asp:TemplateField>
+                                        <ItemTemplate>
+                                            <asp:LinkButton ID="btnSelect" CommandName="view_po" runat="server">select</asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="PO">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblPO" runat="server" Text='<%# Bind("PO") %>'></asp:Label>
+                                            <asp:Label ID="lblJO" runat="server" Visible="false" Text='<%# Bind("JOB_ORDER_NO") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="PROJECT">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblProject_Name" runat="server" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label>
+                                            <asp:Label ID="lblAddress" runat="server" Visible="false" Text='<%# Bind("Full_Address") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="PO DATE">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblPO_Date" runat="server" Text='<%# Bind("PO_DATE") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="SUPPLIER">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblSupplier" runat="server" Text='<%# Bind("Supplier") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                                <FooterStyle BackColor="White" ForeColor="#000066" />
+                                <EmptyDataTemplate>
+                                    <div class="alert alert-info">
+                                        <h3><strong>Empty Table!</strong>
+                                        </h3>
+                                    </div>
+                                </EmptyDataTemplate>
+                                <PagerSettings PageButtonCount="8" Position="Bottom" />
+                                <PagerStyle CssClass="GridPager" BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                                <RowStyle ForeColor="#000066" />
+                                <SelectedRowStyle BackColor="#303030" Font-Bold="True" ForeColor="White" />
+                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                <SortedDescendingHeaderStyle BackColor="#00547E" />
+                            </asp:GridView>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
+                <br />
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <asp:Panel ID="pnl" Visible="false" runat="server">
+
+
+                            <div style="background-color: #ff006e; color: white; padding: 5px;">
+                                <span>P.O. Items - Select items for notifcation</span>
+                            </div>
+                            <div style="overflow-x: auto">
+                                <asp:GridView ID="gvPO_Items" runat="server" Width="100%" AutoGenerateColumns="False"
+                                    CssClass="tblLocal">
                                     <Columns>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="btnSelect" CommandName="view_po" ForeColor="#CC3333" runat="server">select</asp:LinkButton>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="PO">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblPO" runat="server" Text='<%# Bind("PO") %>'></asp:Label>
-                                                <asp:Label ID="lblJO" runat="server" Visible="false" Text='<%# Bind("JOB_ORDER_NO") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="PROJECT">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblProject_Name" runat="server" Text='<%# Bind("PROJECT_NAME") %>'></asp:Label>
-                                                <asp:Label ID="lblAddress" runat="server" Visible="false" Text='<%# Bind("Full_Address") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="PO DATE">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblPO_Date" runat="server" Text='<%# Bind("PO_DATE") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="SUPPLIER">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblSupplier" runat="server" Text='<%# Bind("Supplier") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-                                    <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
-                                    <PagerStyle CssClass="GridPager" HorizontalAlign="Left" BackColor="White" ForeColor="Black" />
-                                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                                    <SortedDescendingHeaderStyle BackColor="#242121" />
-                                </asp:GridView>
-                            </div>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                </div>
-                <div class="panel panel-default">
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                        <ContentTemplate>
-                            <div class="panel panel-heading">
-                                PO Items
-                            </div>
-                            <div class="panel-body">
-                                <asp:GridView ID="gvPO_Items" runat="server" Width="100%" CssClass="tb" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4">
-                                    <Columns>
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <asp:CheckBox runat="server" ID="cboxSelect" />
+                                                <div class="text-center">
+                                                    <asp:CheckBox runat="server" ID="cboxSelect" />
+                                                </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="K No.">
@@ -125,59 +152,75 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Glass Specs">
                                             <ItemTemplate>
-                                                <div style="white-space: normal">
+                                                <div style="white-space: normal; min-width: 150px;">
                                                     <asp:Label ID="lblGlass_Specs" runat="server" Text='<%# Bind("Glass_Specs") %>'></asp:Label>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Width">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblWidth" runat="server" Text='<%# Bind("Width") %>'></asp:Label>
+                                                <div class="text-center">
+                                                    <asp:Label ID="lblWidth" runat="server" Text='<%# Bind("Width") %>'></asp:Label>
+                                                </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Height">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblHeight" runat="server" Text='<%# Bind("Height") %>'></asp:Label>
+                                                <div class="text-center">
+                                                    <asp:Label ID="lblHeight" runat="server" Text='<%# Bind("Height") %>'></asp:Label>
+                                                </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Qty">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblQty" runat="server" Text='<%# Bind("Qty") %>'></asp:Label>
+                                                <div class="text-center">
+                                                    <asp:Label ID="lblQty" runat="server" Text='<%# Bind("Qty") %>'></asp:Label>
+                                                </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Due Date">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblDue_Date" runat="server" Text='<%# Bind("Due_Date") %>'></asp:Label>
+                                                <div class="text-center">
+                                                    <asp:Label ID="lblDue_Date" runat="server" Text='<%# Bind("Due_Date") %>'></asp:Label>
+                                                </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Delivery Schedule">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblDelivery_Schedule" runat="server" Text='<%# Bind("GREQUEST") %>'></asp:Label>
+                                                <div class="text-center">
+                                                    <asp:Label ID="lblDelivery_Schedule" runat="server" Text='<%# Bind("GREQUEST") %>'></asp:Label>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Received Qty">
+                                            <ItemTemplate>
+                                                <div style="min-width: 80px;">
+                                                    <asp:TextBox ID="tboxReceivedQty" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                                </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Reason">
                                             <ItemTemplate>
-                                                <asp:TextBox runat="server" ID="tboxReason" CssClass="form-control"></asp:TextBox>
+                                                <div style="min-width: 150px;">
+                                                    <asp:TextBox runat="server" ID="tboxReason" CssClass="form-control"></asp:TextBox>
+                                                </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
-                                    <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
-                                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
-                                    <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="White" ForeColor="#330099" />
-                                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
-                                    <SortedAscendingCellStyle BackColor="#FEFCEB" />
-                                    <SortedAscendingHeaderStyle BackColor="#AF0101" />
-                                    <SortedDescendingCellStyle BackColor="#F6F0C0" />
-                                    <SortedDescendingHeaderStyle BackColor="#7E0000" />
+                                    <EmptyDataTemplate>
+                                        <div class="alert alert-info">
+                                            <h3><strong>Empty Table!</strong>
+                                            </h3>
+                                        </div>
+                                    </EmptyDataTemplate>
                                 </asp:GridView>
                             </div>
-                            <div class="panel panel-footer">
-                                <asp:LinkButton runat="server" ID="btnProceed" CssClass="btn btn-success" OnClick="btnProceed_Click1">Proceed</asp:LinkButton>
-                            </div>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                </div>
+                            <asp:LinkButton runat="server" ID="btnProceed" Width="100%" CssClass="btn btn-success" style="border-radius:0px;"
+                                OnClick="btnProceed_Click1"><span class="glyphicon glyphicon-floppy-disk"></span> Create notification</asp:LinkButton>
+                        </asp:Panel>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
             </div>
 
         </div>

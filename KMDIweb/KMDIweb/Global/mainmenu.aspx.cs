@@ -1,7 +1,9 @@
 ﻿using KMDIweb.SCREENfab;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,6 +20,7 @@ namespace KMDIweb.KMDIapp
                 if (!IsPostBack)
                 {
                     access();
+                    Notif_Counter();     
                 }
             }
             else
@@ -33,7 +36,80 @@ namespace KMDIweb.KMDIapp
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
+        private void Notif_Counter()
+        {
+            //Glass P.O Notifcation Notif counter
+            int Glass_Notif_Count = Convert.ToInt32(GlassNotification()) + Convert.ToInt32(GlassUpdateNotification());
+            lblGlassNotifCounter.Text = Glass_Notif_Count.ToString();
+            if (Glass_Notif_Count > 0)
+            {
+                lblGlassNotifCounter.BackColor = Color.Red;
+            }
 
+            //Glass P.O Notif Counter
+            int Glass_PO_Count = Convert.ToInt32(Glass_PO_Notification());
+            lblGlassPOCounter.Text = Glass_PO_Count.ToString();
+            if (Glass_PO_Count > 0)
+            {
+                lblGlassPOCounter.BackColor = Color.Red;
+            }
+        }
+        private string Glass_PO_Notification()
+        {
+            string cointer = "0";
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Web_PO_Approval_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Notification_Counter");
+                        sqlcmd.Parameters.AddWithValue("@POA_Acct", poa);
+                        sqlcmd.Parameters.AddWithValue("@Fullname", user_fullname);
+                        using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                             
+                                string Notif_Prepared_By = rd[0].ToString();
+                                string Notif_Noted_By = rd[1].ToString();
+                                string Notif_Approved_By = rd[2].ToString();
+                                if (poa == "Admin")
+                                {
+                                    cointer = (Convert.ToInt32(Notif_Prepared_By) + Convert.ToInt32(Notif_Noted_By) + Convert.ToInt32(Notif_Approved_By)).ToString();
+                                }
+                                else if (poa == "PO")
+                                {
+                                    cointer = Notif_Prepared_By;
+                                }
+                                else if (poa == "Noter")
+                                {
+                                    cointer = Notif_Noted_By;
+                                }
+                                else if (poa == "Approver")
+                                {
+                                    cointer = Notif_Approved_By;
+                                }
+                                else
+                                {
+                                    cointer = "0";
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            return cointer;
+        }
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
             Session.Abandon();
@@ -90,6 +166,13 @@ namespace KMDIweb.KMDIapp
                     Response.Redirect("~/KMDIweb/Production/FrameSchedule/FrameHome.aspx");
                 }
 
+            }
+        }
+        private string user_fullname
+        {
+            get
+            {
+                return Session["KMDI_fullname"].ToString();
             }
         }
         private string poa
@@ -156,7 +239,7 @@ namespace KMDIweb.KMDIapp
                 Panel4.Visible = false;
             }
 
-            if (usercode=="AE" || usercode == "Engineer" ||
+            if (usercode == "AE" || usercode == "Engineer" ||
                 usercode == "Programmer" || usercode == "Engineer Manager" ||
                 usercode == "Installation Staff")
             {
@@ -166,7 +249,7 @@ namespace KMDIweb.KMDIapp
             {
                 pnlMeiheng.Visible = false;
             }
-       
+
             //if ((usercode == "AE") ||
             //    (usercode == "Accounting") ||
             //    ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
@@ -187,7 +270,15 @@ namespace KMDIweb.KMDIapp
             {
                 pnlPO.Visible = true;
             }
-           
+
+            if ((usercode == "Engineer Manager") ||
+            (usercode == "Glass Section") ||
+            (usercode == "Programmer") ||
+            (usercode == "Production Manager") ||
+            (fullname == "Delivery"))
+            {
+                pnlGlassPONotif.Visible = true;
+            }
         }
 
         protected void LinkButton5_Click(object sender, EventArgs e)
@@ -237,6 +328,101 @@ namespace KMDIweb.KMDIapp
         protected void LinkButton14_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_List.aspx");
+        }
+
+
+        private string GlassNotification()
+        {
+            string counter = "0";
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Glass_PO_Notification_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Notification_Counter");
+                        sqlcmd.Parameters.AddWithValue("@User_Code", user_code);
+                        using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                if (user_code == "Glass Section" || user_code == "Programmer")
+                                {
+                                    counter = rd[0].ToString();
+                                }
+                                else if (user_code == "Production Manager")
+                                {
+                                    counter = rd[1].ToString();
+                                }
+                                else if (user_code == "Delivery")
+                                {
+                                    counter = rd[2].ToString();
+                                }
+                                else if (user_code == "Engineer Manager")
+                                {
+                                    counter = rd[3].ToString();
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            return counter;
+        }
+        private string GlassUpdateNotification()
+        {
+            string counter = "0";
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Glass_PO_Notification_Updates_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Summary");
+                        sqlcmd.Parameters.AddWithValue("@User_Code", user_code);
+                        using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                counter = rd[0].ToString();
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            return counter;
+        }
+        private string sqlconstr
+        {
+            get
+            {
+                return ConnectionString.sqlconstr();
+            }
+        }
+        private string user_code
+        {
+            get
+            {
+                return Session["KMDI_user_code"].ToString();
+            }
         }
     }
 }

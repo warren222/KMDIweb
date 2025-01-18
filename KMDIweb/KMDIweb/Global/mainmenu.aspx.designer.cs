@@ -303,6 +303,15 @@ namespace KMDIweb.KMDIapp
         protected global::System.Web.UI.WebControls.Image Image10;
 
         /// <summary>
+        /// lblGlassPOCounter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGlassPOCounter;
+
+        /// <summary>
         /// LinkButton11 control.
         /// </summary>
         /// <remarks>
@@ -382,6 +391,15 @@ namespace KMDIweb.KMDIapp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image13;
+
+        /// <summary>
+        /// lblGlassNotifCounter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGlassNotifCounter;
 
         /// <summary>
         /// LinkButton14 control.

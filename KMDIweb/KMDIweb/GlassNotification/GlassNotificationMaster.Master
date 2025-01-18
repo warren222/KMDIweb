@@ -16,7 +16,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body  style="font-family:Bahnschrift">
     <form id="form1" runat="server">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -26,14 +26,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">P.O</a>
+                    <a class="navbar-brand" href="#">P.O.</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="active">
+                        <li class="">
                             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/KMDIweb/GlassNotification/Glass_Notif_List.aspx">
-                                 <span class="glyphicon glyphicon-home"></span>&nbsp;Home</asp:HyperLink></li>
-
+                                
+                                <asp:Label ID="lblGlassNotification" runat="server" CssClass="badge"></asp:Label>
+                                &nbsp;Glass Notif</asp:HyperLink></li>
+                        <li>
+                               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/KMDIweb/GlassNotification/Glass_Notif_Updates.aspx">
+                                    <asp:Label ID="lblGlassUpdateNotification" runat="server" CssClass="badge"></asp:Label>
+                                 &nbsp;Glass Notif Updates</asp:HyperLink>
+                        </li>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

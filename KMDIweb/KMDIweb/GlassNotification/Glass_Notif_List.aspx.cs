@@ -18,15 +18,15 @@ namespace KMDIweb.KMDIweb.GlassNotification
             {
                 if (!IsPostBack)
                 {
-                    RetriverQS();
                     ForSignatureCboxAccess();
+                    RetriverQS();
                     Get_Data();
                 }
             }
             else
             {
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
-            }      
+            }
         }
         private void RetriverQS()
         {
@@ -49,28 +49,28 @@ namespace KMDIweb.KMDIweb.GlassNotification
             if (user_code == "Production Manager")
             {
                 ddlForSignature.Items.Clear();
-                ListItem x1 = new ListItem("All", "All");
                 ListItem x2 = new ListItem("Noted By", "Noted By PM");
-                ddlForSignature.Items.Add(x1);
+                ListItem x3 = new ListItem("Signed Notifications", "Signed Notifications");
                 ddlForSignature.Items.Add(x2);
+                ddlForSignature.Items.Add(x3);
                 ddlForSignature.SelectedValue = "Noted By PM";
             }
             else if (user_code == "Delivery")
             {
                 ddlForSignature.Items.Clear();
-                ListItem x1 = new ListItem("All", "All");
                 ListItem x2 = new ListItem("Received By", "Received By");
-                ddlForSignature.Items.Add(x1);
+                ListItem x3 = new ListItem("Signed Notifications", "Signed Notifications");
                 ddlForSignature.Items.Add(x2);
+                ddlForSignature.Items.Add(x3);
                 ddlForSignature.SelectedValue = "Received By";
             }
             else if (user_code == "Engineer Manager")
             {
                 ddlForSignature.Items.Clear();
-                ListItem x1 = new ListItem("All", "All");
                 ListItem x2 = new ListItem("Noted By", "Noted By IM");
-                ddlForSignature.Items.Add(x1);
+                ListItem x3 = new ListItem("Signed Notifications", "Signed Notifications");
                 ddlForSignature.Items.Add(x2);
+                ddlForSignature.Items.Add(x3);
                 ddlForSignature.SelectedValue = "Noted By IM";
             }
             else if (user_code == "Glass Section")
@@ -151,6 +151,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                         sqlcmd.CommandText = "Glass_PO_Notification_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Notification_Counter");
+                        sqlcmd.Parameters.AddWithValue("@User_Code", user_code);
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
                             da.SelectCommand = sqlcmd;
@@ -192,22 +193,50 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvGlassNotifList.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
-                ExecDelete(id);
+                string notedbypm = ((Label)row.FindControl("lblNoted_By_PM")).Text;
+                //ExecDelete(id);
+                if (notedbypm == "")
+                {
+                    ExecDelete(id);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(Page, GetType(), "warning", "alert('WARNING: signed notification! unable to proceed.');", true);
+                }
             }
             else if (e.CommandName == "execEdit")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvGlassNotifList.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
-                Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Edit.aspx?Id=" + id + AddQuerystring);
+                string po = ((Label)row.FindControl("lblPO")).Text;
+                string jo = ((Label)row.FindControl("lbljO")).Text;
+                string notedbypm = ((Label)row.FindControl("lblNoted_By_PM")).Text;
+                if (notedbypm == "")
+                {
+                    Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Edit.aspx?Id=" + id + "&PO=" + po + "&JO=" + jo + AddQuerystring);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(Page, GetType(), "warning", "alert('WARNING: signed notification! unable to proceed.');", true);
+                }
+            }
+            else if (e.CommandName == "execReceivingUpdate")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvGlassNotifList.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                string po = ((Label)row.FindControl("lblPO")).Text;
+                string jo = ((Label)row.FindControl("lbljO")).Text;
+                Response.Redirect("~/KMDIweb/GlassNotification/Glass_Notif_Receiving_Update.aspx?Id=" + id + "&PO=" + po + "&JO=" + jo + AddQuerystring);
             }
         }
         private string AddQuerystring
         {
             get
             {
-                return "&Find=" + tboxFind.Text + 
-                       "&DateFilter="+ ddlDateFilter.SelectedValue.ToString() +
+                return "&Find=" + tboxFind.Text +
+                       "&DateFilter=" + ddlDateFilter.SelectedValue.ToString() +
                        "&Date=" + tboxDate.Text +
                        "&ForSignature=" + ddlForSignature.SelectedValue.ToString() +
                        "&PageIndex=" + gvGlassNotifList.PageIndex.ToString();
@@ -217,7 +246,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
         {
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
-                using (SqlCommand sqlcmd =  sqlcon.CreateCommand())
+                using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                 {
                     try
                     {
@@ -254,7 +283,7 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 tboxFind.Text = "";
                 ddlDateFilter.Text = "All";
                 tboxDate.Text = "";
-                ddlForSignature.SelectedValue = "Noted By PM";     
+                ddlForSignature.SelectedValue = "Noted By PM";
                 Get_Data();
             }
             else if (e.CommandName == "ReceivedBy")
@@ -271,6 +300,22 @@ namespace KMDIweb.KMDIweb.GlassNotification
                 ddlDateFilter.Text = "All";
                 tboxDate.Text = "";
                 ddlForSignature.SelectedValue = "Noted By IM";
+                Get_Data();
+            }
+            //else if (e.CommandName == "AllNotification")
+            //{
+            //    tboxFind.Text = "";
+            //    ddlDateFilter.Text = "All";
+            //    tboxDate.Text = "";
+            //    ddlForSignature.SelectedValue = "All";
+            //    Get_Data();
+            //}
+            else if (e.CommandName == "SignedNotifications")
+            {
+                tboxFind.Text = "";
+                ddlDateFilter.Text = "All";
+                tboxDate.Text = "";
+                ddlForSignature.SelectedValue = "Signed Notifications";
                 Get_Data();
             }
         }
@@ -352,10 +397,21 @@ namespace KMDIweb.KMDIweb.GlassNotification
             {
                 TableCell cell = e.Row.Cells[0];
                 LinkButton btnDelete = ((LinkButton)cell.FindControl("btnDelete"));
+                LinkButton btnReceivingUpdate = ((LinkButton)cell.FindControl("btnReceivingUpdate"));
+                string lblNoted_By_IM = ((Label)cell.FindControl("lblNoted_By_IM")).Text.ToString();
                 if (user_code == "Glass Section" || user_code == "Programmer")
                 {
                     btnDelete.Visible = true;
+                    if (lblNoted_By_IM != "")
+                    {
+                        btnReceivingUpdate.Visible = true;
+                    }
+                    else
+                    {
+                        btnReceivingUpdate.Visible = false;
+                    }
                 }
+
             }
         }
     }
