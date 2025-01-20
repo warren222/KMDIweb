@@ -11,7 +11,7 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
 {
 
 
-    public partial class DRupdates
+    public partial class DRupdatesItems
     {
 
         /// <summary>
@@ -22,6 +22,15 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// btnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnBack;
 
         /// <summary>
         /// UpdatePanel4 control.
@@ -42,75 +51,39 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
 
         /// <summary>
-        /// UpdatePanel2 control.
+        /// lblProject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        protected global::System.Web.UI.WebControls.Label lblProject;
 
         /// <summary>
-        /// ddlSpecification control.
+        /// lblDRNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSpecification;
+        protected global::System.Web.UI.WebControls.Label lblDRNo;
 
         /// <summary>
-        /// tboxDateDelivered control.
+        /// lblRowCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tboxDateDelivered;
+        protected global::System.Web.UI.WebControls.Label lblRowCount;
 
         /// <summary>
-        /// tboxFind control.
+        /// gvItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tboxFind;
-
-        /// <summary>
-        /// btnFind control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnFind;
-
-        /// <summary>
-        /// lblSpecification control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSpecification;
-
-        /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
-        /// <summary>
-        /// gvList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvList;
+        protected global::System.Web.UI.WebControls.GridView gvItems;
     }
 }

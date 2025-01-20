@@ -18,6 +18,7 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
             {
                 if (!IsPostBack)
                 {
+                    RetriverQS();
                     Get_Data();
                 }
             }
@@ -25,7 +26,14 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
             {
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
             }
-        } 
+        }
+        private void RetriverQS()
+        {
+            tboxFind.Text = Request.QueryString["Find"] != null ? Request.QueryString["Find"].ToString() : "";
+            tboxDateDelivered.Text = Request.QueryString["DateDelivered"] != null ? Request.QueryString["DateDelivered"].ToString() : "";
+            ddlSpecification.SelectedValue = Request.QueryString["Specification"] != null ? Request.QueryString["Specification"].ToString() : "All";
+            gvList.PageIndex = Request.QueryString["PageIndex"] != null ? Convert.ToInt32(Request.QueryString["PageIndex"].ToString()) : 0;
+        }
         private string sqlconstr
         {
             get
@@ -59,6 +67,7 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
                         sqlcmd.Parameters.AddWithValue("@Command", "Get_Data");
                         sqlcmd.Parameters.AddWithValue("@Find", tboxFind.Text);
                         sqlcmd.Parameters.AddWithValue("@Specification", ddlSpecification.Text);
+                        sqlcmd.Parameters.AddWithValue("@Date_Delivered", tboxDateDelivered.Text);
                         DataTable tb = new DataTable();
                         tb.Clear();
                         using (SqlDataAdapter da = new SqlDataAdapter())
@@ -69,7 +78,9 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
                             gvList.DataBind();
                         }
                         string row_count = tb.Rows.Count.ToString("N0");
-                        lblSpecification.Text = ddlSpecification.Text + (tboxFind.Text == "" ? "" : " / " + tboxFind.Text);
+                        lblSpecification.Text = ddlSpecification.Text +
+                             (tboxDateDelivered.Text == "" ? "" : " / " + tboxDateDelivered.Text) +
+                             (tboxFind.Text == "" ? "" : " / " + tboxFind.Text);
                     }
                     catch (Exception ex)
                     {
@@ -97,16 +108,35 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvList.Rows[rowindex];
                 string filename = ((LinkButton)row.FindControl("btnDR")).Text;
-                string filepath = GetFilePath(filename) ;
-                if(filepath != "")
+                string filepath = GetFilePath(filename);
+                if (filepath != "")
                 {
-                    Response.Redirect(filepath + filename+".pdf");
+                    Response.Redirect(filepath + filename + ".pdf");
                 }
                 else
                 {
                     ScriptManager.RegisterStartupScript(Page, GetType(), "warning", "alert('Sorry! No file detected.');", true);
                 }
-              
+            }
+            else if (e.CommandName == "viewItems")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvList.Rows[rowindex];
+                string jo = ((Label)row.FindControl("lblJobOrderNo")).Text;
+                string drno = ((Label)row.FindControl("lblDRNo")).Text;
+                string specs = ((Label)row.FindControl("lblSpecification")).Text;
+                string project = ((LinkButton)row.FindControl("btnProject")).Text;
+                Response.Redirect("~/KMDIweb/Delivery/ScannedDR/DRupdatesItems.aspx?jo=" + jo + "&drno=" + drno + "&specs=" + specs + "&project=" + project + AddQuerystring);
+            }
+        }
+        private string AddQuerystring
+        {
+            get
+            {
+                return "&Find=" + tboxFind.Text +
+                       "&Specification=" + ddlSpecification.Text +
+                       "&DateDelivered=" + tboxDateDelivered.Text +
+                       "&PageIndex=" + gvList.PageIndex.ToString();
             }
         }
         private string GetFilePath(string filename)
@@ -140,7 +170,7 @@ namespace KMDIweb.KMDIweb.Delivery.ScannedDR
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 errorrmessage(ex.ToString());
             }
