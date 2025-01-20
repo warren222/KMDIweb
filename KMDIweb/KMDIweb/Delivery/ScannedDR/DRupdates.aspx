@@ -41,10 +41,10 @@
                 <ContentTemplate>
                     <div class="">
                         <div class="row nopm">
-                            <div class="col-sm-6 nopm">
+                            <div class="col-sm-7 nopm">
                                 <div class="well well-sm">
                                     <div class="row nopm">
-                                        <div class="col-sm-4 nopm">
+                                        <div class="col-sm-3 nopm">
                                             <span>Specfication</span>
                                             <asp:DropDownList ID="ddlSpecification" runat="server" CssClass="form-control">
                                                 <asp:ListItem Value="All" Text="All"></asp:ListItem>
@@ -53,7 +53,11 @@
                                                 <asp:ListItem Value="Glass" Text="Glass"></asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
-                                        <div class="col-sm-8 nopm">
+                                        <div class="col-sm-3 nopm">
+                                            <span>Date Delivered</span>
+                                            <asp:TextBox ID="tboxDateDelivered" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                                        </div>
+                                        <div class="col-sm-6 nopm">
                                             <span>Search</span>
                                             <div class="input-group">
                                                 <asp:TextBox ID="tboxFind" runat="server" CssClass="form-control"></asp:TextBox>
@@ -65,7 +69,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 nopm">
+                            <div class="col-sm-5 nopm">
                                 <br />
                                 <div class="alert alert-info alert-dismissible" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -91,12 +95,14 @@
                             <Columns>
                                 <asp:TemplateField HeaderText="Specification">
                                     <ItemTemplate>
-                                        <span><%# Eval("Specification") %></span>
+                                        <asp:Label ID="lblJobOrderNo" runat="server" Visible="false" Text='<%# Bind("Job_Order_No") %>'></asp:Label>
+                                        <asp:Label ID="lblDRNo" runat="server" Visible="false" Text='<%# Bind("DR_NO") %>'></asp:Label>
+                                        <asp:Label ID="lblSpecification" runat="server" Text='<%# Bind("Specification") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Project">
                                     <ItemTemplate>
-                                        <span><%# Eval("PROJECT_LABEL") %></span>
+                                        <asp:LinkButton ID="btnProject" runat="server" ForeColor="Black" CommandName="viewItems" Text='<%# Bind("PROJECT_LABEL") %>'></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="J.O.">
@@ -104,17 +110,17 @@
                                         <span><%# Eval("SUB_JO") %></span>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                 <asp:TemplateField HeaderText="DR">
+                                <asp:TemplateField HeaderText="DR">
                                     <ItemTemplate>
-                                        <asp:LinkButton runat="server" ID="btnDR" Text='<%# Bind("DR_NO") %>' CommandName="viewDR"></asp:LinkButton>
+                                        <asp:LinkButton runat="server" ForeColor="Black" ID="btnDR" Text='<%# Bind("DR_NO") %>' CommandName="viewDR"></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                 <asp:TemplateField HeaderText="DR Date">
+                                <asp:TemplateField HeaderText="DR Date">
                                     <ItemTemplate>
                                         <span><%# Eval("DR") %></span>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                 <asp:TemplateField HeaderText="Date Delivered">
+                                <asp:TemplateField HeaderText="Date Delivered">
                                     <ItemTemplate>
                                         <span><%# Eval("DATE_DELIVERED") %></span>
                                     </ItemTemplate>

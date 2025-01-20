@@ -426,6 +426,13 @@
     <Compile Include="KMDIweb\Delivery\ScannedDR\DRupdates.aspx.designer.cs">
       <DependentUpon>DRupdates.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Delivery\ScannedDR\DRupdatesItems.aspx.cs">
+      <DependentUpon>DRupdatesItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Delivery\ScannedDR\DRupdatesItems.aspx.designer.cs">
+      <DependentUpon>DRupdatesItems.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Delivery\ScannedDR\DRuploadsSummary.aspx.cs">
       <DependentUpon>DRuploadsSummary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1058,6 +1065,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="KMDIweb\Delivery\ScannedDR\DRupdates.aspx" />
+    <Content Include="KMDIweb\Delivery\ScannedDR\DRupdatesItems.aspx" />
     <Content Include="KMDIweb\Delivery\ScannedDR\DRuploadsSummary.aspx" />
     <Content Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx" />
     <Content Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx" />
