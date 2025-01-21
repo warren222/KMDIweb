@@ -48,7 +48,7 @@
         }
     </style>
 </head>
-<body style="font-family:Bahnschrift">
+<body style="font-family: Bahnschrift">
     <form id="form1" runat="server">
 
         <div class="headerbanner">
@@ -252,6 +252,22 @@
                                         <span>Glass Notification</span></strong><br />
                                     <small>P.O Notification</small>
                                     <asp:LinkButton ID="LinkButton14" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton14_Click">ENTER</asp:LinkButton>
+                                </div>
+                            </div>
+                        </asp:Panel>
+
+                        <asp:Panel ID="Panel8" Visible="true" runat="server" Width="250px">
+                            <div class="thumbnail">
+                                <asp:Image ID="Image14" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/G03.jpg" runat="server" AlternateText="Project Photos" />
+                                <span class="pull-right">
+                                    <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" CssClass="badge"></asp:Label>
+                                </span>
+                                <br />
+                                <div>
+                                    <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
+                                        <span>PRF</span></strong><br />
+                                    <small>Online PRF</small>
+                                    <asp:LinkButton ID="LinkButton15" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton15_Click">ENTER</asp:LinkButton>
                                 </div>
                             </div>
                         </asp:Panel>
