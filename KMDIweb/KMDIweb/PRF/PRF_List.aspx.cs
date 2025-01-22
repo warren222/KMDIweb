@@ -1,5 +1,8 @@
-﻿using System;
+﻿using KMDIweb.SCREENfab;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +14,93 @@ namespace KMDIweb.KMDIweb.PRF
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["KMDI_userid"] != null)
+            {
+                if (!IsPostBack)
+                {
+                    RetriverQS();
+                    Get_Data();
+                }
+            }
+            else
+            {
+                Response.Redirect("~/KMDIweb/Global/Login.aspx");
+            }
+        }
+        private void RetriverQS()
+        {
+            tboxFind.Text = Request.QueryString["Find"] != null ? Request.QueryString["Find"].ToString() : "";
+            gvList.PageIndex = Request.QueryString["PageIndex"] != null ? Convert.ToInt32(Request.QueryString["PageIndex"].ToString()) : 0;
+        }
+        private string user_code
+        {
+            get
+            {
+                return Session["KMDI_user_code"].ToString();
+            }
+        }
+        private string sqlconstr
+        {
+            get
+            {
+                return ConnectionString.sqlconstr();
+            }
+        }
+        private void Get_Data()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Get_Data");
+                        sqlcmd.Parameters.AddWithValue("@Search", tboxFind.Text);
+                        sqlcmd.Parameters.AddWithValue("@User_Code", user_code);
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(tb);
+                            gvList.DataSource = tb;
+                            gvList.DataBind();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+        }
+        private void errorrmessage(string message)
+        {
+            CustomValidator err = new CustomValidator();
+            err.ValidationGroup = "errorval";
+            err.IsValid = false;
+            err.ErrorMessage = message;
+            Page.Validators.Add(err);
+        }
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Get_Data();
+        }
 
+        protected void btnCreate_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIweb/PRF/PRF_Create.aspx?Id=0" + AddQuerystring);
+        }
+        private string AddQuerystring
+        {
+            get
+            {
+                return "&Find=" + tboxFind.Text +
+                       "&PageIndex=" + gvList.PageIndex.ToString();
+            }
         }
     }
 }
