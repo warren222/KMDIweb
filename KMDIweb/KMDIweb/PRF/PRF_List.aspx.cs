@@ -59,6 +59,7 @@ namespace KMDIweb.KMDIweb.PRF
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Get_Data");
                         sqlcmd.Parameters.AddWithValue("@Search", tboxFind.Text);
+                        sqlcmd.Parameters.AddWithValue("@For_Signature", ddlForSignature.Text);
                         sqlcmd.Parameters.AddWithValue("@User_Code", user_code);
                         DataTable tb = new DataTable();
                         tb.Clear();
@@ -100,6 +101,43 @@ namespace KMDIweb.KMDIweb.PRF
             {
                 return "&Find=" + tboxFind.Text +
                        "&PageIndex=" + gvList.PageIndex.ToString();
+            }
+        }
+
+        protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "execDelete")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvList.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                DeleteItem(id);
+            }
+        }
+        private void DeleteItem(string id)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Delete");
+                        sqlcmd.Parameters.AddWithValue("@Id", id);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            finally
+            {
+                Get_Data();
             }
         }
     }

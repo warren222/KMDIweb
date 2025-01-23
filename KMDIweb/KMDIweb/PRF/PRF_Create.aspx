@@ -10,25 +10,16 @@
             padding: 0;
         }
 
-        .bcRed {
-            background-color: red;
-            color: white;
+        .tblLocal {
+            font-family: Calibri;
+            white-space: nowrap;
+            white-space: nowrap;
         }
 
-        .bcOrange {
-            background-color: orange;
-            color: black;
-        }
-
-        .bcBlue {
-            background-color: aqua;
-            color: black;
-        }
-
-        .bcYellow {
-            background-color: yellow;
-            color: black;
-        }
+            .tblLocal th, tr, td {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
     </style>
 </asp:Content>
 
@@ -53,48 +44,114 @@
         <div class="container">
             <div class="panel panel-info">
                 <div class="panel-heading">
+                    <asp:Label ID="lblControlNumberHeader" runat="server" Text="Please get a control number to proceed."></asp:Label>
                 </div>
                 <asp:Panel ID="pnlCtrlNumberCreate" runat="server">
                     <div class="row">
                         <div class="col-sm-4">
                         </div>
                         <div class="col-sm-4">
-                            <span>Select Due Date</span>
-                            <div class=" input-group">
-                                <asp:TextBox ID="tboxDueDate" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
-                                <div class=" input-group-btn">
-                                    <asp:LinkButton ID="btnCreate" runat="server" CssClass="btn btn-danger"
-                                        Style="background-color: #ff006e; border-color: #ff006e" OnClick="btnCreate_Click"><span class="glyphicon glyphicon-search"></span> Create Control Number</asp:LinkButton>
-                                </div>
+                            <div style="margin: 5px; text-align: center;">
+                                <span>Select Due Date</span>
+                                <asp:TextBox ID="tboxDueDate" runat="server" TextMode="Date" ValidationGroup="inputVal" CssClass="form-control"></asp:TextBox>
+                                <asp:LinkButton ID="btnCreate" runat="server" CssClass="btn btn-success" ValidationGroup="inputVal" Width="100%"
+                                    Style="border-radius: 0px; background-color: #87ddff; border-color: #87ddff; color: black;" OnClick="btnCreate_Click">Get Control Number</asp:LinkButton>
+                                <asp:RequiredFieldValidator ID="rfvDueDate" runat="server" ControlToValidate="tboxDueDate" ValidationGroup="inputVal" ForeColor="Red" ErrorMessage="Sorry! Please select due date."></asp:RequiredFieldValidator>
                             </div>
-                            <asp:RequiredFieldValidator ID="rfvDueDate" runat="server" ControlToValidate="tboxDueDate" ForeColor="Red" ErrorMessage="Sorry! Please select due date."></asp:RequiredFieldValidator>
                         </div>
-                       <div class="col-sm-4">
+                        <div class="col-sm-4">
                         </div>
                     </div>
                 </asp:Panel>
                 <asp:Panel ID="pnlControlNumber" runat="server">
-                   <asp:DataGrid ID="gvControlNumber" runat="server"></asp:DataGrid>
+                    <asp:GridView ID="gvControlNo" runat="server" AutoGenerateColumns="false" GridLines="None" ShowHeader="false" Width="100%" AllowPaging="True" PageSize="1">
+                        <Columns>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <div class="text-center">
+                                        <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
+                                        <span style="font-size: xx-large"><%# Eval("Control_No") %></span><br />
+                                        <span style="font-size: large"><%# Eval("Due_Date") %></span><br />
+                                        <span style="font-size: small"><%# Eval("Date_Inputted") %></span><br />
+                                        <span style="font-size: small"><%# Eval("Requested_By") %></span>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
                 </asp:Panel>
             </div>
 
 
 
 
+            <asp:Panel runat="server" Visible="false" ID="pnlPRFInput">
+                <div class="well" style="margin-bottom:0;">
+                    <h3>Purchase Request Form</h3>
+                    <div class="row nopm">
+                        <div class="col-sm-4 nopm">
+                            <span>Item Description</span>
+                            <asp:TextBox ID="tboxItemDescription" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-2 nopm">
+                            <span>Quantity</span>
+                            <asp:TextBox ID="tboxQuantity" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-2 nopm">
+                            <span>Account</span>
+                            <asp:TextBox ID="tboxAccount" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-4 nopm">
+                            <span>Remarks</span>
+                            <asp:TextBox ID="tboxRemarks" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                    <asp:LinkButton runat="server" ID="btnProceed" Width="100%" CssClass="btn btn-success" Style="border-radius: 0px;" OnClick="btnProceed_Click">
+                <span class="glyphicon glyphicon-chevron-down"></span> Add</asp:LinkButton>
+                </div>
+                <div style="background-color: #b0e9ff; color: black; padding: 5px;">
+                    <span>Item Table</span>
+                </div>
+                <asp:GridView ID="gvItems" Width="100%" CssClass="tblLocal" runat="server" AutoGenerateColumns="false" OnRowCommand="gvItems_RowCommand">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton runat="server" ID="btnDelete" CommandName="execDelete" OnClientClick="return confirm('delete this item?')">Delete</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Description">
+                            <ItemTemplate>
+                                <asp:Label ID="lblItemId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
+                                <div>
+                                    <span><%# Eval("Item_Description") %></span>
+                                </div>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Quantity">
+                            <ItemTemplate>
+                                <div class="text-center">
+                                    <span><%# Eval("Qty") %></span>
+                                </div>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Account">
+                            <ItemTemplate>
+                                <div class="text-center">
+                                    <span><%# Eval("Account") %></span>
+                                </div>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Remarks">
+                            <ItemTemplate>
+                                <div>
+                                    <span><%# Eval("Remarks") %></span>
+                                </div>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+            </asp:Panel>
 
-            <div class="well">
-                <h3>Purchase Request Form</h3>
-                <span>Item Description</span>
-                <asp:TextBox ID="tboxItemDescription" runat="server" CssClass="form-control"></asp:TextBox>
-                <span>Quantity</span>
-                <asp:TextBox ID="tboxQuantity" runat="server" CssClass="form-control"></asp:TextBox>
-                <span>Account</span>
-                <asp:TextBox ID="tboxAccount" runat="server" CssClass="form-control"></asp:TextBox>
-                <span>Remarks</span>
-                <asp:TextBox ID="tboxRemarks" runat="server" CssClass="form-control"></asp:TextBox>
-                <asp:LinkButton runat="server" ID="btnProceed" Width="100%" CssClass="btn btn-success" Style="border-radius: 0px;" OnClick="btnProceed_Click">
-                <span class="glyphicon glyphicon-floppy-disk"></span> Add</asp:LinkButton>
-            </div>
         </div>
     </div>
 

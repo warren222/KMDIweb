@@ -57,7 +57,7 @@ namespace KMDIweb.KMDIweb.PRF
 
         protected void btnProceed_Click(object sender, EventArgs e)
         {
-
+            InserItem();
         }
         private string user_code
         {
@@ -127,8 +127,22 @@ namespace KMDIweb.KMDIweb.PRF
                         {
                             da.SelectCommand = sqlcmd;
                             da.Fill(tb);
-                            gvControlNumber.DataSource = tb;
-                            gvControlNumber.DataBind();
+                            gvControlNo.DataSource = tb;
+                            gvControlNo.DataBind();
+                        }
+                        if (tb.Rows.Count == 1)
+                        {
+                            lblControlNumberHeader.Text = "Thank you! your control number is set.";
+                            pnlCtrlNumberCreate.Visible = false;
+                            pnlPRFInput.Visible = true;
+                            GridViewRow row = gvControlNo.Rows[0];
+                            ViewState["PRF_Id"] = ((Label)row.Cells[0].FindControl("lblId")).Text.ToString();
+                        }
+                        else
+                        {
+                            pnlCtrlNumberCreate.Visible = true;
+                            pnlPRFInput.Visible = false;
+                            pnlCtrlNumberCreate.Visible = true;
                         }
                     }
                 }
@@ -137,6 +151,103 @@ namespace KMDIweb.KMDIweb.PRF
             {
                 errorrmessage(ex.ToString());
             }
+        }
+        private void InserItem()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Item_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Insert");
+                        sqlcmd.Parameters.AddWithValue("@PRF_Id", ViewState["PRF_Id"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Item_Description", tboxItemDescription.Text);
+                        sqlcmd.Parameters.AddWithValue("@Qty", tboxQuantity.Text);
+                        sqlcmd.Parameters.AddWithValue("@Account", tboxAccount.Text);
+                        sqlcmd.Parameters.AddWithValue("@Remarks", tboxRemarks.Text);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            finally
+            {
+                GetItem();
+            }
+        }
+        private void GetItem()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Item_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Get");
+                        sqlcmd.Parameters.AddWithValue("@PRF_Id", ViewState["PRF_Id"].ToString());
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(tb);
+                            gvItems.DataSource = tb;
+                            gvItems.DataBind();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+        }
+
+        protected void gvItems_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "execDelete")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvItems.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblItemId")).Text;
+                DeleteItem(id);
+            }
+        }
+        private void DeleteItem(string id)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Item_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Delete");
+                        sqlcmd.Parameters.AddWithValue("@Id", id);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            finally
+            {
+                GetItem();
+            }   
         }
     }
 }
