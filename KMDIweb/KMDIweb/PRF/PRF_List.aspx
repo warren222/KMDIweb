@@ -99,6 +99,7 @@
                                         <asp:ListItem Value="Date Noted" Text="Date Noted"></asp:ListItem>
                                         <asp:ListItem Value="Date Received" Text="Date Received"></asp:ListItem>
                                         <asp:ListItem Value="Date Approved" Text="Date Approved"></asp:ListItem>
+                                        <asp:ListItem Value="Due Date" Text="Due Date"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                                 <div class="col-sm-8">

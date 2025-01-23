@@ -59,6 +59,8 @@ namespace KMDIweb.KMDIweb.PRF
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Get_Data");
                         sqlcmd.Parameters.AddWithValue("@Search", tboxFind.Text);
+                        sqlcmd.Parameters.AddWithValue("@Date_Filter", ddlDateFilter.Text);
+                        sqlcmd.Parameters.AddWithValue("@Date", tboxDate.Text);
                         sqlcmd.Parameters.AddWithValue("@For_Signature", ddlForSignature.Text);
                         sqlcmd.Parameters.AddWithValue("@User_Code", user_code);
                         DataTable tb = new DataTable();
