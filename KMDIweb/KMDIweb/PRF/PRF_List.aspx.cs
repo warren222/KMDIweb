@@ -30,6 +30,9 @@ namespace KMDIweb.KMDIweb.PRF
         private void RetriverQS()
         {
             tboxFind.Text = Request.QueryString["Find"] != null ? Request.QueryString["Find"].ToString() : "";
+            ddlDateFilter.SelectedValue = Request.QueryString["DateFilter"] != null ? Request.QueryString["DateFilter"].ToString() : "All";
+            tboxDate.Text = Request.QueryString["Date"] != null ? Request.QueryString["Date"].ToString() : "";
+            ddlForSignature.SelectedValue = Request.QueryString["ForSignature"] != null ? Request.QueryString["ForSignature"].ToString() : "All";
             gvList.PageIndex = Request.QueryString["PageIndex"] != null ? Convert.ToInt32(Request.QueryString["PageIndex"].ToString()) : 0;
         }
         private string user_code
@@ -102,6 +105,9 @@ namespace KMDIweb.KMDIweb.PRF
             get
             {
                 return "&Find=" + tboxFind.Text +
+                       "&DateFilter=" + ddlDateFilter.SelectedValue.ToString() +
+                       "&Date=" + tboxDate.Text +
+                       "&ForSignature=" + ddlForSignature.SelectedValue.ToString() +
                        "&PageIndex=" + gvList.PageIndex.ToString();
             }
         }
@@ -114,6 +120,20 @@ namespace KMDIweb.KMDIweb.PRF
                 GridViewRow row = gvList.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
                 DeleteItem(id);
+            }
+            else if (e.CommandName == "execEdit")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvList.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                Response.Redirect("~/KMDIweb/PRF/PRF_Update.aspx?Id=" + id + AddQuerystring);
+            }
+            else if (e.CommandName == "execReport")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvList.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblId")).Text;
+                Response.Redirect("~/KMDIweb/PRF/PRF_Report.aspx?Id=" + id + AddQuerystring);
             }
         }
         private void DeleteItem(string id)
@@ -141,6 +161,12 @@ namespace KMDIweb.KMDIweb.PRF
             {
                 Get_Data();
             }
+        }
+
+        protected void gvList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvList.PageIndex = e.NewPageIndex;
+            Get_Data();
         }
     }
 }

@@ -144,7 +144,8 @@
             <div style="overflow-x: auto">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
-                        <asp:GridView ID="gvList" runat="server" GridLines="None" ShowHeader="false" Width="100%" AutoGenerateColumns="false" OnRowCommand="gvList_RowCommand">
+                        <asp:GridView ID="gvList" runat="server" GridLines="None" ShowHeader="false" Width="100%" AutoGenerateColumns="false"
+                            OnRowCommand="gvList_RowCommand" AllowPaging="True" OnPageIndexChanging="gvList_PageIndexChanging">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -160,12 +161,17 @@
                                                                                    Eval("Requested_By_Date").ToString() != "" ? "#ff8080" :
                                                                                    "#80f0ff" %>'>
                                                     <span><%# Eval("Date_Inputted") %></span>
+                                                    <span class="pull-right">
+                                                        <asp:LinkButton runat="server" ID="btnDelete" CommandName="execDelete" OnClientClick="return confirm('delete this item?')"><span class="glyphicon glyphicon-remove"></span></asp:LinkButton>
+                                                    </span>
                                                 </div>
                                                 <div class="panel-body">
                                                     <asp:Label runat="server" Visible="false" ID="lblId" Text='<%# Bind("Id") %>'></asp:Label>
-                                                    <span style="font-size: xx-large"><%# Eval("Control_No") %></span>
+                                                    <span style="font-size: xx-large">
+                                                        <asp:LinkButton runat="server" ID="btnControlNo" ForeColor="Black" CommandName="execReport" Text='<%# Bind("Control_No") %>'></asp:LinkButton>
+                                                    </span>
                                                     <span class="pull-right">
-                                                        <asp:LinkButton runat="server" ID="btnDelete" CommandName="execDelete" OnClientClick="return confirm('delete this item?')">Delete</asp:LinkButton>
+                                                        <asp:LinkButton runat="server" ID="btnEdit" CommandName="execEdit">Edit</asp:LinkButton>
                                                     </span>
                                                     <br />
                                                     <span><%# Eval("Due_Date") %></span>
@@ -200,12 +206,20 @@
                                                         <span class="text-muted">Approved by:</span>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
+                            <EmptyDataTemplate>
+                                <div class="">
+                                    <h3><strong>Sorry! No result found :(</strong>
+                                    </h3>
+                                </div>
+                            </EmptyDataTemplate>
+                            <EditRowStyle BorderStyle="None" BorderWidth="0px" />
+                            <PagerSettings PageButtonCount="8" Position="TopAndBottom" />
+                            <PagerStyle CssClass="GridPager" HorizontalAlign="Left" />
                         </asp:GridView>
                     </ContentTemplate>
                 </asp:UpdatePanel>

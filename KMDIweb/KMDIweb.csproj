@@ -692,6 +692,20 @@
     <Compile Include="KMDIweb\PRF\PRF_Master.Master.designer.cs">
       <DependentUpon>PRF_Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\PRF\PRF_Report.aspx.cs">
+      <DependentUpon>PRF_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\PRF\PRF_Report.aspx.designer.cs">
+      <DependentUpon>PRF_Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\PRF\PRF_Update.aspx.cs">
+      <DependentUpon>PRF_Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\PRF\PRF_Update.aspx.designer.cs">
+      <DependentUpon>PRF_Update.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx.cs">
       <DependentUpon>CalendarFrame.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1137,6 +1151,8 @@
     <Content Include="KMDIweb\PO\PO_X_Rpt.aspx" />
     <Content Include="KMDIweb\PRF\PRF_Create.aspx" />
     <Content Include="KMDIweb\PRF\PRF_List.aspx" />
+    <Content Include="KMDIweb\PRF\PRF_Report.aspx" />
+    <Content Include="KMDIweb\PRF\PRF_Update.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrameNewDueDate.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\ChartComparison.aspx" />

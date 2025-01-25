@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace KMDIweb.KMDIweb.PRF
 {
-    public partial class PRF_Create : System.Web.UI.Page
+    public partial class PRF_Update : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,12 +18,20 @@ namespace KMDIweb.KMDIweb.PRF
             {
                 if (!IsPostBack)
                 {
-
+                    GetControlNumber(controlId);
+                    GetItem();
                 }
             }
             else
             {
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
+            }
+        }
+        string controlId
+        {
+            get
+            {
+                return Request.QueryString["Id"].ToString();
             }
         }
         private string sqlconstr
@@ -57,60 +65,6 @@ namespace KMDIweb.KMDIweb.PRF
                     "&PageIndex=" + Request.QueryString["PageIndex"].ToString();
             }
         }
-
-        protected void btnProceed_Click(object sender, EventArgs e)
-        {
-            InserItem();
-        }
-        private string user_code
-        {
-            get
-            {
-                return Session["KMDI_user_code"].ToString();
-            }
-        }
-        private string fullname
-        {
-            get
-            {
-                return Session["KMDI_fullname"].ToString();
-            }
-        }
-        protected void btnCreate_Click(object sender, EventArgs e)
-        {
-            GetControlNumber(CreateControlNumber());
-        }
-        private string CreateControlNumber()
-        {
-            string result = "";
-            try
-            {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
-                {
-                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
-                    {
-                        sqlcon.Open();
-                        sqlcmd.CommandText = "PRF_Stp";
-                        sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@Command", "Insert");
-                        sqlcmd.Parameters.AddWithValue("@Due_Date", tboxDueDate.Text);
-                        sqlcmd.Parameters.AddWithValue("@Fullname", fullname);
-                        using (SqlDataReader rd = sqlcmd.ExecuteReader())
-                        {
-                            while (rd.Read())
-                            {
-                                result = rd[0].ToString();
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                errorrmessage(ex.ToString());
-            }
-            return result;
-        }
         private void GetControlNumber(string controlNumber)
         {
             try
@@ -133,20 +87,6 @@ namespace KMDIweb.KMDIweb.PRF
                             gvControlNo.DataSource = tb;
                             gvControlNo.DataBind();
                         }
-                        if (tb.Rows.Count == 1)
-                        {
-                            lblControlNumberHeader.Text = "Thank you! your control number is set.";
-                            pnlCtrlNumberCreate.Visible = false;
-                            pnlPRFInput.Visible = true;
-                            GridViewRow row = gvControlNo.Rows[0];
-                            ViewState["PRF_Id"] = ((Label)row.Cells[0].FindControl("lblId")).Text.ToString();
-                        }
-                        else
-                        {
-                            pnlCtrlNumberCreate.Visible = true;
-                            pnlPRFInput.Visible = false;
-                            pnlCtrlNumberCreate.Visible = true;
-                        }
                     }
                 }
             }
@@ -167,7 +107,7 @@ namespace KMDIweb.KMDIweb.PRF
                         sqlcmd.CommandText = "PRF_Item_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Insert");
-                        sqlcmd.Parameters.AddWithValue("@PRF_Id", ViewState["PRF_Id"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@PRF_Id", controlId);
                         sqlcmd.Parameters.AddWithValue("@Item_Description", tboxItemDescription.Text);
                         sqlcmd.Parameters.AddWithValue("@Qty", tboxQuantity.Text);
                         sqlcmd.Parameters.AddWithValue("@Account", tboxAccount.Text);
@@ -197,7 +137,7 @@ namespace KMDIweb.KMDIweb.PRF
                         sqlcmd.CommandText = "PRF_Item_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Get");
-                        sqlcmd.Parameters.AddWithValue("@PRF_Id", ViewState["PRF_Id"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@PRF_Id", controlId);
                         DataTable tb = new DataTable();
                         tb.Clear();
                         using (SqlDataAdapter da = new SqlDataAdapter())
@@ -225,6 +165,53 @@ namespace KMDIweb.KMDIweb.PRF
                 string id = ((Label)row.FindControl("lblItemId")).Text;
                 DeleteItem(id);
             }
+            if (e.CommandName == "execEdit")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvItems.Rows[rowindex];
+                ((LinkButton)row.FindControl("btnDelete")).Visible = false;
+                ((LinkButton)row.FindControl("btnEdit")).Visible = false;
+                ((LinkButton)row.FindControl("btnSave")).Visible = true;
+                ((LinkButton)row.FindControl("btnCancel")).Visible = true;
+
+                ((TextBox)row.FindControl("tboxItemDescriptionEdit")).Visible = true;
+                ((TextBox)row.FindControl("tboxQuantityEdit")).Visible = true;
+                ((TextBox)row.FindControl("tboxAccountEdit")).Visible = true;
+                ((TextBox)row.FindControl("tboxRemarksEdit")).Visible = true;
+                ((Label)row.FindControl("lblItemDescription")).Visible = false;
+                ((Label)row.FindControl("lblQuantity")).Visible = false;
+                ((Label)row.FindControl("lblAccount")).Visible = false;
+                ((Label)row.FindControl("lblRemarks")).Visible = false;
+            }
+            if (e.CommandName == "execCancel")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvItems.Rows[rowindex];
+                ((LinkButton)row.FindControl("btnDelete")).Visible = true;
+                ((LinkButton)row.FindControl("btnEdit")).Visible = true;
+                ((LinkButton)row.FindControl("btnSave")).Visible = false;
+                ((LinkButton)row.FindControl("btnCancel")).Visible = false;
+
+                ((TextBox)row.FindControl("tboxItemDescriptionEdit")).Visible = false;
+                ((TextBox)row.FindControl("tboxQuantityEdit")).Visible = false;
+                ((TextBox)row.FindControl("tboxAccountEdit")).Visible = false;
+                ((TextBox)row.FindControl("tboxRemarksEdit")).Visible = false;
+                ((Label)row.FindControl("lblItemDescription")).Visible = true;
+                ((Label)row.FindControl("lblQuantity")).Visible = true;
+                ((Label)row.FindControl("lblAccount")).Visible = true;
+                ((Label)row.FindControl("lblRemarks")).Visible = true;
+            }
+            if (e.CommandName == "execSave")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvItems.Rows[rowindex];
+                string id = ((Label)row.FindControl("lblItemId")).Text;
+                string itemDescription = ((TextBox)row.FindControl("tboxItemDescriptionEdit")).Text;
+                string quantity = ((TextBox)row.FindControl("tboxQuantityEdit")).Text;
+                string account = ((TextBox)row.FindControl("tboxAccountEdit")).Text;
+                string remarks = ((TextBox)row.FindControl("tboxRemarksEdit")).Text;
+                UpdateItem(id, itemDescription, quantity, account, remarks);
+            }
         }
         private void DeleteItem(string id)
         {
@@ -250,7 +237,42 @@ namespace KMDIweb.KMDIweb.PRF
             finally
             {
                 GetItem();
-            }   
+            }
+        }
+        private void UpdateItem(string id, string itemDescription, string quantity, string account, string remarks)
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Item_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Update");
+                        sqlcmd.Parameters.AddWithValue("@Id", id);
+                        sqlcmd.Parameters.AddWithValue("@PRF_Id", controlId);
+                        sqlcmd.Parameters.AddWithValue("@Item_Description", itemDescription);
+                        sqlcmd.Parameters.AddWithValue("@Qty", quantity);
+                        sqlcmd.Parameters.AddWithValue("@Account", account);
+                        sqlcmd.Parameters.AddWithValue("@Remarks", remarks);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            finally
+            {
+                GetItem();
+            }
+        }
+        protected void btnProceed_Click(object sender, EventArgs e)
+        {
+            InserItem();
         }
     }
 }
