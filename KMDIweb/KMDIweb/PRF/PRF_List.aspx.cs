@@ -82,6 +82,40 @@ namespace KMDIweb.KMDIweb.PRF
             {
                 errorrmessage(ex.ToString());
             }
+            finally
+            {
+                LoadSummary();
+            }
+        }
+        private void LoadSummary()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Notification_Counter");
+                        //sqlcmd.Parameters.AddWithValue("@User_Code", user_code);
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(tb);
+                            gvSummary.DataSource = tb;
+                            gvSummary.DataBind();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
         }
         private void errorrmessage(string message)
         {
@@ -167,6 +201,51 @@ namespace KMDIweb.KMDIweb.PRF
         {
             gvList.PageIndex = e.NewPageIndex;
             Get_Data();
+        }
+
+
+        protected void gvSummary_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "RequestedBy")
+            {
+                tboxFind.Text = "";
+                ddlDateFilter.Text = "All";
+                tboxDate.Text = "";
+                ddlForSignature.Text = "Requested By";
+                Get_Data();
+            }
+            else if (e.CommandName == "NotedBy")
+            {
+                tboxFind.Text = "";
+                ddlDateFilter.Text = "All";
+                tboxDate.Text = "";
+                ddlForSignature.SelectedValue = "Noted By";
+                Get_Data();
+            }
+            else if (e.CommandName == "ReceivedBy")
+            {
+                tboxFind.Text = "";
+                ddlDateFilter.Text = "All";
+                tboxDate.Text = "";
+                ddlForSignature.Text = "Received By";
+                Get_Data();
+            }
+            else if (e.CommandName == "ApprovedBy")
+            {
+                tboxFind.Text = "";
+                ddlDateFilter.Text = "All";
+                tboxDate.Text = "";
+                ddlForSignature.SelectedValue = "Approved By";
+                Get_Data();
+            }
+            else if (e.CommandName == "SignedPRFs")
+            {
+                tboxFind.Text = "";
+                ddlDateFilter.Text = "All";
+                tboxDate.Text = "";
+                ddlForSignature.SelectedValue = "Signed PRFs";
+                Get_Data();
+            }
         }
     }
 }

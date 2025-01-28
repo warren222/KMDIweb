@@ -2,6 +2,7 @@
 using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace KMDIweb.KMDIweb.PRF
                 if (!IsPostBack)
                 {
                     getparameters();
+                    Get_Address();
                 }
             }
             else
@@ -112,7 +114,7 @@ namespace KMDIweb.KMDIweb.PRF
         {
             Response.Redirect("~/KMDIweb/PRF/PRF_Sign.aspx" + AddQuerystring + "&PRF_Sign_Field=Approved_By");
         }
-        private void UseUserSignature(string PRF_Sign_Field)
+        private void UseUserSignature(string PRF_Sign_Field,string addressed)
         {
             if (IsValid)
             {
@@ -136,22 +138,27 @@ namespace KMDIweb.KMDIweb.PRF
                     File.Copy(Server.MapPath(sourcepath + fileinfo.Name), Server.MapPath(filepath + PRF_Sign_Field + ".jpg"), true);
                 }
 
-                string str = "update PRF_Tbl set " + PRF_Sign_Field + "='" + Session["KMDI_fullname"].ToString() + "'," + PRF_Sign_Field + "_Date = format(getdate(),'yyyy-MM-dd') where [Id] = @Id";
-                updatetb(str);
+                updatetb(PRF_Sign_Field, addressed);
 
             }
         }
-        private void updatetb(string qry)
+        private void updatetb(string sign_field, string addressed)
         {
             try
             {
 
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
-                    using (SqlCommand sqlcmd = new SqlCommand(qry, sqlcon))
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Sign");
                         sqlcmd.Parameters.AddWithValue("@Id", Request.QueryString["Id"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Fullname", Session["KMDI_fullname"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@PRF_Sign_Field", sign_field);
+                        sqlcmd.Parameters.AddWithValue("@Addressed", addressed);
                         sqlcmd.ExecuteNonQuery();
                     }
                 }
@@ -169,22 +176,47 @@ namespace KMDIweb.KMDIweb.PRF
 
         protected void btnRequestedByDefault_Click(object sender, EventArgs e)
         {
-            UseUserSignature("Requested_By");
+            UseUserSignature("Requested_By", ddlAddressed.Text);
         }
 
         protected void btnNotedByDefault_Click(object sender, EventArgs e)
         {
-            UseUserSignature("Noted_By");
+            UseUserSignature("Noted_By", ddlAddressed.Text);
         }
 
         protected void btnReceivedByDefault_Click(object sender, EventArgs e)
         {
-            UseUserSignature("Received_By");
+            UseUserSignature("Received_By", ddlAddressed.Text);
         }
 
         protected void btnApprovedByDefault_Click(object sender, EventArgs e)
         {
-            UseUserSignature("Approved_By");
+            UseUserSignature("Approved_By","");
+        }
+
+        private void Get_Address()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using(SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Get_Address");
+                        ddlAddressed.DataSource = sqlcmd.ExecuteReader();
+                        ddlAddressed.DataTextField = "fullname";
+                        ddlAddressed.DataValueField = "fullname";
+                        ddlAddressed.DataBind();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
         }
     }
 }

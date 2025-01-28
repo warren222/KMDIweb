@@ -49,7 +49,7 @@
             <div class="col-sm-6 nopm">
                 <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                     <ContentTemplate>
-                        <asp:GridView ID="gvSummary" ShowHeader="false" GridLines="None" Width="100%" AutoGenerateColumns="false" runat="server" AllowPaging="True" PageSize="1">
+                        <asp:GridView ID="gvSummary" ShowHeader="false" GridLines="None" Width="100%" AutoGenerateColumns="false" runat="server" AllowPaging="True" PageSize="1" OnRowCommand="gvSummary_RowCommand">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -76,7 +76,7 @@
                                                 <td>
                                                     <asp:LinkButton ID="btnApprovedBy" CssClass='<%# Eval("Notif_Approved_By").ToString() == "0" ? "" : "badge bcYellow" %>' CommandName="ApprovedBy" Font-Bold="true" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Approved_By") %></span></asp:LinkButton></td>
                                                 <td>
-                                                    <asp:LinkButton ID="btnSigned" CssClass='<%# Eval("Notif_Signed").ToString() == "0" ? "" : "" %>' CommandName="SignedNotifications" Style="font-size: xx-large; color: green" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Signed") %></span></asp:LinkButton></td>
+                                                    <asp:LinkButton ID="btnSigned" CssClass='<%# Eval("Notif_Signed").ToString() == "0" ? "" : "" %>' CommandName="SignedPRFs" Style="font-size: xx-large; color: green" runat="server"><span style="font-size: xx-large;"><%# Eval("Notif_Signed") %></span></asp:LinkButton></td>
                                             </tr>
                                         </table>
                                     </ItemTemplate>
@@ -116,7 +116,7 @@
                                         <asp:ListItem Value="Noted By" Text="Noted By"></asp:ListItem>
                                         <asp:ListItem Value="Received By" Text="Received By"></asp:ListItem>
                                         <asp:ListItem Value="Approved By" Text="Approved By"></asp:ListItem>
-                                        <asp:ListItem Value="Signed Notifications" style="color: green; font-weight: bold; font-style: italic;" Text="Signed Notifications"></asp:ListItem>
+                                        <asp:ListItem Value="Signed PRFs" style="color: green; font-weight: bold; font-style: italic;" Text="Signed PRFs"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                                 <div class="col-sm-8">
