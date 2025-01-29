@@ -72,12 +72,12 @@
     </div>
 
     <div style="height: auto; display: flex; flex-flow: row wrap; width: auto; padding: 2px; border-top: solid 5px #ff006e;">
-        <div style="border: 1px solid #dddddd; border-radius: 5px; padding: 10px; margin: 4px; background-color: #dfe5f0; width: 300px;">
+        <asp:Panel runat="server" ID="pnlRecipient" style="border: 1px solid #dddddd; border-radius: 5px; padding: 10px; margin: 4px; background-color: #dfe5f0; width: 300px;">
             <span>RECIPIENT:</span>
             <asp:DropDownList runat="server" ID="ddlAddressed" ValidationGroup="addressVal" CssClass="form-control"></asp:DropDownList><br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="addressVal" Font-Size="Medium" ForeColor="Red"
                 ControlToValidate="ddlAddressed" ErrorMessage="* Sorry, please select recipient!"></asp:RequiredFieldValidator>
-        </div>
+        </asp:Panel>
         <asp:Panel ID="pnlRequested" runat="server" CssClass="cssSign">
             <div>
                 <span>REQUESTED BY</span>
