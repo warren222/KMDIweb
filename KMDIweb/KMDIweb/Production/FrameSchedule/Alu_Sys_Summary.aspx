@@ -1,0 +1,104 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KMDIweb/Production/FrameSchedule/FrameScheduleMaster.Master" CodeBehind="Alu_Sys_Summary.aspx.cs" Inherits="KMDIweb.KMDIweb.Production.FrameSchedule.Alu_Sys_Summary" %>
+
+<asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alu | System</title>
+    <style>
+        .nopm {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tblLocal {
+            font-family: Calibri;
+            font-size: 18px;
+            white-space: nowrap;
+            white-space: nowrap;
+        }
+
+            .tblLocal th, tr, td {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+    </style>
+</asp:Content>
+
+<asp:Content ID="content2" ContentPlaceHolderID="content" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <div style="background-color: aliceblue">
+        <div class="well" style="background-color: #303030; border-bottom: solid 5px #ff006e; padding-left: 10px; color: white; font-family: Calibri;">
+            <div class="container">
+                <h3>Alu System</h3>
+            </div>
+        </div>
+        <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+            <ContentTemplate>
+                <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <div class="container">
+
+            <div class="row nopm">
+                <div class="col-sm-6 nopm">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Selected Date Range:</strong>
+                        <asp:Label ID="lblDateRange" runat="server"></asp:Label>
+                    </div>
+                </div>
+                <div class="col-sm-6 nopm">
+                    <div class="well">
+                        <div class="row nopm">
+                            <div class="col-sm-6 nopm">
+                                <span>START DATE</span>
+                                <asp:TextBox ID="tboxSdate" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
+                            </div>
+                            <div class="col-sm-6 nopm">
+                                <span>END DATE</span>
+                                <div class="input-group">
+                                    <asp:TextBox ID="tboxEdate" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
+                                    <div class="input-group-btn">
+                                        <asp:LinkButton ID="btnSearch" runat="server" Style="background-color: #ff006e; border-color: #ff006e" CssClass="btn btn-default" OnClick="btnSearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="background-color: #ff006e; width: 100%; padding: 5px; font-size: larger; color: white; font-family: Calibri;">
+                <span>Alutek System Used
+                </span>
+                <span class="pull-right">
+                    <asp:Label ID="lblTotalUnits" runat="server"></asp:Label>
+                </span>
+            </div>
+            <asp:GridView ID="gvAluSys" CssClass="tblLocal" Width="100%" AutoGenerateColumns="false" runat="server">
+                <Columns>
+                    <asp:TemplateField HeaderText="ALU-SYS">
+                        <ItemTemplate>
+                            <div class="text-left">
+                                <span><%# Eval("alu_sys") %></span>
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="UNIT">
+                        <ItemTemplate>
+                            <div class="text-right">
+                                <span><%# Eval("unit") %></span>
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="AREA">
+                        <ItemTemplate>
+                            <div class="text-right">
+                                <span><%# Eval("area") %></span>
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+        </div>
+
+    </div>
+</asp:Content>

@@ -40,7 +40,7 @@
                                  <span class="glyphicon glyphicon-home"></span>&nbsp;Schedule</asp:HyperLink></li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-th-large"></span>&nbsp;Frame Sections<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                  <li>
+                                <li>
                                     <asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/fclnoout.aspx">Cutting list Schedule</asp:HyperLink></li>
                                 <li>
                                 <li>
@@ -71,20 +71,20 @@
                                     <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Ffinishing.aspx">Finishing</asp:HyperLink></li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink14" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fqc.aspx">QC</asp:HyperLink></li>
-                               <%-- <li>
+
+                                <%-- <li>
                                     <asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fdespatch.aspx">Despatch</asp:HyperLink></li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink17" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fqcdel.aspx">Delivery QC</asp:HyperLink></li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Fpackaging.aspx">Packaging</asp:HyperLink></li>--%>
-
                             </ul>
                         </li>
 
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-th-large"></span>&nbsp;More<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                 <li>
+                                <li>
                                     <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/fcalendarProjects.aspx">Project list</asp:HyperLink>
                                 </li>
                                 <li>
@@ -105,15 +105,17 @@
                                 <li>
                                     <asp:HyperLink ID="HyperLink23" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/FYearlyOutput.aspx">Monthly Point's Summary</asp:HyperLink>
                                 </li>
-                                     <li>
+                                <li>
                                     <asp:HyperLink ID="HyperLink17" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/ChartComparison.aspx">SD received and Schedule Chart</asp:HyperLink>
                                 </li>
-                                    <li>
+                                <li>
                                     <asp:HyperLink ID="HyperLink27" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/PointsExpectedInWeeks.aspx">Production Load Insight</asp:HyperLink>
                                 </li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink24" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/ProjectionChart.aspx">Estimated Delivery Date Chart</asp:HyperLink>
                                 </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink28" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Alu_Sys_Summary.aspx">Alu Sys Used</asp:HyperLink></li>
                             </ul>
                         </li>
 
