@@ -11,7 +11,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
 {
 
 
-    public partial class Alu_Sys_Summary
+    public partial class Alu_Sys_Project_Summary
     {
 
         /// <summary>
@@ -105,13 +105,13 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
-        /// gvAluSys control.
+        /// gvAluSummary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAluSys;
+        protected global::System.Web.UI.WebControls.GridView gvAluSummary;
 
         /// <summary>
         /// UpdatePanel3 control.

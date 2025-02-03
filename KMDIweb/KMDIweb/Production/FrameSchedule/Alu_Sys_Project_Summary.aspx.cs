@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace KMDIweb.KMDIweb.Production.FrameSchedule
 {
-    public partial class Alu_Sys_Summary : System.Web.UI.Page
+    public partial class Alu_Sys_Project_Summary : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,7 +20,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 {
                     tboxSdate.Text = DateTime.Now.ToString("yyyy") + "-01-01";
                     tboxEdate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                    GetData();
+                    Get_Data();
                 }
             }
             else
@@ -43,7 +43,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
-        private void GetData()
+        private void Get_Data()
         {
             try
             {
@@ -52,19 +52,21 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
-                        sqlcmd.CommandText = "Alu_Sys_Summary_Stp";
+                        sqlcmd.CommandText = "Alu_Sys_Project_Summary_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@Command", "");
+                        sqlcmd.Parameters.AddWithValue("@Command", "Get");
+                        sqlcmd.Parameters.AddWithValue("@SubCommand", "Summary");
+                        sqlcmd.Parameters.AddWithValue("@Tag", "All");
                         sqlcmd.Parameters.AddWithValue("@Sdate", tboxSdate.Text);
-                        sqlcmd.Parameters.AddWithValue("@Edate", tboxEdate.Text);   
+                        sqlcmd.Parameters.AddWithValue("@Edate", tboxEdate.Text);
                         DataTable tb = new DataTable();
                         tb.Clear();
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
                             da.SelectCommand = sqlcmd;
                             da.Fill(tb);
-                            gvAluSys.DataSource = tb;
-                            gvAluSys.DataBind();
+                            gvAluSummary.DataSource = tb;
+                            gvAluSummary.DataBind();
                             lblDateRange.Text = "Form " + tboxSdate.Text + " to " + tboxEdate.Text;
                         }
                     }
@@ -78,22 +80,20 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            GetData();
+            Get_Data();
         }
-
-        protected void gvAluSys_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void gvAluSummary_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "execSelect")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
-                GridViewRow row = gvAluSys.Rows[rowindex];
+                GridViewRow row = gvAluSummary.Rows[rowindex];
                 row.RowState = DataControlRowState.Selected;
-                ViewState["alu_sys"] = ((Label)row.FindControl("lblAlu_Sys")).Text;
-                Get_alu_sys_list();
+                ViewState["Sys_Tag"] = ((Label)row.FindControl("lblSys_Tag")).Text;
+                Get_Project_List();
             }
         }
-
-        private void Get_alu_sys_list()
+        private void Get_Project_List()
         {
             try
             {
@@ -102,12 +102,13 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
-                        sqlcmd.CommandText = "Alu_Sys_Summary_Stp";
+                        sqlcmd.CommandText = "Alu_Sys_Project_Summary_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
-                        sqlcmd.Parameters.AddWithValue("@Command", "Get_Items");
+                        sqlcmd.Parameters.AddWithValue("@Command", "Get");
+                        sqlcmd.Parameters.AddWithValue("@SubCommand", "Get_Projects");
                         sqlcmd.Parameters.AddWithValue("@Sdate", tboxSdate.Text);
                         sqlcmd.Parameters.AddWithValue("@Edate", tboxEdate.Text);
-                        sqlcmd.Parameters.AddWithValue("@AluSys", ViewState["alu_sys"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Tag", ViewState["Sys_Tag"].ToString());
                         DataTable tbl = new DataTable();
                         tbl.Clear();
                         using (SqlDataAdapter da = new SqlDataAdapter())
@@ -120,7 +121,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 errorrmessage(ex.ToString());
             }
@@ -129,7 +130,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
         protected void gvItems_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvItems.PageIndex = e.NewPageIndex;
-            Get_alu_sys_list();
+            Get_Project_List();
         }
     }
 }

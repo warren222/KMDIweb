@@ -713,6 +713,13 @@
     <Compile Include="KMDIweb\PRF\PRF_Update.aspx.designer.cs">
       <DependentUpon>PRF_Update.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\Alu_Sys_Project_Summary.aspx.cs">
+      <DependentUpon>Alu_Sys_Project_Summary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\Production\FrameSchedule\Alu_Sys_Project_Summary.aspx.designer.cs">
+      <DependentUpon>Alu_Sys_Project_Summary.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\Production\FrameSchedule\Alu_Sys_Summary.aspx.cs">
       <DependentUpon>Alu_Sys_Summary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1168,6 +1175,7 @@
     <Content Include="KMDIweb\PRF\PRF_Report.aspx" />
     <Content Include="KMDIweb\PRF\PRF_Sign.aspx" />
     <Content Include="KMDIweb\PRF\PRF_Update.aspx" />
+    <Content Include="KMDIweb\Production\FrameSchedule\Alu_Sys_Project_Summary.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\Alu_Sys_Summary.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrame.aspx" />
     <Content Include="KMDIweb\Production\FrameSchedule\CalendarFrameNewDueDate.aspx" />

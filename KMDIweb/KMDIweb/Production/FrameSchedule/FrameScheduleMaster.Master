@@ -116,6 +116,8 @@
                                 </li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink28" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Alu_Sys_Summary.aspx">Alu Sys Used</asp:HyperLink></li>
+                                   <li>
+                                    <asp:HyperLink ID="HyperLink29" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Alu_Sys_Project_Summary.aspx">Alu Sys Projects</asp:HyperLink></li>
                             </ul>
                         </li>
 

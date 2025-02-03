@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KMDIweb/Production/FrameSchedule/FrameScheduleMaster.Master" CodeBehind="Alu_Sys_Summary.aspx.cs" Inherits="KMDIweb.KMDIweb.Production.FrameSchedule.Alu_Sys_Summary" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KMDIweb/Production/FrameSchedule/FrameScheduleMaster.Master" CodeBehind="Alu_Sys_Project_Summary.aspx.cs" Inherits="KMDIweb.KMDIweb.Production.FrameSchedule.Alu_Sys_Project_Summary" %>
 
 <asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,7 +70,7 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
             <div style="background-color: #ff006e; width: 100%; padding: 5px; font-size: larger; color: white; font-family: Calibri;">
-                <span>Alutek System Used</span>
+                <span>System Used Summary</span>
                 <span class="pull-right">
                     <asp:Label ID="lblTotalUnits" runat="server"></asp:Label>
                 </span>
@@ -78,31 +78,23 @@
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <div style="overflow-x: auto">
-                        <asp:GridView ID="gvAluSys" CssClass="tblLocal" Width="100%" AutoGenerateColumns="false" runat="server" OnRowCommand="gvAluSys_RowCommand">
+                        <asp:GridView ID="gvAluSummary" CssClass="tblLocal" AutoGenerateColumns="false" Width="100%" OnRowCommand="gvAluSummary_RowCommand" runat="server">
                             <Columns>
-                                <asp:TemplateField HeaderText="ALU-SYS">
+                                <asp:TemplateField HeaderText="SYS">
                                     <ItemTemplate>
                                         <div class="text-left">
-                                            <asp:Label ID="lblAlu_Sys" runat="server" Text='<%# Bind("alu_sys") %>'></asp:Label>
+                                            <asp:Label ID="lblSys_Tag" runat="server" Text='<%# Bind("Sys_Tag") %>'></asp:Label>
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="TOT UNIT">
+                                <asp:TemplateField HeaderText="PROJECTS">
                                     <ItemTemplate>
                                         <div class="text-right">
                                             <asp:LinkButton ID="btnUnit" runat="server" CommandName="execSelect" Text='<%# Bind("unit") %>'></asp:LinkButton>
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="TOT AREA (sqm)">
-                                    <ItemTemplate>
-                                        <div class="text-right">
-                                            <span><%# Eval("area") %></span>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
                             </Columns>
-                            <SelectedRowStyle BackColor="#303030" Font-Bold="True" ForeColor="White" />
                         </asp:GridView>
                     </div>
                 </ContentTemplate>
@@ -129,6 +121,5 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-
     </div>
 </asp:Content>
