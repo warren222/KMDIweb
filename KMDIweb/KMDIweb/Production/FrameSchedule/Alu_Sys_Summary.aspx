@@ -70,7 +70,7 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
             <div style="background-color: #ff006e; width: 100%; padding: 5px; font-size: larger; color: white; font-family: Calibri;">
-                <span>Alutek System Used</span>
+                <span>Alutek System</span>
             </div>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
