@@ -256,7 +256,7 @@
                             </div>
                         </asp:Panel>
 
-                        <asp:Panel ID="Panel8" Visible="true" runat="server" Width="250px">
+                        <asp:Panel ID="Panel8" Visible="false" runat="server" Width="250px">
                             <div class="thumbnail">
                                 <asp:Image ID="Image14" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/G03.jpg" runat="server" AlternateText="Project Photos" />
                                 <span class="pull-right">
