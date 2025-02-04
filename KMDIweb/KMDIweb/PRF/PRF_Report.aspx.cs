@@ -20,6 +20,7 @@ namespace KMDIweb.KMDIweb.PRF
             {
                 if (!IsPostBack)
                 {
+
                     getparameters();
                     Get_Address();
                 }
@@ -50,6 +51,37 @@ namespace KMDIweb.KMDIweb.PRF
             err.IsValid = false;
             err.ErrorMessage = message;
             Page.Validators.Add(err);
+        }
+        private void GetAccessReference()
+        {
+            string noted_By_Addressed, received_By_Addressed ,approved_By_Addressed;
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection())
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Select");
+                        sqlcmd.Parameters.AddWithValue("@Id", Request.QueryString["Id"].ToString());
+                        using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                noted_By_Addressed = rd[13].ToString();
+                                received_By_Addressed = rd[14].ToString();
+                                approved_By_Addressed = rd[15].ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
         }
         protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {

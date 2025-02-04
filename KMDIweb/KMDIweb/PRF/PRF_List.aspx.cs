@@ -42,6 +42,13 @@ namespace KMDIweb.KMDIweb.PRF
                 return Session["KMDI_user_code"].ToString();
             }
         }
+        private string fullname
+        {
+            get
+            {
+                return Session["KMDI_fullname"].ToString();
+            }
+        }
         private string sqlconstr
         {
             get
@@ -66,6 +73,7 @@ namespace KMDIweb.KMDIweb.PRF
                         sqlcmd.Parameters.AddWithValue("@Date", tboxDate.Text);
                         sqlcmd.Parameters.AddWithValue("@For_Signature", ddlForSignature.Text);
                         sqlcmd.Parameters.AddWithValue("@User_Code", user_code);
+                        sqlcmd.Parameters.AddWithValue("@Fullname", fullname);
                         DataTable tb = new DataTable();
                         tb.Clear();
                         using (SqlDataAdapter da = new SqlDataAdapter())
@@ -101,6 +109,7 @@ namespace KMDIweb.KMDIweb.PRF
                         sqlcmd.CommandText = "PRF_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Notification_Counter");
+                        sqlcmd.Parameters.AddWithValue("@Fullname", fullname);
                         //sqlcmd.Parameters.AddWithValue("@User_Code", user_code);
                         using (SqlDataAdapter da = new SqlDataAdapter())
                         {
