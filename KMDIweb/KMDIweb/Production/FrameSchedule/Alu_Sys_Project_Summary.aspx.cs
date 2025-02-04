@@ -67,7 +67,8 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                             da.Fill(tb);
                             gvAluSummary.DataSource = tb;
                             gvAluSummary.DataBind();
-                            lblDateRange.Text = "Form " + tboxSdate.Text + " to " + tboxEdate.Text;
+                           
+                            lblDateRange.Text = "From " + Convert.ToDateTime(tboxSdate.Text).ToString("MMM dd, yyyy") + " - " + Convert.ToDateTime(tboxEdate.Text).ToString("MMM dd, yyyy");
                         }
                     }
                 }
