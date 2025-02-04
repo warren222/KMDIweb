@@ -88,7 +88,9 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvAluSys.Rows[rowindex];
                 row.RowState = DataControlRowState.Selected;
-                ViewState["alu_sys"] = ((Label)row.FindControl("lblAlu_Sys")).Text;
+                ViewState["alu_sys"] = ((LinkButton)row.FindControl("btnAlu_Sys")).Text;
+                lblSysTag.Text = ((LinkButton)row.FindControl("btnAlu_Sys")).Text;
+                lblTotalUnits.Text = ((Label)row.FindControl("lblUnit")).Text;
                 Get_alu_sys_list();
             }
         }
@@ -117,6 +119,7 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                             gvItems.DataSource = tbl;
                             gvItems.DataBind();
                         }
+                      
                     }
                 }
             }

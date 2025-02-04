@@ -89,7 +89,9 @@ namespace KMDIweb.KMDIweb.Production.FrameSchedule
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvAluSummary.Rows[rowindex];
                 row.RowState = DataControlRowState.Selected;
-                ViewState["Sys_Tag"] = ((Label)row.FindControl("lblSys_Tag")).Text;
+                ViewState["Sys_Tag"] = ((LinkButton)row.FindControl("btnSys_Tag")).Text;
+                lblSysTag.Text = ((LinkButton)row.FindControl("btnSys_Tag")).Text;
+                lblTotalUnits.Text = ((Label)row.FindControl("lblUnit")).Text;
                 Get_Project_List();
             }
         }

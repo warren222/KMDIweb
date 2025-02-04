@@ -21,7 +21,7 @@
     </asp:ContentPlaceHolder>
 
 </head>
-<body>
+<body style="font-family:Bahnschrift;">
     <form id="form1" runat="server" style="width: 100%; height: 100%; background-color: whitesmoke">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
@@ -115,9 +115,9 @@
                                     <asp:HyperLink ID="HyperLink24" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/ProjectionChart.aspx">Estimated Delivery Date Chart</asp:HyperLink>
                                 </li>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink28" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Alu_Sys_Summary.aspx">Alu Sys Used</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink28" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Alu_Sys_Summary.aspx">Alu Sys Summary</asp:HyperLink></li>
                                    <li>
-                                    <asp:HyperLink ID="HyperLink29" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Alu_Sys_Project_Summary.aspx">Alu Sys Projects</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink29" runat="server" NavigateUrl="~/KMDIweb/Production/FrameSchedule/Alu_Sys_Project_Summary.aspx">Alu & uPVC Project Summary</asp:HyperLink></li>
                             </ul>
                         </li>
 
@@ -161,7 +161,7 @@
             <br />
             <br />
             <br />
-            <p>Copyright 2020. Kenneth and Mock windows and doors. All rights Reserved.</p>
+            <p>Kenneth and Mock</p>
         </footer>
     </form>
 </body>

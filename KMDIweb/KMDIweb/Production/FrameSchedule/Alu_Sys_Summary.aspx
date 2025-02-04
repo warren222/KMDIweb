@@ -2,7 +2,7 @@
 
 <asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Alu | System</title>
+    <title>Alu System | Summary</title>
     <style>
         .nopm {
             margin: 0;
@@ -28,7 +28,7 @@
     <div style="background-color: aliceblue">
         <div class="well" style="background-color: #303030; border-bottom: solid 5px #ff006e; padding-left: 10px; color: white; font-family: Calibri;">
             <div class="container">
-                <h3>Alu System</h3>
+                <h3>Alu System | Summary</h3>
             </div>
         </div>
         <asp:UpdatePanel ID="UpdatePanel4" runat="server">
@@ -71,9 +71,6 @@
             </asp:UpdatePanel>
             <div style="background-color: #ff006e; width: 100%; padding: 5px; font-size: larger; color: white; font-family: Calibri;">
                 <span>Alutek System Used</span>
-                <span class="pull-right">
-                    <asp:Label ID="lblTotalUnits" runat="server"></asp:Label>
-                </span>
             </div>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
@@ -83,14 +80,14 @@
                                 <asp:TemplateField HeaderText="ALU-SYS">
                                     <ItemTemplate>
                                         <div class="text-left">
-                                            <asp:Label ID="lblAlu_Sys" runat="server" Text='<%# Bind("alu_sys") %>'></asp:Label>
+                                            <asp:LinkButton ID="btnAlu_Sys" ForeColor="Black" runat="server" CommandName="execSelect" Text='<%# Bind("alu_sys") %>'></asp:LinkButton>
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="TOT UNIT">
                                     <ItemTemplate>
                                         <div class="text-right">
-                                            <asp:LinkButton ID="btnUnit" runat="server" CommandName="execSelect" Text='<%# Bind("unit") %>'></asp:LinkButton>
+                                            <asp:Label ID="lblUnit" runat="server"  Text='<%# Bind("unit") %>'></asp:Label>
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -102,17 +99,21 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
-                            <SelectedRowStyle BackColor="#303030" Font-Bold="True" ForeColor="White" />
+                           <SelectedRowStyle BackColor="#aed4f5" Font-Bold="True" ForeColor="Black" />
                         </asp:GridView>
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <br />
-            <div style="background-color: #303030; width: 100%; padding: 5px; font-size: larger; color: white; font-family: Calibri;">
-                <span>Selected Items</span>
-            </div>
+          <br />
+
             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                 <ContentTemplate>
+                    <div style="background-color: #303030; width: 100%; padding: 5px; font-size: x-large; color: white; font-family: Calibri;">
+                        <asp:Label ID="lblSysTag" runat="server"></asp:Label>
+                        <span class="pull-right">
+                            <asp:Label ID="lblTotalUnits" runat="server"></asp:Label>
+                        </span>
+                    </div>
                     <div style="overflow-x: auto">
                         <asp:GridView ID="gvItems" CssClass="tblLocal" Width="100%" runat="server" AllowPaging="True" OnPageIndexChanging="gvItems_PageIndexChanging" PageSize="25">
                             <EmptyDataTemplate>
