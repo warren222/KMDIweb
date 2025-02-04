@@ -43,8 +43,8 @@
                         <div class="col-sm-6 nopm">
                             <div class="alert alert-info alert-dismissible" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <strong>Selected Date Range:</strong>
-                                <asp:Label ID="lblDateRange" runat="server"></asp:Label>
+                            
+                                <asp:Label ID="lblDateRange" Font-Size="X-Large" runat="server"></asp:Label>
                             </div>
                         </div>
                         <div class="col-sm-6 nopm">
