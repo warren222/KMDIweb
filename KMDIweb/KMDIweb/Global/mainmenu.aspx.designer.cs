@@ -411,13 +411,13 @@ namespace KMDIweb.KMDIapp
         protected global::System.Web.UI.WebControls.LinkButton LinkButton14;
 
         /// <summary>
-        /// Panel8 control.
+        /// pnlPRF control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel8;
+        protected global::System.Web.UI.WebControls.Panel pnlPRF;
 
         /// <summary>
         /// Image14 control.
@@ -429,13 +429,13 @@ namespace KMDIweb.KMDIapp
         protected global::System.Web.UI.WebControls.Image Image14;
 
         /// <summary>
-        /// Label1 control.
+        /// lblPRFCounter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblPRFCounter;
 
         /// <summary>
         /// LinkButton15 control.

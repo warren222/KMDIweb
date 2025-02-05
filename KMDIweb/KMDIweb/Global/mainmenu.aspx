@@ -256,11 +256,11 @@
                             </div>
                         </asp:Panel>
 
-                        <asp:Panel ID="Panel8" Visible="true" runat="server" Width="250px">
+                        <asp:Panel ID="pnlPRF" Visible="true" runat="server" Width="250px">
                             <div class="thumbnail">
                                 <asp:Image ID="Image14" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/G03.jpg" runat="server" AlternateText="Project Photos" />
                                 <span class="pull-right">
-                                    <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" CssClass="badge"></asp:Label>
+                                    <asp:Label ID="lblPRFCounter" runat="server" Font-Size="XX-Large" CssClass="badge"></asp:Label>
                                 </span>
                                 <br />
                                 <div>

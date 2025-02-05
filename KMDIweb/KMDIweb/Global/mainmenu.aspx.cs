@@ -53,6 +53,14 @@ namespace KMDIweb.KMDIapp
             {
                 lblGlassPOCounter.BackColor = Color.Red;
             }
+
+            //Online PRF Counter
+            int PRF_Count = Convert.ToInt32(PRF_Notification());
+            lblPRFCounter.Text = PRF_Count.ToString();
+            if (PRF_Count > 0)
+            {
+                lblPRFCounter.BackColor = Color.Red;
+            }
         }
         private string Glass_PO_Notification()
         {
@@ -98,6 +106,38 @@ namespace KMDIweb.KMDIapp
                                 {
                                     cointer = "0";
                                 }
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            return cointer;
+        }
+        private string PRF_Notification()
+        {
+            string cointer = "0";
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Get_Menu_Notification");
+                        sqlcmd.Parameters.AddWithValue("@Fullname", user_fullname);
+                        using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                cointer = rd[0].ToString();
                             }
                         }
                     }

@@ -72,7 +72,7 @@
     </div>
 
     <div style="height: auto; display: flex; flex-flow: row wrap; width: auto; padding: 2px; border-top: solid 5px #ff006e;">
-        <asp:Panel runat="server" ID="pnlRecipient" style="border: 1px solid #dddddd; border-radius: 5px; padding: 10px; margin: 4px; background-color: #dfe5f0; width: 300px;">
+        <asp:Panel runat="server" ID="pnlRecipient" Style="border: 1px solid #dddddd; border-radius: 5px; padding: 10px; margin: 4px; background-color: #dfe5f0; width: 300px;">
             <span>RECIPIENT:</span>
             <asp:DropDownList runat="server" ID="ddlAddressed" ValidationGroup="addressVal" CssClass="form-control"></asp:DropDownList><br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="addressVal" Font-Size="Medium" ForeColor="Red"
@@ -82,29 +82,30 @@
             <div>
                 <span>REQUESTED BY</span>
             </div>
-            <asp:LinkButton ID="btnRequestedBy" Width="100%" ValidationGroup="addressVal" CssClass="btn btn-primary" runat="server" OnClick="btnRequestedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Capture Signature</asp:LinkButton><br />
-            <asp:LinkButton ID="btnRequestedByDefault" Width="100%" ValidationGroup="addressVal" CssClass="btn btn-danger" runat="server" OnClick="btnRequestedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Default Signature</asp:LinkButton>
+            <asp:LinkButton ID="btnRequestedBy" Visible="false" Width="100%" ValidationGroup="addressVal" CssClass="btn btn-primary" runat="server" OnClick="btnRequestedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Capture Signature</asp:LinkButton><br />
+            <asp:LinkButton ID="btnRequestedByDefault" Width="100%" ValidationGroup="addressVal" CssClass="btn btn-danger" runat="server" OnClick="btnRequestedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Sign</asp:LinkButton>
         </asp:Panel>
         <asp:Panel ID="pnlNoted" runat="server" CssClass="cssSign">
             <div>
                 <span>NOTED BY</span>
             </div>
-            <asp:LinkButton ID="btnNotedBy" Width="100%" ValidationGroup="addressVal" CssClass="btn btn-primary" runat="server" OnClick="btnNotedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Capture Signature</asp:LinkButton><br />
+            <asp:LinkButton ID="btnNotedBy" Visible="false" Width="100%" ValidationGroup="addressVal" CssClass="btn btn-primary" runat="server" OnClick="btnNotedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Capture Signature</asp:LinkButton><br />
             <asp:LinkButton ID="btnNotedByDefault" Width="100%" ValidationGroup="addressVal" CssClass="btn btn-danger" runat="server" OnClick="btnNotedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Default Signature</asp:LinkButton>
         </asp:Panel>
         <asp:Panel ID="pnlReceived" runat="server" CssClass="cssSign">
             <div>
                 <span>RECEIVED BY</span>
             </div>
-            <asp:LinkButton ID="btnReceivedBy" Width="100%" ValidationGroup="addressVal" CssClass="btn btn-primary" runat="server" OnClick="btnReceivedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Capture Signature</asp:LinkButton><br />
-            <asp:LinkButton ID="btnReceivedByDefault" Width="100%" ValidationGroup="addressVal" CssClass="btn btn-danger" runat="server" OnClick="btnReceivedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Default Signature</asp:LinkButton>
+            <asp:LinkButton ID="btnReceivedBy" Visible="false" Width="100%" CssClass="btn btn-primary" runat="server" OnClick="btnReceivedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Capture Signature</asp:LinkButton><br />
+            <asp:LinkButton ID="btnReceivedByDefault" Width="100%" CssClass="btn btn-danger" runat="server" OnClick="btnReceivedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Default Signature</asp:LinkButton>
         </asp:Panel>
         <asp:Panel ID="pnlApproved" runat="server" CssClass="cssSign">
             <div>
                 <span>APPROVED BY</span>
             </div>
-            <asp:LinkButton ID="btnApprovedBy" Width="100%" ValidationGroup="addressVal" CssClass="btn btn-primary" runat="server" OnClick="btnApprovedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Capture Signature</asp:LinkButton><br />
-            <asp:LinkButton ID="btnApprovedByDefault" Width="100%" ValidationGroup="addressVal" CssClass="btn btn-danger" runat="server" OnClick="btnApprovedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Default Signature</asp:LinkButton>
+            <asp:LinkButton ID="btnApprovedBy" Visible="false" Width="100%" CssClass="btn btn-primary" runat="server" OnClick="btnApprovedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Capture Signature</asp:LinkButton><br />
+            <asp:LinkButton ID="btnApprovedByDefault" Width="100%" CssClass="btn btn-danger" runat="server" OnClick="btnApprovedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Default Signature</asp:LinkButton>
         </asp:Panel>
     </div>
+
 </asp:Content>

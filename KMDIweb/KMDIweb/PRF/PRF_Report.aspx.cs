@@ -23,6 +23,7 @@ namespace KMDIweb.KMDIweb.PRF
 
                     getparameters();
                     Get_Address();
+
                 }
             }
             else
@@ -52,12 +53,41 @@ namespace KMDIweb.KMDIweb.PRF
             err.ErrorMessage = message;
             Page.Validators.Add(err);
         }
-        private void GetAccessReference()
+        private string fullname
         {
-            string noted_By_Addressed, received_By_Addressed ,approved_By_Addressed;
+            get
+            {
+                return Session["KMDI_fullname"].ToString();
+            }
+        }
+        private void SUAccess()
+        {
+            GViewStateValue();
+            SetPanelVisibility(pnlRequested, ViewState["requested_By"].ToString());
+            SetPanelVisibility(pnlNoted, ViewState["noted_By_Addressed"].ToString());
+            SetPanelVisibility(pnlReceived, ViewState["received_By_Addressed"].ToString());
+            SetPanelVisibility(pnlApproved, ViewState["approved_By_Addressed"].ToString());
+            if(ViewState["requested_By_Date"].ToString() != "")
+            {
+                pnlRecipient.Visible = false;
+            }
+        }
+        private void SetPanelVisibility(Panel pnl, string vstate)
+        {
+            if (vstate == fullname)
+            {
+                pnl.Visible = true;
+            }
+            else
+            {
+                pnl.Visible = false;
+            }
+        }
+        private void GViewStateValue()
+        {
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection())
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
@@ -70,15 +100,17 @@ namespace KMDIweb.KMDIweb.PRF
                         {
                             while (rd.Read())
                             {
-                                noted_By_Addressed = rd[13].ToString();
-                                received_By_Addressed = rd[14].ToString();
-                                approved_By_Addressed = rd[15].ToString();
+                                ViewState["requested_By"] = rd[5].ToString();
+                                ViewState["requested_By_Date"] = rd[6].ToString();
+                                ViewState["noted_By_Addressed"] = rd[13].ToString();
+                                ViewState["received_By_Addressed"] = rd[14].ToString();
+                                ViewState["approved_By_Addressed"] = rd[15].ToString();
                             }
                         }
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 errorrmessage(ex.ToString());
             }
@@ -113,6 +145,7 @@ namespace KMDIweb.KMDIweb.PRF
             }
             ReportViewer1.LocalReport.DisplayName = controlId;
             ReportViewer1.LocalReport.Refresh();
+            SUAccess();
         }
         protected void btnBack_Click(object sender, EventArgs e)
         {
@@ -146,7 +179,7 @@ namespace KMDIweb.KMDIweb.PRF
         {
             Response.Redirect("~/KMDIweb/PRF/PRF_Sign.aspx" + AddQuerystring + "&PRF_Sign_Field=Approved_By");
         }
-        private void UseUserSignature(string PRF_Sign_Field,string addressed)
+        private void UseUserSignature(string PRF_Sign_Field, string addressed)
         {
             if (IsValid)
             {
@@ -223,7 +256,7 @@ namespace KMDIweb.KMDIweb.PRF
 
         protected void btnApprovedByDefault_Click(object sender, EventArgs e)
         {
-            UseUserSignature("Approved_By","");
+            UseUserSignature("Approved_By", "");
         }
 
         private void Get_Address()
@@ -232,7 +265,7 @@ namespace KMDIweb.KMDIweb.PRF
             {
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
-                    using(SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
                         sqlcmd.CommandText = "PRF_Stp";
@@ -249,6 +282,7 @@ namespace KMDIweb.KMDIweb.PRF
             {
                 errorrmessage(ex.ToString());
             }
+
         }
     }
 }
