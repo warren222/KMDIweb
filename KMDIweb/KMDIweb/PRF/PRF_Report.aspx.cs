@@ -67,16 +67,17 @@ namespace KMDIweb.KMDIweb.PRF
             SetPanelVisibility(pnlNoted, ViewState["noted_By_Addressed"].ToString());
             SetPanelVisibility(pnlReceived, ViewState["received_By_Addressed"].ToString());
             SetPanelVisibility(pnlApproved, ViewState["approved_By_Addressed"].ToString());
-            if(ViewState["requested_By_Date"].ToString() != "")
-            {
-                pnlRecipient.Visible = false;
-            }
+
         }
         private void SetPanelVisibility(Panel pnl, string vstate)
         {
             if (vstate == fullname)
             {
                 pnl.Visible = true;
+                if (pnl == pnlRequested && ViewState["noted_By"].ToString() == "")
+                {
+                    pnlRecipient.Visible = true;
+                }
             }
             else
             {
@@ -102,6 +103,7 @@ namespace KMDIweb.KMDIweb.PRF
                             {
                                 ViewState["requested_By"] = rd[5].ToString();
                                 ViewState["requested_By_Date"] = rd[6].ToString();
+                                ViewState["noted_By"] = rd[7].ToString();
                                 ViewState["noted_By_Addressed"] = rd[13].ToString();
                                 ViewState["received_By_Addressed"] = rd[14].ToString();
                                 ViewState["approved_By_Addressed"] = rd[15].ToString();
@@ -165,7 +167,7 @@ namespace KMDIweb.KMDIweb.PRF
         }
         protected void btnRequestedBy_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/PRF/PRF_Sign.aspx" + AddQuerystring + "&PRF_Sign_Field=Requested_By");
+            Response.Redirect("~/KMDIweb/PRF/PRF_Sign.aspx" + AddQuerystring + "&PRF_Sign_Field=Requested_By&Addressed=" + ddlAddressed.Text + "");
         }
         protected void btnNotedBy_Click(object sender, EventArgs e)
         {
@@ -196,15 +198,19 @@ namespace KMDIweb.KMDIweb.PRF
                 {
                     System.IO.Directory.CreateDirectory(Server.MapPath(sourcepath));
                 }
-
-                foreach (string strfilename in Directory.GetFiles(Server.MapPath(sourcepath)))
+                if (Directory.GetFiles(Server.MapPath(sourcepath)).Count() >= 1)
                 {
-                    FileInfo fileinfo = new FileInfo(strfilename);
-                    File.Copy(Server.MapPath(sourcepath + fileinfo.Name), Server.MapPath(filepath + PRF_Sign_Field + ".jpg"), true);
+                    foreach (string strfilename in Directory.GetFiles(Server.MapPath(sourcepath)))
+                    {
+                        FileInfo fileinfo = new FileInfo(strfilename);
+                        File.Copy(Server.MapPath(sourcepath + fileinfo.Name), Server.MapPath(filepath + PRF_Sign_Field + ".jpg"), true);
+                        updatetb(PRF_Sign_Field, addressed);
+                    }
                 }
-
-                updatetb(PRF_Sign_Field, addressed);
-
+                else
+                {
+                    errorrmessage("Unable to sign the form. Registered signature is required.");
+                }
             }
         }
         private void updatetb(string sign_field, string addressed)

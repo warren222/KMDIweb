@@ -83,10 +83,10 @@
                                     </div>
                                 </div>
                                 <asp:Panel ID="Panel1" runat="server">
-                                    <asp:TextBox ID="tboxName" CssClass="form-control" placeholder="Full name" runat="server"></asp:TextBox>
+                                   <%-- <asp:TextBox ID="tboxName" CssClass="form-control" placeholder="Full name" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tboxName" Text="*" ForeColor="Red" ValidationGroup="g1"
                                         ErrorMessage="Full name is required"></asp:RequiredFieldValidator>
-                                    <br />
+                                    <br />--%>
 
                                     <asp:Button ID="Button2" CssClass="btn btn-primary" ValidationGroup="g1" OnClientClick="storeimage()" Width="200" runat="server" Text="capture signature" OnClick="Button2_Click" /><br />
                                     <br />
