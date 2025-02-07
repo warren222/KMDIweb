@@ -447,6 +447,12 @@
     <Compile Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx.designer.cs">
       <DependentUpon>Fileupload.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\EngrItineraryMaster.Master.cs">
+      <DependentUpon>EngrItineraryMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\EngrItineraryMaster.Master.designer.cs">
+      <DependentUpon>EngrItineraryMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx.cs">
       <DependentUpon>FoilingCalendar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1246,6 +1252,7 @@
     <Content Include="KMDIweb\AE\ProjectImages\Project_ImageMaster.Master" />
     <Content Include="KMDIweb\AE\Meiheng\MeiihengMaster.Master" />
     <Content Include="KMDIweb\GlassNotification\GlassNotificationMaster.Master" />
+    <Content Include="KMDIweb\EngrItinerary\EngrItineraryMaster.Master" />
     <None Include="KMDIweb\Global\DataSetFiles\reportDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
