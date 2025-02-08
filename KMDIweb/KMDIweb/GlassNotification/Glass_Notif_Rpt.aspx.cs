@@ -1,6 +1,10 @@
-﻿using Microsoft.Reporting.WebForms;
+﻿using KMDIweb.SCREENfab;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -37,45 +41,45 @@ namespace KMDIweb.KMDIweb.GlassNotification
         {
             if (user_code == "Programmer")
             {
-                btnPreparedBy.Visible = true;
-                btnNotedByPM.Visible = true;
-                btnReceivedBy.Visible = true;
-                btnNotedByIM.Visible = true;
+                pnlPrepared.Visible = true;
+                pnlNotedPM.Visible = true;
+                pnlReceived.Visible = true;
+                pnlNotedIM.Visible = true;
             }
             else if (user_code == "Glass Section")
             {
-                btnPreparedBy.Visible = true;
-                btnNotedByPM.Visible = false;
-                btnReceivedBy.Visible = false;
-                btnNotedByIM.Visible = false;
+                pnlPrepared.Visible = true;
+                pnlNotedPM.Visible = false;
+                pnlReceived.Visible = false;
+                pnlNotedIM.Visible = false;
             }
             else if (user_code == "Production Manager")
             {
-                btnPreparedBy.Visible = false;
-                btnNotedByPM.Visible = true;
-                btnReceivedBy.Visible = false;
-                btnNotedByIM.Visible = false;
+                pnlPrepared.Visible = false;
+                pnlNotedPM.Visible = true;
+                pnlReceived.Visible = false;
+                pnlNotedIM.Visible = false;
             }
             else if (user_code == "Delivery")
             {
-                btnPreparedBy.Visible = false;
-                btnNotedByPM.Visible = false;
-                btnReceivedBy.Visible = true;
-                btnNotedByIM.Visible = false;
+                pnlPrepared.Visible = false;
+                pnlNotedPM.Visible = false;
+                pnlReceived.Visible = true;
+                pnlNotedIM.Visible = false;
             }
             else if (user_code == "Engineer Manager")
             {
-                btnPreparedBy.Visible = false;
-                btnNotedByPM.Visible = false;
-                btnReceivedBy.Visible = false;
-                btnNotedByIM.Visible = true;
+                pnlPrepared.Visible = false;
+                pnlNotedPM.Visible = false;
+                pnlReceived.Visible = false;
+                pnlNotedIM.Visible = true;
             }
             else
             {
-                btnPreparedBy.Visible = false;
-                btnNotedByPM.Visible = false;
-                btnReceivedBy.Visible = false;
-                btnNotedByIM.Visible = false;
+                pnlPrepared.Visible = false;
+                pnlNotedPM.Visible = false;
+                pnlReceived.Visible = false;
+                pnlNotedIM.Visible = false;
             }
         }
         protected void btnBack_Click(object sender, EventArgs e)
@@ -133,21 +137,118 @@ namespace KMDIweb.KMDIweb.GlassNotification
             ReportViewer1.LocalReport.DisplayName = Control_No;
             ReportViewer1.LocalReport.Refresh();
         }
-        protected void btnPreparedBy_Click(object sender, EventArgs e)
+        //protected void btnPreparedBy_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("~/KMDIweb/GlassNotification/GN_Sign.aspx" + AddQuerystring + "&Glass_Notif_Sign_Field=Prepared_By");
+        //}
+        //protected void btnNotedByPM_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("~/KMDIweb/GlassNotification/GN_Sign.aspx" + AddQuerystring + "&Glass_Notif_Sign_Field=Noted_By_PM");
+        //}
+        //protected void btnReceivedBy_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("~/KMDIweb/GlassNotification/GN_Sign.aspx" + AddQuerystring + "&Glass_Notif_Sign_Field=Received_By");
+        //}
+        //protected void btnNotedByIM_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("~/KMDIweb/GlassNotification/GN_Sign.aspx" + AddQuerystring + "&Glass_Notif_Sign_Field=Noted_By_IM");
+        //}
+
+
+
+        protected void btnPreparedByDefault_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/GlassNotification/GN_Sign.aspx" + AddQuerystring + "&Glass_Notif_Sign_Field=Prepared_By");
+            UseUserSignature("Prepared_By");
         }
-        protected void btnNotedByPM_Click(object sender, EventArgs e)
+        protected void btnNotedByPMDefault_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/GlassNotification/GN_Sign.aspx" + AddQuerystring + "&Glass_Notif_Sign_Field=Noted_By_PM");
+            UseUserSignature("Noted_By_PM");
         }
-        protected void btnReceivedBy_Click(object sender, EventArgs e)
+
+        protected void btnReceivedByDefault_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/GlassNotification/GN_Sign.aspx" + AddQuerystring + "&Glass_Notif_Sign_Field=Received_By");
+            UseUserSignature("Received_By");
         }
-        protected void btnNotedByIM_Click(object sender, EventArgs e)
+
+        protected void btnNotedByIMDefault_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KMDIweb/GlassNotification/GN_Sign.aspx" + AddQuerystring + "&Glass_Notif_Sign_Field=Noted_By_IM");
+            UseUserSignature("Noted_By_IM");
+        }
+        private void UseUserSignature(string Sign_Field)
+        {
+            if (IsValid)
+            {
+                string filepath = "~/KMDI_FILES/WMS/Glass_Notification/" + Control_No + "/Signatures/";
+                Boolean IsExists = System.IO.Directory.Exists(Server.MapPath(filepath));
+                if (!IsExists)
+                {
+                    System.IO.Directory.CreateDirectory(Server.MapPath(filepath));
+                }
+                string sourcepath = "~/KMDI_FILES/WMS/UserSignature/" + Session["KMDI_userid"].ToString() + "/";
+                Boolean IsExists1 = System.IO.Directory.Exists(Server.MapPath(sourcepath));
+                if (!IsExists1)
+                {
+                    System.IO.Directory.CreateDirectory(Server.MapPath(sourcepath));
+                }
+                if (Directory.GetFiles(Server.MapPath(sourcepath)).Count() >= 1)
+                {
+                    foreach (string strfilename in Directory.GetFiles(Server.MapPath(sourcepath)))
+                    {
+                        FileInfo fileinfo = new FileInfo(strfilename);
+                        File.Copy(Server.MapPath(sourcepath + fileinfo.Name), Server.MapPath(filepath + Sign_Field + ".jpg"), true);
+                        updatetb(Sign_Field);
+                    }
+                }
+                else
+                {
+                    errorrmessage("Unable to sign the form. Registered signature is required.");
+                }
+            }
+        }
+        private void errorrmessage(string message)
+        {
+            CustomValidator err = new CustomValidator();
+            err.ValidationGroup = "errorval";
+            err.IsValid = false;
+            err.ErrorMessage = message;
+            Page.Validators.Add(err);
+        }
+        private string sqlconstr
+        {
+            get
+            {
+                return ConnectionString.sqlconstr();
+            }
+        }
+        private void updatetb(string sign_field)
+        {
+            try
+            {
+
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "Glass_PO_Notification_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Sign");
+                        sqlcmd.Parameters.AddWithValue("@Id", Request.QueryString["Glass_PO_Notification_Id"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Fullname", Session["KMDI_fullname"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Sign_Field", sign_field);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            finally
+            {
+                getparameters();
+            }
+
         }
     }
 }

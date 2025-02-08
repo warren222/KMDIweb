@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="">
-                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/KMDIweb/PRF/PRF_List.aspx">      
+                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/KMDIweb/EngrItinerary/Engr_Itinerary.aspx">      
                                 &nbsp;Home</asp:HyperLink></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

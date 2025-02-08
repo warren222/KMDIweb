@@ -123,15 +123,6 @@ namespace KMDIweb.KMDIweb.PRF
         protected global::System.Web.UI.WebControls.Panel pnlRequested;
 
         /// <summary>
-        /// btnRequestedBy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnRequestedBy;
-
-        /// <summary>
         /// btnRequestedByDefault control.
         /// </summary>
         /// <remarks>
@@ -148,15 +139,6 @@ namespace KMDIweb.KMDIweb.PRF
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlNoted;
-
-        /// <summary>
-        /// btnNotedBy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnNotedBy;
 
         /// <summary>
         /// btnNotedByDefault control.
@@ -177,15 +159,6 @@ namespace KMDIweb.KMDIweb.PRF
         protected global::System.Web.UI.WebControls.Panel pnlReceived;
 
         /// <summary>
-        /// btnReceivedBy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnReceivedBy;
-
-        /// <summary>
         /// btnReceivedByDefault control.
         /// </summary>
         /// <remarks>
@@ -202,15 +175,6 @@ namespace KMDIweb.KMDIweb.PRF
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlApproved;
-
-        /// <summary>
-        /// btnApprovedBy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnApprovedBy;
 
         /// <summary>
         /// btnApprovedByDefault control.

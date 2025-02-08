@@ -373,6 +373,10 @@ namespace KMDIweb.KMDIapp
         {
             Response.Redirect("~/KMDIweb/PRF/PRF_List.aspx");
         }
+        protected void LinkButton16_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIweb/EngrItinerary/Engr_Itinerary.aspx");
+        }
 
         private string GlassNotification()
         {

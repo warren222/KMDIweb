@@ -75,8 +75,6 @@
     </div>
     <asp:UpdatePanel runat="server" ID="upnl1">
         <ContentTemplate>
-
-
             <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
             <div style="height: auto; display: flex; flex-flow: row wrap; width: auto; padding: 2px; border-top: solid 5px #ff006e;">
                 <asp:Panel runat="server" Visible="false" ID="pnlRecipient" Style="border: 1px solid #dddddd; border-radius: 5px; padding: 10px; margin: 4px; background-color: #dfe5f0; width: 300px;">
@@ -88,28 +86,24 @@
                     <div>
                         <span>REQUESTED BY</span>
                     </div>
-                    <asp:LinkButton ID="btnRequestedBy" Visible="false" Width="100%" ValidationGroup="errorval" CssClass="btn btn-primary" runat="server" OnClick="btnRequestedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Capture Signature</asp:LinkButton><br />
                     <asp:LinkButton ID="btnRequestedByDefault" Width="100%" ValidationGroup="errorval" CssClass="btn btn-success" runat="server" OnClick="btnRequestedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Sign</asp:LinkButton>
                 </asp:Panel>
                 <asp:Panel ID="pnlNoted" runat="server" CssClass="cssSign">
                     <div>
                         <span>NOTED BY</span>
                     </div>
-                    <asp:LinkButton ID="btnNotedBy" Visible="false" Width="100%" CssClass="btn btn-primary" runat="server" OnClick="btnNotedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Capture Signature</asp:LinkButton><br />
                     <asp:LinkButton ID="btnNotedByDefault" Width="100%" ValidationGroup="addressVal" CssClass="btn btn-success" runat="server" OnClick="btnNotedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Sign</asp:LinkButton>
                 </asp:Panel>
                 <asp:Panel ID="pnlReceived" runat="server" CssClass="cssSign">
                     <div>
                         <span>RECEIVED BY</span>
                     </div>
-                    <asp:LinkButton ID="btnReceivedBy" Visible="false" Width="100%" CssClass="btn btn-primary" runat="server" OnClick="btnReceivedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Capture Signature</asp:LinkButton><br />
                     <asp:LinkButton ID="btnReceivedByDefault" Width="100%" CssClass="btn btn-success" runat="server" OnClick="btnReceivedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Sign</asp:LinkButton>
                 </asp:Panel>
                 <asp:Panel ID="pnlApproved" runat="server" CssClass="cssSign">
                     <div>
                         <span>APPROVED BY</span>
                     </div>
-                    <asp:LinkButton ID="btnApprovedBy" Visible="false" Width="100%" CssClass="btn btn-primary" runat="server" OnClick="btnApprovedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Capture Signature</asp:LinkButton><br />
                     <asp:LinkButton ID="btnApprovedByDefault" Width="100%" CssClass="btn btn-success" runat="server" OnClick="btnApprovedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Sign</asp:LinkButton>
                 </asp:Panel>
             </div>

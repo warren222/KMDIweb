@@ -164,23 +164,7 @@ namespace KMDIweb.KMDIweb.PRF
                        "&PageIndex=" + Request.QueryString["PageIndex"].ToString() +
                        "&Id=" + controlId;
             }
-        }
-        protected void btnRequestedBy_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/KMDIweb/PRF/PRF_Sign.aspx" + AddQuerystring + "&PRF_Sign_Field=Requested_By&Addressed=" + ddlAddressed.Text + "");
-        }
-        protected void btnNotedBy_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/KMDIweb/PRF/PRF_Sign.aspx" + AddQuerystring + "&PRF_Sign_Field=Noted_By");
-        }
-        protected void btnReceivedBy_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/KMDIweb/PRF/PRF_Sign.aspx" + AddQuerystring + "&PRF_Sign_Field=Received_By");
-        }
-        protected void btnApprovedBy_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/KMDIweb/PRF/PRF_Sign.aspx" + AddQuerystring + "&PRF_Sign_Field=Approved_By");
-        }
+        } 
         private void UseUserSignature(string PRF_Sign_Field, string addressed)
         {
             if (IsValid)
@@ -252,12 +236,12 @@ namespace KMDIweb.KMDIweb.PRF
 
         protected void btnNotedByDefault_Click(object sender, EventArgs e)
         {
-            UseUserSignature("Noted_By", ddlAddressed.Text);
+            UseUserSignature("Noted_By", "");
         }
 
         protected void btnReceivedByDefault_Click(object sender, EventArgs e)
         {
-            UseUserSignature("Received_By", ddlAddressed.Text);
+            UseUserSignature("Received_By", "");
         }
 
         protected void btnApprovedByDefault_Click(object sender, EventArgs e)
