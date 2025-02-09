@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-   <title></title>
+    <title></title>
     <script src="../../Scripts/bootstrap.js"></script>
     <script type="text/javascript" src='<%= Page.ResolveClientUrl("~/Scripts/lightbox-plus-jquery.min.js") %>'></script>
     <link href="../../Content/bootstrap.css" rel="stylesheet" />
@@ -12,12 +12,14 @@
     <script src="../../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
     <link href="../Global/css/gridcss.css" rel="stylesheet" />
+    <link href="../Global/css/CalendarStyle.css" rel="stylesheet" />
     <link href="../Global/css/lightbox.min.css" rel="stylesheet" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="font-family:Bahnschrift">
-       <form id="form1" runat="server">
+<body style="font-family: Bahnschrift">
+    <form id="form1" runat="server">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -57,11 +59,11 @@
 
         <br />
         <br />
-        <div class="" style="background-color: white; padding-bottom: 25px; margin-bottom: 0px;">
+        <div class="" style="padding-bottom: 25px; margin-bottom: 0px;">
             <asp:ContentPlaceHolder ID="content" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <footer class="container-fluid text-center" style="background-color: white; margin-top: 0px;">
+        <footer class="container-fluid text-center" style="margin-top: 0px;">
             <br />
             <br />
             <br />

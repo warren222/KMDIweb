@@ -60,6 +60,15 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         protected global::System.Web.UI.WebControls.DropDownList ddlEngr;
 
         /// <summary>
+        /// ddlHasReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlHasReport;
+
+        /// <summary>
         /// ddlMonth control.
         /// </summary>
         /// <remarks>
@@ -69,13 +78,13 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         protected global::System.Web.UI.WebControls.DropDownList ddlMonth;
 
         /// <summary>
-        /// tboxYear control.
+        /// ddlYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tboxYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlYear;
 
         /// <summary>
         /// btnSearch control.

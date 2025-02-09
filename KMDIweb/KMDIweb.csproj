@@ -1149,6 +1149,7 @@
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_Updates_Rpt.aspx" />
     <Content Include="KMDIweb\GlassNotification\GN_Sign.aspx" />
     <Content Include="KMDIweb\Global\changesecurity.aspx" />
+    <Content Include="KMDIweb\Global\css\CalendarStyle.css" />
     <Content Include="KMDIweb\Global\css\gridcss.css" />
     <Content Include="KMDIweb\Global\css\lightbox.css" />
     <Content Include="KMDIweb\Global\css\lightbox.min.css" />
@@ -1159,6 +1160,9 @@
     <Content Include="KMDIweb\Global\registerSign.aspx" />
     <Content Include="KMDIweb\Global\scripts\sign.js" />
     <Content Include="KMDIweb\Global\SignGenerator.aspx" />
+    <Content Include="KMDIweb\Images\445.jpg" />
+    <Content Include="KMDIweb\Images\446.jpg" />
+    <Content Include="KMDIweb\Images\bg1.png" />
     <Content Include="KMDIweb\Images\Clear-Glass.jpg" />
     <Content Include="KMDIweb\Images\collection.jpg" />
     <Content Include="KMDIweb\Images\dr.jpg" />
@@ -1173,6 +1177,7 @@
     <Content Include="KMDIweb\Images\SFM.png" />
     <Content Include="KMDIweb\Images\Single-Hung-Window.png" />
     <Content Include="KMDIweb\Images\termo.jpg" />
+    <Content Include="KMDIweb\Images\xyz.jpg" />
     <Content Include="KMDIweb\Installation\InstallationSchedule.aspx" />
     <Content Include="KMDIweb\Installation\InstallationSummaryReport.aspx" />
     <Content Include="KMDIweb\Installation\InstallationSummaryReportViewer.aspx" />
