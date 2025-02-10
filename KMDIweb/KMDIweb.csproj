@@ -461,6 +461,13 @@
     <Compile Include="KMDIweb\EngrItinerary\Engr_Itinerary.aspx.designer.cs">
       <DependentUpon>Engr_Itinerary.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_Itinerary_Selected_Date.aspx.cs">
+      <DependentUpon>Engr_Itinerary_Selected_Date.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_Itinerary_Selected_Date.aspx.designer.cs">
+      <DependentUpon>Engr_Itinerary_Selected_Date.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx.cs">
       <DependentUpon>FoilingCalendar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1139,6 +1146,7 @@
     <Content Include="KMDIweb\Delivery\ScannedDR\DRuploadsSummary.aspx" />
     <Content Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx" />
     <Content Include="KMDIweb\EngrItinerary\Engr_Itinerary.aspx" />
+    <Content Include="KMDIweb\EngrItinerary\Engr_Itinerary_Selected_Date.aspx" />
     <Content Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx" />
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_Create.aspx" />
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_Edit.aspx" />

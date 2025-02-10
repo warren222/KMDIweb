@@ -21,7 +21,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 {
                     Get_Engr();
                     Get_Year_List();
-                    ddlMonth.SelectedValue = DateTime.Now.ToString("MM");
+                    RetriverQS();
                     Get_Data();
                 }
             }
@@ -36,6 +36,13 @@ namespace KMDIweb.KMDIweb.EngrItinerary
             {
                 return ConnectionString.sqlconstr();
             }
+        }
+        private void RetriverQS()
+        {
+            ddlEngr.SelectedValue = Request.QueryString["Engr"] != null ? Request.QueryString["Engr"].ToString() : "";
+            ddlHasReport.SelectedValue = Request.QueryString["HasReport"] != null ? Request.QueryString["HasReport"].ToString() : "1";
+            ddlMonth.SelectedValue = Request.QueryString["Month"] != null ? Request.QueryString["Month"].ToString() : ddlMonth.SelectedValue = DateTime.Now.ToString("MM");
+            ddlYear.SelectedValue = Request.QueryString["Year"] != null ? Request.QueryString["Year"].ToString() : ddlYear.SelectedValue = DateTime.Now.ToString("yyyy");
         }
         private void errorrmessage(string message)
         {
@@ -71,10 +78,10 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                             ddlYear.DataValueField = "Yr";
                             ddlYear.DataBind();
                         }
-                        
+
                     }
                 }
-                 
+
             }
             catch (Exception ex)
             {
@@ -123,10 +130,11 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
+                        string dt = ddlYear.SelectedValue.ToString() + "-" + ddlMonth.SelectedValue.ToString() + "-01";
                         sqlcmd.CommandText = "Engr_Itinerary_Calendar_Stp";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
                         sqlcmd.Parameters.AddWithValue("@Command", "Get_Calendar");
-                        sqlcmd.Parameters.AddWithValue("@Date", ddlYear.SelectedValue.ToString() + "-" + ddlMonth.SelectedValue.ToString() + "-01");
+                        sqlcmd.Parameters.AddWithValue("@Date", dt);
                         sqlcmd.Parameters.AddWithValue("@Engr", ddlEngr.SelectedValue.ToString());
                         sqlcmd.Parameters.AddWithValue("@HasReport", ddlHasReport.SelectedValue.ToString());
                         DataTable tb = new DataTable();
@@ -137,6 +145,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                             da.Fill(tb);
                             gvCalendar.DataSource = tb;
                             gvCalendar.DataBind();
+                            lblSelectedMonth.Text = Convert.ToDateTime(dt).ToString("MMMM");
                         }
                     }
                 }
@@ -156,11 +165,12 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                     int nameIndex = i + 1;
                     int currentRowIndex = e.Row.RowIndex;
 
-                
+
                     string linkbtn = "linkbtn" + nameIndex.ToString();
                     string lbldate = "lbl" + nameIndex.ToString() + "date";
                     string pnl = "pnl" + nameIndex.ToString();
                     string lblcontext = "lblContext";
+                    string lblcontent = "lbl" + nameIndex.ToString() + "content";
                     string lblselectedmonth = "lblSelected_Month";
 
                     TableCell cell = e.Row.Cells[i];
@@ -178,7 +188,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                             cell.CssClass = "wf_calendar_date";
                         }
                     }
-                  
+
                     if (context == "Content")
                     {
                         string converted = Convert.ToDateTime(((Label)gvCalendar.Rows[currentRowIndex - 1].Cells[i].FindControl(lbldate)).Text).ToString("MMM");
@@ -198,6 +208,8 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                     {
                         cell.BackColor = ColorTranslator.FromHtml("#111212");
                         ((LinkButton)cell.FindControl(linkbtn)).ForeColor = ColorTranslator.FromHtml("#333131");
+                        ((LinkButton)cell.FindControl(linkbtn)).Enabled = false;
+                        ((Label)cell.FindControl(lblcontent)).Visible = false;
                         ((Panel)cell.FindControl(pnl)).ForeColor = ColorTranslator.FromHtml("#333131");
                         ((Panel)cell.FindControl(pnl)).BackColor = ColorTranslator.FromHtml("#111212");
                         ((Panel)cell.FindControl(pnl)).BorderColor = ColorTranslator.FromHtml("#111212");
@@ -205,6 +217,50 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 }
 
             }
+        }
+
+        protected void gvCalendar_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+            GridViewRow row = gvCalendar.Rows[rowindex];
+            var sdate = "";
+            if (e.CommandName == "viewlistMon")
+            {
+                sdate = "lbl1date";
+            }
+            else if (e.CommandName == "viewlistTue")
+            {
+                sdate = "lbl2date";
+            }
+            else if (e.CommandName == "viewlistWed")
+            {
+                sdate = "lbl3date";
+            }
+            else if (e.CommandName == "viewlistThu")
+            {
+                sdate = "lbl4date";
+            }
+            else if (e.CommandName == "viewlistFri")
+            {
+                sdate = "lbl5date";
+            }
+            else if (e.CommandName == "viewlistSat")
+            {
+                sdate = "lbl6date";
+            }
+            else if (e.CommandName == "viewlistSun")
+            {
+                sdate = "lbl7date";
+            }
+            Response.Redirect("~/KMDIweb/EngrItinerary/Engr_Itinerary_Selected_Date.aspx" + AddQuerystring(((Label)row.FindControl(sdate)).Text));
+        }
+        private string AddQuerystring(string sdate)
+        {
+            return "?Engr=" + ddlEngr.SelectedValue.ToString() +
+                   "&HasReport=" + ddlHasReport.SelectedValue.ToString() +
+                   "&Month=" + ddlMonth.SelectedValue.ToString() +
+                   "&Year=" + ddlYear.SelectedValue.ToString() +
+                   "&SelectedDate=" + sdate;
         }
     }
 }
