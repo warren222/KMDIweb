@@ -37,7 +37,7 @@
 </asp:Content>
 <asp:Content ID="content2" ContentPlaceHolderID="content" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div style="background-color: blanchedalmond">
+    <div style="">
         <div class="well" style="background-color: #303030; border-color: transparent; border-bottom: solid 5px #ff006e; padding-left: 10px; color: white; font-family: Calibri;">
             <div class="container">
                 <h3>
@@ -53,8 +53,6 @@
             </ContentTemplate>
         </asp:UpdatePanel>
         <div class="container" style="background-color: white;">
-            <br />
-            <br />
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#II">Instl Engineer's Itinerary</a></li>
                 <li><a data-toggle="tab" href="#DR">Engrg's Daily Report</a></li>
@@ -66,9 +64,10 @@
                         <ContentTemplate>
                             <div>
                                 <div class="row nopm">
+                                    <div class="col-sm-8 nopm"></div>
                                     <div class="col-sm-4 nopm">
                                         <div class="input-group">
-                                            <asp:TextBox ID="tboxSearchProjectII" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="tboxSearchProjectII" placeholder="search project here" runat="server" CssClass="form-control"></asp:TextBox>
                                             <div class="input-group-btn">
                                                 <asp:LinkButton runat="server" ID="btnIISearch" CssClass="btn btn-primary" OnClick="btnIISearch_Click">search</asp:LinkButton>
                                             </div>
@@ -76,9 +75,10 @@
                                     </div>
                                 </div>
 
-                                <br />
-                                <div style="background-color: #303030; padding: 5px; color: white; border: 1px #7b7b7b solid; border-bottom: 0px;">
-                                    <span>Project Source Table</span>
+                                <div class="wf_selected_header">
+                                    <span class=" FontLarge">
+                                        <span>Project List</span>
+                                    </span>
                                 </div>
                                 <div style="overflow-x: auto;">
                                     <asp:GridView runat="server" ID="gvIIProject" AutoGenerateColumns="false" AllowPaging="true" CssClass="tblLocal FontSmall" OnRowCommand="gvIIProject_RowCommand" OnPageIndexChanging="gvIIProject_PageIndexChanging">
@@ -123,6 +123,7 @@
                             </div>
                             <br />
                             <div class="well well-sm">
+                                <span class="FontMedium" style="font-weight:bold">Input Form</span><br /><br />
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <span>Project</span>
@@ -138,6 +139,12 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        
+                            <div class="wf_selected_header">
+                                <span class=" FontLarge">
+                                    <span>Instl Engineer's Itinerary</span>
+                                </span>
                             </div>
                             <div style="overflow-x: auto">
                                 <asp:GridView ID="gvInstItinerary" runat="server" CssClass="tblLocal FontMedium" AutoGenerateColumns="false" OnRowCommand="gvInstItinerary_RowCommand">
@@ -257,11 +264,9 @@
                     </asp:UpdatePanel>
                 </div>
             </div>
-            <br />
-            <br />
+
         </div>
-        <br />
-        <br />
+
     </div>
 </asp:Content>
 
