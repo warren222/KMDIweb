@@ -69,6 +69,69 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
+        /// tboxSearchProjectII control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxSearchProjectII;
+
+        /// <summary>
+        /// btnIISearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnIISearch;
+
+        /// <summary>
+        /// gvIIProject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvIIProject;
+
+        /// <summary>
+        /// tboxIIProject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxIIProject;
+
+        /// <summary>
+        /// tboxIIApptTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxIIApptTime;
+
+        /// <summary>
+        /// tboxIIConcern control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxIIConcern;
+
+        /// <summary>
+        /// btnIIAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnIIAdd;
+
+        /// <summary>
         /// gvInstItinerary control.
         /// </summary>
         /// <remarks>
@@ -123,13 +186,22 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         protected global::System.Web.UI.WebControls.TextBox tboxDRDepart;
 
         /// <summary>
-        /// tboxRemarks control.
+        /// tboxDRRemarks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tboxRemarks;
+        protected global::System.Web.UI.WebControls.TextBox tboxDRRemarks;
+
+        /// <summary>
+        /// btnDRAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDRAdd;
 
         /// <summary>
         /// gvDailyReport control.

@@ -14,8 +14,6 @@ namespace KMDIweb.SCREENfab
         {
             if (!IsPostBack)
             {
-
-
                 int port = HttpContext.Current.Request.Url.Port;
                 switch (port)
                 {

@@ -26,7 +26,6 @@
         .tblLocal {
             width: 100%;
             white-space: nowrap;
-            white-space: nowrap;
         }
 
             .tblLocal th, tr, td {
@@ -38,7 +37,7 @@
 </asp:Content>
 <asp:Content ID="content2" ContentPlaceHolderID="content" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div style="">
+    <div style="background-color: blanchedalmond">
         <div class="well" style="background-color: #303030; border-color: transparent; border-bottom: solid 5px #ff006e; padding-left: 10px; color: white; font-family: Calibri;">
             <div class="container">
                 <h3>
@@ -53,113 +52,216 @@
                 <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
             </ContentTemplate>
         </asp:UpdatePanel>
-        <div class="container">
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <ContentTemplate>
-                    <div style="overflow-x: auto">
-                        <asp:GridView ID="gvInstItinerary" runat="server" CssClass="tblLocal FontMedium" AutoGenerateColumns="false">
-                            <Columns>
-                                <asp:TemplateField HeaderText="Project">
-                                    <ItemTemplate>
-                                        <div style="min-width: 200px; white-space: normal;">
-                                            <span><%# Eval("PROJECT") %></span>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Appt. Time">
-                                    <ItemTemplate>
-                                        <div style="min-width: 100px;" class="text-center">
-                                            <span><%# Eval("Appttime") %></span>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Concern">
-                                    <ItemTemplate>
-                                        <div style="white-space: normal; min-width: 370px;">
-                                            <span><%# Eval("Concern") %></span>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
-                    </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
+        <div class="container" style="background-color: white;">
             <br />
-            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                <ContentTemplate>
-
-                    <div class="well well-sm">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <span>Project</span>
-                                <asp:TextBox ID="tboxDRProject" runat="server" CssClass="form-control"></asp:TextBox>
-                                <span>Address</span>
-                                <asp:TextBox ID="tboxDRAddress" runat="server" CssClass="form-control"></asp:TextBox>
+            <br />
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#II">Instl Engineer's Itinerary</a></li>
+                <li><a data-toggle="tab" href="#DR">Engrg's Daily Report</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="II" class="tab-pane fade in active">
+                    <br />
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <div>
                                 <div class="row nopm">
-                                    <div class="col-xs-6 nopm">
-                                        <span>Arrival</span>
-                                        <asp:TextBox ID="tboxDRArrival" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
-                                    </div>
-                                    <div class="col-xs-6 nopm">
-                                        <span>Depart</span>
-                                        <asp:TextBox ID="tboxDRDepart" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
+                                    <div class="col-sm-4 nopm">
+                                        <div class="input-group">
+                                            <asp:TextBox ID="tboxSearchProjectII" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <div class="input-group-btn">
+                                                <asp:LinkButton runat="server" ID="btnIISearch" CssClass="btn btn-primary" OnClick="btnIISearch_Click">search</asp:LinkButton>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-
+                                <br />
+                                <div style="background-color: #303030; padding: 5px; color: white; border: 1px #7b7b7b solid; border-bottom: 0px;">
+                                    <span>Project Source Table</span>
+                                </div>
+                                <div style="overflow-x: auto;">
+                                    <asp:GridView runat="server" ID="gvIIProject" AutoGenerateColumns="false" AllowPaging="true" CssClass="tblLocal FontSmall" OnRowCommand="gvIIProject_RowCommand" OnPageIndexChanging="gvIIProject_PageIndexChanging">
+                                        <Columns>
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="btnSelectProjectII" runat="server" CommandName="execSelect">Select</asp:LinkButton>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Project">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblProjectII" runat="server" Text='<%# Bind("Project") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="JO">
+                                                <ItemTemplate>
+                                                    <span><%# Eval("Parentjono") %></span>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Address">
+                                                <ItemTemplate>
+                                                    <span><%# Eval("Address") %></span>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                        <EmptyDataTemplate>
+                                            <div class="">
+                                                <h3><strong>Sorry! No result found :(</strong>
+                                                </h3>
+                                            </div>
+                                        </EmptyDataTemplate>
+                                        <PagerSettings PageButtonCount="8" Position="Bottom" />
+                                        <PagerStyle CssClass="GridPager" BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                                        <RowStyle ForeColor="#000066" />
+                                        <SelectedRowStyle BackColor="#303030" Font-Bold="True" ForeColor="White" />
+                                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                        <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                        <SortedDescendingHeaderStyle BackColor="#00547E" />
+                                    </asp:GridView>
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <span>Remarks</span>
-                                <asp:TextBox ID="tboxRemarks" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control"></asp:TextBox>
+                            <br />
+                            <div class="well well-sm">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <span>Project</span>
+                                        <asp:TextBox ID="tboxIIProject" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <span>Appt. Time</span>
+                                        <asp:TextBox ID="tboxIIApptTime" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span>Concern</span>
+                                        <asp:TextBox ID="tboxIIConcern" runat="server" TextMode="MultiLine" Rows="2" CssClass="form-control"></asp:TextBox><br />
+                                        <div class="text-right">
+                                            <asp:LinkButton ID="btnIIAdd" Style="border-radius: 0;" CssClass="btn btn-success" runat="server" OnClick="btnIIAdd_Click">Add</asp:LinkButton>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                            <div style="overflow-x: auto">
+                                <asp:GridView ID="gvInstItinerary" runat="server" CssClass="tblLocal FontMedium" AutoGenerateColumns="false" OnRowCommand="gvInstItinerary_RowCommand">
+                                    <Columns>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblIIId" runat="server" Visible="false" Text='<%# Bind("AUTONUM") %>'></asp:Label>
+                                                <asp:LinkButton ID="btnIIDelete" runat="server" CommandName="execDelete" OnClientClick="return confirm('Delete this item?')">Delete</asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Project">
+                                            <ItemTemplate>
+                                                <div style="min-width: 200px; white-space: normal;">
+                                                    <span><%# Eval("PROJECT") %></span>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Appt. Time">
+                                            <ItemTemplate>
+                                                <div style="min-width: 100px;" class="text-center">
+                                                    <span><%# Eval("Appttime") %></span>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Concern">
+                                            <ItemTemplate>
+                                                <div style="white-space: normal; min-width: 370px;">
+                                                    <span><%# Eval("Concern") %></span>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                <div id="DR" class="tab-pane fade">
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                        <ContentTemplate>
+                            <a data-toggle="collapse" href="#DRForm" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <span class="FontMedium">Input Form</span>
+                            </a>
+                            <div class="well well-sm collapse" id="DRForm">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <span>Project</span>
+                                        <asp:TextBox ID="tboxDRProject" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <span>Address</span>
+                                        <asp:TextBox ID="tboxDRAddress" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <div class="row nopm">
+                                            <div class="col-xs-6 nopm">
+                                                <span>Arrival</span>
+                                                <asp:TextBox ID="tboxDRArrival" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
+                                            </div>
+                                            <div class="col-xs-6 nopm">
+                                                <span>Depart</span>
+                                                <asp:TextBox ID="tboxDRDepart" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
+                                            </div>
+                                        </div>
 
-                    <div style="overflow-x: auto">
-                        <asp:GridView ID="gvDailyReport" runat="server" CssClass="tblLocal FontMedium" AutoGenerateColumns="false">
-                            <Columns>
-                                <asp:TemplateField>
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="btnDREdit" runat="server">Edit</asp:LinkButton>
-                                        <asp:LinkButton ID="btnDRDelete" runat="server">Delete</asp:LinkButton>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Project">
-                                    <ItemTemplate>
-                                        <div style="min-width: 200px; white-space: normal;">
-                                            <span><%# Eval("PROJECT") %></span><br />
-                                            <span><%# Eval("ADDRESS") %></span>
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span>Remarks</span>
+                                        <asp:TextBox ID="tboxDRRemarks" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control"></asp:TextBox><br />
+                                        <div class="text-right">
+                                            <asp:LinkButton ID="btnDRAdd" Style="border-radius: 0;" CssClass="btn btn-success" runat="server" OnClick="btnDRAdd_Click">Add</asp:LinkButton>
                                         </div>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Arrval">
-                                    <ItemTemplate>
-                                        <div style="min-width: 100px;" class="text-center">
-                                            <span><%# Eval("ARRIVAL") %></span>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Depart">
-                                    <ItemTemplate>
-                                        <div style="min-width: 100px;" class="text-center">
-                                            <span><%# Eval("DEPART") %></span>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Remarks">
-                                    <ItemTemplate>
-                                        <div style="white-space: normal; min-width: 370px;">
-                                            <span><%# Eval("Remarks") %></span>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
-                    </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="overflow-x: auto">
+                                <asp:GridView ID="gvDailyReport" runat="server" CssClass="tblLocal FontMedium" AutoGenerateColumns="false" OnRowCommand="gvDailyReport_RowCommand">
+                                    <Columns>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblDRId" runat="server" Visible="false" Text='<%# Bind("AUTONUM") %>'></asp:Label>
+                                                <asp:LinkButton ID="btnDREdit" runat="server">Edit</asp:LinkButton>
+                                                <asp:LinkButton ID="btnDRDelete" runat="server" CommandName="execDelete" OnClientClick="return confirm('Delete this item?')">Delete</asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Project">
+                                            <ItemTemplate>
+                                                <div style="min-width: 200px; white-space: normal;">
+                                                    <span><%# Eval("PROJECT") %></span><br />
+                                                    <span><%# Eval("ADDRESS") %></span>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Arrval">
+                                            <ItemTemplate>
+                                                <div style="min-width: 100px;" class="text-center">
+                                                    <span><%# Eval("ARRIVAL") %></span>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Depart">
+                                            <ItemTemplate>
+                                                <div style="min-width: 100px;" class="text-center">
+                                                    <span><%# Eval("DEPART") %></span>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Remarks">
+                                            <ItemTemplate>
+                                                <div style="white-space: normal; min-width: 370px;">
+                                                    <span><%# Eval("Remarks") %></span>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+            </div>
+            <br />
+            <br />
         </div>
+        <br />
+        <br />
     </div>
 </asp:Content>
 
