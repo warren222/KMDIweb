@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -161,6 +162,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
             finally
             {
                 GetInstItinerary();
+                UpdateCancel_Mode_II(true, false, "Input Form", Color.Black);
             }
         }
         private void ExecuteQuery_DR(string command,
@@ -202,6 +204,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
             finally
             {
                 GetDailyReport();
+                UpdateCancel_Mode_DR(true, false, "Input Form", Color.Black);
             }
         }
         private string nickname
@@ -211,33 +214,10 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 return Session["KMDI_nickname"].ToString();
             }
         }
-        protected void btnIIAdd_Click(object sender, EventArgs e)
-        {
-            ExecuteQuery_II("Insert",
-                            "",
-                            nickname,
-                            SelectedDate,
-                            tboxIIProject.Text,
-                            tboxIIApptTime.Text,
-                            tboxIIConcern.Text);
-        }
-
-        protected void btnDRAdd_Click(object sender, EventArgs e)
-        {
-            ExecuteQuery_DR("Insert",
-                            "",
-                            nickname,
-                            SelectedDate,
-                            tboxDRProject.Text,
-                            tboxDRAddress.Text,
-                            tboxDRArrival.Text,
-                            tboxDRDepart.Text,
-                            tboxDRRemarks.Text);
-        }
 
         protected void gvDailyReport_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-           
+
             if (e.CommandName == "execDelete")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
@@ -245,11 +225,23 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 string autonum = ((Label)row.FindControl("lblDRId")).Text;
                 ExecuteQuery_DR("Delete", autonum, "", "", "", "", "", "", "");
             }
+            else if (e.CommandName == "execEdit")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvDailyReport.Rows[rowindex];
+                ViewState["DRId"] = ((Label)row.FindControl("lblDRId")).Text;
+                tboxDRProject.Text = ((Label)row.FindControl("lblDRProject")).Text;
+                tboxDRAddress.Text = ((Label)row.FindControl("lblDRAddress")).Text;
+                tboxDRArrival.Text = Convert.ToDateTime(((Label)row.FindControl("lblDRArrival")).Text).ToString("HH:mm");
+                tboxDRDepart.Text = Convert.ToDateTime(((Label)row.FindControl("lblDRDepart")).Text).ToString("HH:mm");
+                tboxDRRemarks.Text = ((Label)row.FindControl("lblDRRemarks")).Text;
+                UpdateCancel_Mode_DR(false, true, "Update Form", Color.Red);
+            }
         }
 
         protected void gvInstItinerary_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-          
+
             if (e.CommandName == "execDelete")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
@@ -257,11 +249,21 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 string autonum = ((Label)row.FindControl("lblIIId")).Text;
                 ExecuteQuery_II("Delete", autonum, "", "", "", "", "");
             }
+            else if (e.CommandName == "execEdit")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvInstItinerary.Rows[rowindex];
+                ViewState["IIId"] = ((Label)row.FindControl("lblIIId")).Text;
+                tboxIIProject.Text = ((Label)row.FindControl("lblIIProject")).Text;
+                tboxIIApptTime.Text = Convert.ToDateTime(((Label)row.FindControl("lblIIApptTime")).Text).ToString("HH:mm");
+                tboxIIConcern.Text = ((Label)row.FindControl("lblIIConcern")).Text;
+                UpdateCancel_Mode_II(false, true, "Update Form", Color.Red);
+            }
         }
 
         protected void btnIISearch_Click(object sender, EventArgs e)
         {
-            GetProject(gvIIProject,tboxSearchProjectII.Text);
+            GetProject(gvIIProject, tboxSearchProjectII.Text);
         }
         private void GetProject(GridView gv, string search)
         {
@@ -279,7 +281,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                         sqlcmd.Parameters.AddWithValue("@Search", search);
                         DataTable tb = new DataTable();
                         tb.Clear();
-                        using (SqlDataAdapter da= new SqlDataAdapter())
+                        using (SqlDataAdapter da = new SqlDataAdapter())
                         {
                             da.SelectCommand = sqlcmd;
                             da.Fill(tb);
@@ -297,7 +299,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
 
         protected void gvIIProject_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-          
+
             if (e.CommandName == "execSelect")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
@@ -311,6 +313,114 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         {
             gvIIProject.PageIndex = e.NewPageIndex;
             GetProject(gvIIProject, tboxSearchProjectII.Text);
+        }
+
+
+        protected void btnDRSearch_Click(object sender, EventArgs e)
+        {
+            GetProject(gvDRProject, tboxSearchProjectDR.Text);
+        }
+
+        protected void gvDRProject_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+            if (e.CommandName == "execSelect")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvDRProject.Rows[rowindex];
+                tboxDRProject.Text = ((Label)row.FindControl("lblProjectDR")).Text;
+                tboxDRAddress.Text = ((Label)row.FindControl("lblAddressDR")).Text;
+                row.RowState = DataControlRowState.Selected;
+            }
+        }
+
+        protected void gvDRProject_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvDRProject.PageIndex = e.NewPageIndex;
+            GetProject(gvDRProject, tboxSearchProjectDR.Text);
+        }
+
+        protected void btnIIAdd_Click(object sender, EventArgs e)
+        {
+            ExecuteQuery_II_InitializeValues("Insert", "");
+        }
+        protected void btnIIUpdate_Click(object sender, EventArgs e)
+        {
+            ExecuteQuery_II_InitializeValues("Update", ViewState["IIId"].ToString());
+        }
+        private void ExecuteQuery_II_InitializeValues(string command, string autonum)
+        {
+            tboxIIApptTime.Text = Convert.ToDateTime(tboxIIApptTime.Text).ToString("hh:mm tt");
+            ExecuteQuery_II(command,
+                            autonum,
+                            nickname,
+                            SelectedDate,
+                            tboxIIProject.Text,
+                            tboxIIApptTime.Text,
+                            tboxIIConcern.Text);
+        }
+        protected void btnDRAdd_Click(object sender, EventArgs e)
+        {
+            ExecuteQuery_DR_InitializeValues("Insert", "");
+        }
+        protected void btnDRUpdate_Click(object sender, EventArgs e)
+        {
+            ExecuteQuery_DR_InitializeValues("Update", ViewState["DRId"].ToString());
+        }
+        private void ExecuteQuery_DR_InitializeValues(string command, string autonum)
+        {
+            tboxDRArrival.Text = Convert.ToDateTime(tboxDRArrival.Text).ToString("hh:mm tt");
+            tboxDRDepart.Text = Convert.ToDateTime(tboxDRDepart.Text).ToString("hh:mm tt");
+            ExecuteQuery_DR(command,
+                            autonum,
+                            nickname,
+                            SelectedDate,
+                            tboxDRProject.Text,
+                            tboxDRAddress.Text,
+                            tboxDRArrival.Text,
+                            tboxDRDepart.Text,
+                            tboxDRRemarks.Text);
+        }
+        protected void btnIICancel_Click(object sender, EventArgs e)
+        {
+            UpdateCancel_Mode_II(true, false, "Input Form", Color.Black);
+        }
+      
+        protected void btnDRCancel_Click(object sender, EventArgs e)
+        {
+            UpdateCancel_Mode_DR(true, false, "Input Form", Color.Black);
+        }
+        private void UpdateCancel_Mode_DR(bool tr, bool fl, string label, Color c)
+        {
+            btnDRAdd.Visible = tr;
+            btnDRUpdate.Visible = fl;
+            btnDRCancel.Visible = fl;
+            lblDRFormLabel.Text = label;
+            lblDRFormLabel.ForeColor = c;
+
+            if (tr)
+            {
+                tboxDRProject.Text = "";
+                tboxDRAddress.Text = "";
+                tboxDRArrival.Text = "";
+                tboxDRDepart.Text = "";
+                tboxDRRemarks.Text = "";
+            }
+        }
+        private void UpdateCancel_Mode_II(bool tr, bool fl, string label, Color c)
+        {
+            btnIIAdd.Visible = tr;
+            btnIIUpdate.Visible = fl;
+            btnIICancel.Visible = fl;
+            lblIIFormLabel.Text = label;
+            lblIIFormLabel.ForeColor = c;
+
+            if (tr)
+            {
+                tboxIIProject.Text = "";
+                tboxIIApptTime.Text = "";
+                tboxIIConcern.Text = "";
+            }
         }
     }
 }

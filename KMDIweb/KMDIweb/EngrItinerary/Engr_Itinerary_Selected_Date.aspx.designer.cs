@@ -96,6 +96,15 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         protected global::System.Web.UI.WebControls.GridView gvIIProject;
 
         /// <summary>
+        /// lblIIFormLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIIFormLabel;
+
+        /// <summary>
         /// tboxIIProject control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tboxIIProject;
+
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// tboxIIApptTime control.
@@ -132,6 +150,33 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         protected global::System.Web.UI.WebControls.LinkButton btnIIAdd;
 
         /// <summary>
+        /// btnIIUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnIIUpdate;
+
+        /// <summary>
+        /// btnIICancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnIICancel;
+
+        /// <summary>
+        /// ValidationSummary2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary2;
+
+        /// <summary>
         /// gvInstItinerary control.
         /// </summary>
         /// <remarks>
@@ -148,6 +193,42 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+
+        /// <summary>
+        /// tboxSearchProjectDR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxSearchProjectDR;
+
+        /// <summary>
+        /// btnDRSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDRSearch;
+
+        /// <summary>
+        /// gvDRProject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvDRProject;
+
+        /// <summary>
+        /// lblDRFormLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDRFormLabel;
 
         /// <summary>
         /// tboxDRProject control.
@@ -168,6 +249,15 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         protected global::System.Web.UI.WebControls.TextBox tboxDRAddress;
 
         /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
+        /// <summary>
         /// tboxDRArrival control.
         /// </summary>
         /// <remarks>
@@ -175,6 +265,15 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tboxDRArrival;
+
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
         /// tboxDRDepart control.
@@ -202,6 +301,33 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnDRAdd;
+
+        /// <summary>
+        /// btnDRUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDRUpdate;
+
+        /// <summary>
+        /// btnDRCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDRCancel;
+
+        /// <summary>
+        /// ValidationSummary3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary3;
 
         /// <summary>
         /// gvDailyReport control.

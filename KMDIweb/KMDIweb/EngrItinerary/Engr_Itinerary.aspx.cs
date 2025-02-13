@@ -22,12 +22,32 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                     Get_Engr();
                     Get_Year_List();
                     RetriverQS();
+                    if (user_code == "Engineer")
+                    {
+                        ddlEngr.SelectedValue =  nickname;
+                        ddlEngr.Enabled = false;
+                    }
+                
                     Get_Data();
                 }
             }
             else
             {
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
+            }
+        }
+        private string user_code
+        {
+            get
+            {
+                return Session["KMDI_user_code"].ToString();
+            }
+        }
+        private string nickname
+        {
+            get
+            {
+                return Session["KMDI_nickname"].ToString();
             }
         }
         private string sqlconstr
