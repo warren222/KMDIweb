@@ -40,7 +40,8 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 return "?Engr=" + Request.QueryString["Engr"].ToString() +
                 "&HasReport=" + Request.QueryString["HasReport"].ToString() +
                 "&Month=" + Request.QueryString["Month"].ToString() +
-                "&Year=" + Request.QueryString["Year"].ToString();
+                "&Year=" + Request.QueryString["Year"].ToString() +
+                "&SelectedDate=" + Request.QueryString["SelectedDate"].ToString();
             }
         }
         private void errorrmessage(string message)
@@ -62,7 +63,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         {
             get
             {
-                return Convert.ToDateTime(Request.QueryString["SelectedDate"].ToString()).ToString("yyyy-MM-dd");
+                return Request.QueryString["SelectedDate"].ToString();
             }
         }
         private void GetInstItinerary()
@@ -421,6 +422,11 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 tboxIIApptTime.Text = "";
                 tboxIIConcern.Text = "";
             }
+        }
+
+        protected void btnReport_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/KMDIweb/EngrItinerary/Engr_ItineraryReport.aspx" + AddQuerystring);
         }
     }
 }

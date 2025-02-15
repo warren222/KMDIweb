@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KMDIweb/EngrItinerary/EngrItineraryMaster.Master" CodeBehind="Engr_Itinerary_Selected_Date.aspx.cs" Inherits="KMDIweb.KMDIweb.EngrItinerary.Engr_Itinerary_Selected_Date" %>
 
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
 <asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Engineers' | Itinerary</title>
@@ -44,7 +46,8 @@
                     <asp:Label ID="lblDate" runat="server"></asp:Label></h3>
             </div>
             <span class="pull-right">
-                <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-warning" ForeColor="Black" OnClick="btnBack_Click"><span class="glyphicon glyphicon-chevron-left"></span> back</asp:LinkButton>
+                <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-warning FontLarge" ForeColor="Black" OnClick="btnBack_Click"><span class="glyphicon glyphicon-chevron-left"></span> back to calendar</asp:LinkButton>
+                <asp:LinkButton ID="btnReport" runat="server" CssClass="btn btn-primary FontLarge" ForeColor="White" OnClick="btnReport_Click">view report <span class="glyphicon glyphicon-chevron-right"></span></asp:LinkButton>
             </span>
         </div>
         <asp:UpdatePanel ID="UpdatePanel4" runat="server">
@@ -194,10 +197,6 @@
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
-
-
-
-
                 <div id="DR" class="tab-pane fade">
                     <br />
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
@@ -322,7 +321,7 @@
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Arrval">
+                                        <asp:TemplateField HeaderText="Arrival">
                                             <ItemTemplate>
                                                 <div style="min-width: 100px;" class="text-center">
                                                     <asp:Label ID="lblDRArrival" runat="server" Text='<%# Bind("ARRIVAL") %>'></asp:Label>
@@ -354,5 +353,7 @@
         </div>
 
     </div>
+
+
 </asp:Content>
 

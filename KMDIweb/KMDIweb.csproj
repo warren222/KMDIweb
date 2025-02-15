@@ -461,6 +461,20 @@
     <Compile Include="KMDIweb\EngrItinerary\Engr_Itinerary.aspx.designer.cs">
       <DependentUpon>Engr_Itinerary.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_ItineraryReport.aspx.cs">
+      <DependentUpon>Engr_ItineraryReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_ItineraryReport.aspx.designer.cs">
+      <DependentUpon>Engr_ItineraryReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_ItineraryReportGenerator.aspx.cs">
+      <DependentUpon>Engr_ItineraryReportGenerator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_ItineraryReportGenerator.aspx.designer.cs">
+      <DependentUpon>Engr_ItineraryReportGenerator.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\EngrItinerary\Engr_Itinerary_Selected_Date.aspx.cs">
       <DependentUpon>Engr_Itinerary_Selected_Date.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1146,6 +1160,8 @@
     <Content Include="KMDIweb\Delivery\ScannedDR\DRuploadsSummary.aspx" />
     <Content Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx" />
     <Content Include="KMDIweb\EngrItinerary\Engr_Itinerary.aspx" />
+    <Content Include="KMDIweb\EngrItinerary\Engr_ItineraryReport.aspx" />
+    <Content Include="KMDIweb\EngrItinerary\Engr_ItineraryReportGenerator.aspx" />
     <Content Include="KMDIweb\EngrItinerary\Engr_Itinerary_Selected_Date.aspx" />
     <Content Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx" />
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_Create.aspx" />
@@ -1352,6 +1368,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="KMDIweb\Global\Reports\Engr_ItineraryReport.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\Glass_NotificationReport.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\Glass_NotificationUpdatesReport.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\NoticeForINCItemsReport.rdlc" />

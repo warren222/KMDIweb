@@ -272,7 +272,15 @@ namespace KMDIweb.KMDIweb.EngrItinerary
             {
                 sdate = "lbl7date";
             }
-            Response.Redirect("~/KMDIweb/EngrItinerary/Engr_Itinerary_Selected_Date.aspx" + AddQuerystring(((Label)row.FindControl(sdate)).Text));
+            if(user_code != "Engineer")
+            {
+                Response.Redirect("~/KMDIweb/EngrItinerary/Engr_ItineraryReportGenerator.aspx" + AddQuerystring(((Label)row.FindControl(sdate)).Text));
+            }
+            else
+            {
+                Response.Redirect("~/KMDIweb/EngrItinerary/Engr_Itinerary_Selected_Date.aspx" + AddQuerystring(((Label)row.FindControl(sdate)).Text));
+            }
+          
         }
         private string AddQuerystring(string sdate)
         {
@@ -280,7 +288,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                    "&HasReport=" + ddlHasReport.SelectedValue.ToString() +
                    "&Month=" + ddlMonth.SelectedValue.ToString() +
                    "&Year=" + ddlYear.SelectedValue.ToString() +
-                   "&SelectedDate=" + sdate;
+                   "&SelectedDate=" + Convert.ToDateTime(sdate).ToString("yyyy-MM-dd") ;
         }
     }
 }
