@@ -274,7 +274,15 @@ namespace KMDIweb.KMDIweb.EngrItinerary
             }
             if(user_code != "Engineer")
             {
-                Response.Redirect("~/KMDIweb/EngrItinerary/Engr_ItineraryReportGenerator.aspx" + AddQuerystring(((Label)row.FindControl(sdate)).Text));
+                if (ddlHasReport.SelectedValue.ToString() == "0")
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowCompletedStatus", "javascript:alert('Sorry! No report found :(');", true);
+                }
+                else
+                {
+                    Response.Redirect("~/KMDIweb/EngrItinerary/Engr_ItineraryReportGenerator.aspx" + AddQuerystring(((Label)row.FindControl(sdate)).Text));
+                }
+            
             }
             else
             {

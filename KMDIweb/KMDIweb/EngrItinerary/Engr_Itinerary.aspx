@@ -27,7 +27,7 @@
 
 <asp:Content ID="content2" ContentPlaceHolderID="content" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div style="background-color:aliceblue;">
+    <div style="background-color: aliceblue;">
         <div class="well" style="background-color: #303030; border-color: transparent; border-bottom: solid 5px #ff006e; padding-left: 10px; color: white; font-family: Calibri;">
             <div class="container">
                 <h3>Engineers' Itinerary Calendar</h3>
@@ -38,13 +38,14 @@
                 <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
             </ContentTemplate>
         </asp:UpdatePanel>
-        <div class="row nopm">
-            <div class="col-sm-6 nopm">
-            </div>
-            <div class="col-sm-6 nopm">
-                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                    <ContentTemplate>
-                        <div class="well" style="border-color: transparent;">
+        <div class="well" style="border-color: transparent;">
+            <div class="row nopm">
+                <div class="col-sm-6 nopm">
+                </div>
+                <div class="col-sm-6 nopm">
+                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                        <ContentTemplate>
+
                             <div class="row nopm">
                                 <div class="col-sm-4 nopm">
                                     <span>Engineer</span>
@@ -82,9 +83,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
             </div>
         </div>
         <div class="wf_body">
