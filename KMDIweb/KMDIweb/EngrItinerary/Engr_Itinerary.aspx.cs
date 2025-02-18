@@ -282,7 +282,6 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 {
                     Response.Redirect("~/KMDIweb/EngrItinerary/Engr_ItineraryReportGenerator.aspx" + AddQuerystring(((Label)row.FindControl(sdate)).Text));
                 }
-            
             }
             else
             {
@@ -296,7 +295,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                    "&HasReport=" + ddlHasReport.SelectedValue.ToString() +
                    "&Month=" + ddlMonth.SelectedValue.ToString() +
                    "&Year=" + ddlYear.SelectedValue.ToString() +
-                   "&SelectedDate=" + Convert.ToDateTime(sdate).ToString("yyyy-MM-dd") ;
+                   "&SelectedDate=" + Convert.ToDateTime(sdate).ToString("yyyy-MM-dd");
         }
     }
 }

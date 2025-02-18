@@ -256,7 +256,7 @@
                             </div>
                         </asp:Panel>
 
-                        <asp:Panel ID="pnlPRF" Visible="true" runat="server" Width="250px">
+                        <asp:Panel ID="pnlPRF" Visible="false" runat="server" Width="250px">
                             <div class="thumbnail">
                                 <asp:Image ID="Image14" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/G03.jpg" runat="server" AlternateText="Project Photos" />
                                 <span class="pull-right">
@@ -272,9 +272,9 @@
                             </div>
                         </asp:Panel>
 
-                        <asp:Panel ID="pnlEngrItinerary" Visible="true" runat="server" Width="250px">
+                        <asp:Panel ID="pnlEngrItinerary" Visible="false" runat="server" Width="250px">
                             <div class="thumbnail">
-                                <asp:Image ID="Image15" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/Clear-Glass.jpg" runat="server" AlternateText="Project Photos" />
+                                <asp:Image ID="Image15" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/6556026.png" runat="server" AlternateText="Project Photos" />
                                 <br />
                                 <div>
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>

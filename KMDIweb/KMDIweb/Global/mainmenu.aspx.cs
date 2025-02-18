@@ -20,7 +20,7 @@ namespace KMDIweb.KMDIapp
                 if (!IsPostBack)
                 {
                     access();
-                    Notif_Counter();     
+                    Notif_Counter();
                 }
             }
             else
@@ -82,7 +82,7 @@ namespace KMDIweb.KMDIapp
                         {
                             while (rd.Read())
                             {
-                             
+
                                 string Notif_Prepared_By = rd[0].ToString();
                                 string Notif_Noted_By = rd[1].ToString();
                                 string Notif_Approved_By = rd[2].ToString();
@@ -279,17 +279,7 @@ namespace KMDIweb.KMDIapp
                 Panel4.Visible = false;
             }
 
-            if (usercode == "AE" || usercode == "Engineer" ||
-                usercode == "Programmer" || usercode == "Engineer Manager" ||
-                usercode == "Installation Staff")
-            {
-                pnlMeiheng.Visible = true;
-            }
-            else
-            {
-                pnlMeiheng.Visible = false;
-            }
-
+           
             //if ((usercode == "AE") ||
             //    (usercode == "Accounting") ||
             //    ((fullname == "Leo Candelaria" && usercode == "Operations")) ||
@@ -305,22 +295,52 @@ namespace KMDIweb.KMDIapp
             //{
             //    pnlAF.Visible = true;
             //}
-
+            Imported_Glass_Monitoring_Access();
+            PO_Access();
+            Glass_PO_Notification_Access();
+            Engineering_Itinerary_Access();
+        }
+        private void Imported_Glass_Monitoring_Access()
+        {
+            if (usercode == "AE" || usercode == "Engineer" ||
+              usercode == "Programmer" || usercode == "Engineer Manager" ||
+              usercode == "Installation Staff")
+            {
+                pnlMeiheng.Visible = true;
+            }
+            else
+            {
+                pnlMeiheng.Visible = false;
+            }
+        } 
+        private void PO_Access()
+        {
             if (poa != "")
             {
                 pnlPO.Visible = true;
             }
-
+        }
+        private void Glass_PO_Notification_Access()
+        {
             if ((usercode == "Engineer Manager") ||
-            (usercode == "Glass Section") ||
-            (usercode == "Programmer") ||
-            (usercode == "Production Manager") ||
-            (fullname == "Delivery"))
+                       (usercode == "Glass Section") ||
+                       (usercode == "Programmer") ||
+                       (usercode == "Production Manager") ||
+                       (fullname == "Delivery"))
             {
                 pnlGlassPONotif.Visible = true;
             }
         }
-
+        private void Engineering_Itinerary_Access()
+        {
+            if ((usercode == "Engineer Manager") ||
+              (usercode == "Engineer") ||
+              (fullname == "Genalyn Garcia") ||
+              (usercode == "Programmer"))
+            {
+                pnlEngrItinerary.Visible = true;
+            }
+        }
         protected void LinkButton5_Click(object sender, EventArgs e)
         {
             if (Session["KMDI_clg_acct"].ToString() == "None")

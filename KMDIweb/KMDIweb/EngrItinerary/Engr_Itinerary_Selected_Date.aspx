@@ -58,8 +58,8 @@
 
         <div class="container" style="background-color: white;">
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#II">Instl Engineer's Itinerary</a></li>
-                <li><a data-toggle="tab" href="#DR">Engrg's Daily Report</a></li>
+                <li class="active"><a data-toggle="tab" href="#II">Instl Engr's Itinerary</a></li>
+                <li><a data-toggle="tab" href="#DR">Engr's Daily Report</a></li>
             </ul>
             <div class="tab-content">
                 <div id="II" class="tab-pane fade in active">
@@ -78,6 +78,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br />
                                 <div class="wf_selected_header">
                                     <span class=" FontLarge">
                                         <span>Project List</span>
@@ -213,6 +214,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br />
                                 <div class="wf_selected_header">
                                     <span class=" FontLarge">
                                         <span>Project List</span>
@@ -299,7 +301,7 @@
 
                             <div class="wf_selected_header">
                                 <span class=" FontLarge">
-                                    <span>Engineering's Daily Report</span>
+                                    <span>Engineer's Daily Report</span>
                                 </span>
                             </div>
                             <div style="overflow-x: auto">
