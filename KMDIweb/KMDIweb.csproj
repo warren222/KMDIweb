@@ -447,6 +447,41 @@
     <Compile Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx.designer.cs">
       <DependentUpon>Fileupload.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\EngrItineraryMaster.Master.cs">
+      <DependentUpon>EngrItineraryMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\EngrItineraryMaster.Master.designer.cs">
+      <DependentUpon>EngrItineraryMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_Itinerary.aspx.cs">
+      <DependentUpon>Engr_Itinerary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_Itinerary.aspx.designer.cs">
+      <DependentUpon>Engr_Itinerary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_ItineraryReport.aspx.cs">
+      <DependentUpon>Engr_ItineraryReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_ItineraryReport.aspx.designer.cs">
+      <DependentUpon>Engr_ItineraryReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_ItineraryReportGenerator.aspx.cs">
+      <DependentUpon>Engr_ItineraryReportGenerator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_ItineraryReportGenerator.aspx.designer.cs">
+      <DependentUpon>Engr_ItineraryReportGenerator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_Itinerary_Selected_Date.aspx.cs">
+      <DependentUpon>Engr_Itinerary_Selected_Date.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KMDIweb\EngrItinerary\Engr_Itinerary_Selected_Date.aspx.designer.cs">
+      <DependentUpon>Engr_Itinerary_Selected_Date.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx.cs">
       <DependentUpon>FoilingCalendar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1124,6 +1159,10 @@
     <Content Include="KMDIweb\Delivery\ScannedDR\DRupdatesItems.aspx" />
     <Content Include="KMDIweb\Delivery\ScannedDR\DRuploadsSummary.aspx" />
     <Content Include="KMDIweb\Delivery\ScannedDR\Fileupload.aspx" />
+    <Content Include="KMDIweb\EngrItinerary\Engr_Itinerary.aspx" />
+    <Content Include="KMDIweb\EngrItinerary\Engr_ItineraryReport.aspx" />
+    <Content Include="KMDIweb\EngrItinerary\Engr_ItineraryReportGenerator.aspx" />
+    <Content Include="KMDIweb\EngrItinerary\Engr_Itinerary_Selected_Date.aspx" />
     <Content Include="KMDIweb\FoilingSchedule\FoilingCalendar.aspx" />
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_Create.aspx" />
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_Edit.aspx" />
@@ -1134,6 +1173,7 @@
     <Content Include="KMDIweb\GlassNotification\Glass_Notif_Updates_Rpt.aspx" />
     <Content Include="KMDIweb\GlassNotification\GN_Sign.aspx" />
     <Content Include="KMDIweb\Global\changesecurity.aspx" />
+    <Content Include="KMDIweb\Global\css\CalendarStyle.css" />
     <Content Include="KMDIweb\Global\css\gridcss.css" />
     <Content Include="KMDIweb\Global\css\lightbox.css" />
     <Content Include="KMDIweb\Global\css\lightbox.min.css" />
@@ -1144,6 +1184,9 @@
     <Content Include="KMDIweb\Global\registerSign.aspx" />
     <Content Include="KMDIweb\Global\scripts\sign.js" />
     <Content Include="KMDIweb\Global\SignGenerator.aspx" />
+    <Content Include="KMDIweb\Images\445.jpg" />
+    <Content Include="KMDIweb\Images\446.jpg" />
+    <Content Include="KMDIweb\Images\bg1.png" />
     <Content Include="KMDIweb\Images\Clear-Glass.jpg" />
     <Content Include="KMDIweb\Images\collection.jpg" />
     <Content Include="KMDIweb\Images\dr.jpg" />
@@ -1158,6 +1201,7 @@
     <Content Include="KMDIweb\Images\SFM.png" />
     <Content Include="KMDIweb\Images\Single-Hung-Window.png" />
     <Content Include="KMDIweb\Images\termo.jpg" />
+    <Content Include="KMDIweb\Images\xyz.jpg" />
     <Content Include="KMDIweb\Installation\InstallationSchedule.aspx" />
     <Content Include="KMDIweb\Installation\InstallationSummaryReport.aspx" />
     <Content Include="KMDIweb\Installation\InstallationSummaryReportViewer.aspx" />
@@ -1246,6 +1290,7 @@
     <Content Include="KMDIweb\AE\ProjectImages\Project_ImageMaster.Master" />
     <Content Include="KMDIweb\AE\Meiheng\MeiihengMaster.Master" />
     <Content Include="KMDIweb\GlassNotification\GlassNotificationMaster.Master" />
+    <Content Include="KMDIweb\EngrItinerary\EngrItineraryMaster.Master" />
     <None Include="KMDIweb\Global\DataSetFiles\reportDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -1323,6 +1368,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="KMDIweb\Global\Reports\Engr_ItineraryReport.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\Glass_NotificationReport.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\Glass_NotificationUpdatesReport.rdlc" />
     <EmbeddedResource Include="KMDIweb\Global\Reports\NoticeForINCItemsReport.rdlc" />

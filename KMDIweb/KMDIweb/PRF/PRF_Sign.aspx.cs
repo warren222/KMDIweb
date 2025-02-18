@@ -57,23 +57,27 @@ namespace KMDIweb.KMDIweb.PRF
                     System.IO.Directory.CreateDirectory(Server.MapPath(filepath));
                 }
                 UploadImage(Request.Form["myurl"].ToString().Replace("data:image/png;base64,", ""), Server.MapPath(filepath + PRF_Sign_Field + ".jpg"));
-
-                string str = "update PRF_Tbl set " + PRF_Sign_Field + "='" + tboxName.Text + "'," + PRF_Sign_Field + "_Date = format(getdate(),'yyyy-MM-dd') where [Id] = @Id";
-                updatetb(str);
+                updatetb();
 
             }
         }
-        private void updatetb(string qry)
+        private void updatetb()
         {
             try
             {
 
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
-                    using (SqlCommand sqlcmd = new SqlCommand(qry, sqlcon))
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Stp";
+                        sqlcmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Sign");
                         sqlcmd.Parameters.AddWithValue("@Id", Request.QueryString["Id"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@PRF_Sign_Field", PRF_Sign_Field);
+                        sqlcmd.Parameters.AddWithValue("@Addressed", Request.QueryString["Addressed"].ToString());
+                        sqlcmd.Parameters.AddWithValue("@Fullname", Session["KMDI_fullname"].ToString());
                         sqlcmd.ExecuteNonQuery();
                     }
                 }
@@ -128,8 +132,7 @@ namespace KMDIweb.KMDIweb.PRF
                     File.Copy(Server.MapPath(sourcepath + fileinfo.Name), Server.MapPath(filepath + PRF_Sign_Field + ".jpg"), true);
                 }
 
-                string str = "update PRF_Tbl set " + PRF_Sign_Field + "='" + Session["KMDI_fullname"].ToString() + "'," + PRF_Sign_Field + "_Date = format(getdate(),'yyyy-MM-dd') where [Id] = @Id";
-                updatetb(str);
+                 updatetb();
 
             }
         }

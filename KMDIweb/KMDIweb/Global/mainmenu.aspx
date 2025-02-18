@@ -256,18 +256,31 @@
                             </div>
                         </asp:Panel>
 
-                        <asp:Panel ID="Panel8" Visible="false" runat="server" Width="250px">
+                        <asp:Panel ID="pnlPRF" Visible="false" runat="server" Width="250px">
                             <div class="thumbnail">
                                 <asp:Image ID="Image14" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/G03.jpg" runat="server" AlternateText="Project Photos" />
                                 <span class="pull-right">
-                                    <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" CssClass="badge"></asp:Label>
+                                    <asp:Label ID="lblPRFCounter" runat="server" Font-Size="XX-Large" CssClass="badge"></asp:Label>
                                 </span>
                                 <br />
                                 <div>
                                     <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
                                         <span>PRF</span></strong><br />
-                                    <small>Online PRF</small>
+                                    <small>Online PRF submission</small>
                                     <asp:LinkButton ID="LinkButton15" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton15_Click">ENTER</asp:LinkButton>
+                                </div>
+                            </div>
+                        </asp:Panel>
+
+                        <asp:Panel ID="pnlEngrItinerary" Visible="false" runat="server" Width="250px">
+                            <div class="thumbnail">
+                                <asp:Image ID="Image15" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/6556026.png" runat="server" AlternateText="Project Photos" />
+                                <br />
+                                <div>
+                                    <strong style="font-size: large"><span class="glyphicon glyphicon-list-alt"></span>
+                                        <span>Engineer's Itinerary</span></strong><br />
+                                    <small>Online Itinerary</small>
+                                    <asp:LinkButton ID="LinkButton16" Font-Size="Large" runat="server" CssClass="form-control btn btn-danger btnstyle" OnClick="LinkButton16_Click">ENTER</asp:LinkButton>
                                 </div>
                             </div>
                         </asp:Panel>

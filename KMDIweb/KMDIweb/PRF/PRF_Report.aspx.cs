@@ -20,8 +20,10 @@ namespace KMDIweb.KMDIweb.PRF
             {
                 if (!IsPostBack)
                 {
+
                     getparameters();
                     Get_Address();
+
                 }
             }
             else
@@ -50,6 +52,70 @@ namespace KMDIweb.KMDIweb.PRF
             err.IsValid = false;
             err.ErrorMessage = message;
             Page.Validators.Add(err);
+        }
+        private string fullname
+        {
+            get
+            {
+                return Session["KMDI_fullname"].ToString();
+            }
+        }
+        private void SUAccess()
+        {
+            GViewStateValue();
+            SetPanelVisibility(pnlRequested, ViewState["requested_By"].ToString());
+            SetPanelVisibility(pnlNoted, ViewState["noted_By_Addressed"].ToString());
+            SetPanelVisibility(pnlReceived, ViewState["received_By_Addressed"].ToString());
+            SetPanelVisibility(pnlApproved, ViewState["approved_By_Addressed"].ToString());
+
+        }
+        private void SetPanelVisibility(Panel pnl, string vstate)
+        {
+            if (vstate == fullname)
+            {
+                pnl.Visible = true;
+                if (pnl == pnlRequested && ViewState["noted_By"].ToString() == "")
+                {
+                    pnlRecipient.Visible = true;
+                }
+            }
+            else
+            {
+                pnl.Visible = false;
+            }
+        }
+        private void GViewStateValue()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Select");
+                        sqlcmd.Parameters.AddWithValue("@Id", Request.QueryString["Id"].ToString());
+                        using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                ViewState["requested_By"] = rd[5].ToString();
+                                ViewState["requested_By_Date"] = rd[6].ToString();
+                                ViewState["noted_By"] = rd[7].ToString();
+                                ViewState["noted_By_Addressed"] = rd[13].ToString();
+                                ViewState["received_By_Addressed"] = rd[14].ToString();
+                                ViewState["approved_By_Addressed"] = rd[15].ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
         }
         protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
@@ -81,6 +147,7 @@ namespace KMDIweb.KMDIweb.PRF
             }
             ReportViewer1.LocalReport.DisplayName = controlId;
             ReportViewer1.LocalReport.Refresh();
+            SUAccess();
         }
         protected void btnBack_Click(object sender, EventArgs e)
         {
@@ -97,24 +164,8 @@ namespace KMDIweb.KMDIweb.PRF
                        "&PageIndex=" + Request.QueryString["PageIndex"].ToString() +
                        "&Id=" + controlId;
             }
-        }
-        protected void btnRequestedBy_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/KMDIweb/PRF/PRF_Sign.aspx" + AddQuerystring + "&PRF_Sign_Field=Requested_By");
-        }
-        protected void btnNotedBy_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/KMDIweb/PRF/PRF_Sign.aspx" + AddQuerystring + "&PRF_Sign_Field=Noted_By");
-        }
-        protected void btnReceivedBy_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/KMDIweb/PRF/PRF_Sign.aspx" + AddQuerystring + "&PRF_Sign_Field=Received_By");
-        }
-        protected void btnApprovedBy_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/KMDIweb/PRF/PRF_Sign.aspx" + AddQuerystring + "&PRF_Sign_Field=Approved_By");
-        }
-        private void UseUserSignature(string PRF_Sign_Field,string addressed)
+        } 
+        private void UseUserSignature(string PRF_Sign_Field, string addressed)
         {
             if (IsValid)
             {
@@ -131,15 +182,19 @@ namespace KMDIweb.KMDIweb.PRF
                 {
                     System.IO.Directory.CreateDirectory(Server.MapPath(sourcepath));
                 }
-
-                foreach (string strfilename in Directory.GetFiles(Server.MapPath(sourcepath)))
+                if (Directory.GetFiles(Server.MapPath(sourcepath)).Count() >= 1)
                 {
-                    FileInfo fileinfo = new FileInfo(strfilename);
-                    File.Copy(Server.MapPath(sourcepath + fileinfo.Name), Server.MapPath(filepath + PRF_Sign_Field + ".jpg"), true);
+                    foreach (string strfilename in Directory.GetFiles(Server.MapPath(sourcepath)))
+                    {
+                        FileInfo fileinfo = new FileInfo(strfilename);
+                        File.Copy(Server.MapPath(sourcepath + fileinfo.Name), Server.MapPath(filepath + PRF_Sign_Field + ".jpg"), true);
+                        updatetb(PRF_Sign_Field, addressed);
+                    }
                 }
-
-                updatetb(PRF_Sign_Field, addressed);
-
+                else
+                {
+                    errorrmessage("Unable to sign the form. Registered signature is required.");
+                }
             }
         }
         private void updatetb(string sign_field, string addressed)
@@ -181,17 +236,17 @@ namespace KMDIweb.KMDIweb.PRF
 
         protected void btnNotedByDefault_Click(object sender, EventArgs e)
         {
-            UseUserSignature("Noted_By", ddlAddressed.Text);
+            UseUserSignature("Noted_By", "");
         }
 
         protected void btnReceivedByDefault_Click(object sender, EventArgs e)
         {
-            UseUserSignature("Received_By", ddlAddressed.Text);
+            UseUserSignature("Received_By", "");
         }
 
         protected void btnApprovedByDefault_Click(object sender, EventArgs e)
         {
-            UseUserSignature("Approved_By","");
+            UseUserSignature("Approved_By", "");
         }
 
         private void Get_Address()
@@ -200,7 +255,7 @@ namespace KMDIweb.KMDIweb.PRF
             {
                 using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
                 {
-                    using(SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
                         sqlcon.Open();
                         sqlcmd.CommandText = "PRF_Stp";
@@ -217,6 +272,7 @@ namespace KMDIweb.KMDIweb.PRF
             {
                 errorrmessage(ex.ToString());
             }
+
         }
     }
 }

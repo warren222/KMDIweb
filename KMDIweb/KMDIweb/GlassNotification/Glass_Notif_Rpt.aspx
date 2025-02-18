@@ -6,6 +6,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Glass Notification</title>
+    <style>
+           .cssSign {
+            border: 1px solid #808080;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 4px;
+            background-color: whitesmoke;
+            width: 250px;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
@@ -41,12 +51,40 @@
                 </LocalReport>
             </rsweb:ReportViewer>
         </asp:Panel>
-        <div>
-            <asp:LinkButton ID="btnPreparedBy" CssClass="btn btn-primary" runat="server" OnClick="btnPreparedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;PREPARED BY</asp:LinkButton>
-            <asp:LinkButton ID="btnNotedByPM" CssClass="btn btn-primary" runat="server" OnClick="btnNotedByPM_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;NOTED BY</asp:LinkButton>
-            <asp:LinkButton ID="btnReceivedBy" CssClass="btn btn-primary" runat="server" OnClick="btnReceivedBy_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;RECEIVED BY</asp:LinkButton>
-            <asp:LinkButton ID="btnNotedByIM" CssClass="btn btn-primary" runat="server" OnClick="btnNotedByIM_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;NOTED BY</asp:LinkButton>
-        </div>
     </div>
-
+       <asp:UpdatePanel runat="server" ID="upnl1">
+            <ContentTemplate>
+                <asp:ValidationSummary ID="ValidationSummary1" CssClass="alert alert-danger" ValidationGroup="errorval" runat="server" />
+                <div style="height: auto; display: flex; flex-flow: row wrap; width: auto; padding: 2px; border-top: solid 5px #ff006e;">
+                    <asp:Panel ID="pnlPrepared" runat="server" CssClass="cssSign">
+                        <div>
+                            <span>PREPARED BY</span>
+                        </div>
+                        <asp:LinkButton ID="btnPreparedByDefault" Width="100%" ValidationGroup="errorval" CssClass="btn btn-success"
+                            runat="server" OnClick="btnPreparedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Sign</asp:LinkButton>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlNotedPM" runat="server" CssClass="cssSign">
+                          <div>
+                            <span>NOTED BY</span>
+                        </div>
+                        <asp:LinkButton ID="btnNotedByPMDefault" Width="100%" ValidationGroup="errorval" CssClass="btn btn-success"
+                            runat="server" OnClick="btnNotedByPMDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Sign</asp:LinkButton>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlReceived" runat="server" CssClass="cssSign">
+                          <div>
+                            <span>RECEIVED BY</span>
+                        </div>
+                        <asp:LinkButton ID="btnReceivedByDefault" Width="100%" ValidationGroup="errorval" CssClass="btn btn-success"
+                            runat="server" OnClick="btnReceivedByDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Sign</asp:LinkButton>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlNotedIM" runat="server" CssClass="cssSign">
+                          <div>
+                            <span>NOTED BY</span>
+                        </div>
+                        <asp:LinkButton ID="btnNotedByIMDefault" Width="100%" ValidationGroup="errorval" CssClass="btn btn-success"
+                            runat="server" OnClick="btnNotedByIMDefault_Click"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Sign</asp:LinkButton>
+                    </asp:Panel>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
 </asp:Content>

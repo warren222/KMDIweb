@@ -1,0 +1,200 @@
+﻿
+.wf_calendar {
+    border: none;
+    width: 100%;
+    white-space: normal;
+    /*font-family: Verdana, Geneva, Tahoma, sans-serif;*/
+    font-family: Bahnschrift;
+    font-size: small;
+    border-collapse: unset;
+    border-spacing: 10px;
+}
+
+    .wf_calendar td, .wf_calendar th {
+        padding: 5px;
+    
+        border-left: 0.5px solid #323232;
+        border-right: 0.5px solid #323232;
+        border-top: 0.5px solid #323232;
+        border-bottom: 0.5px solid #323232;
+     
+        background: rgba(0, 0, 0, 0.5);
+        /*background-color:transparent;*/
+        text-align: center;
+        text-wrap: normal;
+        vertical-align: text-top;
+    }
+
+    .wf_calendar tr:nth-child(odd) td {
+        /*background-color: #212020;*/
+    }
+
+    .wf_calendar th {
+        background-color: rgba(65,65,65,0.6);
+        border-right: 0.5px solid #323232;
+        border-left: 0.5px solid #323232;
+        border-top: none;
+        border-bottom: none;
+        font-weight: 100;
+        color: #b2adb1;
+        font-size: 18px;
+    }
+
+    .wf_calendar td {
+        color: whitesmoke;
+    }
+
+    .wf_calendar a {
+        color: whitesmoke;
+    }
+
+.wf_calendar_date {
+    font-size: 58px;
+    font-weight: 100;
+}
+
+.wf_calendar_content1 {
+    padding: 2px;
+    border-top: solid 5px yellow;
+    background-color: rgba(65,65,65,0.6);
+    height: 100%;
+}
+
+.wf_calendar_content2 {
+    padding: 2px;
+    border-top: solid 5px deeppink;
+    background-color: rgba(65,65,65,0.6);
+    height: 100%;
+}
+
+.wf_calendar_content3 {
+    padding: 2px;
+    border-top: solid 5px green;
+    background-color: rgba(65,65,65,0.6);
+    height: 100%;
+}
+
+.wf_calendar_content4 {
+    padding: 2px;
+    border-top: solid 5px orange;
+    background-color: rgba(65,65,65,0.6);
+    height: 100%;
+}
+
+.wf_calendar_content5 {
+    padding: 2px;
+    border-top: solid 5px deepskyblue;
+    background-color: rgba(65,65,65,0.6);
+    height: 100%;
+}
+
+.wf_calendar_content6 {
+    padding: 2px;
+    border-top: solid 5px purple;
+    background-color: rgba(65,65,65,0.6);
+    height: 100%;
+}
+
+.wf_calendar_content7 {
+    padding: 2px;
+    border-top: solid 5px red;
+    background-color: rgba(65,65,65,0.6);
+    height: 100%;
+}
+
+
+.wf_calendar_text_screen {
+    font-weight: 400;
+    color: pink;
+}
+
+.wf_calendar_text_no_cl {
+    color: red;
+    text-shadow: 0.5px 0.5px black;
+    font-weight: 400;
+    animation: wf_calendar_text_no_cl 2s infinite alternate;
+}
+
+.wf_selected_header {
+    text-align: left;
+    padding: 10px;
+    text-transform: capitalize;
+    width: 100%;
+    /*background-image: linear-gradient(215deg, transparent 65%, rgba(0, 0, 0, 0.6) 0%);*/
+    background-image: linear-gradient(215deg, transparent 50%, rgb(133, 13, 86) 90%);
+    color: whitesmoke;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*font-family: Bahnschrift;*/
+}
+
+
+
+.FontXXLarge {
+    font-size: xx-large;
+}
+
+.FontXLarge {
+    font-size: x-large;
+}
+
+.FontLarger {
+    font-size: larger;
+}
+
+.FontLarge {
+    font-size: large;
+}
+
+.FontMedium {
+    font-size: medium;
+}
+
+.FontSmall {
+    font-size: small;
+}
+
+.FontSmaller {
+    font-size: smaller;
+}
+
+.FontXSmall {
+    font-size: x-small;
+}
+
+.FontXXSmall {
+    font-size: xx-small;
+}
+
+@media screen and (max-width: 450px) {
+    .FontXXLarge {
+        font-size: x-large;
+    }
+
+    .FontXLarge {
+        font-size: large;
+    }
+
+    .FontLarger {
+        font-size: large;
+    }
+
+    .FontLarge {
+        font-size: medium;
+    }
+
+    .FontMedium {
+        font-size: small;
+    }
+
+    .FontSmall {
+        font-size: smaller;
+    }
+
+    .FontSmaller {
+        font-size: x-small;
+    }
+
+    .FontXSmall {
+        font-size: xx-small;
+    }
+}
