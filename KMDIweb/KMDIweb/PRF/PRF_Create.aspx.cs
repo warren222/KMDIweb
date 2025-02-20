@@ -252,5 +252,56 @@ namespace KMDIweb.KMDIweb.PRF
                 GetItem();
             }   
         }
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            Get_Inventory_Items();
+        }
+        private void Get_Inventory_Items()
+        {
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "PRF_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Get_Inventory_Items");
+                        sqlcmd.Parameters.AddWithValue("@Search", tboxSearch.Text);
+                        DataTable tb = new DataTable();
+                        tb.Clear();
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(tb);
+                            gvInventoryItem.DataSource = tb;
+                            gvInventoryItem.DataBind();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+        }
+        protected void gvInventoryItem_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+            if (e.CommandName == "execSelect")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvInventoryItem.Rows[rowindex];
+                tboxItemDescription.Text = ((Label)row.FindControl("lblItem_Description")).Text;
+                row.RowState = DataControlRowState.Selected;
+            }
+        }
+
+        protected void gvInventoryItem_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvInventoryItem.PageIndex = e.NewPageIndex;
+            Get_Inventory_Items();
+        }
     }
 }

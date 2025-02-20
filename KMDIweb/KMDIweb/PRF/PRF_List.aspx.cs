@@ -162,14 +162,48 @@ namespace KMDIweb.KMDIweb.PRF
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvList.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
-                DeleteItem(id);
+                string notedby = ((Label)row.FindControl("lblNoted_By")).Text;
+                string requestedby = ((Label)row.FindControl("lblRequested_By")).Text;
+                if (requestedby == fullname)
+                {
+                    if (notedby == "")
+                    {
+                        DeleteItem(id);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(Page, GetType(), "warning", "alert('WARNING: Sorry! Unable to delete signed request :(');", true);
+                    }
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(Page, GetType(), "warning", "alert('WARNING: Sorry! Unable to delete due to ownership issue :(');", true);
+                }
+
             }
             else if (e.CommandName == "execEdit")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvList.Rows[rowindex];
                 string id = ((Label)row.FindControl("lblId")).Text;
-                Response.Redirect("~/KMDIweb/PRF/PRF_Update.aspx?Id=" + id + AddQuerystring);
+                string notedby = ((Label)row.FindControl("lblNoted_By")).Text;
+                string requestedby = ((Label)row.FindControl("lblRequested_By")).Text;
+                if (requestedby == fullname)
+                {
+                    if (notedby == "")
+                    {
+                        Response.Redirect("~/KMDIweb/PRF/PRF_Update.aspx?Id=" + id + AddQuerystring);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(Page, GetType(), "warning", "alert('WARNING: Sorry! Unable to edit signed request :(');", true);
+                    }
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(Page, GetType(), "warning", "alert('WARNING: Sorry! Unable to edit due to ownership issue :(');", true);
+                }
+
             }
             else if (e.CommandName == "execReport")
             {

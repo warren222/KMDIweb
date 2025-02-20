@@ -14,6 +14,18 @@ namespace KMDIweb.KMDIweb.PRF
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["KMDI_userid"] != null)
+            {
+                if (!IsPostBack)
+                {
+
+
+                }
+            }
+            else
+            {
+                Response.Redirect("~/KMDIweb/Global/Login.aspx");
+            }
         }
         private string sqlconstr
         {

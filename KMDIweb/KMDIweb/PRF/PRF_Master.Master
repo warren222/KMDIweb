@@ -12,11 +12,12 @@
     <script src="../../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
     <link href="../Global/css/gridcss.css" rel="stylesheet" />
+    <link href="../Global/css/CalendarStyle.css" rel="stylesheet" />
     <link href="../Global/css/lightbox.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body  style="font-family:Bahnschrift">
+<body style="font-family: Bahnschrift">
     <form id="form1" runat="server">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -31,9 +32,10 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="">
-                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/KMDIweb/PRF/PRF_List.aspx">      
+                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/KMDIweb/PRF/PRF_List.aspx">
                                 <asp:Label ID="lblPRF" runat="server" CssClass="badge"></asp:Label>
-                                &nbsp;Home</asp:HyperLink></li>
+                                &nbsp;Home
+                            </asp:HyperLink></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>

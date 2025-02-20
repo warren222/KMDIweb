@@ -180,14 +180,14 @@
                                                     <div class="col-xs-3 nopm">
                                                         <asp:Image ID="Image1" Width="100" Height="60" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDI_FILES/WMS/PRF/" + Eval("Id").ToString() + "/Signatures/Requested_By.jpg" %>' />
                                                         <br />
-                                                        <span><%# Eval("Requested_By") %></span><br />
+                                                        <asp:Label ID="lblRequested_By" runat="server" Text='<%# Bind("Requested_By") %>'></asp:Label><br />
                                                         <span style="font-size: smaller"><%# Eval("Requested_By_Date") %></span><br />
                                                         <span class="text-muted">Requested by:</span>
                                                     </div>
                                                     <div class="col-xs-3 nopm">
                                                         <asp:Image ID="Image2" Width="100" Height="60" runat="server" AlternateText="no signature" ImageUrl='<%# "~/KMDI_FILES/WMS/PRF/" + Eval("Id").ToString() + "/Signatures/Noted_By.jpg" %>' />
                                                         <br />
-                                                        <span><%# Eval("Noted_By") %></span><br />
+                                                        <asp:Label ID="lblNoted_By" runat="server" Text='<%# Bind("Noted_By") %>'></asp:Label><br />
                                                         <span style="font-size: smaller"><%# Eval("Noted_By_Date") %></span><br />
                                                         <span class="text-muted">Noted by:</span>
                                                     </div>
