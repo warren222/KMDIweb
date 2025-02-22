@@ -104,7 +104,7 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Address">
                                                 <ItemTemplate>
-                                                    <span><%# Eval("Address") %></span>
+                                                    <asp:Label ID="lblAddressII" runat="server" Text='<%# Bind("Address") %>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                         </Columns>
@@ -136,14 +136,20 @@
                                     <div class="col-sm-6">
                                         <span>Project</span>
                                         <asp:TextBox ID="tboxIIProject" runat="server" CssClass="form-control"></asp:TextBox>
-                                        <span>Appt. Time</span>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="tboxIIApptTime"
-                                            ValidationGroup="valInputII" runat="server" ErrorMessage="Appt. time is required!" ForeColor="Red"><span class="glyphicon glyphicon-certificate"></span></asp:RequiredFieldValidator>
-                                        <asp:TextBox ID="tboxIIApptTime" runat="server" ValidationGroup="valInputII" CssClass="form-control" TextMode="Time" format="hh:mm"></asp:TextBox>
+                                        <span>Address</span>
+                                        <asp:TextBox ID="tboxIIAddress" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <div class="row nopm">
+                                            <div class="col-xs-6 nopm">
+                                                <span>Appt. Time</span>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="tboxIIApptTime"
+                                                    ValidationGroup="valInputII" runat="server" ErrorMessage="Appt. time is required!" ForeColor="Red"><span class="glyphicon glyphicon-certificate"></span></asp:RequiredFieldValidator>
+                                                <asp:TextBox ID="tboxIIApptTime" runat="server" ValidationGroup="valInputII" CssClass="form-control" TextMode="Time" format="hh:mm"></asp:TextBox>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <span>Concern</span>
-                                        <asp:TextBox ID="tboxIIConcern" runat="server" TextMode="MultiLine" Rows="2" CssClass="form-control"></asp:TextBox><br />
+                                        <asp:TextBox ID="tboxIIConcern" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control"></asp:TextBox><br />
                                         <div class="text-right">
                                             <asp:LinkButton ID="btnIIAdd" Style="border-radius: 0;" ValidationGroup="valInputII" CssClass="btn btn-success" runat="server" OnClick="btnIIAdd_Click">Add</asp:LinkButton>
                                             <asp:LinkButton ID="btnIIUpdate" Visible="false" Style="border-radius: 0;" ValidationGroup="valInputII" CssClass="btn btn-success" runat="server" OnClick="btnIIUpdate_Click">Update</asp:LinkButton>
@@ -173,8 +179,9 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Project">
                                             <ItemTemplate>
-                                                <div style="min-width: 200px; white-space: normal;">
-                                                    <asp:Label ID="lblIIProject" runat="server" Text='<%# Bind("PROJECT") %>'></asp:Label>
+                                                <div style="min-width: 200px; white-space: normal; line-height: 12px; padding: 5px;">
+                                                    <asp:LinkButton ID="lblIIProject" runat="server" OnClientClick="return confirm('Add to daily report?')" CommandName="execAddDailyReport" ForeColor="Black" Text='<%# Bind("PROJECT") %>'></asp:LinkButton><br />
+                                                    <asp:Label ID="lblIIAddress" CssClass="FontSmall" runat="server" Text='<%# Bind("ADDRESS") %>'></asp:Label>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -266,7 +273,7 @@
 
                             <div class="well well-sm">
                                 <span class="FontMedium" style="font-weight: bold">
-                                    <asp:Label ID="lblDRFormLabel" runat="server"></asp:Label></span><br />
+                                    <asp:Label ID="lblDRFormLabel" runat="server" Text="Input Form"></asp:Label></span><br />
                                 <br />
                                 <div class="row">
                                     <div class="col-sm-6">

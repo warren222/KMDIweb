@@ -179,7 +179,7 @@
                 </div>
                 <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                     <ContentTemplate>
-                        <asp:GridView ID="gvItems" Width="100%" CssClass="tblLocal" runat="server" AutoGenerateColumns="false" OnRowCommand="gvItems_RowCommand">
+                        <asp:GridView ID="gvItems" Width="100%" CssClass="tblLocal FontMedium" runat="server" AutoGenerateColumns="false" OnRowCommand="gvItems_RowCommand">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
