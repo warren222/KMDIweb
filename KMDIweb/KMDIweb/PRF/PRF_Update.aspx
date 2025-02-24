@@ -11,6 +11,7 @@
         }
 
         .tblLocal {
+            width: 100%;
             font-family: Calibri;
             white-space: nowrap;
             white-space: nowrap;
@@ -25,7 +26,7 @@
 
 <asp:Content ID="content2" ContentPlaceHolderID="content" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div style="background-color: aliceblue">
+    <div style="">
         <div class="well" style="background-color: #303030; border-bottom: solid 5px #ff006e; padding-left: 10px; color: white; font-family: Calibri;">
             <div class="container">
                 <h3>Edit PRF</h3>
@@ -42,108 +43,171 @@
         </asp:UpdatePanel>
 
         <div class="container">
-        
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <span>Editing record</span>
-                    </div>
-                    <div>
-                        <asp:GridView ID="gvControlNo" runat="server" AutoGenerateColumns="false" GridLines="None" ShowHeader="false" Width="100%" AllowPaging="True" PageSize="1">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <span>Editing record</span>
+                </div>
+                <div>
+                    <asp:GridView ID="gvControlNo" runat="server" AutoGenerateColumns="false" GridLines="None" ShowHeader="false" Width="100%" AllowPaging="True" PageSize="1">
+                        <Columns>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <div class="text-center">
+                                        <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
+                                        <div class="text-left">
+                                            <span style="font-size: xx-large"><%# Eval("Control_No") %></span>
+                                            <span class="pull-right text-right">
+                                                <span style="font-size: small"><%# Eval("Date_Inputted") %></span><br />
+                                                <span style="font-size: small"><%# Eval("Requested_By") %></span>
+                                            </span>
+                                            <br />
+                                            <span style="font-size: large"><%# Eval("Due_Date") %></span>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
+
+
+            <asp:Panel runat="server" ID="pnlPRFInput">
+                <div>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <div class="row nopm">
+                                <div class="col-sm-8 nopm"></div>
+                                <div class="col-sm-4 nopm">
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tboxSearch" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <div class="input-group-btn">
+                                            <asp:LinkButton runat="server" ID="btnSearch" Style="background-color: #ff006e; border-color: #ff006e" CssClass="btn btn-primary" OnClick="btnSearch_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div style="overflow-x: auto">
+                                <asp:GridView runat="server" ID="gvInventoryItem" AutoGenerateColumns="false" AllowPaging="true" CssClass="tblLocal FontMedium"
+                                    OnRowCommand="gvInventoryItem_RowCommand" OnPageIndexChanging="gvInventoryItem_PageIndexChanging" PageSize="8">
+                                    <Columns>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="btnSelectItem" runat="server" CommandName="execSelect">Select</asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="IITEM DESCRIPTION">
+                                            <ItemTemplate>
+                                                <asp:Label runat="server" ID="lblItem_Description" Text='<%# Bind("Item_Description") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="ARTICLE NO.">
+                                            <ItemTemplate>
+                                                <span><%# Eval("Articleno") %></span>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <EmptyDataTemplate>
+                                        <div class="">
+                                            <h3><strong>Sorry! No result found :(</strong>
+                                            </h3>
+                                        </div>
+                                    </EmptyDataTemplate>
+                                    <PagerSettings PageButtonCount="8" Position="Bottom" />
+                                    <PagerStyle CssClass="GridPager" BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                                    <RowStyle ForeColor="#000066" />
+                                    <SelectedRowStyle BackColor="#303030" Font-Bold="True" ForeColor="White" />
+                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                    <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                    <SortedDescendingHeaderStyle BackColor="#00547E" />
+                                </asp:GridView>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                <br />
+                <div class="well" style="margin-bottom: 0; padding-left: 0; padding-right: 0;">
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                        <ContentTemplate>
+                            <h4>Purchase Request Form</h4>
+                            <div class="row nopm">
+                                <div class="col-sm-4 nopm">
+                                    <span>Item Description</span>
+                                    <asp:TextBox ID="tboxItemDescription" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-2 nopm">
+                                    <span>Quantity</span>
+                                    <asp:TextBox ID="tboxQuantity" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-2 nopm">
+                                    <span>Account</span>
+                                    <asp:TextBox ID="tboxAccount" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-4 nopm">
+                                    <span>Remarks</span>
+                                    <asp:TextBox ID="tboxRemarks" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                            <asp:LinkButton runat="server" ID="btnProceed" Width="100%" CssClass="btn btn-success" Style="border-radius: 0px;" OnClick="btnProceed_Click">
+                                      <span class="glyphicon glyphicon-chevron-down"></span> Add</asp:LinkButton>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                <div style="background-color: #b0e9ff; color: black; padding: 5px;">
+                    <span>Request List</span>
+                </div>
+                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                    <ContentTemplate>
+                        <asp:GridView ID="gvItems" Width="100%" CssClass="tblLocal FontMedium" runat="server" AutoGenerateColumns="false" OnRowCommand="gvItems_RowCommand">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
+                                        <asp:LinkButton runat="server" ID="btnDelete" CommandName="execDelete" OnClientClick="return confirm('delete this item?')">Delete</asp:LinkButton>
+                                        <asp:LinkButton runat="server" ID="btnEdit" CommandName="execEdit">Edit</asp:LinkButton>
+                                        <asp:LinkButton runat="server" ID="btnSave" Visible="false" CommandName="execSave">Save</asp:LinkButton>
+                                        <asp:LinkButton runat="server" ID="btnCancel" Visible="false" CommandName="execCancel">Cancel</asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Description">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblItemId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
+                                        <div>
+                                            <asp:TextBox ID="tboxItemDescriptionEdit" Visible="false" Text='<%# Bind("Item_Description") %>' runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:Label ID="lblItemDescription" runat="server" Text='<%# Bind("Item_Description") %>'></asp:Label>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Quantity">
+                                    <ItemTemplate>
                                         <div class="text-center">
-                                            <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
-                                            <div class="text-left">
-                                                <span style="font-size: xx-large"><%# Eval("Control_No") %></span>
-                                                <span class="pull-right text-right">
-                                                    <span style="font-size: small"><%# Eval("Date_Inputted") %></span><br />
-                                                    <span style="font-size: small"><%# Eval("Requested_By") %></span>
-                                                </span>
-                                                <br />
-                                                <span style="font-size: large"><%# Eval("Due_Date") %></span>
-                                            </div>
+                                            <asp:TextBox ID="tboxQuantityEdit" runat="server" Visible="false" Text='<%# Bind("Qty") %>' TextMode="Number" CssClass="form-control"></asp:TextBox>
+                                            <asp:Label ID="lblQuantity" runat="server" Text='<%# Bind("Qty") %>'></asp:Label>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Account">
+                                    <ItemTemplate>
+                                        <div class="text-center">
+                                            <asp:TextBox ID="tboxAccountEdit" Visible="false" Text='<%# Bind("Account") %>' runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:Label ID="lblAccount" runat="server" Text='<%# Bind("Account") %>'></asp:Label>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Remarks">
+                                    <ItemTemplate>
+                                        <div>
+                                            <asp:TextBox ID="tboxRemarksEdit" Visible="false" Text='<%# Bind("Remarks") %>' runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:Label ID="lblRemarks" runat="server" Text='<%# Bind("Remarks") %>'></asp:Label>
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
-                    </div>
-                </div>
-          
-
-            <asp:Panel runat="server" ID="pnlPRFInput">
-                <div class="well" style="margin-bottom: 0; padding-left: 0; padding-right: 0;">
-                    <h4>Purchase Request Form</h4>
-                    <div class="row nopm">
-                        <div class="col-sm-4 nopm">
-                            <span>Item Description</span>
-                            <asp:TextBox ID="tboxItemDescription" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                        <div class="col-sm-2 nopm">
-                            <span>Quantity</span>
-                            <asp:TextBox ID="tboxQuantity" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
-                        </div>
-                        <div class="col-sm-2 nopm">
-                            <span>Account</span>
-                            <asp:TextBox ID="tboxAccount" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                        <div class="col-sm-4 nopm">
-                            <span>Remarks</span>
-                            <asp:TextBox ID="tboxRemarks" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                    </div>
-                    <asp:LinkButton runat="server" ID="btnProceed" Width="100%" CssClass="btn btn-success" Style="border-radius: 0px;" OnClick="btnProceed_Click">
-                <span class="glyphicon glyphicon-chevron-down"></span> Add</asp:LinkButton>
-                </div>
-                <div style="background-color: #b0e9ff; color: black; padding: 5px;">
-                    <span>Request List</span>
-                </div>
-                <asp:GridView ID="gvItems" Width="100%" CssClass="tblLocal" runat="server" AutoGenerateColumns="false" OnRowCommand="gvItems_RowCommand">
-                    <Columns>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:LinkButton runat="server" ID="btnDelete" CommandName="execDelete" OnClientClick="return confirm('delete this item?')">Delete</asp:LinkButton>
-                                <asp:LinkButton runat="server" ID="btnEdit" CommandName="execEdit">Edit</asp:LinkButton>
-                                <asp:LinkButton runat="server" ID="btnSave" Visible="false" CommandName="execSave">Save</asp:LinkButton>
-                                <asp:LinkButton runat="server" ID="btnCancel" Visible="false" CommandName="execCancel">Cancel</asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Description">
-                            <ItemTemplate>
-                                <asp:Label ID="lblItemId" runat="server" Visible="false" Text='<%# Bind("Id") %>'></asp:Label>
-                                <div>
-                                    <asp:TextBox ID="tboxItemDescriptionEdit" Visible="false" Text='<%# Bind("Item_Description") %>' runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Label ID="lblItemDescription" runat="server" Text='<%# Bind("Item_Description") %>'></asp:Label>
-                                </div>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Quantity">
-                            <ItemTemplate>
-                                <div class="text-center">
-                                    <asp:TextBox ID="tboxQuantityEdit" runat="server" Visible="false" Text='<%# Bind("Qty") %>' TextMode="Number" CssClass="form-control"></asp:TextBox>
-                                    <asp:Label ID="lblQuantity" runat="server" Text='<%# Bind("Qty") %>'></asp:Label>
-                                </div>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Account">
-                            <ItemTemplate>
-                                <div class="text-center">
-                                    <asp:TextBox ID="tboxAccountEdit" Visible="false" Text='<%# Bind("Account") %>' runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Label ID="lblAccount" runat="server" Text='<%# Bind("Account") %>'></asp:Label>
-                                </div>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Remarks">
-                            <ItemTemplate>
-                                <div>
-                                    <asp:TextBox ID="tboxRemarksEdit" Visible="false" Text='<%# Bind("Remarks") %>' runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Label ID="lblRemarks" runat="server" Text='<%# Bind("Remarks") %>'></asp:Label>
-                                </div>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </asp:Panel>
         </div>
     </div>

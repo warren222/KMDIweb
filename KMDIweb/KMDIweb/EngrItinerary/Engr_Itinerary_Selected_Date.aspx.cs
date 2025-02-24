@@ -133,6 +133,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                                      string engr,
                                      string idate,
                                      string project,
+                                     string address,
                                      string appttime,
                                      string concern)
         {
@@ -150,6 +151,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                         sqlcmd.Parameters.AddWithValue("@ENGR", engr);
                         sqlcmd.Parameters.AddWithValue("@IDATE", idate);
                         sqlcmd.Parameters.AddWithValue("@PROJECT", project);
+                        sqlcmd.Parameters.AddWithValue("@ADDRESS", address);
                         sqlcmd.Parameters.AddWithValue("@APPTTIME", appttime);
                         sqlcmd.Parameters.AddWithValue("@CONCERN", concern);
                         sqlcmd.ExecuteNonQuery();
@@ -233,8 +235,8 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 ViewState["DRId"] = ((Label)row.FindControl("lblDRId")).Text;
                 tboxDRProject.Text = ((Label)row.FindControl("lblDRProject")).Text;
                 tboxDRAddress.Text = ((Label)row.FindControl("lblDRAddress")).Text;
-                tboxDRArrival.Text = Convert.ToDateTime(((Label)row.FindControl("lblDRArrival")).Text).ToString("HH:mm");
-                tboxDRDepart.Text = Convert.ToDateTime(((Label)row.FindControl("lblDRDepart")).Text).ToString("HH:mm");
+                tboxDRArrival.Text = (((Label)row.FindControl("lblDRArrival")).Text == "" ? "" : Convert.ToDateTime(((Label)row.FindControl("lblDRArrival")).Text).ToString("HH:mm"));
+                tboxDRDepart.Text = (((Label)row.FindControl("lblDRDepart")).Text == "" ? "" : Convert.ToDateTime(((Label)row.FindControl("lblDRDepart")).Text).ToString("HH:mm"));
                 tboxDRRemarks.Text = ((Label)row.FindControl("lblDRRemarks")).Text;
                 UpdateCancel_Mode_DR(false, true, "Update Form", Color.Red);
             }
@@ -248,17 +250,27 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvInstItinerary.Rows[rowindex];
                 string autonum = ((Label)row.FindControl("lblIIId")).Text;
-                ExecuteQuery_II("Delete", autonum, "", "", "", "", "");
+                ExecuteQuery_II("Delete", autonum, "", "", "", "", "", "");
             }
             else if (e.CommandName == "execEdit")
             {
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvInstItinerary.Rows[rowindex];
                 ViewState["IIId"] = ((Label)row.FindControl("lblIIId")).Text;
-                tboxIIProject.Text = ((Label)row.FindControl("lblIIProject")).Text;
+                tboxIIProject.Text = ((LinkButton)row.FindControl("lblIIProject")).Text;
+                tboxIIAddress.Text = ((Label)row.FindControl("lblIIAddress")).Text;
                 tboxIIApptTime.Text = Convert.ToDateTime(((Label)row.FindControl("lblIIApptTime")).Text).ToString("HH:mm");
                 tboxIIConcern.Text = ((Label)row.FindControl("lblIIConcern")).Text;
                 UpdateCancel_Mode_II(false, true, "Update Form", Color.Red);
+            }
+            else if (e.CommandName == "execAddDailyReport")
+            {
+                int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                GridViewRow row = gvInstItinerary.Rows[rowindex];
+                string project = ((LinkButton)row.FindControl("lblIIProject")).Text;
+                string address = ((Label)row.FindControl("lblIIAddress")).Text;
+                string concern = ((Label)row.FindControl("lblIIConcern")).Text;
+                ExecuteQuery_DR("Insert", "", nickname, SelectedDate, project, address, "", "", concern);
             }
         }
 
@@ -306,6 +318,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 int rowindex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 GridViewRow row = gvIIProject.Rows[rowindex];
                 tboxIIProject.Text = ((Label)row.FindControl("lblProjectII")).Text;
+                tboxIIAddress.Text = ((Label)row.FindControl("lblAddressII")).Text;
                 row.RowState = DataControlRowState.Selected;
             }
         }
@@ -357,12 +370,51 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                             nickname,
                             SelectedDate,
                             tboxIIProject.Text,
+                            tboxIIAddress.Text,
                             tboxIIApptTime.Text,
                             tboxIIConcern.Text);
         }
+        private int IsPass()
+        {
+            int x = 0;
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = "INSTITINERARY_Stp";
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", "Check_Input");
+                        sqlcmd.Parameters.AddWithValue("@ENGR", nickname);
+                        sqlcmd.Parameters.AddWithValue("@IDATE", SelectedDate);
+                        using (SqlDataReader rd = sqlcmd.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                x = Convert.ToInt32(rd[0].ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            return x;
+        }
         protected void btnDRAdd_Click(object sender, EventArgs e)
         {
-            ExecuteQuery_DR_InitializeValues("Insert", "");
+           if(IsPass() > 0)
+            {
+                ExecuteQuery_DR_InitializeValues("Insert", "");
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(Page, GetType(), "warning", @"alert('WARNING: Sorry! Please add Installation Engineer`s Itinerary first :(');", true);
+            }
         }
         protected void btnDRUpdate_Click(object sender, EventArgs e)
         {
@@ -386,7 +438,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
         {
             UpdateCancel_Mode_II(true, false, "Input Form", Color.Black);
         }
-      
+
         protected void btnDRCancel_Click(object sender, EventArgs e)
         {
             UpdateCancel_Mode_DR(true, false, "Input Form", Color.Black);
@@ -419,6 +471,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
             if (tr)
             {
                 tboxIIProject.Text = "";
+                tboxIIAddress.Text = "";
                 tboxIIApptTime.Text = "";
                 tboxIIConcern.Text = "";
             }

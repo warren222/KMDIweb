@@ -4944,6 +4944,12 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             private global::System.Data.DataColumn columnApproved_By_Date;
             
+            private global::System.Data.DataColumn columnNoted_By_Addressed;
+            
+            private global::System.Data.DataColumn columnReceived_By_Addressed;
+            
+            private global::System.Data.DataColumn columnApproved_By_Addressed;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PRF_TblDataTable() {
@@ -5075,6 +5081,30 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Noted_By_AddressedColumn {
+                get {
+                    return this.columnNoted_By_Addressed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Received_By_AddressedColumn {
+                get {
+                    return this.columnReceived_By_Addressed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Approved_By_AddressedColumn {
+                get {
+                    return this.columnApproved_By_Addressed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5110,7 +5140,7 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PRF_TblRow AddPRF_TblRow(string Id, string Date_Inputted, string Due_Date, string Department, string Requested_By, string Requested_By_Date, string Noted_By, string Noted_By_Date, string Received_By, string Received_By_Date, string Approved_By, string Approved_By_Date) {
+            public PRF_TblRow AddPRF_TblRow(string Id, string Date_Inputted, string Due_Date, string Department, string Requested_By, string Requested_By_Date, string Noted_By, string Noted_By_Date, string Received_By, string Received_By_Date, string Approved_By, string Approved_By_Date, string Noted_By_Addressed, string Received_By_Addressed, string Approved_By_Addressed) {
                 PRF_TblRow rowPRF_TblRow = ((PRF_TblRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -5124,7 +5154,10 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                         Received_By,
                         Received_By_Date,
                         Approved_By,
-                        Approved_By_Date};
+                        Approved_By_Date,
+                        Noted_By_Addressed,
+                        Received_By_Addressed,
+                        Approved_By_Addressed};
                 rowPRF_TblRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPRF_TblRow);
                 return rowPRF_TblRow;
@@ -5159,6 +5192,9 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 this.columnReceived_By_Date = base.Columns["Received_By_Date"];
                 this.columnApproved_By = base.Columns["Approved_By"];
                 this.columnApproved_By_Date = base.Columns["Approved_By_Date"];
+                this.columnNoted_By_Addressed = base.Columns["Noted_By_Addressed"];
+                this.columnReceived_By_Addressed = base.Columns["Received_By_Addressed"];
+                this.columnApproved_By_Addressed = base.Columns["Approved_By_Addressed"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5188,6 +5224,12 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
                 base.Columns.Add(this.columnApproved_By);
                 this.columnApproved_By_Date = new global::System.Data.DataColumn("Approved_By_Date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnApproved_By_Date);
+                this.columnNoted_By_Addressed = new global::System.Data.DataColumn("Noted_By_Addressed", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNoted_By_Addressed);
+                this.columnReceived_By_Addressed = new global::System.Data.DataColumn("Received_By_Addressed", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReceived_By_Addressed);
+                this.columnApproved_By_Addressed = new global::System.Data.DataColumn("Approved_By_Addressed", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApproved_By_Addressed);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10008,6 +10050,54 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Noted_By_Addressed {
+                get {
+                    try {
+                        return ((string)(this[this.tablePRF_Tbl.Noted_By_AddressedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Noted_By_Addressed\' in table \'PRF_Tbl\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePRF_Tbl.Noted_By_AddressedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Received_By_Addressed {
+                get {
+                    try {
+                        return ((string)(this[this.tablePRF_Tbl.Received_By_AddressedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Received_By_Addressed\' in table \'PRF_Tbl\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePRF_Tbl.Received_By_AddressedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Approved_By_Addressed {
+                get {
+                    try {
+                        return ((string)(this[this.tablePRF_Tbl.Approved_By_AddressedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Approved_By_Addressed\' in table \'PRF_Tbl\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePRF_Tbl.Approved_By_AddressedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsIdNull() {
                 return this.IsNull(this.tablePRF_Tbl.IdColumn);
             }
@@ -10148,6 +10238,42 @@ namespace KMDIweb.KMDIweb.Global.DataSetFiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetApproved_By_DateNull() {
                 this[this.tablePRF_Tbl.Approved_By_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNoted_By_AddressedNull() {
+                return this.IsNull(this.tablePRF_Tbl.Noted_By_AddressedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNoted_By_AddressedNull() {
+                this[this.tablePRF_Tbl.Noted_By_AddressedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsReceived_By_AddressedNull() {
+                return this.IsNull(this.tablePRF_Tbl.Received_By_AddressedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetReceived_By_AddressedNull() {
+                this[this.tablePRF_Tbl.Received_By_AddressedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsApproved_By_AddressedNull() {
+                return this.IsNull(this.tablePRF_Tbl.Approved_By_AddressedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetApproved_By_AddressedNull() {
+                this[this.tablePRF_Tbl.Approved_By_AddressedColumn] = global::System.Convert.DBNull;
             }
         }
         

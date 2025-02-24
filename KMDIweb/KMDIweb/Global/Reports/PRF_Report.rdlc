@@ -65,10 +65,22 @@
           <DataField>Approved_By_Date</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Noted_By_Addressed">
+          <DataField>Noted_By_Addressed</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Received_By_Addressed">
+          <DataField>Received_By_Addressed</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Approved_By_Addressed">
+          <DataField>Approved_By_Addressed</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportDS</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Warren\Documents\MyApplications\KMDIweb\KMDIweb\KMDIweb\Global\DataSetFiles\reportDS.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\MyApplications\KMDIweb\KMDIweb\KMDIweb\Global\DataSetFiles\reportDS.xsd</rd:SchemaPath>
         <rd:TableName>PRF_Tbl</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -771,7 +783,9 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!Approved_By.Value, "DataSet1") + System.Environment.NewLine + First(Fields!Approved_By_Date.Value, "DataSet1") + System.Environment.NewLine + "Approved by:"</Value>
+                          <Value>=iif(First(Fields!Approved_By.Value, "DataSet1").ToString() = "",
+First(Fields!Approved_By_Addressed.Value, "DataSet1"),
+First(Fields!Approved_By.Value, "DataSet1")) + System.Environment.NewLine + First(Fields!Approved_By_Date.Value, "DataSet1") + System.Environment.NewLine + "Approved by:"</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
                           </Style>
@@ -831,7 +845,9 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!Received_By.Value, "DataSet1") + System.Environment.NewLine + First(Fields!Received_By_Date.Value, "DataSet1") + System.Environment.NewLine + "Received by:"</Value>
+                          <Value>=iif(First(Fields!Received_By.Value, "DataSet1").ToString() = "",
+First(Fields!Received_By_Addressed.Value, "DataSet1"),
+First(Fields!Received_By.Value, "DataSet1")) + System.Environment.NewLine + First(Fields!Received_By_Date.Value, "DataSet1") + System.Environment.NewLine + "Received by:"</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
                           </Style>
@@ -892,7 +908,9 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!Noted_By.Value, "DataSet1") + System.Environment.NewLine + First(Fields!Noted_By_Date.Value, "DataSet1") + System.Environment.NewLine + "Noted by:"</Value>
+                          <Value>=iif(First(Fields!Noted_By.Value, "DataSet1").ToString() = "",
+First(Fields!Noted_By_Addressed.Value, "DataSet1"),
+First(Fields!Noted_By.Value, "DataSet1")) + System.Environment.NewLine + First(Fields!Noted_By_Date.Value, "DataSet1") + System.Environment.NewLine + "Noted by:"</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
                           </Style>

@@ -68,6 +68,21 @@ namespace KMDIweb.KMDIweb.PRF
             SetPanelVisibility(pnlReceived, ViewState["received_By_Addressed"].ToString());
             SetPanelVisibility(pnlApproved, ViewState["approved_By_Addressed"].ToString());
 
+            if (ViewState["noted_By"].ToString() != "")
+            {
+                pnlRequested.Visible = false;
+            }
+            if (ViewState["received_By"].ToString() != "")
+            {
+                pnlRequested.Visible = false;
+                pnlNoted.Visible = false;
+            }
+            if (ViewState["approved_By"].ToString() != "")
+            {
+                pnlRequested.Visible = false;
+                pnlNoted.Visible = false;
+                pnlReceived.Visible = false;
+            }
         }
         private void SetPanelVisibility(Panel pnl, string vstate)
         {
@@ -104,6 +119,8 @@ namespace KMDIweb.KMDIweb.PRF
                                 ViewState["requested_By"] = rd[5].ToString();
                                 ViewState["requested_By_Date"] = rd[6].ToString();
                                 ViewState["noted_By"] = rd[7].ToString();
+                                ViewState["received_By"] = rd[9].ToString();
+                                ViewState["approved_By"] = rd[11].ToString();
                                 ViewState["noted_By_Addressed"] = rd[13].ToString();
                                 ViewState["received_By_Addressed"] = rd[14].ToString();
                                 ViewState["approved_By_Addressed"] = rd[15].ToString();
@@ -164,7 +181,7 @@ namespace KMDIweb.KMDIweb.PRF
                        "&PageIndex=" + Request.QueryString["PageIndex"].ToString() +
                        "&Id=" + controlId;
             }
-        } 
+        }
         private void UseUserSignature(string PRF_Sign_Field, string addressed)
         {
             if (IsValid)
