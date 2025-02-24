@@ -49,18 +49,18 @@ namespace KMDIweb.KMDIweb.PRF
                 return Session["KMDI_fullname"].ToString();
             }
         }
-        private string sqlconstr
+        private string sqlconstrInventory
         {
             get
             {
-                return ConnectionString.sqlconstr();
+                return ConnectionString.sqlconstrInventory();
             }
         }
         private void Get_Data()
         {
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
@@ -99,7 +99,7 @@ namespace KMDIweb.KMDIweb.PRF
         {
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
@@ -217,7 +217,7 @@ namespace KMDIweb.KMDIweb.PRF
         {
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {

@@ -1091,6 +1091,12 @@
     <Compile Include="KMDIweb\Production\SD\SD_Viewer.aspx.designer.cs">
       <DependentUpon>SD_Viewer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KMDIweb\PurchaseOrder\Purchase_OrderMaster.Master.cs">
+      <DependentUpon>Purchase_OrderMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="KMDIweb\PurchaseOrder\Purchase_OrderMaster.Master.designer.cs">
+      <DependentUpon>Purchase_OrderMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="KMDIweb\SessionVariables\MyQueryString.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FileModel.cs" />
@@ -1302,6 +1308,7 @@
     <Content Include="KMDIweb\Installation\InstallationMaster.Master" />
     <Content Include="KMDIweb\PO\PO.Master" />
     <Content Include="KMDIweb\PRF\PRF_Master.Master" />
+    <Content Include="KMDIweb\PurchaseOrder\Purchase_OrderMaster.Master" />
     <None Include="Properties\PublishProfiles\IISpub.pubxml" />
     <Content Include="KMDIweb\Production\FrameSchedule\FrameScheduleMaster.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

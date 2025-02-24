@@ -34,11 +34,11 @@ namespace KMDIweb.KMDIweb.PRF
                 return Request.QueryString["Id"].ToString();
             }
         }
-        private string sqlconstr
+        private string sqlconstrInventory
         {
             get
             {
-                return ConnectionString.sqlconstr();
+                return ConnectionString.sqlconstrInventory();
             }
         }
         private void errorrmessage(string message)
@@ -62,14 +62,14 @@ namespace KMDIweb.KMDIweb.PRF
                        "&DateFilter=" + Request.QueryString["DateFilter"].ToString() +
                        "&Date=" + Request.QueryString["Date"].ToString() +
                        "&ForSignature=" + Request.QueryString["ForSignature"].ToString() +
-                    "&PageIndex=" + Request.QueryString["PageIndex"].ToString();
+                       "&PageIndex=" + Request.QueryString["PageIndex"].ToString();
             }
         }
         private void GetControlNumber(string controlNumber)
         {
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
@@ -99,7 +99,7 @@ namespace KMDIweb.KMDIweb.PRF
         {
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
@@ -129,7 +129,7 @@ namespace KMDIweb.KMDIweb.PRF
         {
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
@@ -217,7 +217,7 @@ namespace KMDIweb.KMDIweb.PRF
         {
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
@@ -243,7 +243,7 @@ namespace KMDIweb.KMDIweb.PRF
         {
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
@@ -282,7 +282,7 @@ namespace KMDIweb.KMDIweb.PRF
         {
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {

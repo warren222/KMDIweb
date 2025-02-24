@@ -21,7 +21,7 @@ namespace KMDIweb.KMDIweb.PRF
                 if (!IsPostBack)
                 {
 
-                    getparameters();
+                    getparameters(reportDataTable("Select", "PRF_Stp"), reportDataTable("Select", "PRF_Item_Stp"));
                     Get_Address();
 
                 }
@@ -31,11 +31,11 @@ namespace KMDIweb.KMDIweb.PRF
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
             }
         }
-        private string sqlconstr
+        private string sqlconstrInventory
         {
             get
             {
-                return ConnectionString.sqlconstr();
+                return ConnectionString.sqlconstrInventory();
             }
         }
         string controlId
@@ -103,7 +103,7 @@ namespace KMDIweb.KMDIweb.PRF
         {
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
@@ -134,20 +134,57 @@ namespace KMDIweb.KMDIweb.PRF
                 errorrmessage(ex.ToString());
             }
         }
-        protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        private DataTable reportDataTable(string command, string commandtext)
         {
-            e.Command.CommandTimeout = 32000;
+            DataTable dt = new DataTable();
+            dt.Clear();
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
+                {
+                    using (SqlCommand sqlcmd = sqlcon.CreateCommand())
+                    {
+                        sqlcon.Open();
+                        sqlcmd.CommandText = commandtext;
+                        sqlcmd.CommandType = CommandType.StoredProcedure;
+                        sqlcmd.Parameters.AddWithValue("@Command", command);
+                        if (commandtext == "PRF_Stp")
+                        {
+                            sqlcmd.Parameters.AddWithValue("@Id", Request.QueryString["Id"].ToString());
+                        }
+                        else
+                        {
+                            sqlcmd.Parameters.AddWithValue("@PRF_Id", Request.QueryString["Id"].ToString());
+                        }
+                        using (SqlDataAdapter da = new SqlDataAdapter())
+                        {
+                            da.SelectCommand = sqlcmd;
+                            da.Fill(dt);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                errorrmessage(ex.ToString());
+            }
+            return dt;
         }
-        protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-        {
-            e.Command.CommandTimeout = 32000;
-        }
+      
         protected void ReportViewer1_ReportRefresh(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            getparameters();
+            getparameters(reportDataTable("Select", "PRF_Stp"), reportDataTable("Select", "PRF_Item_Stp"));
         }
-        private void getparameters()
+        private void getparameters(DataTable tb1, DataTable tb2)
         {
+            ReportViewer1.ProcessingMode = ProcessingMode.Local;
+            ReportViewer1.LocalReport.ReportPath = @"KMDIweb\Global\Reports\PRF_Report.rdlc";
+            ReportDataSource ds1 = new ReportDataSource("DataSet1", tb1);
+            ReportDataSource ds2 = new ReportDataSource("DataSet2", tb2);
+            ReportViewer1.LocalReport.DataSources.Clear();
+            ReportViewer1.LocalReport.DataSources.Add(ds1);
+            ReportViewer1.LocalReport.DataSources.Add(ds2);
             ReportViewer1.LocalReport.EnableExternalImages = true;
             string RequestedByImg = new Uri(Server.MapPath("~/KMDI_FILES/WMS/PRF/" + controlId + "/Signatures/Requested_By.jpg")).AbsoluteUri;
             string NotedByImg = new Uri(Server.MapPath("~/KMDI_FILES/WMS/PRF/" + controlId + "/Signatures/Noted_By.jpg")).AbsoluteUri;
@@ -219,7 +256,7 @@ namespace KMDIweb.KMDIweb.PRF
             try
             {
 
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
@@ -241,7 +278,7 @@ namespace KMDIweb.KMDIweb.PRF
             }
             finally
             {
-                getparameters();
+                getparameters(reportDataTable("Select", "PRF_Stp"), reportDataTable("Select", "PRF_Item_Stp"));
             }
 
         }
@@ -270,7 +307,7 @@ namespace KMDIweb.KMDIweb.PRF
         {
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {

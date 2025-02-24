@@ -9,6 +9,7 @@ namespace KMDIweb.SCREENfab
     public class ConnectionString
     {
         static string con = string.Empty;
+        static string conInventory = string.Empty;
         public static string getConnectionString(string server)
         {
             string connectionstring = string.Empty;
@@ -26,10 +27,31 @@ namespace KMDIweb.SCREENfab
             con = connectionstring;
             return connectionstring;
         }
+        public static string getConnectionStringInventory(string server)
+        {
+            string connectionstring = string.Empty;
+            switch (server)
+            {
+                case "server1":
+                    connectionstring = ConfigurationManager.ConnectionStrings["sqlconInventory"].ConnectionString;
+                    break;
+                case "server2":
+                    connectionstring = ConfigurationManager.ConnectionStrings["sqlconInventory2"].ConnectionString;
+                    break;
+                default:
+                    break;
+            }
+            conInventory = connectionstring;
+            return connectionstring;
+        }
         public static string sqlconstr()
         {
 
             return con;
+        }
+        public static string sqlconstrInventory()
+        {
+            return conInventory;
         }
     }
 }

@@ -272,7 +272,7 @@
                             </div>
                         </asp:Panel>
 
-                        <asp:Panel ID="pnlEngrItinerary" Visible="false" runat="server" Width="250px">
+                        <asp:Panel ID="pnlEngrItinerary" Visible="true" runat="server" Width="250px">
                             <div class="thumbnail">
                                 <asp:Image ID="Image15" CssClass="img-thumbnail img-circle ff" Height="170" Width="170" ImageUrl="~/KMDIweb/Images/6556026.png" runat="server" AlternateText="Project Photos" />
                                 <br />

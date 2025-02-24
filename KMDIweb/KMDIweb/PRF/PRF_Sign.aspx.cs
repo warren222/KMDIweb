@@ -27,11 +27,11 @@ namespace KMDIweb.KMDIweb.PRF
                 Response.Redirect("~/KMDIweb/Global/Login.aspx");
             }
         }
-        private string sqlconstr
+        private string sqlconstrInventory
         {
             get
             {
-                return ConnectionString.sqlconstr();
+                return ConnectionString.sqlconstrInventory();
             }
         }
         private string PRF_Sign_Field
@@ -78,7 +78,7 @@ namespace KMDIweb.KMDIweb.PRF
             try
             {
 
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
