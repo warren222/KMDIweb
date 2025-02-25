@@ -237,7 +237,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 tboxDRAddress.Text = ((Label)row.FindControl("lblDRAddress")).Text;
                 tboxDRArrival.Text = (((Label)row.FindControl("lblDRArrival")).Text == "" ? "" : Convert.ToDateTime(((Label)row.FindControl("lblDRArrival")).Text).ToString("HH:mm"));
                 tboxDRDepart.Text = (((Label)row.FindControl("lblDRDepart")).Text == "" ? "" : Convert.ToDateTime(((Label)row.FindControl("lblDRDepart")).Text).ToString("HH:mm"));
-                tboxDRRemarks.Text = ((Label)row.FindControl("lblDRRemarks")).Text;
+                tboxDRRemarks.Text = ((Label)row.FindControl("lblDRRemarks")).Text.Replace("<br>", System.Environment.NewLine); ;
                 UpdateCancel_Mode_DR(false, true, "Update Form", Color.Red);
             }
         }
@@ -260,7 +260,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 tboxIIProject.Text = ((LinkButton)row.FindControl("lblIIProject")).Text;
                 tboxIIAddress.Text = ((Label)row.FindControl("lblIIAddress")).Text;
                 tboxIIApptTime.Text = Convert.ToDateTime(((Label)row.FindControl("lblIIApptTime")).Text).ToString("HH:mm");
-                tboxIIConcern.Text = ((Label)row.FindControl("lblIIConcern")).Text;
+                tboxIIConcern.Text = ((Label)row.FindControl("lblIIConcern")).Text.Replace("<br>",System.Environment.NewLine);
                 UpdateCancel_Mode_II(false, true, "Update Form", Color.Red);
             }
             else if (e.CommandName == "execAddDailyReport")
@@ -269,7 +269,7 @@ namespace KMDIweb.KMDIweb.EngrItinerary
                 GridViewRow row = gvInstItinerary.Rows[rowindex];
                 string project = ((LinkButton)row.FindControl("lblIIProject")).Text;
                 string address = ((Label)row.FindControl("lblIIAddress")).Text;
-                string concern = ((Label)row.FindControl("lblIIConcern")).Text;
+                string concern = ((Label)row.FindControl("lblIIConcern")).Text.Replace("<br>", System.Environment.NewLine);
                 ExecuteQuery_DR("Insert", "", nickname, SelectedDate, project, address, "", "", concern);
             }
         }
