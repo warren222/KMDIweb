@@ -62,10 +62,12 @@ namespace KMDIweb.SCREENfab
                 if (DropDownList1.SelectedIndex==0)
                 {
                     ConnectionString.getConnectionString("server1");
+                    ConnectionString.getConnectionStringInventory("server1");
                 }
                 else
                 {
                     ConnectionString.getConnectionString("server2");
+                    ConnectionString.getConnectionStringInventory("server2");
                 }
 
                 string cs = ConnectionString.sqlconstr();

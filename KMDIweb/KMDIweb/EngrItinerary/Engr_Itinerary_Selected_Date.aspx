@@ -195,7 +195,7 @@
                                         <asp:TemplateField HeaderText="Concern">
                                             <ItemTemplate>
                                                 <div style="white-space: normal; min-width: 370px;">
-                                                    <asp:Label ID="lblIIConcern" runat="server" Text='<%# Bind("Concern") %>'></asp:Label>
+                                                    <asp:Label ID="lblIIConcern" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Concern").ToString(), "\r\n|\r|\n", "<br>")) %>'></asp:Label>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -347,7 +347,7 @@
                                         <asp:TemplateField HeaderText="Remarks">
                                             <ItemTemplate>
                                                 <div style="white-space: normal; min-width: 370px;">
-                                                    <asp:Label ID="lblDRRemarks" runat="server" Text='<%# Bind("Remarks") %>'></asp:Label>
+                                                    <asp:Label ID="lblDRRemarks" runat="server" Text='<%# Server.HtmlDecode(Regex.Replace(Eval("Remarks").ToString(), "\r\n|\r|\n", "<br>")) %>'></asp:Label>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>

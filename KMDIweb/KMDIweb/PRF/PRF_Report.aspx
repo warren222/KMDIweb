@@ -34,24 +34,7 @@
             <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-warning" ForeColor="Black" OnClick="btnBack_Click"><span class="glyphicon glyphicon-chevron-left"></span> back</asp:LinkButton>
         </span>
     </div>
-
-
-
     <div class="container">
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sqlcon %>"
-            SelectCommand="PRF_Stp" SelectCommandType="StoredProcedure" OnSelecting="SqlDataSource1_Selecting">
-            <SelectParameters>
-                <asp:Parameter Name="Command" Type="String" DefaultValue="Select" />
-                <asp:QueryStringParameter Name="Id" QueryStringField="Id" Type="String" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:sqlcon %>"
-            SelectCommand="PRF_Item_Stp" SelectCommandType="StoredProcedure" OnSelecting="SqlDataSource2_Selecting">
-            <SelectParameters>
-                <asp:Parameter Name="Command" Type="String" DefaultValue="Select" />
-                <asp:QueryStringParameter Name="PRF_Id" QueryStringField="Id" Type="String" />
-            </SelectParameters>
-        </asp:SqlDataSource>
         <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
             <rsweb:ReportViewer ID="ReportViewer1" runat="server" SizeToReportContent="True" OnReportRefresh="ReportViewer1_ReportRefresh"
                 BackColor="" ClientIDMode="AutoID" HighlightBackgroundColor="" InternalBorderColor="204, 204, 204" InternalBorderStyle="Solid"
@@ -62,16 +45,9 @@
                 ToolbarForegroundDisabledColor="" ToolbarHoverBackgroundColor="" ToolbarHoverForegroundColor="" ToolBarItemBorderColor=""
                 ToolBarItemBorderStyle="Solid" ToolBarItemBorderWidth="1px" ToolBarItemHoverBackColor="" ToolBarItemPressedBorderColor="51, 102, 153"
                 ToolBarItemPressedBorderStyle="Solid" ToolBarItemPressedBorderWidth="1px" ToolBarItemPressedHoverBackColor="153, 187, 226">
-                <LocalReport ReportPath="KMDIweb\Global\Reports\PRF_Report.rdlc">
-                    <DataSources>
-                        <rsweb:ReportDataSource DataSourceId="SqlDataSource1" Name="DataSet1" />
-                        <rsweb:ReportDataSource DataSourceId="SqlDataSource2" Name="DataSet2" />
-                    </DataSources>
-                </LocalReport>
             </rsweb:ReportViewer>
         </asp:Panel>
         <br />
-
     </div>
     <asp:UpdatePanel runat="server" ID="upnl1">
         <ContentTemplate>

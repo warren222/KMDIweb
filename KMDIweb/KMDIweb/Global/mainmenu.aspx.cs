@@ -123,7 +123,7 @@ namespace KMDIweb.KMDIapp
             string cointer = "0";
             try
             {
-                using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
+                using (SqlConnection sqlcon = new SqlConnection(sqlconstrInventory))
                 {
                     using (SqlCommand sqlcmd = sqlcon.CreateCommand())
                     {
@@ -482,6 +482,13 @@ namespace KMDIweb.KMDIapp
             get
             {
                 return ConnectionString.sqlconstr();
+            }
+        }
+        private string sqlconstrInventory
+        {
+            get
+            {
+                return ConnectionString.sqlconstrInventory();
             }
         }
         private string user_code
